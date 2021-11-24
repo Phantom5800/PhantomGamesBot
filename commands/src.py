@@ -34,6 +34,7 @@ class SrcomApi:
         hours = self.tryParseInt(re.search(hour_re, src_time))
         minutes = self.tryParseInt(re.search(minutes_re, src_time))
         seconds = self.tryParseInt(re.search(seconds_re, src_time))
+        # TODO: don't drop the milliseconds if they exist
 
         if hours > 0:
             return f"{hours}:{minutes:02}:{seconds:02}"

@@ -74,13 +74,13 @@ class PhantomGamesBot(commands.Bot):
                     # attempt to add the command
                     command_added = await self.custom.add_command(command, command_response, 0)
                     if command_added:
-                        await ctx.send(ctx.message.author.mention + " Successfully added command [" + command + "] -> " + command_response)
+                        await ctx.send(f"{ctx.message.author.mention} Successfully added command [{command}] -> {command_response}")
                     else:
-                        await ctx.send(ctx.message.author.mention + " Command [" + command + "] already exists.")
+                        await ctx.send(f"{ctx.message.author.mention} Command [{command}] already exists.")
                 else:
-                    await ctx.send(ctx.message.author.mention + " Command [" + command + "] needs a response message!")
+                    await ctx.send(f"{ctx.message.author.mention} Command [{command}] needs a response message!")
             else:
-                await ctx.send(ctx.message.author.mention + " make sure to specify a command and a response!")
+                await ctx.send(f"{ctx.message.author.mention} make sure to specify a command and a response!")
     
     @commands.command()
     async def setcooldown(self, ctx: commands.Context):
@@ -92,13 +92,13 @@ class PhantomGamesBot(commands.Bot):
                     cooldown = tryParseInt(command_parts[2])
                     command_edited = await self.custom.set_cooldown(command, cooldown)
                     if command_edited:
-                        await ctx.send(ctx.message.author.mention + " Cooldown for [" + command + "] = " + str(cooldown) + " seconds.")
+                        await ctx.send(f"{ctx.message.author.mention} Cooldown for [{command}] = {cooldown} seconds.")
                     else:
-                        await ctx.send(ctx.message.author.mention + " Command [" + command + "] does not exist.")
+                        await ctx.send(f"{ctx.message.author.mention} Command [{command}] does not exist.")
                 else:
-                    await ctx.send(ctx.message.author.mention + " Command [" + command + "] needs a cooldown specified in seconds.")
+                    await ctx.send(f"{ctx.message.author.mention} Command [{command}] needs a cooldown specified in seconds.")
             else:
-                await ctx.send(ctx.message.author.mention + " make sure to specify a command and a cooldown!")
+                await ctx.send(f"{ctx.message.author.mention} make sure to specify a command and a cooldown!")
 
     @commands.command(aliases=["editcom"])
     async def editcommand(self, ctx: commands.Context):
@@ -110,13 +110,13 @@ class PhantomGamesBot(commands.Bot):
                     command_response = command_parts[2]
                     command_edited = await self.custom.edit_command(command, command_response, 0)
                     if command_edited:
-                        await ctx.send(ctx.message.author.mention + " Edited command [" + command + "] -> " + command_response)
+                        await ctx.send(f"{ctx.message.author.mention} Edited command [{command}] -> {command_response}")
                     else:
-                        await ctx.send(ctx.message.author.mention + " Command [" + command + "] does not exist.")
+                        await ctx.send(f"{ctx.message.author.mention} Command [{command}] does not exist.")
                 else:
-                    await ctx.send(ctx.message.author.mention + " Command [" + command + "] needs a response message!")
+                    await ctx.send(f"{ctx.message.author.mention} Command [{command}] needs a response message!")
             else:
-                await ctx.send(ctx.message.author.mention + " make sure to specify a command and a response!")
+                await ctx.send(f"{ctx.message.author.mention} make sure to specify a command and a response!")
 
     @commands.command(aliases=["removecom"])
     async def removecommand(self, ctx: commands.Context):
@@ -126,11 +126,11 @@ class PhantomGamesBot(commands.Bot):
                 command = command_parts[1]
                 command_removed = await self.custom.remove_command(command)
                 if command_removed:
-                    await ctx.send(ctx.message.author.mention + " Removed command [" + command + "]")
+                    await ctx.send(f"{ctx.message.author.mention} Removed command [{command}]")
                 else:
-                    await ctx.send(ctx.message.author.mention + " Command [" + command + "] does not exist.")
+                    await ctx.send(f"{ctx.message.author.mention} Command [{command}] does not exist.")
             else:
-                await ctx.send(ctx.message.author.mention + " make sure to specify a command!")
+                await ctx.send(f"{ctx.message.author.mention} make sure to specify a command!")
 
     # quotes
     @commands.command()
