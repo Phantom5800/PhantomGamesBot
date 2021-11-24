@@ -9,6 +9,7 @@ This is a Twitch chatbot used by https://twitch.tv/Phantom5800, written in pytho
     * `pip install pipenv`
     * `pipenv --python 3.7` (or whatever version you installed)
     * `pipenv install twitchio`
+    * `pipenv install srcomapi`
     * `run.bat` or `pipenv run python bot.py`
 
 ## Env
