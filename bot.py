@@ -166,7 +166,7 @@ class PhantomGamesBot(commands.Bot):
     @commands.command()
     async def pb(self, ctx: commands.Context):
         if len(os.environ['SRC_USER']) > 0:
-            category = ctx.message.content[4:]
+            category = ctx.message.content[4:] # TODO: cut out unicode whitespace that 7tv sometimes appends
             game = await get_game_name_from_twitch(self)
             response = await self.speedrun.get_pb(convert_twitch_to_src_game(game), category)
             await ctx.send(response)

@@ -2,6 +2,7 @@ import os
 import re
 import srcomapi
 from datetime import date
+from utils.utils import debugPrint
 
 class SrcomApi:
     def __init__(self):
@@ -53,7 +54,7 @@ class SrcomApi:
             game_obj = self.api.get_game(run['run'].game)
             gamename = game_obj.name
             # if the run we are looking at, is the correct game
-            if game == gamename or f"{game} Category Extensions" == gamename:
+            if game.lower() == gamename.lower() or f"{game} Category Extensions".lower() == gamename.lower():
                 found_game = True
                 # have to check every category because run only contains category id
                 for cat in game_obj.categories:
@@ -63,7 +64,12 @@ class SrcomApi:
                         category_list.append(game_cat)
                         # if user was looking for this category, store time and video
                         # if no time and video have been stored, take this one just in case
-                        if game_cat == category or vod_link == "":
+                        if game_cat.lower() == category.lower() or vod_link == "":
+                            debugPrint(f"[Get PB] Found category: {game_cat}")
+                            # overwrite the capitalization input by the user
+                            if game_cat.lower() == category.lower():
+                                debugPrint(f"[Get PB] Overwriting {category} with {game_cat}")
+                                category = game_cat
                             time = self.format_time(run['run'].times['primary'])
                             vod_link = run['run'].videos['links'][0]['uri']
 
@@ -72,10 +78,12 @@ class SrcomApi:
             return f"{os.environ['SRC_USER']} does not have any speedruns of {game}"
         # if there's only one category, don't need it specified
         elif len(category_list) == 1:
+            debugPrint(f"[Get PB] Only found one run: {game} - {category_list[0]}")
             return f"{game} - {category_list[0]}: {time} {vod_link}"
         # if no category specified, return a list of categories
         elif category == "":
             return f"Please specify a category for {game}: {str(category_list)}"
         # return the PB for the game and category specified
         else:
+            debugPrint(f"[Get PB] Returning {game} - {category}")
             return f"{game} - {category}: {time} {vod_link}"
