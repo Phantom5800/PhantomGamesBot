@@ -3,6 +3,7 @@ import re
 from twitchio.ext import commands
 import commands.custom_commands as custom
 import commands.quotes as quotes
+import commands.src as src
 from utils.utils import *
 
 class PhantomGamesBot(commands.Bot):
@@ -17,6 +18,7 @@ class PhantomGamesBot(commands.Bot):
 
         self.custom = custom.CustomCommands()
         self.quotes = quotes.QuoteHandler()
+        self.speedrun = src.SrcomApi()
     
     async def event_ready(self):
         'Called when the bot is ready to accept messages.'
@@ -59,7 +61,7 @@ class PhantomGamesBot(commands.Bot):
             msg_parts[2] = message[command_prefix_len:]
         return msg_parts
 
-    @commands.command()
+    @commands.command(aliases=["addcom"])
     async def addcommand(self, ctx: commands.Context):
         if ctx.message.author.is_mod:
             command_parts = self.command_msg_breakout(ctx.message.content)
@@ -98,7 +100,7 @@ class PhantomGamesBot(commands.Bot):
             else:
                 await ctx.send(ctx.message.author.mention + " make sure to specify a command and a cooldown!")
 
-    @commands.command()
+    @commands.command(aliases=["editcom"])
     async def editcommand(self, ctx: commands.Context):
         if ctx.message.author.is_mod:
             command_parts = self.command_msg_breakout(ctx.message.content)
@@ -116,7 +118,7 @@ class PhantomGamesBot(commands.Bot):
             else:
                 await ctx.send(ctx.message.author.mention + " make sure to specify a command and a response!")
 
-    @commands.command()
+    @commands.command(aliases=["removecom"])
     async def removecommand(self, ctx: commands.Context):
         if ctx.message.author.is_mod:
             command_parts = self.command_msg_breakout(ctx.message.content)
@@ -140,7 +142,7 @@ class PhantomGamesBot(commands.Bot):
         else:
             response = await self.quotes.pick_random_quote()
         if response is not None:
-            ctx.send(response)
+            await ctx.send(response)
 
     @commands.command()
     async def addquote(self, ctx: commands.Context):
@@ -148,7 +150,7 @@ class PhantomGamesBot(commands.Bot):
             new_quote = ctx.message.content[ctx.message.content.index(' ') + 1:]
             game_name = await get_game_name_from_twitch(self)
             response = await self.quotes.add_quote(new_quote, game_name)
-            ctx.send(response)
+            await ctx.send(response)
 
     @commands.command()
     async def editquote(self, ctx: commands.Context):
@@ -158,12 +160,15 @@ class PhantomGamesBot(commands.Bot):
                 quote_id = int(command_parts[1])
                 quote = command_parts[2]
                 response = await self.quotes.edit_quote(quote_id, quote)
-                ctx.send(response)
+                await ctx.send(response)
 
     # speedrun.com
     @commands.command()
     async def pb(self, ctx: commands.Context):
-        return
+        category = ctx.message.content[4:]
+        game = await get_game_name_from_twitch(self)
+        response = await self.speedrun.get_pb(convert_twitch_to_src_game(game), category)
+        await ctx.send(response)
 
     # stream commands
     @commands.command()
