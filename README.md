@@ -20,6 +20,7 @@ CLIENT_ID={Twitch Client ID}
 BOT_NICK={Bot Account Name}
 BOT_PREFIX=!
 CHANNEL={Channel Name}
+SRC_USER=
 TWITTER=
 GITHUB=
 YOUTUBE=
