@@ -20,24 +20,25 @@ class QuoteHandler:
             json_str = json.dumps(self.quotes)
             json_file.write(json_str)
 
-    async def add_quote(self, quote: str, game: str, ctx):
+    async def add_quote(self, quote: str, game: str) -> str:
         new_id = len(list(self.quotes.values()))
         date = datetime.now().strftime("%m/%d/%Y")
         quote_str = f"{quote} [{game}] [{date}]"
         self.quotes[str(new_id)] = quote_str
         await self.save_quotes()
-        await ctx.send(f"Added [Quote #{new_id}] -> {quote_str}")
+        return f"Added [Quote #{new_id}] -> {quote_str}"
 
-    async def edit_quote(self, quote_id: int, quote: str, ctx):
+    async def edit_quote(self, quote_id: int, quote: str) -> str:
         self.quotes[str(quote_id)] = quote
         await self.save_quotes()
-        await ctx.send(f"Edited [Quote #{new_id}] -> {quote_str}")
+        return f"Edited [Quote #{new_id}] -> {quote_str}"
 
-    async def pick_specific_quote(self, quote_id: str, ctx):
+    async def pick_specific_quote(self, quote_id: str) -> str:
         if quote_id in self.quotes:
-            await ctx.send(f"[Quote #{quote_id}]: {self.quotes[quote_id]}")
+            return f"[Quote #{quote_id}]: {self.quotes[quote_id]}"
+        return None
 
-    async def pick_random_quote(self, ctx):
+    async def pick_random_quote(self) -> str:
         quote_id = random.randrange(len(list(self.quotes.values())))
         quote = self.quotes[str(quote_id)]
-        await ctx.send(f"[Quote #{quote_id}]: {quote}")
+        return f"[Quote #{quote_id}]: {quote}"

@@ -57,13 +57,17 @@ class SrcomApi:
                         game_cat = cat.data['name']
                         category_list.append(game_cat)
                         # if user was looking for this category, store time and video
-                        if game_cat == category:
+                        # if no time and video have been stored, take this one just in case
+                        if game_cat == category or vod_link == "":
                             time = self.format_time(run['run'].times['primary'])
                             vod_link = run['run'].videos['links'][0]['uri']
 
         # if no category specified, return a list of categories
         if category == "":
             await ctx.send(category_list)
+        # if there's only one category, don't need it specified
+        elif len(category_list) == 1:
+            await ctx.send(f"{game} - {category_list[0]}: {time} {vod_link}")
         # return the PB for the game and category specified
         else:
             await ctx.send(f"{game} - {category}: {time} {vod_link}")

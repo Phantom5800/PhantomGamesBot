@@ -134,17 +134,21 @@ class PhantomGamesBot(commands.Bot):
     @commands.command()
     async def quote(self, ctx: commands.Context):
         quote_id = ctx.message.content.split(' ', 2)
+        response = None
         if len(quote_id) > 1 and tryParseInt(quote_id[1], -1) >= 0:
-            await self.quotes.pick_specific_quote(quote_id[1], ctx)
+            response = await self.quotes.pick_specific_quote(quote_id[1])
         else:
-            await self.quotes.pick_random_quote(ctx)
+            response = await self.quotes.pick_random_quote()
+        if response is not None:
+            ctx.send(response)
 
     @commands.command()
     async def addquote(self, ctx: commands.Context):
         if ctx.message.author.is_mod:
             new_quote = ctx.message.content[ctx.message.content.index(' ') + 1:]
-            game_name = await getGameNameFromClient(self)
-            await self.quotes.add_quote(new_quote, game_name, ctx)
+            game_name = await get_game_name_from_twitch(self)
+            response = await self.quotes.add_quote(new_quote, game_name)
+            ctx.send(response)
 
     @commands.command()
     async def editquote(self, ctx: commands.Context):
@@ -153,7 +157,13 @@ class PhantomGamesBot(commands.Bot):
             if len(command_parts) > 2 and tryParseInt(command_parts[1], -1) >= 0:
                 quote_id = int(command_parts[1])
                 quote = command_parts[2]
-                await self.quotes.edit_quote(quote_id, quote, ctx)
+                response = await self.quotes.edit_quote(quote_id, quote)
+                ctx.send(response)
+
+    # speedrun.com
+    @commands.command()
+    async def pb(self, ctx: commands.Context):
+        return
 
     # stream commands
     @commands.command()
@@ -162,7 +172,7 @@ class PhantomGamesBot(commands.Bot):
 
     @commands.command()
     async def game(self, ctx: commands.Context):
-        game_name = await getGameNameFromClient(self)
+        game_name = await get_game_name_from_twitch(self)
         await ctx.send(game_name)
 
     # social commands
