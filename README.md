@@ -38,7 +38,7 @@ Provides a link to the github page for this bot's source code.
 Display the current game being played.
 
 ### !pb
-Get the streamer's personal best speedrun time for given game and category. If no category is specified and the streamer has runs in multiple categories, a list will be given instead. The game is taken directly automatically from twitch.
+Get the streamer's personal best speedrun time for given game and category. If no category is specified and the streamer has runs in multiple categories, a list will be given instead. The game is taken automatically from twitch.
 
 ```
 !pb {category}

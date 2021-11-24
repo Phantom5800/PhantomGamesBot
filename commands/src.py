@@ -7,10 +7,11 @@ class SrcomApi:
     def __init__(self):
         self.api = srcomapi.SpeedrunCom()
 
-        user_results = self.api.search(srcomapi.datatypes.User, {"name": os.environ['SRC_USER']})
-        if len(user_results) > 0:
-            self.srcuser = user_results[0]
-            print(f"Initialized speedrun.com API for {os.environ['SRC_USER']}")
+        if len(os.environ['SRC_USER']) > 0:
+            user_results = self.api.search(srcomapi.datatypes.User, {"name": os.environ['SRC_USER']})
+            if len(user_results) > 0:
+                self.srcuser = user_results[0]
+                print(f"Initialized speedrun.com API for {os.environ['SRC_USER']}")
 
     def tryParseInt(self, re_result) -> int:
         if re_result is not None and re_result.lastindex > 0:

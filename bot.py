@@ -165,10 +165,11 @@ class PhantomGamesBot(commands.Bot):
     # speedrun.com
     @commands.command()
     async def pb(self, ctx: commands.Context):
-        category = ctx.message.content[4:]
-        game = await get_game_name_from_twitch(self)
-        response = await self.speedrun.get_pb(convert_twitch_to_src_game(game), category)
-        await ctx.send(response)
+        if len(os.environ['SRC_USER']) > 0:
+            category = ctx.message.content[4:]
+            game = await get_game_name_from_twitch(self)
+            response = await self.speedrun.get_pb(convert_twitch_to_src_game(game), category)
+            await ctx.send(response)
 
     # stream commands
     @commands.command()
