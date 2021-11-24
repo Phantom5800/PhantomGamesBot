@@ -157,6 +157,10 @@ class PhantomGamesBot(commands.Bot):
 
     # stream commands
     @commands.command()
+    async def bot(self, ctx: commands.Context):
+        await ctx.send("Hey! I am a custom chatbot written in Python, my source code is available at: https://github.com/Phantom5800/PhantomGamesBot")
+
+    @commands.command()
     async def game(self, ctx: commands.Context):
         game_name = await getGameNameFromClient(self)
         await ctx.send(game_name)
