@@ -2,19 +2,30 @@
 This is a Twitch chatbot used by https://twitch.tv/Phantom5800, written in python and fairly easy to edit and run.
 
 ## Setup
-I'll add instructions here eventually maybe
+
+1. Install Python 3.7+
+2. Create a `.env` file (descripted below)
+3. From a command line:
+    * `pip install pipenv`
+    * `pipenv --python 3.7` (or whatever version you installed)
+    * `pipenv install twitchio`
+    * `run.bat` or `pipenv run python bot.py`
 
 ## Env
 At the root, anyone trying to run this will need a `.env` file that looks something like this:
 
-> TMI_TOKEN={OAUTH Token}  
-> CLIENT_ID={Twitch Client ID}  
-> BOT_NICK={Bot Account Name}  
-> BOT_PREFIX=!  
-> CHANNEL={Channel Name}  
-> TWITTER=  
-> GITHUB=  
-> YOUTUBE=  
+```
+TMI_TOKEN={OAUTH Token}
+CLIENT_ID={Twitch Client ID}
+BOT_NICK={Bot Account Name}
+BOT_PREFIX=!
+CHANNEL={Channel Name}
+TWITTER=
+GITHUB=
+YOUTUBE=
+```
+
+In order to fill out the `.env`, you'll need to register as a [Twitch developer](https://dev.twitch.tv/console/apps/create) and create an application, this will get you a client id. Then [generate an oauth token](https://twitchapps.com/tmi/) and you'll be good to go for running the bot locally.
 
 ## Default Commands
 
