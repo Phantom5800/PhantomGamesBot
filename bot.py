@@ -102,9 +102,13 @@ class PhantomGamesBot(commands.Bot):
             await ctx.send(message.author.mention + message.content.lower()[bot_name_len:])
 
         # handle meme based commands
-        custom_msg_handled = await self.custom.parse_custom_command(message.content, ctx)
-        if custom_msg_handled == False:
-            await super().event_message(message)
+        if message.content is not None and len(message.content) > 0:
+            command = message.content.split()[0]
+            response = await self.custom.parse_custom_command(command, ctx)
+            if response is not None:
+                await ctx.send(response)
+            else:
+                await super().event_message(message)
     
     # custom commands
     def command_msg_breakout(self, message: str) -> str:

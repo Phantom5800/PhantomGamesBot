@@ -32,6 +32,7 @@ TIMER_MINUTES=
 In order to fill out the `.env`, you'll need to register as a [Twitch developer](https://dev.twitch.tv/console/apps/create) and create an application, this will get you a client id. Then [generate an oauth token](https://twitchapps.com/tmi/) and you'll be good to go for running the bot locally.
 
 # Default Commands
+Default command set that can be used by anyone.
 
 ### !bot
 Provides a link to the github page for this bot's source code.
@@ -68,9 +69,9 @@ Provides a link to the streamer's twitter page.
 Provides a link to the streamer's youtube channel.
 
 # Mod Commands
+Set of commands that require moderator permissions in the channel in order to use.
 
 ## Custom Commands
-
 Custom commands are basic command -> response events that can be managed by the streamer and moderators with the following commands. 
 
 ### !addcommand
@@ -104,8 +105,7 @@ Set the cooldown on a custom command to restrict how often it can be used.
 ### Command Variables
 These variables can be used in custom commands to fill in data dynamically.
 
-#### `$user`
-Mentions the user that used the command.
+* `$user` - Mentions the chatter that used the command.
 
 ## Quotes
 
