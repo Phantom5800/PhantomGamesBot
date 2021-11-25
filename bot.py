@@ -1,5 +1,8 @@
+import datetime
 import os
 import re
+import threading
+import time
 from twitchio.ext import commands
 import commands.custom_commands as custom
 import commands.quotes as quotes
@@ -16,22 +19,33 @@ class PhantomGamesBot(commands.Bot):
             initial_channels=[os.environ['CHANNEL']]
         )
 
+        # command handlers
         self.custom = custom.CustomCommands()
         self.quotes = quotes.QuoteHandler()
         self.speedrun = src.SrcomApi()
+
+        # custom timers
         self.messages_since_timer = 0
         self.timer_minutes = tryParseInt(os.environ['TIMER_MINUTES'], 10)
+        self.last_timer_fire = datetime.now()
         self.timer_lines = tryParseInt(os.environ['TIMER_CHAT_LINES'], 5)
+        self.timer_enabled = False
     
+    '''
+    Called when the bot is ready to accept messages.
+    '''
     async def event_ready(self):
-        'Called when the bot is ready to accept messages.'
         # load relevant data
         print("=======================================")
         await self.custom.load_commands()
         await self.quotes.load_quotes()
+        self.timer_thread.start()
         print(f"{os.environ['BOT_NICK']} is online!")
         print("=======================================")
 
+    '''
+    Runs when an "invalid command" is sent by a user.
+    '''
     async def event_command_error(self, ctx: commands.Context, error: Exception):
         # ignore command errors that exist in the custom command set
         return
@@ -40,18 +54,27 @@ class PhantomGamesBot(commands.Bot):
         #     return
         # super().event_command_error(ctx, error)
 
+    '''
+    Runs every time a message is sent in chat.
+    '''
     async def event_message(self, message):
-        'Runs every time a message is sent in chat.'
-
         # make sure the bot ignores itself and the streamer
         if (message.author is not None and message.author.name.lower() == os.environ['BOT_NICK'].lower()) or message.author is None:
             return
 
+        # get the context of the current message
+        ctx = await self.get_context(message)
+
         # track chat messages that have been posted since the last timer fired
-        self.messages_since_timer += 1
+        if self.timer_enabled:
+            self.messages_since_timer += 1
+            if self.messages_since_timer >= self.timer_lines:
+                if (datetime.now() - self.last_timer_fire).total_seconds() / 60 > self.timer_minutes:
+                    self.last_timer_fire = datetime.now()
+                    self.messages_since_timer = 0
+                    await ctx.send("HAHA")
 
         # respond to messages @'ing the bot with the same message
-        ctx = await self.get_context(message)
         if message.content.lower().startswith("@" + os.environ['BOT_NICK'].lower()):
             bot_name_len = len("@" + os.environ['BOT_NICK'])
             await ctx.send(message.author.mention + message.content.lower()[bot_name_len:])
@@ -69,6 +92,9 @@ class PhantomGamesBot(commands.Bot):
             msg_parts[2] = message[command_prefix_len:]
         return msg_parts
 
+    '''
+    Add a custom command through twitch chat.
+    '''
     @commands.command(aliases=["addcom"])
     async def addcommand(self, ctx: commands.Context):
         if ctx.message.author.is_mod:
@@ -90,6 +116,9 @@ class PhantomGamesBot(commands.Bot):
             else:
                 await ctx.send(f"{ctx.message.author.mention} make sure to specify a command and a response!")
     
+    '''
+    Set cooldown on a custom command through twitch chat.
+    '''
     @commands.command()
     async def setcooldown(self, ctx: commands.Context):
         if ctx.message.author.is_mod:
@@ -108,6 +137,9 @@ class PhantomGamesBot(commands.Bot):
             else:
                 await ctx.send(f"{ctx.message.author.mention} make sure to specify a command and a cooldown!")
 
+    '''
+    Edit a custom command through twitch chat.
+    '''
     @commands.command(aliases=["editcom"])
     async def editcommand(self, ctx: commands.Context):
         if ctx.message.author.is_mod:
@@ -126,6 +158,9 @@ class PhantomGamesBot(commands.Bot):
             else:
                 await ctx.send(f"{ctx.message.author.mention} make sure to specify a command and a response!")
 
+    '''
+    Delete a custom command through twitch chat.
+    '''
     @commands.command(aliases=["removecom"])
     async def removecommand(self, ctx: commands.Context):
         if ctx.message.author.is_mod:
@@ -139,6 +174,19 @@ class PhantomGamesBot(commands.Bot):
                     await ctx.send(f"{ctx.message.author.mention} Command [{command}] does not exist.")
             else:
                 await ctx.send(f"{ctx.message.author.mention} make sure to specify a command!")
+
+    # timer
+    @commands.command()
+    async def disabletimer(self, ctx: commands.Context):
+        if ctx.message.author.is_mod:
+            self.timer_enabled = False
+            await ctx.send("Timers have been disabled")
+
+    @commands.command()
+    async def enabletimer(self, ctx: commands.Context):
+        if ctx.message.author.is_mod:
+            self.timer_enabled = True
+            await ctx.send("Timers have been enabled")
 
     # quotes
     @commands.command()
@@ -180,6 +228,9 @@ class PhantomGamesBot(commands.Bot):
                 await ctx.send(response)
 
     # speedrun.com
+    '''
+    Get the personal best time for a game/category on speedrun.com.
+    '''
     @commands.command()
     async def pb(self, ctx: commands.Context):
         if len(os.environ['SRC_USER']) > 0:
@@ -189,26 +240,41 @@ class PhantomGamesBot(commands.Bot):
             await ctx.send(response)
 
     # stream commands
+    '''
+    Get information about the bot itself.
+    '''
     @commands.command()
     async def bot(self, ctx: commands.Context):
         await ctx.send("Hey! I am a custom chatbot written in Python, my source code is available at: https://github.com/Phantom5800/PhantomGamesBot")
 
+    '''
+    Get the current game being played on twitch.
+    '''
     @commands.command()
     async def game(self, ctx: commands.Context):
         game_name = await get_game_name_from_twitch(self)
         await ctx.send(game_name)
 
     # social commands
+    '''
+    Get a link to the streamer's github profile if it exists.
+    '''
     @commands.command()
     async def github(self, ctx: commands.Context):
         if len(os.environ['GITHUB']) > 0:
             await ctx.send(f"All my open source code projects are available on github: {os.environ['GITHUB']}")
 
+    '''
+    Get a link to the streamer's twitter profile if it exists.
+    '''
     @commands.command()
     async def twitter(self, ctx: commands.Context):
         if len(os.environ['TWITTER']) > 0:
             await ctx.send(f"Follow me on twitter to keep up with current events: {os.environ['TWITTER']}")
 
+    '''
+    Get a link to the streamer's youtube channel if it exists.
+    '''
     @commands.command()
     async def youtube(self, ctx: commands.Context):
         if len(os.environ['YOUTUBE']) > 0:

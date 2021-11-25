@@ -113,3 +113,9 @@ Remove an existing quote, all quotes that appear after are shifted down accordin
 ```
 !removequote {quote id}
 ```
+
+### !disabletimer
+Disable all bot timer messages.
+
+### !enabletimer
+Enable bot timer messages.
