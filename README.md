@@ -101,6 +101,12 @@ Set the cooldown on a custom command to restrict how often it can be used.
 !setcooldown {command} {cooldown in seconds}
 ```
 
+### Command Variables
+These variables can be used in custom commands to fill in data dynamically.
+
+#### `$user`
+Mentions the user that used the command.
+
 ## Quotes
 
 ### !addquote
