@@ -54,6 +54,8 @@ Display a random (or specified) quote from the internally stored list.
 !quote {quote id}
 ```
 
+## Social Media
+
 ### !github
 Provides a link to the streamer's github profile.
 
@@ -66,6 +68,8 @@ Provides a link to the streamer's youtube channel.
 # Mod Commands
 
 ## Custom Commands
+
+Custom commands are basic command -> response events that can be managed by the streamer and moderators with the following commands. 
 
 ### !addcommand
 Add a new custom command to the bot.
