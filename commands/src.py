@@ -4,6 +4,11 @@ import srcomapi
 from datetime import date
 from utils.utils import debugPrint
 
+# enable these for debugging src.py separately
+#import asyncio
+#os.environ['SRC_USER'] = "Phantom5800"
+#def debugPrint(value): print(value)
+
 class SrcomApi:
     def __init__(self):
         self.api = srcomapi.SpeedrunCom()
@@ -57,21 +62,26 @@ class SrcomApi:
             # if the run we are looking at, is the correct game
             if game.lower() == gamename.lower() or f"{game} Category Extensions".lower() == gamename.lower():
                 found_game = True
+                debugPrint(f"[Get PB] Found game: {gamename}")
                 # search list of categories for the one matching this current run
-                game_category = list(filter(lambda cat: cat.data['id'] == run['run'].category, game_obj.categories))
+                # filter out anything that does not match {category} if no run has been logged yet
+                game_category = list(filter(lambda cat: 
+                        cat.data['id'] == run['run'].category and
+                        (cat.data['name'].lower() == category.lower() or vod_link == "" or category == "")
+                        , game_obj.categories))
+                # if category was found, it should be valid for the query
                 if game_category is not None and len(game_category) > 0:
                     category_name = game_category[0].data['name']
                     category_list.append(category_name)
-                    # if user was looking for this category, store time and video
-                    # if no time and video have been stored, take this one just in case
-                    if category_name.lower() == category.lower() or vod_link == "":
-                        debugPrint(f"[Get PB] Found category: {category_name}")
-                        # overwrite the capitalization input by the user
-                        if category_name.lower() == category.lower():
-                            debugPrint(f"[Get PB] Overwriting {category} with {category_name}")
-                            category = category_name
-                        time = self.format_time(run['run'].times['primary'])
-                        vod_link = run['run'].videos['links'][0]['uri']
+                    variables = game_category[0].variables
+                    debugPrint(f"[Get PB] Found category: {category_name} - {variables}")
+                    # overwrite the capitalization input by the user
+                    if category_name.lower() == category.lower():
+                        debugPrint(f"[Get PB] Overwriting {category} with {category_name}")
+                        category = category_name
+                    # log time and video link
+                    time = self.format_time(run['run'].times['primary'])
+                    vod_link = run['run'].videos['links'][0]['uri']
 
         # if no runs found
         if found_game == False:
@@ -87,3 +97,12 @@ class SrcomApi:
         else:
             debugPrint(f"[Get PB] Returning {game} - {category}")
             return f"{game} - {category}: {time} {vod_link}"
+
+async def main():
+    src = SrcomApi()
+    #response = await src.get_pb("Super Mario 3D World + Bowser's Fury", "")
+    response = await src.get_pb("Paper Mario", "")
+    print(response)
+
+if __name__ == "__main__":
+    asyncio.run(main())
