@@ -22,6 +22,11 @@ class CustomCommands:
     def command_exists(self, command: str) -> bool:
         return command in self.command_set
 
+    def get_command(self, command: str) -> str:
+        if self.command_exists(command):
+            return self.command_set[command]
+        return None
+
     async def add_command(self, command: str, response: str, cooldown: int) -> bool:
         if command not in self.command_set:
             debugPrint(f"Adding [{command}] -> {response}")

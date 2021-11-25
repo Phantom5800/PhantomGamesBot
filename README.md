@@ -31,7 +31,7 @@ TIMER_MINUTES=
 
 In order to fill out the `.env`, you'll need to register as a [Twitch developer](https://dev.twitch.tv/console/apps/create) and create an application, this will get you a client id. Then [generate an oauth token](https://twitchapps.com/tmi/) and you'll be good to go for running the bot locally.
 
-## Default Commands
+# Default Commands
 
 ### !bot
 Provides a link to the github page for this bot's source code.
@@ -63,7 +63,9 @@ Provides a link to the streamer's twitter page.
 ### !youtube
 Provides a link to the streamer's youtube channel.
 
-## Mod Commands
+# Mod Commands
+
+## Custom Commands
 
 ### !addcommand
 Add a new custom command to the bot.
@@ -93,6 +95,8 @@ Set the cooldown on a custom command to restrict how often it can be used.
 !setcooldown {command} {cooldown in seconds}
 ```
 
+## Quotes
+
 ### !addquote
 Add a new quote to the list, current game and date are automatically added.
 
@@ -114,8 +118,29 @@ Remove an existing quote, all quotes that appear after are shifted down accordin
 !removequote {quote id}
 ```
 
+## Timer Events
+
+Timer events are posted automatically at given intervals set by `.env`.
+
 ### !disabletimer
 Disable all bot timer messages.
 
 ### !enabletimer
 Enable bot timer messages.
+
+### !addtimer
+Add a custom command to the timer queue.
+
+```
+!addtimer {command}
+```
+
+### !removetimer
+Removes a command from the timer queue.
+
+```
+!removetimer {command}
+```
+
+### !timerevents
+Get a list of all the current events added to the timer.

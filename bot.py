@@ -1,4 +1,4 @@
-import datetime
+from datetime import datetime
 import os
 import re
 import threading
@@ -25,12 +25,28 @@ class PhantomGamesBot(commands.Bot):
         self.speedrun = src.SrcomApi()
 
         # custom timers
+        self.timer_queue = []
+        self.current_timer_msg = 0
         self.messages_since_timer = 0
         self.timer_minutes = tryParseInt(os.environ['TIMER_MINUTES'], 10)
         self.last_timer_fire = datetime.now()
         self.timer_lines = tryParseInt(os.environ['TIMER_CHAT_LINES'], 5)
-        self.timer_enabled = False
+        self.timer_enabled = True
     
+    async def load_timer_events(self):
+        with open('./commands/resources/timer_events.txt', 'r', encoding="utf-8") as txt_file:
+            lines = txt_file.readlines()
+            for line in lines:
+                command = line.strip()
+                if self.custom.command_exists(command) and command not in self.timer_queue:
+                    self.timer_queue.append(command)
+        print(f"Timer events loaded: {self.timer_queue}")
+
+    async def save_timer_events(self):
+        with open('./commands/resources/timer_events.txt', 'w', encoding="utf-8") as txt_file:
+            for event in self.timer_queue:
+                txt_file.write(f"{event}\n")
+
     '''
     Called when the bot is ready to accept messages.
     '''
@@ -39,7 +55,7 @@ class PhantomGamesBot(commands.Bot):
         print("=======================================")
         await self.custom.load_commands()
         await self.quotes.load_quotes()
-        self.timer_thread.start()
+        await self.load_timer_events()
         print(f"{os.environ['BOT_NICK']} is online!")
         print("=======================================")
 
@@ -66,13 +82,19 @@ class PhantomGamesBot(commands.Bot):
         ctx = await self.get_context(message)
 
         # track chat messages that have been posted since the last timer fired
-        if self.timer_enabled:
+        if self.timer_enabled and len(self.timer_queue) > 0:
             self.messages_since_timer += 1
             if self.messages_since_timer >= self.timer_lines:
                 if (datetime.now() - self.last_timer_fire).total_seconds() / 60 > self.timer_minutes:
                     self.last_timer_fire = datetime.now()
                     self.messages_since_timer = 0
-                    await ctx.send("HAHA")
+
+                    message = self.custom.get_command(self.timer_queue[self.current_timer_msg])
+                    if message is None:
+                        print(f"[ERROR] {self.timer_queue[self.current_timer_msg]} is not a valid command for timers.")
+                    else:
+                        await ctx.send(message)
+                        self.current_timer_msg = (self.current_timer_msg + 1) % len(self.timer_queue)
 
         # respond to messages @'ing the bot with the same message
         if message.content.lower().startswith("@" + os.environ['BOT_NICK'].lower()):
@@ -187,6 +209,42 @@ class PhantomGamesBot(commands.Bot):
         if ctx.message.author.is_mod:
             self.timer_enabled = True
             await ctx.send("Timers have been enabled")
+
+    @commands.command()
+    async def addtimer(self, ctx: commands.Context):
+        if ctx.message.author.is_mod:
+            command_parts = self.command_msg_breakout(ctx.message.content)
+            if len(command_parts) > 1:
+                command = command_parts[1]
+                if self.custom.command_exists(command):
+                    if command not in self.timer_queue:
+                        self.timer_queue.append(command)
+                        await self.save_timer_events()
+                        await ctx.send(f"{ctx.message.author.mention} Command [{command}] has been added as a timer")
+                    else:
+                        await ctx.send(f"{ctx.message.author.mention} Command [{command}] is already in the timer queue")
+                else:
+                    await ctx.send(f"{ctx.message.author.mention} Command [{command}] does not exist")
+            else:
+                await ctx.send(f"{ctx.message.author.mention} Specify a command to add to the timer")
+    
+    @commands.command()
+    async def removetimer(self, ctx: commands.Context):
+        if ctx.message.author.is_mod:
+            command_parts = self.command_msg_breakout(ctx.message.content)
+            if len(command_parts) > 1:
+                command = command_parts[1]
+                if command in self.timer_queue:
+                    self.timer_queue.remove(command)
+                    await self.save_timer_events()
+                    await ctx.send(f"{ctx.message.author.mention} [{command}] has been removed from the timer")
+            else:
+                await ctx.send(f"{ctx.message.author.mention} Specify a command to remove from the timer")
+    
+    @commands.command()
+    async def timerevents(self, ctx: commands.Context):
+        if ctx.message.author.is_mod:
+            await ctx.send(f"Current timer events: {self.timer_queue}")
 
     # quotes
     @commands.command()
