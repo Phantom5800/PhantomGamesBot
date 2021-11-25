@@ -19,6 +19,9 @@ class PhantomGamesBot(commands.Bot):
         self.custom = custom.CustomCommands()
         self.quotes = quotes.QuoteHandler()
         self.speedrun = src.SrcomApi()
+        self.messages_since_timer = 0
+        self.timer_minutes = tryParseInt(os.environ['TIMER_MINUTES'], 10)
+        self.timer_lines = tryParseInt(os.environ['TIMER_CHAT_LINES'], 5)
     
     async def event_ready(self):
         'Called when the bot is ready to accept messages.'
@@ -44,6 +47,9 @@ class PhantomGamesBot(commands.Bot):
         if (message.author is not None and message.author.name.lower() == os.environ['BOT_NICK'].lower()) or message.author is None:
             return
 
+        # track chat messages that have been posted since the last timer fired
+        self.messages_since_timer += 1
+
         # respond to messages @'ing the bot with the same message
         ctx = await self.get_context(message)
         if message.content.lower().startswith("@" + os.environ['BOT_NICK'].lower()):
@@ -51,7 +57,7 @@ class PhantomGamesBot(commands.Bot):
             await ctx.send(message.author.mention + message.content.lower()[bot_name_len:])
 
         # handle meme based commands
-        custom_msg_handled = await self.custom.parse_custom_command(message, ctx)
+        custom_msg_handled = await self.custom.parse_custom_command(message.content, ctx)
         if custom_msg_handled == False:
             await super().event_message(message)
     

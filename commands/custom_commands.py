@@ -66,11 +66,10 @@ class CustomCommands:
 
         return out_str
 
-    async def parse_custom_command(self, message, ctx) -> bool:
-        short_msg = message.content
-        if short_msg in self.command_set:
+    async def parse_custom_command(self, message: str, ctx) -> bool:
+        if message in self.command_set:
             # check if command has been used, and if it has, if it is past the cooldown period
-            if self.command_set[short_msg]["last_use"] == 0 or (datetime.now() - self.command_set[short_msg]["last_use"]).total_seconds() > self.command_set[short_msg]["cooldown"]:
-                await ctx.send(self.replace_vars(self.command_set[short_msg]["response"], ctx))
+            if self.command_set[message]["last_use"] == 0 or (datetime.now() - self.command_set[message]["last_use"]).total_seconds() > self.command_set[message]["cooldown"]:
+                await ctx.send(self.replace_vars(self.command_set[message]["response"], ctx))
             return True
         return False
