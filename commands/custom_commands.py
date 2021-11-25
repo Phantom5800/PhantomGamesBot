@@ -64,7 +64,7 @@ class CustomCommands:
             return True
         return False
 
-    def replace_vars(self, message, ctx):
+    def replace_vars(self, message, ctx) -> str:
         out_str = message
 
         out_str = out_str.replace("$user", ctx.message.author.mention)

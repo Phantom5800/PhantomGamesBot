@@ -57,22 +57,21 @@ class SrcomApi:
             # if the run we are looking at, is the correct game
             if game.lower() == gamename.lower() or f"{game} Category Extensions".lower() == gamename.lower():
                 found_game = True
-                # have to check every category because run only contains category id
-                for cat in game_obj.categories:
-                    # find the category for this run
-                    if run['run'].category == cat.data['id']:
-                        game_cat = cat.data['name']
-                        category_list.append(game_cat)
-                        # if user was looking for this category, store time and video
-                        # if no time and video have been stored, take this one just in case
-                        if game_cat.lower() == category.lower() or vod_link == "":
-                            debugPrint(f"[Get PB] Found category: {game_cat}")
-                            # overwrite the capitalization input by the user
-                            if game_cat.lower() == category.lower():
-                                debugPrint(f"[Get PB] Overwriting {category} with {game_cat}")
-                                category = game_cat
-                            time = self.format_time(run['run'].times['primary'])
-                            vod_link = run['run'].videos['links'][0]['uri']
+                # search list of categories for the one matching this current run
+                game_category = list(filter(lambda cat: cat.data['id'] == run['run'].category, game_obj.categories))
+                if game_category is not None and len(game_category) > 0:
+                    category_name = game_category[0].data['name']
+                    category_list.append(category_name)
+                    # if user was looking for this category, store time and video
+                    # if no time and video have been stored, take this one just in case
+                    if category_name.lower() == category.lower() or vod_link == "":
+                        debugPrint(f"[Get PB] Found category: {category_name}")
+                        # overwrite the capitalization input by the user
+                        if category_name.lower() == category.lower():
+                            debugPrint(f"[Get PB] Overwriting {category} with {category_name}")
+                            category = category_name
+                        time = self.format_time(run['run'].times['primary'])
+                        vod_link = run['run'].videos['links'][0]['uri']
 
         # if no runs found
         if found_game == False:
