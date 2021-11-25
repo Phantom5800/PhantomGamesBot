@@ -1,6 +1,7 @@
 import json
 from copy import deepcopy
 from datetime import datetime
+from utils.utils import debugPrint
 
 class CustomCommands:
     async def load_commands(self):
@@ -8,7 +9,7 @@ class CustomCommands:
             try:
                 data = json.load(json_file)
                 self.command_set = deepcopy(data)
-                print(self.command_set)
+                print(f"Custom Commands: {self.command_set}")
             except json.decoder.JSONDecodeError:
                 print("[ERROR] Failed to load commands from JSON")
                 return
@@ -22,8 +23,8 @@ class CustomCommands:
         return command in self.command_set
 
     async def add_command(self, command: str, response: str, cooldown: int) -> bool:
-        print("Adding [" + command + "] -> " + response)
         if command not in self.command_set:
+            debugPrint(f"Adding [{command}] -> {response}")
             self.command_set[command] = {
                 "response": response,
                 "cooldown": cooldown,
@@ -41,8 +42,8 @@ class CustomCommands:
         return False
 
     async def edit_command(self, command: str, response: str, cooldown: int) -> bool:
-        print("Editing [" + command + "] -> " + response)
         if command in self.command_set:
+            debugPrint(f"Editing [{command}] -> {response}")
             self.command_set[command]["response"] = response
             self.command_set[command]["cooldown"] = cooldown
             self.command_set[command]["last_use"] = 0
@@ -51,8 +52,8 @@ class CustomCommands:
         return False
 
     async def remove_command(self, command: str) -> bool:
-        print("Deleting [" + command + "]")
         if command in self.command_set:
+            debugPrint(f"Deleting [{command}]")
             del self.command_set[command]
             await self.save_commands()
             return True

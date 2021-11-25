@@ -48,7 +48,7 @@ class SrcomApi:
     '''
     async def get_pb(self, game: str, category: str) -> str:
         category_list = []
-        time = "[No time submitted]"
+        time = "[N/A]"
         vod_link = ""
         found_game = False
         for run in self.srcuser.personal_bests:

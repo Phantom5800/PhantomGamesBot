@@ -22,10 +22,12 @@ class PhantomGamesBot(commands.Bot):
     
     async def event_ready(self):
         'Called when the bot is ready to accept messages.'
-        print(f"{os.environ['BOT_NICK']} is online!")
         # load relevant data
+        print("=======================================")
         await self.custom.load_commands()
         await self.quotes.load_quotes()
+        print(f"{os.environ['BOT_NICK']} is online!")
+        print("=======================================")
 
     async def event_command_error(self, ctx: commands.Context, error: Exception):
         # ignore command errors that exist in the custom command set
@@ -160,6 +162,15 @@ class PhantomGamesBot(commands.Bot):
                 quote_id = int(command_parts[1])
                 quote = command_parts[2]
                 response = await self.quotes.edit_quote(quote_id, quote)
+                await ctx.send(response)
+    
+    @commands.command()
+    async def removequote(self, ctx: commands.Context):
+        if ctx.message.author.is_mod:
+            command_parts = self.command_msg_breakout(ctx.message.content)
+            if len(command_parts) > 1 and tryParseInt(command_parts[1], -1) >= 0:
+                quote_id = int(command_parts[1])
+                response = await self.quotes.remove_quote(quote_id)
                 await ctx.send(response)
 
     # speedrun.com

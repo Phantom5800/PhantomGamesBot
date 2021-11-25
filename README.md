@@ -104,3 +104,10 @@ Edit an existing quote in case of typos, etc.
 ```
 !editquote {quote id} {quote text}
 ```
+
+### !removequote
+Remove an existing quote, all quotes that appear after are shifted down accordingly so the ID sequence is never broken.
+
+```
+!removequote {quote id}
+```

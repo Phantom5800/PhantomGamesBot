@@ -10,7 +10,7 @@ class QuoteHandler:
             try:
                 data = json.load(json_file)
                 self.quotes = deepcopy(data)
-                print(self.quotes)
+                print(f"Quotes: {self.quotes}")
             except json.decoder.JSONDecodeError:
                 print("[ERROR] Failed to load quotes from JSON")
                 return
@@ -32,6 +32,20 @@ class QuoteHandler:
         self.quotes[str(quote_id)] = quote
         await self.save_quotes()
         return f"Edited [Quote #{new_id}] -> {quote_str}"
+
+    async def remove_quote(self, quote_id: int) -> str:
+        if quote_id < len(self.quotes):
+            for key in self.quotes.keys():
+                intkey = int(key)
+                if intkey == len(self.quotes.keys()) - 1:
+                    del self.quotes[str(intkey)]
+                    break
+                elif intkey >= quote_id:
+                    self.quotes[str(intkey)] = self.quotes[str(intkey + 1)]
+            await self.save_quotes()
+            return f"Removed [Quote #{quote_id}], all quotes after are shifted down"
+        else:
+            return f"[Quote #{quote_id}] does not exist"
 
     async def pick_specific_quote(self, quote_id: str) -> str:
         if quote_id in self.quotes:
