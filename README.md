@@ -46,6 +46,8 @@ Get the streamer's personal best speedrun time for given game and category. If n
 !pb {category}
 ```
 
+![Example of what a response looks like](./readme/images/pb.png)
+
 ### !quote
 Display a random (or specified) quote from the internally stored list.
 
