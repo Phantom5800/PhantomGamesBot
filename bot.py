@@ -96,22 +96,36 @@ class PhantomGamesBot(commands.Bot):
                         await ctx.send(message)
                         self.current_timer_msg = (self.current_timer_msg + 1) % len(self.timer_queue)
 
-        # respond to messages @'ing the bot with the same message
-        if message.content.lower().startswith("@" + os.environ['BOT_NICK'].lower()):
-            bot_name_len = len("@" + os.environ['BOT_NICK'])
-            await ctx.send(message.author.mention + message.content.lower()[bot_name_len:])
+        if message.content is not None: # this has come up before??
+            # respond to messages @'ing the bot with the same message
+            if message.content.lower().startswith("@" + os.environ['BOT_NICK'].lower()):
+                bot_name_len = len("@" + os.environ['BOT_NICK'])
+                await ctx.send(message.author.mention + message.content.lower()[bot_name_len:])
 
-        # handle meme based commands
-        if message.content is not None and len(message.content) > 0:
-            command = message.content.split()[0]
-            response = await self.custom.parse_custom_command(command, ctx)
-            if response is not None:
-                await ctx.send(response)
-            else:
-                await super().event_message(message)
+            # handle meme based commands
+            if message.content is not None and len(message.content) > 0:
+                command = message.content.split()[0]
+                response = await self.custom.parse_custom_command(command, ctx)
+                if response is not None:
+                    await ctx.send(response)
+                else:
+                    await super().event_message(message)
     
     # custom commands
     def command_msg_breakout(self, message: str) -> str:
+        # TODO: theoretical regex match for command parsing
+        # regex that might work: (?:[!]\w+) |(?:.*)
+        # "!addcommand !newcommand command response" should give four matches
+        #    !addcommand
+        #    !newcommand
+        #    command response
+        #    {empty match in index 3}
+        # "!addcommand newcommand command response" should give three matches, 
+        # either need a better regex, or do extra work for this case
+        #    !addcommand
+        #    newcommand command response
+        #    {empty match in index 2}
+
         msg_parts = message.split(' ', 3)
         if len(msg_parts) > 2:
             command_prefix_len = len(msg_parts[0]) + len(msg_parts[1]) + 2
