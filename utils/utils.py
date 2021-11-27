@@ -1,7 +1,7 @@
 import os
 from twitchio.ext import commands
 
-debugPrintEnabled = True
+debugPrintEnabled = False
 
 def debugPrint(value: str):
     if debugPrintEnabled:
