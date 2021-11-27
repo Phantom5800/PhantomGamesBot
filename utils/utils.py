@@ -1,7 +1,7 @@
 import os
 from twitchio.ext import commands
 
-debugPrintEnabled = False
+debugPrintEnabled = True
 
 def debugPrint(value: str):
     if debugPrintEnabled:
@@ -56,6 +56,7 @@ Variable replacement for bot responses.
 def replace_vars(message: str, ctx: commands.Context) -> str:
     out_str = message
 
-    out_str = out_str.replace("$user", ctx.message.author.mention)
+    if "$user" in out_str: out_str = out_str.replace("$user", ctx.message.author.mention)
+    if "$msg" in out_str: out_str = out_str.replace("$msg", ctx.message.content[ctx.message.content.index(' '):])
 
     return out_str

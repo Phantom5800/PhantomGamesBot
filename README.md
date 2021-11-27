@@ -122,6 +122,7 @@ Set the cooldown on a custom command to restrict how often it can be used.
 These variables can be used in custom commands to fill in data dynamically.
 
 * `$user` - Mentions the chatter that used the command.
+* `$msg` - Replaced with the contents of the user's message (ignoring the command itself).
 
 ## Quotes
 

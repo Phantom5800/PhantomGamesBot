@@ -87,12 +87,7 @@ class PhantomGamesBot(commands.Bot):
         self.messages_since_timer += 1
 
         if message.content is not None: # this has come up before??
-            # respond to messages @'ing the bot with the same message
-            if message.content.lower().startswith("@" + os.environ['BOT_NICK'].lower()):
-                bot_name_len = len("@" + os.environ['BOT_NICK'])
-                await ctx.send(message.author.mention + message.content.lower()[bot_name_len:])
-
-            # handle meme based commands
+            # handle custom commands
             if message.content is not None and len(message.content) > 0:
                 command = message.content.split()[0]
                 response = await self.custom.parse_custom_command(command)
