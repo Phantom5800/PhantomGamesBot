@@ -107,7 +107,7 @@ class PhantomGamesBot(commands.Bot):
     '''    
     @routines.routine(minutes=int(os.environ['TIMER_MINUTES']), iterations=None)
     async def timer_update(self, channel):
-        if self.messages_since_timer >= self.timer_lines:
+        if self.messages_since_timer >= self.timer_lines and self.timer_enabled and len(self.timer_queue) > 0:
             self.messages_since_timer = 0
 
             message = self.custom.get_command(self.timer_queue[self.current_timer_msg])
@@ -117,8 +117,10 @@ class PhantomGamesBot(commands.Bot):
                 await channel.send(message)
                 self.current_timer_msg = (self.current_timer_msg + 1) % len(self.timer_queue)
 
-
     # custom commands
+    '''
+    Utility function for command parsing to break up segments of commands.
+    '''
     def command_msg_breakout(self, message: str) -> str:
         # TODO: theoretical regex match for command parsing
         # regex that might work: (?:[!]\w+) |(?:.*)
