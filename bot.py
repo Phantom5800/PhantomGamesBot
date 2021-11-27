@@ -52,8 +52,11 @@ class PhantomGamesBot(commands.Bot):
         # load relevant data
         print("=======================================")
         await self.custom.load_commands()
+        print("=======================================")
         await self.quotes.load_quotes()
+        print("=======================================")
         await self.load_timer_events()
+        print("=======================================")
         print(f"{os.environ['BOT_NICK']} is online!")
         print("=======================================")
 
@@ -310,7 +313,7 @@ class PhantomGamesBot(commands.Bot):
         if len(os.environ['SRC_USER']) > 0:
             category = ctx.message.content[4:] # TODO: cut out unicode whitespace that 7tv sometimes appends
             game = await get_game_name_from_twitch(self)
-            response = await self.speedrun.get_pb(convert_twitch_to_src_game(game), category)
+            response = self.speedrun.get_pb(convert_twitch_to_src_game(game), category)
             await ctx.send(response)
 
     # stream commands

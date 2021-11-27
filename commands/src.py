@@ -51,7 +51,7 @@ class SrcomApi:
     '''
     Get the PB for a desired game and category if it exists
     '''
-    async def get_pb(self, game: str, category: str) -> str:
+    def get_pb(self, game: str, category: str) -> str:
         category_list = []
         time = "[N/A]"
         vod_link = ""
