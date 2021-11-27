@@ -2,6 +2,7 @@ from datetime import datetime
 import os
 import re
 from twitchio.ext import commands
+from twitchio.ext import routines
 import commands.custom_commands as custom
 import commands.quotes as quotes
 import commands.src as src
@@ -26,8 +27,6 @@ class PhantomGamesBot(commands.Bot):
         self.timer_queue = []
         self.current_timer_msg = 0
         self.messages_since_timer = 0
-        self.timer_minutes = tryParseInt(os.environ['TIMER_MINUTES'], 10)
-        self.last_timer_fire = datetime.now()
         self.timer_lines = tryParseInt(os.environ['TIMER_CHAT_LINES'], 5)
         self.timer_enabled = True
     
@@ -60,6 +59,9 @@ class PhantomGamesBot(commands.Bot):
         print(f"{os.environ['BOT_NICK']} is online!")
         print("=======================================")
 
+        # start message timer
+        self.timer_update.start(self.get_channel(os.environ['CHANNEL']))
+
     '''
     Runs when an "invalid command" is sent by a user.
     '''
@@ -83,19 +85,7 @@ class PhantomGamesBot(commands.Bot):
         ctx = await self.get_context(message)
 
         # track chat messages that have been posted since the last timer fired
-        if self.timer_enabled and len(self.timer_queue) > 0:
-            self.messages_since_timer += 1
-            if self.messages_since_timer >= self.timer_lines:
-                if (datetime.now() - self.last_timer_fire).total_seconds() / 60 > self.timer_minutes:
-                    self.last_timer_fire = datetime.now()
-                    self.messages_since_timer = 0
-
-                    message = self.custom.get_command(self.timer_queue[self.current_timer_msg])
-                    if message is None:
-                        print(f"[ERROR] {self.timer_queue[self.current_timer_msg]} is not a valid command for timers.")
-                    else:
-                        await ctx.send(message)
-                        self.current_timer_msg = (self.current_timer_msg + 1) % len(self.timer_queue)
+        self.messages_since_timer += 1
 
         if message.content is not None: # this has come up before??
             # respond to messages @'ing the bot with the same message
@@ -111,7 +101,23 @@ class PhantomGamesBot(commands.Bot):
                     await ctx.send(replace_vars(response, ctx))
                 else:
                     await super().event_message(message)
-    
+
+    '''
+    Periodic routine to send timer based messages.
+    '''    
+    @routines.routine(minutes=int(os.environ['TIMER_MINUTES']), iterations=None)
+    async def timer_update(self, channel):
+        if self.messages_since_timer >= self.timer_lines:
+            self.messages_since_timer = 0
+
+            message = self.custom.get_command(self.timer_queue[self.current_timer_msg])
+            if message is None:
+                print(f"[ERROR] {self.timer_queue[self.current_timer_msg]} is not a valid command for timers.")
+            else:
+                await channel.send(message)
+                self.current_timer_msg = (self.current_timer_msg + 1) % len(self.timer_queue)
+
+
     # custom commands
     def command_msg_breakout(self, message: str) -> str:
         # TODO: theoretical regex match for command parsing
