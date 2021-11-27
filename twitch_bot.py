@@ -28,7 +28,6 @@ class PhantomGamesBot(commands.Bot):
         self.current_timer_msg = 0
         self.messages_since_timer = 0
         self.timer_lines = tryParseInt(os.environ['TIMER_CHAT_LINES'], 5)
-        self.timer_enabled = True
     
     async def load_timer_events(self):
         with open('./commands/resources/timer_events.txt', 'r', encoding="utf-8") as txt_file:
@@ -104,10 +103,10 @@ class PhantomGamesBot(commands.Bot):
 
     '''
     Periodic routine to send timer based messages.
-    '''    
-    @routines.routine(minutes=int(os.environ['TIMER_MINUTES']), iterations=None)
+    '''
+    @routines.routine(minutes=int(os.environ['TIMER_MINUTES']), wait_first=True)
     async def timer_update(self, channel):
-        if self.messages_since_timer >= self.timer_lines and self.timer_enabled and len(self.timer_queue) > 0:
+        if self.messages_since_timer >= self.timer_lines and len(self.timer_queue) > 0:
             self.messages_since_timer = 0
 
             message = self.custom.get_command(self.timer_queue[self.current_timer_msg])
@@ -116,7 +115,7 @@ class PhantomGamesBot(commands.Bot):
             else:
                 await channel.send(message)
                 self.current_timer_msg = (self.current_timer_msg + 1) % len(self.timer_queue)
-
+    
     # custom commands
     '''
     Utility function for command parsing to break up segments of commands.
@@ -228,14 +227,18 @@ class PhantomGamesBot(commands.Bot):
     @commands.command()
     async def disabletimer(self, ctx: commands.Context):
         if ctx.message.author.is_mod:
-            self.timer_enabled = False
-            await ctx.send("Timers have been disabled")
+            self.timer_update.cancel()
+            await ctx.send(f"{ctx.message.author.mention} Timers have been disabled")
 
     @commands.command()
     async def enabletimer(self, ctx: commands.Context):
         if ctx.message.author.is_mod:
-            self.timer_enabled = True
-            await ctx.send("Timers have been enabled")
+            try:
+                self.timer_update.start(self.get_channel(os.environ['CHANNEL']))
+            except RuntimeError:
+                await ctx.send(f"{ctx.message.author.mention} Timers are already enabled")
+                return
+            await ctx.send(f"{ctx.message.author.mention} Timers have been enabled")
 
     @commands.command()
     async def addtimer(self, ctx: commands.Context):
