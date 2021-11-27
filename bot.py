@@ -332,6 +332,16 @@ class PhantomGamesBot(commands.Bot):
         game_name = await get_game_name_from_twitch(self)
         await ctx.send(game_name)
 
+    '''
+    Give a shoutout to a specific user in chat.
+    '''
+    @commands.command(aliases=["shoutout"])
+    async def so(self, ctx: commands.Context):
+        if ctx.message.author.is_mod:
+            user = ctx.message.content.replace("!so", "").strip()
+            game = await get_game_name_from_twitch_for_user(self, user)
+            await ctx.send(f"Checkout {user}, maybe drop them a follow! They were most recently playing {game} over at https://twitch.tv/{user}")
+
     # social commands
     '''
     Get a link to the streamer's github profile if it exists.

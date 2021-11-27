@@ -80,6 +80,13 @@ Provides a link to the streamer's youtube channel.
 # Mod Commands
 Set of commands that require moderator permissions in the channel in order to use.
 
+### !so
+Give a shoutout to another user, typically would be used for raid's or vip's.
+
+```
+!so {username}
+```
+
 ## Custom Commands
 Custom commands are basic command -> response events that can be managed by the streamer and moderators with the following commands. 
 
