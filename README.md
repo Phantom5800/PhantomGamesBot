@@ -1,16 +1,25 @@
 # PhantomGamesBot
 This is a Twitch chatbot used by https://twitch.tv/Phantom5800, written in python and fairly easy to edit and run.
 
+## License
+
+This project is licensed under MIT, see [License](LICENSE) for more details. While it is not required, it would be greatly appreciated for any forks to create pull requests back into the original repository. New features and optimizations are always welcome.
+
 ## Setup
 
 1. Install Python 3.7+
 2. Create a `.env` file (descripted below)
 3. From a command line:
-    * `pip install pipenv`
-    * `pipenv --python 3.7` (or whatever version you installed)
-    * `pipenv install twitchio`
-    * `pipenv install srcomapi`
-    * `run.bat` or `pipenv run python bot.py`
+    * If you installed a version of Python that is not 3.9: `set PYVER=3.7`
+    * `setup.bat`
+    * `run.bat`
+
+### Shortcuts
+In Windows, it is possible to create a shortcut to the `run.bat` file and pin that to the start menu or task bar with a bit of effort.
+
+1. Right click on `run.bat` and select `Create shortcut`
+2. Right click on the new shortcut and change the target to `C:\Windows\System32\cmd.exe /c "C:\{path to bat file}\run.bat"`
+3. Right click on the shortcut again and `Pin to Start`
 
 ## Env
 At the root, anyone trying to run this will need a `.env` file that looks something like this:
