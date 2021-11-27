@@ -1,8 +1,6 @@
 from datetime import datetime
 import os
 import re
-import threading
-import time
 from twitchio.ext import commands
 import commands.custom_commands as custom
 import commands.quotes as quotes
