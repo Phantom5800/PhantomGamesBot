@@ -1,4 +1,6 @@
 import os
+import random
+import re
 from twitchio.ext import commands
 
 debugPrintEnabled = False
@@ -56,11 +58,28 @@ Variable replacement for bot responses.
 def replace_vars(message: str, ctx: commands.Context) -> str:
     out_str = message
 
+    # replace with a mention of the user that posted the command
     if "$user" in out_str: out_str = out_str.replace("$user", ctx.message.author.mention)
+
+    # replace with a copy-paste of user's message
     if "$msg" in out_str:
         if ' ' in ctx.message.content:
             out_str = out_str.replace("$msg", ctx.message.content[ctx.message.content.index(' '):])
         else:
             out_str = out_str.replace("$msg", "")
+
+    # generate a random number in a range    
+    if "$randnum" in out_str:
+        regex = r"\W*((?i)\$randnum\((?-i:))\W*([0-9]*),([0-9]*)\)"
+        matches = re.match(regex, out_str)
+        if matches is not None:
+            match_groups = matches.groups()
+            minimum = tryParseInt(match_groups[1], 0)
+            maximum = tryParseInt(match_groups[2], 100)
+            rand = random.randrange(minimum, maximum)
+            
+            out_str = f"{out_str[:matches.start()]}{rand}{out_str[matches.end():]}"
+        else:
+            out_str = out_str.replace("$randnum", "[$randnum must have a minimum and maximum: example \"$randnum(10,50)\"]")
 
     return out_str
