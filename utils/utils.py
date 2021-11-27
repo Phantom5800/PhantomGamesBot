@@ -58,7 +58,7 @@ def replace_vars(message: str, ctx: commands.Context) -> str:
 
     if "$user" in out_str: out_str = out_str.replace("$user", ctx.message.author.mention)
     if "$msg" in out_str:
-        if ' ' in out_str:
+        if ' ' in ctx.message.content:
             out_str = out_str.replace("$msg", ctx.message.content[ctx.message.content.index(' '):])
         else:
             out_str = out_str.replace("$msg", "")
