@@ -64,18 +64,11 @@ class CustomCommands:
             return True
         return False
 
-    def replace_vars(self, message, ctx) -> str:
-        out_str = message
-
-        out_str = out_str.replace("$user", ctx.message.author.mention)
-
-        return out_str
-
-    async def parse_custom_command(self, message: str, ctx) -> str:
+    async def parse_custom_command(self, message: str) -> str:
         if message in self.command_set:
             # check if command has been used, and if it has, if it is past the cooldown period
             if self.command_set[message]["last_use"] == 0 or (datetime.now() - self.command_set[message]["last_use"]).total_seconds() > self.command_set[message]["cooldown"]:
                 self.command_set[message]["last_use"] = datetime.now()
-                return self.replace_vars(self.command_set[message]["response"], ctx)
+                return self.command_set[message]["response"]
             return None
         return None

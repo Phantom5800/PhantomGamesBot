@@ -1,4 +1,5 @@
 import os
+from twitchio.ext import commands
 
 debugPrintEnabled = False
 
@@ -12,7 +13,7 @@ def tryParseInt(value: str, default: int = 0) -> int:
     except ValueError:
         return default
 
-async def get_game_name_from_twitch(twitchClient):
+async def get_game_name_from_twitch(twitchClient: commands.Bot):
     streamer_list = await twitchClient.search_channels(os.environ['CHANNEL'])
     for streamer in streamer_list:
         debugPrint(f"[Get Game Name] Found streamer match: {streamer.name.lower()}")
@@ -34,3 +35,10 @@ def convert_twitch_to_src_game(twitchGame: str) -> str:
     if twitchGame in mapping:
         return mapping[twitchGame]
     return twitchGame
+
+def replace_vars(message: str, ctx: commands.Context) -> str:
+    out_str = message
+
+    out_str = out_str.replace("$user", ctx.message.author.mention)
+
+    return out_str

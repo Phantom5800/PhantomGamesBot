@@ -17,6 +17,8 @@ class SrcomApi:
             user_results = self.api.search(srcomapi.datatypes.User, {"name": os.environ['SRC_USER']})
             if len(user_results) > 0:
                 self.srcuser = user_results[0]
+                print(f"Loading personal bests from speedrun.com for {os.environ['SRC_USER']} ...")
+                self.personal_bests = self.srcuser.personal_bests
                 print(f"Initialized speedrun.com API for {os.environ['SRC_USER']}")
 
     def tryParseInt(self, re_result) -> int:
@@ -56,7 +58,7 @@ class SrcomApi:
         time = "[N/A]"
         vod_link = ""
         found_game = False
-        for run in self.srcuser.personal_bests:
+        for run in self.personal_bests:
             game_obj = self.api.get_game(run['run'].game)
             gamename = game_obj.name
             # if the run we are looking at, is the correct game
@@ -85,18 +87,18 @@ class SrcomApi:
 
         # if no runs found
         if found_game == False:
-            return f"{os.environ['SRC_USER']} does not have any speedruns of {game}"
+            return f"$user {os.environ['CHANNEL']} does not have any speedruns of {game}"
         # if there's only one category, don't need it specified
         elif len(category_list) == 1:
             debugPrint(f"[Get PB] Only found one run: {game} - {category_list[0]}")
-            return f"{game} - {category_list[0]}: {time} {vod_link}"
+            return f"$user {game} - {category_list[0]}: {time} {vod_link}"
         # if no category specified, return a list of categories
         elif category == "":
-            return f"Please specify a category for {game}: {str(category_list)}"
+            return f"$user Please specify a category for {game}: {str(category_list)}"
         # return the PB for the game and category specified
         else:
             debugPrint(f"[Get PB] Returning {game} - {category}")
-            return f"{game} - {category}: {time} {vod_link}"
+            return f"$user {game} - {category}: {time} {vod_link}"
 
 async def main():
     src = SrcomApi()
