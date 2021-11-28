@@ -58,15 +58,15 @@ Variable replacement for bot responses.
 def replace_vars(message: str, ctx: commands.Context) -> str:
     out_str = message
 
-    # replace with a mention of the user that posted the command
-    if "$user" in out_str: out_str = out_str.replace("$user", ctx.message.author.mention)
-
     # replace with a copy-paste of user's message
     if "$msg" in out_str:
         if ' ' in ctx.message.content:
             out_str = out_str.replace("$msg", ctx.message.content[ctx.message.content.index(' '):])
         else:
             out_str = out_str.replace("$msg", "")
+
+    # replace with a mention of the user that posted the command
+    if "$user" in out_str: out_str = out_str.replace("$user", ctx.message.author.mention)
 
     # generate a random number in a range    
     if "$randnum" in out_str:
