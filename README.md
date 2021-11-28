@@ -32,9 +32,6 @@ BOT_PREFIX=!
 BOT_REPO=https://github.com/Phantom5800/PhantomGamesBot
 CHANNEL={Channel Name}
 SRC_USER=
-TWITTER=
-GITHUB=
-YOUTUBE=
 TIMER_CHAT_LINES=
 TIMER_MINUTES=
 ```
