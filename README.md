@@ -29,7 +29,6 @@ TMI_TOKEN={OAUTH Token}
 CLIENT_ID={Twitch Client ID}
 BOT_NICK={Bot Account Name}
 BOT_PREFIX=!
-BOT_REPO=https://github.com/Phantom5800/PhantomGamesBot
 CHANNEL={Channel Name}
 SRC_USER=
 TIMER_CHAT_LINES=
@@ -115,6 +114,7 @@ These variables can be used in custom commands to fill in data dynamically.
 * `$msg` - Replaced with the contents of the user's message (ignoring the command itself).
 * `$randnum` - Generates a random number in a range
     * `$randnum(10,500)` - Replaced with a random number from 10-500
+* `$randuser` - Mentions a random user in chat.
 
 ## Quotes
 

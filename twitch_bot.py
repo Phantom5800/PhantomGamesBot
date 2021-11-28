@@ -92,7 +92,7 @@ class PhantomGamesBot(commands.Bot):
                 command = message.content.split()[0]
                 response = await self.custom.parse_custom_command(command)
                 if response is not None:
-                    await ctx.send(replace_vars(response, ctx))
+                    await ctx.send(replace_vars(response, ctx, self.get_channel(os.environ['CHANNEL'])))
                 else:
                     await super().event_message(message)
 
@@ -335,7 +335,7 @@ class PhantomGamesBot(commands.Bot):
             category = ctx.message.content[4:]
             game = await get_game_name_from_twitch(self)
             response = self.speedrun.get_pb(convert_twitch_to_src_game(game), category)
-            await ctx.send(replace_vars(response, ctx))
+            await ctx.send(response)
 
     # stream commands
     '''

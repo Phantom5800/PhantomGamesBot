@@ -55,7 +55,7 @@ def convert_twitch_to_src_game(twitchGame: str) -> str:
 '''
 Variable replacement for bot responses.
 '''
-def replace_vars(message: str, ctx: commands.Context) -> str:
+def replace_vars(message: str, ctx: commands.Context, channel) -> str:
     out_str = message
 
     # replace with a copy-paste of user's message
@@ -67,6 +67,12 @@ def replace_vars(message: str, ctx: commands.Context) -> str:
 
     # replace with a mention of the user that posted the command
     if "$user" in out_str: out_str = out_str.replace("$user", ctx.message.author.mention)
+
+    # mention a user from chat at random
+    if "$randuser" in out_str:
+        chat_users = list(channel.chatters)
+        user_id = random.randrange(len(chat_users))
+        out_str = out_str.replace("$randuser", chat_users[user_id].mention)
 
     # generate a random number in a range    
     if "$randnum" in out_str:

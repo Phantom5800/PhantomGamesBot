@@ -88,18 +88,18 @@ class SrcomApi:
 
         # if no runs found
         if found_game == False:
-            return f"$user {os.environ['CHANNEL']} does not have any speedruns of {game}"
+            return f"{os.environ['CHANNEL']} does not have any speedruns of {game}"
         # if there's only one category, don't need it specified
         elif len(category_list) == 1:
             debugPrint(f"[Get PB] Only found one run: {game} - {category_list[0]}")
-            return f"$user {game} - {category_list[0]}: {time} {vod_link}"
+            return f"{game} - {category_list[0]}: {time} {vod_link}"
         # if no category specified, return a list of categories
         elif category == "":
-            return f"$user Please specify a category for {game}: {str(category_list)}"
+            return f"Please specify a category for {game}: {str(category_list)}"
         # return the PB for the game and category specified
         else:
             debugPrint(f"[Get PB] Returning {game} - {category}")
-            return f"$user {game} - {category}: {time} {vod_link}"
+            return f"{game} - {category}: {time} {vod_link}"
 
 async def main():
     src = SrcomApi()
