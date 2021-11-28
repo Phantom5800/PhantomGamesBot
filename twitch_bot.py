@@ -275,10 +275,10 @@ class PhantomGamesBot(commands.Bot):
     # quotes
     @commands.command()
     async def quote(self, ctx: commands.Context):
-        quote_id = ctx.message.content.split(' ', 2)
+        command_parts = self.command_msg_breakout(ctx.message.content, 2)
         response = None
-        if len(quote_id) > 1 and tryParseInt(quote_id[1], -1) >= 0:
-            response = await self.quotes.pick_specific_quote(quote_id[1])
+        if command_parts is not None and tryParseInt(command_parts[1], -1) >= 0:
+            response = await self.quotes.pick_specific_quote(command_parts[1])
         else:
             response = await self.quotes.pick_random_quote()
         if response is not None:
