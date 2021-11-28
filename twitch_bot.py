@@ -343,7 +343,7 @@ class PhantomGamesBot(commands.Bot):
     '''
     @commands.command()
     async def bot(self, ctx: commands.Context):
-        await ctx.send(f"Hey! I am a custom chatbot written in Python, my source code is available at: {os.environ['BOT_REPO']}")
+        await ctx.send("Hey! I am a custom chatbot written in Python, my source code is available at: https://github.com/Phantom5800/PhantomGamesBot")
 
     '''
     Get the current game being played on twitch.
