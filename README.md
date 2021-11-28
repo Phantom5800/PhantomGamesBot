@@ -47,6 +47,9 @@ Default command set that can be used by anyone.
 ### !bot
 Provides a link to the github page for this bot's source code.
 
+### !commands
+Get a list of all available commands the chatbot can reply to.
+
 ### !game
 Display the current game being played.
 

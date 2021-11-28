@@ -136,6 +136,21 @@ class PhantomGamesBot(commands.Bot):
         return msg_parts
 
     '''
+    Get a list of all commands the bot responds to.
+    '''
+    @commands.command(aliases=["commands"])
+    async def getcommands(self, ctx: commands.Context):
+        default_commands = self.commands
+        command_list = []
+        for key in default_commands.keys():
+            if "command" in key or ("quote" in key and key != "quote") or "timer" in key or "set" in key or key == "so":
+                continue
+            command_list.append(f"!{key}")
+        command_list.extend(self.custom.get_command_list())
+        command_list.sort()
+        await ctx.send(f"List of all the current commands: {command_list}")
+
+    '''
     Add a custom command through twitch chat.
     '''
     @commands.command(aliases=["addcom"])

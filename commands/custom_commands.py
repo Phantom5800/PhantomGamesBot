@@ -27,6 +27,12 @@ class CustomCommands:
         if self.command_exists(command_lower):
             return self.command_set[command_lower]["response"]
         return None
+    
+    def get_command_list(self) -> list:
+        command_list = []
+        for key in self.command_set.keys():
+            command_list.append(key)
+        return command_list
 
     async def add_command(self, command: str, response: str, cooldown: int) -> bool:
         command_lower = command.lower()
