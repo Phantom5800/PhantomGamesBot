@@ -70,17 +70,6 @@ Display a random (or specified) quote from the internally stored list.
 !quote {quote id}
 ```
 
-## Social Media
-
-### !github
-Provides a link to the streamer's github profile.
-
-### !twitter
-Provides a link to the streamer's twitter page.
-
-### !youtube
-Provides a link to the streamer's youtube channel.
-
 # Mod Commands
 Set of commands that require moderator permissions in the channel in order to use.
 

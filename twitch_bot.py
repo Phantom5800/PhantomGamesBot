@@ -136,7 +136,7 @@ class PhantomGamesBot(commands.Bot):
         return msg_parts
 
     '''
-    Get a list of all commands the bot responds to.
+    Get a list of all commands the bot responds to, excluding mod-only commands.
     '''
     @commands.command(aliases=["commands"])
     async def getcommands(self, ctx: commands.Context):
@@ -362,31 +362,6 @@ class PhantomGamesBot(commands.Bot):
             user = ctx.message.content.replace("!so", "").strip()
             game = await get_game_name_from_twitch_for_user(self, user)
             await ctx.send(f"Checkout {user}, maybe drop them a follow! They were most recently playing {game} over at https://twitch.tv/{user}")
-
-    # social commands
-    '''
-    Get a link to the streamer's github profile if it exists.
-    '''
-    @commands.command()
-    async def github(self, ctx: commands.Context):
-        if len(os.environ['GITHUB']) > 0:
-            await ctx.send(f"All my open source code projects are available on github: {os.environ['GITHUB']}")
-
-    '''
-    Get a link to the streamer's twitter profile if it exists.
-    '''
-    @commands.command()
-    async def twitter(self, ctx: commands.Context):
-        if len(os.environ['TWITTER']) > 0:
-            await ctx.send(f"Follow me on twitter to keep up with current events: {os.environ['TWITTER']}")
-
-    '''
-    Get a link to the streamer's youtube channel if it exists.
-    '''
-    @commands.command()
-    async def youtube(self, ctx: commands.Context):
-        if len(os.environ['YOUTUBE']) > 0:
-            await ctx.send(f"Follow my youtube for occasional speedrun related videos: {os.environ['YOUTUBE']}")
 
 if __name__ == "__main__":
     bot = PhantomGamesBot()
