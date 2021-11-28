@@ -115,25 +115,20 @@ class PhantomGamesBot(commands.Bot):
     '''
     Utility function for command parsing to break up segments of commands.
     '''
-    def command_msg_breakout(self, message: str) -> str:
-        # TODO: theoretical regex match for command parsing
-        # regex that might work: (?:[!]\w+) |(?:.*)
-        # "!addcommand !newcommand command response" should give four matches
-        #    !addcommand
-        #    !newcommand
-        #    command response
-        #    {empty match in index 3}
-        # "!addcommand newcommand command response" should give three matches, 
-        # either need a better regex, or do extra work for this case
-        #    !addcommand
-        #    newcommand command response
-        #    {empty match in index 2}
-
-        msg_parts = message.split(' ', 3)
-        if len(msg_parts) > 2:
-            command_prefix_len = len(msg_parts[0]) + len(msg_parts[1]) + 2
-            msg_parts[2] = message[command_prefix_len:]
-        return msg_parts
+    def command_msg_breakout(self, message: str, expectedParts: int) -> str:
+        if expectedParts == 2:
+            pattern = r"([!]\w+) (.*)"
+            matches = re.match(pattern, message)
+            if matches is not None:
+                return matches.groups()
+        elif expectedParts == 3:
+            pattern = r"([!]\w+) ([!]?\w+) (.*)"
+            matches = re.match(pattern, message)
+            if matches is not None:
+                return matches.groups()
+        else:
+            debugPrint(f"[command_msg_breakout] Unexpected amount of command parts {expectedParts}")
+        return None
 
     '''
     Get a list of all commands the bot responds to, excluding mod-only commands.
@@ -156,21 +151,18 @@ class PhantomGamesBot(commands.Bot):
     @commands.command(aliases=["addcom"])
     async def addcommand(self, ctx: commands.Context):
         if ctx.message.author.is_mod:
-            command_parts = self.command_msg_breakout(ctx.message.content)
-            if len(command_parts) > 1:
+            command_parts = self.command_msg_breakout(ctx.message.content, 3)
+            if command_parts is not None:
                 # find the intended command name
                 command = command_parts[1]
-                if len(command_parts) > 2:
-                    # get the command response
-                    command_response = command_parts[2]
-                    # attempt to add the command
-                    command_added = await self.custom.add_command(command, command_response, 0)
-                    if command_added:
-                        await ctx.send(f"{ctx.message.author.mention} Successfully added command [{command}] -> {command_response}")
-                    else:
-                        await ctx.send(f"{ctx.message.author.mention} Command [{command}] already exists.")
+                # get the command response
+                command_response = command_parts[2]
+                # attempt to add the command
+                command_added = await self.custom.add_command(command, command_response, 0)
+                if command_added:
+                    await ctx.send(f"{ctx.message.author.mention} Successfully added command [{command}] -> {command_response}")
                 else:
-                    await ctx.send(f"{ctx.message.author.mention} Command [{command}] needs a response message!")
+                    await ctx.send(f"{ctx.message.author.mention} Command [{command}] already exists.")
             else:
                 await ctx.send(f"{ctx.message.author.mention} make sure to specify a command and a response!")
     
@@ -180,18 +172,15 @@ class PhantomGamesBot(commands.Bot):
     @commands.command()
     async def setcooldown(self, ctx: commands.Context):
         if ctx.message.author.is_mod:
-            command_parts = self.command_msg_breakout(ctx.message.content)
-            if len(command_parts) > 1:
+            command_parts = self.command_msg_breakout(ctx.message.content, 3)
+            if command_parts is not None:
                 command = command_parts[1]
-                if len(command_parts) > 2:
-                    cooldown = tryParseInt(command_parts[2])
-                    command_edited = await self.custom.set_cooldown(command, cooldown)
-                    if command_edited:
-                        await ctx.send(f"{ctx.message.author.mention} Cooldown for [{command}] = {cooldown} seconds.")
-                    else:
-                        await ctx.send(f"{ctx.message.author.mention} Command [{command}] does not exist.")
+                cooldown = tryParseInt(command_parts[2])
+                command_edited = await self.custom.set_cooldown(command, cooldown)
+                if command_edited:
+                    await ctx.send(f"{ctx.message.author.mention} Cooldown for [{command}] = {cooldown} seconds.")
                 else:
-                    await ctx.send(f"{ctx.message.author.mention} Command [{command}] needs a cooldown specified in seconds.")
+                    await ctx.send(f"{ctx.message.author.mention} Command [{command}] does not exist.")
             else:
                 await ctx.send(f"{ctx.message.author.mention} make sure to specify a command and a cooldown!")
 
@@ -201,18 +190,15 @@ class PhantomGamesBot(commands.Bot):
     @commands.command(aliases=["editcom"])
     async def editcommand(self, ctx: commands.Context):
         if ctx.message.author.is_mod:
-            command_parts = self.command_msg_breakout(ctx.message.content)
-            if len(command_parts) > 1:
+            command_parts = self.command_msg_breakout(ctx.message.content, 3)
+            if command_parts is not None:
                 command = command_parts[1]
-                if len(command_parts) > 2:
-                    command_response = command_parts[2]
-                    command_edited = await self.custom.edit_command(command, command_response, 0)
-                    if command_edited:
-                        await ctx.send(f"{ctx.message.author.mention} Edited command [{command}] -> {command_response}")
-                    else:
-                        await ctx.send(f"{ctx.message.author.mention} Command [{command}] does not exist.")
+                command_response = command_parts[2]
+                command_edited = await self.custom.edit_command(command, command_response, 0)
+                if command_edited:
+                    await ctx.send(f"{ctx.message.author.mention} Edited command [{command}] -> {command_response}")
                 else:
-                    await ctx.send(f"{ctx.message.author.mention} Command [{command}] needs a response message!")
+                    await ctx.send(f"{ctx.message.author.mention} Command [{command}] does not exist.")
             else:
                 await ctx.send(f"{ctx.message.author.mention} make sure to specify a command and a response!")
 
@@ -222,8 +208,8 @@ class PhantomGamesBot(commands.Bot):
     @commands.command(aliases=["removecom"])
     async def removecommand(self, ctx: commands.Context):
         if ctx.message.author.is_mod:
-            command_parts = self.command_msg_breakout(ctx.message.content)
-            if len(command_parts) > 1:
+            command_parts = self.command_msg_breakout(ctx.message.content, 2)
+            if command_parts is not None:
                 command = command_parts[1]
                 command_removed = await self.custom.remove_command(command)
                 if command_removed:
@@ -253,8 +239,8 @@ class PhantomGamesBot(commands.Bot):
     @commands.command()
     async def addtimer(self, ctx: commands.Context):
         if ctx.message.author.is_mod:
-            command_parts = self.command_msg_breakout(ctx.message.content)
-            if len(command_parts) > 1:
+            command_parts = self.command_msg_breakout(ctx.message.content, 2)
+            if command_parts is not None:
                 command = command_parts[1]
                 if self.custom.command_exists(command):
                     if command not in self.timer_queue:
@@ -271,8 +257,8 @@ class PhantomGamesBot(commands.Bot):
     @commands.command()
     async def removetimer(self, ctx: commands.Context):
         if ctx.message.author.is_mod:
-            command_parts = self.command_msg_breakout(ctx.message.content)
-            if len(command_parts) > 1:
+            command_parts = self.command_msg_breakout(ctx.message.content, 2)
+            if command_parts is not None:
                 command = command_parts[1]
                 if command in self.timer_queue:
                     self.timer_queue.remove(command)
@@ -309,8 +295,8 @@ class PhantomGamesBot(commands.Bot):
     @commands.command()
     async def editquote(self, ctx: commands.Context):
         if ctx.message.author.is_mod:
-            command_parts = self.command_msg_breakout(ctx.message.content)
-            if len(command_parts) > 2 and tryParseInt(command_parts[1], -1) >= 0:
+            command_parts = self.command_msg_breakout(ctx.message.content, 3)
+            if command_parts is not None and tryParseInt(command_parts[1], -1) >= 0:
                 quote_id = int(command_parts[1])
                 quote = command_parts[2]
                 response = await self.quotes.edit_quote(quote_id, quote)
@@ -319,8 +305,8 @@ class PhantomGamesBot(commands.Bot):
     @commands.command()
     async def removequote(self, ctx: commands.Context):
         if ctx.message.author.is_mod:
-            command_parts = self.command_msg_breakout(ctx.message.content)
-            if len(command_parts) > 1 and tryParseInt(command_parts[1], -1) >= 0:
+            command_parts = self.command_msg_breakout(ctx.message.content, 2)
+            if command_parts is not None and tryParseInt(command_parts[1], -1) >= 0:
                 quote_id = int(command_parts[1])
                 response = await self.quotes.remove_quote(quote_id)
                 await ctx.send(response)

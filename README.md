@@ -110,11 +110,11 @@ Set the cooldown on a custom command to restrict how often it can be used.
 ### Command Variables
 These variables can be used in custom commands to fill in data dynamically.
 
-* `$user` - Mentions the chatter that used the command.
 * `$msg` - Replaced with the contents of the user's message (ignoring the command itself).
-* `$randnum` - Generates a random number in a range
+* `$randnum(min,max)` - Generates a random number in a range
     * `$randnum(10,500)` - Replaced with a random number from 10-500
 * `$randuser` - Mentions a random user in chat.
+* `$user` - Mentions the chatter that used the command.
 
 ## Quotes
 
