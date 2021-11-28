@@ -4,7 +4,7 @@ import srcomapi
 from datetime import date
 from utils.utils import debugPrint
 
-# enable these for debugging src.py separately
+# enable these for debugging src.py separately from a live bot
 #import asyncio
 #os.environ['SRC_USER'] = "Phantom5800"
 #def debugPrint(value): print(value)
@@ -51,7 +51,8 @@ class SrcomApi:
             return f"{seconds}"
 
     '''
-    Get the PB for a desired game and category if it exists
+    Get the PB for a desired game and category if it exists.
+    TODO: Cache results to improve lookup for subsequent searches.
     '''
     def get_pb(self, game: str, category: str) -> str:
         category_list = []

@@ -29,6 +29,7 @@ TMI_TOKEN={OAUTH Token}
 CLIENT_ID={Twitch Client ID}
 BOT_NICK={Bot Account Name}
 BOT_PREFIX=!
+BOT_REPO=https://github.com/Phantom5800/PhantomGamesBot
 CHANNEL={Channel Name}
 SRC_USER=
 TWITTER=

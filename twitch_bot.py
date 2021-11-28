@@ -312,12 +312,12 @@ class PhantomGamesBot(commands.Bot):
 
     # speedrun.com
     '''
-    Get the personal best time for a game/category on speedrun.com.
+    Get the personal best time for a game/category on speedrun.com. This command does take a few seconds to respond while it performs a search.
     '''
     @commands.command()
     async def pb(self, ctx: commands.Context):
         if len(os.environ['SRC_USER']) > 0:
-            category = ctx.message.content[4:] # TODO: cut out unicode whitespace that 7tv sometimes appends
+            category = ctx.message.content[4:]
             game = await get_game_name_from_twitch(self)
             response = self.speedrun.get_pb(convert_twitch_to_src_game(game), category)
             await ctx.send(replace_vars(response, ctx))
@@ -328,7 +328,7 @@ class PhantomGamesBot(commands.Bot):
     '''
     @commands.command()
     async def bot(self, ctx: commands.Context):
-        await ctx.send("Hey! I am a custom chatbot written in Python, my source code is available at: https://github.com/Phantom5800/PhantomGamesBot")
+        await ctx.send(f"Hey! I am a custom chatbot written in Python, my source code is available at: {os.environ['BOT_REPO']}")
 
     '''
     Get the current game being played on twitch.
