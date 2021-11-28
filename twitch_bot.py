@@ -11,7 +11,7 @@ from utils.utils import *
 class PhantomGamesBot(commands.Bot):
     def __init__(self):
         super().__init__(
-            token=os.environ['TMI_TOKEN'],
+            token=os.environ['BOT_TOKEN'],
             client_id=os.environ['CLIENT_ID'],
             nick=os.environ['BOT_NICK'],
             prefix=os.environ['BOT_PREFIX'],
@@ -92,7 +92,8 @@ class PhantomGamesBot(commands.Bot):
                 command = message.content.split()[0]
                 response = await self.custom.parse_custom_command(command)
                 if response is not None:
-                    await ctx.send(replace_vars(response, ctx, self.get_channel(os.environ['CHANNEL'])))
+                    response = await replace_vars(response, ctx, self.get_channel(os.environ['CHANNEL']))
+                    await ctx.send(response)
                 else:
                     await super().event_message(message)
 

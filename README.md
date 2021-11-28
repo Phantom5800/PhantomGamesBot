@@ -25,7 +25,7 @@ In Windows, it is possible to create a shortcut to the `run.bat` file and pin th
 At the root, anyone trying to run this will need a `.env` file that looks something like this:
 
 ```
-TMI_TOKEN={OAUTH Token}
+BOT_TOKEN={OAUTH Token for bot account}
 CLIENT_ID={Twitch Client ID}
 BOT_NICK={Bot Account Name}
 BOT_PREFIX=!
