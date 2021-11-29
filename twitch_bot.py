@@ -1,6 +1,8 @@
 from datetime import datetime
 import os
 import re
+from typing import Optional
+from twitchio import PartialUser
 from twitchio.ext import commands
 from twitchio.ext import routines
 import commands.custom_commands as custom
@@ -207,11 +209,9 @@ class PhantomGamesBot(commands.Bot):
     Delete a custom command through twitch chat.
     '''
     @commands.command(aliases=["removecom"])
-    async def removecommand(self, ctx: commands.Context):
+    async def removecommand(self, ctx: commands.Context, command: str = ""):
         if ctx.message.author.is_mod:
-            command_parts = self.command_msg_breakout(ctx.message.content, 2)
-            if command_parts is not None:
-                command = command_parts[1]
+            if len(command) > 0:
                 command_removed = await self.custom.remove_command(command)
                 if command_removed:
                     await ctx.send(f"{ctx.message.author.mention} Removed command [{command}]")
@@ -238,11 +238,9 @@ class PhantomGamesBot(commands.Bot):
             await ctx.send(f"{ctx.message.author.mention} Timers have been enabled")
 
     @commands.command()
-    async def addtimer(self, ctx: commands.Context):
+    async def addtimer(self, ctx: commands.Context, command: str = ""):
         if ctx.message.author.is_mod:
-            command_parts = self.command_msg_breakout(ctx.message.content, 2)
-            if command_parts is not None:
-                command = command_parts[1]
+            if len(command) > 0:
                 if self.custom.command_exists(command):
                     if command not in self.timer_queue:
                         self.timer_queue.append(command)
@@ -256,11 +254,9 @@ class PhantomGamesBot(commands.Bot):
                 await ctx.send(f"{ctx.message.author.mention} Specify a command to add to the timer")
     
     @commands.command()
-    async def removetimer(self, ctx: commands.Context):
+    async def removetimer(self, ctx: commands.Context, command: str = ""):
         if ctx.message.author.is_mod:
-            command_parts = self.command_msg_breakout(ctx.message.content, 2)
-            if command_parts is not None:
-                command = command_parts[1]
+            if len(command) > 0:
                 if command in self.timer_queue:
                     self.timer_queue.remove(command)
                     await self.save_timer_events()
@@ -275,22 +271,19 @@ class PhantomGamesBot(commands.Bot):
 
     # quotes
     @commands.command()
-    async def quote(self, ctx: commands.Context):
-        command_parts = self.command_msg_breakout(ctx.message.content, 2)
+    async def quote(self, ctx: commands.Context, quote_id: str = "-1"):
         response = None
-        if command_parts is not None and tryParseInt(command_parts[1], -1) >= 0:
-            response = await self.quotes.pick_specific_quote(command_parts[1])
+        if tryParseInt(quote_id, -1) >= 0:
+            response = await self.quotes.pick_specific_quote(quote_id)
         else:
             response = await self.quotes.pick_random_quote()
         if response is not None:
             await ctx.send(response)
 
     @commands.command()
-    async def addquote(self, ctx: commands.Context):
+    async def addquote(self, ctx: commands.Context, new_quote: str = ""):
         if ctx.message.author.is_mod:
-            command_parts = self.command_msg_breakout(ctx.message.content, 2)
-            if command_parts is not None:
-                new_quote = command_parts[1]
+            if len(new_quote) > 0:
                 game_name = await get_game_name_from_twitch(self)
                 response = await self.quotes.add_quote(new_quote, game_name)
                 await ctx.send(response)
@@ -306,12 +299,10 @@ class PhantomGamesBot(commands.Bot):
                 await ctx.send(response)
     
     @commands.command()
-    async def removequote(self, ctx: commands.Context):
+    async def removequote(self, ctx: commands.Context, quote_id: str = "-1"):
         if ctx.message.author.is_mod:
-            command_parts = self.command_msg_breakout(ctx.message.content, 2)
-            if command_parts is not None and tryParseInt(command_parts[1], -1) >= 0:
-                quote_id = int(command_parts[1])
-                response = await self.quotes.remove_quote(quote_id)
+            if tryParseInt(quote_id, -1) >= 0:
+                response = await self.quotes.remove_quote(int(quote_id))
                 await ctx.send(response)
 
     # speedrun.com
@@ -319,9 +310,8 @@ class PhantomGamesBot(commands.Bot):
     Get the personal best time for a game/category on speedrun.com. This command does take a few seconds to respond while it performs a search.
     '''
     @commands.command()
-    async def pb(self, ctx: commands.Context):
+    async def pb(self, ctx: commands.Context, category: str = ""):
         if len(os.environ['SRC_USER']) > 0:
-            category = ctx.message.content[4:]
             game = await get_game_name_from_twitch(self)
             response = self.speedrun.get_pb(convert_twitch_to_src_game(game), category)
             await ctx.send(response)
@@ -346,11 +336,10 @@ class PhantomGamesBot(commands.Bot):
     Give a shoutout to a specific user in chat.
     '''
     @commands.command(aliases=["shoutout"])
-    async def so(self, ctx: commands.Context):
-        if ctx.message.author.is_mod:
-            user = ctx.message.content.replace("!so", "").strip()
-            game = await get_game_name_from_twitch_for_user(self, user)
-            await ctx.send(f"Checkout {user}, maybe drop them a follow! They were most recently playing {game} over at https://twitch.tv/{user}")
+    async def so(self, ctx: commands.Context, user: PartialUser = None):
+        if ctx.message.author.is_mod and user is not None:
+            game = await get_game_name_from_twitch_for_user(self, user.name)
+            await ctx.send(f"Checkout {user.name}, maybe drop them a follow! They were most recently playing {game} over at https://twitch.tv/{user.name}")
 
 if __name__ == "__main__":
     bot = PhantomGamesBot()
