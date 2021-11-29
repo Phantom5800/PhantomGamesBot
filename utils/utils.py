@@ -74,6 +74,18 @@ async def replace_vars(message: str, ctx: commands.Context, channel) -> str:
         user_id = random.randrange(len(chat_users))
         out_str = out_str.replace("$randuser", chat_users[user_id].mention)
 
+    # mention a random mod in chat
+    if "$randmod" in out_str:
+        chat_users = list(filter(lambda user: user.is_mod, list(channel.chatters)))
+        user_id = random.randrange(len(chat_users))
+        out_str = out_str.replace("$randmod", chat_users[user_id].mention)
+
+    # mentions a random sub in chat
+    if "$randsub" in out_str:
+        chat_users = list(filter(lambda user: user.is_subscriber, list(channel.chatters)))
+        user_id = random.randrange(len(chat_users))
+        out_str = out_str.replace("$randmod", chat_users[user_id].mention)
+
     # generate a random number in a range
     if "$randnum" in out_str:
         regex = r"\W*((?i)\$randnum\((?-i:))\W*([0-9]*),([0-9]*)\)"
