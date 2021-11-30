@@ -16,12 +16,25 @@ def tryParseInt(value: str, default: int = 0) -> int:
     except ValueError:
         return default
 
+twitch_user_cache = {}
+
+'''
+Get a user object from cache if it exists, otherwise make a request and store the result.
+'''
+async def get_twitch_user(twitchClient: commands.Bot, username: str):
+    if username in twitch_user_cache:
+        return twitch_user_cache[username]
+    streamer = await twitchClient.fetch_channel(username)
+    if streamer is not None:
+        twitch_user_cache[username] = streamer
+    return streamer
+
 '''
 Find the current stream category for a given user.
 '''
 async def get_game_name_from_twitch_for_user(twitchClient: commands.Bot, username: str) -> str:
     # get the channel info for requested user, this should typically work immediately
-    streamer = await twitchClient.fetch_channel(username)
+    streamer = await get_twitch_user(twitchClient, username)
     if streamer is not None:
         debugPrint(f"[Get Game Name] Found streamer immediately: {username}")
         return streamer.game_name
@@ -52,7 +65,7 @@ async def get_game_name_from_twitch(twitchClient: commands.Bot) -> str:
 Get the stream title for a specific user.
 '''
 async def get_stream_title_for_user(twitchClient: commands.Bot, username: str) -> str:
-    streamer = await twitchClient.fetch_channel(username)
+    streamer = await get_twitch_user(twitchClient, username)
     if streamer is not None:
         return streamer.title
     return f"User Not Found {username}"
