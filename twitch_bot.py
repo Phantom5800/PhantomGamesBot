@@ -340,6 +340,14 @@ class PhantomGamesBot(commands.Bot):
         if ctx.message.author.is_mod and user is not None:
             game = await get_game_name_from_twitch_for_user(self, user.name)
             await ctx.send(f"Checkout {user.name}, maybe drop them a follow! They were most recently playing {game} over at https://twitch.tv/{user.name}")
+        
+    '''
+    Get the current title of the stream.
+    '''
+    @commands.command()
+    async def title(self, ctx: commands.Context):
+        streamtitle = await get_stream_title_for_user(self, os.environ['CHANNEL'])
+        await ctx.send(streamtitle)
 
 if __name__ == "__main__":
     bot = PhantomGamesBot()

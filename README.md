@@ -66,6 +66,9 @@ Display a random (or specified) quote from the internally stored list.
 !quote {quote id}
 ```
 
+### !title
+Get the current title for the stream.
+
 # Mod Commands
 Set of commands that require moderator permissions in the channel in order to use.
 

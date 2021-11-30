@@ -20,6 +20,13 @@ def tryParseInt(value: str, default: int = 0) -> int:
 Find the current stream category for a given user.
 '''
 async def get_game_name_from_twitch_for_user(twitchClient: commands.Bot, username: str) -> str:
+    # get the channel info for requested user, this should typically work immediately
+    streamer = await twitchClient.fetch_channel(username)
+    if streamer is not None:
+        debugPrint(f"[Get Game Name] Found streamer immediately: {username}")
+        return streamer.game_name
+
+    # backup, do a full search
     streamer_list = await twitchClient.search_channels(username)
     for streamer in streamer_list:
         debugPrint(f"[Get Game Name] Found streamer match: {streamer.name.lower()}")
@@ -40,6 +47,15 @@ Find the current game being played on the streamer's channel.
 async def get_game_name_from_twitch(twitchClient: commands.Bot) -> str:
     game = await get_game_name_from_twitch_for_user(twitchClient, os.environ['CHANNEL'])
     return game
+
+'''
+Get the stream title for a specific user.
+'''
+async def get_stream_title_for_user(twitchClient: commands.Bot, username: str) -> str:
+    streamer = await twitchClient.fetch_channel(username)
+    if streamer is not None:
+        return streamer.title
+    return f"User Not Found {username}"
 
 '''
 Take game name's from twitch and map them to the name of games that appear on speedrun.com.
