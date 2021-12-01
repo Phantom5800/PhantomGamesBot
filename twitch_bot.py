@@ -31,7 +31,7 @@ class PhantomGamesBot(commands.Bot):
         self.messages_since_timer = 0
         self.timer_lines = tryParseInt(os.environ['TIMER_CHAT_LINES'], 5)
     
-    async def load_timer_events(self):
+    def load_timer_events(self):
         with open('./commands/resources/timer_events.txt', 'r', encoding="utf-8") as txt_file:
             lines = txt_file.readlines()
             for line in lines:
@@ -40,7 +40,7 @@ class PhantomGamesBot(commands.Bot):
                     self.timer_queue.append(command)
         print(f"Timer events loaded: {self.timer_queue}")
 
-    async def save_timer_events(self):
+    def save_timer_events(self):
         with open('./commands/resources/timer_events.txt', 'w', encoding="utf-8") as txt_file:
             for event in self.timer_queue:
                 txt_file.write(f"{event}\n")
@@ -51,11 +51,11 @@ class PhantomGamesBot(commands.Bot):
     async def event_ready(self):
         # load relevant data
         print("=======================================")
-        await self.custom.load_commands()
+        self.custom.load_commands()
         print("=======================================")
-        await self.quotes.load_quotes()
+        self.quotes.load_quotes()
         print("=======================================")
-        await self.load_timer_events()
+        self.load_timer_events()
         print("=======================================")
         print(f"{os.environ['BOT_NICK']} is online!")
         print("=======================================")
@@ -92,7 +92,7 @@ class PhantomGamesBot(commands.Bot):
             # handle custom commands
             if message.content is not None and len(message.content) > 0:
                 command = message.content.split()[0]
-                response = await self.custom.parse_custom_command(command)
+                response = self.custom.parse_custom_command(command)
                 if response is not None:
                     response = await replace_vars(response, ctx, self.get_channel(os.environ['CHANNEL']))
                     await ctx.send(response)
@@ -161,7 +161,7 @@ class PhantomGamesBot(commands.Bot):
                 # get the command response
                 command_response = command_parts[2]
                 # attempt to add the command
-                command_added = await self.custom.add_command(command, command_response, 0)
+                command_added = self.custom.add_command(command, command_response, 0)
                 if command_added:
                     await ctx.send(f"{ctx.message.author.mention} Successfully added command [{command}] -> {command_response}")
                 else:
@@ -179,7 +179,7 @@ class PhantomGamesBot(commands.Bot):
             if command_parts is not None:
                 command = command_parts[1]
                 cooldown = tryParseInt(command_parts[2])
-                command_edited = await self.custom.set_cooldown(command, cooldown)
+                command_edited = self.custom.set_cooldown(command, cooldown)
                 if command_edited:
                     await ctx.send(f"{ctx.message.author.mention} Cooldown for [{command}] = {cooldown} seconds.")
                 else:
@@ -197,7 +197,7 @@ class PhantomGamesBot(commands.Bot):
             if command_parts is not None:
                 command = command_parts[1]
                 command_response = command_parts[2]
-                command_edited = await self.custom.edit_command(command, command_response, 0)
+                command_edited = self.custom.edit_command(command, command_response, 0)
                 if command_edited:
                     await ctx.send(f"{ctx.message.author.mention} Edited command [{command}] -> {command_response}")
                 else:
@@ -212,7 +212,7 @@ class PhantomGamesBot(commands.Bot):
     async def removecommand(self, ctx: commands.Context, command: str = ""):
         if ctx.message.author.is_mod:
             if len(command) > 0:
-                command_removed = await self.custom.remove_command(command)
+                command_removed = self.custom.remove_command(command)
                 if command_removed:
                     await ctx.send(f"{ctx.message.author.mention} Removed command [{command}]")
                 else:
@@ -274,9 +274,9 @@ class PhantomGamesBot(commands.Bot):
     async def quote(self, ctx: commands.Context, quote_id: str = "-1"):
         response = None
         if tryParseInt(quote_id, -1) >= 0:
-            response = await self.quotes.pick_specific_quote(quote_id)
+            response = self.quotes.pick_specific_quote(quote_id)
         else:
-            response = await self.quotes.pick_random_quote()
+            response = self.quotes.pick_random_quote()
         if response is not None:
             await ctx.send(response)
 
@@ -285,7 +285,7 @@ class PhantomGamesBot(commands.Bot):
         if ctx.message.author.is_mod:
             if len(new_quote) > 0:
                 game_name = await get_game_name_from_twitch(self)
-                response = await self.quotes.add_quote(new_quote, game_name)
+                response = self.quotes.add_quote(new_quote, game_name)
                 await ctx.send(response)
 
     @commands.command()
@@ -295,14 +295,14 @@ class PhantomGamesBot(commands.Bot):
             if command_parts is not None and tryParseInt(command_parts[1], -1) >= 0:
                 quote_id = int(command_parts[1])
                 quote = command_parts[2]
-                response = await self.quotes.edit_quote(quote_id, quote)
+                response = self.quotes.edit_quote(quote_id, quote)
                 await ctx.send(response)
     
     @commands.command()
     async def removequote(self, ctx: commands.Context, quote_id: str = "-1"):
         if ctx.message.author.is_mod:
             if tryParseInt(quote_id, -1) >= 0:
-                response = await self.quotes.remove_quote(int(quote_id))
+                response = self.quotes.remove_quote(int(quote_id))
                 await ctx.send(response)
 
     # speedrun.com
