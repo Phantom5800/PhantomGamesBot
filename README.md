@@ -115,7 +115,7 @@ These variables can be used in custom commands to fill in data dynamically.
 
 * `$msg` - Replaced with the contents of the user's message (ignoring the command itself).
 * `$randnum(min,max)` - Generates a random number in a range
-    * `$randnum(10,500)` - Replaced with a random number from 10-500
+    * `$randnum(10,500)` - Replaced with a random number in the inclusive range [10,500]
 * `$randuser` - Mentions a random user in chat.
     * `$randmod` - Mentions a random moderator in chat.
     * `$randsub` - Mentions a random subscriber in chat.
