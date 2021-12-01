@@ -8,7 +8,7 @@ import random
 class QuoteHandler:
     def __init__(self):
         self.file_lock = threading.RLock()
-        self.access_lock = thread.RLock()
+        self.access_lock = threading.RLock()
     
     def load_quotes(self):
         self.file_lock.acquire()
