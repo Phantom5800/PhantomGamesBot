@@ -22,7 +22,7 @@ class PhantomGamesBot(commands.Bot):
         self.role_message_id = 916759004233998466 # message to look for reactions on
         self.emoji_to_role = {
             "phanto274Hype": 783462693910347776, # Game-Dev
-            "phanto274King": 916759004233998466 # Stream Notifs
+            "phanto274King": 916759082206134362 # Stream Notifs
         }
 
     async def on_ready(self):
@@ -65,7 +65,6 @@ class PhantomGamesBot(commands.Bot):
         guild = self.get_guild(payload.guild_id)
         if guild is None:
             return
-        print("found guild")
 
         try:
             role_id = self.emoji_to_role[payload.emoji.name]
@@ -75,16 +74,12 @@ class PhantomGamesBot(commands.Bot):
         role = guild.get_role(role_id)
         if role is None:
             return
-        print("found role")
 
         member = guild.get_member(payload.user_id)
         if member is None:
-            print(f"could not find member???? {payload.user_id}")
-            print(guild._members)
             return
 
         try:
-            print("Removing role")
             await member.remove_roles(role)
         except discord.HTTPException:
             pass
