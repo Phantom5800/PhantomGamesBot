@@ -1,5 +1,5 @@
 # PhantomGamesBot
-This is a Twitch chatbot used by https://twitch.tv/Phantom5800, written in python and fairly easy to edit and run.
+This is a Twitch and Discord chatbot used by https://twitch.tv/Phantom5800, written in python and fairly easy to edit and run.
 
 ## License
 
@@ -182,4 +182,4 @@ PhantomGamesBot supports discord as well. The only setup required is to create a
 ![Discord token location](./readme/images/discord_token.png)
 
 ## Role Reactions
-The bot currently supports role assignment through emote reactions. The emotes and roles themselves are located in `./frontend/data/discord_emoji_roles.json`. The emoji is fairly straight forward, acting as a key for an id that is bound to a role. In discord, you can enable developer mode in advanced user settings, then right click on any role in a server you control and select `Copy ID`, this will be what is placed in the json file. Do the same for `DISCORD_ROLE_MESSAGE_ID` in `.env` so that the bot knows which chat message to watch reactions for, and that's all there is to it.
+The bot currently supports role assignment through emote reactions. The emotes and roles themselves are located in [frontend/data/discord_emoji_roles.json](./frontend/data/discord_emoji_roles.json). The emoji is fairly straight forward, acting as a key for an id that is bound to a role. In discord, you can enable developer mode in advanced user settings, then right click on any role in a server you control and select `Copy ID`, this will be what is placed in the json file. Do the same for `DISCORD_ROLE_MESSAGE_ID` in `.env` so that the bot knows which chat message to watch reactions for, and that's all there is to it.

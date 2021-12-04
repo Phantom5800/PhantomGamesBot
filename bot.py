@@ -1,4 +1,5 @@
 import asyncio
+import os
 from commands.custom_commands import CustomCommands
 from commands.quotes import QuoteHandler
 from frontend.twitch_bot import run_twitch_bot
@@ -15,10 +16,11 @@ if __name__ == "__main__":
     print("=====================================")
 
     # twitch bot acts as a master bot that appends other bot event loops to its own
-    # TODO: verify twitch environment before running bot
     masterBot = run_twitch_bot(customCommandHandler, quoteHandler)
 
-    # TODO: add discord frontend
-    run_discord_bot(masterBot.loop, customCommandHandler, quoteHandler)
+    # verify and run discord bot
+    # TODO: better verification, but empty is probably good enough
+    if os.environ['DISCORD_TOKEN'] is not None and len(os.environ['DISCORD_TOKEN']) > 0:
+        run_discord_bot(masterBot.loop, customCommandHandler, quoteHandler)
 
     masterBot.run()
