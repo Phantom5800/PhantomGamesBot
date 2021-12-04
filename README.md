@@ -37,6 +37,7 @@ BOT_PREFIX=!
 SRC_USER={Speedrun.com username}
 
 DISCORD_TOKEN={Discord bot Token}
+DISCORD_ROLE_MESSAGE_ID={ID of message containing reaction roles}
 ```
 
 In order to fill out the `.env`, you'll need to register as a [Twitch developer](https://dev.twitch.tv/console/apps/create) and create an application, this will get you a client id. Then [generate an oauth token](https://twitchapps.com/tmi/) and you'll be good to go for running the bot locally.

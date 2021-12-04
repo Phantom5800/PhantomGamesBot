@@ -18,7 +18,6 @@ class CustomCommands:
                 print(f"Custom Commands: {self.command_set}")
             except json.decoder.JSONDecodeError:
                 print("[ERROR] Failed to load commands from JSON")
-                return
         self.file_lock.release()
 
     def save_commands(self):

@@ -1,7 +1,9 @@
 import asyncio
+from copy import deepcopy
+import json
+import os
 import discord
 from discord.ext import commands
-import os
 from commands.custom_commands import CustomCommands
 from commands.quotes import QuoteHandler
 from utils.utils import *
@@ -19,11 +21,14 @@ class PhantomGamesBot(commands.Bot):
         self.custom = customCommandHandler
 
         # define reaction roles
-        self.role_message_id = 916759004233998466 # message to look for reactions on
-        self.emoji_to_role = {
-            "phanto274Hype": 783462693910347776, # Game-Dev
-            "phanto274King": 916759082206134362 # Stream Notifs
-        }
+        self.role_message_id = int(os.environ['DISCORD_ROLE_MESSAGE_ID']) # message to look for reactions on
+        with open('./frontend/data/discord_emoji_roles.json', 'r', encoding="utf-8") as json_file:
+            try:
+                data = json.load(json_file)
+                self.emoji_to_role = deepcopy(data)
+                print(f"Emoji -> Role Mapping: {self.emoji_to_role}")
+            except json.decoder.JSONDecodeError:
+                print("[ERROR] Failed to load emoji->role mapping JSON")
 
     async def on_ready(self):
         print("=======================================")
