@@ -5,13 +5,13 @@ from typing import Optional
 from twitchio import PartialUser
 from twitchio.ext import commands
 from twitchio.ext import routines
-import commands.custom_commands as custom
-import commands.quotes as quotes
+from commands.custom_commands import CustomCommands
+from commands.quotes import QuoteHandler
 import commands.src as src
 from utils.utils import *
 
 class PhantomGamesBot(commands.Bot):
-    def __init__(self):
+    def __init__(self, customCommandHandler: CustomCommands, quoteHandler: QuoteHandler):
         super().__init__(
             token=os.environ['BOT_TOKEN'],
             client_id=os.environ['CLIENT_ID'],
@@ -21,8 +21,8 @@ class PhantomGamesBot(commands.Bot):
         )
 
         # command handlers
-        self.custom = custom.CustomCommands()
-        self.quotes = quotes.QuoteHandler()
+        self.custom = customCommandHandler
+        self.quotes = quoteHandler
         self.speedrun = src.SrcomApi()
 
         # custom timers
@@ -50,10 +50,6 @@ class PhantomGamesBot(commands.Bot):
     '''
     async def event_ready(self):
         # load relevant data
-        print("=======================================")
-        self.custom.load_commands()
-        print("=======================================")
-        self.quotes.load_quotes()
         print("=======================================")
         self.load_timer_events()
         print("=======================================")
@@ -349,6 +345,6 @@ class PhantomGamesBot(commands.Bot):
         streamtitle = await get_stream_title_for_user(self, os.environ['CHANNEL'])
         await ctx.send(streamtitle)
 
-def run_twitch_bot():
-    bot = PhantomGamesBot()
+def run_twitch_bot(customCommandHandler: CustomCommands, quoteHandler: QuoteHandler):
+    bot = PhantomGamesBot(customCommandHandler, quoteHandler)
     bot.run()
