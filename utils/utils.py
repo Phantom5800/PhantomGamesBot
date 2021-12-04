@@ -109,7 +109,7 @@ async def replace_vars_generic(message: str) -> str:
 '''
 Variable replacement for bot responses.
 '''
-async def replace_vars(message: str, ctx: twitchCommands.Context, channel: Channel) -> str:
+async def replace_vars_twitch(message: str, ctx: twitchCommands.Context, channel: Channel) -> str:
     out_str = message
 
     # replace with a copy-paste of user's message

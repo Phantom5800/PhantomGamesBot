@@ -122,6 +122,13 @@ class PhantomGamesBotModule(commands.Cog):
     async def bot(self, ctx: commands.Context):
         await ctx.send("Hey! I am a custom chatbot written in Python, my source code is available at: https://github.com/Phantom5800/PhantomGamesBot")
 
+    @commands.command(name="commands")
+    async def get_commands(self, ctx):
+        command_list = ["!bot", "!commands", "!quote"]
+        command_list.extend(self.bot.custom.get_command_list())
+        command_list.sort()
+        await ctx.send(f"List of all the current commands: {command_list}")
+
     @commands.command(name="quote")
     async def get_quote(self, ctx, quote_id: str = "-1"):
         response = None

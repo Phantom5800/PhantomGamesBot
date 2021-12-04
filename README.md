@@ -48,7 +48,7 @@ Default command set that can be used by anyone.
 ### !bot ![](./readme/images/twitch.png) ![](./readme/images/discord.png)
 Provides a link to the github page for this bot's source code.
 
-### !commands ![](./readme/images/twitch.png)
+### !commands ![](./readme/images/twitch.png) ![](./readme/images/discord.png)
 Get a list of all available commands the chatbot can reply to.
 
 ### !game ![](./readme/images/twitch.png)

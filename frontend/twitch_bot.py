@@ -90,7 +90,7 @@ class PhantomGamesBot(commands.Bot):
                 command = message.content.split()[0]
                 response = self.custom.parse_custom_command(command)
                 if response is not None:
-                    response = await replace_vars(response, ctx, self.get_channel(os.environ['TWITCH_CHANNEL']))
+                    response = await replace_vars_twitch(response, ctx, self.get_channel(os.environ['TWITCH_CHANNEL']))
                     await ctx.send(response)
                 else:
                     await super().event_message(message)
