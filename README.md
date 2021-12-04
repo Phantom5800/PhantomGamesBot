@@ -44,16 +44,16 @@ In order to fill out the `.env`, you'll need to register as a [Twitch developer]
 # Default Commands
 Default command set that can be used by anyone.
 
-### !bot
+### !bot ![](./readme/images/twitch.png) ![](./readme/images/discord.png)
 Provides a link to the github page for this bot's source code.
 
-### !commands
+### !commands ![](./readme/images/twitch.png)
 Get a list of all available commands the chatbot can reply to.
 
-### !game
+### !game ![](./readme/images/twitch.png)
 Display the current game being played.
 
-### !pb
+### !pb ![](./readme/images/twitch.png)
 Get the streamer's personal best speedrun time for given game and category. If no category is specified and the streamer has runs in multiple categories, a list will be given instead. The game is taken automatically from twitch.
 
 ```
@@ -62,7 +62,7 @@ Get the streamer's personal best speedrun time for given game and category. If n
 
 ![Example of what a response looks like](./readme/images/pb.png)
 
-### !quote
+### !quote ![](./readme/images/twitch.png) ![](./readme/images/discord.png)
 Display a random (or specified) quote from the internally stored list.
 
 ```
@@ -70,13 +70,13 @@ Display a random (or specified) quote from the internally stored list.
 !quote {quote id}
 ```
 
-### !title
+### !title ![](./readme/images/twitch.png)
 Get the current title for the stream.
 
 # Mod Commands
 Set of commands that require moderator permissions in the channel in order to use.
 
-### !so
+### !so ![](./readme/images/twitch.png)
 Give a shoutout to another user, typically would be used for raid's or vip's.
 
 ```
@@ -84,30 +84,30 @@ Give a shoutout to another user, typically would be used for raid's or vip's.
 ```
 
 ## Custom Commands
-Custom commands are basic command -> response events that can be managed by the streamer and moderators with the following commands. 
+Custom commands are basic command -> response events that can be managed by the streamer and moderators with the following commands. All commands created in this way are available on both Twitch and Discord, however some command variables may not function as intended on both platforms.
 
-### !addcommand
+### !addcommand ![](./readme/images/twitch.png)
 Add a new custom command to the bot.
 
 ```
 !addcommand {command} {response text}
 ```
 
-### !editcommand
+### !editcommand ![](./readme/images/twitch.png)
 Edit the response for an existing command.
 
 ```
 !editcommand {command} {response text}
 ```
 
-### !removecommand
+### !removecommand ![](./readme/images/twitch.png)
 Remove a custom bot command.
 
 ```
 !removecommand {command}
 ```
 
-### !setcooldown
+### !setcooldown ![](./readme/images/twitch.png)
 Set the cooldown on a custom command to restrict how often it can be used.
 
 ```
@@ -127,21 +127,21 @@ These variables can be used in custom commands to fill in data dynamically.
 
 ## Quotes
 
-### !addquote
+### !addquote ![](./readme/images/twitch.png)
 Add a new quote to the list, current game and date are automatically added.
 
 ```
 !addquote {new quote}
 ```
 
-### !editquote
+### !editquote ![](./readme/images/twitch.png)
 Edit an existing quote in case of typos, etc.
 
 ```
 !editquote {quote id} {quote text}
 ```
 
-### !removequote
+### !removequote ![](./readme/images/twitch.png)
 Remove an existing quote, all quotes that appear after are shifted down accordingly so the ID sequence is never broken.
 
 ```
@@ -152,25 +152,25 @@ Remove an existing quote, all quotes that appear after are shifted down accordin
 
 Timer events are posted automatically at given intervals set by `TIMER_MINUTES` and `TIMER_CHAT_LINES` in `.env`. If a timer triggers and the required amount of chat messages have not passed, the timer will wait the full duration before checking again. This may need to be tweaked based on the streamer's chat and what they expect. In some cases it may be better to have shorter timers with a higher message requirement. Experimenting with the numbers is highly recommended.
 
-### !disabletimer
+### !disabletimer ![](./readme/images/twitch.png)
 Disable all bot timer messages.
 
-### !enabletimer
+### !enabletimer ![](./readme/images/twitch.png)
 Enable bot timer messages.
 
-### !addtimer
+### !addtimer ![](./readme/images/twitch.png)
 Add a custom command to the timer queue.
 
 ```
 !addtimer {command}
 ```
 
-### !removetimer
+### !removetimer ![](./readme/images/twitch.png)
 Removes a command from the timer queue.
 
 ```
 !removetimer {command}
 ```
 
-### !timerevents
+### !timerevents ![](./readme/images/twitch.png)
 Get a list of all the current events added to the timer.
