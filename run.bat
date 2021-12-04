@@ -1,3 +1,3 @@
 @echo off
 Title PhantomGamesBot
-pipenv run python twitch_bot.py
+pipenv run python bot.py

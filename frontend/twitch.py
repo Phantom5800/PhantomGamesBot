@@ -349,6 +349,6 @@ class PhantomGamesBot(commands.Bot):
         streamtitle = await get_stream_title_for_user(self, os.environ['CHANNEL'])
         await ctx.send(streamtitle)
 
-if __name__ == "__main__":
+def run_twitch_bot():
     bot = PhantomGamesBot()
     bot.run()
