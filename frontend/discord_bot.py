@@ -63,6 +63,4 @@ class PhantomGamesBotModule(commands.Cog):
 def run_discord_bot(eventLoop, customCommandHandler: CustomCommands, quoteHandler: QuoteHandler):
     bot = PhantomGamesBot(customCommandHandler)
     bot.add_cog(PhantomGamesBotModule(bot, quoteHandler))
-
     eventLoop.create_task(bot.start(os.environ['DISCORD_TOKEN']))
-    #bot.run(os.environ['DISCORD_TOKEN'])

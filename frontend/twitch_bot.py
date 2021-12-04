@@ -348,4 +348,3 @@ class PhantomGamesBot(commands.Bot):
 def run_twitch_bot(customCommandHandler: CustomCommands, quoteHandler: QuoteHandler) -> PhantomGamesBot:
     bot = PhantomGamesBot(customCommandHandler, quoteHandler)
     return bot
-    #bot.run()

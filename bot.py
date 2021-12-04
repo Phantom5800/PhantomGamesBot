@@ -14,6 +14,7 @@ if __name__ == "__main__":
     quoteHandler.load_quotes()
     print("=====================================")
 
+    # twitch bot acts as a master bot that appends other bot event loops to its own
     # TODO: verify twitch environment before running bot
     masterBot = run_twitch_bot(customCommandHandler, quoteHandler)
 
