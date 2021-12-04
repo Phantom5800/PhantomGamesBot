@@ -7,3 +7,4 @@ pip install pipenv
 pipenv --python %PYVER%
 pipenv install twitchio
 pipenv install srcomapi
+pipenv install discord

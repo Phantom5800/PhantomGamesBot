@@ -13,11 +13,11 @@ from utils.utils import *
 class PhantomGamesBot(commands.Bot):
     def __init__(self, customCommandHandler: CustomCommands, quoteHandler: QuoteHandler):
         super().__init__(
-            token=os.environ['BOT_TOKEN'],
-            client_id=os.environ['CLIENT_ID'],
+            token=os.environ['TWITCH_OAUTH_TOKEN'],
+            client_id=os.environ['TWITCH_CLIENT_ID'],
             nick=os.environ['BOT_NICK'],
             prefix=os.environ['BOT_PREFIX'],
-            initial_channels=[os.environ['CHANNEL']]
+            initial_channels=[os.environ['TWITCH_CHANNEL']]
         )
 
         # command handlers
@@ -53,11 +53,11 @@ class PhantomGamesBot(commands.Bot):
         print("=======================================")
         self.load_timer_events()
         print("=======================================")
-        print(f"{os.environ['BOT_NICK']} is online!")
+        print(f"Twitch: {os.environ['BOT_NICK']} is online!")
         print("=======================================")
 
         # start message timer
-        self.timer_update.start(self.get_channel(os.environ['CHANNEL']))
+        self.timer_update.start(self.get_channel(os.environ['TWITCH_CHANNEL']))
 
     '''
     Runs when an "invalid command" is sent by a user.
@@ -84,13 +84,13 @@ class PhantomGamesBot(commands.Bot):
         # track chat messages that have been posted since the last timer fired
         self.messages_since_timer += 1
 
-        if message.content is not None: # this has come up before??
+        if message is not None: # this has come up before??
             # handle custom commands
             if message.content is not None and len(message.content) > 0:
                 command = message.content.split()[0]
                 response = self.custom.parse_custom_command(command)
                 if response is not None:
-                    response = await replace_vars(response, ctx, self.get_channel(os.environ['CHANNEL']))
+                    response = await replace_vars(response, ctx, self.get_channel(os.environ['TWITCH_CHANNEL']))
                     await ctx.send(response)
                 else:
                     await super().event_message(message)
@@ -227,7 +227,7 @@ class PhantomGamesBot(commands.Bot):
     async def enabletimer(self, ctx: commands.Context):
         if ctx.message.author.is_mod:
             try:
-                self.timer_update.start(self.get_channel(os.environ['CHANNEL']))
+                self.timer_update.start(self.get_channel(os.environ['TWITCH_CHANNEL']))
             except RuntimeError:
                 await ctx.send(f"{ctx.message.author.mention} Timers are already enabled")
                 return
@@ -342,9 +342,10 @@ class PhantomGamesBot(commands.Bot):
     '''
     @commands.command()
     async def title(self, ctx: commands.Context):
-        streamtitle = await get_stream_title_for_user(self, os.environ['CHANNEL'])
+        streamtitle = await get_stream_title_for_user(self, os.environ['TWITCH_CHANNEL'])
         await ctx.send(streamtitle)
 
-def run_twitch_bot(customCommandHandler: CustomCommands, quoteHandler: QuoteHandler):
+def run_twitch_bot(customCommandHandler: CustomCommands, quoteHandler: QuoteHandler) -> PhantomGamesBot:
     bot = PhantomGamesBot(customCommandHandler, quoteHandler)
-    bot.run()
+    return bot
+    #bot.run()

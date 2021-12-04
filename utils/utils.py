@@ -2,7 +2,7 @@ import os
 import random
 import re
 from twitchio import Channel
-from twitchio.ext import commands
+from twitchio.ext import commands as twitchCommands
 
 debugPrintEnabled = False
 
@@ -21,7 +21,7 @@ twitch_user_cache = {}
 '''
 Get a user object from cache if it exists, otherwise make a request and store the result.
 '''
-async def get_twitch_user(twitchClient: commands.Bot, username: str):
+async def get_twitch_user(twitchClient: twitchCommands.Bot, username: str):
     if username in twitch_user_cache:
         return twitch_user_cache[username]
     streamer = await twitchClient.fetch_channel(username)
@@ -32,7 +32,7 @@ async def get_twitch_user(twitchClient: commands.Bot, username: str):
 '''
 Find the current stream category for a given user.
 '''
-async def get_game_name_from_twitch_for_user(twitchClient: commands.Bot, username: str) -> str:
+async def get_game_name_from_twitch_for_user(twitchClient: twitchCommands.Bot, username: str) -> str:
     # get the channel info for requested user, this should typically work immediately
     streamer = await get_twitch_user(twitchClient, username)
     if streamer is not None:
@@ -57,14 +57,14 @@ async def get_game_name_from_twitch_for_user(twitchClient: commands.Bot, usernam
 '''
 Find the current game being played on the streamer's channel.
 '''
-async def get_game_name_from_twitch(twitchClient: commands.Bot) -> str:
-    game = await get_game_name_from_twitch_for_user(twitchClient, os.environ['CHANNEL'])
+async def get_game_name_from_twitch(twitchClient: twitchCommands.Bot) -> str:
+    game = await get_game_name_from_twitch_for_user(twitchClient, os.environ['TWITCH_CHANNEL'])
     return game
 
 '''
 Get the stream title for a specific user.
 '''
-async def get_stream_title_for_user(twitchClient: commands.Bot, username: str) -> str:
+async def get_stream_title_for_user(twitchClient: twitchCommands.Bot, username: str) -> str:
     streamer = await get_twitch_user(twitchClient, username)
     if streamer is not None:
         return streamer.title
@@ -85,7 +85,7 @@ def convert_twitch_to_src_game(twitchGame: str) -> str:
 '''
 Variable replacement for bot responses.
 '''
-async def replace_vars(message: str, ctx: commands.Context, channel: Channel) -> str:
+async def replace_vars(message: str, ctx: twitchCommands.Context, channel: Channel) -> str:
     out_str = message
 
     # replace with a copy-paste of user's message
@@ -103,10 +103,10 @@ async def replace_vars(message: str, ctx: commands.Context, channel: Channel) ->
     # if "$followcnt" in out_str:
     #     follow_count = 0
     #     streamer = await channel.user()
-    #     followers = await streamer.fetch_followers(os.environ['CHANNEL_TOKEN'])
+    #     followers = await streamer.fetch_followers(os.environ['TWITCH_CHANNEL_TOKEN'])
     #     while len(followers) > 0:
     #         follow_count += len(followers)
-    #         followers = await streamer.fetch_followers(os.environ['CHANNEL_TOKEN'])
+    #         followers = await streamer.fetch_followers(os.environ['TWITCH_CHANNEL_TOKEN'])
     #     out_str = out_str.replace("$followcnt", str(follow_count))
 
     # mention a user from chat at random

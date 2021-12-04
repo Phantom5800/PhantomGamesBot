@@ -68,7 +68,7 @@ class QuoteHandler:
         if quote_id in self.quotes:
             response = f"[Quote #{quote_id}]: {self.quotes[quote_id]}"
         self.access_lock.release()
-        return reponse
+        return response
 
     def pick_random_quote(self) -> str:
         self.access_lock.acquire()

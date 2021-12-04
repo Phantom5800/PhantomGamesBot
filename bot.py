@@ -1,6 +1,8 @@
+import asyncio
 from commands.custom_commands import CustomCommands
 from commands.quotes import QuoteHandler
-from frontend.twitch import run_twitch_bot
+from frontend.twitch_bot import run_twitch_bot
+from frontend.discord_bot import run_discord_bot
 
 if __name__ == "__main__":
     # Shared resources
@@ -13,6 +15,9 @@ if __name__ == "__main__":
     print("=====================================")
 
     # TODO: verify twitch environment before running bot
-    run_twitch_bot(customCommandHandler, quoteHandler)
+    masterBot = run_twitch_bot(customCommandHandler, quoteHandler)
 
     # TODO: add discord frontend
+    run_discord_bot(masterBot.loop, customCommandHandler, quoteHandler)
+
+    masterBot.run()

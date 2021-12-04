@@ -114,7 +114,7 @@ class SrcomApi:
 
         # if no runs found
         if found_game == False:
-            return f"{os.environ['CHANNEL']} does not have any speedruns of {game}"
+            return f"{os.environ['TWITCH_CHANNEL']} does not have any speedruns of {game}"
         # if there's only one category, don't need it specified
         elif len(category_list) == 1:
             debugPrint(f"[Get PB] Only found one run: {game} - {category_list[0]}")
