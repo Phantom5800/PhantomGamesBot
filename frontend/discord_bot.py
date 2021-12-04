@@ -104,6 +104,7 @@ class PhantomGamesBot(commands.Bot):
             if message.content is not None and len(message.content) > 0:
                 command = message.content.split()[0]
                 response = self.custom.parse_custom_command(command)
+                response = await replace_vars_generic(response)
                 if response is not None:
                     await ctx.send(response)
                 else:

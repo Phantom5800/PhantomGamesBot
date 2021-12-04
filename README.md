@@ -175,3 +175,11 @@ Removes a command from the timer queue.
 
 ### !timerevents ![](./readme/images/twitch.png)
 Get a list of all the current events added to the timer.
+
+# Discord Settings
+PhantomGamesBot supports discord as well. The only setup required is to create an application in the [Discord Developer Portal](https://discord.com/developers/applications) and copy the token for the bot into `.env`. Other settings in the portal depend entirely on what you would be using the bot for.
+
+![Discord token location](./readme/images/discord_token.png)
+
+## Role Reactions
+The bot currently supports role assignment through emote reactions. The emotes and roles themselves are located in `./frontend/data/discord_emoji_roles.json`. The emoji is fairly straight forward, acting as a key for an id that is bound to a role. In discord, you can enable developer mode in advanced user settings, then right click on any role in a server you control and select `Copy ID`, this will be what is placed in the json file. Do the same for `DISCORD_ROLE_MESSAGE_ID` in `.env` so that the bot knows which chat message to watch reactions for, and that's all there is to it.

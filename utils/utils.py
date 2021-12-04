@@ -83,6 +83,30 @@ def convert_twitch_to_src_game(twitchGame: str) -> str:
     return twitchGame
 
 '''
+Generic variable replacement that does not depend on any platform specific features.
+'''
+async def replace_vars_generic(message: str) -> str:
+    out_str = message
+
+    # generate a random number in a range
+    if "$randnum" in out_str:
+        regex = r"(.*)\W*((?i)\$randnum\((?-i:))\W*([0-9]*),([0-9]*)\)(.*)"
+        matches = re.match(regex, out_str)
+        if matches is not None:
+            match_groups = matches.groups()
+            minimum = tryParseInt(match_groups[2], 0)
+            maximum = tryParseInt(match_groups[3], 100)
+            rand = random.randint(minimum, maximum)
+            
+            start = len(matches.groups()[0])
+            end = len(matches.groups()[0]) + len(matches.groups()[1]) + len(matches.groups()[2]) + len(matches.groups()[3]) + 2
+            out_str = f"{out_str[:start]}{rand}{out_str[end:]}"
+        else:
+            out_str = out_str.replace("$randnum", "[$randnum must have a minimum and maximum: example \"$randnum(10,50)\"]")
+    
+    return out_str
+
+'''
 Variable replacement for bot responses.
 '''
 async def replace_vars(message: str, ctx: twitchCommands.Context, channel: Channel) -> str:
@@ -127,20 +151,7 @@ async def replace_vars(message: str, ctx: twitchCommands.Context, channel: Chann
         user_id = random.randrange(len(chat_users))
         out_str = out_str.replace("$randmod", chat_users[user_id].mention)
 
-    # generate a random number in a range
-    if "$randnum" in out_str:
-        regex = r"(.*)\W*((?i)\$randnum\((?-i:))\W*([0-9]*),([0-9]*)\)(.*)"
-        matches = re.match(regex, out_str)
-        if matches is not None:
-            match_groups = matches.groups()
-            minimum = tryParseInt(match_groups[2], 0)
-            maximum = tryParseInt(match_groups[3], 100)
-            rand = random.randint(minimum, maximum)
-            
-            start = len(matches.groups()[0])
-            end = len(matches.groups()[0]) + len(matches.groups()[1]) + len(matches.groups()[2]) + len(matches.groups()[3]) + 2
-            out_str = f"{out_str[:start]}{rand}{out_str[end:]}"
-        else:
-            out_str = out_str.replace("$randnum", "[$randnum must have a minimum and maximum: example \"$randnum(10,50)\"]")
+    # handle generic variables last
+    out_str = await replace_vars_generic(out_str)
 
     return out_str
