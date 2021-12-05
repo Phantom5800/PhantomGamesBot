@@ -100,6 +100,7 @@ class PhantomGamesBot(commands.Bot):
         # get the message context so that we don't have to reply
         ctx = await self.get_context(message)
 
+        # in discord, @'d users or roles are replaced with an id like: <@!895540229702828083>
         if message is not None:
             if message.content is not None and len(message.content) > 0:
                 command = message.content.split()[0]
