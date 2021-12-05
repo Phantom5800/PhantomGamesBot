@@ -49,10 +49,13 @@ Default command set that can be used by anyone.
 Provides a link to the github page for this bot's source code.
 
 ### !commands ![](./readme/images/twitch.png) ![](./readme/images/discord.png)
-Get a list of all available commands the chatbot can reply to.
+Get a list of all available commands the chatbot can reply to. In discord, the list provided only pulls from the custom commands created by moderators on twitch. Default bot commands in discord are provided by `!help`.
 
 ### !game ![](./readme/images/twitch.png)
 Display the current game being played.
+
+### !help ![](./readme/images/discord.png)
+Provides a basic help dialog, giving discord users more detail into what the bot is capable of.
 
 ### !pb ![](./readme/images/twitch.png)
 Get the streamer's personal best speedrun time for given game and category. If no category is specified and the streamer has runs in multiple categories, a list will be given instead. The game is taken automatically from twitch.

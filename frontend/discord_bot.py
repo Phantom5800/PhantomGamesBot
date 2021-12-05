@@ -125,10 +125,10 @@ class PhantomGamesBotModule(commands.Cog):
 
     @commands.command(name="commands")
     async def get_commands(self, ctx):
-        command_list = ["!bot", "!commands", "!quote"]
+        command_list = []
         command_list.extend(self.bot.custom.get_command_list())
         command_list.sort()
-        await ctx.send(f"List of all the current commands: {command_list}")
+        await ctx.send(f"List of all the current custom commands: {command_list}")
 
     @commands.command(name="quote")
     async def get_quote(self, ctx, quote_id: str = "-1"):
