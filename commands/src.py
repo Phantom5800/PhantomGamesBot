@@ -121,6 +121,10 @@ class SrcomApi:
             category = matches.groups()[0]
             category_vars = matches.groups()[1].split(',')
 
+            # remove extrenuous whitespace from variables
+            for i, s in enumerate(category_vars):
+                category_vars[i] = s.strip()
+
         for run in self.personal_bests:
             # ignore ILs
             if run['run'].level is not None:
@@ -147,19 +151,25 @@ class SrcomApi:
                     variable_types = game_category[0].variables
                     variables = []
 
+                    debugPrint(f"[Get PB] Found category match: {category_name}")
+
                     # get information about variables
                     run_vars = run['run'].data['values']
                     for variable in variable_types:
                         if variable.data['id'] in run_vars:
                             run_value_id = run_vars[variable.data['id']]
                             run_value = variable.values['values'][run_value_id]['label']
+                            debugPrint(run_value)
                             if run_value in category_vars:
                                 variables.append(run_value)
                             category_list[len(category_list) - 1] += f" [{run_value}]"
                     category_list[len(category_list) - 1] = category_list[len(category_list) - 1].replace("] [", ", ")
 
+                    debugPrint(category_vars)
+
+                    # check if a run was found that matched all the given variables
                     if len(variables) == len(category_vars):
-                        debugPrint(f"[Get PB] Found category: {category_name} - {variables}")
+                        debugPrint(f"[Get PB] Found variable match: {category_name} - {variables}")
                         # overwrite the capitalization input by the user
                         if category_name.lower() == category.lower():
                             debugPrint(f"[Get PB] Overwriting {category} with {category_name}")
