@@ -7,11 +7,11 @@ from twitchio.ext import commands
 from twitchio.ext import routines
 from commands.custom_commands import CustomCommands
 from commands.quotes import QuoteHandler
-import commands.src as src
+from commands.src import SrcomApi
 from utils.utils import *
 
 class PhantomGamesBot(commands.Bot):
-    def __init__(self, customCommandHandler: CustomCommands, quoteHandler: QuoteHandler):
+    def __init__(self, customCommandHandler: CustomCommands, quoteHandler: QuoteHandler, srcHandler: SrcomApi):
         super().__init__(
             token=os.environ['TWITCH_OAUTH_TOKEN'],
             client_id=os.environ['TWITCH_CLIENT_ID'],
@@ -23,7 +23,7 @@ class PhantomGamesBot(commands.Bot):
         # command handlers
         self.custom = customCommandHandler
         self.quotes = quoteHandler
-        self.speedrun = src.SrcomApi()
+        self.speedrun = srcHandler
 
         # custom timers
         self.timer_queue = []
@@ -306,8 +306,9 @@ class PhantomGamesBot(commands.Bot):
     Get the personal best time for a game/category on speedrun.com. This command does take a few seconds to respond while it performs a search.
     '''
     @commands.command()
-    async def pb(self, ctx: commands.Context, category: str = ""):
+    async def pb(self, ctx: commands.Context):
         if len(os.environ['SRC_USER']) > 0:
+            category = ctx.message.content[3:].strip()
             game = await get_game_name_from_twitch(self)
             response = self.speedrun.get_pb(convert_twitch_to_src_game(game), category)
             await ctx.send(response)
@@ -345,6 +346,6 @@ class PhantomGamesBot(commands.Bot):
         streamtitle = await get_stream_title_for_user(self, os.environ['TWITCH_CHANNEL'])
         await ctx.send(streamtitle)
 
-def run_twitch_bot(customCommandHandler: CustomCommands, quoteHandler: QuoteHandler) -> PhantomGamesBot:
-    bot = PhantomGamesBot(customCommandHandler, quoteHandler)
+def run_twitch_bot(customCommandHandler: CustomCommands, quoteHandler: QuoteHandler, srcHandler: SrcomApi) -> PhantomGamesBot:
+    bot = PhantomGamesBot(customCommandHandler, quoteHandler, srcHandler)
     return bot

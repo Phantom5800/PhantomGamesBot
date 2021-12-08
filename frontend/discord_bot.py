@@ -6,6 +6,7 @@ import discord
 from discord.ext import commands
 from commands.custom_commands import CustomCommands
 from commands.quotes import QuoteHandler
+from commands.src import SrcomApi
 from utils.utils import *
 
 class PhantomGamesBot(commands.Bot):
@@ -115,9 +116,10 @@ class PhantomGamesBot(commands.Bot):
 Unlike twitchio, discord bot is unable to embed commands directly, and requires cogs.
 '''
 class PhantomGamesBotModule(commands.Cog):
-    def __init__(self, bot, quoteHandler: QuoteHandler):
+    def __init__(self, bot, quoteHandler: QuoteHandler, srcHandler: SrcomApi):
         self.bot = bot
         self.quotes = quoteHandler
+        self.speedrun = srcHandler
     
     @commands.command()
     async def bot(self, ctx: commands.Context):
@@ -130,6 +132,19 @@ class PhantomGamesBotModule(commands.Cog):
         command_list.sort()
         await ctx.send(f"List of all the current custom commands: {command_list}")
 
+    @commands.command(name="pb")
+    async def get_pb(self, ctx):
+        game = ctx.message.content[3:].strip()
+        if len(game) > 0:
+            categories = self.speedrun.get_categories(game)
+            response = ""
+            for category in categories:
+                response += self.speedrun.get_pb(game, category) + "\n"
+            await ctx.send(response)
+        else:
+            game_list = self.speedrun.get_games()
+            await ctx.send(f"Available games: {game_list}")
+
     @commands.command(name="quote")
     async def get_quote(self, ctx, quote_id: str = "-1"):
         response = None
@@ -140,7 +155,7 @@ class PhantomGamesBotModule(commands.Cog):
         if response is not None:
             await ctx.send(response)
 
-def run_discord_bot(eventLoop, customCommandHandler: CustomCommands, quoteHandler: QuoteHandler):
+def run_discord_bot(eventLoop, customCommandHandler: CustomCommands, quoteHandler: QuoteHandler, srcHandler: SrcomApi):
     bot = PhantomGamesBot(customCommandHandler)
-    bot.add_cog(PhantomGamesBotModule(bot, quoteHandler))
+    bot.add_cog(PhantomGamesBotModule(bot, quoteHandler, srcHandler))
     eventLoop.create_task(bot.start(os.environ['DISCORD_TOKEN']))

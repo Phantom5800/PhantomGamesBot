@@ -57,7 +57,7 @@ Display the current game being played.
 ### !help ![](./readme/images/discord.png)
 Provides a basic help dialog, giving discord users more detail into what the bot is capable of.
 
-### !pb ![](./readme/images/twitch.png)
+### !pb ![](./readme/images/twitch.png) ![](./readme/images/discord.png)
 Get the streamer's personal best speedrun time for given game and category. If no category is specified and the streamer has runs in multiple categories, a list will be given instead. The game is taken automatically from twitch.
 
 ```
@@ -65,6 +65,14 @@ Get the streamer's personal best speedrun time for given game and category. If n
 ```
 
 ![Example of what a response looks like](./readme/images/pb.png)
+
+On discord, this command behaves slightly different. Instead of taking a category, it takes a game, and returns all PB's recorded for the given game.
+
+```
+!pb {game}
+```
+
+![Example of a response in discord](./readme/images/pb_discord.png)
 
 ### !quote ![](./readme/images/twitch.png) ![](./readme/images/discord.png)
 Display a random (or specified) quote from the internally stored list.

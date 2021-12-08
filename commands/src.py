@@ -52,6 +52,44 @@ class SrcomApi:
             return f"{seconds}"
 
     '''
+    Get a list of games available on speedrun.com.
+    '''
+    def get_games(self) -> list:
+        game_list = []
+        for run in self.personal_bests:
+            if run['run'].level is not None:
+                continue
+            game_obj = self.api.get_game(run['run'].game)
+            gamename = game_obj.name
+            if gamename not in game_list and "Category Extensions" not in gamename:
+                game_list.append(gamename)
+        return game_list
+
+    '''
+    Get a list of all categories for a given game.
+    '''
+    def get_categories(self, game: str) -> list:
+        category_list = []
+        debugPrint(f"Searching for categories in {game}")
+
+        for run in self.personal_bests:
+            if run['run'].level is not None:
+                continue
+            game_obj = self.api.get_game(run['run'].game)
+            gamename = game_obj.name
+            # if the run we are looking at, is the correct game
+            if game.lower() == gamename.lower() or f"{game} Category Extensions".lower() == gamename.lower():
+                debugPrint(f"Found run for {game}")
+                game_category = list(filter(lambda cat: cat.data['id'] == run['run'].category, game_obj.categories))
+                # if category was found, it should be valid for the query
+                if game_category is not None and len(game_category) > 0:
+                    category_name = game_category[0].data['name']
+                    debugPrint(f"Found category {category_name} for {game}")
+                    category_list.append(category_name)
+
+        return category_list
+
+    '''
     Get the PB for a desired game and category if it exists.
     TODO: Cache results to improve lookup for subsequent searches.
     '''
@@ -77,6 +115,7 @@ class SrcomApi:
             # if the run we are looking at, is the correct game
             if game.lower() == gamename.lower() or f"{game} Category Extensions".lower() == gamename.lower():
                 found_game = True
+                game = gamename # adjust for proper capitalization
                 debugPrint(f"[Get PB] Found game: {gamename}")
                 # search list of categories for the one matching this current run
                 # filter out anything that does not match {category} if no run has been logged yet
