@@ -121,18 +121,18 @@ class PhantomGamesBotModule(commands.Cog):
         self.quotes = quoteHandler
         self.speedrun = srcHandler
     
-    @commands.command()
+    @commands.command(brief="Get a link to the bot's github.")
     async def bot(self, ctx: commands.Context):
         await ctx.send("Hey! I am a custom chatbot written in Python, my source code is available at: https://github.com/Phantom5800/PhantomGamesBot")
 
-    @commands.command(name="commands")
+    @commands.command(name="commands", brief="Get a list custom commands created on twitch.")
     async def get_commands(self, ctx):
         command_list = []
         command_list.extend(self.bot.custom.get_command_list())
         command_list.sort()
         await ctx.send(f"List of all the current custom commands: {command_list}")
 
-    @commands.command(name="pb")
+    @commands.command(name="pb", brief="Get a list of personal bests for a specified game.")
     async def get_pb(self, ctx):
         game = ctx.message.content[3:].strip()
         if len(game) > 0:
@@ -145,7 +145,7 @@ class PhantomGamesBotModule(commands.Cog):
             game_list = self.speedrun.get_games()
             await ctx.send(f"Available games: {game_list}")
 
-    @commands.command(name="quote")
+    @commands.command(name="quote", brief="Get a random or specific quote.")
     async def get_quote(self, ctx, quote_id: str = "-1"):
         response = None
         if tryParseInt(quote_id, -1) >= 0:
