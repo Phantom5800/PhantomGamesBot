@@ -139,7 +139,7 @@ class PhantomGamesBotModule(commands.Cog):
             categories = self.speedrun.get_categories(game)
             response = ""
             for category in categories:
-                response += self.speedrun.get_pb(game, category) + "\n"
+                response += self.speedrun.get_pb(game, category, True) + "\n"
             await ctx.send(response)
         else:
             game_list = self.speedrun.get_games()

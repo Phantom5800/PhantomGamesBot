@@ -87,17 +87,33 @@ class SrcomApi:
                     debugPrint(f"Found category {category_name} for {game}")
                     category_list.append(category_name)
 
+                    # append variables to category name
+                    variable_types = game_category[0].variables
+                    variables = []
+
+                    # get information about variables
+                    run_vars = run['run'].data['values']
+                    for variable in variable_types:
+                        if variable.data['id'] in run_vars:
+                            run_value_id = run_vars[variable.data['id']]
+                            run_value = variable.values['values'][run_value_id]['label']
+                            variables.append(run_value)
+                            category_list[len(category_list) - 1] += f" [{run_value}]"
+                    category_list[len(category_list) - 1] = category_list[len(category_list) - 1].replace("] [", ", ")
+
         return category_list
 
     '''
     Get the PB for a desired game and category if it exists.
     TODO: Cache results to improve lookup for subsequent searches.
     '''
-    def get_pb(self, game: str, category: str) -> str:
+    def get_pb(self, game: str, category: str, disable_discord_embed: bool = False) -> str:
         category_list = []
         time = "[N/A]"
         vod_link = ""
         found_game = False
+
+        debugPrint(f"[Get PB] Searching for: {game} - {category}")
 
         matches = self.category_prog.match(category)
         category_vars = []
@@ -115,7 +131,8 @@ class SrcomApi:
             # if the run we are looking at, is the correct game
             if game.lower() == gamename.lower() or f"{game} Category Extensions".lower() == gamename.lower():
                 found_game = True
-                game = gamename # adjust for proper capitalization
+                if game.lower() == gamename.lower():
+                    game = gamename # adjust for proper capitalization
                 debugPrint(f"[Get PB] Found game: {gamename}")
                 # search list of categories for the one matching this current run
                 # filter out anything that does not match {category} if no run has been logged yet
@@ -149,7 +166,10 @@ class SrcomApi:
                             category = category_name
                         # log time and video link
                         time = self.format_time(run['run'].times['primary'])
-                        vod_link = run['run'].videos['links'][0]['uri']
+                        if disable_discord_embed:
+                            vod_link = f"<{run['run'].videos['links'][0]['uri']}>"
+                        else:
+                            vod_link = run['run'].videos['links'][0]['uri']
 
         # if no runs found
         if found_game == False:
