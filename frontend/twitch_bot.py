@@ -57,7 +57,10 @@ class PhantomGamesBot(commands.Bot):
         print("=======================================")
 
         # start message timer
-        self.timer_update.start(self.get_channel(os.environ['TWITCH_CHANNEL']))
+        try:
+            self.timer_update.start(self.get_channel(os.environ['TWITCH_CHANNEL']))
+        except RuntimeError:
+            print("Timer is already running")
 
     '''
     Runs when an "invalid command" is sent by a user.
