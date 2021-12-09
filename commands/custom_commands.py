@@ -27,12 +27,18 @@ class CustomCommands:
             json_file.write(json_str)
         self.file_lock.release()
 
+    '''
+    Check if a command already exists.
+    '''
     def command_exists(self, command: str) -> bool:
         self.file_lock.acquire()
         exists = command.lower() in self.command_set
         self.file_lock.release()
         return exists
 
+    '''
+    Get the response string for a given command. Automatically replaces variables that can only be determined at this point.
+    '''
     def get_command(self, command: str) -> str:
         command_lower = command.lower()
         com = None
@@ -51,6 +57,9 @@ class CustomCommands:
         self.file_lock.release()
         return com
     
+    '''
+    Get the full list of all commands.
+    '''
     def get_command_list(self) -> list:
         command_list = []
         self.file_lock.acquire()
@@ -59,6 +68,9 @@ class CustomCommands:
         self.file_lock.release()
         return command_list
 
+    '''
+    Add a new command if one does not already exist.
+    '''
     def add_command(self, command: str, response: str, cooldown: int) -> bool:
         command_lower = command.lower()
         self.file_lock.acquire()
@@ -75,6 +87,9 @@ class CustomCommands:
         self.file_lock.release()
         return False
     
+    '''
+    Set the cooldown for a specific command.
+    '''
     def set_cooldown(self, command: str, cooldown: int) -> bool:
         command_lower = command.lower()
         self.file_lock.acquire()
@@ -86,6 +101,9 @@ class CustomCommands:
         self.file_lock.release()
         return False
 
+    '''
+    Edit the response for a given command.
+    '''
     def edit_command(self, command: str, response: str, cooldown: int) -> bool:
         command_lower = command.lower()
         self.file_lock.acquire()
@@ -100,6 +118,9 @@ class CustomCommands:
         self.file_lock.release()
         return False
 
+    '''
+    Delete an existing command.
+    '''
     def remove_command(self, command: str) -> bool:
         command_lower = command.lower()
         self.file_lock.acquire()
@@ -112,6 +133,9 @@ class CustomCommands:
         self.file_lock.release()
         return False
 
+    '''
+    Return a response based on if the input string provided matches a command that is not on cooldown.
+    '''
     def parse_custom_command(self, message: str) -> str:
         lower_message = message.lower()
         if self.command_exists(lower_message):
