@@ -39,6 +39,15 @@ class CustomCommands:
         self.file_lock.acquire()
         if self.command_exists(command_lower):
             com = self.command_set[command_lower]["response"]
+
+            # replace command specific vars
+            if "$count" in com:
+                if "count" in self.command_set[command_lower]:
+                    self.command_set[command_lower]["count"] = self.command_set[command_lower]["count"] + 1
+                else:
+                    self.command_set[command_lower]["count"] = 1
+                self.save_commands() # need to save because data has been updated
+                com = com.replace("$count", str(self.command_set[command_lower]["count"]))
         self.file_lock.release()
         return com
     
@@ -109,9 +118,10 @@ class CustomCommands:
             response = None
             self.file_lock.acquire()
             # check if command has been used, and if it has, if it is past the cooldown period
-            if self.command_set[lower_message]["last_use"] == 0 or (datetime.now() - self.command_set[lower_message]["last_use"]).total_seconds() > self.command_set[lower_message]["cooldown"]:
-                self.command_set[lower_message]["last_use"] = datetime.now()
-                response = self.command_set[lower_message]["response"]
+            current_seconds = (datetime.now() - datetime(1970,1,1)).total_seconds()
+            if self.command_set[lower_message]["last_use"] == 0 or current_seconds - self.command_set[lower_message]["last_use"] > self.command_set[lower_message]["cooldown"]:
+                self.command_set[lower_message]["last_use"] = current_seconds
+                response = self.get_command(lower_message)
             self.file_lock.release()
             return response
         return None
