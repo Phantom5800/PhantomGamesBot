@@ -121,18 +121,23 @@ class PhantomGamesBotModule(commands.Cog):
         self.quotes = quoteHandler
         self.speedrun = srcHandler
     
-    @commands.command(brief="Get a link to the bot's github.")
+    @commands.command(brief="Get a link to the bot's github.", help="Get a link to the bot's github.")
     async def bot(self, ctx: commands.Context):
         await ctx.send("Hey! I am a custom chatbot written in Python, my source code is available at: https://github.com/Phantom5800/PhantomGamesBot")
 
-    @commands.command(name="commands", brief="Get a list custom commands created on twitch.")
+    @commands.command(name="commands", 
+        brief="Get a list custom commands created on twitch.",
+        help="Get a list of all basic response commands. These commands are all added by moderators on twitch.")
     async def get_commands(self, ctx):
         command_list = []
         command_list.extend(self.bot.custom.get_command_list())
         command_list.sort()
         await ctx.send(f"List of all the current custom commands: {command_list}")
 
-    @commands.command(name="pb", brief="Get a list of personal bests for a specified game.")
+    @commands.command(name="pb", 
+        brief="Get a list of personal bests for a specified game.", 
+        usage="game_name",
+        help="Get a list of all PB's for a given game.\nUsage:\n\t!pb {Game name}\n\tExample: !pb paper mario")
     async def get_pb(self, ctx):
         game = ctx.message.content[3:].strip()
         if len(game) > 0:
@@ -145,7 +150,10 @@ class PhantomGamesBotModule(commands.Cog):
             game_list = self.speedrun.get_games()
             await ctx.send(f"Available games: {game_list}")
 
-    @commands.command(name="quote", brief="Get a random or specific quote.")
+    @commands.command(name="quote", 
+        brief="Get a random or specific quote.",
+        usage="[quote id]",
+        help="Get a quote that has been added on twitch.\nUsage:\n\t!quote - Get a random quote\n\t!quote {#} - Get a specific quote by id\n\tExample: !quote 3")
     async def get_quote(self, ctx, quote_id: str = "-1"):
         response = None
         if tryParseInt(quote_id, -1) >= 0:
