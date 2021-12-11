@@ -15,7 +15,7 @@ if __name__ == "__main__":
     print("============== Quotes ===============")
     quoteHandler.load_quotes()
     print("=============== SRC =================")
-    srcHandler = SrcomApi()
+    srcHandler = SrcomApi(os.environ['SRC_USER'])
     print("=====================================")
 
     # twitch bot acts as a master bot that appends other bot event loops to its own

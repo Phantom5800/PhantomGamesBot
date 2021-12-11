@@ -10,17 +10,17 @@ from utils.utils import debugPrint
 # def debugPrint(value): print(value)
 
 class SrcomApi:
-    def __init__(self):
+    def __init__(self, srcUser: str):
         self.api = srcomapi.SpeedrunCom()
         self.category_prog = re.compile(r"(.*) (?:\[([^]]+)\])")
 
-        if len(os.environ['SRC_USER']) > 0:
-            user_results = self.api.search(srcomapi.datatypes.User, {"name": os.environ['SRC_USER']})
+        if len(srcUser) > 0:
+            user_results = self.api.search(srcomapi.datatypes.User, {"name": srcUser})
             if len(user_results) > 0:
                 self.srcuser = user_results[0]
-                print(f"Loading personal bests from speedrun.com for {os.environ['SRC_USER']} ...")
+                print(f"Loading personal bests from speedrun.com for {srcUser} ...")
                 self.personal_bests = self.srcuser.personal_bests
-                print(f"Initialized speedrun.com API for {os.environ['SRC_USER']}")
+                print(f"Initialized speedrun.com API for {srcUser}")
 
     def tryParseInt(self, re_result) -> int:
         if re_result is not None and re_result.lastindex > 0:
