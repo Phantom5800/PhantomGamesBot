@@ -13,6 +13,7 @@ class SrcomApi:
     def __init__(self, srcUser: str):
         self.api = srcomapi.SpeedrunCom()
         self.category_prog = re.compile(r"(.*) (?:\[([^]]+)\])")
+        self.srcUser = srcUser
 
         if len(srcUser) > 0:
             user_results = self.api.search(srcomapi.datatypes.User, {"name": srcUser})
@@ -183,7 +184,7 @@ class SrcomApi:
 
         # if no runs found
         if found_game == False:
-            return f"{os.environ['TWITCH_CHANNEL']} does not have any speedruns of {game}"
+            return f"{self.srcUser} does not have any speedruns of {game}"
         # if there's only one category, don't need it specified
         elif len(category_list) == 1:
             debugPrint(f"[Get PB] Only found one run: {game} - {category_list[0]}")
@@ -201,7 +202,7 @@ class SrcomApi:
                 return f"{game} - {category}: {time} {vod_link}"
 
 async def main():
-    src = SrcomApi()
+    src = SrcomApi(os.environ['SRC_USER'])
     #response = src.get_pb("Super Mario 3D World + Bowser's Fury", "Super Mario 3D World") # return's Any%
     #response = src.get_pb("Super Mario 3D World + Bowser's Fury", "Super Mario 3D World [243 Stars]")
     response = src.get_pb("Paper Mario", "Glitchless [N64]")

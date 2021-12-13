@@ -90,6 +90,7 @@ class PhantomGamesBot(commands.Bot):
         if message is not None: # this has come up before??
             # handle custom commands
             if message.content is not None and len(message.content) > 0:
+                # look for commands
                 command = message.content.split()[0]
                 response = self.custom.parse_custom_command(command)
                 if response is not None:
