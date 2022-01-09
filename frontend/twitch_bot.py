@@ -30,6 +30,9 @@ class PhantomGamesBot(commands.Bot):
         self.current_timer_msg = 0
         self.messages_since_timer = 0
         self.timer_lines = tryParseInt(os.environ['TIMER_CHAT_LINES'], 5)
+
+        # regex
+        self.url_search = re.compile(r"([\w+]+\:\/\/)?([\w\d-]+\.)*[\w-]+[\.\:]\w+([\/\?\=\&\#.]?[\w-]+)*\/?")
     
     def load_timer_events(self):
         with open('./commands/resources/timer_events.txt', 'r', encoding="utf-8") as txt_file:
@@ -74,6 +77,14 @@ class PhantomGamesBot(commands.Bot):
         # super().event_command_error(ctx, error)
 
     '''
+    Check to see if a user is able to post links in twitch chat.
+
+    Allowed types of users should be mod, vip and subscribers.
+    '''
+    def user_can_post_links(self, user) -> bool:
+        return user.is_mod or user.is_subscriber or 'vip' in user.badges
+
+    '''
     Runs every time a message is sent in chat.
     '''
     async def event_message(self, message):
@@ -90,6 +101,13 @@ class PhantomGamesBot(commands.Bot):
         if message is not None: # this has come up before??
             # handle custom commands
             if message.content is not None and len(message.content) > 0:
+                # look for urls and delete messages if they are not mod/vip
+                if not self.user_can_post_links(message.author):
+                    url_matches = self.url_search.match(message.content)
+                    if matches is not None:
+                        message_id = message.tags['id']
+                        await message.channel.send(f"/delete {message_id}")
+
                 # look for commands
                 command = message.content.split()[0]
                 response = self.custom.parse_custom_command(command)
