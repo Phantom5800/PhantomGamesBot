@@ -329,17 +329,19 @@ class PhantomGamesBot(commands.Bot):
     # allowing links in chat
     @commands.command()
     async def permit(self, ctx: commands.Context, user: PartialUser = None):
-        if user is not None:
-            if user.name not in self.permitted_users:
-                self.permitted_users.append(user.name)
-                await ctx.send(f"{user.name} can now post links")
+        if ctx.message.author.is_mod:
+            if user is not None:
+                if user.name not in self.permitted_users:
+                    self.permitted_users.append(user.name)
+                    await ctx.send(f"{user.name} can now post links")
 
     @commands.command()
     async def unpermit(self, ctx: commands.Context, user: PartialUser = None):
-        if user is not None:
-            if user.name in self.permitted_users:
-                self.permitted_users.remove(user.name)
-                await ctx.send(f"{user.name} is no longer allowed to post links")
+        if ctx.message.author.is_mod:
+            if user is not None:
+                if user.name in self.permitted_users:
+                    self.permitted_users.remove(user.name)
+                    await ctx.send(f"{user.name} is no longer allowed to post links")
 
     # speedrun.com
     '''
