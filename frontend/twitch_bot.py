@@ -31,7 +31,8 @@ class PhantomGamesBot(commands.Bot):
         self.messages_since_timer = 0
         self.timer_lines = tryParseInt(os.environ['TIMER_CHAT_LINES'], 5)
 
-        # regex
+        # links
+        self.permitted_users = []
         self.url_search = re.compile(r"([\w+]+\:\/\/)?([\w\d-]+\.)*[\w-]+[\.\:]\w+([\/\?\=\&\#.]?[\w-]+)*\/?")
     
     def load_timer_events(self):
@@ -82,6 +83,8 @@ class PhantomGamesBot(commands.Bot):
     Allowed types of users should be mod, vip and subscribers.
     '''
     def user_can_post_links(self, user) -> bool:
+        if user.name in self.permitted_users:
+            return True
         return user.is_mod or user.is_subscriber or 'vip' in user.badges
 
     '''
@@ -104,7 +107,7 @@ class PhantomGamesBot(commands.Bot):
                 # look for urls and delete messages if they are not mod/vip
                 if not self.user_can_post_links(message.author):
                     url_matches = self.url_search.match(message.content)
-                    if matches is not None:
+                    if url_matches is not None:
                         message_id = message.tags['id']
                         await message.channel.send(f"/delete {message_id}")
 
@@ -322,6 +325,21 @@ class PhantomGamesBot(commands.Bot):
             if tryParseInt(quote_id, -1) >= 0:
                 response = self.quotes.remove_quote(int(quote_id))
                 await ctx.send(response)
+
+    # allowing links in chat
+    @commands.command()
+    async def permit(self, ctx: commands.Context, user: PartialUser = None):
+        if user is not None:
+            if user.name not in self.permitted_users:
+                self.permitted_users.append(user.name)
+                await ctx.send(f"{user.name} can now post links")
+
+    @commands.command()
+    async def unpermit(self, ctx: commands.Context, user: PartialUser = None):
+        if user is not None:
+            if user.name in self.permitted_users:
+                self.permitted_users.remove(user.name)
+                await ctx.send(f"{user.name} is no longer allowed to post links")
 
     # speedrun.com
     '''

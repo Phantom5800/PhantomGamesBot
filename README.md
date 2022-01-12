@@ -100,6 +100,20 @@ Give a shoutout to another user, typically would be used for raid's or vip's.
 !so {username}
 ```
 
+### !permit ![](./readme/images/twitch.png)
+Give a specific user permission to post links in chat.
+
+```
+!permit {username}
+```
+
+### !unpermit ![](./readme/images/twitch.png)
+Remove permissions to post links from a specific user in chat.
+
+```
+!unpermit {username}
+```
+
 ## Custom Commands
 Custom commands are basic command -> response events that can be managed by the streamer and moderators with the following commands. All commands created in this way are available on both Twitch and Discord, however some command variables may not function as intended on both platforms.
 
