@@ -49,6 +49,19 @@ class PhantomGamesBot(commands.Bot):
             for event in self.timer_queue:
                 txt_file.write(f"{event}\n")
 
+    def load_permitted_users(self):
+        with open('./commands/resources/permitted_users.txt', 'w', encoding="utf-8") as txt_file:
+            lines = txt_file.readlines()
+            for line in lines:
+                user = line.strip()
+                if user not in self.permitted_users:
+                    self.permitted_users.append(user)
+    
+    def save_permitted_users(self):
+        with open('./commands/resources/permitted_users.txt', 'w', encoding="utf-8") as txt_file:
+            for user in self.permitted_users:
+                txt_file.write(f"{user}\n")
+
     '''
     Called when the bot is ready to accept messages.
     '''
@@ -83,7 +96,7 @@ class PhantomGamesBot(commands.Bot):
     Allowed types of users should be mod, vip and subscribers.
     '''
     def user_can_post_links(self, user) -> bool:
-        if user.name in self.permitted_users:
+        if user.name.lower() in self.permitted_users:
             return True
         return user.is_mod or user.is_subscriber or 'vip' in user.badges
 
@@ -109,6 +122,7 @@ class PhantomGamesBot(commands.Bot):
                     url_matches = self.url_search.match(message.content)
                     if url_matches is not None:
                         message_id = message.tags['id']
+                        print(f"[Detected unpermitted link]: \"{message.content}\"\n\tfrom {message.author}\n\t{url_matches}")
                         await message.channel.send(f"/delete {message_id}")
 
                 # look for commands
@@ -331,16 +345,20 @@ class PhantomGamesBot(commands.Bot):
     async def permit(self, ctx: commands.Context, user: PartialUser = None):
         if ctx.message.author.is_mod:
             if user is not None:
-                if user.name not in self.permitted_users:
-                    self.permitted_users.append(user.name)
+                lowername = user.name.lower()
+                if lowername not in self.permitted_users:
+                    self.permitted_users.append(lowername)
+                    self.save_permitted_users()
                     await ctx.send(f"{user.name} can now post links")
 
     @commands.command()
     async def unpermit(self, ctx: commands.Context, user: PartialUser = None):
         if ctx.message.author.is_mod:
             if user is not None:
-                if user.name in self.permitted_users:
-                    self.permitted_users.remove(user.name)
+                lowername = user.name.lower()
+                if lowername in self.permitted_users:
+                    self.permitted_users.remove(lowername)
+                    self.save_permitted_users()
                     await ctx.send(f"{user.name} is no longer allowed to post links")
 
     # speedrun.com
