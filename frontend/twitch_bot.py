@@ -33,7 +33,7 @@ class PhantomGamesBot(commands.Bot):
 
         # links
         self.permitted_users = []
-        self.url_search = re.compile(r"([\w+]+\:\/\/)?([\w\d-]+\.)*[\w-]+[\.\:]\w+([\/\?\=\&\#.]?[\w-]+)*\/?")
+        self.url_search = re.compile(r"([\w+]+\:\/\/)?([\w\d-]+\.)*[\w-]+[\.]\w+([\/\?\=\&\#.]?[\w-]+)*\/?")
     
     def load_timer_events(self):
         with open('./commands/resources/timer_events.txt', 'r', encoding="utf-8") as txt_file:
@@ -317,7 +317,7 @@ class PhantomGamesBot(commands.Bot):
 
     @commands.command()
     async def addquote(self, ctx: commands.Context, new_quote: str = ""):
-        if ctx.message.author.is_mod:
+        if ctx.message.author.is_mod or 'vip' in ctx.message.author.badges:
             if len(new_quote) > 0:
                 game_name = await get_game_name_from_twitch(self)
                 response = self.quotes.add_quote(new_quote, game_name)
