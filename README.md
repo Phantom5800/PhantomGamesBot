@@ -100,6 +100,8 @@ Give a shoutout to another user, typically would be used for raid's or vip's.
 !so {username}
 ```
 
+## Link Protection
+
 ### !permit ![](./readme/images/twitch.png)
 Give a specific user permission to post links in chat.
 
