@@ -316,12 +316,19 @@ class PhantomGamesBot(commands.Bot):
             await ctx.send(response)
 
     @commands.command()
-    async def addquote(self, ctx: commands.Context, new_quote: str = ""):
+    async def addquote(self, ctx: commands.Context):
         if ctx.message.author.is_mod or 'vip' in ctx.message.author.badges:
-            if len(new_quote) > 0:
-                game_name = await get_game_name_from_twitch(self)
-                response = self.quotes.add_quote(new_quote, game_name)
-                await ctx.send(response)
+            command_parts = self.command_msg_breakout(ctx.message.content, 2)
+            if command_parts is not None and len(command_parts) > 1:
+                new_quote = command_parts[1]
+                if len(new_quote) > 0:
+                    game_name = await get_game_name_from_twitch(self)
+                    response = self.quotes.add_quote(new_quote, game_name)
+                    await ctx.send(response)
+                else:
+                    await ctx.send(f"{ctx.message.author.mention} where's the quote?")
+            else:
+                await ctx.send(f"{ctx.message.author.mention} where's the quote?")
 
     @commands.command()
     async def editquote(self, ctx: commands.Context):
