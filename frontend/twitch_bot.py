@@ -119,7 +119,7 @@ class PhantomGamesBot(commands.Bot):
             if message.content is not None and len(message.content) > 0:
                 # look for urls and delete messages if they are not mod/vip
                 if not self.user_can_post_links(message.author):
-                    url_matches = self.url_search.match(message.content)
+                    url_matches = self.url_search.search(message.content)
                     if url_matches is not None:
                         message_id = message.tags['id']
                         print(f"[Detected unpermitted link]: \"{message.content}\"\n\tfrom {message.author}\n\t{url_matches}")
