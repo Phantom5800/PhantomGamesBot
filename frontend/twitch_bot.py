@@ -33,6 +33,7 @@ class PhantomGamesBot(commands.Bot):
 
         # links
         self.permitted_users = []
+        self.link_protection = True
         self.url_search = re.compile(r"([\w+]+\:\/\/)?([\w\d-]+\.)*[\w-]+[\.]\w+([\/\?\=\&\#.]?[\w-]+)*\/?")
     
     def load_timer_events(self):
@@ -118,7 +119,7 @@ class PhantomGamesBot(commands.Bot):
             # handle custom commands
             if message.content is not None and len(message.content) > 0:
                 # look for urls and delete messages if they are not mod/vip
-                if not self.user_can_post_links(message.author):
+                if self.link_protection and not self.user_can_post_links(message.author):
                     url_matches = self.url_search.search(message.content)
                     if url_matches is not None:
                         message_id = message.tags['id']
@@ -367,6 +368,18 @@ class PhantomGamesBot(commands.Bot):
                     self.permitted_users.remove(lowername)
                     self.save_permitted_users()
                     await ctx.send(f"{user.name} is no longer allowed to post links")
+
+    @commands.command()
+    async def enablelinks(self, ctx: commands.Context):
+        if ctx.message.author.is_mod:
+            self.link_protection = False
+            await ctx.send("Link protection has been disabled")
+
+    @commands.command()
+    async def disablelinks(self, ctx: commands.Context):
+        if ctx.message.author.is_mod:
+            self.link_protection = True
+            await ctx.send("Link protection has been enabled")
 
     # speedrun.com
     '''

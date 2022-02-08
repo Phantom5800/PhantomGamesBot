@@ -114,6 +114,12 @@ Remove permissions to post links from a specific user in chat.
 !unpermit {username}
 ```
 
+### !disablelinks ![](./readme/images/twitch.png)
+Enable link protection (default on).
+
+### !enablelinks ![](./readme/images/twitch.png)
+Disable link protection. This will stop the bot from scanning message for links and deleting messages. Should only be used if it is being eggregious with false positives.
+
 ## Custom Commands
 Custom commands are basic command -> response events that can be managed by the streamer and moderators with the following commands. All commands created in this way are available on both Twitch and Discord, however some command variables may not function as intended on both platforms.
 
