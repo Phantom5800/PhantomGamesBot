@@ -62,6 +62,16 @@ class QuoteHandler:
         else:
             return f"[Quote #{quote_id}] does not exist"
 
+    def find_quote_keyword(self, keywrd: str) -> str:
+        self.access_lock.acquire()
+        quotes = []
+        for quote_id in self.quotes:
+            if keywrd in self.quotes[quote_id]:
+                quotes.append(f"[Quote #{quote_id}]: {self.quotes[quote_id]}")
+        self.access_lock.release()
+        random_quote_id = random.randrange(len(quotes))
+        return quotes[random_quote_id]
+
     def pick_specific_quote(self, quote_id: str) -> str:
         response = None
         self.access_lock.acquire()

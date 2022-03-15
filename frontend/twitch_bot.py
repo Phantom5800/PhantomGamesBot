@@ -33,7 +33,7 @@ class PhantomGamesBot(commands.Bot):
 
         # links
         self.permitted_users = []
-        self.link_protection = True
+        self.link_protection = False
         self.url_search = re.compile(r"([\w+]+\:\/\/)?([\w\d-]+\.)*[\w-]+[\.]\w+([\/\?\=\&\#.]?[\w-]+)*\/?")
     
     def load_timer_events(self):
@@ -309,10 +309,13 @@ class PhantomGamesBot(commands.Bot):
     @commands.command()
     async def quote(self, ctx: commands.Context, quote_id: str = "-1"):
         response = None
-        if tryParseInt(quote_id, -1) >= 0:
+        quote = tryParseInt(quote_id, -1)
+        if quote >= 0:
             response = self.quotes.pick_specific_quote(quote_id)
-        else:
+        elif quote_id == "-1":
             response = self.quotes.pick_random_quote()
+        else:
+            response = self.quotes.find_quote_keyword(quote_id)
         if response is not None:
             await ctx.send(response)
 
