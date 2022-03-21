@@ -396,6 +396,11 @@ class PhantomGamesBot(commands.Bot):
             response = self.speedrun.get_pb(convert_twitch_to_src_game(game), category)
             await ctx.send(response)
 
+    @commands.command()
+    async def speed(self, ctx):
+        game = self.speedrun.get_random_game()
+        await ctx.send(f"{ctx.message.author.mention} You should try speedrunning {game}!")
+
     # stream commands
     '''
     Get information about the bot itself.

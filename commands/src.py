@@ -1,4 +1,5 @@
 import os
+import random
 import re
 import srcomapi
 from datetime import date
@@ -51,6 +52,21 @@ class SrcomApi:
             return f"{minutes}:{seconds:02}"
         else:
             return f"{seconds}"
+
+    '''
+    Returns a random game listed on speedrun.com
+    '''
+    def get_random_game(self) -> str:
+        release_year = random.randint(1985, date.today().year)
+        query_result = self.api.search(srcomapi.datatypes.Game, 
+            {
+                "_bulk": True, 
+                "max": 5000,
+                "released": release_year
+            })
+        random_game = query_result[random.randrange(len(query_result))]
+        random_category = random_game.categories[random.randrange(len(random_game.categories))]
+        return f"{random_game.name} - {random_category.name}"
 
     '''
     Get a list of games available on speedrun.com.

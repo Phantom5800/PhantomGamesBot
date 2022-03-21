@@ -79,6 +79,10 @@ On discord, this command behaves slightly different. Instead of taking a categor
 
 ![Example of a response in discord](./readme/images/pb_discord.png)
 
+### !speed ![](./readme/images/twitch.png) ![](./readme/images/discord.png)
+
+Recommends a random game and speedrun category to a user.
+
 ### !quote ![](./readme/images/twitch.png) ![](./readme/images/discord.png)
 Display a random (or specified) quote from the internally stored list.
 

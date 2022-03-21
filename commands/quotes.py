@@ -69,8 +69,10 @@ class QuoteHandler:
             if keywrd in self.quotes[quote_id]:
                 quotes.append(f"[Quote #{quote_id}]: {self.quotes[quote_id]}")
         self.access_lock.release()
-        random_quote_id = random.randrange(len(quotes))
-        return quotes[random_quote_id]
+        if len(quotes) > 0:
+            random_quote_id = random.randrange(len(quotes))
+            return quotes[random_quote_id]
+        return None
 
     def pick_specific_quote(self, quote_id: str) -> str:
         response = None
