@@ -161,8 +161,19 @@ class PhantomGamesBotModule(commands.Cog):
     @commands.command(name="anime",
         brief="Recommends the caller a random anime from anilist")
     async def get_random_anime(self, ctx):
-        anime = self.anilist.getRandomAnime()
+        anime = self.anilist.getRandomAnimeName()
         await ctx.send(f"You should try watching \"{anime}\"!")
+
+    @commands.command(name="animeinfo")
+    async def get_anime_info(self, ctx):
+        name =  ctx.message.content[len("!animeinfo"):].strip()
+        anime_info = self.anilist.getAnimeByName(name)
+        if anime_info is not None:
+            embed = discord.Embed(title=anime_info["name_romaji"], description=anime_info["name_english"], color=0xA0DB8E)
+            embed = self.anilist.formatDiscordAnimeEmbed(name, embed)
+            await ctx.send(embed=embed)
+        else:
+            await ctx.send(f"Could not find anime {name}")
 
     @commands.command(name="quote", 
         brief="Get a random or specific quote.",

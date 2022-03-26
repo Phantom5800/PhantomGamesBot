@@ -51,8 +51,10 @@ The bot will automatically delete messages containing links from users that are 
 Default command set that can be used by anyone.
 
 ### !anime ![](./readme/images/twitch.png) ![](./readme/images/discord.png)
-
 Recommends a random anime to a user.
+
+### !animeinfo ![](./readme/images/discord.png)
+Gives an embedded block of info on a given anime.
 
 ### !bot ![](./readme/images/twitch.png) ![](./readme/images/discord.png)
 Provides a link to the github page for this bot's source code.

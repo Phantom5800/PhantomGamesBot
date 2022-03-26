@@ -406,7 +406,7 @@ class PhantomGamesBot(commands.Bot):
     # anilist
     @commands.command()
     async def anime(self, ctx):
-        anime = self.anilist.getRandomAnime()
+        anime = self.anilist.getRandomAnimeName()
         await ctx.send(f"{ctx.message.author.mention} You should try watching \"{anime}\"!")
 
     # stream commands
