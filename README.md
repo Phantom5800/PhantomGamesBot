@@ -50,6 +50,10 @@ The bot will automatically delete messages containing links from users that are 
 # Default Commands
 Default command set that can be used by anyone.
 
+### !anime ![](./readme/images/twitch.png) ![](./readme/images/discord.png)
+
+Recommends a random anime to a user.
+
 ### !bot ![](./readme/images/twitch.png) ![](./readme/images/discord.png)
 Provides a link to the github page for this bot's source code.
 
@@ -79,10 +83,6 @@ On discord, this command behaves slightly different. Instead of taking a categor
 
 ![Example of a response in discord](./readme/images/pb_discord.png)
 
-### !speed ![](./readme/images/twitch.png) ![](./readme/images/discord.png)
-
-Recommends a random game and speedrun category to a user.
-
 ### !quote ![](./readme/images/twitch.png) ![](./readme/images/discord.png)
 Display a random (or specified) quote from the internally stored list.
 
@@ -90,6 +90,10 @@ Display a random (or specified) quote from the internally stored list.
 !quote
 !quote {quote id}
 ```
+
+### !speed ![](./readme/images/twitch.png) ![](./readme/images/discord.png)
+
+Recommends a random game and speedrun category to a user.
 
 ### !title ![](./readme/images/twitch.png)
 Get the current title for the stream.

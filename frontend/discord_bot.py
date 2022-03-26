@@ -7,6 +7,7 @@ from discord.ext import commands
 from commands.custom_commands import CustomCommands
 from commands.quotes import QuoteHandler
 from commands.src import SrcomApi
+from commands.anilist import Anilist
 from utils.utils import *
 
 class PhantomGamesBot(commands.Bot):
@@ -120,6 +121,7 @@ class PhantomGamesBotModule(commands.Cog):
         self.bot = bot
         self.quotes = quoteHandler
         self.speedrun = srcHandler
+        self.anilist = Anilist()
     
     @commands.command(brief="Get a link to the bot's github.", help="Get a link to the bot's github.")
     async def bot(self, ctx: commands.Context):
@@ -151,11 +153,16 @@ class PhantomGamesBotModule(commands.Cog):
             await ctx.send(f"Available games: {game_list}")
 
     @commands.command(name="speed",
-        brief="Recommends the caller a random game from speedrun.com",
-        usage="speed")
+        brief="Recommends the caller a random game from speedrun.com")
     async def get_random_game(self, ctx):
         game = self.speedrun.get_random_game()
         await ctx.send(f"You should try speedrunning {game}!")
+
+    @commands.command(name="anime",
+        brief="Recommends the caller a random anime from anilist")
+    async def get_random_anime(self, ctx):
+        anime = self.anilist.getRandomAnime()
+        await ctx.send(f"You should try watching \"{anime}\"!")
 
     @commands.command(name="quote", 
         brief="Get a random or specific quote.",

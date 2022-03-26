@@ -8,3 +8,4 @@ pipenv --python %PYVER%
 pipenv install twitchio
 pipenv install srcomapi
 pipenv install discord
+pipenv install AnilistPython==0.1.3

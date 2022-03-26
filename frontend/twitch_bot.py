@@ -8,6 +8,7 @@ from twitchio.ext import routines
 from commands.custom_commands import CustomCommands
 from commands.quotes import QuoteHandler
 from commands.src import SrcomApi
+from commands.anilist import Anilist
 from utils.utils import *
 
 class PhantomGamesBot(commands.Bot):
@@ -24,6 +25,7 @@ class PhantomGamesBot(commands.Bot):
         self.custom = customCommandHandler
         self.quotes = quoteHandler
         self.speedrun = srcHandler
+        self.anilist = Anilist()
 
         # custom timers
         self.timer_queue = []
@@ -400,6 +402,12 @@ class PhantomGamesBot(commands.Bot):
     async def speed(self, ctx):
         game = self.speedrun.get_random_game()
         await ctx.send(f"{ctx.message.author.mention} You should try speedrunning {game}!")
+
+    # anilist
+    @commands.command()
+    async def anime(self, ctx):
+        anime = self.anilist.getRandomAnime()
+        await ctx.send(f"{ctx.message.author.mention} You should try watching \"{anime}\"!")
 
     # stream commands
     '''
