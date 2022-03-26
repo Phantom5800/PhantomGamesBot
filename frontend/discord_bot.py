@@ -164,7 +164,9 @@ class PhantomGamesBotModule(commands.Cog):
         anime = self.anilist.getRandomAnimeName()
         await ctx.send(f"You should try watching \"{anime}\"!")
 
-    @commands.command(name="animeinfo")
+    @commands.command(name="animeinfo",
+        brief="Gets a synopsis of a given anime",
+        usage="<anime name>")
     async def get_anime_info(self, ctx):
         name =  ctx.message.content[len("!animeinfo"):].strip()
         anime_info = self.anilist.getAnimeByName(name)

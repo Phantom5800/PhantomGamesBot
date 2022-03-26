@@ -56,6 +56,8 @@ Recommends a random anime to a user.
 ### !animeinfo ![](./readme/images/discord.png)
 Gives an embedded block of info on a given anime.
 
+![](./readme/images/animeinfo.png)
+
 ### !bot ![](./readme/images/twitch.png) ![](./readme/images/discord.png)
 Provides a link to the github page for this bot's source code.
 
