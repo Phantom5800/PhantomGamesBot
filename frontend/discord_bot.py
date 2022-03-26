@@ -156,13 +156,13 @@ class PhantomGamesBotModule(commands.Cog):
         brief="Recommends the caller a random game from speedrun.com")
     async def get_random_game(self, ctx):
         game = self.speedrun.get_random_game()
-        await ctx.send(f"You should try speedrunning {game}!")
+        await ctx.send(f"{ctx.message.author.mention} You should try speedrunning {game}!")
 
     @commands.command(name="anime",
         brief="Recommends the caller a random anime from anilist")
     async def get_random_anime(self, ctx):
         anime = self.anilist.getRandomAnimeName()
-        await ctx.send(f"You should try watching \"{anime}\"!")
+        await ctx.send(f"{ctx.message.author.mention} You should try watching \"{anime}\"!")
 
     @commands.command(name="animeinfo",
         brief="Gets a synopsis of a given anime",
@@ -173,7 +173,7 @@ class PhantomGamesBotModule(commands.Cog):
         if anime_info is not None:
             embed = discord.Embed(title=anime_info["name_romaji"], description=anime_info["name_english"], color=0xA0DB8E)
             embed = self.anilist.formatDiscordAnimeEmbed(name, embed)
-            await ctx.send(embed=embed)
+            await ctx.send(f"{ctx.message.author.mention}", embed=embed)
         else:
             await ctx.send(f"Could not find anime {name}")
 
