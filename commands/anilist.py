@@ -12,8 +12,10 @@ class Anilist:
 
     def getRandomAnimeByYear(self, year: int) -> str:
         anime = self.anilist.search_anime(year=str(year))
-        random_anime = anime[random.randrange(len(anime))]
+        random_anime = None
+        name = None
         # re-roll random anime until you don't get hentai lol
-        while "Hentai" in random_anime["genres"] or random_anime["name_english"] is None:
+        while name is None or "Hentai" in random_anime["genres"]:
             random_anime = anime[random.randrange(len(anime))]
-        return random_anime["name_english"]
+            name = random_anime["name_english"] if random_anime["name_english"] is not None else random_anime["name_romaji"]
+        return name
