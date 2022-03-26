@@ -171,7 +171,7 @@ class PhantomGamesBotModule(commands.Cog):
         name =  ctx.message.content[len("!animeinfo"):].strip()
         anime_info = self.anilist.getAnimeByName(name)
         if anime_info is not None:
-            embed = discord.Embed(title=anime_info["name_romaji"], description=anime_info["name_english"], color=0xA0DB8E)
+            embed = discord.Embed(color=0xA0DB8E)
             embed = self.anilist.formatDiscordAnimeEmbed(name, embed)
             await ctx.send(f"{ctx.message.author.mention}", embed=embed)
         else:

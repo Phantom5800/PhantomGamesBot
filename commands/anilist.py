@@ -47,6 +47,10 @@ class Anilist:
         next_airing_ep = anime_dict["next_airing_ep"]
         anime_link = f'https://anilist.co/anime/{self.anilist.get_anime_id(anime_name)}/'
 
+        discord_embed.title = f"{jp_name}"
+        discord_embed.url = anime_link
+        discord_embed.description = eng_name if eng_name is not None else jp_name
+
         #parse genres
         genres_new = ''
         count = 1
@@ -102,7 +106,6 @@ class Anilist:
         if info[7].upper() == 'FINISHED':
             discord_embed.add_field(name="Airing Status", value=info[7], inline=True)
             discord_embed.add_field(name="Genres", value=info[10], inline=True)
-            discord_embed.add_field(name="Next Episode ~", value=f"The anime has finished airing!\n\n[{jp_name} AniList Page]({anime_link})", inline=False)
         else:
             discord_embed.add_field(name="Airing Status", value=info[7], inline=True)
             discord_embed.add_field(name="Genres", value=info[10], inline=True)
