@@ -53,6 +53,28 @@ class SrcomApi:
         else:
             return f"{seconds}"
 
+    def test_game(self, game: str, category: str):
+        game_obj = self.api.search(srcomapi.datatypes.Game, {"name": game})[0]
+        for c in game_obj.categories:
+            if c.name == category:
+                print(game_obj.categories)
+                print(f"{game} - {category}: {vars(c)}")
+                return
+
+    '''
+    Test function to get a random category for a game
+    '''
+    def get_random_category(self, game: str) -> str:
+        random_game = self.api.search(srcomapi.datatypes.Game, {"name": game})[0]
+        random_category = random_game.categories[random.randrange(len(random_game.categories))]
+        # try a new category until we find one that gives a unique uri?
+        while random_game.weblink == random_category.weblink:
+            random_category = random_game.categories[random.randrange(len(random_game.categories))]
+        result = f"{random_game.name} - {random_category.name}"
+        print(f"{result}: {random_category.weblink}")
+
+        return result
+
     '''
     Returns a random game listed on speedrun.com
     '''
@@ -66,7 +88,13 @@ class SrcomApi:
             })
         random_game = query_result[random.randrange(len(query_result))]
         random_category = random_game.categories[random.randrange(len(random_game.categories))]
-        return f"{random_game.name} - {random_category.name}"
+        # try a new category until we find one that gives a unique uri?
+        while random_game.weblink == random_category.weblink:
+            random_category = random_game.categories[random.randrange(len(random_game.categories))]
+        result = f"{random_game.name} - {random_category.name}"
+        print(f"{result}: {random_category.weblink}")
+
+        return result
 
     '''
     Get a list of games available on speedrun.com.

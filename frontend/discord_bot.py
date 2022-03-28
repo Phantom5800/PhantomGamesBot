@@ -152,6 +152,12 @@ class PhantomGamesBotModule(commands.Cog):
             game_list = self.speedrun.get_games()
             await ctx.send(f"Available games: {game_list}")
 
+    @commands.command(name="speed2")
+    async def get_random_game_2(self, ctx):
+        name =  ctx.message.content[len("!speed2"):].strip()
+        game = self.speedrun.get_random_category(name)
+        await ctx.send(f"{ctx.message.author.mention} You should try speedrunning {game}!")
+
     @commands.command(name="speed",
         brief="Recommends the caller a random game from speedrun.com")
     async def get_random_game(self, ctx):
