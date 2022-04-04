@@ -142,6 +142,7 @@ class PhantomGamesBot(commands.Bot):
     '''
     @routines.routine(minutes=int(os.environ['TIMER_MINUTES']), wait_first=True)
     async def timer_update(self, channel):
+        print(f"[Timer] Attempting to post message after {self.messages_since_timer} messages")
         if self.messages_since_timer >= self.timer_lines and len(self.timer_queue) > 0:
             self.messages_since_timer = 0
 
@@ -149,7 +150,8 @@ class PhantomGamesBot(commands.Bot):
             if message is None:
                 print(f"[ERROR] {self.timer_queue[self.current_timer_msg]} is not a valid command for timers.")
             else:
-                await channel.send(message)
+                #await channel.send(f"/announce {message}")
+                await channel.send(f"{message}")
                 self.current_timer_msg = (self.current_timer_msg + 1) % len(self.timer_queue)
     
     # custom commands

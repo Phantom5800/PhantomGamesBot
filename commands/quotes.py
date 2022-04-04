@@ -66,7 +66,7 @@ class QuoteHandler:
         self.access_lock.acquire()
         quotes = []
         for quote_id in self.quotes:
-            if keywrd in self.quotes[quote_id]:
+            if keywrd.lower() in self.quotes[quote_id].lower():
                 quotes.append(f"[Quote #{quote_id}]: {self.quotes[quote_id]}")
         self.access_lock.release()
         if len(quotes) > 0:
