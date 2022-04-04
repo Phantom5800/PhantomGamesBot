@@ -40,6 +40,7 @@ class PhantomGamesBot(commands.Bot):
 
         # load relevant data
         self.load_timer_events()
+        self.load_permitted_users()
         print("=======================================")
         print(f"Twitch: {os.environ['BOT_NICK']} is online!")
         print("=======================================")
@@ -65,7 +66,7 @@ class PhantomGamesBot(commands.Bot):
                 txt_file.write(f"{event}\n")
 
     def load_permitted_users(self):
-        with open('./commands/resources/permitted_users.txt', 'w', encoding="utf-8") as txt_file:
+        with open('./commands/resources/permitted_users.txt', 'r', encoding="utf-8") as txt_file:
             lines = txt_file.readlines()
             for line in lines:
                 user = line.strip()
