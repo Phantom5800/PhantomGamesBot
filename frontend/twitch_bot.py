@@ -37,6 +37,18 @@ class PhantomGamesBot(commands.Bot):
         self.permitted_users = []
         self.link_protection = False
         self.url_search = re.compile(r"([\w+]+\:\/\/)?([\w\d-]+\.)*[\w-]+[\.]\w+([\/\?\=\&\#.]?[\w-]+)*\/?")
+
+        # load relevant data
+        self.load_timer_events()
+        print("=======================================")
+        print(f"Twitch: {os.environ['BOT_NICK']} is online!")
+        print("=======================================")
+
+        # start message timer
+        try:
+            self.timer_update.start(self.get_channel(os.environ['TWITCH_CHANNEL']))
+        except RuntimeError:
+            print("Timer is already running")
     
     def load_timer_events(self):
         with open('./commands/resources/timer_events.txt', 'r', encoding="utf-8") as txt_file:
@@ -64,23 +76,6 @@ class PhantomGamesBot(commands.Bot):
         with open('./commands/resources/permitted_users.txt', 'w', encoding="utf-8") as txt_file:
             for user in self.permitted_users:
                 txt_file.write(f"{user}\n")
-
-    '''
-    Called when the bot is ready to accept messages.
-    '''
-    async def event_ready(self):
-        # load relevant data
-        print("=======================================")
-        self.load_timer_events()
-        print("=======================================")
-        print(f"Twitch: {os.environ['BOT_NICK']} is online!")
-        print("=======================================")
-
-        # start message timer
-        try:
-            self.timer_update.start(self.get_channel(os.environ['TWITCH_CHANNEL']))
-        except RuntimeError:
-            print("Timer is already running")
 
     '''
     Runs when an "invalid command" is sent by a user.
