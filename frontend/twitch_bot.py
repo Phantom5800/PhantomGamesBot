@@ -47,7 +47,7 @@ class PhantomGamesBot(commands.Bot):
 
         # start message timer
         try:
-            self.timer_update.start(self.get_channel(os.environ['TWITCH_CHANNEL']))
+            self.timer_update.start()
         except RuntimeError:
             print("Timer is already running")
     
@@ -137,8 +137,7 @@ class PhantomGamesBot(commands.Bot):
     Periodic routine to send timer based messages.
     '''
     @routines.routine(minutes=int(os.environ['TIMER_MINUTES']), wait_first=True)
-    async def timer_update(self, channel):
-        print(f"[Timer] Attempting to post message after {self.messages_since_timer} messages")
+    async def timer_update(self):
         if self.messages_since_timer >= self.timer_lines and len(self.timer_queue) > 0:
             self.messages_since_timer = 0
 
@@ -146,9 +145,13 @@ class PhantomGamesBot(commands.Bot):
             if message is None:
                 print(f"[ERROR] {self.timer_queue[self.current_timer_msg]} is not a valid command for timers.")
             else:
-                #await channel.send(f"/announce {message}")
-                await channel.send(f"{message}")
-                self.current_timer_msg = (self.current_timer_msg + 1) % len(self.timer_queue)
+                channel = self.get_channel(self.get_channel(os.environ['TWITCH_CHANNEL']))
+                if channel is None:
+                    print(f"[ERROR] Timer cannot find channel '{os.environ['TWITCH_CHANNEL']}' to post in??")
+                else:
+                    #await channel.send(f"/announce {message}")
+                    await channel.send(message)
+                    self.current_timer_msg = (self.current_timer_msg + 1) % len(self.timer_queue)
     
     # custom commands
     '''
@@ -267,7 +270,7 @@ class PhantomGamesBot(commands.Bot):
     async def enabletimer(self, ctx: commands.Context):
         if ctx.message.author.is_mod:
             try:
-                self.timer_update.start(self.get_channel(os.environ['TWITCH_CHANNEL']))
+                self.timer_update.start()
             except RuntimeError:
                 await ctx.send(f"{ctx.message.author.mention} Timers are already enabled")
                 return

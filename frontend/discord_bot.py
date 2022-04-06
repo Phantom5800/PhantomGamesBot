@@ -37,6 +37,9 @@ class PhantomGamesBot(commands.Bot):
         print(f"Discord: {self.user} is online!")
         print("=======================================")
 
+        message = discord.Game("Responding to !speed")
+        await self.change_presence(activity=message)
+
     '''
     Add roles to users when selecting a reaction.
     '''
