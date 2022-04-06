@@ -145,7 +145,7 @@ class PhantomGamesBot(commands.Bot):
             if message is None:
                 print(f"[ERROR] {self.timer_queue[self.current_timer_msg]} is not a valid command for timers.")
             else:
-                channel = self.get_channel(self.get_channel(os.environ['TWITCH_CHANNEL']))
+                channel = self.get_channel(os.environ['TWITCH_CHANNEL'])
                 if channel is None:
                     print(f"[ERROR] Timer cannot find channel '{os.environ['TWITCH_CHANNEL']}' to post in??")
                 else:
