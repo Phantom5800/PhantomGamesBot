@@ -65,7 +65,11 @@ class SrcomApi:
     Test function to get a random category for a game
     '''
     def get_random_category(self, game: str) -> str:
-        random_game = self.api.search(srcomapi.datatypes.Game, {"name": game})[0]
+        random_game = self.api.search(srcomapi.datatypes.Game, {"name": game})
+        if random_game is None or len(random_game) == 0:
+            return self.get_random_game()
+            
+        random_game = random_game[random.randrange(len(random_game))]
         random_category = random_game.categories[random.randrange(len(random_game.categories))]
         # try a new category until we find one that gives a unique uri?
         while random_game.weblink == random_category.weblink:

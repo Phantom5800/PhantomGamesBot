@@ -401,7 +401,12 @@ class PhantomGamesBot(commands.Bot):
 
     @commands.command()
     async def speed(self, ctx):
-        game = self.speedrun.get_random_game()
+        name = ctx.message.content[len("!speed"):].strip()
+        game = None
+        if name is not None and len(name) > 0:
+            game = self.speedrun.get_random_category(name)
+        else:
+            game = self.speedrun.get_random_game()
         await ctx.send(f"{ctx.message.author.mention} You should try speedrunning {game}!")
 
     # anilist
