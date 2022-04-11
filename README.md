@@ -98,6 +98,11 @@ Display a random (or specified) quote from the internally stored list.
 ### !speed ![](./readme/images/twitch.png) ![](./readme/images/discord.png)
 
 Recommends a random game and speedrun category to a user.
+```
+!speed - get a completely random game and category
+!speed [game] - get a random game and category that fits [game] as a search term for games
+!speed user:[username] - gets a random game and category that a given user has done before
+```
 
 ### !title ![](./readme/images/twitch.png)
 Get the current title for the stream.
