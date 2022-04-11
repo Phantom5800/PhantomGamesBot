@@ -165,7 +165,7 @@ class PhantomGamesBotModule(commands.Cog):
                 message = await ctx.send("One second, looking up users on src can take a bit")
                 name = name[len("user:"):]
                 game = self.speedrun.get_random_user_game(name)
-                await message.edit(content=f"{ctx.message.author.mention} You should try speedrunning {game}!")
+                await message.edit(content=f"Would be really cool if {name} would speedrun {game}!")
                 return
             else:
                 game = self.speedrun.get_random_category(name)
