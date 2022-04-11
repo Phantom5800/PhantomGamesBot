@@ -76,8 +76,13 @@ class SrcomApi:
             if found_user:
                 if len(user.personal_bests) > 0:
                     random_run = user.personal_bests[random.randrange(len(user.personal_bests))]
-                    while random_run['run'].level is not None:
+
+                    # do not take an IL unless it takes a while to find a real game ...
+                    il_attempts = 0
+                    while random_run['run'].level is not None and il_attempts < 10:
                         random_run = user.personal_bests[random.randrange(len(user.personal_bests))]
+
+
                     game_obj = self.api.get_game(random_run['run'].game)
                     game_categories = list(filter(lambda cat: cat.data['id'] == random_run['run'].category, game_obj.categories))
                     random_category = game_categories[random.randrange(len(game_categories))]
