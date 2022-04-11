@@ -98,7 +98,7 @@ class SrcomApi:
                     return f"{game_obj.name} - {category_name}"
                 return f"anything"
         
-        return f"[ERROR] Cannot find speedrun.com user: {user}"
+        return f"existing (it seems they don't have a profile on speedrun.com)"
 
     '''
     Test function to get a random category for a game
