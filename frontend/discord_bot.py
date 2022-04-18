@@ -111,6 +111,7 @@ class PhantomGamesBot(commands.Bot):
                 command = message.content.split()[0]
                 response = self.custom.parse_custom_command(command)
                 if response is not None:
+                    response = response.replace("/announce", "") # remove twitch specific slash commands
                     response = await replace_vars_generic(response)
                     await ctx.send(response)
                 else:

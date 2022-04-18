@@ -65,43 +65,46 @@ class SrcomApi:
     Get a random game for a given src user
     '''
     def get_random_user_game(self, user: str) -> str:
-        user_results = self.api.search(srcomapi.datatypes.User, {"name": user, "max": 100})
-        if len(user_results) > 0:
-            found_user = False
-            for u in user_results:
-                if u.name.lower() == user.lower():
-                    user = u
-                    found_user = True
-                    break
-            if found_user:
-                if len(user.personal_bests) > 0:
-                    random_run = user.personal_bests[random.randrange(len(user.personal_bests))]
-
-                    # do not take an IL unless it takes a while to find a real game ...
-                    il_attempts = 0
-                    while random_run['run'].level is not None and il_attempts < 10:
+        try:
+            user_results = self.api.search(srcomapi.datatypes.User, {"name": user, "max": 100})
+            if len(user_results) > 0:
+                found_user = False
+                for u in user_results:
+                    if u.name.lower() == user.lower():
+                        user = u
+                        found_user = True
+                        break
+                if found_user:
+                    if len(user.personal_bests) > 0:
                         random_run = user.personal_bests[random.randrange(len(user.personal_bests))]
 
+                        # do not take an IL unless it takes a while to find a real game ...
+                        il_attempts = 0
+                        while random_run['run'].level is not None and il_attempts < 10:
+                            random_run = user.personal_bests[random.randrange(len(user.personal_bests))]
+                            il_attempts += 1
 
-                    game_obj = self.api.get_game(random_run['run'].game)
-                    game_categories = list(filter(lambda cat: cat.data['id'] == random_run['run'].category, game_obj.categories))
-                    random_category = game_categories[random.randrange(len(game_categories))]
-                    category_name = random_category.data['name']
+                        game_obj = self.api.get_game(random_run['run'].game)
+                        game_categories = list(filter(lambda cat: cat.data['id'] == random_run['run'].category, game_obj.categories))
+                        random_category = game_categories[random.randrange(len(game_categories))]
+                        category_name = random_category.data['name']
 
-                    variable_types = random_category.variables
-                    if len(variable_types) > 0:
-                        varstr = ""
-                        run_vars = random_run['run'].data['values']
-                        for variable in variable_types:
-                            if variable.data['id'] in run_vars:
-                                run_value_id = run_vars[variable.data['id']]
-                                run_value = variable.values['values'][run_value_id]['label']
-                                varstr += f" [{run_value}]"
-                        varstr = varstr.replace("] [", ", ")
-                        category_name += varstr
+                        variable_types = random_category.variables
+                        if len(variable_types) > 0:
+                            varstr = ""
+                            run_vars = random_run['run'].data['values']
+                            for variable in variable_types:
+                                if variable.data['id'] in run_vars:
+                                    run_value_id = run_vars[variable.data['id']]
+                                    run_value = variable.values['values'][run_value_id]['label']
+                                    varstr += f" [{run_value}]"
+                            varstr = varstr.replace("] [", ", ")
+                            category_name += varstr
 
-                    return f"{game_obj.name} - {category_name}"
-                return f"anything"
+                        return f"{game_obj.name} - {category_name}"
+                    return f"anything"
+        except:
+            print("src 404 error")
         
         return f"existing (it seems they don't have a profile on speedrun.com)"
 
@@ -109,40 +112,48 @@ class SrcomApi:
     Test function to get a random category for a game
     '''
     def get_random_category(self, game: str) -> str:
-        random_game = self.api.search(srcomapi.datatypes.Game, {"name": game})
-        if random_game is None or len(random_game) == 0:
-            return self.get_random_game()
+        try:
+            random_game = self.api.search(srcomapi.datatypes.Game, {"name": game})
+            if random_game is None or len(random_game) == 0:
+                return self.get_random_game()
 
-        random_game = random_game[random.randrange(len(random_game))]
-        random_category = random_game.categories[random.randrange(len(random_game.categories))]
-        # try a new category until we find one that gives a unique uri?
-        while random_game.weblink == random_category.weblink:
+            random_game = random_game[random.randrange(len(random_game))]
             random_category = random_game.categories[random.randrange(len(random_game.categories))]
-        result = f"{random_game.name} - {random_category.name}"
-        print(f"{result}: {random_category.weblink}")
+            # try a new category until we find one that gives a unique uri?
+            while random_game.weblink == random_category.weblink:
+                random_category = random_game.categories[random.randrange(len(random_game.categories))]
+            result = f"{random_game.name} - {random_category.name}"
+            print(f"{result}: {random_category.weblink}")
 
-        return result
+            return result
+        except:
+            print("src 404 error")
+            return "speedrun.com returned 404, try again later maybe? idk"
 
     '''
     Returns a random game listed on speedrun.com
     '''
     def get_random_game(self) -> str:
-        release_year = random.randint(1985, date.today().year)
-        query_result = self.api.search(srcomapi.datatypes.Game, 
-            {
-                "_bulk": True, 
-                "max": 5000,
-                "released": release_year
-            })
-        random_game = query_result[random.randrange(len(query_result))]
-        random_category = random_game.categories[random.randrange(len(random_game.categories))]
-        # try a new category until we find one that gives a unique uri?
-        while random_game.weblink == random_category.weblink:
+        try:
+            release_year = random.randint(1985, date.today().year)
+            query_result = self.api.search(srcomapi.datatypes.Game, 
+                {
+                    "_bulk": True, 
+                    "max": 5000,
+                    "released": release_year
+                })
+            random_game = query_result[random.randrange(len(query_result))]
             random_category = random_game.categories[random.randrange(len(random_game.categories))]
-        result = f"{random_game.name} - {random_category.name}"
-        print(f"{result}: {random_category.weblink}")
+            # try a new category until we find one that gives a unique uri?
+            while random_game.weblink == random_category.weblink:
+                random_category = random_game.categories[random.randrange(len(random_game.categories))]
+            result = f"{random_game.name} - {random_category.name}"
+            print(f"{result}: {random_category.weblink}")
 
-        return result
+            return result
+        except:
+            print("src 404 error")
+            return "speedrun.com returned 404, try again later maybe? idk"
 
     '''
     Get a list of games available on speedrun.com.
