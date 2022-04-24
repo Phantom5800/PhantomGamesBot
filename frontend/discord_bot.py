@@ -3,6 +3,7 @@ from copy import deepcopy
 import json
 import os
 import discord
+import random
 from discord.ext import commands
 from commands.custom_commands import CustomCommands
 from commands.quotes import QuoteHandler
@@ -22,6 +23,15 @@ class PhantomGamesBot(commands.Bot):
 
         self.custom = customCommandHandler
 
+        # status messages
+        self.messages = [
+            "Responding to !speed",
+            "!boris",
+            "Paper Mario Randomizer",
+            "WABITR"
+        ]
+        self.commands_since_new_status = 0
+
         # define reaction roles
         self.role_message_id = int(os.environ['DISCORD_ROLE_MESSAGE_ID']) # message to look for reactions on
         with open('./frontend/data/discord_emoji_roles.json', 'r', encoding="utf-8") as json_file:
@@ -32,13 +42,17 @@ class PhantomGamesBot(commands.Bot):
             except json.decoder.JSONDecodeError:
                 print("[ERROR] Failed to load emoji->role mapping JSON")
 
+    async def set_random_status(self):
+        status = self.messages[random.randrange(len(self.messages))]
+        print(f"[Status] {status}")
+        message = discord.Game(status)
+        await self.change_presence(activity=message)
+
     async def on_ready(self):
         print("=======================================")
         print(f"Discord: {self.user} is online!")
         print("=======================================")
-
-        message = discord.Game("Responding to !speed")
-        await self.change_presence(activity=message)
+        await self.set_random_status()
 
     '''
     Add roles to users when selecting a reaction.
@@ -105,23 +119,31 @@ class PhantomGamesBot(commands.Bot):
         # get the message context so that we don't have to reply
         ctx = await self.get_context(message)
 
+        old_status_count = self.commands_since_new_status
         # in discord, @'d users or roles are replaced with an id like: <@!895540229702828083>
         if message is not None:
             if message.content is not None and len(message.content) > 0:
                 command = message.content.split()[0]
                 response = self.custom.parse_custom_command(command)
                 if response is not None:
+                    self.commands_since_new_status += 1
+
                     response = response.replace("/announce", "") # remove twitch specific slash commands
                     response = await replace_vars_generic(response)
                     await ctx.send(response)
                 else:
                     await super().on_message(message)
+        
+        # get new status sometimes
+        if old_status_count != self.commands_since_new_status:
+            if random.randrange(self.commands_since_new_status, 100) > 50:
+                await self.set_random_status()
 
 '''
 Unlike twitchio, discord bot is unable to embed commands directly, and requires cogs.
 '''
 class PhantomGamesBotModule(commands.Cog):
-    def __init__(self, bot, quoteHandler: QuoteHandler, srcHandler: SrcomApi):
+    def __init__(self, bot: PhantomGamesBot, quoteHandler: QuoteHandler, srcHandler: SrcomApi):
         self.bot = bot
         self.quotes = quoteHandler
         self.speedrun = srcHandler
@@ -146,6 +168,7 @@ class PhantomGamesBotModule(commands.Cog):
         help="Get a list of all PB's for a given game.\nUsage:\n\t!pb {Game name}\n\tExample: !pb paper mario")
     async def get_pb(self, ctx):
         game = ctx.message.content[3:].strip()
+        self.bot.commands_since_new_status += 1
         if len(game) > 0:
             categories = self.speedrun.get_categories(game)
             response = ""
@@ -161,6 +184,7 @@ class PhantomGamesBotModule(commands.Cog):
     async def get_random_game(self, ctx):
         name = ctx.message.content[len("!speed"):].strip()
         game = None
+        self.bot.commands_since_new_status += 1
         if name is not None and len(name) > 0:
             if name.startswith("user:"):
                 message = await ctx.send("One second, looking up users on src can take a bit")
@@ -178,6 +202,7 @@ class PhantomGamesBotModule(commands.Cog):
         brief="Recommends the caller a random anime from anilist")
     async def get_random_anime(self, ctx):
         anime = self.anilist.getRandomAnimeName()
+        self.bot.commands_since_new_status += 1
         await ctx.send(f"{ctx.message.author.mention} You should try watching \"{anime}\"!")
 
     @commands.command(name="animeinfo",
@@ -186,6 +211,7 @@ class PhantomGamesBotModule(commands.Cog):
     async def get_anime_info(self, ctx):
         name =  ctx.message.content[len("!animeinfo"):].strip()
         anime_info = self.anilist.getAnimeByName(name)
+        self.bot.commands_since_new_status += 1
         if anime_info is not None:
             embed = discord.Embed(color=0xA0DB8E)
             embed = self.anilist.formatDiscordAnimeEmbed(name, embed)
@@ -200,6 +226,7 @@ class PhantomGamesBotModule(commands.Cog):
     async def get_quote(self, ctx, quote_id: str = "-1"):
         response = None
         quote = tryParseInt(quote_id, -1)
+        self.bot.commands_since_new_status += 1
         if quote >= 0:
             response = self.quotes.pick_specific_quote(quote_id)
         elif quote_id == "-1":
