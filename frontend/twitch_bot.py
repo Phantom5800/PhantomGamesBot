@@ -5,14 +5,15 @@ from typing import Optional
 from twitchio import PartialUser
 from twitchio.ext import commands
 from twitchio.ext import routines
+from commands.anilist import Anilist
 from commands.custom_commands import CustomCommands
+from commands.markov import MarkovHandler
 from commands.quotes import QuoteHandler
 from commands.src import SrcomApi
-from commands.anilist import Anilist
 from utils.utils import *
 
 class PhantomGamesBot(commands.Bot):
-    def __init__(self, customCommandHandler: CustomCommands, quoteHandler: QuoteHandler, srcHandler: SrcomApi):
+    def __init__(self, customCommandHandler: CustomCommands, quoteHandler: QuoteHandler, srcHandler: SrcomApi, markovHandler: MarkovHandler):
         super().__init__(
             token=os.environ['TWITCH_OAUTH_TOKEN'],
             client_id=os.environ['TWITCH_CLIENT_ID'],
@@ -25,6 +26,7 @@ class PhantomGamesBot(commands.Bot):
         self.custom = customCommandHandler
         self.quotes = quoteHandler
         self.speedrun = srcHandler
+        self.markov = markovHandler
         self.anilist = Anilist()
 
         # custom timers
@@ -318,6 +320,11 @@ class PhantomGamesBot(commands.Bot):
 
     # quotes
     @commands.command()
+    async def chat(self, ctx: commands.Context):
+        response = self.markov.getMarkovString()
+        await ctx.send(response)
+
+    @commands.command()
     async def quote(self, ctx: commands.Context, quote_id: str = "-1"):
         response = None
         quote = tryParseInt(quote_id, -1)
@@ -462,6 +469,6 @@ class PhantomGamesBot(commands.Bot):
         streamtitle = await get_stream_title_for_user(self, os.environ['TWITCH_CHANNEL'])
         await ctx.send(streamtitle)
 
-def run_twitch_bot(customCommandHandler: CustomCommands, quoteHandler: QuoteHandler, srcHandler: SrcomApi) -> PhantomGamesBot:
-    bot = PhantomGamesBot(customCommandHandler, quoteHandler, srcHandler)
+def run_twitch_bot(customCommandHandler: CustomCommands, quoteHandler: QuoteHandler, srcHandler: SrcomApi, markovHandler: MarkovHandler) -> PhantomGamesBot:
+    bot = PhantomGamesBot(customCommandHandler, quoteHandler, srcHandler, markovHandler)
     return bot

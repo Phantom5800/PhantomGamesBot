@@ -5,10 +5,11 @@ import os
 import discord
 import random
 from discord.ext import commands
+from commands.anilist import Anilist
 from commands.custom_commands import CustomCommands
+from commands.markov import MarkovHandler
 from commands.quotes import QuoteHandler
 from commands.src import SrcomApi
-from commands.anilist import Anilist
 from utils.utils import *
 
 class PhantomGamesBot(commands.Bot):
@@ -143,10 +144,11 @@ class PhantomGamesBot(commands.Bot):
 Unlike twitchio, discord bot is unable to embed commands directly, and requires cogs.
 '''
 class PhantomGamesBotModule(commands.Cog):
-    def __init__(self, bot: PhantomGamesBot, quoteHandler: QuoteHandler, srcHandler: SrcomApi):
+    def __init__(self, bot: PhantomGamesBot, quoteHandler: QuoteHandler, srcHandler: SrcomApi, markovHandler: MarkovHandler):
         self.bot = bot
         self.quotes = quoteHandler
         self.speedrun = srcHandler
+        self.markov = markovHandler
         self.anilist = Anilist()
     
     @commands.command(brief="Get a link to the bot's github.", help="Get a link to the bot's github.")
@@ -236,7 +238,12 @@ class PhantomGamesBotModule(commands.Cog):
         if response is not None:
             await ctx.send(response)
 
-def run_discord_bot(eventLoop, customCommandHandler: CustomCommands, quoteHandler: QuoteHandler, srcHandler: SrcomApi):
+    @commands.command(name="chat")
+    async def gen_chat_msg(self, ctx):
+        response = self.markov.getMarkovString()
+        await ctx.send(response)
+
+def run_discord_bot(eventLoop, customCommandHandler: CustomCommands, quoteHandler: QuoteHandler, srcHandler: SrcomApi, markovHandler: MarkovHandler):
     bot = PhantomGamesBot(customCommandHandler)
-    bot.add_cog(PhantomGamesBotModule(bot, quoteHandler, srcHandler))
+    bot.add_cog(PhantomGamesBotModule(bot, quoteHandler, srcHandler, markovHandler))
     eventLoop.create_task(bot.start(os.environ['DISCORD_TOKEN']))
