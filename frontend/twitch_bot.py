@@ -33,6 +33,9 @@ class PhantomGamesBot(commands.Bot):
         self.messages_since_timer = 0
         self.timer_lines = tryParseInt(os.environ['TIMER_CHAT_LINES'], 5)
 
+        # markov
+        self.markov_data_store = True
+
         # links
         self.permitted_users = []
         self.link_protection = False
@@ -132,6 +135,11 @@ class PhantomGamesBot(commands.Bot):
                     await ctx.send(response)
                 else:
                     await super().event_message(message)
+
+                    # save twitch messages that are not commands
+                    if self.markov_data_store and not message.content.startswith(os.environ['BOT_PREFIX']):
+                        with open("./commands/resources/markov.txt", "a+") as f:
+                            f.write(f"{message.content}\n")
 
     '''
     Periodic routine to send timer based messages.
