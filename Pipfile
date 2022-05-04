@@ -8,6 +8,7 @@ twitchio = "*"
 srcomapi = "*"
 discord = "*"
 anilistpython = "==0.1.3"
+markovify = "*"
 
 [dev-packages]
 
