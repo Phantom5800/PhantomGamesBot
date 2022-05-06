@@ -16,7 +16,7 @@ class QuoteHandler:
             try:
                 data = json.load(json_file)
                 self.quotes = deepcopy(data)
-                print(f"Quotes: {self.quotes}")
+                print(f"Quotes: {len(self.quotes)}")
             except json.decoder.JSONDecodeError:
                 print("[ERROR] Failed to load quotes from JSON")
                 return

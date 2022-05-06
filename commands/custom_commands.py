@@ -15,7 +15,7 @@ class CustomCommands:
             try:
                 data = json.load(json_file)
                 self.command_set = deepcopy(data)
-                print(f"Custom Commands: {self.command_set}")
+                print(f"Custom Commands: {len(self.command_set)}")
             except json.decoder.JSONDecodeError:
                 print("[ERROR] Failed to load commands from JSON")
         self.file_lock.release()
