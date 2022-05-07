@@ -10,5 +10,5 @@ class MarkovHandler:
             print(self.text_model.to_dict()["state_size"])
     
     def getMarkovString(self):
-        output = self.text_model.make_sentence(tries=100)
+        output = self.text_model.make_sentence(tries=200)
         return output

@@ -141,7 +141,10 @@ class PhantomGamesBot(commands.Bot):
                     # save twitch messages that are not commands and contain at least two words
                     if self.markov_data_store and not message.content.startswith(os.environ['BOT_PREFIX']) and " " in message.content:
                         with open("./commands/resources/markov.txt", "a+") as f:
-                            f.write(f"{message.content}\n")
+                            try:
+                                f.write(f"{message.content}\n")
+                            except:
+                                print(f"[ERROR] Failed to add string to markov: {message.content}")
 
     '''
     Periodic routine to send timer based messages.
