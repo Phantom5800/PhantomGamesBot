@@ -240,7 +240,7 @@ class PhantomGamesBotModule(commands.Cog):
 
     @commands.command(name="chat")
     async def gen_chat_msg(self, ctx):
-        response = self.markov.getMarkovString()
+        response = self.markov.get_markov_string()
         self.bot.commands_since_new_status += 1
         await ctx.send(response)
 

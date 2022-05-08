@@ -189,17 +189,17 @@ class PhantomGamesBot(commands.Bot):
     '''
     Periodically posts automatically generated messages to chat.
     '''
-    @routines.routine(minutes=int(os.enviorn['AUTO_CHAT_MINUTES']), wait_first=True)
+    @routines.routine(minutes=int(os.environ['AUTO_CHAT_MINUTES']), wait_first=True)
     async def automatic_chat(self):
         if self.auto_chat_msg >= self.auto_chat_lines:
             self.auto_chat_msg = 0
             self.auto_chat_lines = tryParseInt(os.environ['AUTO_CHAT_LINES_MIN'], 20) + random.randint(0, self.auto_chat_lines_mod)
 
-            channel = self.get_channel(os.enviorn['TWITCH_CHANNEL'])
+            channel = self.get_channel(os.environ['TWITCH_CHANNEL'])
             if channel is None:
                 print(f"[ERROR] Timer cannot find channel '{os.environ['TWITCH_CHANNEL']}' to post in??")
             else:
-                message = self.markov.getMarkovString()
+                message = self.markov.get_markov_string()
                 await channel.send(message)
     
     # custom commands
@@ -360,7 +360,7 @@ class PhantomGamesBot(commands.Bot):
     # quotes
     @commands.command()
     async def chat(self, ctx: commands.Context):
-        response = self.markov.getMarkovString()
+        response = self.markov.get_markov_string()
         await ctx.send(response)
 
     @commands.command()
