@@ -1,5 +1,6 @@
 from datetime import datetime
 import os
+import random
 import re
 from typing import Optional
 from twitchio import PartialUser
@@ -42,6 +43,10 @@ class PhantomGamesBot(commands.Bot):
         self.permitted_users = []
         self.link_protection = False
         self.url_search = re.compile(r"([\w+]+\:\/\/)?([\w\d-]+\.)*[\w-]+[\.]\w+([\/\?\=\&\#.]?[\w-]+)*\/?")
+
+        # random message response
+        self.bless_count = 0
+        self.bless_sent = False
 
         # load relevant data
         self.load_timer_events()
@@ -128,6 +133,16 @@ class PhantomGamesBot(commands.Bot):
                         message_id = message.tags['id']
                         print(f"[Detected unpermitted link]: \"{message.content}\"\n\tfrom {message.author}\n\t{url_matches}")
                         await message.channel.send(f"/delete {message_id}")
+                
+                # if people are spamming bless emotes, jump in "randomly"
+                if "Bless" in message.content or "Prayge" in message.content:
+                    self.bless_count = self.bless_count + 1
+                    if random.randint(1, self.bless_count) >= 2 and not self.bless_sent:
+                        self.bless_sent = True
+                        await ctx.send("phanto274Bless phanto274Bless phanto274Bless")
+                else:
+                    self.bless_count = 0
+                    self.bless_sent = False
 
                 # look for commands
                 command = message.content.split()[0]
