@@ -241,6 +241,7 @@ class PhantomGamesBotModule(commands.Cog):
     @commands.command(name="chat")
     async def gen_chat_msg(self, ctx):
         response = self.markov.getMarkovString()
+        self.bot.commands_since_new_status += 1
         await ctx.send(response)
 
 def run_discord_bot(eventLoop, customCommandHandler: CustomCommands, quoteHandler: QuoteHandler, srcHandler: SrcomApi, markovHandler: MarkovHandler):

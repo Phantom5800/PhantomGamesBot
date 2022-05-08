@@ -35,6 +35,9 @@ class PhantomGamesBot(commands.Bot):
         self.current_timer_msg = 0
         self.messages_since_timer = 0
         self.timer_lines = tryParseInt(os.environ['TIMER_CHAT_LINES'], 5)
+        self.auto_chat_msg = 0
+        self.auto_chat_lines_mod = tryParseInt(os.environ['AUTO_CHAT_LINES_MOD'], 10)
+        self.auto_chat_lines = tryParseInt(os.environ['AUTO_CHAT_LINES_MIN'], 20) + random.randint(0, self.auto_chat_lines_mod)
 
         # markov
         self.markov_data_store = True
@@ -58,6 +61,7 @@ class PhantomGamesBot(commands.Bot):
         # start message timer
         try:
             self.timer_update.start()
+            #self.automatic_chat.start()
         except RuntimeError:
             print("Timer is already running")
     
@@ -122,6 +126,7 @@ class PhantomGamesBot(commands.Bot):
 
         # track chat messages that have been posted since the last timer fired
         self.messages_since_timer += 1
+        self.auto_chat_msg += 1
 
         if message is not None: # this has come up before??
             # handle custom commands
@@ -180,6 +185,22 @@ class PhantomGamesBot(commands.Bot):
                     #await channel.send(f"/announce {message}")
                     await channel.send(message)
                     self.current_timer_msg = (self.current_timer_msg + 1) % len(self.timer_queue)
+    
+    '''
+    Periodically posts automatically generated messages to chat.
+    '''
+    @routines.routine(minutes=int(os.enviorn['AUTO_CHAT_MINUTES']), wait_first=True)
+    async def automatic_chat(self):
+        if self.auto_chat_msg >= self.auto_chat_lines:
+            self.auto_chat_msg = 0
+            self.auto_chat_lines = tryParseInt(os.environ['AUTO_CHAT_LINES_MIN'], 20) + random.randint(0, self.auto_chat_lines_mod)
+
+            channel = self.get_channel(os.enviorn['TWITCH_CHANNEL'])
+            if channel is None:
+                print(f"[ERROR] Timer cannot find channel '{os.environ['TWITCH_CHANNEL']}' to post in??")
+            else:
+                message = self.markov.getMarkovString()
+                await channel.send(message)
     
     # custom commands
     '''
