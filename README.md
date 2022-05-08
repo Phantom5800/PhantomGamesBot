@@ -29,8 +29,12 @@ TWITCH_OAUTH_TOKEN={OAUTH Token for bot account}
 TWITCH_CLIENT_ID={Twitch Client ID}
 BOT_NICK={Bot Account Name}
 TWITCH_CHANNEL={Channel Name}
+
 TIMER_CHAT_LINES=
 TIMER_MINUTES=
+AUTO_CHAT_LINES_MIN=
+AUTO_CHAT_LINES_MOD=
+AUTO_CHAT_MINUTES=
 
 BOT_PREFIX=!
 
@@ -46,6 +50,12 @@ In order to fill out the `.env`, you'll need to register as a [Twitch developer]
 
 ## Link Protection
 The bot will automatically delete messages containing links from users that are not moderators, vips, or subscribers.
+
+# Spam Propagation
+The bot supports automatically posting nonsense based on messages it has read from twitch chat in the past. While chat logging is enabled, all twitch chat messages are logged to a text file. The next time the bot is restarted, it will generate a markov chain based on the current data set. These messages can be set to post automatically in chat on a timer using the `.env` configs.
+
+### !chat ![](./readme/images/twitch.png) ![](./readme/images/discord.png)
+Forces the bot to post an automatically generated message based on data it has been given through previous twitch chat messages.
 
 # Default Commands
 Default command set that can be used by anyone.
