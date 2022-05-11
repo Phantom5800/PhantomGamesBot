@@ -12,10 +12,10 @@ class MarkovHandler:
             print(self.text_model.to_dict()["state_size"])
             print(f"Possible starting words: {[key[state_size - 1] for key in self.text_model.chain.model.keys() if '___BEGIN__' in key]}")
     
-    def get_markov_string(self, include_word=None):
+    def get_markov_string(self, include_word=None, max_words=None):
         output = None
         if include_word:
-            output = self.text_model.make_sentence_with_start(include_word, False, tries=200, max_overlap_ratio=0.55)
+            output = self.text_model.make_sentence_with_start(include_word, False, tries=200, max_overlap_ratio=0.65, max_words=max_words)
         else:
-            output = self.text_model.make_sentence(tries=200, max_overlap_ratio=0.55)
+            output = self.text_model.make_sentence(tries=200, max_overlap_ratio=0.65, max_words=max_words)
         return output
