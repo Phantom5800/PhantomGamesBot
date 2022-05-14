@@ -137,7 +137,7 @@ class PhantomGamesBot(commands.Bot):
         
         # get new status sometimes
         if old_status_count != self.commands_since_new_status:
-            if random.randrange(self.commands_since_new_status, 100) > 75:
+            if self.commands_since_new_status >= 100 or random.randrange(self.commands_since_new_status, 100) > 75:
                 await self.set_random_status()
 
 '''
