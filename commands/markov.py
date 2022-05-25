@@ -17,15 +17,16 @@ class MarkovHandler:
             print(f"Possible starting words: {[key[state_size - 1] for key in self.text_model.chain.model.keys() if '___BEGIN__' in key]}")
     
     def get_markov_string(self, include_word=None, max_words=None):
-        overlap = 0.65
+        overlap = 0.7
         attempts = 300
         output = None
+        min_words = 10
 
-        # if include_word:
-        #     output = self.text_model.make_sentence_with_start(include_word, False, tries=attempts, max_overlap_ratio=overlap, max_words=max_words)
-        # else:
-        #     output = self.text_model.make_sentence(tries=attempts, max_overlap_ratio=overlap, max_words=max_words)
+        if include_word:
+            output = self.text_model.make_sentence_with_start(include_word, False, tries=attempts, max_overlap_ratio=overlap, min_words=min_words, max_words=max_words)
+        else:
+            output = self.text_model.make_sentence(tries=attempts, max_overlap_ratio=overlap, min_words=min_words, max_words=max_words)
 
         if not output:
-            output = self.backup_text.make_sentence(tries=attempts, max_overlap_ratio=overlap, max_words=max_words)
+            output = self.backup_text.make_sentence(tries=attempts, max_overlap_ratio=overlap, min_words=min_words, max_words=max_words)
         return output
