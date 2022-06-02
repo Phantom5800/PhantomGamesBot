@@ -22,10 +22,10 @@ class MarkovHandler:
         output = None
         min_words = 10
 
-        if include_word:
-            output = self.text_model.make_sentence_with_start(include_word, False, tries=attempts, max_overlap_ratio=overlap, min_words=min_words, max_words=max_words)
-        else:
-            output = self.text_model.make_sentence(tries=attempts, max_overlap_ratio=overlap, min_words=min_words, max_words=max_words)
+        # if include_word:
+        #     output = self.text_model.make_sentence_with_start(include_word, False, tries=attempts, max_overlap_ratio=overlap, min_words=min_words, max_words=max_words)
+        # else:
+        #     output = self.text_model.make_sentence(tries=attempts, max_overlap_ratio=overlap, min_words=min_words, max_words=max_words)
 
         if not output:
             output = self.backup_text.make_sentence(tries=attempts, max_overlap_ratio=overlap, min_words=min_words, max_words=max_words)

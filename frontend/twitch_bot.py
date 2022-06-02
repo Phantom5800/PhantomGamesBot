@@ -61,7 +61,7 @@ class PhantomGamesBot(commands.Bot):
         # start message timer
         try:
             self.timer_update.start()
-            #self.automatic_chat.start()
+            self.automatic_chat.start()
         except RuntimeError:
             print("Timer is already running")
     
