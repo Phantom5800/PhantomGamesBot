@@ -41,6 +41,7 @@ class PhantomGamesBot(commands.Bot):
 
         # markov
         self.markov_data_store = True
+        self.markov_store_minlen = 4
 
         # links
         self.permitted_users = []
@@ -159,7 +160,7 @@ class PhantomGamesBot(commands.Bot):
                     await super().event_message(message)
 
                     # save twitch messages that are not commands and contain at least two words
-                    if self.markov_data_store and not message.content.startswith(os.environ['BOT_PREFIX']) and " " in message.content:
+                    if self.markov_data_store and not message.content.startswith(os.environ['BOT_PREFIX']) and len(message.content.split()) >= self.markov_store_minlen:
                         with open("./commands/resources/markov.txt", "a+") as f:
                             try:
                                 f.write(f"{message.content}\n")
