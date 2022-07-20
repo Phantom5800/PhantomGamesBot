@@ -10,6 +10,7 @@ from commands.anilist import Anilist
 from commands.custom_commands import CustomCommands
 from commands.markov import MarkovHandler
 from commands.quotes import QuoteHandler
+from commands.slots import Slots
 from commands.src import SrcomApi
 from utils.utils import *
 
@@ -29,6 +30,7 @@ class PhantomGamesBot(commands.Bot):
         self.speedrun = srcHandler
         self.markov = markovHandler
         self.anilist = Anilist()
+        self.slots = Slots()
 
         # custom timers
         self.timer_queue = []
@@ -201,6 +203,7 @@ class PhantomGamesBot(commands.Bot):
                 print(f"[ERROR] Timer cannot find channel '{os.environ['TWITCH_CHANNEL']}' to post in??")
             else:
                 message = self.markov.get_markov_string()
+                print(f"Generated Message: {message}")
                 await channel.send(message)
     
     # custom commands
@@ -491,6 +494,11 @@ class PhantomGamesBot(commands.Bot):
     async def game(self, ctx: commands.Context):
         game_name = await get_game_name_from_twitch(self)
         await ctx.send(game_name)
+
+    @commands.command()
+    @commands.cooldown(1, 10, commands.Bucket.user)
+    async def slots(self, ctx: commands.Context):
+        await ctx.send(self.slots.roll(ctx.message.author.mention))
 
     '''
     Give a shoutout to a specific user in chat.
