@@ -15,6 +15,5 @@ class Slots:
         ]
     
     def roll(self, user):
-        result = ""
         result = f"{user} {self.emotes[random.randint(0, len(self.emotes))]} | {self.emotes[random.randint(0, len(self.emotes))]} | {self.emotes[random.randint(0, len(self.emotes))]}"
         return result

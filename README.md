@@ -105,6 +105,11 @@ Display a random (or specified) quote from the internally stored list.
 !quote {quote id}
 ```
 
+### !slots ![](./readme/images/twitch.png)
+Gives the user a slot machine style result of three random emotes.
+
+![Example slots roll](./readme/images/slots.png)
+
 ### !speed ![](./readme/images/twitch.png) ![](./readme/images/discord.png)
 
 Recommends a random game and speedrun category to a user.
