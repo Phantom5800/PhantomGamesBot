@@ -9,6 +9,8 @@ from commands.anilist import Anilist
 from commands.custom_commands import CustomCommands
 from commands.markov import MarkovHandler
 from commands.quotes import QuoteHandler
+from commands.slots import Slots
+from commands.slots import SlotsMode
 from commands.src import SrcomApi
 from utils.utils import *
 
@@ -150,6 +152,7 @@ class PhantomGamesBotModule(commands.Cog):
         self.speedrun = srcHandler
         self.markov = markovHandler
         self.anilist = Anilist()
+        self.slots = Slots(SlotsMode.DISCORD)
     
     @commands.command(brief="Get a link to the bot's github.", help="Get a link to the bot's github.")
     async def bot(self, ctx: commands.Context):
@@ -237,6 +240,10 @@ class PhantomGamesBotModule(commands.Cog):
             response = self.quotes.find_quote_keyword(quote_id)
         if response is not None:
             await ctx.send(response)
+
+    @commands.command(name="slots")
+    async def get_slots(self, ctx):
+        await ctx.send(self.slots.roll(ctx.message.author.mention))
 
     @commands.command(name="chat")
     async def gen_chat_msg(self, ctx):

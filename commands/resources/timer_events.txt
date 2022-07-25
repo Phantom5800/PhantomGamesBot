@@ -2,4 +2,3 @@
 !discord
 !twitter
 !youtube
-!schedule

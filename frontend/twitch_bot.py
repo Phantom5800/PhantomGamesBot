@@ -11,6 +11,7 @@ from commands.custom_commands import CustomCommands
 from commands.markov import MarkovHandler
 from commands.quotes import QuoteHandler
 from commands.slots import Slots
+from commands.slots import SlotsMode
 from commands.src import SrcomApi
 from utils.utils import *
 
@@ -30,7 +31,7 @@ class PhantomGamesBot(commands.Bot):
         self.speedrun = srcHandler
         self.markov = markovHandler
         self.anilist = Anilist()
-        self.slots = Slots()
+        self.slots = Slots(SlotsMode.TWITCH)
 
         # custom timers
         self.timer_queue = []
