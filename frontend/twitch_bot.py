@@ -44,7 +44,7 @@ class PhantomGamesBot(commands.Bot):
 
         # markov
         self.markov_data_store = True
-        self.markov_store_minlen = 4
+        self.markov_store_minlen = 6
 
         # links
         self.permitted_users = []
@@ -163,7 +163,7 @@ class PhantomGamesBot(commands.Bot):
                     await super().event_message(message)
 
                     # save twitch messages that are not commands and contain at least two words
-                    if self.markov_data_store and not message.content.startswith(os.environ['BOT_PREFIX']) and len(message.content.split()) >= self.markov_store_minlen:
+                    if self.markov_data_store and not message.content.startswith(os.environ['BOT_PREFIX']) and len(set(message.content.split())) >= self.markov_store_minlen:
                         with open("./commands/resources/markov.txt", "a+") as f:
                             try:
                                 f.write(f"{message.content}\n")
@@ -487,6 +487,19 @@ class PhantomGamesBot(commands.Bot):
     @commands.command()
     async def bot(self, ctx: commands.Context):
         await ctx.send("Hey! I am a custom chatbot written in Python, my source code is available at: https://github.com/Phantom5800/PhantomGamesBot")
+
+    @commands.command()
+    async def followage(self, ctx: commands.Context):
+        streamer = await get_twitch_user(self, os.environ['TWITCH_CHANNEL'])
+        try:
+            followEvent = await ctx.message.author.fetch_follow(streamer)
+        except:
+            await ctx.send(f"{ctx.message.author.mention} something went wrong, oops")
+            return
+        if followEvent is not None:
+            await ctx.send(f"{ctx.message.author.mention} has been following for {followEvent.followed_at}!")
+        else:
+            await ctx.send(f"{ctx.message.author.mention} is not even following phanto274Shrug")
 
     '''
     Get the current game being played on twitch.
