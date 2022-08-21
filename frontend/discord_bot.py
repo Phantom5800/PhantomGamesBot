@@ -4,7 +4,7 @@ import json
 import os
 import discord
 import random
-from discord.ext import commands
+from discord.ext import bridge, commands
 from commands.anilist import Anilist
 from commands.custom_commands import CustomCommands
 from commands.markov import MarkovHandler
@@ -14,9 +14,10 @@ from commands.slots import SlotsMode
 from commands.src import SrcomApi
 from utils.utils import *
 
-class PhantomGamesBot(commands.Bot):
+class PhantomGamesBot(bridge.Bot):
     def __init__(self, customCommandHandler: CustomCommands):
         intents = discord.Intents.default()
+        intents.message_content = True
         intents.members = True
 
         super().__init__(
@@ -136,6 +137,8 @@ class PhantomGamesBot(commands.Bot):
                     await ctx.send(response)
                 else:
                     await super().on_message(message)
+            else:
+                await super().on_message(message)
         
         # get new status sometimes
         if old_status_count != self.commands_since_new_status:
@@ -154,11 +157,11 @@ class PhantomGamesBotModule(commands.Cog):
         self.anilist = Anilist()
         self.slots = Slots(SlotsMode.DISCORD)
     
-    @commands.command(brief="Get a link to the bot's github.", help="Get a link to the bot's github.")
+    @bridge.bridge_command(brief="Get a link to the bot's github.", help="Get a link to the bot's github.")
     async def bot(self, ctx: commands.Context):
         await ctx.send("Hey! I am a custom chatbot written in Python, my source code is available at: https://github.com/Phantom5800/PhantomGamesBot")
 
-    @commands.command(name="commands", 
+    @bridge.bridge_command(name="commands", 
         brief="Get a list custom commands created on twitch.",
         help="Get a list of all basic response commands. These commands are all added by moderators on twitch.")
     async def get_commands(self, ctx):
@@ -167,7 +170,7 @@ class PhantomGamesBotModule(commands.Cog):
         command_list.sort()
         await ctx.send(f"List of all the current custom commands: {command_list}")
 
-    @commands.command(name="pb", 
+    @bridge.bridge_command(name="pb", 
         brief="Get a list of personal bests for a specified game.", 
         usage="game_name",
         help="Get a list of all PB's for a given game.\nUsage:\n\t!pb {Game name}\n\tExample: !pb paper mario")
@@ -184,7 +187,7 @@ class PhantomGamesBotModule(commands.Cog):
             game_list = self.speedrun.get_games()
             await ctx.send(f"Available games: {game_list}")
 
-    @commands.command(name="speed",
+    @bridge.bridge_command(name="speed",
         brief="Recommends the caller a random game from speedrun.com")
     async def get_random_game(self, ctx):
         name = ctx.message.content[len("!speed"):].strip()
@@ -201,16 +204,16 @@ class PhantomGamesBotModule(commands.Cog):
                 game = self.speedrun.get_random_category(name)
         else:
             game = self.speedrun.get_random_game()
-        await ctx.send(f"{ctx.message.author.mention} You should try speedrunning {game}!")
+        await ctx.respond(f"{ctx.message.author.mention} You should try speedrunning {game}!")
 
-    @commands.command(name="anime",
+    @bridge.bridge_command(name="anime",
         brief="Recommends the caller a random anime from anilist")
     async def get_random_anime(self, ctx):
         anime = self.anilist.getRandomAnimeName()
         self.bot.commands_since_new_status += 1
-        await ctx.send(f"{ctx.message.author.mention} You should try watching \"{anime}\"!")
+        await ctx.respond(f"{ctx.message.author.mention} You should try watching \"{anime}\"!")
 
-    @commands.command(name="animeinfo",
+    @bridge.bridge_command(name="animeinfo",
         brief="Gets a synopsis of a given anime",
         usage="<anime name>")
     async def get_anime_info(self, ctx):
@@ -224,7 +227,7 @@ class PhantomGamesBotModule(commands.Cog):
         else:
             await ctx.send(f"Could not find anime {name}")
 
-    @commands.command(name="quote", 
+    @bridge.bridge_command(name="quote", 
         brief="Get a random or specific quote.",
         usage="[quote id]",
         help="Get a quote that has been added on twitch.\nUsage:\n\t!quote - Get a random quote\n\t!quote {#} - Get a specific quote by id\n\tExample: !quote 3")
@@ -241,11 +244,11 @@ class PhantomGamesBotModule(commands.Cog):
         if response is not None:
             await ctx.send(response)
 
-    @commands.command(name="slots")
+    @bridge.bridge_command(name="slots")
     async def get_slots(self, ctx):
-        await ctx.send(self.slots.roll(ctx.message.author.mention))
+        await ctx.respond(self.slots.roll(ctx.message.author.mention))
 
-    @commands.command(name="chat")
+    @bridge.bridge_command(name="chat")
     async def gen_chat_msg(self, ctx):
         response = self.markov.get_markov_string()
         self.bot.commands_since_new_status += 1
@@ -254,4 +257,7 @@ class PhantomGamesBotModule(commands.Cog):
 def run_discord_bot(eventLoop, customCommandHandler: CustomCommands, quoteHandler: QuoteHandler, srcHandler: SrcomApi, markovHandler: MarkovHandler):
     bot = PhantomGamesBot(customCommandHandler)
     bot.add_cog(PhantomGamesBotModule(bot, quoteHandler, srcHandler, markovHandler))
-    eventLoop.create_task(bot.start(os.environ['DISCORD_TOKEN']))
+    async def runBot():
+        await bot.start(os.environ['DISCORD_TOKEN'])
+
+    eventLoop.create_task(runBot())

@@ -121,7 +121,7 @@ class PhantomGamesBot(commands.Bot):
     Runs every time a message is sent in chat.
     '''
     async def event_message(self, message):
-        # make sure the bot ignores itself and the streamer
+        # make sure the bot ignores itself
         if (message.author is not None and message.author.name.lower() == os.environ['BOT_NICK'].lower()) or message.author is None:
             return
 
@@ -488,12 +488,17 @@ class PhantomGamesBot(commands.Bot):
     async def bot(self, ctx: commands.Context):
         await ctx.send("Hey! I am a custom chatbot written in Python, my source code is available at: https://github.com/Phantom5800/PhantomGamesBot")
 
+    '''
+    Attempt to get how long a user has been following the channel for.
+    '''
     @commands.command()
     async def followage(self, ctx: commands.Context):
         streamer = await get_twitch_user(self, os.environ['TWITCH_CHANNEL'])
         try:
-            followEvent = await ctx.message.author.fetch_follow(streamer)
-        except:
+            followEvent = await ctx.message.author.fetch_follow(to_user=streamer, token=os.environ['TWITCH_OAUTH_TOKEN'])
+            print(followEvent)
+        except Exception as e:
+            print(e)
             await ctx.send(f"{ctx.message.author.mention} something went wrong, oops")
             return
         if followEvent is not None:

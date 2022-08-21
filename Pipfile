@@ -4,11 +4,12 @@ verify_ssl = true
 name = "pypi"
 
 [packages]
-twitchio = "*"
+twitchio = "==2.4.0"
 srcomapi = "*"
-discord = "*"
 anilistpython = "==0.1.3"
 markovify = "*"
+pycord = "*"
+py-cord = "*"
 
 [dev-packages]
 
