@@ -204,14 +204,14 @@ class PhantomGamesBotModule(commands.Cog):
                 game = self.speedrun.get_random_category(name)
         else:
             game = self.speedrun.get_random_game()
-        await ctx.respond(f"{ctx.message.author.mention} You should try speedrunning {game}!")
+        await ctx.send(f"{ctx.message.author.mention} You should try speedrunning {game}!")
 
     @bridge.bridge_command(name="anime",
         brief="Recommends the caller a random anime from anilist")
     async def get_random_anime(self, ctx):
         anime = self.anilist.getRandomAnimeName()
         self.bot.commands_since_new_status += 1
-        await ctx.respond(f"{ctx.message.author.mention} You should try watching \"{anime}\"!")
+        await ctx.send(f"{ctx.message.author.mention} You should try watching \"{anime}\"!")
 
     @bridge.bridge_command(name="animeinfo",
         brief="Gets a synopsis of a given anime",
@@ -246,12 +246,13 @@ class PhantomGamesBotModule(commands.Cog):
 
     @bridge.bridge_command(name="slots")
     async def get_slots(self, ctx):
-        await ctx.respond(self.slots.roll(ctx.message.author.mention))
+        await ctx.respond(self.slots.roll(""))
 
     @bridge.bridge_command(name="chat")
     async def gen_chat_msg(self, ctx):
         response = self.markov.get_markov_string()
         self.bot.commands_since_new_status += 1
+        await ctx.message.delete()
         await ctx.send(response)
 
 def run_discord_bot(eventLoop, customCommandHandler: CustomCommands, quoteHandler: QuoteHandler, srcHandler: SrcomApi, markovHandler: MarkovHandler):
