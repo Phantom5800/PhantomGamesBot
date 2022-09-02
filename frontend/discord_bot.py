@@ -159,7 +159,7 @@ class PhantomGamesBotModule(commands.Cog):
     
     @bridge.bridge_command(brief="Get a link to the bot's github.", help="Get a link to the bot's github.")
     async def bot(self, ctx: commands.Context):
-        await ctx.send("Hey! I am a custom chatbot written in Python, my source code is available at: https://github.com/Phantom5800/PhantomGamesBot")
+        await ctx.respond("Hey! I am a custom chatbot written in Python, my source code is available at: https://github.com/Phantom5800/PhantomGamesBot")
 
     @bridge.bridge_command(name="commands", 
         brief="Get a list custom commands created on twitch.",
@@ -168,7 +168,7 @@ class PhantomGamesBotModule(commands.Cog):
         command_list = []
         command_list.extend(self.bot.custom.get_command_list())
         command_list.sort()
-        await ctx.send(f"List of all the current custom commands: {command_list}")
+        await ctx.respond(f"List of all the current custom commands: {command_list}")
 
     @bridge.bridge_command(name="pb", 
         brief="Get a list of personal bests for a specified game.", 
@@ -182,10 +182,10 @@ class PhantomGamesBotModule(commands.Cog):
             response = ""
             for category in categories:
                 response += self.speedrun.get_pb(game, category, True) + "\n"
-            await ctx.send(response)
+            await ctx.respond(response)
         else:
             game_list = self.speedrun.get_games()
-            await ctx.send(f"Available games: {game_list}")
+            await ctx.respond(f"Available games: {game_list}")
 
     @bridge.bridge_command(name="speed",
         brief="Recommends the caller a random game from speedrun.com")
@@ -195,23 +195,23 @@ class PhantomGamesBotModule(commands.Cog):
         self.bot.commands_since_new_status += 1
         if name is not None and len(name) > 0:
             if name.startswith("user:"):
-                message = await ctx.send("One second, looking up users on src can take a bit")
+                message = await ctx.respond("One second, looking up users on src can take a bit")
                 name = name[len("user:"):]
                 game = self.speedrun.get_random_user_game(name)
-                await message.edit(content=f"Would be really cool if {name} would speedrun {game}!")
+                await message.respond(content=f"Would be really cool if {name} would speedrun {game}!")
                 return
             else:
                 game = self.speedrun.get_random_category(name)
         else:
             game = self.speedrun.get_random_game()
-        await ctx.send(f"{ctx.message.author.mention} You should try speedrunning {game}!")
+        await ctx.respond(f"{ctx.message.author.mention} You should try speedrunning {game}!")
 
     @bridge.bridge_command(name="anime",
         brief="Recommends the caller a random anime from anilist")
     async def get_random_anime(self, ctx):
         anime = self.anilist.getRandomAnimeName()
         self.bot.commands_since_new_status += 1
-        await ctx.send(f"{ctx.message.author.mention} You should try watching \"{anime}\"!")
+        await ctx.respond(f"{ctx.message.author.mention} You should try watching \"{anime}\"!")
 
     @bridge.bridge_command(name="animeinfo",
         brief="Gets a synopsis of a given anime",
@@ -223,9 +223,9 @@ class PhantomGamesBotModule(commands.Cog):
         if anime_info is not None:
             embed = discord.Embed(color=0xA0DB8E)
             embed = self.anilist.formatDiscordAnimeEmbed(name, embed)
-            await ctx.send(f"{ctx.message.author.mention}", embed=embed)
+            await ctx.respond(f"{ctx.message.author.mention}", embed=embed)
         else:
-            await ctx.send(f"Could not find anime {name}")
+            await ctx.respond(f"Could not find anime {name}")
 
     @bridge.bridge_command(name="quote", 
         brief="Get a random or specific quote.",
@@ -242,7 +242,7 @@ class PhantomGamesBotModule(commands.Cog):
         else:
             response = self.quotes.find_quote_keyword(quote_id)
         if response is not None:
-            await ctx.send(response)
+            await ctx.respond(response)
 
     @bridge.bridge_command(name="slots")
     async def get_slots(self, ctx):
@@ -252,8 +252,11 @@ class PhantomGamesBotModule(commands.Cog):
     async def gen_chat_msg(self, ctx):
         response = self.markov.get_markov_string()
         self.bot.commands_since_new_status += 1
-        await ctx.message.delete()
-        await ctx.send(response)
+        await ctx.respond(response)
+        try:
+            await ctx.message.delete()
+        except:
+            return
 
 def run_discord_bot(eventLoop, customCommandHandler: CustomCommands, quoteHandler: QuoteHandler, srcHandler: SrcomApi, markovHandler: MarkovHandler):
     bot = PhantomGamesBot(customCommandHandler)

@@ -23,6 +23,7 @@ class Slots:
                 "WhatsHisFace",
                 "yoshiGasm",
                 "MarioDab",
+                "el:Wadafa:yelpanaFrienddandoleunabrazo",
             ]
         elif mode == SlotsMode.DISCORD:
             self.emotes = [
