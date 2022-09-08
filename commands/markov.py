@@ -2,7 +2,7 @@ import markovify
 
 class MarkovHandler:
     def __init__(self):
-        with open("./commands/resources/markov.txt", "r") as f:
+        with open("./commands/resources/markov/markov-2022.txt", "r") as f:
             text = f.read()
             # state_size=1 is complete nonsense, 2 makes more ... real sentences, 3 is not random enough
             state_size = 3
