@@ -103,6 +103,7 @@ Display a random (or specified) quote from the internally stored list.
 ```
 !quote
 !quote {quote id}
+!quote latest
 ```
 
 ### !slots ![](./readme/images/twitch.png) ![](./readme/images/discord.png)

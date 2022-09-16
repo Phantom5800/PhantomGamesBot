@@ -374,6 +374,11 @@ class PhantomGamesBot(commands.Bot):
     @commands.command()
     async def quote(self, ctx: commands.Context, quote_id: str = "-1"):
         response = None
+
+        if "latest" in quote_id.lower():
+            await ctx.send(self.quotes.pick_specific_quote(str(self.quotes.num_quotes() - 1)))
+            return
+
         quote = tryParseInt(quote_id, -1)
         if quote >= 0:
             response = self.quotes.pick_specific_quote(quote_id)

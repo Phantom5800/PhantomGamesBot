@@ -233,6 +233,11 @@ class PhantomGamesBotModule(commands.Cog):
         help="Get a quote that has been added on twitch.\nUsage:\n\t!quote - Get a random quote\n\t!quote {#} - Get a specific quote by id\n\tExample: !quote 3")
     async def get_quote(self, ctx, quote_id: str = "-1"):
         response = None
+
+        if "latest" in quote_id.lower():
+            await ctx.respond(self.quotes.pick_specific_quote(str(self.quotes.num_quotes() - 1)))
+            return
+
         quote = tryParseInt(quote_id, -1)
         self.bot.commands_since_new_status += 1
         if quote >= 0:

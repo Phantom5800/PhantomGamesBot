@@ -88,3 +88,6 @@ class QuoteHandler:
         quote = self.quotes[str(quote_id)]
         self.access_lock.release()
         return f"[Quote #{quote_id}]: {quote}"
+
+    def num_quotes(self) -> int:
+        return len(self.quotes)
