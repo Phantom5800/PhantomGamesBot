@@ -25,7 +25,7 @@ class QuoteHandler:
     def save_quotes(self):
         self.file_lock.acquire()
         with open('./commands/resources/quotes.json', 'w', encoding="utf-8") as json_file:
-            json_str = json.dumps(self.quotes)
+            json_str = json.dumps(self.quotes, indent=2)
             json_file.write(json_str)
         self.file_lock.release()
 

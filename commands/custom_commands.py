@@ -23,7 +23,7 @@ class CustomCommands:
     def save_commands(self):
         self.file_lock.acquire()
         with open('./commands/resources/custom_commands.json', 'w', encoding="utf-8") as json_file:
-            json_str = json.dumps(self.command_set)
+            json_str = json.dumps(self.command_set, indent=2)
             json_file.write(json_str)
         self.file_lock.release()
 
