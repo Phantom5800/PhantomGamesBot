@@ -12,7 +12,7 @@
   "!lurk": {
     "response": "ok $user",
     "cooldown": 0,
-    "last_use": 1662218999.950682
+    "last_use": 1664549762.369702
   },
   "!unlurk": {
     "response": "alright $user",
@@ -22,7 +22,7 @@
   "!discord": {
     "response": "/announce Join the discord if you want to hang out. You can also spam !speed when I'm not even online https://discord.gg/XtrhKXNmRc",
     "cooldown": 0,
-    "last_use": 1660498098.722154
+    "last_use": 1664748973.825249
   },
   "!ohdee": {
     "response": "OhDee made all the emotes and stream assets. Follow him on twitter because he's cool: https://twitter.com/OhDeezey",
@@ -30,19 +30,19 @@
     "last_use": 0
   },
   "!multi": {
-    "response": "https://kadgar.net/live/phantom5800/DrToadstool/Axl_Sensei",
+    "response": "https://kadgar.net/live/phantom5800/Iceblue",
     "cooldown": 0,
     "last_use": 0
   },
   "!follow": {
     "response": "/announce If you haven't already done so, click the follow button! Every follower is greatly appreciated! There are no follow alerts, so if you want to just lurk, there's no need to worry about your name showing up on stream.",
     "cooldown": 0,
-    "last_use": 1659894798.535979
+    "last_use": 1664748975.146084
   },
   "@phantomgamesbot": {
     "response": "$user $msg",
     "cooldown": 0,
-    "last_use": 1662396250.246644
+    "last_use": 1664647106.155408
   },
   "!github": {
     "response": "All my open source code projects are available on github: https://github.com/Phantom5800",
@@ -52,12 +52,12 @@
   "!twitter": {
     "response": "/announce Follow me on twitter to keep up with current events: https://twitter.com/Phantom5800",
     "cooldown": 0,
-    "last_use": 1650031932.821114
+    "last_use": 1664563763.586712
   },
   "!youtube": {
     "response": "/announce For vod's of randos and pb runs: https://www.youtube.com/Phantom5800",
     "cooldown": 0,
-    "last_use": 1663423937.736699
+    "last_use": 1664748970.784532
   },
   "!cursedtimer": {
     "response": "http://growf.org/stuff/timer.html",
@@ -105,9 +105,9 @@
     "last_use": 0
   },
   "!race": {
-    "response": "https://racetime.gg/pm64r/outrageous-mario-8232",
+    "response": "https://racetime.gg/pm64r/graceful-toadstool-1069",
     "cooldown": 0,
-    "last_use": 0
+    "last_use": 1664719202.669278
   },
   "stinkycheese": {
     "response": "StinkyCheese",
@@ -198,5 +198,15 @@
     "response": "The piece of shit human being is banned from the Paper Mario speedrunning community and thus my channel as well. Support for someone that would sexually harass multiple women and write a 94 page document literally admitting to it is simply not tolerated and anyone doing so can freely eat a ban and continue sucking his dick https://twitter.com/JCog_/status/1523133561460641792?t=WPKn40Q-TGYQV1vBfc6RMA&s=19",
     "cooldown": 0,
     "last_use": 1663424012.429015
+  },
+  "!paperaces": {
+    "response": "This stream is being rebroadcast on https://twitch.tv/paperaces, I'll try and respond in chat when I can but won't be able to have mic on during the race. We'll be doing a more \"normal\" rando immediately after though!",
+    "cooldown": 0,
+    "last_use": 1664719702.923169
+  },
+  "!sgl": {
+    "response": "At the end of the month I'll be speedrunning Paper Mario Glitchless in person in Herndon, Virginia for SpeedGaming Live! The full schedule is over here: https://v1.oengus.io/marathon/sgl22/schedule",
+    "cooldown": 0,
+    "last_use": 0
   }
 }
