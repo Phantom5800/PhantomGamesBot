@@ -2,12 +2,12 @@
   "morp": {
     "response": "morp",
     "cooldown": 5,
-    "last_use": 1649202502.827317
+    "last_use": 1666199687.287223
   },
   "glenn": {
     "response": "glenn",
     "cooldown": 5,
-    "last_use": 1661957460.545424
+    "last_use": 1667672588.719089
   },
   "!lurk": {
     "response": "ok $user",
@@ -30,7 +30,7 @@
     "last_use": 0
   },
   "!multi": {
-    "response": "https://kadgar.net/live/phantom5800/Iceblue",
+    "response": "https://kadgar.net/live/phantom5800/jokehow",
     "cooldown": 0,
     "last_use": 0
   },
@@ -42,7 +42,7 @@
   "@phantomgamesbot": {
     "response": "$user $msg",
     "cooldown": 0,
-    "last_use": 1664647106.155408
+    "last_use": 1667665481.223177
   },
   "!github": {
     "response": "All my open source code projects are available on github: https://github.com/Phantom5800",
@@ -55,7 +55,7 @@
     "last_use": 1664563763.586712
   },
   "!youtube": {
-    "response": "/announce For vod's of randos and pb runs: https://www.youtube.com/Phantom5800",
+    "response": "/announce For vod's of randos and pb runs: https://www.youtube.com/@PhantomVODs",
     "cooldown": 0,
     "last_use": 1664748970.784532
   },
@@ -67,7 +67,7 @@
   "!pbchance": {
     "response": "There is a $randnum(0,100)% chance of a pb!",
     "cooldown": 0,
-    "last_use": 1657896890.807576
+    "last_use": 1668954836.010753
   },
   "!trusty": {
     "response": "Trusty made my sub badges and most likely any art that I use as backgrounds in livesplit! Their twitter is: https://twitter.com/Trustyalt and you should definitely follow them",
@@ -92,7 +92,7 @@
   "weloveprologue": {
     "response": "If Prologue has a million fans I am one of them. If Prologue has ten fans I am one of them. If Prologue has only one fan, that is me. If Prologue has no fans, that means I am no longer on earth. If the world is against Prologue, I am against the world.",
     "cooldown": 15,
-    "last_use": 1662390893.411441
+    "last_use": 1667335734.362959
   },
   "!pmrando": {
     "response": "The PM64 Randomizer can be found over at https://pm64randomizer.com/ and a tracker can be over on https://pmr-tracker.phantom-games.com/",
@@ -105,14 +105,14 @@
     "last_use": 0
   },
   "!race": {
-    "response": "https://racetime.gg/pm64r/graceful-toadstool-1069",
+    "response": "https://racetime.gg/pm64r/graceful-jrtroopa-2820",
     "cooldown": 0,
-    "last_use": 1664719202.669278
+    "last_use": 0
   },
   "stinkycheese": {
     "response": "StinkyCheese",
     "cooldown": 5,
-    "last_use": 1649202693.419113
+    "last_use": 1667339074.435393
   },
   "!verification": {
     "response": "Sorry, phone verification is turned on for the channel! If you follow now, the phone verification will stop being required after some time passes. I understand not everyone can do phone verification for their account, it's just there to stop some subset of bot accounts phanto274Smile",
@@ -120,19 +120,19 @@
     "last_use": 0
   },
   "!channelpoints": {
-    "response": "Link to valid speedrun games for channel point redemptions: https://docs.google.com/spreadsheets/d/1WooKLTvlRLVLeSTcOo18LB8s4GlqqiQcMhEIMqieCEw/edit?usp=sharing",
+    "response": "Link to valid speedrun games for channel point redemptions: https://docs.google.com/spreadsheets/d/1WooKLTvlRLVLeSTcOo18LB8s4GlqqiQcMhEIMqieCEw/edit#gid=1000242023",
     "cooldown": 0,
     "last_use": 0
   },
   "!peed": {
     "response": "Flushed",
     "cooldown": 0,
-    "last_use": 1662396349.617126
+    "last_use": 1669387112.275196
   },
   "ezekiel": {
     "response": "Ezekiel",
     "cooldown": 5,
-    "last_use": 1662388808.613645
+    "last_use": 1666198682.196954
   },
   "!singular": {
     "response": "twitch.tv/phantom5800",
@@ -206,6 +206,36 @@
   },
   "!sgl": {
     "response": "At the end of the month I'll be speedrunning Paper Mario Glitchless in person in Herndon, Virginia for SpeedGaming Live! The full schedule is over here: https://v1.oengus.io/marathon/sgl22/schedule",
+    "cooldown": 0,
+    "last_use": 0
+  },
+  "hi": {
+    "response": "hi $user",
+    "cooldown": 5,
+    "last_use": 1669040726.924197
+  },
+  "!peed69": {
+    "response": "Flushed",
+    "cooldown": 0,
+    "last_use": 1667997159.546336
+  },
+  "!sneed": {
+    "response": "IT'S RANDO RANDY TIME!!!!",
+    "cooldown": 0,
+    "last_use": 1669483339.439238
+  },
+  "!nmsb": {
+    "response": "No Major Sequence Breaks is a category that bridges the gap between Glitchless and All Cards. The important parts are that chapters must be completed in order, and story sequence can never go backwards.",
+    "cooldown": 0,
+    "last_use": 1669040257.675363
+  },
+  "!crystalsettings": {
+    "response": "full item rando, time items, berry trees, nerf ho-oh, vanilla clair, remove ilex cut tree, early fly v2",
+    "cooldown": 0,
+    "last_use": 0
+  },
+  "!nha": {
+    "response": "Running Paper Mario Glitchless 101% for No Holidays Allowed 2022 on December 17th. Full schedule is at: https://horaro.org/nha22/schedule and the stream will be on https://twitch.tv/speedrunslive",
     "cooldown": 0,
     "last_use": 0
   }

@@ -503,7 +503,8 @@ class PhantomGamesBot(commands.Bot):
     async def followage(self, ctx: commands.Context):
         streamer = await get_twitch_user(self, os.environ['TWITCH_CHANNEL'])
         try:
-            followEvent = await ctx.message.author.fetch_follow(to_user=streamer, token=os.environ['TWITCH_OAUTH_TOKEN'])
+            twitch_user = await ctx.message.author.user()
+            followEvent = await twitch_user.fetch_follow(to_user=streamer, token=os.environ['TWITCH_OAUTH_TOKEN'])
             print(followEvent)
         except Exception as e:
             print(e)
@@ -534,6 +535,7 @@ class PhantomGamesBot(commands.Bot):
     async def so(self, ctx: commands.Context, user: PartialUser = None):
         if ctx.message.author.is_mod and user is not None:
             game = await get_game_name_from_twitch_for_user(self, user.name)
+            await ctx.send(f"/shoutout {user.name}")
             await ctx.send(f"Checkout {user.name}, maybe drop them a follow! They were most recently playing {game} over at https://twitch.tv/{user.name}")
         
     '''
