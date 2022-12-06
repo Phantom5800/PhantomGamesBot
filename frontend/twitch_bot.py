@@ -207,7 +207,7 @@ class PhantomGamesBot(commands.Bot):
                 print(f"[ERROR] Timer cannot find channel '{os.environ['TWITCH_CHANNEL']}' to post in??")
             else:
                 message = self.markov.get_markov_string()
-                print(f"Generated Message: {message}")
+                print(f"[{datetime.now()}] Generated Message: {message}")
                 await channel.send(message)
     
     # custom commands

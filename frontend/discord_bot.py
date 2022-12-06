@@ -1,5 +1,6 @@
 import asyncio
 from copy import deepcopy
+from datetime import datetime
 import json
 import os
 import discord
@@ -54,7 +55,7 @@ class PhantomGamesBot(bridge.Bot):
 
     async def on_ready(self):
         print("=======================================")
-        print(f"Discord: {self.user} is online!")
+        print(f"Discord [{datetime.now()}]: {self.user} is online!")
         print("=======================================")
         await self.set_random_status()
 
