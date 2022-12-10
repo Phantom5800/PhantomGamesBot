@@ -530,11 +530,11 @@ class PhantomGamesBot(commands.Bot):
 
     @commands.command()
     async def ftoc(self, ctx: commands.Context, farenheit: int):
-        await ctx.send(f"{farenheit}°F = {(farenheit - 32) * 5 / 9}°C")
+        await ctx.send(f"{farenheit}°F = {str(round((farenheit - 32) * 5 / 9, 2))}°C")
 
     @commands.command()
     async def ctof(self, ctx: commands.Context, celcius: int):
-        await ctx.send(f"{celcius}°C = {celcius * 9 / 5 + 32}°F")
+        await ctx.send(f"{celcius}°C = {str(round(celcius * 9 / 5 + 32, 2))}°F")
 
     '''
     Give a shoutout to a specific user in chat.
