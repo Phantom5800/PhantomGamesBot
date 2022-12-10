@@ -7,7 +7,7 @@
   "glenn": {
     "response": "glenn",
     "cooldown": 5,
-    "last_use": 1667672588.719089
+    "last_use": 1670356142.669288
   },
   "!lurk": {
     "response": "ok $user",
@@ -22,7 +22,7 @@
   "!discord": {
     "response": "/announce Join the discord if you want to hang out. You can also spam !speed when I'm not even online https://discord.gg/XtrhKXNmRc",
     "cooldown": 0,
-    "last_use": 1664748973.825249
+    "last_use": 1670373021.683601
   },
   "!ohdee": {
     "response": "OhDee made all the emotes and stream assets. Follow him on twitter because he's cool: https://twitter.com/OhDeezey",
@@ -37,7 +37,7 @@
   "!follow": {
     "response": "/announce If you haven't already done so, click the follow button! Every follower is greatly appreciated! There are no follow alerts, so if you want to just lurk, there's no need to worry about your name showing up on stream.",
     "cooldown": 0,
-    "last_use": 1664748975.146084
+    "last_use": 1670373022.985245
   },
   "@phantomgamesbot": {
     "response": "$user $msg",
@@ -212,7 +212,7 @@
   "hi": {
     "response": "hi $user",
     "cooldown": 5,
-    "last_use": 1669040726.924197
+    "last_use": 1670364619.690166
   },
   "!peed69": {
     "response": "Flushed",
@@ -222,7 +222,7 @@
   "!sneed": {
     "response": "IT'S RANDO RANDY TIME!!!!",
     "cooldown": 0,
-    "last_use": 1669483339.439238
+    "last_use": 1670368501.830523
   },
   "!nmsb": {
     "response": "No Major Sequence Breaks is a category that bridges the gap between Glitchless and All Cards. The important parts are that chapters must be completed in order, and story sequence can never go backwards.",
@@ -236,6 +236,11 @@
   },
   "!nha": {
     "response": "Running Paper Mario Glitchless 101% for No Holidays Allowed 2022 on December 17th. Full schedule is at: https://horaro.org/nha22/schedule and the stream will be on https://twitch.tv/speedrunslive",
+    "cooldown": 0,
+    "last_use": 1670442817.989683
+  },
+  "!glundo": {
+    "response": "The ancient pape gods determined that 100% should be defined by the chalkboard in Mario's house; meaning star pieces, recipes, and badges must all be collected. Additionally they mandated that all permanent key items must be acquired such as the diploma from the dojo. A band of paper rebels has since determined it is not enough, and as part of 101% demands that Kent C. Koopa, Buzzar and the Anti Guy Squad must all die as well",
     "cooldown": 0,
     "last_use": 0
   }

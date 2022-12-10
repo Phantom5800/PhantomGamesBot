@@ -74,6 +74,12 @@ Provides a link to the github page for this bot's source code.
 ### !commands ![](./readme/images/twitch.png) ![](./readme/images/discord.png)
 Get a list of all available commands the chatbot can reply to. In discord, the list provided only pulls from the custom commands created by moderators on twitch. Default bot commands in discord are provided by `!help`.
 
+### !ctof ![](./readme/images/twitch.png) ![](./readme/images/discord.png)
+Convert Celcius to Farenheit.
+
+### !ftoc ![](./readme/images/twitch.png) ![](./readme/images/discord.png)
+Convert Farenheit to Celcius.
+
 ### !game ![](./readme/images/twitch.png)
 Display the current game being played.
 
