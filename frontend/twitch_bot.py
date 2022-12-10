@@ -534,7 +534,7 @@ class PhantomGamesBot(commands.Bot):
 
     @commands.command()
     async def ctof(self, ctx: commands.Context, celcius: int):
-        await ctx.send(f"{celcius}°C = {celcius * 9 / 5 + 32}°C")
+        await ctx.send(f"{celcius}°C = {celcius * 9 / 5 + 32}°F")
 
     '''
     Give a shoutout to a specific user in chat.

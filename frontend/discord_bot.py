@@ -270,7 +270,7 @@ class PhantomGamesBotModule(commands.Cog):
 
     @bridge.bridge_command(name="ctof")
     async def celcius_to_farenheit(self, ctx, celcius: int):
-        await ctx.respond(f"{celcius}°C = {celcius * 9 / 5 + 32}°C")
+        await ctx.respond(f"{celcius}°C = {celcius * 9 / 5 + 32}°F")
 
 def run_discord_bot(eventLoop, customCommandHandler: CustomCommands, quoteHandler: QuoteHandler, srcHandler: SrcomApi, markovHandler: MarkovHandler):
     bot = PhantomGamesBot(customCommandHandler)
