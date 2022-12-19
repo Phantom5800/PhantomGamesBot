@@ -22,7 +22,7 @@
   "!discord": {
     "response": "/announce Join the discord if you want to hang out. You can also spam !speed when I'm not even online https://discord.gg/XtrhKXNmRc",
     "cooldown": 0,
-    "last_use": 1670373021.683601
+    "last_use": 1670709874.919343
   },
   "!ohdee": {
     "response": "OhDee made all the emotes and stream assets. Follow him on twitter because he's cool: https://twitter.com/OhDeezey",
@@ -42,7 +42,7 @@
   "@phantomgamesbot": {
     "response": "$user $msg",
     "cooldown": 0,
-    "last_use": 1667665481.223177
+    "last_use": 1670699057.065121
   },
   "!github": {
     "response": "All my open source code projects are available on github: https://github.com/Phantom5800",
@@ -105,7 +105,7 @@
     "last_use": 0
   },
   "!race": {
-    "response": "https://racetime.gg/pm64r/graceful-jrtroopa-2820",
+    "response": " https://racetime.gg/pm64r/sublime-crystalking-7966",
     "cooldown": 0,
     "last_use": 0
   },
@@ -212,7 +212,7 @@
   "hi": {
     "response": "hi $user",
     "cooldown": 5,
-    "last_use": 1670364619.690166
+    "last_use": 1670692233.206903
   },
   "!peed69": {
     "response": "Flushed",
@@ -230,9 +230,9 @@
     "last_use": 1669040257.675363
   },
   "!crystalsettings": {
-    "response": "full item rando, time items, berry trees, nerf ho-oh, vanilla clair, remove ilex cut tree, early fly v2",
+    "response": "full item rando, time items, berry trees, nerf ho-oh, vanilla clair, remove ilex cut tree, early fly v2, no backtracking early bike",
     "cooldown": 0,
-    "last_use": 0
+    "last_use": 1670704609.554528
   },
   "!nha": {
     "response": "Running Paper Mario Glitchless 101% for No Holidays Allowed 2022 on December 17th. Full schedule is at: https://horaro.org/nha22/schedule and the stream will be on https://twitch.tv/speedrunslive",
