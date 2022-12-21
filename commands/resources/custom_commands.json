@@ -243,5 +243,10 @@
     "response": "The ancient pape gods determined that 100% should be defined by the chalkboard in Mario's house; meaning star pieces, recipes, and badges must all be collected. Additionally they mandated that all permanent key items must be acquired such as the diploma from the dojo. A band of paper rebels has since determined it is not enough, and as part of 101% demands that Kent C. Koopa, Buzzar and the Anti Guy Squad must all die as well",
     "cooldown": 0,
     "last_use": 0
+  },
+  "!wheel": {
+    "response": "We're playing random games from a wheel for *minimum* 30 minutes. Extending the time beyond that is up to chat. Once time is up, we'll bring the wheel back up and spin again to see what comes up next!",
+    "cooldown": 0,
+    "last_use": 0
   }
 }

@@ -1,20 +1,30 @@
 import markovify
+import os
 
 class MarkovHandler:
     def __init__(self):
-        with open("./commands/resources/markov/markov-2022.txt", "r") as f:
-            text = f.read()
-            # state_size=1 is complete nonsense, 2 makes more ... real sentences, 3 is not random enough
-            state_size = 3
-            self.text_model = markovify.NewlineText(text, state_size=state_size)
-            self.text_model.compile(inplace=True)
+        logtext = ""
 
-            # backup with a lower state size in case the more interesting one fails
-            self.backup_text = markovify.NewlineText(text, state_size=state_size-1)
-            self.backup_text.compile(inplace=True)
+        # iterate over the log files for each year and combine them
+        # TODO: make obsolete years pre-compiled markov modules
+        directory = "./commands/resources/markov/"
+        for filename in os.listdir(directory):
+            f = os.path.join(directory, filename)
+            if os.path.isfile(f):
+                with open(f, "r") as markov_file:
+                    logtext += markov_file.read()
 
-            print(self.text_model.to_dict()["state_size"])
-            print(f"Possible starting words: {[key[state_size - 1] for key in self.text_model.chain.model.keys() if '___BEGIN__' in key]}")
+        # state_size=1 is complete nonsense, 2 makes more ... real sentences, 3 is not random enough
+        state_size = 3
+        self.text_model = markovify.NewlineText(logtext, state_size=state_size)
+        self.text_model.compile(inplace=True)
+
+        # backup with a lower state size in case the more interesting one fails
+        self.backup_text = markovify.NewlineText(logtext, state_size=state_size-1)
+        self.backup_text.compile(inplace=True)
+
+        print(self.text_model.to_dict()["state_size"])
+        print(f"Possible starting words: {[key[state_size - 1] for key in self.text_model.chain.model.keys() if '___BEGIN__' in key]}")
     
     def get_markov_string(self, include_word=None, max_words=None):
         overlap = 0.7

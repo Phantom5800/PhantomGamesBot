@@ -167,7 +167,7 @@ class PhantomGamesBot(commands.Bot):
                     not_self_post = not message.content.startswith(os.environ['BOT_PREFIX'])
                     length_req = len(set(message.content.split())) >= self.markov_store_minlen
                     if self.markov_data_store and not contains_link and not_self_post and length_req:
-                        with open("./commands/resources/markov/markov-2022.txt", "a+") as f:
+                        with open(f"./commands/resources/markov/markov-{datetime.date.today().year}.txt", "a+") as f:
                             try:
                                 f.write(f"{message.content}\n")
                             except:
