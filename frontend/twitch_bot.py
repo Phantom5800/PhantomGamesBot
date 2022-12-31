@@ -238,10 +238,15 @@ class PhantomGamesBot(commands.Bot):
         default_commands = self.commands
         command_list = []
         for key in default_commands.keys():
-            if "command" in key or ("quote" in key and key != "quote") or "timer" in key or "set" in key or key == "so":
+            if "command" in key or "timer" in key or "set" in key or key == "so":
+                continue
+            if "quote" in key and key != "quote":
+                continue
+            if "links" in key or "permit" in key:
                 continue
             command_list.append(f"!{key}")
-        command_list.extend(self.custom.get_command_list())
+        # cannot actually append the custom list because the message is too long
+        #command_list.extend(self.custom.get_command_list())
         command_list.sort()
         await ctx.send(f"List of all the current commands: {command_list}")
 

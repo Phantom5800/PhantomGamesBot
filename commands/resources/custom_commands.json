@@ -144,11 +144,6 @@
     "cooldown": 0,
     "last_use": 0
   },
-  "!mwsfgames": {
-    "response": "https://docs.google.com/spreadsheets/d/1lSwmZAwGyf01IFyeBRmNt_-cucwRqtLFdynLk6-77uA/edit?usp=sharing",
-    "cooldown": 0,
-    "last_use": 0
-  },
   "!jadejungle": {
     "response": "junle",
     "cooldown": 0,
@@ -204,11 +199,6 @@
     "cooldown": 0,
     "last_use": 1664719702.923169
   },
-  "!sgl": {
-    "response": "At the end of the month I'll be speedrunning Paper Mario Glitchless in person in Herndon, Virginia for SpeedGaming Live! The full schedule is over here: https://v1.oengus.io/marathon/sgl22/schedule",
-    "cooldown": 0,
-    "last_use": 0
-  },
   "hi": {
     "response": "hi $user",
     "cooldown": 5,
@@ -233,11 +223,6 @@
     "response": "full item rando, time items, berry trees, nerf ho-oh, vanilla clair, remove ilex cut tree, early fly v2, no backtracking early bike",
     "cooldown": 0,
     "last_use": 1670704609.554528
-  },
-  "!nha": {
-    "response": "Running Paper Mario Glitchless 101% for No Holidays Allowed 2022 on December 17th. Full schedule is at: https://horaro.org/nha22/schedule and the stream will be on https://twitch.tv/speedrunslive",
-    "cooldown": 0,
-    "last_use": 1670442817.989683
   },
   "!glundo": {
     "response": "The ancient pape gods determined that 100% should be defined by the chalkboard in Mario's house; meaning star pieces, recipes, and badges must all be collected. Additionally they mandated that all permanent key items must be acquired such as the diploma from the dojo. A band of paper rebels has since determined it is not enough, and as part of 101% demands that Kent C. Koopa, Buzzar and the Anti Guy Squad must all die as well",

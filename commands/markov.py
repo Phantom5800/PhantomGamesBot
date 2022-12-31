@@ -23,8 +23,8 @@ class MarkovHandler:
         self.backup_text = markovify.NewlineText(logtext, state_size=state_size-1)
         self.backup_text.compile(inplace=True)
 
-        print(self.text_model.to_dict()["state_size"])
-        print(f"Possible starting words: {[key[state_size - 1] for key in self.text_model.chain.model.keys() if '___BEGIN__' in key]}")
+        print(f"State Size: {self.text_model.to_dict()['state_size']}")
+        #print(f"Possible starting words: {[key[state_size - 1] for key in self.text_model.chain.model.keys() if '___BEGIN__' in key]}")
     
     def get_markov_string(self, include_word=None, max_words=None):
         overlap = 0.7
