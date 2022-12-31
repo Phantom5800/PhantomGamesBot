@@ -80,6 +80,9 @@ Convert Celcius to Farenheit.
 ### !ftoc ![](./readme/images/twitch.png) ![](./readme/images/discord.png)
 Convert Farenheit to Celcius.
 
+### !followage ![](./readme/images/twitch.png)
+Gets the length of time a user has followed the channel for.
+
 ### !game ![](./readme/images/twitch.png)
 Display the current game being played.
 

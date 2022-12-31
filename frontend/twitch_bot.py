@@ -1,4 +1,5 @@
 from datetime import datetime
+from datetime import timezone
 import os
 import random
 import re
@@ -167,7 +168,7 @@ class PhantomGamesBot(commands.Bot):
                     not_self_post = not message.content.startswith(os.environ['BOT_PREFIX'])
                     length_req = len(set(message.content.split())) >= self.markov_store_minlen
                     if self.markov_data_store and not contains_link and not_self_post and length_req:
-                        with open(f"./commands/resources/markov/markov-{datetime.date.today().year}.txt", "a+") as f:
+                        with open(f"./commands/resources/markov/markov-{datetime.now().year}.txt", "a+") as f:
                             try:
                                 f.write(f"{message.content}\n")
                             except:
@@ -504,14 +505,23 @@ class PhantomGamesBot(commands.Bot):
         streamer = await get_twitch_user(self, os.environ['TWITCH_CHANNEL'])
         try:
             twitch_user = await ctx.message.author.user()
-            followEvent = await twitch_user.fetch_follow(to_user=streamer, token=os.environ['TWITCH_OAUTH_TOKEN'])
-            print(followEvent)
+            followEvent = await twitch_user.fetch_follow(to_user=streamer.user, token=os.environ['TWITCH_OAUTH_TOKEN'])
         except Exception as e:
             print(e)
             await ctx.send(f"{ctx.message.author.mention} something went wrong, oops")
             return
         if followEvent is not None:
-            await ctx.send(f"{ctx.message.author.mention} has been following for {followEvent.followed_at}!")
+            followed_at = followEvent.followed_at
+            now = datetime.now(timezone.utc)
+            span = now - followed_at
+
+            hours, remainder = divmod(span.total_seconds(), 3600)
+            minutes, seconds = divmod(remainder, 60)
+            days, hours = divmod(hours, 24)
+            years, days = divmod(days, 365.25)
+
+            duration_str = f"{int(years)} years, {int(days)} days, {int(hours)} hours, {int(minutes)} minutes"
+            await ctx.send(f"{ctx.message.author.mention} has been following for {duration_str}!")
         else:
             await ctx.send(f"{ctx.message.author.mention} is not even following phanto274Shrug")
 
