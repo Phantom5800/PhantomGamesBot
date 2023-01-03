@@ -46,11 +46,6 @@ DISCORD_ROLE_MESSAGE_ID={ID of message containing reaction roles}
 
 In order to fill out the `.env`, you'll need to register as a [Twitch developer](https://dev.twitch.tv/console/apps/create) and create an application, this will get you a client id. Then [generate an oauth token](https://twitchapps.com/tmi/) and you'll be good to go for running the bot locally.
 
-# Spam Protection
-
-## Link Protection
-The bot will automatically delete messages containing links from users that are not moderators, vips, or subscribers.
-
 # Spam Propagation
 The bot supports automatically posting nonsense based on messages it has read from twitch chat in the past. While chat logging is enabled, all twitch chat messages are logged to a text file. The next time the bot is restarted, it will generate a markov chain based on the current data set. These messages can be set to post automatically in chat on a timer using the `.env` configs.
 
@@ -141,28 +136,6 @@ Give a shoutout to another user, typically would be used for raid's or vip's.
 ```
 !so {username}
 ```
-
-## Link Protection
-
-### !permit ![](./readme/images/twitch.png)
-Give a specific user permission to post links in chat.
-
-```
-!permit {username}
-```
-
-### !unpermit ![](./readme/images/twitch.png)
-Remove permissions to post links from a specific user in chat.
-
-```
-!unpermit {username}
-```
-
-### !disablelinks ![](./readme/images/twitch.png)
-Enable link protection (default on).
-
-### !enablelinks ![](./readme/images/twitch.png)
-Disable link protection. This will stop the bot from scanning message for links and deleting messages. Should only be used if it is being eggregious with false positives.
 
 ## Custom Commands
 Custom commands are basic command -> response events that can be managed by the streamer and moderators with the following commands. All commands created in this way are available on both Twitch and Discord, however some command variables may not function as intended on both platforms.

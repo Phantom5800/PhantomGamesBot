@@ -47,18 +47,12 @@ class PhantomGamesBot(commands.Bot):
         self.markov_data_store = True
         self.markov_store_minlen = 6
 
-        # links
-        self.permitted_users = []
-        self.link_protection = False
-        self.url_search = re.compile(r"([\w+]+\:\/\/)?([\w\d-]+\.)*[\w-]+[\.]\w+([\/\?\=\&\#.]?[\w-]+)*\/?")
-
         # random message response
         self.bless_count = 0
         self.bless_sent = False
 
         # load relevant data
         self.load_timer_events()
-        self.load_permitted_users()
         print("=======================================")
         print(f"Twitch: {os.environ['BOT_NICK']} is online!")
         print("=======================================")
@@ -84,19 +78,6 @@ class PhantomGamesBot(commands.Bot):
             for event in self.timer_queue:
                 txt_file.write(f"{event}\n")
 
-    def load_permitted_users(self):
-        with open('./commands/resources/permitted_users.txt', 'r', encoding="utf-8") as txt_file:
-            lines = txt_file.readlines()
-            for line in lines:
-                user = line.strip()
-                if user not in self.permitted_users:
-                    self.permitted_users.append(user)
-    
-    def save_permitted_users(self):
-        with open('./commands/resources/permitted_users.txt', 'w', encoding="utf-8") as txt_file:
-            for user in self.permitted_users:
-                txt_file.write(f"{user}\n")
-
     '''
     Runs when an "invalid command" is sent by a user.
     '''
@@ -107,16 +88,6 @@ class PhantomGamesBot(commands.Bot):
         # if self.custom.command_exists(ctx.command.name):
         #     return
         # super().event_command_error(ctx, error)
-
-    '''
-    Check to see if a user is able to post links in twitch chat.
-
-    Allowed types of users should be mod, vip and subscribers.
-    '''
-    def user_can_post_links(self, user) -> bool:
-        if user.name.lower() in self.permitted_users:
-            return True
-        return user.is_mod or user.is_subscriber or 'vip' in user.badges
 
     '''
     Runs every time a message is sent in chat.
@@ -138,14 +109,6 @@ class PhantomGamesBot(commands.Bot):
         if message is not None: # this has come up before??
             # handle custom commands
             if message.content is not None and len(message.content) > 0:
-                # look for urls and delete messages if they are not mod/vip
-                if self.link_protection and not self.user_can_post_links(message.author):
-                    url_matches = self.url_search.search(message.content)
-                    if url_matches is not None:
-                        message_id = message.tags['id']
-                        print(f"[Detected unpermitted link]: \"{message.content}\"\n\tfrom {message.author}\n\t{url_matches}")
-                        await message.channel.send(f"/delete {message_id}")
-                
                 # if people are spamming bless emotes, jump in "randomly"
                 if "Bless" in message.content or "Prayge" in message.content:
                     self.bless_count = self.bless_count + 1
@@ -244,8 +207,6 @@ class PhantomGamesBot(commands.Bot):
             if "command" in key or "timer" in key or "set" in key or key == "so":
                 continue
             if "quote" in key and key != "quote":
-                continue
-            if "links" in key or "permit" in key:
                 continue
             command_list.append(f"!{key}")
         # cannot actually append the custom list because the message is too long
@@ -429,39 +390,6 @@ class PhantomGamesBot(commands.Bot):
             if tryParseInt(quote_id, -1) >= 0:
                 response = self.quotes.remove_quote(int(quote_id))
                 await ctx.send(response)
-
-    # allowing links in chat
-    @commands.command()
-    async def permit(self, ctx: commands.Context, user: PartialUser = None):
-        if ctx.message.author.is_mod:
-            if user is not None:
-                lowername = user.name.lower()
-                if lowername not in self.permitted_users:
-                    self.permitted_users.append(lowername)
-                    self.save_permitted_users()
-                    await ctx.send(f"{user.name} can now post links")
-
-    @commands.command()
-    async def unpermit(self, ctx: commands.Context, user: PartialUser = None):
-        if ctx.message.author.is_mod:
-            if user is not None:
-                lowername = user.name.lower()
-                if lowername in self.permitted_users:
-                    self.permitted_users.remove(lowername)
-                    self.save_permitted_users()
-                    await ctx.send(f"{user.name} is no longer allowed to post links")
-
-    @commands.command()
-    async def enablelinks(self, ctx: commands.Context):
-        if ctx.message.author.is_mod:
-            self.link_protection = False
-            await ctx.send("Link protection has been disabled")
-
-    @commands.command()
-    async def disablelinks(self, ctx: commands.Context):
-        if ctx.message.author.is_mod:
-            self.link_protection = True
-            await ctx.send("Link protection has been enabled")
 
     # speedrun.com
     '''
