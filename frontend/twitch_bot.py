@@ -130,6 +130,8 @@ class PhantomGamesBot(commands.Bot):
         ctx = await self.get_context(message)
 
         # track chat messages that have been posted since the last timer fired
+        # TODO: use message.channel.name to index into an array for auto posting messages
+        #       this will be needed for supporting multiple channels
         self.messages_since_timer += 1
         self.auto_chat_msg += 1
 
@@ -158,7 +160,7 @@ class PhantomGamesBot(commands.Bot):
                 command = message.content.split()[0]
                 response = self.custom.parse_custom_command(command)
                 if response is not None:
-                    response = await replace_vars_twitch(response, ctx, self.get_channel(os.environ['TWITCH_CHANNEL']))
+                    response = await replace_vars_twitch(response, ctx, message.channel)
                     await ctx.send(response)
                 else:
                     await super().event_message(message)
@@ -199,6 +201,7 @@ class PhantomGamesBot(commands.Bot):
     '''
     @routines.routine(minutes=int(os.environ['AUTO_CHAT_MINUTES']), wait_first=True)
     async def automatic_chat(self):
+        # TODO: iterate over all connected channels and attempt to post messages
         if self.auto_chat_msg >= self.auto_chat_lines:
             self.auto_chat_msg = 0
             self.auto_chat_lines = tryParseInt(os.environ['AUTO_CHAT_LINES_MIN'], 20) + random.randint(0, self.auto_chat_lines_mod)
@@ -402,7 +405,7 @@ class PhantomGamesBot(commands.Bot):
             if command_parts is not None and len(command_parts) > 1:
                 new_quote = command_parts[1]
                 if len(new_quote) > 0:
-                    game_name = await get_game_name_from_twitch(self)
+                    game_name = await get_game_name_from_twitch_for_user(self, ctx.message.channel.name)
                     response = self.quotes.add_quote(new_quote, game_name)
                     await ctx.send(response)
                 else:
@@ -468,7 +471,7 @@ class PhantomGamesBot(commands.Bot):
     async def pb(self, ctx: commands.Context):
         if len(os.environ['SRC_USER']) > 0:
             category = ctx.message.content[3:].strip()
-            game = await get_game_name_from_twitch(self)
+            game = await get_game_name_from_twitch_for_user(self, ctx.message.channel.name)
             response = self.speedrun.get_pb(convert_twitch_to_src_game(game), category)
             await ctx.send(response)
 
@@ -507,7 +510,7 @@ class PhantomGamesBot(commands.Bot):
     '''
     @commands.command()
     async def followage(self, ctx: commands.Context):
-        streamer = await get_twitch_user(self, os.environ['TWITCH_CHANNEL'])
+        streamer = await get_twitch_user(self, ctx.message.channel.name)
         try:
             twitch_user = await ctx.message.author.user()
             follow_event = await twitch_user.fetch_follow(to_user=streamer.user, token=os.environ['TWITCH_OAUTH_TOKEN'])
@@ -533,7 +536,7 @@ class PhantomGamesBot(commands.Bot):
     '''
     @commands.command()
     async def game(self, ctx: commands.Context):
-        game_name = await get_game_name_from_twitch(self)
+        game_name = await get_game_name_from_twitch_for_user(self, ctx.message.channel.name)
         await ctx.send(game_name)
 
     @commands.command()
@@ -564,7 +567,7 @@ class PhantomGamesBot(commands.Bot):
     '''
     @commands.command()
     async def title(self, ctx: commands.Context):
-        streamtitle = await get_stream_title_for_user(self, os.environ['TWITCH_CHANNEL'])
+        streamtitle = await get_stream_title_for_user(self, ctx.message.channel.name)
         await ctx.send(streamtitle)
 
 def run_twitch_bot(customCommandHandler: CustomCommands, quoteHandler: QuoteHandler, srcHandler: SrcomApi, markovHandler: MarkovHandler) -> PhantomGamesBot:

@@ -55,13 +55,6 @@ async def get_game_name_from_twitch_for_user(twitchClient: twitchCommands.Bot, u
     return f"User Not Found {username}"
 
 '''
-Find the current game being played on the streamer's channel.
-'''
-async def get_game_name_from_twitch(twitchClient: twitchCommands.Bot) -> str:
-    game = await get_game_name_from_twitch_for_user(twitchClient, os.environ['TWITCH_CHANNEL'])
-    return game
-
-'''
 Get the stream title for a specific user.
 '''
 async def get_stream_title_for_user(twitchClient: twitchCommands.Bot, username: str) -> str:
@@ -121,17 +114,6 @@ async def replace_vars_twitch(message: str, ctx: twitchCommands.Context, channel
 
     # replace with a mention of the user that posted the command
     if "$user" in out_str: out_str = out_str.replace("$user", ctx.message.author.mention)
-
-    # this is currently broken in twitchio. fetch_followers returns what should be a paged list,
-    # but instead returns the same list of followers every time.
-    # if "$followcnt" in out_str:
-    #     follow_count = 0
-    #     streamer = await channel.user()
-    #     followers = await streamer.fetch_followers(os.environ['TWITCH_CHANNEL_TOKEN'])
-    #     while len(followers) > 0:
-    #         follow_count += len(followers)
-    #         followers = await streamer.fetch_followers(os.environ['TWITCH_CHANNEL_TOKEN'])
-    #     out_str = out_str.replace("$followcnt", str(follow_count))
 
     # mention a user from chat at random
     if "$randuser" in out_str:
