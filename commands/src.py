@@ -135,7 +135,7 @@ class SrcomApi:
     '''
     def get_random_game(self) -> str:
         try:
-            release_year = random.randint(1985, date.today().year)
+            release_year = random.randint(1985, date.today().year-1)
             query_result = self.api.search(srcomapi.datatypes.Game, 
                 {
                     "_bulk": True, 
