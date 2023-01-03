@@ -10,6 +10,7 @@ class MarkovHandler:
         directory = "./commands/resources/markov/"
         for filename in os.listdir(directory):
             f = os.path.join(directory, filename)
+            print(filename)
             if os.path.isfile(f):
                 with open(f, "r") as markov_file:
                     logtext += markov_file.read()
