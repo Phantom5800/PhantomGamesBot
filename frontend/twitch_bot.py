@@ -18,12 +18,14 @@ from utils.utils import *
 
 class PhantomGamesBot(commands.Bot):
     def __init__(self, customCommandHandler: CustomCommands, quoteHandler: QuoteHandler, srcHandler: SrcomApi, markovHandler: MarkovHandler):
+        self.channel_list = os.environ['TWITCH_CHANNEL'].split(',')
+        print(f"Joining twitch channels: {self.channel_list}")
         super().__init__(
             token=os.environ['TWITCH_OAUTH_TOKEN'],
             client_id=os.environ['TWITCH_CLIENT_ID'],
             nick=os.environ['BOT_NICK'],
             prefix=os.environ['BOT_PREFIX'],
-            initial_channels=[os.environ['TWITCH_CHANNEL']]
+            initial_channels=self.channel_list
         )
 
         # command handlers
@@ -35,13 +37,23 @@ class PhantomGamesBot(commands.Bot):
         self.slots = Slots(SlotsMode.TWITCH)
 
         # custom timers
-        self.timer_queue = []
-        self.current_timer_msg = 0
-        self.messages_since_timer = 0
-        self.timer_lines = tryParseInt(os.environ['TIMER_CHAT_LINES'], 5)
-        self.auto_chat_msg = 0
-        self.auto_chat_lines_mod = tryParseInt(os.environ['AUTO_CHAT_LINES_MOD'], 10)
-        self.auto_chat_lines = tryParseInt(os.environ['AUTO_CHAT_LINES_MIN'], 20) + random.randint(0, self.auto_chat_lines_mod)
+        self.timer_queue = {}
+        self.current_timer_msg = {}
+        self.messages_since_timer = {}
+        self.timer_lines = {}
+        self.auto_chat_msg = {}
+        self.auto_chat_lines_mod = {}
+        self.auto_chat_lines = {}
+
+        for channel in self.channel_list:
+            channel = channel.lower()
+            self.timer_queue[channel] = []
+            self.current_timer_msg[channel] = 0
+            self.messages_since_timer[channel] = 0
+            self.timer_lines[channel] = tryParseInt(os.environ['TIMER_CHAT_LINES'], 5)
+            self.auto_chat_msg[channel] = 0
+            self.auto_chat_lines_mod[channel] = tryParseInt(os.environ['AUTO_CHAT_LINES_MOD'], 10)
+            self.auto_chat_lines[channel] = tryParseInt(os.environ['AUTO_CHAT_LINES_MIN'], 20) + random.randint(0, self.auto_chat_lines_mod[channel])
 
         # markov
         self.markov_data_store = True
@@ -65,18 +77,20 @@ class PhantomGamesBot(commands.Bot):
             print("Timer is already running")
     
     def load_timer_events(self):
-        with open('./commands/resources/timer_events.txt', 'r', encoding="utf-8") as txt_file:
-            lines = txt_file.readlines()
-            for line in lines:
-                command = line.strip()
-                if self.custom.command_exists(command, "phantom5800") and command not in self.timer_queue:
-                    self.timer_queue.append(command)
-        print(f"Timer events loaded: {self.timer_queue}")
+        for channel in self.channel_list:
+            with open(f'./commands/resources/channels/{channel}/timer_events.txt', 'r', encoding="utf-8") as txt_file:
+                lines = txt_file.readlines()
+                for line in lines:
+                    command = line.strip()
+                    if self.custom.command_exists(command, channel) and command not in self.timer_queue[channel]:
+                        self.timer_queue[channel].append(command)
+            print(f"Timer events loaded for {channel}: {self.timer_queue[channel]}")
 
     def save_timer_events(self):
-        with open('./commands/resources/timer_events.txt', 'w', encoding="utf-8") as txt_file:
-            for event in self.timer_queue:
-                txt_file.write(f"{event}\n")
+        for channel in self.channel_list:
+            with open(f'./commands/resources/channels/{channel}/timer_events.txt', 'w', encoding="utf-8") as txt_file:
+                for event in self.timer_queue[channel]:
+                    txt_file.write(f"{event}\n")
 
     '''
     Runs when an "invalid command" is sent by a user.
@@ -103,8 +117,8 @@ class PhantomGamesBot(commands.Bot):
         # track chat messages that have been posted since the last timer fired
         # TODO: use message.channel.name to index into an array for auto posting messages
         #       this will be needed for supporting multiple channels
-        self.messages_since_timer += 1
-        self.auto_chat_msg += 1
+        self.messages_since_timer[message.channel.name.lower()] += 1
+        self.auto_chat_msg[message.channel.name.lower()] += 1
 
         if message is not None: # this has come up before??
             # handle custom commands
@@ -144,38 +158,39 @@ class PhantomGamesBot(commands.Bot):
     '''
     @routines.routine(minutes=int(os.environ['TIMER_MINUTES']), wait_first=True)
     async def timer_update(self):
-        if self.messages_since_timer >= self.timer_lines and len(self.timer_queue) > 0:
-            self.messages_since_timer = 0
+        for channel in self.channel_list:
+            if self.messages_since_timer[channel] >= self.timer_lines[channel] and len(self.timer_queue[channel]) > 0:
+                self.messages_since_timer[channel] = 0
 
-            message = self.custom.get_command(self.timer_queue[self.current_timer_msg], "phantom5800")
-            if message is None:
-                print(f"[ERROR] {self.timer_queue[self.current_timer_msg]} is not a valid command for timers.")
-            else:
-                channel = self.get_channel(os.environ['TWITCH_CHANNEL'])
-                if channel is None:
-                    print(f"[ERROR] Timer cannot find channel '{os.environ['TWITCH_CHANNEL']}' to post in??")
+                message = self.custom.get_command(self.timer_queue[channel][self.current_timer_msg[channel]], channel)
+                if message is None:
+                    print(f"[ERROR] {self.timer_queue[channel][self.current_timer_msg[channel]]} is not a valid command for timers.")
                 else:
-                    #await channel.send(f"/announce {message}")
-                    await channel.send(message)
-                    self.current_timer_msg = (self.current_timer_msg + 1) % len(self.timer_queue)
+                    stream_channel = self.get_channel(channel)
+                    if stream_channel is None:
+                        print(f"[ERROR] Timer cannot find channel '{channel}' to post in??")
+                    else:
+                        #await channel.send(f"/announce {message}")
+                        await stream_channel.send(message)
+                        self.current_timer_msg[channel] = (self.current_timer_msg[channel] + 1) % len(self.timer_queue[channel])
     
     '''
     Periodically posts automatically generated messages to chat.
     '''
     @routines.routine(minutes=int(os.environ['AUTO_CHAT_MINUTES']), wait_first=True)
     async def automatic_chat(self):
-        # TODO: iterate over all connected channels and attempt to post messages
-        if self.auto_chat_msg >= self.auto_chat_lines:
-            self.auto_chat_msg = 0
-            self.auto_chat_lines = tryParseInt(os.environ['AUTO_CHAT_LINES_MIN'], 20) + random.randint(0, self.auto_chat_lines_mod)
+        for channel in self.channel_list:
+            if self.auto_chat_msg[channel] >= self.auto_chat_lines[channel]:
+                self.auto_chat_msg[channel] = 0
+                self.auto_chat_lines[channel] = tryParseInt(os.environ['AUTO_CHAT_LINES_MIN'], 20) + random.randint(0, self.auto_chat_lines_mod[channel])
 
-            channel = self.get_channel(os.environ['TWITCH_CHANNEL'])
-            if channel is None:
-                print(f"[ERROR] Timer cannot find channel '{os.environ['TWITCH_CHANNEL']}' to post in??")
-            else:
-                message = self.markov.get_markov_string()
-                print(f"[{datetime.now()}] Generated Message: {message}")
-                await channel.send(message)
+                stream_channel = self.get_channel(channel)
+                if stream_channel is None:
+                    print(f"[ERROR] Timer cannot find channel '{channel}' to post in??")
+                else:
+                    message = self.markov.get_markov_string()
+                    print(f"[{datetime.now()}] Generated Message in {channel}: {message}")
+                    await stream_channel.send(message)
     
     # custom commands
     '''
@@ -288,28 +303,13 @@ class PhantomGamesBot(commands.Bot):
 
     # timer
     @commands.command()
-    async def disabletimer(self, ctx: commands.Context):
-        if ctx.message.author.is_mod:
-            self.timer_update.cancel()
-            await ctx.send(f"{ctx.message.author.mention} Timers have been disabled")
-
-    @commands.command()
-    async def enabletimer(self, ctx: commands.Context):
-        if ctx.message.author.is_mod:
-            try:
-                self.timer_update.start()
-            except RuntimeError:
-                await ctx.send(f"{ctx.message.author.mention} Timers are already enabled")
-                return
-            await ctx.send(f"{ctx.message.author.mention} Timers have been enabled")
-
-    @commands.command()
     async def addtimer(self, ctx: commands.Context, command: str = ""):
         if ctx.message.author.is_mod:
+            channel = ctx.message.channel.name.lower()
             if len(command) > 0:
-                if self.custom.command_exists(command, ctx.message.channel.name):
-                    if command not in self.timer_queue:
-                        self.timer_queue.append(command)
+                if self.custom.command_exists(command, channel):
+                    if command not in self.timer_queue[channel]:
+                        self.timer_queue[channel].append(command)
                         await self.save_timer_events()
                         await ctx.send(f"{ctx.message.author.mention} Command [{command}] has been added as a timer")
                     else:
@@ -322,9 +322,10 @@ class PhantomGamesBot(commands.Bot):
     @commands.command()
     async def removetimer(self, ctx: commands.Context, command: str = ""):
         if ctx.message.author.is_mod:
+            channel = ctx.message.channel.name.lower()
             if len(command) > 0:
-                if command in self.timer_queue:
-                    self.timer_queue.remove(command)
+                if command in self.timer_queue[channel]:
+                    self.timer_queue[channel].remove(command)
                     await self.save_timer_events()
                     await ctx.send(f"{ctx.message.author.mention} [{command}] has been removed from the timer")
             else:
@@ -333,7 +334,8 @@ class PhantomGamesBot(commands.Bot):
     @commands.command()
     async def timerevents(self, ctx: commands.Context):
         if ctx.message.author.is_mod:
-            await ctx.send(f"Current timer events: {self.timer_queue}")
+            channel = ctx.message.channel.name.lower()
+            await ctx.send(f"Current timer events: {self.timer_queue[channel]}")
 
     # quotes
     @commands.command()
