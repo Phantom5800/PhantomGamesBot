@@ -42,7 +42,7 @@ class CustomCommands:
     def command_exists(self, command: str, channel: str) -> bool:
         channel = channel.lower()
         self.file_lock.acquire()
-        exists = command.lower() in self.command_set[channel]
+        exists = channel in self.command_set and command.lower() in self.command_set[channel]
         self.file_lock.release()
         return exists
 
