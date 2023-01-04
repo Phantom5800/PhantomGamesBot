@@ -147,6 +147,8 @@ Add a new custom command to the bot.
 !addcommand {command} {response text}
 ```
 
+Aliases: _!addcom_
+
 ### !editcommand ![](./readme/images/twitch.png)
 Edit the response for an existing command.
 
@@ -154,12 +156,16 @@ Edit the response for an existing command.
 !editcommand {command} {response text}
 ```
 
+Aliases: _!editcom_
+
 ### !removecommand ![](./readme/images/twitch.png)
 Remove a custom bot command.
 
 ```
 !removecommand {command}
 ```
+
+Aliases: _!removecom !delcom_
 
 ### !setcooldown ![](./readme/images/twitch.png)
 Set the cooldown on a custom command to restrict how often it can be used.

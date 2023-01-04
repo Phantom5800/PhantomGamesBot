@@ -69,7 +69,7 @@ class PhantomGamesBot(commands.Bot):
             lines = txt_file.readlines()
             for line in lines:
                 command = line.strip()
-                if self.custom.command_exists(command) and command not in self.timer_queue:
+                if self.custom.command_exists(command, "phantom5800") and command not in self.timer_queue:
                     self.timer_queue.append(command)
         print(f"Timer events loaded: {self.timer_queue}")
 
@@ -121,7 +121,7 @@ class PhantomGamesBot(commands.Bot):
 
                 # look for commands
                 command = message.content.split()[0]
-                response = self.custom.parse_custom_command(command)
+                response = self.custom.parse_custom_command(command, message.channel.name)
                 if response is not None:
                     response = await replace_vars_twitch(response, ctx, message.channel)
                     await ctx.send(response)
@@ -147,7 +147,7 @@ class PhantomGamesBot(commands.Bot):
         if self.messages_since_timer >= self.timer_lines and len(self.timer_queue) > 0:
             self.messages_since_timer = 0
 
-            message = self.custom.get_command(self.timer_queue[self.current_timer_msg])
+            message = self.custom.get_command(self.timer_queue[self.current_timer_msg], "phantom5800")
             if message is None:
                 print(f"[ERROR] {self.timer_queue[self.current_timer_msg]} is not a valid command for timers.")
             else:
@@ -227,7 +227,7 @@ class PhantomGamesBot(commands.Bot):
                 # get the command response
                 command_response = command_parts[2]
                 # attempt to add the command
-                command_added = self.custom.add_command(command, command_response, 0)
+                command_added = self.custom.add_command(command, command_response, 0, ctx.message.channel.name)
                 if command_added:
                     await ctx.send(f"{ctx.message.author.mention} Successfully added command [{command}] -> {command_response}")
                 else:
@@ -245,7 +245,7 @@ class PhantomGamesBot(commands.Bot):
             if command_parts is not None:
                 command = command_parts[1]
                 cooldown = tryParseInt(command_parts[2])
-                command_edited = self.custom.set_cooldown(command, cooldown)
+                command_edited = self.custom.set_cooldown(command, cooldown, ctx.message.channel.name)
                 if command_edited:
                     await ctx.send(f"{ctx.message.author.mention} Cooldown for [{command}] = {cooldown} seconds.")
                 else:
@@ -263,7 +263,7 @@ class PhantomGamesBot(commands.Bot):
             if command_parts is not None:
                 command = command_parts[1]
                 command_response = command_parts[2]
-                command_edited = self.custom.edit_command(command, command_response, 0)
+                command_edited = self.custom.edit_command(command, command_response, 0, ctx.message.channel.name)
                 if command_edited:
                     await ctx.send(f"{ctx.message.author.mention} Edited command [{command}] -> {command_response}")
                 else:
@@ -274,11 +274,11 @@ class PhantomGamesBot(commands.Bot):
     '''
     Delete a custom command through twitch chat.
     '''
-    @commands.command(aliases=["removecom"])
+    @commands.command(aliases=["removecom", "delcom"])
     async def removecommand(self, ctx: commands.Context, command: str = ""):
         if ctx.message.author.is_mod:
             if len(command) > 0:
-                command_removed = self.custom.remove_command(command)
+                command_removed = self.custom.remove_command(command, ctx.message.channel.name)
                 if command_removed:
                     await ctx.send(f"{ctx.message.author.mention} Removed command [{command}]")
                 else:
@@ -307,7 +307,7 @@ class PhantomGamesBot(commands.Bot):
     async def addtimer(self, ctx: commands.Context, command: str = ""):
         if ctx.message.author.is_mod:
             if len(command) > 0:
-                if self.custom.command_exists(command):
+                if self.custom.command_exists(command, ctx.message.channel.name):
                     if command not in self.timer_queue:
                         self.timer_queue.append(command)
                         await self.save_timer_events()

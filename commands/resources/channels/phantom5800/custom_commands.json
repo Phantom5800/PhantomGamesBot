@@ -42,7 +42,7 @@
   "@phantomgamesbot": {
     "response": "$user $msg",
     "cooldown": 0,
-    "last_use": 1670699057.065121
+    "last_use": 1672763299.917412
   },
   "!github": {
     "response": "All my open source code projects are available on github: https://github.com/Phantom5800",
@@ -202,7 +202,7 @@
   "hi": {
     "response": "hi $user",
     "cooldown": 5,
-    "last_use": 1670692233.206903
+    "last_use": 1672766114.170537
   },
   "!peed69": {
     "response": "Flushed",
