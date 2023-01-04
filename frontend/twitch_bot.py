@@ -346,16 +346,16 @@ class PhantomGamesBot(commands.Bot):
         response = None
 
         if "latest" in quote_id.lower():
-            await ctx.send(self.quotes.pick_specific_quote(str(self.quotes.num_quotes() - 1)))
+            await ctx.send(self.quotes.pick_specific_quote(str(self.quotes.num_quotes() - 1), ctx.message.channel.name))
             return
 
         quote = tryParseInt(quote_id, -1)
         if quote >= 0:
-            response = self.quotes.pick_specific_quote(quote_id)
+            response = self.quotes.pick_specific_quote(quote_id, ctx.message.channel.name)
         elif quote_id == "-1":
-            response = self.quotes.pick_random_quote()
+            response = self.quotes.pick_random_quote(ctx.message.channel.name)
         else:
-            response = self.quotes.find_quote_keyword(quote_id)
+            response = self.quotes.find_quote_keyword(quote_id, ctx.message.channel.name)
         if response is not None:
             await ctx.send(response)
 
@@ -367,7 +367,7 @@ class PhantomGamesBot(commands.Bot):
                 new_quote = command_parts[1]
                 if len(new_quote) > 0:
                     game_name = await get_game_name_from_twitch_for_user(self, ctx.message.channel.name)
-                    response = self.quotes.add_quote(new_quote, game_name)
+                    response = self.quotes.add_quote(new_quote, game_name, ctx.message.channel.name)
                     await ctx.send(response)
                 else:
                     await ctx.send(f"{ctx.message.author.mention} where's the quote?")
@@ -381,14 +381,14 @@ class PhantomGamesBot(commands.Bot):
             if command_parts is not None and tryParseInt(command_parts[1], -1) >= 0:
                 quote_id = int(command_parts[1])
                 quote = command_parts[2]
-                response = self.quotes.edit_quote(quote_id, quote)
+                response = self.quotes.edit_quote(quote_id, quote, ctx.message.channel.name)
                 await ctx.send(response)
     
     @commands.command()
     async def removequote(self, ctx: commands.Context, quote_id: str = "-1"):
         if ctx.message.author.is_mod:
             if tryParseInt(quote_id, -1) >= 0:
-                response = self.quotes.remove_quote(int(quote_id))
+                response = self.quotes.remove_quote(int(quote_id), ctx.message.channel.name)
                 await ctx.send(response)
 
     # speedrun.com

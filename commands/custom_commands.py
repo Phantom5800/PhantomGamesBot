@@ -19,7 +19,6 @@ class CustomCommands:
             if os.path.isdir(channel_folder):
                 commands_file = os.path.join(channel_folder, "custom_commands.json")
                 if os.path.isfile(commands_file):
-                    print(commands_file)
                     with open(commands_file, 'r', encoding="utf-8") as json_file:
                         try:
                             data = json.load(json_file)
