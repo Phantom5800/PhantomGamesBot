@@ -384,7 +384,7 @@ class PhantomGamesBot(commands.Bot):
                 response = self.quotes.edit_quote(quote_id, quote, ctx.message.channel.name)
                 await ctx.send(response)
     
-    @commands.command()
+    @commands.command(aliases=["delquote"])
     async def removequote(self, ctx: commands.Context, quote_id: str = "-1"):
         if ctx.message.author.is_mod:
             if tryParseInt(quote_id, -1) >= 0:

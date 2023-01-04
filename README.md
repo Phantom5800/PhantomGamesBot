@@ -213,6 +213,8 @@ Remove an existing quote, all quotes that appear after are shifted down accordin
 !removequote {quote id}
 ```
 
+Aliases: _!delquote_
+
 ## Timer Events
 
 Timer events are posted automatically at given intervals set by `TIMER_MINUTES` and `TIMER_CHAT_LINES` in `.env`. If a timer triggers and the required amount of chat messages have not passed, the timer will wait the full duration before checking again. This may need to be tweaked based on the streamer's chat and what they expect. In some cases it may be better to have shorter timers with a higher message requirement. Experimenting with the numbers is highly recommended.
