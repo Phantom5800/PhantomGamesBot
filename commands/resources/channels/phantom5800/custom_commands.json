@@ -2,7 +2,7 @@
   "morp": {
     "response": "morp",
     "cooldown": 5,
-    "last_use": 1666199687.287223
+    "last_use": 1672861601.18887
   },
   "glenn": {
     "response": "glenn",
@@ -55,9 +55,9 @@
     "last_use": 1664563763.586712
   },
   "!youtube": {
-    "response": "/announce For vod's of randos and pb runs: https://www.youtube.com/@PhantomVODs",
+    "response": "/announce I'm trying to get to 1000 subs on YouTube! At which point I'll be doing a PM64 Book of Mario playthrough, consider subscribing for rando's and pb vods: https://www.youtube.com/@PhantomVODs",
     "cooldown": 0,
-    "last_use": 1664748970.784532
+    "last_use": 0
   },
   "!cursedtimer": {
     "response": "http://growf.org/stuff/timer.html",
@@ -231,6 +231,11 @@
   },
   "!wheel": {
     "response": "We're playing random games from a wheel for *minimum* 30 minutes. Extending the time beyond that is up to chat. Once time is up, we'll bring the wheel back up and spin again to see what comes up next!",
+    "cooldown": 0,
+    "last_use": 0
+  },
+  "!fp": {
+    "response": "Paper Mario Practice Rom releases: https://github.com/JCog/fp/releases",
     "cooldown": 0,
     "last_use": 0
   }

@@ -28,7 +28,7 @@ At the root, anyone trying to run this will need a `.env` file that looks someth
 TWITCH_OAUTH_TOKEN={OAUTH Token for bot account}
 TWITCH_CLIENT_ID={Twitch Client ID}
 BOT_NICK={Bot Account Name}
-TWITCH_CHANNEL={Channel Name}
+TWITCH_CHANNEL={comma seperated list of channel names}
 
 TIMER_CHAT_LINES=
 TIMER_MINUTES=
@@ -38,7 +38,7 @@ AUTO_CHAT_MINUTES=
 
 BOT_PREFIX=!
 
-SRC_USER={Speedrun.com username}
+SRC_USER={comma seperated list of speedrun.com username}
 
 DISCORD_TOKEN={Discord bot Token}
 DISCORD_ROLE_MESSAGE_ID={ID of message containing reaction roles}
