@@ -129,7 +129,7 @@ class PhantomGamesBot(bridge.Bot):
         if message is not None:
             if message.content is not None and len(message.content) > 0:
                 command = message.content.split()[0]
-                response = self.custom.parse_custom_command(command)
+                response = self.custom.parse_custom_command(command, "phantom5800")
                 if response is not None:
                     self.commands_since_new_status += 1
 
