@@ -32,8 +32,10 @@ TWITCH_CHANNEL={comma seperated list of channel names}
 
 TIMER_CHAT_LINES=
 TIMER_MINUTES=
-AUTO_CHAT_LINES_MIN=
-AUTO_CHAT_LINES_MOD=
+
+AUTO_CHAT_LINES_MIN_[channel]={minimum number of lines posted in [channel] before the bot posts a message}
+AUTO_CHAT_LINES_MOD_[channel]=
+
 AUTO_CHAT_MINUTES=
 
 BOT_PREFIX=!
