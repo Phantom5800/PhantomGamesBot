@@ -1,1 +1,27 @@
-{}
+{
+  "no": {
+    "response": "no",
+    "cooldown": 0,
+    "last_use": 0
+  },
+  "el:wadafa:yelpanafrienddandoleunabrazo": {
+    "response": "el:Wadafa:yelpanaFrienddandoleunabrazo",
+    "cooldown": 0,
+    "last_use": 0
+  },
+  "@phantomgamesbot": {
+    "response": "$user $msg",
+    "cooldown": 0,
+    "last_use": 0
+  },
+  "!peed": {
+    "response": "Flushed",
+    "cooldown": 0,
+    "last_use": 1672934978.917963
+  },
+  "runera3love": {
+    "response": "runra3Love",
+    "cooldown": 0,
+    "last_use": 0
+  }
+}

@@ -12,7 +12,7 @@ class MarkovHandler:
             f = os.path.join(directory, filename)
             print(filename)
             if os.path.isfile(f):
-                with open(f, "r") as markov_file:
+                with open(f, "r", encoding="utf-8") as markov_file:
                     logtext += markov_file.read()
 
         # state_size=1 is complete nonsense, 2 makes more ... real sentences, 3 is not random enough

@@ -167,7 +167,7 @@ class PhantomGamesBotModule(commands.Cog):
         help="Get a list of all basic response commands. These commands are all added by moderators on twitch.")
     async def get_commands(self, ctx):
         command_list = []
-        command_list.extend(self.bot.custom.get_command_list())
+        command_list.extend(self.bot.custom.get_command_list("phantom5800"))
         command_list.sort()
         await ctx.respond(f"List of all the current custom commands: {command_list}")
 

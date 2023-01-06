@@ -147,7 +147,7 @@ class PhantomGamesBot(commands.Bot):
                     not_self_post = not message.content.startswith(os.environ['BOT_PREFIX'])
                     length_req = len(set(message.content.split())) >= self.markov_store_minlen
                     if self.markov_data_store and not contains_link and not_self_post and length_req:
-                        with open(f"./commands/resources/markov/markov-{datetime.now().year}.txt", "a+") as f:
+                        with open(f"./commands/resources/markov/markov-{datetime.now().year}.txt", "a+", encoding="utf-8") as f:
                             try:
                                 f.write(f"{message.content}\n")
                             except:
@@ -203,7 +203,7 @@ class PhantomGamesBot(commands.Bot):
             if matches is not None:
                 return matches.groups()
         elif expectedParts == 3:
-            pattern = r"([!]\w+) ([!]?\w+) (.*)"
+            pattern = r"([!]\w+) ([!@:;.]?\w+) (.*)"
             matches = re.match(pattern, message)
             if matches is not None:
                 return matches.groups()
@@ -339,6 +339,7 @@ class PhantomGamesBot(commands.Bot):
 
     # quotes
     @commands.command()
+    @commands.cooldown(1, 60, commands.Bucket.channel)
     async def chat(self, ctx: commands.Context):
         response = self.markov.get_markov_string()
         await ctx.send(response)
