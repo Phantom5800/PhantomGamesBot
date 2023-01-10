@@ -52,8 +52,12 @@ class PhantomGamesBot(commands.Bot):
             self.messages_since_timer[channel] = 0
             self.timer_lines[channel] = tryParseInt(os.environ['TIMER_CHAT_LINES'], 5)
             self.auto_chat_msg[channel] = 0
-            self.auto_chat_lines_mod[channel] = tryParseInt(os.environ[f'AUTO_CHAT_LINES_MOD_{channel}'], 10)
-            self.auto_chat_lines[channel] = tryParseInt(os.environ[f'AUTO_CHAT_LINES_MIN_{channel}'], 20) + random.randint(0, self.auto_chat_lines_mod[channel])
+            try:
+                self.auto_chat_lines_mod[channel] = tryParseInt(os.environ[f'AUTO_CHAT_LINES_MOD_{channel}'], 10)
+                self.auto_chat_lines[channel] = tryParseInt(os.environ[f'AUTO_CHAT_LINES_MIN_{channel}'], 20) + random.randint(0, self.auto_chat_lines_mod[channel])
+            except:
+                self.auto_chat_lines_mod[channel] = 10
+                self.auto_chat_lines[channel] = 20 + random.randint(0, self.auto_chat_lines_mod[channel])
 
         # markov
         self.markov_data_store = True
@@ -182,7 +186,10 @@ class PhantomGamesBot(commands.Bot):
         for channel in self.channel_list:
             if self.auto_chat_msg[channel] >= self.auto_chat_lines[channel]:
                 self.auto_chat_msg[channel] = 0
-                self.auto_chat_lines[channel] = tryParseInt(os.environ[f'AUTO_CHAT_LINES_MIN_{channel}'], 20) + random.randint(0, self.auto_chat_lines_mod[channel])
+                try:
+                    self.auto_chat_lines[channel] = tryParseInt(os.environ[f'AUTO_CHAT_LINES_MIN_{channel}'], 20) + random.randint(0, self.auto_chat_lines_mod[channel])
+                except:
+                    self.auto_chat_lines[channel] = 20 + random.randint(0, self.auto_chat_lines_mod[channel])
 
                 stream_channel = self.get_channel(channel)
                 if stream_channel is None:

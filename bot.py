@@ -6,6 +6,7 @@ from commands.src import SrcomApi
 from commands.markov import MarkovHandler
 from frontend.twitch_bot import run_twitch_bot
 from frontend.discord_bot import run_discord_bot
+from frontend.twitter_bot import run_twitter_bot
 
 if __name__ == "__main__":
     # Shared resources
@@ -29,5 +30,7 @@ if __name__ == "__main__":
     # TODO: better verification, but empty is probably good enough
     if os.environ['DISCORD_TOKEN'] is not None and len(os.environ['DISCORD_TOKEN']) > 0:
         run_discord_bot(masterBot.loop, customCommandHandler, quoteHandler, srcHandler, markovHandler)
+
+    run_twitter_bot(masterBot.loop, markovHandler)
 
     masterBot.run()

@@ -10,3 +10,4 @@ pipenv install srcomapi
 pipenv install discord
 pipenv install AnilistPython==0.1.3
 pipenv install markovify
+pipenv install tweepy

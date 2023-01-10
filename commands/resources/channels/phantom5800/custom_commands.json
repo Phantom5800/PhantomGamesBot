@@ -37,12 +37,12 @@
   "!follow": {
     "response": "/announce If you haven't already done so, click the follow button! Every follower is greatly appreciated! There are no follow alerts, so if you want to just lurk, there's no need to worry about your name showing up on stream.",
     "cooldown": 0,
-    "last_use": 1670373022.985245
+    "last_use": 1673036845.018907
   },
   "@phantomgamesbot": {
     "response": "$user $msg",
     "cooldown": 0,
-    "last_use": 1672763299.917412
+    "last_use": 1673034411.272159
   },
   "!github": {
     "response": "All my open source code projects are available on github: https://github.com/Phantom5800",
@@ -57,7 +57,7 @@
   "!youtube": {
     "response": "/announce I'm trying to get to 1000 subs on YouTube! At which point I'll be doing a PM64 Book of Mario playthrough, consider subscribing for rando's and pb vods: https://www.youtube.com/@PhantomVODs",
     "cooldown": 0,
-    "last_use": 0
+    "last_use": 1673036797.72455
   },
   "!cursedtimer": {
     "response": "http://growf.org/stuff/timer.html",
@@ -105,7 +105,7 @@
     "last_use": 0
   },
   "!race": {
-    "response": " https://racetime.gg/pm64r/sublime-crystalking-7966",
+    "response": "https://racetime.gg/pm64r/eager-superhammer-3333",
     "cooldown": 0,
     "last_use": 0
   },
@@ -132,7 +132,7 @@
   "ezekiel": {
     "response": "Ezekiel",
     "cooldown": 5,
-    "last_use": 1666198682.196954
+    "last_use": 1673027136.576907
   },
   "!singular": {
     "response": "twitch.tv/phantom5800",
@@ -202,7 +202,7 @@
   "hi": {
     "response": "hi $user",
     "cooldown": 5,
-    "last_use": 1672766114.170537
+    "last_use": 1673019917.868154
   },
   "!peed69": {
     "response": "Flushed",
@@ -237,6 +237,6 @@
   "!fp": {
     "response": "Paper Mario Practice Rom releases: https://github.com/JCog/fp/releases",
     "cooldown": 0,
-    "last_use": 0
+    "last_use": 1673023853.084279
   }
 }
