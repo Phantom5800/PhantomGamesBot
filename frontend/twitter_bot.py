@@ -50,7 +50,7 @@ def run_twitter_bot(eventLoop, markovHandler: MarkovHandler):
             # post a tweet
             now = datetime.now()
             timelapse = now - bot.last_tweet_time
-            if timelapse.days >= 1 and now.hours > 10:
+            if timelapse.seconds / 3600 >= 14 and now.hour > 10:
                 bot.post_tweet()
 
             # sleep for an hour and some random amount of minutes
