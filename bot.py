@@ -31,6 +31,8 @@ if __name__ == "__main__":
     if os.environ['DISCORD_TOKEN'] is not None and len(os.environ['DISCORD_TOKEN']) > 0:
         run_discord_bot(masterBot.loop, customCommandHandler, quoteHandler, srcHandler, markovHandler)
 
-    run_twitter_bot(masterBot.loop, markovHandler)
+    # verify that twitter credentials are configured
+    if os.environ['TWITTER_CONSUMER_KEY'] is not None and len(os.environ['TWITTER_CONSUMER_KEY']) > 0:
+        run_twitter_bot(masterBot.loop, markovHandler)
 
     masterBot.run()
