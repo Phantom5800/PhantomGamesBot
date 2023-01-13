@@ -2,12 +2,12 @@
   "no": {
     "response": "no",
     "cooldown": 0,
-    "last_use": 0
+    "last_use": 1673547384.22016
   },
   "el:wadafa:yelpanafrienddandoleunabrazo": {
     "response": "el:Wadafa:yelpanaFrienddandoleunabrazo",
     "cooldown": 0,
-    "last_use": 0
+    "last_use": 1673374217.137529
   },
   "@phantomgamesbot": {
     "response": "$user $msg",
@@ -20,7 +20,42 @@
     "last_use": 1672934978.917963
   },
   "runera3love": {
-    "response": "runra3Love",
+    "response": "runera3Love",
+    "cooldown": 0,
+    "last_use": 0
+  },
+  "!reset": {
+    "response": "It's Reset Time\u2122 baby! KKona ! Nothing we do matters, no timesave is good enough, and our run is very dead.",
+    "cooldown": 0,
+    "last_use": 0
+  },
+  "morp": {
+    "response": "morp",
+    "cooldown": 0,
+    "last_use": 1673374126.681019
+  },
+  "buffoon": {
+    "response": "It's buff00n with two zeros, please and thank you! :)",
+    "cooldown": 0,
+    "last_use": 1673366757.750727
+  },
+  "runera3leave": {
+    "response": "get your ass back here",
+    "cooldown": 0,
+    "last_use": 1673371601.566223
+  },
+  "hello": {
+    "response": "HELLO, GORDON",
+    "cooldown": 0,
+    "last_use": 0
+  },
+  "stinkycheese": {
+    "response": "StinkyCheese",
+    "cooldown": 0,
+    "last_use": 0
+  },
+  "!discord": {
+    "response": "https://discord.gg/cxDBexV",
     "cooldown": 0,
     "last_use": 0
   }

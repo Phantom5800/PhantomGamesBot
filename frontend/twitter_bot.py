@@ -25,7 +25,7 @@ class PhantomGamesBot:
         self.last_tweet_time = datetime.now()
         with open("./commands/resources/twitter.txt", "r", encoding="utf-8") as f:
             time = f.read()
-            self.last_tweet_time = datetime.strptime(time, "%y-%m-%d %H:%M:%S")
+            self.last_tweet_time = datetime.strptime(time, "%Y-%m-%d %H:%M:%S")
 
     def post_tweet(self):
         # create tweet
@@ -41,7 +41,7 @@ class PhantomGamesBot:
             print(f"[{datetime.now()}] Generated Tweet: {message}")
             self.last_tweet_time = datetime.now()
             with open("./commands/resources/twitter.txt", "w", encoding="utf-8") as f:
-                f.write(self.last_tweet_time.strftime("%y-%m-%d %H:%M:%S"))
+                f.write(self.last_tweet_time.strftime("%Y-%m-%d %H:%M:%S"))
 
 def run_twitter_bot(eventLoop, markovHandler: MarkovHandler):
     async def runBot():
@@ -50,7 +50,7 @@ def run_twitter_bot(eventLoop, markovHandler: MarkovHandler):
             # post a tweet
             now = datetime.now()
             timelapse = now - bot.last_tweet_time
-            if timelapse.seconds / 3600 >= 14 and now.hour > 10:
+            if (timelapse.days >= 1 or timelapse.seconds / 3600 >= 14) and now.hour > 10:
                 bot.post_tweet()
 
             # sleep for an hour and some random amount of minutes

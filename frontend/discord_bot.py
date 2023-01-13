@@ -33,7 +33,8 @@ class PhantomGamesBot(bridge.Bot):
             "Responding to !speed",
             "!boris",
             "Paper Mario Randomizer",
-            "WABITR"
+            "WABITR",
+            "Twitter"
         ]
         self.commands_since_new_status = 0
 

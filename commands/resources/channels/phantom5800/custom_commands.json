@@ -7,7 +7,7 @@
   "glenn": {
     "response": "glenn",
     "cooldown": 5,
-    "last_use": 1670356142.669288
+    "last_use": 1673366944.024542
   },
   "!lurk": {
     "response": "ok $user",
@@ -238,5 +238,10 @@
     "response": "Paper Mario Practice Rom releases: https://github.com/JCog/fp/releases",
     "cooldown": 0,
     "last_use": 1673023853.084279
+  },
+  "buffoon": {
+    "response": "It's buff00n with two zeros, please and thank you! :)",
+    "cooldown": 0,
+    "last_use": 0
   }
 }
