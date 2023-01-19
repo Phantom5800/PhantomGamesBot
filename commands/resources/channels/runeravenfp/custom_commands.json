@@ -32,7 +32,7 @@
   "morp": {
     "response": "morp",
     "cooldown": 0,
-    "last_use": 1673374126.681019
+    "last_use": 1673968822.540856
   },
   "buffoon": {
     "response": "It's buff00n with two zeros, please and thank you! :)",
@@ -47,15 +47,40 @@
   "hello": {
     "response": "HELLO, GORDON",
     "cooldown": 0,
-    "last_use": 0
+    "last_use": 1673966750.097925
   },
   "stinkycheese": {
     "response": "StinkyCheese",
     "cooldown": 0,
-    "last_use": 0
+    "last_use": 1673968235.954255
   },
   "!discord": {
     "response": "https://discord.gg/cxDBexV",
+    "cooldown": 0,
+    "last_use": 0
+  },
+  "!outset": {
+    "response": "BRO I SWEAR this streamer is ALWAYS on outset island. I was just AFK for an hour and a half and THEY ARE STILL HERE. YEP 0 runs DO THEY EVER MAKE IT PAST THIS LEVEL",
+    "cooldown": 0,
+    "last_use": 0
+  },
+  "bro": {
+    "response": "this level is too hard",
+    "cooldown": 0,
+    "last_use": 0
+  },
+  "ggs": {
+    "response": "We did it Reddit!",
+    "cooldown": 0,
+    "last_use": 1673968277.062039
+  },
+  "trusty": {
+    "response": "#TipTrusty https://twitter.com/Trustyalt",
+    "cooldown": 0,
+    "last_use": 0
+  },
+  "langepon": {
+    "response": "#TipLang https://twitter.com/Langepon",
     "cooldown": 0,
     "last_use": 0
   }

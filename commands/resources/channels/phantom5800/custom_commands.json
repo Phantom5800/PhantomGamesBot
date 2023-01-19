@@ -42,10 +42,10 @@
   "@phantomgamesbot": {
     "response": "$user $msg",
     "cooldown": 0,
-    "last_use": 1673034411.272159
+    "last_use": 1673632451.402919
   },
   "!github": {
-    "response": "All my open source code projects are available on github: https://github.com/Phantom5800",
+    "response": "/announce All my open source code projects are available on github: https://github.com/Phantom5800",
     "cooldown": 0,
     "last_use": 0
   },
@@ -95,7 +95,7 @@
     "last_use": 1667335734.362959
   },
   "!pmrando": {
-    "response": "The PM64 Randomizer can be found over at https://pm64randomizer.com/ and a tracker can be over on https://pmr-tracker.phantom-games.com/",
+    "response": "/announce The PM64 Randomizer can be found over at https://pm64randomizer.com/ and a tracker can be over on https://pmr-tracker.phantom-games.com/",
     "cooldown": 0,
     "last_use": 1660064343.685966
   },
@@ -114,40 +114,15 @@
     "cooldown": 5,
     "last_use": 1667339074.435393
   },
-  "!verification": {
-    "response": "Sorry, phone verification is turned on for the channel! If you follow now, the phone verification will stop being required after some time passes. I understand not everyone can do phone verification for their account, it's just there to stop some subset of bot accounts phanto274Smile",
-    "cooldown": 0,
-    "last_use": 0
-  },
   "!channelpoints": {
-    "response": "Link to valid speedrun games for channel point redemptions: https://docs.google.com/spreadsheets/d/1WooKLTvlRLVLeSTcOo18LB8s4GlqqiQcMhEIMqieCEw/edit#gid=1000242023",
+    "response": "/announce Link to valid speedrun games for channel point redemptions: https://docs.google.com/spreadsheets/d/1WooKLTvlRLVLeSTcOo18LB8s4GlqqiQcMhEIMqieCEw/edit#gid=1000242023",
     "cooldown": 0,
     "last_use": 0
-  },
-  "!peed": {
-    "response": "Flushed",
-    "cooldown": 0,
-    "last_use": 1669387112.275196
   },
   "ezekiel": {
     "response": "Ezekiel",
     "cooldown": 5,
-    "last_use": 1673027136.576907
-  },
-  "!singular": {
-    "response": "twitch.tv/phantom5800",
-    "cooldown": 0,
-    "last_use": 0
-  },
-  "!pape": {
-    "response": "/announce Paper Mario for the Nintendo 64 is a very painful game to reset due to a 22 minute segment at the beginning where nothing happens. Generally if a run dies after Speedy Spin is acquired, that's it for the day and we figure out something else to do. If a run dies before Speedy Spin ... we may reset, but it depends on how I'm feeling that day",
-    "cooldown": 0,
-    "last_use": 0
-  },
-  "!jadejungle": {
-    "response": "junle",
-    "cooldown": 0,
-    "last_use": 0
+    "last_use": 1673626388.411662
   },
   "!schedule": {
     "response": "/announce Monday-Friday on days that I stream will be speedruns of whatever game I feel like playing that day (or channel point requests). Saturday and Sunday are guaranteed to be rando's, whether it's Paper Mario or something else, we will be doing at least one rando. Streams generally will start between 2-3PM Pacific.",
@@ -159,33 +134,13 @@
     "cooldown": 0,
     "last_use": 0
   },
-  "!goombario": {
-    "response": "goombario's father is goompapa. His grandfather is goompa. Does that mean his great grandfather is goom? and his great great grandfather is goom(negative pa)?",
-    "cooldown": 0,
-    "last_use": 1661178821.407433
-  },
   "!powerbounce": {
-    "response": "Power Bounce caps with and without Dodge Master equipped: https://docs.google.com/spreadsheets/d/1g-TeiXy2Yda_fwBaDLBw2hAgMugZpAv6saZsHW8h2d4/edit#gid=0",
+    "response": "/announce Power Bounce caps with and without Dodge Master equipped: https://docs.google.com/spreadsheets/d/1g-TeiXy2Yda_fwBaDLBw2hAgMugZpAv6saZsHW8h2d4/edit#gid=0",
     "cooldown": 0,
     "last_use": 0
   },
   "!starpiece": {
     "response": "YO A STARPIECE!?!??! Drake Drake Drake Drake Drake Drake",
-    "cooldown": 0,
-    "last_use": 0
-  },
-  "!flushed": {
-    "response": "peed",
-    "cooldown": 0,
-    "last_use": 1662396383.645448
-  },
-  "!pooped": {
-    "response": "deadMario",
-    "cooldown": 0,
-    "last_use": 1662396411.324309
-  },
-  "!god": {
-    "response": "Shuckle",
     "cooldown": 0,
     "last_use": 0
   },
@@ -195,32 +150,22 @@
     "last_use": 1663424012.429015
   },
   "!paperaces": {
-    "response": "This stream is being rebroadcast on https://twitch.tv/paperaces, I'll try and respond in chat when I can but won't be able to have mic on during the race. We'll be doing a more \"normal\" rando immediately after though!",
+    "response": "Follow Pape Races https://twitch.tv/paperaces for bi-weekly rando race restreams and occasional vanilla content as well!",
     "cooldown": 0,
     "last_use": 1664719702.923169
   },
   "hi": {
     "response": "hi $user",
     "cooldown": 5,
-    "last_use": 1673019917.868154
-  },
-  "!peed69": {
-    "response": "Flushed",
-    "cooldown": 0,
-    "last_use": 1667997159.546336
-  },
-  "!sneed": {
-    "response": "IT'S RANDO RANDY TIME!!!!",
-    "cooldown": 0,
-    "last_use": 1670368501.830523
+    "last_use": 1673634021.998028
   },
   "!nmsb": {
-    "response": "No Major Sequence Breaks is a category that bridges the gap between Glitchless and All Cards. The important parts are that chapters must be completed in order, and story sequence can never go backwards.",
+    "response": "/announce No Major Sequence Breaks is a category that bridges the gap between Glitchless and All Cards. The important parts are that chapters must be completed in order, and story sequence can never go backwards.",
     "cooldown": 0,
     "last_use": 1669040257.675363
   },
   "!crystalsettings": {
-    "response": "full item rando, time items, berry trees, nerf ho-oh, vanilla clair, remove ilex cut tree, early fly v2, no backtracking early bike",
+    "response": "/announce full item rando, time items, berry trees, nerf ho-oh, vanilla clair, remove ilex cut tree, early fly v2, no backtracking early bike",
     "cooldown": 0,
     "last_use": 1670704609.554528
   },
@@ -230,12 +175,12 @@
     "last_use": 0
   },
   "!wheel": {
-    "response": "We're playing random games from a wheel for *minimum* 30 minutes. Extending the time beyond that is up to chat. Once time is up, we'll bring the wheel back up and spin again to see what comes up next!",
+    "response": "/announce We're playing random games from a wheel for *minimum* 30 minutes. Extending the time beyond that is up to chat. Once time is up, we'll bring the wheel back up and spin again to see what comes up next!",
     "cooldown": 0,
     "last_use": 0
   },
   "!fp": {
-    "response": "Paper Mario Practice Rom releases: https://github.com/JCog/fp/releases",
+    "response": "/announce Paper Mario Practice Rom releases: https://github.com/JCog/fp/releases",
     "cooldown": 0,
     "last_use": 1673023853.084279
   },
@@ -243,5 +188,10 @@
     "response": "It's buff00n with two zeros, please and thank you! :)",
     "cooldown": 0,
     "last_use": 0
+  },
+  "!pmrl": {
+    "response": "/announce Doing some practice seeds that MisterStealYourGil posted for the coming Pape Rando League. If you plan on doing these seeds I'd suggest watching after having done it yourself. Spreadsheet with all the seeds and posted times: https://docs.google.com/spreadsheets/d/1n-d12wnzklt6Xhk5uukxC2qN4iFJArxXzFeUuaiQDZI/edit",
+    "cooldown": 0,
+    "last_use": 1673708107.621754
   }
 }
