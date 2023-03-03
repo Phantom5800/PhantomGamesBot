@@ -21,28 +21,23 @@
   },
   "!discord": {
     "response": "/announce Join the discord if you want to hang out. You can also spam !speed when I'm not even online https://discord.gg/XtrhKXNmRc",
-    "cooldown": 0,
-    "last_use": 1670709874.919343
+    "cooldown": 10,
+    "last_use": 1677457153.382349
   },
   "!ohdee": {
     "response": "OhDee made all the emotes and stream assets. Follow him on twitter because he's cool: https://twitter.com/OhDeezey",
     "cooldown": 0,
     "last_use": 0
   },
-  "!multi": {
-    "response": "https://kadgar.net/live/phantom5800/jokehow",
-    "cooldown": 0,
-    "last_use": 0
-  },
   "!follow": {
     "response": "/announce If you haven't already done so, click the follow button! Every follower is greatly appreciated! There are no follow alerts, so if you want to just lurk, there's no need to worry about your name showing up on stream.",
-    "cooldown": 0,
-    "last_use": 1673036845.018907
+    "cooldown": 10,
+    "last_use": 1677457159.302586
   },
   "@phantomgamesbot": {
     "response": "$user $msg",
-    "cooldown": 0,
-    "last_use": 1673632451.402919
+    "cooldown": 5,
+    "last_use": 1676568504.078191
   },
   "!github": {
     "response": "/announce All my open source code projects are available on github: https://github.com/Phantom5800",
@@ -51,13 +46,13 @@
   },
   "!twitter": {
     "response": "/announce Follow me on twitter to keep up with current events: https://twitter.com/Phantom5800",
-    "cooldown": 0,
+    "cooldown": 10,
     "last_use": 1664563763.586712
   },
   "!youtube": {
     "response": "/announce I'm trying to get to 1000 subs on YouTube! At which point I'll be doing a PM64 Book of Mario playthrough, consider subscribing for rando's and pb vods: https://www.youtube.com/@PhantomVODs",
-    "cooldown": 0,
-    "last_use": 1673036797.72455
+    "cooldown": 10,
+    "last_use": 1677457134.313059
   },
   "!cursedtimer": {
     "response": "http://growf.org/stuff/timer.html",
@@ -74,38 +69,23 @@
     "cooldown": 0,
     "last_use": 1641314918.565764
   },
-  "!ban": {
-    "response": "/me $msg has been banned!",
-    "cooldown": 0,
-    "last_use": 0
-  },
   "!boris": {
     "response": "Boris Post Boris This Boris boris Boris To Boris Post Boris This Boris boris Boris",
     "cooldown": 10,
-    "last_use": 1661800794.094677
-  },
-  "!vodtube": {
-    "response": "My PB videos will always be available on twitch, but they can also be found over on youtube if you're so inclined: https://www.youtube.com/channel/UCBi_wHL3iqQJJ3j4KU-jUOA",
-    "cooldown": 0,
-    "last_use": 0
+    "last_use": 1674158501.655906
   },
   "weloveprologue": {
     "response": "If Prologue has a million fans I am one of them. If Prologue has ten fans I am one of them. If Prologue has only one fan, that is me. If Prologue has no fans, that means I am no longer on earth. If the world is against Prologue, I am against the world.",
-    "cooldown": 15,
-    "last_use": 1667335734.362959
+    "cooldown": 10,
+    "last_use": 1676214927.223423
   },
   "!pmrando": {
     "response": "/announce The PM64 Randomizer can be found over at https://pm64randomizer.com/ and a tracker can be over on https://pmr-tracker.phantom-games.com/",
     "cooldown": 0,
-    "last_use": 1660064343.685966
+    "last_use": 1674147130.723198
   },
   "!lange": {
     "response": "Emotes by Langepon! phanto274Shrug phanto274Smile phanto274Bless https://twitter.com/Langepon",
-    "cooldown": 0,
-    "last_use": 0
-  },
-  "!race": {
-    "response": "https://racetime.gg/pm64r/eager-superhammer-3333",
     "cooldown": 0,
     "last_use": 0
   },
@@ -122,12 +102,7 @@
   "ezekiel": {
     "response": "Ezekiel",
     "cooldown": 5,
-    "last_use": 1673626388.411662
-  },
-  "!schedule": {
-    "response": "/announce Monday-Friday on days that I stream will be speedruns of whatever game I feel like playing that day (or channel point requests). Saturday and Sunday are guaranteed to be rando's, whether it's Paper Mario or something else, we will be doing at least one rando. Streams generally will start between 2-3PM Pacific.",
-    "cooldown": 0,
-    "last_use": 0
+    "last_use": 1676211772.50535
   },
   "!waggle": {
     "response": "SkeletonPls SkeletonPls SkeletonPls SkeletonPls SkeletonPls",
@@ -136,11 +111,6 @@
   },
   "!powerbounce": {
     "response": "/announce Power Bounce caps with and without Dodge Master equipped: https://docs.google.com/spreadsheets/d/1g-TeiXy2Yda_fwBaDLBw2hAgMugZpAv6saZsHW8h2d4/edit#gid=0",
-    "cooldown": 0,
-    "last_use": 0
-  },
-  "!starpiece": {
-    "response": "YO A STARPIECE!?!??! Drake Drake Drake Drake Drake Drake",
     "cooldown": 0,
     "last_use": 0
   },
@@ -156,18 +126,13 @@
   },
   "hi": {
     "response": "hi $user",
-    "cooldown": 5,
-    "last_use": 1673634021.998028
+    "cooldown": 10,
+    "last_use": 1676742223.395488
   },
   "!nmsb": {
     "response": "/announce No Major Sequence Breaks is a category that bridges the gap between Glitchless and All Cards. The important parts are that chapters must be completed in order, and story sequence can never go backwards.",
     "cooldown": 0,
     "last_use": 1669040257.675363
-  },
-  "!crystalsettings": {
-    "response": "/announce full item rando, time items, berry trees, nerf ho-oh, vanilla clair, remove ilex cut tree, early fly v2, no backtracking early bike",
-    "cooldown": 0,
-    "last_use": 1670704609.554528
   },
   "!glundo": {
     "response": "The ancient pape gods determined that 100% should be defined by the chalkboard in Mario's house; meaning star pieces, recipes, and badges must all be collected. Additionally they mandated that all permanent key items must be acquired such as the diploma from the dojo. A band of paper rebels has since determined it is not enough, and as part of 101% demands that Kent C. Koopa, Buzzar and the Anti Guy Squad must all die as well",
@@ -186,12 +151,27 @@
   },
   "buffoon": {
     "response": "It's buff00n with two zeros, please and thank you! :)",
+    "cooldown": 6000,
+    "last_use": 0
+  },
+  "!allbosses": {
+    "response": "This is the new route using a single fright jar made by myself and RandomSauce. Random has another route using two fright jars that should be a handful of seconds faster: https://docs.google.com/document/d/1leCk6h1Ls09yZ4a1VeWVhLObZCelRjbaW3REwxCAXKk/edit?usp=sharing",
+    "cooldown": 10,
+    "last_use": 1676470292.40283
+  },
+  "!speedy": {
+    "response": "Speedy Spin WR: https://www.twitch.tv/videos/141392547",
     "cooldown": 0,
     "last_use": 0
   },
-  "!pmrl": {
-    "response": "/announce Doing some practice seeds that MisterStealYourGil posted for the coming Pape Rando League. If you plan on doing these seeds I'd suggest watching after having done it yourself. Spreadsheet with all the seeds and posted times: https://docs.google.com/spreadsheets/d/1n-d12wnzklt6Xhk5uukxC2qN4iFJArxXzFeUuaiQDZI/edit",
+  "!ads": {
+    "response": "/announce We are running 90 seconds of ads every 30 minutes currently as an experiment to see how it helps over the next month. If you really don't want to see ads, Twitch Turbo is a great option, beyond that if you feel like supporting the channel directly, subs should never see a single ad on this channel! The ad timer is visible on screen so you will know when to expect ads coming up",
+    "cooldown": 10,
+    "last_use": 1677457168.634109
+  },
+  "!settings": {
+    "response": "(iIVEJNSPf2KDXl3rBg2a11OM)(gb3f3p3s2Rm2)(pSarn1x1(pGktpbwsl))(qh3SIPZgCELt5dQFVO)(dd1ca2m2kshq125r2zw7lt3Yp1)(mc100h10f5b3s7j-1a2i0015025602760241050601500150015001500150015001500150015001800507rn0x16)(om3bTwCrps1114882o0D)(cm7p40g40k40o40a40b40w40s40l40x4n4e4y4c4tRh)g)",
     "cooldown": 0,
-    "last_use": 1673708107.621754
+    "last_use": 0
   }
 }

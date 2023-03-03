@@ -89,7 +89,7 @@ class QuoteHandler:
 
     def pick_specific_quote(self, quote_id: str, channel: str) -> str:
         channel = channel.lower()
-        response = None
+        response = "Could not find a quote"
         self.access_lock.acquire()
         if quote_id in self.quotes[channel]:
             response = f"[Quote #{quote_id}]: {self.quotes[channel][quote_id]}"

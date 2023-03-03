@@ -147,14 +147,29 @@ class PhantomGamesBot(commands.Bot):
                 response = self.custom.parse_custom_command(command, message.channel.name)
                 if response is not None:
                     response = await replace_vars_twitch(response, ctx, message.channel)
-                    await ctx.send(response)
+                    if "/announce" in response:
+                        response = response.replace("/announce", "/me")
+                        # streamer = await message.channel.user()
+                        # bot = self.create_user(int(self.user_id), self.nick)
+                        # await streamer.chat_announcement(token=os.environ['TWITCH_CHANNEL_TOKEN'], moderator_id=self.user_id, message=response)
+                        await ctx.send(response)
+                    else:
+                        await ctx.send(response)
                 else:
                     await super().event_message(message)
 
                     # save twitch messages that are not commands, links and meet a minimum length requirement
-                    contains_link = "https://" in message.content
-                    not_self_post = not message.content.startswith(os.environ['BOT_PREFIX'])
+                    self_post = message.content.startswith(os.environ['BOT_PREFIX'])
+                    if self_post:
+                        return
+
                     length_req = len(set(message.content.split())) >= self.markov_store_minlen
+                    if not length_req:
+                        return
+
+                    contains_link = "https://" in message.content
+                    if contains_link:
+                        return
 
                     # filter out a banned word list for the bot
                     contains_banned_word = False
@@ -165,8 +180,7 @@ class PhantomGamesBot(commands.Bot):
                             break
                     if contains_banned_word:
                         print(f"[Markov Filter] Skipped adding message: {message.content} - {message.author.name}")
-
-                    if self.markov_data_store and not contains_link and not_self_post and length_req and not contains_banned_word:
+                    else:
                         with open(f"./commands/resources/markov/markov-{datetime.now().year}.txt", "a+", encoding="utf-8") as f:
                             try:
                                 f.write(f"{message.content}\n")
@@ -190,7 +204,7 @@ class PhantomGamesBot(commands.Bot):
                     if stream_channel is None:
                         print(f"[ERROR] Timer cannot find channel '{channel}' to post in??")
                     else:
-                        #await channel.send(f"/announce {message}")
+                        message = message.replace("/announce", "/me") # remove /announce from commands for now
                         await stream_channel.send(message)
                         self.current_timer_msg[channel] = (self.current_timer_msg[channel] + 1) % len(self.timer_queue[channel])
     
@@ -354,7 +368,7 @@ class PhantomGamesBot(commands.Bot):
             else:
                 await ctx.send(f"{ctx.message.author.mention} Specify a command to remove from the timer")
     
-    @commands.command()
+    @commands.command(aliases=["timer", "timers"])
     async def timerevents(self, ctx: commands.Context):
         if ctx.message.author.is_mod:
             channel = ctx.message.channel.name.lower()
