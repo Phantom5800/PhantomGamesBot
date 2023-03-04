@@ -38,13 +38,16 @@ class QuoteHandler:
             json_file.write(json_str)
         self.file_lock.release()
 
-    def add_quote(self, quote: str, game: str, channel: str) -> str:
+    def add_quote(self, quote: str, game: str, channel: str, creator: str = None) -> str:
         channel = channel.lower()
         new_id = len(list(self.quotes[channel].values()))
         date = datetime.now().strftime("%m/%d/%Y")
         quote_str = f"{quote} [{game}] [{date}]"
         self.access_lock.acquire()
-        self.quotes[channel][str(new_id)] = quote_str
+        self.quotes[channel][str(new_id)] = {
+            "quote": quote_str,
+            "creator": creator
+        }
         self.access_lock.release()
         self.save_quotes(channel)
         return f"Added [Quote #{new_id}] -> {quote_str}"
@@ -52,7 +55,7 @@ class QuoteHandler:
     def edit_quote(self, quote_id: int, quote: str, channel: str) -> str:
         channel = channel.lower()
         self.access_lock.acquire()
-        self.quotes[channel][str(quote_id)] = quote
+        self.quotes[channel][str(quote_id)]["quote"] = quote
         self.access_lock.release()
         self.save_quotes(channel)
         return f"Edited [Quote #{new_id}] -> {quote_str}"
@@ -79,7 +82,7 @@ class QuoteHandler:
         self.access_lock.acquire()
         quotes = []
         for quote_id in self.quotes[channel]:
-            if keywrd.lower() in self.quotes[channel][quote_id].lower():
+            if keywrd.lower() in self.quotes[channel][quote_id]["quote"].lower():
                 quotes.append(f"[Quote #{quote_id}]: {self.quotes[channel][quote_id]}")
         self.access_lock.release()
         if len(quotes) > 0:
@@ -92,7 +95,7 @@ class QuoteHandler:
         response = "Could not find a quote"
         self.access_lock.acquire()
         if quote_id in self.quotes[channel]:
-            response = f"[Quote #{quote_id}]: {self.quotes[channel][quote_id]}"
+            response = f"[Quote #{quote_id}]: {self.quotes[channel][quote_id]['quote']}"
         self.access_lock.release()
         return response
 
@@ -100,7 +103,7 @@ class QuoteHandler:
         channel = channel.lower()
         self.access_lock.acquire()
         quote_id = random.randrange(len(list(self.quotes[channel].values())))
-        quote = self.quotes[channel][str(quote_id)]
+        quote = self.quotes[channel][str(quote_id)]["quote"]
         self.access_lock.release()
         return f"[Quote #{quote_id}]: {quote}"
 

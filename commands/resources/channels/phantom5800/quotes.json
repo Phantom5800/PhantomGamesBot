@@ -1,40 +1,154 @@
 {
-  "0": "Mario is a little baby bitch - trustyaltruist [Paper Mario] [09/03/2021]",
-  "1": "Who flushed the yeezy's - RuneRavenFP [Paper Mario] [09/14/2021]",
-  "2": "I love when the Goomba King uses his nuts - Phantom5800 [Paper Mario] [09/22/2021]",
-  "3": "if the yoshis die in game then you die in real life - trustyaltruist [Paper Mario] [09/30/2021]",
-  "4": "Youngster Timmy is committing hate crimes on Nugget Bridge - Phantom [Pok\u00e9mon: Let's Go, Pikachu!] [11/15/2021]",
-  "5": "hate [Paper Mario] [01/27/2022]",
-  "6": "Flimbo is goin on a fucking quest - RuneRavenFP [Mega Man Battle Network 6] [04/20/2022]",
-  "7": "\"it's not the weekly community race if it starts on time\" - Pronyo [Paper Mario] [04/24/2022]",
-  "8": "\"You better have a mailman in your pocket.\" - Phantom [Paper Mario] [05/03/2022]",
-  "9": "\"I can go so deep in so many places but not finish any of them\" - Phantom [Paper Mario] [05/07/2022]",
-  "10": "I'd go to route 69 any day - Phantom [Pok\u00e9mon: Let's Go, Pikachu!] [05/24/2022]",
-  "11": "\"Master does better when he puts it in if you dont care about the glenn strat\" - PhantomGamesBot [Paper Mario] [06/02/2022]",
-  "12": "\"have you played bn before?\" No. \"do you know what bn is?\" No. \"PERFECT\" - buff00n [Paper Mario] [06/05/2022]",
-  "13": "YOUR MARRIAGE IS IN SHAMBLES [Paper Mario] [06/05/2022]",
-  "14": "what if you had the power to harness electricity but then an italian bitch threw a coconut at you - RuneRavenFP [Paper Mario] [06/07/2022]",
-  "15": "kooper has to sell himself for money - RuneRavenFP [Paper Mario] [06/11/2022]",
-  "16": "what do you think swearing is a story trigger for G guy to be nekkid? - PhantomGamesBot [Paper Mario] [06/24/2022]",
-  "17": "\"so you better hope she sees you grab the star rod or this rando is invalid, buster\" -Rigby235 [Paper Mario] [07/16/2022]",
-  "18": "\"if someone found my lost pants I also would reward them with a cocnut\" - PerMitzi [Paper Mario] [07/23/2022]",
-  "19": "\"is \"coxnut\" the plural of \"cocnut\"?\" - TeeJayOhNine [Paper Mario] [07/23/2022]",
-  "20": "\"You ever see a Italian man throw coconuts at a worm?\" -Phantom [Paper Mario] [08/08/2022]",
-  "21": "\"Yeah especially since we need to go to bed IN SHAMBLES\" - PhantomGamesBot [Paper Mario] [08/12/2022]",
-  "22": "\"mario likes the smell of the sin\" - PhantomGamesBot [Paper Mario] [08/22/2022]",
-  "23": "\"I will do him later\" - Phantom5800 [Paper Mario] [08/30/2022]",
-  "24": "Bone me - Phantom5800 [Paper Mario] [08/30/2022]",
-  "25": "It's not like we're releasing the next one soon! peepoWave - PhantomGamesBot [Pok\u00e9mon Crystal] [09/10/2022]",
-  "26": "\"step sword, what are you doing?\" - IceBlue [Mega Man Battle Network 2] [09/27/2022]",
-  "27": "\"I'll send it on my mind, Im on the other shrooms\" - PhantomGamesBot [Pok\u00e9mon Crystal] [10/01/2022]",
-  "28": "\"Following between splash and 1ststar like you're picking which pokemon version you wanna play\" - TacoGuy74 [Paper Mario] [10/12/2022]",
-  "29": "Who needs a woman when pape will always be a champ - PhantomGamesBot [Paper Mario] [10/17/2022]",
-  "30": "\"Kris is too much work I go. Best of luck go win or somethin\" PhantomGamesBot, 10/21/2022 [Paper Mario] [10/21/2022]",
-  "31": "\"oh yo idk if I want to do that command\" - PhantomGamesBot [Paper Mario] [12/04/2022]",
-  "32": "Ropes? Ooh, kinky - Buff00n [Pok\u00e9mon Crystal] [12/10/2022]",
-  "33": "\"I'm going to the North shore in Louisiana. You can literally Softlock LOL\" - PhantomGamesBot [Paper Mario] [01/16/2023]",
-  "34": "\"I would love to see Sushie explode.\" -Phantom [Paper Mario] [01/17/2023]",
-  "35": "\"oh man I love randomizers, brings a fresh stock of steve\" - Phantomgamesbot [Paper Mario] [01/19/2023]",
-  "36": "\"one thing I have a great track record with glitches right?\" - PhantomGamesBot [Paper Mario] [01/20/2023]",
-  "37": "\"She has her thorny vine up parakarry's ass\" - Phantom [Paper Mario] [01/31/2023]"
+  "0": {
+    "quote": "Mario is a little baby bitch - trustyaltruist [Paper Mario] [09/03/2021]",
+    "creator": null
+  },
+  "1": {
+    "quote": "Who flushed the yeezy's - RuneRavenFP [Paper Mario] [09/14/2021]",
+    "creator": null
+  },
+  "2": {
+    "quote": "I love when the Goomba King uses his nuts - Phantom5800 [Paper Mario] [09/22/2021]",
+    "creator": null
+  },
+  "3": {
+    "quote": "if the yoshis die in game then you die in real life - trustyaltruist [Paper Mario] [09/30/2021]",
+    "creator": null
+  },
+  "4": {
+    "quote": "Youngster Timmy is committing hate crimes on Nugget Bridge - Phantom [Pok\u00e9mon: Let's Go, Pikachu!] [11/15/2021]",
+    "creator": null
+  },
+  "5": {
+    "quote": "hate [Paper Mario] [01/27/2022]",
+    "creator": null
+  },
+  "6": {
+    "quote": "Flimbo is goin on a fucking quest - RuneRavenFP [Mega Man Battle Network 6] [04/20/2022]",
+    "creator": null
+  },
+  "7": {
+    "quote": "\"it's not the weekly community race if it starts on time\" - Pronyo [Paper Mario] [04/24/2022]",
+    "creator": null
+  },
+  "8": {
+    "quote": "\"You better have a mailman in your pocket.\" - Phantom [Paper Mario] [05/03/2022]",
+    "creator": null
+  },
+  "9": {
+    "quote": "\"I can go so deep in so many places but not finish any of them\" - Phantom [Paper Mario] [05/07/2022]",
+    "creator": null
+  },
+  "10": {
+    "quote": "I'd go to route 69 any day - Phantom [Pok\u00e9mon: Let's Go, Pikachu!] [05/24/2022]",
+    "creator": null
+  },
+  "11": {
+    "quote": "\"Master does better when he puts it in if you dont care about the glenn strat\" - PhantomGamesBot [Paper Mario] [06/02/2022]",
+    "creator": null
+  },
+  "12": {
+    "quote": "\"have you played bn before?\" No. \"do you know what bn is?\" No. \"PERFECT\" - buff00n [Paper Mario] [06/05/2022]",
+    "creator": null
+  },
+  "13": {
+    "quote": "YOUR MARRIAGE IS IN SHAMBLES [Paper Mario] [06/05/2022]",
+    "creator": null
+  },
+  "14": {
+    "quote": "what if you had the power to harness electricity but then an italian bitch threw a coconut at you - RuneRavenFP [Paper Mario] [06/07/2022]",
+    "creator": null
+  },
+  "15": {
+    "quote": "kooper has to sell himself for money - RuneRavenFP [Paper Mario] [06/11/2022]",
+    "creator": null
+  },
+  "16": {
+    "quote": "what do you think swearing is a story trigger for G guy to be nekkid? - PhantomGamesBot [Paper Mario] [06/24/2022]",
+    "creator": null
+  },
+  "17": {
+    "quote": "\"so you better hope she sees you grab the star rod or this rando is invalid, buster\" -Rigby235 [Paper Mario] [07/16/2022]",
+    "creator": null
+  },
+  "18": {
+    "quote": "\"if someone found my lost pants I also would reward them with a cocnut\" - PerMitzi [Paper Mario] [07/23/2022]",
+    "creator": null
+  },
+  "19": {
+    "quote": "\"is \"coxnut\" the plural of \"cocnut\"?\" - TeeJayOhNine [Paper Mario] [07/23/2022]",
+    "creator": null
+  },
+  "20": {
+    "quote": "\"You ever see a Italian man throw coconuts at a worm?\" -Phantom [Paper Mario] [08/08/2022]",
+    "creator": null
+  },
+  "21": {
+    "quote": "\"Yeah especially since we need to go to bed IN SHAMBLES\" - PhantomGamesBot [Paper Mario] [08/12/2022]",
+    "creator": null
+  },
+  "22": {
+    "quote": "\"mario likes the smell of the sin\" - PhantomGamesBot [Paper Mario] [08/22/2022]",
+    "creator": null
+  },
+  "23": {
+    "quote": "\"I will do him later\" - Phantom5800 [Paper Mario] [08/30/2022]",
+    "creator": null
+  },
+  "24": {
+    "quote": "Bone me - Phantom5800 [Paper Mario] [08/30/2022]",
+    "creator": null
+  },
+  "25": {
+    "quote": "It's not like we're releasing the next one soon! peepoWave - PhantomGamesBot [Pok\u00e9mon Crystal] [09/10/2022]",
+    "creator": null
+  },
+  "26": {
+    "quote": "\"step sword, what are you doing?\" - IceBlue [Mega Man Battle Network 2] [09/27/2022]",
+    "creator": null
+  },
+  "27": {
+    "quote": "\"I'll send it on my mind, Im on the other shrooms\" - PhantomGamesBot [Pok\u00e9mon Crystal] [10/01/2022]",
+    "creator": null
+  },
+  "28": {
+    "quote": "\"Following between splash and 1ststar like you're picking which pokemon version you wanna play\" - TacoGuy74 [Paper Mario] [10/12/2022]",
+    "creator": null
+  },
+  "29": {
+    "quote": "Who needs a woman when pape will always be a champ - PhantomGamesBot [Paper Mario] [10/17/2022]",
+    "creator": null
+  },
+  "30": {
+    "quote": "\"Kris is too much work I go. Best of luck go win or somethin\" PhantomGamesBot, 10/21/2022 [Paper Mario] [10/21/2022]",
+    "creator": null
+  },
+  "31": {
+    "quote": "\"oh yo idk if I want to do that command\" - PhantomGamesBot [Paper Mario] [12/04/2022]",
+    "creator": null
+  },
+  "32": {
+    "quote": "Ropes? Ooh, kinky - Buff00n [Pok\u00e9mon Crystal] [12/10/2022]",
+    "creator": null
+  },
+  "33": {
+    "quote": "\"I'm going to the North shore in Louisiana. You can literally Softlock LOL\" - PhantomGamesBot [Paper Mario] [01/16/2023]",
+    "creator": null
+  },
+  "34": {
+    "quote": "\"I would love to see Sushie explode.\" -Phantom [Paper Mario] [01/17/2023]",
+    "creator": null
+  },
+  "35": {
+    "quote": "\"oh man I love randomizers, brings a fresh stock of steve\" - Phantomgamesbot [Paper Mario] [01/19/2023]",
+    "creator": null
+  },
+  "36": {
+    "quote": "\"one thing I have a great track record with glitches right?\" - PhantomGamesBot [Paper Mario] [01/20/2023]",
+    "creator": null
+  },
+  "37": {
+    "quote": "\"She has her thorny vine up parakarry's ass\" - Phantom [Paper Mario] [01/31/2023]",
+    "creator": null
+  }
 }

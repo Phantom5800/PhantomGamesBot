@@ -407,7 +407,7 @@ class PhantomGamesBot(commands.Bot):
                 new_quote = command_parts[1]
                 if len(new_quote) > 0:
                     game_name = await get_game_name_from_twitch_for_user(self, ctx.message.channel.name)
-                    response = self.quotes.add_quote(new_quote, game_name, ctx.message.channel.name)
+                    response = self.quotes.add_quote(new_quote, game_name, ctx.message.channel.name, ctx.message.author.name)
                     await ctx.send(response)
                 else:
                     await ctx.send(f"{ctx.message.author.mention} where's the quote?")
