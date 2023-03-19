@@ -2,12 +2,12 @@
   "morp": {
     "response": "morp",
     "cooldown": 5,
-    "last_use": 1672861601.18887
+    "last_use": 1679161344.076462
   },
   "glenn": {
     "response": "glenn",
     "cooldown": 5,
-    "last_use": 1673366944.024542
+    "last_use": 1678643521.557629
   },
   "!lurk": {
     "response": "ok $user",
@@ -22,7 +22,7 @@
   "!discord": {
     "response": "/announce Join the discord if you want to hang out. You can also spam !speed when I'm not even online https://discord.gg/XtrhKXNmRc",
     "cooldown": 10,
-    "last_use": 1677457153.382349
+    "last_use": 1678825823.284796
   },
   "!ohdee": {
     "response": "OhDee made all the emotes and stream assets. Follow him on twitter because he's cool: https://twitter.com/OhDeezey",
@@ -32,12 +32,12 @@
   "!follow": {
     "response": "/announce If you haven't already done so, click the follow button! Every follower is greatly appreciated! There are no follow alerts, so if you want to just lurk, there's no need to worry about your name showing up on stream.",
     "cooldown": 10,
-    "last_use": 1677457159.302586
+    "last_use": 1679012008.823745
   },
   "@phantomgamesbot": {
     "response": "$user $msg",
     "cooldown": 5,
-    "last_use": 1676568504.078191
+    "last_use": 1679165055.921086
   },
   "!github": {
     "response": "/announce All my open source code projects are available on github: https://github.com/Phantom5800",
@@ -52,7 +52,7 @@
   "!youtube": {
     "response": "/announce I'm trying to get to 1000 subs on YouTube! At which point I'll be doing a PM64 Book of Mario playthrough, consider subscribing for rando's and pb vods: https://www.youtube.com/@PhantomVODs",
     "cooldown": 10,
-    "last_use": 1677457134.313059
+    "last_use": 1679164924.57982
   },
   "!cursedtimer": {
     "response": "http://growf.org/stuff/timer.html",
@@ -127,7 +127,7 @@
   "hi": {
     "response": "hi $user",
     "cooldown": 10,
-    "last_use": 1676742223.395488
+    "last_use": 1678819330.155684
   },
   "!nmsb": {
     "response": "/announce No Major Sequence Breaks is a category that bridges the gap between Glitchless and All Cards. The important parts are that chapters must be completed in order, and story sequence can never go backwards.",
@@ -152,7 +152,7 @@
   "buffoon": {
     "response": "It's buff00n with two zeros, please and thank you! :)",
     "cooldown": 6000,
-    "last_use": 0
+    "last_use": 1678906259.799892
   },
   "!allbosses": {
     "response": "This is the new route using a single fright jar made by myself and RandomSauce. Random has another route using two fright jars that should be a handful of seconds faster: https://docs.google.com/document/d/1leCk6h1Ls09yZ4a1VeWVhLObZCelRjbaW3REwxCAXKk/edit?usp=sharing",
@@ -167,10 +167,10 @@
   "!ads": {
     "response": "/announce We are running 90 seconds of ads every 30 minutes currently as an experiment to see how it helps over the next month. If you really don't want to see ads, Twitch Turbo is a great option, beyond that if you feel like supporting the channel directly, subs should never see a single ad on this channel! The ad timer is visible on screen so you will know when to expect ads coming up",
     "cooldown": 10,
-    "last_use": 1677457168.634109
+    "last_use": 1678373272.731988
   },
   "!settings": {
-    "response": "(iIVEJNSPf2KDXl3rBg2a11OM)(gb3f3p3s2Rm2)(pSarn1x1(pGktpbwsl))(qh3SIPZgCELt5dQFVO)(dd1ca2m2kshq125r2zw7lt3Yp1)(mc100h10f5b3s7j-1a2i0015025602760241050601500150015001500150015001500150015001800507rn0x16)(om3bTwCrps1114882o0D)(cm7p40g40k40o40a40b40w40s40l40x4n4e4y4c4tRh)g)",
+    "response": "Standard NonElement Dungeons, Ruppee-mania, Special Pots, Dig Spots, Underwater Locations, Blue/Red/Green fusions complete, Reigonal Small Keys, 2 Sets Goron Merchant",
     "cooldown": 0,
     "last_use": 0
   }

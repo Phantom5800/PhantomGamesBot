@@ -20,6 +20,7 @@ class PhantomGamesBot(bridge.Bot):
         intents = discord.Intents.default()
         intents.message_content = True
         intents.members = True
+        intents.presences = True
 
         super().__init__(
             command_prefix=os.environ['BOT_PREFIX'],
@@ -146,6 +147,16 @@ class PhantomGamesBot(bridge.Bot):
         if old_status_count != self.commands_since_new_status:
             if self.commands_since_new_status >= 100 or random.randrange(self.commands_since_new_status, 100) > 75:
                 await self.set_random_status()
+    
+    '''
+    Handle anything that needs to be updated when a user's discord status changes.
+    '''
+    async def on_presence_update(self, before, after):
+        # check to see when people go live or go offline
+        if isinstance(before.activity, discord.Streaming) and not isinstance(after.activity, discord.Streaming):
+            print(f"{before.display_name} was streaming, but isn't now")
+        elif not isinstance(before.activity, discord.Streaming) and isinstance(after.activity, discord.Streaming):
+            print(f"{before.display_name} is now streaming!")
 
 '''
 Unlike twitchio, discord bot is unable to embed commands directly, and requires cogs.
@@ -237,17 +248,17 @@ class PhantomGamesBotModule(commands.Cog):
         response = None
 
         if "latest" in quote_id.lower():
-            await ctx.respond(self.quotes.pick_specific_quote(str(self.quotes.num_quotes() - 1)))
+            await ctx.respond(self.quotes.pick_specific_quote(str(self.quotes.num_quotes() - 1), "phantom5800"))
             return
 
         quote = tryParseInt(quote_id, -1)
         self.bot.commands_since_new_status += 1
         if quote >= 0:
-            response = self.quotes.pick_specific_quote(quote_id)
+            response = self.quotes.pick_specific_quote(quote_id, "phantom5800")
         elif quote_id == "-1":
-            response = self.quotes.pick_random_quote()
+            response = self.quotes.pick_random_quote("phantom5800")
         else:
-            response = self.quotes.find_quote_keyword(quote_id)
+            response = self.quotes.find_quote_keyword(quote_id, "phantom5800")
         if response is not None:
             await ctx.respond(response)
 
