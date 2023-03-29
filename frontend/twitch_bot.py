@@ -113,6 +113,13 @@ class PhantomGamesBot(commands.Bot):
         # super().event_command_error(ctx, error)
 
     '''
+    Get a random supported color for announcements
+    '''
+    def random_announcement_color(self):
+        colors = ["orange", "green", "purple", "blue"]
+        return colors[random.randrange(len(colors))]
+
+    '''
     Runs every time a message is sent in chat.
     '''
     async def event_message(self, message):
@@ -149,10 +156,13 @@ class PhantomGamesBot(commands.Bot):
                     response = await replace_vars_twitch(response, ctx, message.channel)
                     if "/announce" in response:
                         response = response.replace("/announce", "/me")
-                        # streamer = await message.channel.user()
-                        # bot = self.create_user(int(self.user_id), self.nick)
-                        # await streamer.chat_announcement(token=os.environ['TWITCH_CHANNEL_TOKEN'], moderator_id=self.user_id, message=response)
-                        await ctx.send(response)
+                        try:
+                            announcement = response.replace("/me", "")
+                            streamer = await message.channel.user()
+                            bot = self.create_user(int(self.user_id), self.nick)
+                            await streamer.chat_announcement(token=os.environ['TWITCH_OAUTH_TOKEN'], moderator_id=bot.id, message=announcement, color=self.random_announcement_color())
+                        except:
+                            await ctx.send(response)
                     else:
                         await ctx.send(response)
                 else:
@@ -205,7 +215,14 @@ class PhantomGamesBot(commands.Bot):
                         print(f"[ERROR] Timer cannot find channel '{channel}' to post in??")
                     else:
                         message = message.replace("/announce", "/me") # remove /announce from commands for now
-                        await stream_channel.send(message)
+
+                        try:
+                            announcement = message.replace("/me", "")
+                            streamer = await stream_channel.user()
+                            bot = self.create_user(int(self.user_id), self.nick)
+                            await streamer.chat_announcement(token=os.environ['TWITCH_OAUTH_TOKEN'], moderator_id=bot.id, message=announcement, color=self.random_announcement_color())
+                        except:
+                            await stream_channel.send(message)
                         self.current_timer_msg[channel] = (self.current_timer_msg[channel] + 1) % len(self.timer_queue[channel])
     
     '''

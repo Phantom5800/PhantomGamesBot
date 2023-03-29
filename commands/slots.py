@@ -9,7 +9,7 @@ class Slots:
     def __init__(self, mode: SlotsMode):
         if mode == SlotsMode.TWITCH:
             self.emotes = [
-                "phanto274Awoo",
+                "phanto274GG",
                 "phanto274Bless",
                 "phanto274Shrug",
                 "phanto274Smile",
