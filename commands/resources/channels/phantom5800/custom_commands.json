@@ -25,7 +25,7 @@
     "last_use": 1679427324.763905
   },
   "!ohdee": {
-    "response": "OhDee made all the emotes and stream assets. Follow him on twitter because he's cool: https://twitter.com/OhDeezey",
+    "response": "/announce OhDee made a ton of emotes and stream assets. Follow him on twitter because he's cool: https://twitter.com/OhDeezey",
     "cooldown": 0,
     "last_use": 0
   },
@@ -50,7 +50,7 @@
     "last_use": 1664563763.586712
   },
   "!youtube": {
-    "response": "/announce I'm trying to get to 1000 subs on YouTube! At which point I'll be doing a PM64 Book of Mario playthrough, consider subscribing for rando's and pb vods: https://www.youtube.com/@PhantomVODs",
+    "response": "/announce I'm trying to get to 1000 subs on YouTube in order to get partner and enable monetization! At which point I'll be doing a PM64 Book of Mario playthrough, consider subscribing for rando's and pb vods: https://www.youtube.com/@PhantomVODs",
     "cooldown": 10,
     "last_use": 1679427305.655299
   },
@@ -65,7 +65,7 @@
     "last_use": 1668954836.010753
   },
   "!trusty": {
-    "response": "Trusty made my sub badges and most likely any art that I use as backgrounds in livesplit! Their twitter is: https://twitter.com/Trustyalt and you should definitely follow them",
+    "response": "/announce Trusty made my sub badges and most likely any art that I use as backgrounds in livesplit! Their twitter is: https://twitter.com/Trustyalt and you should definitely follow them",
     "cooldown": 0,
     "last_use": 1641314918.565764
   },
@@ -75,7 +75,7 @@
     "last_use": 1679414966.822659
   },
   "weloveprologue": {
-    "response": "If Prologue has a million fans I am one of them. If Prologue has ten fans I am one of them. If Prologue has only one fan, that is me. If Prologue has no fans, that means I am no longer on earth. If the world is against Prologue, I am against the world.",
+    "response": "/announce If Prologue has a million fans I am one of them. If Prologue has ten fans I am one of them. If Prologue has only one fan, that is me. If Prologue has no fans, that means I am no longer on earth. If the world is against Prologue, I am against the world.",
     "cooldown": 10,
     "last_use": 1676214927.223423
   },
@@ -85,7 +85,7 @@
     "last_use": 1674147130.723198
   },
   "!lange": {
-    "response": "Emotes by Langepon! phanto274Shrug phanto274Smile phanto274Bless https://twitter.com/Langepon",
+    "response": "/announce Emotes by Langepon! phanto274Shrug phanto274Smile phanto274Bless https://twitter.com/Langepon",
     "cooldown": 0,
     "last_use": 0
   },
@@ -115,12 +115,12 @@
     "last_use": 0
   },
   "!glower": {
-    "response": "The piece of shit human being is banned from the Paper Mario speedrunning community and thus my channel as well. Support for someone that would sexually harass multiple women and write a 94 page document literally admitting to it is simply not tolerated and anyone doing so can freely eat a ban and continue sucking his dick https://twitter.com/JCog_/status/1523133561460641792?t=WPKn40Q-TGYQV1vBfc6RMA&s=19",
+    "response": "/announce The piece of shit human being is banned from the Paper Mario speedrunning community and thus my channel as well. Support for someone that would sexually harass multiple women and write a 94 page document literally admitting to it is simply not tolerated and anyone doing so can freely eat a ban and continue sucking his dick https://twitter.com/JCog_/status/1523133561460641792?t=WPKn40Q-TGYQV1vBfc6RMA&s=19",
     "cooldown": 0,
     "last_use": 1663424012.429015
   },
   "!paperaces": {
-    "response": "Follow Pape Races https://twitch.tv/paperaces for bi-weekly rando race restreams and occasional vanilla content as well!",
+    "response": "/announce Follow Pape Races https://twitch.tv/paperaces for bi-weekly rando race restreams and occasional vanilla content as well!",
     "cooldown": 0,
     "last_use": 1664719702.923169
   },
@@ -155,7 +155,7 @@
     "last_use": 1678906259.799892
   },
   "!allbosses": {
-    "response": "This is the new route using a single fright jar made by myself and RandomSauce. Random has another route using two fright jars that should be a handful of seconds faster: https://docs.google.com/document/d/1leCk6h1Ls09yZ4a1VeWVhLObZCelRjbaW3REwxCAXKk/edit?usp=sharing",
+    "response": "/announce This is the new route using a single fright jar made by myself and RandomSauce. Random has another route using two fright jars that should be a handful of seconds faster: https://docs.google.com/document/d/1leCk6h1Ls09yZ4a1VeWVhLObZCelRjbaW3REwxCAXKk/edit?usp=sharing",
     "cooldown": 10,
     "last_use": 1676470292.40283
   },
@@ -165,12 +165,12 @@
     "last_use": 0
   },
   "!ads": {
-    "response": "/announce We are running 90 seconds of ads every 30 minutes currently as an experiment to see how it helps over the next month. If you really don't want to see ads, Twitch Turbo is a great option, beyond that if you feel like supporting the channel directly, subs should never see a single ad on this channel! The ad timer is visible on screen so you will know when to expect ads coming up",
+    "response": "/announce We are running 90 seconds of ads every 30 minutes to disable prerolls. If you really don't want to see ads, Twitch Turbo is a great option, beyond that if you feel like supporting the channel directly, subscribers should never see a single ad! The ad timer is visible on screen so you will know when to expect ads coming up.",
     "cooldown": 10,
     "last_use": 1678373272.731988
   },
   "!settings": {
-    "response": "Barren NonElement Dungeons, Shuffled Dungeon Entrances, Blue/Green/Gold fusions complete, Golden Enemies, 3 Goron Merchant, 1 Cucco, Pedestal Items, (almost) all wind crests open",
+    "response": "/announce Barren NonElement Dungeons, Shuffled Dungeon Entrances, Blue/Green/Gold fusions complete, Golden Enemies, 3 Goron Merchant, 1 Cucco, Pedestal Items, (almost) all wind crests open",
     "cooldown": 0,
     "last_use": 0
   },
@@ -180,7 +180,7 @@
     "last_use": 1679248183.846984
   },
   "!logic": {
-    "response": "In 2022, JCog implemented some custom logic changes to lowered star spirit seeds where chapters not deemed \"required\" are completely out of logic. I took those changes and integrated them forward with support for dungeon entrance shuffle as well",
+    "response": "/announce In 2022, JCog implemented some custom logic changes to lowered star spirit seeds where chapters not deemed \"required\" are completely out of logic. I took those changes and integrated them forward with support for dungeon entrance shuffle as well",
     "cooldown": 0,
     "last_use": 0
   }

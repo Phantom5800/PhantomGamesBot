@@ -57,8 +57,29 @@ In order to fill out the `.env`, you'll need to register as a [Twitch developer]
 This is an example URI used to generate a valid OAuth token:
 
 ```
-https://id.twitch.tv/oauth2/authorize?response_type=token&client_id=<enter your client id here>&redirect_uri=http%3A//localhost%3A3000&scope=chat%3Aread+chat%3Aedit+channel%3Aedit%3Acommercial+channel%3Amanage%3Abroadcast+channel%3Amoderate+channel%3Amanage%3Apolls+channel%3Aread%3Apolls+moderator%3Aread%3Achat_settings+moderator%3Amanage%3Achat_settings+moderator%3Aread%3Ashoutouts+moderator%3Amanage%3Ashoutouts+channel%3Amanage%3Apredictions+channel%3Aread%3Agoals+channel%3Aread%3Apredictions+channel%3Aread%3Aredemptions+channel%3Aread%3Asubscriptions+channel%3Aread%3Avips+channel%3Amanage%3Avips+moderator%3Aread%3Achatters+moderator%3Amanage%3Aannouncements+channel%3Aread%3Agoals&state=c3ab8aa609ea11e793ae92361f002671
+https://id.twitch.tv/oauth2/authorize?response_type=token&client_id=<enter your client id here>&redirect_uri=http%3A//localhost%3A3000&scope=chat%3Aread+chat%3Aedit+channel%3Aedit%3Acommercial+channel%3Amanage%3Abroadcast+channel%3Amoderate+channel%3Amanage%3Apolls+channel%3Aread%3Apolls+moderator%3Aread%3Achat_settings+moderator%3Amanage%3Achat_settings+moderator%3Aread%3Ashoutouts+moderator%3Amanage%3Ashoutouts+channel%3Amanage%3Apredictions+channel%3Aread%3Agoals+channel%3Aread%3Apredictions+channel%3Aread%3Asubscriptions+channel%3Amanage%3Avips+moderator%3Aread%3Achatters+moderator%3Amanage%3Aannouncements&state=c3ab8aa609ea11e793ae92361f002671
 ```
+
+For readability sake, this is the list of permissions granted to the bot:
+
+* chat:read - read chat messages
+* chat:edit - post in chat
+* channel:edit:commercial - run ads (currently not used, but could be)
+* channel:manage:broadcast - modify game, title, etc.
+* channel:moderate - moderator actions
+* channel:read:polls - read polls when they are made
+* channel:manage:polls - create polls
+* moderator:read:chat_settings - check for chat settings like slow mode, sub mode, etc.
+* moderator:manage:chat_settings - modify chat settings like slow mode, sub mode, etc.
+* moderator:read:shoutouts - view shoutouts
+* moderator:manage:shoutouts - send shoutouts
+* channel:read:predictions - see predictions as they are made
+* channel:manage:predictions - create and end predictions
+* channel:read:goals - read sub and follower goals set for stream
+* channel:read:subscriptions - view list of subscribers to a channel and check if user is subscribed
+* channel:manage:vips - view, add and remove vips
+* moderator:read:chatters - view list of people in chat
+* moderator:manage:announcements - post announcements
 
 # Spam Propagation
 The bot supports automatically posting nonsense based on messages it has read from twitch chat in the past. While chat logging is enabled, all twitch chat messages are logged to a text file. The next time the bot is restarted, it will generate a markov chain based on the current data set. These messages can be set to post automatically in chat on a timer using the `.env` configs.
