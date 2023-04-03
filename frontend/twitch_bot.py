@@ -91,7 +91,8 @@ class PhantomGamesBot(commands.Bot):
                 lines = txt_file.readlines()
                 for line in lines:
                     command = line.strip()
-                    if self.custom.command_exists(command, channel) and command not in self.timer_queue[channel]:
+                    command_exists = self.custom.command_exists(command, channel) or self.commands.get(command[1:])
+                    if command_exists and command not in self.timer_queue[channel]:
                         self.timer_queue[channel].append(command)
             print(f"Timer events loaded for {channel}: {self.timer_queue[channel]}")
 
@@ -119,6 +120,10 @@ class PhantomGamesBot(commands.Bot):
         colors = ["orange", "green", "purple", "blue"]
         return colors[random.randrange(len(colors))]
 
+    async def post_chat_announcement(self, streamer, announcement: str):
+        bot = self.create_user(int(self.user_id), self.nick)
+        await streamer.chat_announcement(token=os.environ['TWITCH_OAUTH_TOKEN'], moderator_id=bot.id, message=announcement, color=self.random_announcement_color())
+
     '''
     Runs every time a message is sent in chat.
     '''
@@ -131,8 +136,6 @@ class PhantomGamesBot(commands.Bot):
         ctx = await self.get_context(message)
 
         # track chat messages that have been posted since the last timer fired
-        # TODO: use message.channel.name to index into an array for auto posting messages
-        #       this will be needed for supporting multiple channels
         self.messages_since_timer[message.channel.name.lower()] += 1
         self.auto_chat_msg[message.channel.name.lower()] += 1
 
@@ -159,8 +162,7 @@ class PhantomGamesBot(commands.Bot):
                         try:
                             announcement = response.replace("/me", "")
                             streamer = await message.channel.user()
-                            bot = self.create_user(int(self.user_id), self.nick)
-                            await streamer.chat_announcement(token=os.environ['TWITCH_OAUTH_TOKEN'], moderator_id=bot.id, message=announcement, color=self.random_announcement_color())
+                            await self.post_chat_announcement(streamer, announcement)
                         except:
                             await ctx.send(response)
                     else:
@@ -196,57 +198,10 @@ class PhantomGamesBot(commands.Bot):
                                 f.write(f"{message.content}\n")
                             except:
                                 print(f"[ERROR] Failed to add string to markov: {message.content}")
-
-    '''
-    Periodic routine to send timer based messages.
-    '''
-    @routines.routine(minutes=int(os.environ['TIMER_MINUTES']), wait_first=True)
-    async def timer_update(self):
-        for channel in self.channel_list:
-            if self.messages_since_timer[channel] >= self.timer_lines[channel] and len(self.timer_queue[channel]) > 0:
-                self.messages_since_timer[channel] = 0
-
-                message = self.custom.get_command(self.timer_queue[channel][self.current_timer_msg[channel]], channel)
-                if message is None:
-                    print(f"[ERROR] {self.timer_queue[channel][self.current_timer_msg[channel]]} is not a valid command for timers.")
-                else:
-                    stream_channel = self.get_channel(channel)
-                    if stream_channel is None:
-                        print(f"[ERROR] Timer cannot find channel '{channel}' to post in??")
-                    else:
-                        message = message.replace("/announce", "/me") # remove /announce from commands for now
-
-                        try:
-                            announcement = message.replace("/me", "")
-                            streamer = await stream_channel.user()
-                            bot = self.create_user(int(self.user_id), self.nick)
-                            await streamer.chat_announcement(token=os.environ['TWITCH_OAUTH_TOKEN'], moderator_id=bot.id, message=announcement, color=self.random_announcement_color())
-                        except:
-                            await stream_channel.send(message)
-                        self.current_timer_msg[channel] = (self.current_timer_msg[channel] + 1) % len(self.timer_queue[channel])
     
-    '''
-    Periodically posts automatically generated messages to chat.
-    '''
-    @routines.routine(minutes=int(os.environ['AUTO_CHAT_MINUTES']), wait_first=True)
-    async def automatic_chat(self):
-        for channel in self.channel_list:
-            if self.auto_chat_msg[channel] >= self.auto_chat_lines[channel]:
-                self.auto_chat_msg[channel] = 0
-                try:
-                    self.auto_chat_lines[channel] = tryParseInt(os.environ[f'AUTO_CHAT_LINES_MIN_{channel}'], 20) + random.randint(0, self.auto_chat_lines_mod[channel])
-                except:
-                    self.auto_chat_lines[channel] = 20 + random.randint(0, self.auto_chat_lines_mod[channel])
-
-                stream_channel = self.get_channel(channel)
-                if stream_channel is None:
-                    print(f"[ERROR] Timer cannot find channel '{channel}' to post in??")
-                else:
-                    message = self.markov.get_markov_string()
-                    print(f"[{datetime.now()}] Generated Message in {channel}: {message}")
-                    await stream_channel.send(message)
-    
+    #####################################################################################################
     # custom commands
+    #####################################################################################################
     '''
     Utility function for command parsing to break up segments of commands.
     '''
@@ -355,13 +310,56 @@ class PhantomGamesBot(commands.Bot):
             else:
                 await ctx.send(f"{ctx.message.author.mention} make sure to specify a command!")
 
+    #####################################################################################################
     # timer
+    #####################################################################################################
+    '''
+    Force post next timer message.
+    '''
+    async def post_next_timer_message(self, channel):
+        self.messages_since_timer[channel] = 0
+        stream_channel = self.get_channel(channel)
+        streamer = await stream_channel.user()
+
+        command = self.timer_queue[channel][self.current_timer_msg[channel]]
+        message = self.custom.get_command(command, channel)
+        if message is None:
+            if command == "!followgoal":
+                msg = await self.get_follow_goal_msg(streamer)
+                await self.post_chat_announcement(streamer, msg)
+        else:
+            if stream_channel is None:
+                print(f"[ERROR] Timer cannot find channel '{channel}' to post in??")
+            else:
+                message = message.replace("/announce", "/me") # remove /announce from commands for now
+
+                try:
+                    announcement = message.replace("/me", "")
+                    await self.post_chat_announcement(streamer, announcement)
+                except:
+                    await stream_channel.send(message)
+        self.current_timer_msg[channel] = (self.current_timer_msg[channel] + 1) % len(self.timer_queue[channel])
+
+    '''
+    Periodic routine to send timer based messages.
+    '''
+    @routines.routine(minutes=int(os.environ['TIMER_MINUTES']), wait_first=True)
+    async def timer_update(self):
+        for channel in self.channel_list:
+            if self.messages_since_timer[channel] >= self.timer_lines[channel] and len(self.timer_queue[channel]) > 0:
+                await self.post_next_timer_message(channel)
+
+    @commands.command()
+    async def postnexttimer(self, ctx: commands.Context):
+        if ctx.message.author.is_broadcaster:
+            await self.post_next_timer_message(ctx.message.channel.name.lower())
+
     @commands.command()
     async def addtimer(self, ctx: commands.Context, command: str = ""):
         if ctx.message.author.is_mod:
             channel = ctx.message.channel.name.lower()
             if len(command) > 0:
-                if self.custom.command_exists(command, channel):
+                if self.custom.command_exists(command, channel) or self.commands.get(command[1:]):
                     if command not in self.timer_queue[channel]:
                         self.timer_queue[channel].append(command)
                         await self.save_timer_events()
@@ -391,13 +389,9 @@ class PhantomGamesBot(commands.Bot):
             channel = ctx.message.channel.name.lower()
             await ctx.send(f"Current timer events: {self.timer_queue[channel]}")
 
+    #####################################################################################################
     # quotes
-    @commands.command()
-    @commands.cooldown(1, 60, commands.Bucket.channel)
-    async def chat(self, ctx: commands.Context):
-        response = self.markov.get_markov_string()
-        await ctx.send(response)
-
+    #####################################################################################################
     @commands.command()
     async def quote(self, ctx: commands.Context, quote_id: str = "-1"):
         response = None
@@ -448,7 +442,9 @@ class PhantomGamesBot(commands.Bot):
                 response = self.quotes.remove_quote(int(quote_id), ctx.message.channel.name)
                 await ctx.send(response)
 
+    #####################################################################################################
     # speedrun.com
+    #####################################################################################################
     '''
     Get the personal best time for a game/category on speedrun.com. This command does take a few seconds to respond while it performs a search.
     '''
@@ -476,19 +472,46 @@ class PhantomGamesBot(commands.Bot):
             game = self.speedrun.get_random_game()
         await ctx.send(f"{ctx.message.author.mention} You should try speedrunning {game}!")
 
+    #####################################################################################################
     # anilist
+    #####################################################################################################
     @commands.command()
     async def anime(self, ctx):
         anime = self.anilist.getRandomAnimeName()
         await ctx.send(f"{ctx.message.author.mention} You should try watching \"{anime}\"!")
 
-    # stream commands
+    #####################################################################################################
+    # fun stream commands
+    #####################################################################################################
     '''
-    Get information about the bot itself.
+    Post a randomly generated chat message, 60 second per-channel cooldown.
     '''
     @commands.command()
-    async def bot(self, ctx: commands.Context):
-        await ctx.send("Hey! I am a custom chatbot written in Python, my source code is available at: https://github.com/Phantom5800/PhantomGamesBot")
+    @commands.cooldown(1, 60, commands.Bucket.channel)
+    async def chat(self, ctx: commands.Context):
+        response = self.markov.get_markov_string()
+        await ctx.send(response)
+
+    '''
+    Periodically posts automatically generated messages to chat.
+    '''
+    @routines.routine(minutes=int(os.environ['AUTO_CHAT_MINUTES']), wait_first=True)
+    async def automatic_chat(self):
+        for channel in self.channel_list:
+            if self.auto_chat_msg[channel] >= self.auto_chat_lines[channel]:
+                self.auto_chat_msg[channel] = 0
+                try:
+                    self.auto_chat_lines[channel] = tryParseInt(os.environ[f'AUTO_CHAT_LINES_MIN_{channel}'], 20) + random.randint(0, self.auto_chat_lines_mod[channel])
+                except:
+                    self.auto_chat_lines[channel] = 20 + random.randint(0, self.auto_chat_lines_mod[channel])
+
+                stream_channel = self.get_channel(channel)
+                if stream_channel is None:
+                    print(f"[ERROR] Timer cannot find channel '{channel}' to post in??")
+                else:
+                    message = self.markov.get_markov_string()
+                    print(f"[{datetime.now()}] Generated Message in {channel}: {message}")
+                    await stream_channel.send(message)
 
     '''
     Attempt to get how long a user has been following the channel for.
@@ -516,14 +539,6 @@ class PhantomGamesBot(commands.Bot):
         else:
             await ctx.send(f"{ctx.message.author.mention} is not even following phanto274Shrug")
 
-    '''
-    Get the current game being played on twitch.
-    '''
-    @commands.command()
-    async def game(self, ctx: commands.Context):
-        game_name = await get_game_name_from_twitch_for_user(self, ctx.message.channel.name)
-        await ctx.send(game_name)
-
     @commands.command()
     @commands.cooldown(1, 10, commands.Bucket.user)
     async def slots(self, ctx: commands.Context):
@@ -536,6 +551,52 @@ class PhantomGamesBot(commands.Bot):
     @commands.command()
     async def ctof(self, ctx: commands.Context, celcius: int):
         await ctx.send(f"{celcius}°C = {str(round(celcius * 9 / 5 + 32, 2))}°F")
+        
+    #####################################################################################################
+    # stream info
+    #####################################################################################################
+    '''
+    Get information about the bot itself.
+    '''
+    @commands.command()
+    async def bot(self, ctx: commands.Context):
+        await ctx.send("Hey! I am a custom chatbot written in Python, my source code is available at: https://github.com/Phantom5800/PhantomGamesBot")
+
+    async def get_follow_goal_msg(self, streamer):
+        token = os.environ.get(f'TWITCH_CHANNEL_TOKEN_{streamer.name.lower()}')
+        generic_msg = "Be sure to follow the stream, every follower is greatly appreciated and there are no alerts for new followers, so don\'t worry about getting called out of lurk!"
+        if token:
+            goals = await streamer.fetch_goals(token=token)
+            for goal in goals:
+                if goal.type == 'follower':
+                    if goal.current_amount >= goal.target_amount:
+                        return f'We hit our follower goal to {goal.description} and will be doing that soon! {generic_msg}'
+                    else:
+                        return f'We are at {goal.current_amount} / {goal.target_amount} followers towards our goal to {goal.description}! {generic_msg}'
+        return generic_msg
+
+    @commands.command()
+    async def followgoal(self, ctx: commands.Context):
+        token = os.environ.get(f'TWITCH_CHANNEL_TOKEN_{ctx.message.channel.name.lower()}')
+        streamer = await ctx.message.channel.user()
+        message = await self.get_follow_goal_msg(streamer)
+        await self.post_chat_announcement(streamer, message)
+
+    '''
+    Get the current game being played on twitch.
+    '''
+    @commands.command()
+    async def game(self, ctx: commands.Context):
+        game_name = await get_game_name_from_twitch_for_user(self, ctx.message.channel.name)
+        await ctx.send(game_name)
+
+    '''
+    Get the current title of the stream.
+    '''
+    @commands.command()
+    async def title(self, ctx: commands.Context):
+        streamtitle = await get_stream_title_for_user(self, ctx.message.channel.name)
+        await ctx.send(streamtitle)
 
     '''
     Give a shoutout to a specific user in chat.
@@ -544,16 +605,8 @@ class PhantomGamesBot(commands.Bot):
     async def so(self, ctx: commands.Context, user: PartialUser = None):
         if ctx.message.author.is_mod and user is not None:
             game = await get_game_name_from_twitch_for_user(self, user.name)
-            await ctx.send(f"/shoutout {user.name}")
+            #await ctx.send(f"/shoutout {user.name}")
             await ctx.send(f"Checkout {user.name}, maybe drop them a follow! They were most recently playing {game} over at https://twitch.tv/{user.name}")
-        
-    '''
-    Get the current title of the stream.
-    '''
-    @commands.command()
-    async def title(self, ctx: commands.Context):
-        streamtitle = await get_stream_title_for_user(self, ctx.message.channel.name)
-        await ctx.send(streamtitle)
 
 def run_twitch_bot(customCommandHandler: CustomCommands, quoteHandler: QuoteHandler, srcHandler: SrcomApi, markovHandler: MarkovHandler) -> PhantomGamesBot:
     bot = PhantomGamesBot(customCommandHandler, quoteHandler, srcHandler, markovHandler)

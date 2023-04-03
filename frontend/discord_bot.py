@@ -35,7 +35,11 @@ class PhantomGamesBot(bridge.Bot):
             "!boris",
             "Paper Mario Randomizer",
             "WABITR",
-            "Twitter"
+            "Twitter",
+            "twitch.tv/phantom5800",
+            "Zelda: Wand of Gamalon",
+            "Visual Studio Code",
+            "Mega Man Network Transmission"
         ]
         self.commands_since_new_status = 0
 
