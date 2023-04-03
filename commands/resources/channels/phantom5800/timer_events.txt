@@ -1,4 +1,4 @@
-!followgoal
+!follow
 !discord
 !twitter
 !youtube

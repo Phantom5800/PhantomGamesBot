@@ -108,6 +108,9 @@ Convert Celcius to Farenheit.
 ### !ftoc ![](./readme/images/twitch.png) ![](./readme/images/discord.png)
 Convert Farenheit to Celcius.
 
+### !follow ![](./readme/images/twitch.png)
+Posts a generic message to follow the stream. If there is a follow goal on twitch, it will show the progress towards that goal as well.
+
 ### !followage ![](./readme/images/twitch.png)
 Gets the length of time a user has followed the channel for.
 

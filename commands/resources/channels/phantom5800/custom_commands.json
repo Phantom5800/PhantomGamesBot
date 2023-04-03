@@ -29,11 +29,6 @@
     "cooldown": 0,
     "last_use": 0
   },
-  "!follow": {
-    "response": "/announce If you haven't already done so, click the follow button! Every follower is greatly appreciated! There are no follow alerts, so if you want to just lurk, there's no need to worry about your name showing up on stream.",
-    "cooldown": 10,
-    "last_use": 1679255233.572828
-  },
   "@phantomgamesbot": {
     "response": "$user $msg",
     "cooldown": 5,

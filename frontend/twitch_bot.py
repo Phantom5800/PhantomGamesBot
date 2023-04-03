@@ -324,7 +324,7 @@ class PhantomGamesBot(commands.Bot):
         command = self.timer_queue[channel][self.current_timer_msg[channel]]
         message = self.custom.get_command(command, channel)
         if message is None:
-            if command == "!followgoal":
+            if command == "!follow":
                 msg = await self.get_follow_goal_msg(streamer)
                 await self.post_chat_announcement(streamer, msg)
         else:
@@ -576,7 +576,7 @@ class PhantomGamesBot(commands.Bot):
         return generic_msg
 
     @commands.command()
-    async def followgoal(self, ctx: commands.Context):
+    async def follow(self, ctx: commands.Context):
         token = os.environ.get(f'TWITCH_CHANNEL_TOKEN_{ctx.message.channel.name.lower()}')
         streamer = await ctx.message.channel.user()
         message = await self.get_follow_goal_msg(streamer)
