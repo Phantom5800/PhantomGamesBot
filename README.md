@@ -88,13 +88,7 @@ Forces the bot to post an automatically generated message based on data it has b
 # Default Commands
 Default command set that can be used by anyone.
 
-### !anime ![](./readme/images/twitch.png) ![](./readme/images/discord.png)
-Recommends a random anime to a user.
-
-### !animeinfo ![](./readme/images/discord.png)
-Gives an embedded block of info on a given anime.
-
-![](./readme/images/animeinfo.png)
+## Basic Commands
 
 ### !bot ![](./readme/images/twitch.png) ![](./readme/images/discord.png)
 Provides a link to the github page for this bot's source code.
@@ -119,6 +113,19 @@ Display the current game being played.
 
 ### !help ![](./readme/images/discord.png)
 Provides a basic help dialog, giving discord users more detail into what the bot is capable of.
+
+### !title ![](./readme/images/twitch.png)
+Get the current title for the stream.
+
+## Fun Stuff
+
+### !anime ![](./readme/images/twitch.png) ![](./readme/images/discord.png)
+Recommends a random anime to a user.
+
+### !animeinfo ![](./readme/images/discord.png)
+Gives an embedded block of info on a given anime.
+
+![](./readme/images/animeinfo.png)
 
 ### !pb ![](./readme/images/twitch.png) ![](./readme/images/discord.png)
 Get the streamer's personal best speedrun time for given game and category. If no category is specified and the streamer has runs in multiple categories, a list will be given instead. The game is taken automatically from twitch.
@@ -159,9 +166,6 @@ Recommends a random game and speedrun category to a user.
 !speed [game] - get a random game and category that fits [game] as a search term for games
 !speed user:[username] - gets a random game and category that a given user has done before
 ```
-
-### !title ![](./readme/images/twitch.png)
-Get the current title for the stream.
 
 # Mod Commands
 Set of commands that require moderator permissions in the channel in order to use.

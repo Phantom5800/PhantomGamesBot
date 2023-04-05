@@ -32,7 +32,7 @@
   "@phantomgamesbot": {
     "response": "$user $msg",
     "cooldown": 5,
-    "last_use": 1679165055.921086
+    "last_use": 1680538590.73485
   },
   "!github": {
     "response": "/announce All my open source code projects are available on github: https://github.com/Phantom5800",
@@ -160,7 +160,7 @@
     "last_use": 0
   },
   "!ads": {
-    "response": "/announce We are running 90 seconds of ads every 30 minutes to disable prerolls. If you really don't want to see ads, Twitch Turbo is a great option, beyond that if you feel like supporting the channel directly, subscribers should never see a single ad! The ad timer is visible on screen so you will know when to expect ads coming up.",
+    "response": "/announce We are running 90 seconds of ads every 30 minutes to disable prerolls and it even pays part of my bills every month. If you really don't want to see ads, subscribers should never see a single ad! The ad timer is visible on screen so you will know when to expect ads coming up.",
     "cooldown": 10,
     "last_use": 1678373272.731988
   },
@@ -178,5 +178,10 @@
     "response": "/announce In 2022, JCog implemented some custom logic changes to lowered star spirit seeds where chapters not deemed \"required\" are completely out of logic. I took those changes and integrated them forward with support for dungeon entrance shuffle as well",
     "cooldown": 0,
     "last_use": 0
+  },
+  "linkfall": {
+    "response": "LinkFALL",
+    "cooldown": 15,
+    "last_use": 1680539225.769813
   }
 }
