@@ -23,13 +23,19 @@ if __name__ == "__main__":
     markovHandler = MarkovHandler()
     print("=====================================")
 
+    sharedResources = lambda:None
+    sharedResources.customCommandHandler = customCommandHandler
+    sharedResources.quoteHandler         = quoteHandler
+    sharedResources.srcHandler           = srcHandler
+    sharedResources.markovHandler        = markovHandler
+
     # twitch bot acts as a master bot that appends other bot event loops to its own
-    masterBot = run_twitch_bot(customCommandHandler, quoteHandler, srcHandler, markovHandler)
+    masterBot = run_twitch_bot(sharedResources)
 
     # verify and run discord bot
     # TODO: better verification, but empty is probably good enough
     if os.environ['DISCORD_TOKEN'] is not None and len(os.environ['DISCORD_TOKEN']) > 0:
-        run_discord_bot(masterBot.loop, customCommandHandler, quoteHandler, srcHandler, markovHandler)
+        run_discord_bot(masterBot.loop, sharedResources)
 
     # verify that twitter credentials are configured
     if os.environ['TWITTER_CONSUMER_KEY'] is not None and len(os.environ['TWITTER_CONSUMER_KEY']) > 0:

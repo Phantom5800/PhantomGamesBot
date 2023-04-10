@@ -11,3 +11,5 @@ pipenv install discord
 pipenv install AnilistPython==0.1.3
 pipenv install markovify
 pipenv install tweepy
+pipenv install google-api-python-client
+pipenv install google-auth-oauthlib google-auth-httplib2

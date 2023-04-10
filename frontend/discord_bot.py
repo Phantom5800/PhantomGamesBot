@@ -223,9 +223,9 @@ class PhantomGamesBotModule(commands.Cog):
     async def celcius_to_farenheit(self, ctx, celcius: int):
         await ctx.respond(f"{celcius}°C = {str(round(celcius * 9 / 5 + 32, 2))}°F")
 
-def run_discord_bot(eventLoop, customCommandHandler: CustomCommands, quoteHandler: QuoteHandler, srcHandler: SrcomApi, markovHandler: MarkovHandler):
-    bot = PhantomGamesBot(customCommandHandler)
-    bot.add_cog(PhantomGamesBotModule(bot, quoteHandler, srcHandler, markovHandler))
+def run_discord_bot(eventLoop, sharedResources):
+    bot = PhantomGamesBot(sharedResources.customCommandHandler)
+    bot.add_cog(PhantomGamesBotModule(bot, sharedResources.quoteHandler, sharedResources.srcHandler, sharedResources.markovHandler))
     async def runBot():
         await bot.start(os.environ['DISCORD_TOKEN'])
 

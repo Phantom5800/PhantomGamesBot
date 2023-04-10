@@ -17,7 +17,7 @@ from commands.src import SrcomApi
 from utils.utils import *
 
 class PhantomGamesBot(commands.Bot):
-    def __init__(self, customCommandHandler: CustomCommands, quoteHandler: QuoteHandler, srcHandler: SrcomApi, markovHandler: MarkovHandler):
+    def __init__(self, sharedResources):
         self.channel_list = os.environ['TWITCH_CHANNEL'].split(',')
         print(f"Joining twitch channels: {self.channel_list}")
         super().__init__(
@@ -29,10 +29,10 @@ class PhantomGamesBot(commands.Bot):
         )
 
         # command handlers
-        self.custom = customCommandHandler
-        self.quotes = quoteHandler
-        self.speedrun = srcHandler
-        self.markov = markovHandler
+        self.custom = sharedResources.customCommandHandler
+        self.quotes = sharedResources.quoteHandler
+        self.speedrun = sharedResources.srcHandler
+        self.markov = sharedResources.markovHandler
         self.anilist = Anilist()
         self.slots = Slots(SlotsMode.TWITCH)
 
@@ -608,6 +608,6 @@ class PhantomGamesBot(commands.Bot):
             #await ctx.send(f"/shoutout {user.name}")
             await ctx.send(f"Checkout {user.name}, maybe drop them a follow! They were most recently playing {game} over at https://twitch.tv/{user.name}")
 
-def run_twitch_bot(customCommandHandler: CustomCommands, quoteHandler: QuoteHandler, srcHandler: SrcomApi, markovHandler: MarkovHandler) -> PhantomGamesBot:
-    bot = PhantomGamesBot(customCommandHandler, quoteHandler, srcHandler, markovHandler)
+def run_twitch_bot(sharedResources) -> PhantomGamesBot:
+    bot = PhantomGamesBot(sharedResources)
     return bot

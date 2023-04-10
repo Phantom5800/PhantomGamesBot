@@ -42,7 +42,7 @@
   "runera3leave": {
     "response": "get your ass back here",
     "cooldown": 0,
-    "last_use": 1673371601.566223
+    "last_use": 1681085690.132164
   },
   "hello": {
     "response": "HELLO, GORDON",
@@ -86,6 +86,11 @@
   },
   "!mwsf": {
     "response": "I will be running NoMSS All Dungeons at Midwest Speedfest on April 14th at around 10:30PM CST! Full marathon schedule: https://oengus.io/en-GB/marathon/mwsf2023/schedule",
+    "cooldown": 0,
+    "last_use": 1681079497.794114
+  },
+  "!fools": {
+    "response": "pacepals are none the wiser",
     "cooldown": 0,
     "last_use": 0
   }

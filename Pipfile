@@ -11,6 +11,9 @@ markovify = "*"
 pycord = "*"
 py-cord = "*"
 tweepy = "*"
+google-api-python-client = "*"
+google-auth-oauthlib = "*"
+google-auth-httplib2 = "*"
 
 [dev-packages]
 
