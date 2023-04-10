@@ -120,8 +120,12 @@ class SrcomApi:
             random_game = random_game[random.randrange(len(random_game))]
             random_category = random_game.categories[random.randrange(len(random_game.categories))]
             # try a new category until we find one that gives a unique uri?
+            attempts = 0
             while random_game.weblink == random_category.weblink:
                 random_category = random_game.categories[random.randrange(len(random_game.categories))]
+                attempts += 1
+                if attempts > 50:
+                    break
             result = f"{random_game.name} - {random_category.name}"
             print(f"{result}: {random_category.weblink}")
 
@@ -145,8 +149,12 @@ class SrcomApi:
             random_game = query_result[random.randrange(len(query_result))]
             random_category = random_game.categories[random.randrange(len(random_game.categories))]
             # try a new category until we find one that gives a unique uri?
+            attempts = 0
             while random_game.weblink == random_category.weblink:
                 random_category = random_game.categories[random.randrange(len(random_game.categories))]
+                attempts += 1
+                if attempts > 50:
+                    break
             result = f"{random_game.name} - {random_category.name}"
             print(f"{result}: {random_category.weblink}")
 
@@ -303,13 +311,3 @@ class SrcomApi:
             else:
                 debugPrint(f"[Get PB] Returning {game} - {category}")
                 return f"{game} - {category}: {time} {vod_link}"
-
-async def main():
-    src = SrcomApi(os.environ['SRC_USER'])
-    #response = src.get_pb("Super Mario 3D World + Bowser's Fury", "Super Mario 3D World") # return's Any%
-    #response = src.get_pb("Super Mario 3D World + Bowser's Fury", "Super Mario 3D World [243 Stars]")
-    response = src.get_pb("Paper Mario", "Glitchless [N64]")
-    print(response)
-
-if __name__ == "__main__":
-    asyncio.run(main())
