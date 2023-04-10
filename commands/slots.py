@@ -13,18 +13,16 @@ class Slots:
                 "phanto274Bless",
                 "phanto274Shrug",
                 "phanto274Smile",
-                "D:",
                 "Boris",
                 "COPIUM",
                 "Ezekiel",
                 "Flushed",
                 "SoniaKnows",
                 "weedMario",
-                "WhatsHisFace",
                 "yoshiGasm",
                 "MarioDab",
                 "el:Wadafa:yelpanaFrienddandoleunabrazo",
-                "GoombarioLookingOutHisJailCell"
+                "GoombarioLookingOutHisJailCell",
             ]
         elif mode == SlotsMode.DISCORD:
             self.emotes = [
