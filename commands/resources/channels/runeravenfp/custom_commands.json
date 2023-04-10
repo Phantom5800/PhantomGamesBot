@@ -83,5 +83,10 @@
     "response": "#TipLang https://twitter.com/Langepon",
     "cooldown": 0,
     "last_use": 0
+  },
+  "!mwsf": {
+    "response": "I will be running NoMSS All Dungeons at Midwest Speedfest on April 14th at around 10:30PM CST! Full marathon schedule: https://oengus.io/en-GB/marathon/mwsf2023/schedule",
+    "cooldown": 0,
+    "last_use": 0
   }
 }

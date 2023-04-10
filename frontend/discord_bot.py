@@ -43,16 +43,6 @@ class PhantomGamesBot(bridge.Bot):
         ]
         self.commands_since_new_status = 0
 
-        # define reaction roles
-        self.role_message_id = int(os.environ['DISCORD_ROLE_MESSAGE_ID']) # message to look for reactions on
-        with open('./frontend/data/discord_emoji_roles.json', 'r', encoding="utf-8") as json_file:
-            try:
-                data = json.load(json_file)
-                self.emoji_to_role = deepcopy(data)
-                print(f"Emoji -> Role Mapping: {self.emoji_to_role}")
-            except json.decoder.JSONDecodeError:
-                print("[ERROR] Failed to load emoji->role mapping JSON")
-
     async def set_random_status(self):
         status = self.messages[random.randrange(len(self.messages))]
         print(f"[Status] {status}")
@@ -64,61 +54,6 @@ class PhantomGamesBot(bridge.Bot):
         print(f"Discord [{datetime.now()}]: {self.user} is online!")
         print("=======================================")
         await self.set_random_status()
-
-    '''
-    Add roles to users when selecting a reaction.
-    '''
-    async def on_raw_reaction_add(self, payload: discord.RawReactionActionEvent):
-        if payload.message_id != self.role_message_id:
-            return
-
-        guild = self.get_guild(payload.guild_id)
-        if guild is None:
-            return
-
-        try:
-            role_id = self.emoji_to_role[payload.emoji.name]
-        except KeyError:
-            return
-
-        role = guild.get_role(role_id)
-        if role is None:
-            return
-
-        try:
-            await payload.member.add_roles(role)
-        except discord.HTTPException:
-            pass
-
-    '''
-    Remove roles from users that deselect a reaction.
-    '''
-    async def on_raw_reaction_remove(self, payload: discord.RawReactionActionEvent):
-        if payload.message_id != self.role_message_id:
-            return
-            
-        guild = self.get_guild(payload.guild_id)
-        if guild is None:
-            return
-
-        try:
-            role_id = self.emoji_to_role[payload.emoji.name]
-        except KeyError:
-            return
-
-        role = guild.get_role(role_id)
-        if role is None:
-            return
-
-        member = guild.get_member(payload.user_id)
-        if member is None:
-            return
-
-        try:
-            await member.remove_roles(role)
-        except discord.HTTPException:
-            pass
-
 
     '''
     Handle custom commands.

@@ -26,7 +26,7 @@
   },
   "!ohdee": {
     "response": "/announce OhDee made a ton of emotes and stream assets. Follow him on twitter because he's cool: https://twitter.com/OhDeezey",
-    "cooldown": 0,
+    "cooldown": 10,
     "last_use": 0
   },
   "@phantomgamesbot": {
@@ -61,7 +61,7 @@
   },
   "!trusty": {
     "response": "/announce Trusty made my sub badges and most likely any art that I use as backgrounds in livesplit! Their twitter is: https://twitter.com/Trustyalt and you should definitely follow them",
-    "cooldown": 0,
+    "cooldown": 10,
     "last_use": 1641314918.565764
   },
   "!boris": {
@@ -80,8 +80,8 @@
     "last_use": 1674147130.723198
   },
   "!lange": {
-    "response": "/announce Emotes by Langepon! phanto274Shrug phanto274Smile phanto274Bless https://twitter.com/Langepon",
-    "cooldown": 0,
+    "response": "/announce A lot of emotes and stream art is by Langepon! phanto274Shrug phanto274Smile phanto274Bless go follow her: https://twitter.com/Langepon",
+    "cooldown": 10,
     "last_use": 0
   },
   "stinkycheese": {
