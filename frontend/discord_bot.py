@@ -6,17 +6,12 @@ import os
 import discord
 import random
 from discord.ext import bridge, commands
-from commands.anilist import Anilist
-from commands.custom_commands import CustomCommands
-from commands.markov import MarkovHandler
-from commands.quotes import QuoteHandler
 from commands.slots import Slots
 from commands.slots import SlotsMode
-from commands.src import SrcomApi
 from utils.utils import *
 
 class PhantomGamesBot(bridge.Bot):
-    def __init__(self, customCommandHandler: CustomCommands):
+    def __init__(self, customCommandHandler):
         intents = discord.Intents.default()
         intents.message_content = True
         intents.members = True
@@ -101,12 +96,12 @@ class PhantomGamesBot(bridge.Bot):
 Unlike twitchio, discord bot is unable to embed commands directly, and requires cogs.
 '''
 class PhantomGamesBotModule(commands.Cog):
-    def __init__(self, bot: PhantomGamesBot, quoteHandler: QuoteHandler, srcHandler: SrcomApi, markovHandler: MarkovHandler):
+    def __init__(self, bot: PhantomGamesBot, sharedResources):
         self.bot = bot
-        self.quotes = quoteHandler
-        self.speedrun = srcHandler
-        self.markov = markovHandler
-        self.anilist = Anilist()
+        self.quotes = sharedResources.quoteHandler
+        self.speedrun = sharedResources.srcHandler
+        self.markov = sharedResources.markovHandler
+        self.anilist = sharedResources.anilist
         self.slots = Slots(SlotsMode.DISCORD)
     
     @bridge.bridge_command(brief="Get a link to the bot's github.", help="Get a link to the bot's github.")
@@ -225,7 +220,7 @@ class PhantomGamesBotModule(commands.Cog):
 
 def run_discord_bot(eventLoop, sharedResources):
     bot = PhantomGamesBot(sharedResources.customCommandHandler)
-    bot.add_cog(PhantomGamesBotModule(bot, sharedResources.quoteHandler, sharedResources.srcHandler, sharedResources.markovHandler))
+    bot.add_cog(PhantomGamesBotModule(bot, sharedResources))
     async def runBot():
         await bot.start(os.environ['DISCORD_TOKEN'])
 

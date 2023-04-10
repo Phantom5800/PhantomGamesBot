@@ -1,5 +1,6 @@
 import asyncio
 import os
+from commands.anilist import Anilist
 from commands.custom_commands import CustomCommands
 from commands.quotes import QuoteHandler
 from commands.src import SrcomApi
@@ -23,6 +24,7 @@ if __name__ == "__main__":
     print("============= Markov ================")
     sharedResources.markovHandler = MarkovHandler()
     print("=====================================")
+    sharedResources.anilist = Anilist()
 
     # twitch bot acts as a master bot that appends other bot event loops to its own
     masterBot = run_twitch_bot(sharedResources)
