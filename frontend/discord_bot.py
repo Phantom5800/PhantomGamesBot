@@ -12,6 +12,8 @@ from utils.utils import *
 
 class PhantomGamesBot(bridge.Bot):
     def __init__(self, customCommandHandler):
+        self.account = os.environ['DISCORD_SHARED_API_PROFILE'] # profile to use for shared api's
+
         intents = discord.Intents.default()
         intents.message_content = True
         intents.members = True
@@ -34,7 +36,8 @@ class PhantomGamesBot(bridge.Bot):
             "twitch.tv/phantom5800",
             "Zelda: Wand of Gamalon",
             "Visual Studio Code",
-            "Mega Man Network Transmission"
+            "Mega Man Network Transmission",
+            "youtube.com/@PhantomVODs"
         ]
         self.commands_since_new_status = 0
 
@@ -65,7 +68,7 @@ class PhantomGamesBot(bridge.Bot):
         if message is not None:
             if message.content is not None and len(message.content) > 0:
                 command = message.content.split()[0]
-                response = self.custom.parse_custom_command(command, "phantom5800")
+                response = self.custom.parse_custom_command(command, self.account)
                 if response is not None:
                     self.commands_since_new_status += 1
 
@@ -113,7 +116,7 @@ class PhantomGamesBotModule(commands.Cog):
         help="Get a list of all basic response commands. These commands are all added by moderators on twitch.")
     async def get_commands(self, ctx):
         command_list = []
-        command_list.extend(self.bot.custom.get_command_list("phantom5800"))
+        command_list.extend(self.bot.custom.get_command_list(self.account))
         command_list.sort()
         await ctx.respond(f"List of all the current custom commands: {command_list}")
 
@@ -182,17 +185,17 @@ class PhantomGamesBotModule(commands.Cog):
         response = None
 
         if "latest" in quote_id.lower():
-            await ctx.respond(self.quotes.pick_specific_quote(str(self.quotes.num_quotes() - 1), "phantom5800"))
+            await ctx.respond(self.quotes.pick_specific_quote(str(self.quotes.num_quotes() - 1), self.account))
             return
 
         quote = tryParseInt(quote_id, -1)
         self.bot.commands_since_new_status += 1
         if quote >= 0:
-            response = self.quotes.pick_specific_quote(quote_id, "phantom5800")
+            response = self.quotes.pick_specific_quote(quote_id, self.account)
         elif quote_id == "-1":
-            response = self.quotes.pick_random_quote("phantom5800")
+            response = self.quotes.pick_random_quote(self.account)
         else:
-            response = self.quotes.find_quote_keyword(quote_id, "phantom5800")
+            response = self.quotes.find_quote_keyword(quote_id, self.account)
         if response is not None:
             await ctx.respond(response)
 
