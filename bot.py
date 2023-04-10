@@ -34,6 +34,6 @@ if __name__ == "__main__":
 
     # verify that twitter credentials are configured
     if os.environ['TWITTER_CONSUMER_KEY'] is not None and len(os.environ['TWITTER_CONSUMER_KEY']) > 0:
-        run_twitter_bot(masterBot.loop, markovHandler)
+        run_twitter_bot(masterBot.loop, sharedResources.markovHandler)
 
     masterBot.run()

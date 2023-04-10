@@ -24,6 +24,7 @@ class Slots:
                 "yoshiGasm",
                 "MarioDab",
                 "el:Wadafa:yelpanaFrienddandoleunabrazo",
+                "GoombarioLookingOutHisJailCell"
             ]
         elif mode == SlotsMode.DISCORD:
             self.emotes = [
