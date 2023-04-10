@@ -154,6 +154,7 @@ class PhantomGamesBot(commands.Bot):
                     response = await replace_vars_twitch(response, ctx, message.channel)
                     if "/announce" in response:
                         response = response.replace("/announce", "/me")
+                        # try to post as an announcement, if it fails, post it with /me
                         try:
                             announcement = response.replace("/me", "")
                             streamer = await message.channel.user()
@@ -326,8 +327,9 @@ class PhantomGamesBot(commands.Bot):
             if stream_channel is None:
                 print(f"[ERROR] Timer cannot find channel '{channel}' to post in??")
             else:
-                message = message.replace("/announce", "/me") # remove /announce from commands for now
+                message = message.replace("/announce", "/me") # remove /announce from commands
 
+                # try to post as an announcement, if it fails, post it with /me
                 try:
                     announcement = message.replace("/me", "")
                     await self.post_chat_announcement(streamer, announcement)
