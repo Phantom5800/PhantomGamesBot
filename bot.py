@@ -10,24 +10,19 @@ from frontend.twitter_bot import run_twitter_bot
 
 if __name__ == "__main__":
     # Shared resources
-    customCommandHandler = CustomCommands()
-    quoteHandler = QuoteHandler()
+    sharedResources = lambda:None
     print("========== Custom Commands ==========")
-    customCommandHandler.load_commands()
+    sharedResources.customCommandHandler = CustomCommands()
+    sharedResources.customCommandHandler.load_commands()
     print("============== Quotes ===============")
-    quoteHandler.load_quotes()
+    sharedResources.quoteHandler = QuoteHandler()
+    sharedResources.quoteHandler.load_quotes()
     print("=============== SRC =================")
     srcUsers = os.environ['SRC_USER'].split(',')
-    srcHandler = SrcomApi(srcUsers[0])
+    sharedResources.srcHandler = SrcomApi(srcUsers[0])
     print("============= Markov ================")
-    markovHandler = MarkovHandler()
+    sharedResources.markovHandler = MarkovHandler()
     print("=====================================")
-
-    sharedResources = lambda:None
-    sharedResources.customCommandHandler = customCommandHandler
-    sharedResources.quoteHandler         = quoteHandler
-    sharedResources.srcHandler           = srcHandler
-    sharedResources.markovHandler        = markovHandler
 
     # twitch bot acts as a master bot that appends other bot event loops to its own
     masterBot = run_twitch_bot(sharedResources)
