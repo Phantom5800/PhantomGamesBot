@@ -30,6 +30,14 @@ class YouTubeData:
                         except json.decoder.JSONDecodeError:
                             print(f"[ERROR] Failed to load YouTube config from JSON for {folder}")
         self.access_lock.release()
+
+    def save_youtube_config(self, channel: str):
+        channel = channel.lower()
+        self.access_lock.acquire()
+        with open(f'./commands/resources/channels/{channel}/youtube_data.json', 'w', encoding="utf-8") as json_file:
+            json_str = json.dumps(self.youtube_data[channel], indent=2)
+            json_file.write(json_str)
+        self.access_lock.release()
     
     '''
     Get the sub count of whatever youtube account is bound to the given twitch channel.
@@ -107,3 +115,30 @@ class YouTubeData:
 
             return f"{title} - {base_url + videoId}"
         return ""
+
+    '''
+    Set the YouTube channel data associated with the twitch user.
+    '''
+    def set_youtube_channel_data(self, channel: str, username: str, channelId: str):
+        channel = channel.lower()
+        self.youtube_data[channel]["username"] = username
+        self.youtube_data[channel]["channel_id"] = channelId
+        self.save_youtube_config(channel)
+
+    '''
+    Set the YouTube Handle paramater.
+    '''
+    def set_youtube_handle(self, channel: str, handle: str):
+        channel = channel.lower()
+        self.youtube_data[channel]["handle"] = handle
+        self.save_youtube_config(channel)
+
+    '''
+    Set the channel sub goal and message.
+    '''
+    def set_youtube_subgoal(self, channel: str, goal: int, message: str):
+        channel = channel.lower()
+        self.youtube_data[channel]["subgoal"] = goal
+        self.youtube_data[channel]["subgoal_message"] = message
+        self.save_youtube_config(channel)
+    

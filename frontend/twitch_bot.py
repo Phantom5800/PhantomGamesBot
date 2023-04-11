@@ -463,7 +463,7 @@ class PhantomGamesBot(commands.Bot):
             await ctx.send(response)
 
     @commands.command()
-    async def speed(self, ctx):
+    async def speed(self, ctx: commands.Context):
         name = ctx.message.content[len("!speed"):].strip()
         game = None
         if name is not None and len(name) > 0:
@@ -482,7 +482,7 @@ class PhantomGamesBot(commands.Bot):
     # anilist
     #####################################################################################################
     @commands.command()
-    async def anime(self, ctx):
+    async def anime(self, ctx: commands.Context):
         anime = self.anilist.getRandomAnimeName()
         await ctx.send(f"{ctx.message.author.mention} You should try watching \"{anime}\"!")
 
@@ -490,18 +490,45 @@ class PhantomGamesBot(commands.Bot):
     # youtube
     #####################################################################################################
     @commands.command()
-    async def youtube(self, ctx):
+    async def youtube(self, ctx: commands.Context):
         response = self.youtube.get_youtube_com_message(ctx.message.channel.name)
         if len(response) > 0:
             streamer = await ctx.message.channel.user()
             await self.post_chat_announcement(streamer, response)
     
     @commands.command()
-    async def newvid(self, ctx):
+    async def newvid(self, ctx: commands.Context):
         video = self.youtube.get_most_recent_video(ctx.message.channel.name)
         if len(video) > 0:
             streamer = await ctx.message.channel.user()
             await self.post_chat_announcement(streamer, f"Check out the most recent YouTube upload: {video}")
+
+    @commands.command()
+    async def setyoutubechannel(self, ctx: commands.Context):
+        if ctx.message.author.is_broadcaster:
+            params = ctx.message.content[len("!setyoutubechannel"):].strip().split()
+            if len(params) != 2:
+                await ctx.send(f"{ctx.message.author.mention} !setyoutubechannel requires a YouTube username and channel_id")
+            self.youtube.set_youtube_channel_data(ctx.message.channel.name, params[0], params[1])
+            await ctx.send(f"{ctx.message.author.mention} set YouTube channel username to '{params[0]}' and channel id to '{params[1]}'")
+    
+    @commands.command()
+    async def setyoutubehandle(self, ctx: commands.Context):
+        if ctx.message.author.is_broadcaster:
+            params = ctx.message.content[len("!setyoutubehandle"):].strip().split()
+            if len(params) != 1:
+                await ctx.send(f"{ctx.message.author.mention} !setyoutubehandle requires a YouTube handle")
+            self.youtube.set_youtube_handle(ctx.message.channel.name, params[0])
+            await ctx.send(f"{ctx.message.author.mention} set your YouTube handle to @{params[0]}")
+
+    @commands.command()
+    async def setyoutubesubgoal(self, ctx: commands.Context):
+        if ctx.message.author.is_broadcaster:
+            params = ctx.message.content[len("!setyoutubesubgoal"):].strip().split(" ", 1)
+            if len(params) != 2:
+                await ctx.send(f"{ctx.message.author.mention} !setyoutubegoal needs an integer goal and a message to be displayed. A goal of 0 will not show a sub goal in the !youtube command")
+            self.youtube.set_youtube_subgoal(ctx.message.channel.name, int(params[0]), params[1])
+            await ctx.send(f"{ctx.message.author.mention} set the YouTube sub goal to: {int(params[0])}")
 
     #####################################################################################################
     # fun stream commands
