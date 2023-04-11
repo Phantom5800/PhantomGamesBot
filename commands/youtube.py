@@ -76,6 +76,7 @@ class YouTubeData:
     def get_most_recent_video(self, channel: str) -> str:
         channel = channel.lower()
         if self.youtube_data.get(channel) and self.youtube_data[channel].get("channel_id"):
+            # find most recent upload for channel
             request = self.youtube.search().list(
                 part="snippet",
                 channelId=self.youtube_data[channel]["channel_id"],
@@ -84,8 +85,25 @@ class YouTubeData:
             )
             response = request.execute()
             base_url = "https://youtube.com/watch?v="
+            videoId = ""
             for video in response.get("items"):
                 if video.get("id"):
                     if video["id"].get("videoId"):
-                        return base_url + video["id"]["videoId"]
+                        videoId = video["id"]["videoId"]
+                        break
+            if len(videoId) < 1:
+                return ""
+            
+            # get video title
+            request = self.youtube.videos().list(
+                part="snippet",
+                id=videoId
+            )
+            response = request.execute()
+            title = ""
+            for metadata in response.get("items"):
+                if metadata.get("snippet"):
+                    title = metadata["snippet"].get("title")
+
+            return f"{title} - {base_url + videoId}"
         return ""

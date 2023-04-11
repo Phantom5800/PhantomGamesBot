@@ -218,11 +218,12 @@ class PhantomGamesBotModule(commands.Cog):
     async def get_newest_youtube_video(self, ctx):
         response = self.youtube.get_most_recent_video(self.bot.account)
         self.bot.commands_since_new_status += 1
-        await ctx.respond(response)
+        await ctx.respond(f"Check out the most recent YouTube upload: {response}")
 
     @bridge.bridge_command(name="youtube")
     async def get_youtube_msg(self, ctx):
         response = self.youtube.get_youtube_com_message(self.bot.account)
+        self.bot.commands_since_new_status += 1
         if len(response) > 0:
             await ctx.respond(response)
 
