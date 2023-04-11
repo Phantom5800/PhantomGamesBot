@@ -65,8 +65,10 @@ class YouTubeData:
             youtube_url = "https://youtube.com"
             if self.youtube_data[channel].get("handle"):
                 youtube_url = f"{youtube_url}/@{self.youtube_data[channel].get('handle')}"
-            else:
+            elif self.youtube_data[channel].get('channel_id'):
                 youtube_url = f"{youtube_url}/channel/{self.youtube_data[channel].get('channel_id')}"
+            else:
+                return "" # exit immediately if no youtube channel is configured
 
             subgoal = self.youtube_data[channel].get("subgoal")
             submsg =  self.youtube_data[channel].get("subgoal_message")
