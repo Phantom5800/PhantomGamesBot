@@ -1,6 +1,6 @@
 import asyncio
 from copy import deepcopy
-from datetime import datetime
+from datetime import datetime, timedelta
 import json
 import os
 import discord
@@ -130,7 +130,14 @@ class PhantomGamesBot(bridge.Bot):
     async def announce_youtube_vid_task(self):
         while True:
             await self.announce_new_youtube_vid()
-            await asyncio.sleep(60 * 30)
+
+            now = datetime.now()
+            today = now.replace(hour = 12, minute = 5, second = 0, microsecond = 0)
+            tomorrow = today + timedelta(days = 1)
+            seconds = (tomorrow - now).total_seconds()
+            print(f"[Youtube] Checking for new youtube video in {seconds} seconds")
+
+            await asyncio.sleep(seconds)
 
 '''
 Unlike twitchio, discord bot is unable to embed commands directly, and requires cogs.
