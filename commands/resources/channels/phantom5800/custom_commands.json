@@ -44,11 +44,6 @@
     "cooldown": 10,
     "last_use": 1664563763.586712
   },
-  "!youtube": {
-    "response": "/announce I'm trying to get to 1000 subs on YouTube in order to get partner and enable monetization! At which point I'll be doing a PM64 Book of Mario playthrough, consider subscribing for rando's and pb vods: https://www.youtube.com/@PhantomVODs",
-    "cooldown": 10,
-    "last_use": 1679427305.655299
-  },
   "!cursedtimer": {
     "response": "http://growf.org/stuff/timer.html",
     "cooldown": 0,

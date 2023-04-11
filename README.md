@@ -117,8 +117,14 @@ Display the current game being played.
 ### !help ![](./readme/images/discord.png)
 Provides a basic help dialog, giving discord users more detail into what the bot is capable of.
 
+### !newvid ![](./readme/images/twitch.png) ![](./readme/images/discord.png)
+Posts a link to the latest YouTube upload associated with the streamer.
+
 ### !title ![](./readme/images/twitch.png)
 Get the current title for the stream.
+
+### !youtube ![](./readme/images/twitch.png) ![](./readme/images/discord.png)
+Posts a formatted announcement to subscribe on YouTube using a subgoal and message as configured.
 
 ## Fun Stuff
 

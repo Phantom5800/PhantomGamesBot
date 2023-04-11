@@ -105,6 +105,7 @@ class PhantomGamesBotModule(commands.Cog):
         self.speedrun = sharedResources.srcHandler
         self.markov = sharedResources.markovHandler
         self.anilist = sharedResources.anilist
+        self.youtube = sharedResources.youtube
         self.slots = Slots(SlotsMode.DISCORD)
     
     @bridge.bridge_command(brief="Get a link to the bot's github.", help="Get a link to the bot's github.")
@@ -185,17 +186,17 @@ class PhantomGamesBotModule(commands.Cog):
         response = None
 
         if "latest" in quote_id.lower():
-            await ctx.respond(self.quotes.pick_specific_quote(str(self.quotes.num_quotes() - 1), self.account))
+            await ctx.respond(self.quotes.pick_specific_quote(str(self.quotes.num_quotes() - 1), self.bot.account))
             return
 
         quote = tryParseInt(quote_id, -1)
         self.bot.commands_since_new_status += 1
         if quote >= 0:
-            response = self.quotes.pick_specific_quote(quote_id, self.account)
+            response = self.quotes.pick_specific_quote(quote_id, self.bot.account)
         elif quote_id == "-1":
-            response = self.quotes.pick_random_quote(self.account)
+            response = self.quotes.pick_random_quote(self.bot.account)
         else:
-            response = self.quotes.find_quote_keyword(quote_id, self.account)
+            response = self.quotes.find_quote_keyword(quote_id, self.bot.account)
         if response is not None:
             await ctx.respond(response)
 
@@ -212,6 +213,18 @@ class PhantomGamesBotModule(commands.Cog):
             await ctx.message.delete()
         except:
             return
+
+    @bridge.bridge_command(name="newvid")
+    async def get_newest_youtube_video(self, ctx):
+        response = self.youtube.get_most_recent_video(self.bot.account)
+        self.bot.commands_since_new_status += 1
+        await ctx.respond(response)
+
+    @bridge.bridge_command(name="youtube")
+    async def get_youtube_msg(self, ctx):
+        response = self.youtube.get_youtube_com_message(self.bot.account)
+        if len(response) > 0:
+            await ctx.respond(response)
 
     @bridge.bridge_command(name="ftoc")
     async def farenheit_to_celcius(self, ctx, farenheit: int):

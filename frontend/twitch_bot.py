@@ -29,6 +29,7 @@ class PhantomGamesBot(commands.Bot):
         self.speedrun = sharedResources.srcHandler
         self.markov = sharedResources.markovHandler
         self.anilist = sharedResources.anilist
+        self.youtube = sharedResources.youtube
         self.slots = Slots(SlotsMode.TWITCH)
 
         # custom timers
@@ -323,6 +324,14 @@ class PhantomGamesBot(commands.Bot):
             if command == "!follow":
                 msg = await self.get_follow_goal_msg(streamer)
                 await self.post_chat_announcement(streamer, msg)
+            elif command == "!youtube":
+                response = self.youtube.get_youtube_com_message(streamer.name)
+                if len(response) > 0:
+                    await self.post_chat_announcement(streamer, response)
+            elif command == "!newvid":
+                video = self.youtube.get_newest_youtube_video(streamer.name)
+                if len(video) > 0:
+                    await self.post_chat_announcement(streamer, f"Check out the most recent YouTube upload: {video}")
         else:
             if stream_channel is None:
                 print(f"[ERROR] Timer cannot find channel '{channel}' to post in??")
@@ -476,6 +485,23 @@ class PhantomGamesBot(commands.Bot):
     async def anime(self, ctx):
         anime = self.anilist.getRandomAnimeName()
         await ctx.send(f"{ctx.message.author.mention} You should try watching \"{anime}\"!")
+
+    #####################################################################################################
+    # youtube
+    #####################################################################################################
+    @commands.command()
+    async def youtube(self, ctx):
+        response = self.youtube.get_youtube_com_message(ctx.message.channel.name)
+        if len(response) > 0:
+            streamer = await ctx.message.channel.user()
+            await self.post_chat_announcement(streamer, response)
+    
+    @commands.command()
+    async def newvid(self, ctx):
+        video = self.youtube.get_most_recent_video(ctx.message.channel.name)
+        if len(video) > 0:
+            streamer = await ctx.message.channel.user()
+            await self.post_chat_announcement(streamer, f"Check out the most recent YouTube upload: {video}")
 
     #####################################################################################################
     # fun stream commands

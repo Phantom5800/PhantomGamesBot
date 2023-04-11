@@ -5,6 +5,7 @@ from commands.custom_commands import CustomCommands
 from commands.quotes import QuoteHandler
 from commands.src import SrcomApi
 from commands.markov import MarkovHandler
+from commands.youtube import YouTubeData
 from frontend.twitch_bot import run_twitch_bot
 from frontend.discord_bot import run_discord_bot
 from frontend.twitter_bot import run_twitter_bot
@@ -25,6 +26,7 @@ if __name__ == "__main__":
     sharedResources.markovHandler = MarkovHandler()
     print("=====================================")
     sharedResources.anilist = Anilist()
+    sharedResources.youtube = YouTubeData()
 
     # twitch bot acts as a master bot that appends other bot event loops to its own
     masterBot = run_twitch_bot(sharedResources)
