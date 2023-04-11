@@ -11,9 +11,23 @@ from commands.slots import SlotsMode
 from utils.utils import *
 
 class PhantomGamesBot(bridge.Bot):
-    def __init__(self, customCommandHandler):
+    def __init__(self, sharedResources):
         self.account = os.environ['DISCORD_SHARED_API_PROFILE'] # profile to use for shared api's
 
+        # important channel id's that the bot can post messages to
+        self.channels = {
+            "bot-spam":             956644371426574386,
+            "test-channel":         895542329514008578,
+            "stream-announcements": 821288412409233409,
+            "youtube-uploads":      1095269930892546109
+        }
+
+        self.roles = {
+            "stream-notifs":    '<@&916759082206134362>',
+            "youtube-alerts":   '<@&1095269470295044128>'
+        }
+
+        # initialize discord API hooks
         intents = discord.Intents.default()
         intents.message_content = True
         intents.members = True
@@ -24,7 +38,9 @@ class PhantomGamesBot(bridge.Bot):
             intents=intents
         )
 
-        self.custom = customCommandHandler
+        # cache important shared resources
+        self.custom = sharedResources.customCommandHandler
+        self.youtube = sharedResources.youtube
 
         # status messages
         self.messages = [
@@ -52,6 +68,7 @@ class PhantomGamesBot(bridge.Bot):
         print(f"Discord [{datetime.now()}]: {self.user} is online!")
         print("=======================================")
         await self.set_random_status()
+        self.loop.create_task(self.announce_youtube_vid_task())
 
     '''
     Handle custom commands.
@@ -94,6 +111,26 @@ class PhantomGamesBot(bridge.Bot):
             print(f"{before.display_name} was streaming, but isn't now")
         elif not isinstance(before.activity, discord.Streaming) and isinstance(after.activity, discord.Streaming):
             print(f"{before.display_name} is now streaming!")
+
+    '''
+    Periodically call this function to post the latest video in youtube-uploads when a new one is posted.
+    '''
+    async def announce_new_youtube_vid(self):
+        channel = self.get_channel(self.channels["youtube-uploads"])
+        youtube_vid = self.youtube.get_most_recent_video(self.account)
+
+        with open('./commands/resources/last_youtube_post.txt', 'r+', encoding="utf-8") as f:
+            last_vid = f.read()
+            if last_vid != youtube_vid:
+                await channel.send(f"{self.roles['youtube-alerts']} {youtube_vid}")
+                f.seek(0)
+                f.write(youtube_vid)
+                f.truncate()
+    
+    async def announce_youtube_vid_task(self):
+        while True:
+            await self.announce_new_youtube_vid()
+            await asyncio.sleep(60 * 30)
 
 '''
 Unlike twitchio, discord bot is unable to embed commands directly, and requires cogs.
@@ -236,7 +273,7 @@ class PhantomGamesBotModule(commands.Cog):
         await ctx.respond(f"{celcius}°C = {str(round(celcius * 9 / 5 + 32, 2))}°F")
 
 def run_discord_bot(eventLoop, sharedResources):
-    bot = PhantomGamesBot(sharedResources.customCommandHandler)
+    bot = PhantomGamesBot(sharedResources)
     bot.add_cog(PhantomGamesBotModule(bot, sharedResources))
     async def runBot():
         await bot.start(os.environ['DISCORD_TOKEN'])
