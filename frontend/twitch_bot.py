@@ -72,7 +72,6 @@ class PhantomGamesBot(commands.Bot):
         self.load_timer_events()
         print("=======================================")
         print(f"Twitch: {os.environ['BOT_NICK']} is online!")
-        print("=======================================")
 
         # start message timer
         try:

@@ -19,7 +19,8 @@ class PhantomGamesBot(bridge.Bot):
             "bot-spam":             956644371426574386,
             "test-channel":         895542329514008578,
             "stream-announcements": 821288412409233409,
-            "youtube-uploads":      1095269930892546109
+            "youtube-uploads":      1095269930892546109,
+            "discord-logs":         1098155843326844978
         }
 
         self.roles = {
@@ -66,9 +67,9 @@ class PhantomGamesBot(bridge.Bot):
     async def on_ready(self):
         print("=======================================")
         print(f"Discord [{datetime.now()}]: {self.user} is online!")
-        print("=======================================")
-        await self.set_random_status()
         self.loop.create_task(self.announce_youtube_vid_task())
+        await self.set_random_status()
+        print("=======================================")
 
     '''
     Handle custom commands.
@@ -102,6 +103,14 @@ class PhantomGamesBot(bridge.Bot):
             if self.commands_since_new_status >= 100 or random.randrange(self.commands_since_new_status, 100) > 75:
                 await self.set_random_status()
     
+    async def on_member_join(self, member):
+        channel = self.get_channel(self.channels["discord-logs"])
+        await channel.send(f"New discord member: {member.mention} {member.name}")
+
+    async def on_member_remove(self, member):
+        channel = self.get_channel(self.channels["discord-logs"])
+        await channel.send(f"User left discord: {member.mention} {member.name}")
+
     '''
     Handle anything that needs to be updated when a user's discord status changes.
     '''
@@ -132,10 +141,10 @@ class PhantomGamesBot(bridge.Bot):
             await self.announce_new_youtube_vid()
 
             now = datetime.now()
-            today = now.replace(hour = 12, minute = 5, second = 0, microsecond = 0)
+            today = now.replace(hour = 12, minute = 10, second = 0, microsecond = 0)
             tomorrow = today + timedelta(days = 1)
             seconds = (tomorrow - now).total_seconds()
-            print(f"[Youtube] Checking for new youtube video in {seconds} seconds")
+            print(f"[Youtube {now}] Checking for new youtube video in {seconds} seconds")
 
             await asyncio.sleep(seconds)
 
