@@ -68,7 +68,7 @@ TWITTER_ACCESS_TOKEN_SECRET=
 In order to fill out the `.env`, you'll need to register as a [Twitch developer](https://dev.twitch.tv/console/apps/create) and create an application, this will get you a client id. Then [generate an oauth token](https://twitchapps.com/tmi/) and you'll be good to go for running the bot locally.
 
 ## OAuth
-This is an example URI used to generate a valid OAuth token:
+This is an example URI used to generate a valid OAuth user token for all Twitch APIs used:
 
 ```
 https://id.twitch.tv/oauth2/authorize?response_type=token&client_id=<enter your client id here>&redirect_uri=http%3A//localhost%3A3000&scope=bits%3Aread+chat%3Aread+chat%3Aedit+channel%3Aedit%3Acommercial+channel%3Amanage%3Abroadcast+channel%3Amoderate+channel%3Amanage%3Apolls+moderator%3Aread%3Achat_settings+moderator%3Amanage%3Achat_settings+moderator%3Aread%3Ashoutouts+moderator%3Amanage%3Ashoutouts+channel%3Amanage%3Apredictions+channel%3Aread%3Agoals+channel%3Aread%3Aredemptions+channel%3Aread%3Asubscriptions+channel%3Amanage%3Avips+moderator%3Aread%3Achatters+moderator%3Amanage%3Aannouncements
@@ -300,6 +300,8 @@ These commands are used for various dynamically updating stream goals.
 
 ### !follow ![](./readme/images/twitch.png)
 Posts a generic message to follow the stream. If there is a follow goal on twitch, it will show the progress towards that goal as well.
+
+Note: _This feature only works if a user specific OAUTH token is configured as part of the `.env`_
 
 ### !setsubgoal ![](./readme/images/twitch.png)
 Can only be used by the broadcaster. Sets the current sub goal amount and an incentive. If the amount is set to 0, the incentive message is never shown, but still needs to be provided.

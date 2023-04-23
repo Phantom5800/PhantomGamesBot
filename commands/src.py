@@ -5,11 +5,6 @@ import srcomapi
 from datetime import date
 from utils.utils import debugPrint
 
-# enable these for debugging src.py separately from a live bot
-# import asyncio
-# os.environ['SRC_USER'] = "Phantom5800"
-# def debugPrint(value): print(value)
-
 class SrcomApi:
     def __init__(self, srcUser: str):
         self.api = srcomapi.SpeedrunCom()

@@ -334,6 +334,9 @@ class PhantomGamesBot(commands.Bot):
             if command == "!follow":
                 msg = await self.get_follow_goal_msg(streamer)
                 await self.post_chat_announcement(streamer, msg)
+            elif command == "!subgoal":
+                msg = await self.get_subgoal_msg(streamer.name)
+                await self.post_chat_announcement(streamer, msg)
             elif command == "!youtube":
                 response = self.youtube.get_youtube_com_message(streamer.name)
                 if len(response) > 0:
@@ -684,6 +687,7 @@ class PhantomGamesBot(commands.Bot):
             json_file.write(json_str)
 
     async def get_subgoal_msg(self, channel: str):
+        channel = channel.lower()
         now = datetime.now()
         goal = self.subgoal_info[channel]["goal"]
         current = self.subgoal_info[channel]["subs"][now.month - 1]
@@ -700,10 +704,9 @@ class PhantomGamesBot(commands.Bot):
 
     @commands.command()
     async def subgoal(self, ctx: commands.Context):
-        if ctx.message.channel.name.lower() == "phantom5800":
-            streamer = await ctx.message.channel.user()
-            msg = await self.get_subgoal_msg(ctx.message.channel.name.lower())
-            await self.post_chat_announcement(streamer, msg)
+        streamer = await ctx.message.channel.user()
+        msg = await self.get_subgoal_msg(ctx.message.channel.name)
+        await self.post_chat_announcement(streamer, msg)
 
     @commands.command()
     async def setsubgoal(self, ctx: commands.Context):
