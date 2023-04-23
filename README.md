@@ -107,9 +107,6 @@ Convert Celcius to Farenheit.
 ### !ftoc ![](./readme/images/twitch.png) ![](./readme/images/discord.png)
 Convert Farenheit to Celcius.
 
-### !follow ![](./readme/images/twitch.png)
-Posts a generic message to follow the stream. If there is a follow goal on twitch, it will show the progress towards that goal as well.
-
 ### !followage ![](./readme/images/twitch.png)
 Gets the length of time a user has followed the channel for.
 
@@ -286,6 +283,22 @@ Removes a command from the timer queue.
 
 ### !timerevents ![](./readme/images/twitch.png)
 Get a list of all the current events added to the timer.
+
+# Stream Goals
+These commands are used for various dynamically updating stream goals.
+
+### !follow ![](./readme/images/twitch.png)
+Posts a generic message to follow the stream. If there is a follow goal on twitch, it will show the progress towards that goal as well.
+
+### !setsubgoal ![](./readme/images/twitch.png)
+Can only be used by the broadcaster. Sets the current sub goal amount and an incentive. If the amount is set to 0, the incentive message is never shown, but still needs to be provided.
+
+```
+!setsubgoal 100 a thing
+```
+
+### !subgoal ![](./readme/images/twitch.png)
+Posts a generic sub message. If there is a monthly sub goal set by `!setsubgoal`, it will show the current progress towards the goal.
 
 # Discord Settings
 PhantomGamesBot supports discord as well. The only setup required is to create an application in the [Discord Developer Portal](https://discord.com/developers/applications) and copy the token for the bot into `.env`. Other settings in the portal depend entirely on what you would be using the bot for.
