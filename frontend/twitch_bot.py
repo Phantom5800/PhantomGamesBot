@@ -20,6 +20,9 @@ class PhantomGamesBot(commands.Bot):
             initial_channels=self.channel_list
         )
 
+        # subgoal tracker
+        self.subs_in_month = [0] * 12
+
         # command handlers
         self.custom = sharedResources.customCommandHandler
         self.quotes = sharedResources.quoteHandler
@@ -656,11 +659,21 @@ class PhantomGamesBot(commands.Bot):
         message = await self.get_follow_goal_msg(streamer)
         await self.post_chat_announcement(streamer, message)
 
+    async def get_subgoal_msg(self):
+        now = datetime.now()
+        goal = 100
+        current = self.subs_in_month[now.month - 1]
+        incentive = "we will be doing a Paper Mario Glitchless run on Switch"
+        month = now.strftime("%B")
+
+        return f"We are currently at {current} / {goal} subs for {month}. If the goal is hit, {incentive} next month!"
+
     @commands.command()
     async def subgoal(self, ctx: commands.Context):
-        print("Calling !subgoal")
-        streamer = await ctx.message.channel.user()
-        print(streamer.id)
+        if ctx.message.channel.name.lower() == "phantom5800":
+            streamer = await ctx.message.channel.user()
+            msg = await self.get_subgoal_msg()
+            await self.post_chat_announcement(streamer, msg)
 
     #####################################################################################################
     # pubsub
@@ -684,6 +697,7 @@ class PhantomGamesBot(commands.Bot):
         sub_type = f"Gift from {event.user.name}" if event.is_gift else event.sub_plan_name
         subscriber = event.recipient.name if event.is_gift else event.user.name
         print(f"Sub [{sub_type}]: {subscriber} subscribed for {event.cumulative_months}")
+        self.subs_in_month[event.time.month - 1] += 1
 
 def run_twitch_bot(sharedResources) -> PhantomGamesBot:
     bot = PhantomGamesBot(sharedResources)
