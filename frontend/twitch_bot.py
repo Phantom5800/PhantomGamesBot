@@ -657,7 +657,7 @@ class PhantomGamesBot(commands.Bot):
     #####################################################################################################
     # goals
     #####################################################################################################
-    async def get_follow_goal_msg(self, streamer):
+    async def get_follow_goal_msg(self, streamer) -> str:
         token = os.environ.get(f'TWITCH_CHANNEL_TOKEN_{streamer.name.lower()}')
         generic_msg = "Be sure to follow the stream, every follower is greatly appreciated and there are no alerts for new followers, so don\'t worry about getting called out of lurk!"
         if token:
@@ -686,7 +686,7 @@ class PhantomGamesBot(commands.Bot):
             json_str = json.dumps(self.subgoal_info, indent=2)
             json_file.write(json_str)
 
-    async def get_subgoal_msg(self, channel: str):
+    async def get_subgoal_msg(self, channel: str) -> str:
         channel = channel.lower()
         now = datetime.now()
         goal = self.subgoal_info[channel]["goal"]
@@ -740,9 +740,9 @@ class PhantomGamesBot(commands.Bot):
         print(f"Channel Point Redemption [{event.timestamp}]: {event.user.name} - {event.reward.title} - {event.input}")
 
     async def event_pubsub_channel_subscriptions(self, event: pubsub.PubSubChannelSubscribe):
-        sub_type = f"Gift from {event.user.name}" if event.is_gift else event.sub_plan_name
-        subscriber = event.recipient.name if event.is_gift else event.user.name
-        print(f"Sub [{sub_type}]: {subscriber} subscribed for {event.cumulative_months}")
+        sub_type = f"{event.sub_plan_name} Gift from \"{event.user.name if event.user else 'anonymous'}\"" if event.is_gift else event.sub_plan_name
+        subscriber = event.recipient if event.is_gift else event.user
+        print(f"Sub [{sub_type}]: {subscriber.name} subscribed for {event.cumulative_months}")
         self.subgoal_info[event.channel.name.lower()]["subs"][event.time.month - 1] += 1
         self.save_subgoal_data()
 
