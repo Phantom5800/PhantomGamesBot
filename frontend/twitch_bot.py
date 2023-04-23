@@ -1,14 +1,11 @@
-from datetime import datetime
-from datetime import timezone
+from datetime import datetime, timezone
 import os
 import random
 import re
 from typing import Optional
 from twitchio import PartialUser
-from twitchio.ext import commands
-from twitchio.ext import routines
-from commands.slots import Slots
-from commands.slots import SlotsMode
+from twitchio.ext import commands, pubsub, routines
+from commands.slots import Slots, SlotsMode
 from utils.utils import *
 
 class PhantomGamesBot(commands.Bot):
@@ -79,7 +76,7 @@ class PhantomGamesBot(commands.Bot):
             self.automatic_chat.start()
         except RuntimeError:
             print("Timer is already running")
-    
+
     def load_timer_events(self):
         for channel in self.channel_list:
             with open(f'./commands/resources/channels/{channel}/timer_events.txt', 'r', encoding="utf-8") as txt_file:
@@ -611,26 +608,6 @@ class PhantomGamesBot(commands.Bot):
     async def bot(self, ctx: commands.Context):
         await ctx.send("Hey! I am a custom chatbot written in Python, my source code is available at: https://github.com/Phantom5800/PhantomGamesBot")
 
-    async def get_follow_goal_msg(self, streamer):
-        token = os.environ.get(f'TWITCH_CHANNEL_TOKEN_{streamer.name.lower()}')
-        generic_msg = "Be sure to follow the stream, every follower is greatly appreciated and there are no alerts for new followers, so don\'t worry about getting called out of lurk!"
-        if token:
-            goals = await streamer.fetch_goals(token=token)
-            for goal in goals:
-                if goal.type == 'follower':
-                    if goal.current_amount >= goal.target_amount:
-                        return f'We hit our follower goal to {goal.description} and will be doing that soon! {generic_msg}'
-                    else:
-                        return f'We are at {goal.current_amount} / {goal.target_amount} followers towards our goal to {goal.description}! {generic_msg}'
-        return generic_msg
-
-    @commands.command()
-    async def follow(self, ctx: commands.Context):
-        token = os.environ.get(f'TWITCH_CHANNEL_TOKEN_{ctx.message.channel.name.lower()}')
-        streamer = await ctx.message.channel.user()
-        message = await self.get_follow_goal_msg(streamer)
-        await self.post_chat_announcement(streamer, message)
-
     '''
     Get the current game being played on twitch.
     '''
@@ -657,6 +634,58 @@ class PhantomGamesBot(commands.Bot):
             #await ctx.send(f"/shoutout {user.name}")
             await ctx.send(f"Checkout {user.name}, maybe drop them a follow! They were most recently playing {game} over at https://twitch.tv/{user.name}")
 
+    #####################################################################################################
+    # goals
+    #####################################################################################################
+    async def get_follow_goal_msg(self, streamer):
+        token = os.environ.get(f'TWITCH_CHANNEL_TOKEN_{streamer.name.lower()}')
+        generic_msg = "Be sure to follow the stream, every follower is greatly appreciated and there are no alerts for new followers, so don\'t worry about getting called out of lurk!"
+        if token:
+            goals = await streamer.fetch_goals(token=token)
+            for goal in goals:
+                if goal.type == 'follower':
+                    if goal.current_amount >= goal.target_amount:
+                        return f'We hit our follower goal to {goal.description} and will be doing that soon! {generic_msg}'
+                    else:
+                        return f'We are at {goal.current_amount} / {goal.target_amount} followers towards our goal to {goal.description}! {generic_msg}'
+        return generic_msg
+
+    @commands.command()
+    async def follow(self, ctx: commands.Context):
+        streamer = await ctx.message.channel.user()
+        message = await self.get_follow_goal_msg(streamer)
+        await self.post_chat_announcement(streamer, message)
+
+    @commands.command()
+    async def subgoal(self, ctx: commands.Context):
+        print("Calling !subgoal")
+        streamer = await ctx.message.channel.user()
+        print(streamer.id)
+
+    #####################################################################################################
+    # pubsub
+    #####################################################################################################
+    async def setup_pubsub(self):
+        self.pubsub = pubsub.PubSubPool(self)
+        topics = [
+            pubsub.bits(os.environ.get("TWITCH_CHANNEL_TOKEN_phantom5800"))[int(os.environ.get("TWITCH_CHANNEL_ID_phantom5800"))],
+            pubsub.channel_points(os.environ.get("TWITCH_CHANNEL_TOKEN_phantom5800"))[int(os.environ.get("TWITCH_CHANNEL_ID_phantom5800"))],
+            pubsub.channel_subscriptions(os.environ.get("TWITCH_CHANNEL_TOKEN_phantom5800"))[int(os.environ.get("TWITCH_CHANNEL_ID_phantom5800"))]
+        ]
+        await self.pubsub.subscribe_topics(topics)
+
+    async def event_pubsub_bits(self, event: pubsub.PubSubBitsMessage):
+        print(f"Bits [{event.bits_used}] from {event.user.name}")
+
+    async def event_pubsub_channel_points(self, event: pubsub.PubSubChannelPointsMessage):
+        print(f"Channel Point Redemption [{event.timestamp}]: {event.user.name} - {event.reward.title} - {event.input}")
+
+    async def event_pubsub_channel_subscriptions(self, event: pubsub.PubSubChannelSubscribe):
+        sub_type = f"Gift from {event.user.name}" if event.is_gift else event.sub_plan_name
+        subscriber = event.recipient.name if event.is_gift else event.user.name
+        print(f"Sub [{sub_type}]: {subscriber} subscribed for {event.cumulative_months}")
+
 def run_twitch_bot(sharedResources) -> PhantomGamesBot:
     bot = PhantomGamesBot(sharedResources)
+    bot.loop.create_task(bot.setup_pubsub())
     return bot
