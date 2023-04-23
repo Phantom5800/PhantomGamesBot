@@ -25,29 +25,40 @@ In Windows, it is possible to create a shortcut to the `run.bat` file and pin th
 At the root, anyone trying to run this will need a `.env` file that looks something like this:
 
 ```
+# Twitch Auth
 TWITCH_OAUTH_TOKEN={OAUTH Token for bot account}
 TWITCH_CLIENT_ID={Twitch Client ID}
+TWITCH_CHANNEL_TOKEN_{channel_name}={OAUTH Token for channel specific features}
+TWITCH_CHANNEL_ID_{channel_name}={integer ID for channel specific pubsub features}
+
+# Twitch Connections
 BOT_NICK={Bot Account Name}
 TWITCH_CHANNEL={comma seperated list of channel names}
 
+# Twitch Auto Timer
 TIMER_CHAT_LINES=
 TIMER_MINUTES=
 
-AUTO_CHAT_LINES_MIN_[channel]={minimum number of lines posted in [channel] before the bot posts a message}
-AUTO_CHAT_LINES_MOD_[channel]=
-
+# Twitch Markov posting channel overrides
+AUTO_CHAT_LINES_MIN_{channel}={minimum number of lines posted in [channel] before the bot posts a message}
+AUTO_CHAT_LINES_MOD_{channel}=
 AUTO_CHAT_MINUTES=
 
+# Bot command prefix
 BOT_PREFIX=!
 
+# Speedrun.com Data
 SRC_USER={comma seperated list of speedrun.com username}
 
+# Discord bot settings
 DISCORD_TOKEN={Discord bot Token}
 DISCORD_ROLE_MESSAGE_ID={ID of message containing reaction roles}
 DISCORD_SHARED_API_PROFILE={twitch name for shared resources like custom commands and quotes}
 
+# YouTube Settings
 YOUTUBE_API_KEY=
 
+# Twitter API Settings
 TWITTER_CONSUMER_KEY=
 TWITTER_CONSUMER_SECRET=
 TWITTER_ACCESS_TOKEN=
@@ -299,6 +310,8 @@ Can only be used by the broadcaster. Sets the current sub goal amount and an inc
 
 ### !subgoal ![](./readme/images/twitch.png)
 Posts a generic sub message. If there is a monthly sub goal set by `!setsubgoal`, it will show the current progress towards the goal.
+
+Note: _This feature only works if a user specific OAUTH token is configured as part of the `.env`_
 
 # Discord Settings
 PhantomGamesBot supports discord as well. The only setup required is to create an application in the [Discord Developer Portal](https://discord.com/developers/applications) and copy the token for the bot into `.env`. Other settings in the portal depend entirely on what you would be using the bot for.
