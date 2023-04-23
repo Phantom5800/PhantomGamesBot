@@ -709,7 +709,7 @@ class PhantomGamesBot(commands.Bot):
     async def setsubgoal(self, ctx: commands.Context):
         if ctx.message.author.is_broadcaster:
             params = ctx.message.content[len("!setsubgoal"):].strip().split(" ", 1)
-            if params != 2:
+            if len(params) != 2:
                 await ctx.send(f"{ctx.message.author.mention} !setsubgoal needs an integer goal and a message to be displayed. A goal of 0 will not show a sub goal in the !subgoal command")
                 return
             channel = ctx.message.channel.name.lower()
