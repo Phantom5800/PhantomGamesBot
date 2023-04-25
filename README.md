@@ -5,96 +5,6 @@ This is a Twitch and Discord chatbot used by https://twitch.tv/Phantom5800, writ
 
 This project is licensed under MIT, see [License](LICENSE) for more details. While it is not required, it would be greatly appreciated for any forks to create pull requests back into the original repository. New features and optimizations are always welcome.
 
-## Setup
-
-1. Install Python 3.7+
-2. Create a `.env` file (descripted below)
-3. From a command line:
-    * If you installed a version of Python that is not 3.9: `set PYVER=3.7`
-    * `setup.bat`
-    * `run.bat`
-
-### Shortcuts
-In Windows, it is possible to create a shortcut to the `run.bat` file and pin that to the start menu or task bar with a bit of effort.
-
-1. Right click on `run.bat` and select `Create shortcut`
-2. Right click on the new shortcut and change the target to `C:\Windows\System32\cmd.exe /c "C:\{path to bat file}\run.bat"`
-3. Right click on the shortcut again and `Pin to Start`
-
-## Env
-At the root, anyone trying to run this will need a `.env` file that looks something like this:
-
-```
-# Twitch Auth
-TWITCH_OAUTH_TOKEN={OAUTH Token for bot account}
-TWITCH_CLIENT_ID={Twitch Client ID}
-TWITCH_CHANNEL_TOKEN_{channel_name}={OAUTH Token for channel specific features}
-TWITCH_CHANNEL_ID_{channel_name}={integer ID for channel specific pubsub features}
-
-# Twitch Connections
-BOT_NICK={Bot Account Name}
-TWITCH_CHANNEL={comma seperated list of channel names}
-
-# Twitch Auto Timer
-TIMER_CHAT_LINES=
-TIMER_MINUTES=
-
-# Twitch Markov posting channel overrides
-AUTO_CHAT_LINES_MIN_{channel}={minimum number of lines posted in [channel] before the bot posts a message}
-AUTO_CHAT_LINES_MOD_{channel}=
-AUTO_CHAT_MINUTES=
-
-# Bot command prefix
-BOT_PREFIX=!
-
-# Speedrun.com Data
-SRC_USER={comma seperated list of speedrun.com username}
-
-# Discord bot settings
-DISCORD_TOKEN={Discord bot Token}
-DISCORD_ROLE_MESSAGE_ID={ID of message containing reaction roles}
-DISCORD_SHARED_API_PROFILE={twitch name for shared resources like custom commands and quotes}
-
-# YouTube Settings
-YOUTUBE_API_KEY=
-
-# Twitter API Settings
-TWITTER_CONSUMER_KEY=
-TWITTER_CONSUMER_SECRET=
-TWITTER_ACCESS_TOKEN=
-TWITTER_ACCESS_TOKEN_SECRET=
-```
-
-In order to fill out the `.env`, you'll need to register as a [Twitch developer](https://dev.twitch.tv/console/apps/create) and create an application, this will get you a client id. Then [generate an oauth token](https://twitchapps.com/tmi/) and you'll be good to go for running the bot locally.
-
-## OAuth
-This is an example URI used to generate a valid OAuth user token for all Twitch APIs used:
-
-```
-https://id.twitch.tv/oauth2/authorize?response_type=token&client_id=<enter your client id here>&redirect_uri=http%3A//localhost%3A3000&scope=bits%3Aread+chat%3Aread+chat%3Aedit+channel%3Aedit%3Acommercial+channel%3Amanage%3Abroadcast+channel%3Amoderate+channel%3Amanage%3Apolls+moderator%3Aread%3Achat_settings+moderator%3Amanage%3Achat_settings+moderator%3Aread%3Ashoutouts+moderator%3Amanage%3Ashoutouts+channel%3Amanage%3Apredictions+channel%3Aread%3Agoals+channel%3Aread%3Aredemptions+channel%3Aread%3Asubscriptions+channel%3Amanage%3Avips+moderator%3Aread%3Achatters+moderator%3Amanage%3Aannouncements
-```
-
-For readability sake, this is the list of permissions granted to the bot:
-
-* bits:read - bit events
-* chat:read - read chat messages
-* chat:edit - post in chat
-* channel:edit:commercial - run ads (currently not used, but could be)
-* channel:manage:broadcast - modify game, title, etc.
-* channel:moderate - moderator actions
-* channel:manage:polls - view, create and end polls
-* moderator:read:chat_settings - check for chat settings like slow mode, sub mode, etc.
-* moderator:manage:chat_settings - modify chat settings like slow mode, sub mode, etc.
-* moderator:read:shoutouts - view shoutouts
-* moderator:manage:shoutouts - send shoutouts
-* channel:manage:predictions - create and end predictions
-* channel:read:goals - read sub and follower goals set for stream
-* channel:read:redemptions - channel point redemptions
-* channel:read:subscriptions - view list of subscribers to a channel and check if user is subscribed
-* channel:manage:vips - view, add and remove vips
-* moderator:read:chatters - view list of people in chat
-* moderator:manage:announcements - post announcements
-
 # Spam Propagation
 The bot supports automatically posting nonsense based on messages it has read from twitch chat in the past. While chat logging is enabled, all twitch chat messages are logged to a text file. The next time the bot is restarted, it will generate a markov chain based on the current data set. These messages can be set to post automatically in chat on a timer using the `.env` configs.
 
@@ -118,6 +28,11 @@ Convert Celcius to Farenheit.
 ### !ftoc ![](./readme/images/twitch.png) ![](./readme/images/discord.png)
 Convert Farenheit to Celcius.
 
+### !follow ![](./readme/images/twitch.png)
+Posts a generic message to follow the stream. If there is a follow goal on twitch, it will show the progress towards that goal as well.
+
+Note: _This feature only works if a user specific OAUTH token is configured as part of the `.env`_
+
 ### !followage ![](./readme/images/twitch.png)
 Gets the length of time a user has followed the channel for.
 
@@ -129,6 +44,11 @@ Provides a basic help dialog, giving discord users more detail into what the bot
 
 ### !newvid ![](./readme/images/twitch.png) ![](./readme/images/discord.png)
 Posts a link to the latest YouTube upload associated with the streamer.
+
+### !subgoal ![](./readme/images/twitch.png)
+Posts a generic sub message. If there is a monthly sub goal set by `!setsubgoal`, it will show the current progress towards the goal.
+
+Note: _This feature only works if a user specific OAUTH token is configured as part of the `.env`_
 
 ### !title ![](./readme/images/twitch.png)
 Get the current title for the stream.
@@ -298,22 +218,12 @@ Get a list of all the current events added to the timer.
 # Stream Goals
 These commands are used for various dynamically updating stream goals.
 
-### !follow ![](./readme/images/twitch.png)
-Posts a generic message to follow the stream. If there is a follow goal on twitch, it will show the progress towards that goal as well.
-
-Note: _This feature only works if a user specific OAUTH token is configured as part of the `.env`_
-
 ### !setsubgoal ![](./readme/images/twitch.png)
 Can only be used by the broadcaster. Sets the current sub goal amount and an incentive. If the amount is set to 0, the incentive message is never shown, but still needs to be provided.
 
 ```
 !setsubgoal 100 a thing
 ```
-
-### !subgoal ![](./readme/images/twitch.png)
-Posts a generic sub message. If there is a monthly sub goal set by `!setsubgoal`, it will show the current progress towards the goal.
-
-Note: _This feature only works if a user specific OAUTH token is configured as part of the `.env`_
 
 # Discord Settings
 PhantomGamesBot supports discord as well. The only setup required is to create an application in the [Discord Developer Portal](https://discord.com/developers/applications) and copy the token for the bot into `.env`. Other settings in the portal depend entirely on what you would be using the bot for.
@@ -351,3 +261,97 @@ Sets the YouTube subgoal to be displayed in Twitch chat with a designated messag
 
 # Twitter Settings
 This bot will occasionally post on a connected Twitter account using text generated by Twitch chat logs. In order to do this, you will need a Twitter developer account with which you wish to post messages to and fill in `TWITTER_CONSUMER_KEY_*` with the API Key and Secret in your Twitter Developer Dashboard, and `TWITTER_ACCESS_TOKEN_*` with the relevant Access Token and Secret. Once configured, messages will be posted approximately once a day around the middle of the day with some amount of small variance.
+
+# Setup
+
+If anyone else wants to run a version of this bot, or fork it.
+
+## Initial Setup
+
+1. Install Python 3.7+
+2. Create a `.env` file (descripted below)
+3. From a command line:
+    * If you installed a version of Python that is not 3.9: `set PYVER=3.7`
+    * `setup.bat`
+    * `run.bat`
+
+### Shortcuts
+In Windows, it is possible to create a shortcut to the `run.bat` file and pin that to the start menu or task bar with a bit of effort.
+
+1. Right click on `run.bat` and select `Create shortcut`
+2. Right click on the new shortcut and change the target to `C:\Windows\System32\cmd.exe /c "C:\{path to bat file}\run.bat"`
+3. Right click on the shortcut again and `Pin to Start`
+
+## Env
+At the root, anyone trying to run this will need a `.env` file that looks something like this:
+
+```
+# Twitch Auth
+TWITCH_OAUTH_TOKEN={OAUTH Token for bot account}
+TWITCH_CLIENT_ID={Twitch Client ID}
+TWITCH_CHANNEL_TOKEN_{channel_name}={OAUTH Token for channel specific features}
+TWITCH_CHANNEL_ID_{channel_name}={integer ID for channel specific pubsub features}
+
+# Twitch Connections
+BOT_NICK={Bot Account Name}
+TWITCH_CHANNEL={comma seperated list of channel names}
+
+# Twitch Auto Timer
+TIMER_CHAT_LINES=
+TIMER_MINUTES=
+
+# Twitch Markov posting channel overrides
+AUTO_CHAT_LINES_MIN_{channel}={minimum number of lines posted in [channel] before the bot posts a message}
+AUTO_CHAT_LINES_MOD_{channel}=
+AUTO_CHAT_MINUTES=
+
+# Bot command prefix
+BOT_PREFIX=!
+
+# Speedrun.com Data
+SRC_USER={comma seperated list of speedrun.com username}
+
+# Discord bot settings
+DISCORD_TOKEN={Discord bot Token}
+DISCORD_ROLE_MESSAGE_ID={ID of message containing reaction roles}
+DISCORD_SHARED_API_PROFILE={twitch name for shared resources like custom commands and quotes}
+
+# YouTube Settings
+YOUTUBE_API_KEY=
+
+# Twitter API Settings
+TWITTER_CONSUMER_KEY=
+TWITTER_CONSUMER_SECRET=
+TWITTER_ACCESS_TOKEN=
+TWITTER_ACCESS_TOKEN_SECRET=
+```
+
+In order to fill out the `.env`, you'll need to register as a [Twitch developer](https://dev.twitch.tv/console/apps/create) and create an application, this will get you a client id. Then [generate an oauth token](https://twitchapps.com/tmi/) and you'll be good to go for running the bot locally.
+
+## OAuth
+This is an example URI used to generate a valid OAuth user token for all Twitch APIs used:
+
+```
+https://id.twitch.tv/oauth2/authorize?response_type=token&client_id=<enter your client id here>&redirect_uri=http%3A//localhost%3A3000&scope=bits%3Aread+chat%3Aread+chat%3Aedit+channel%3Aedit%3Acommercial+channel%3Amanage%3Abroadcast+channel%3Amoderate+channel%3Amanage%3Apolls+moderator%3Aread%3Achat_settings+moderator%3Amanage%3Achat_settings+moderator%3Aread%3Ashoutouts+moderator%3Amanage%3Ashoutouts+channel%3Amanage%3Apredictions+channel%3Aread%3Agoals+channel%3Aread%3Aredemptions+channel%3Aread%3Asubscriptions+channel%3Amanage%3Avips+moderator%3Aread%3Achatters+moderator%3Amanage%3Aannouncements
+```
+
+For readability sake, this is the list of permissions granted to the bot:
+
+* bits:read - bit events
+* chat:read - read chat messages
+* chat:edit - post in chat
+* channel:edit:commercial - run ads (currently not used, but could be)
+* channel:manage:broadcast - modify game, title, etc.
+* channel:moderate - moderator actions
+* channel:manage:polls - view, create and end polls
+* moderator:read:chat_settings - check for chat settings like slow mode, sub mode, etc.
+* moderator:manage:chat_settings - modify chat settings like slow mode, sub mode, etc.
+* moderator:read:shoutouts - view shoutouts
+* moderator:manage:shoutouts - send shoutouts
+* channel:manage:predictions - create and end predictions
+* channel:read:goals - read sub and follower goals set for stream
+* channel:read:redemptions - channel point redemptions
+* channel:read:subscriptions - view list of subscribers to a channel and check if user is subscribed
+* channel:manage:vips - view, add and remove vips
+* moderator:read:chatters - view list of people in chat
+* moderator:manage:announcements - post announcements
