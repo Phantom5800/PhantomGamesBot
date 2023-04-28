@@ -83,7 +83,7 @@ class QuoteHandler:
         quotes = []
         for quote_id in self.quotes[channel]:
             if keywrd.lower() in self.quotes[channel][quote_id]["quote"].lower():
-                quotes.append(f"[Quote #{quote_id}]: {self.quotes[channel][quote_id]}")
+                quotes.append(f"[Quote #{quote_id}]: {self.quotes[channel][quote_id]['quote']}")
         self.access_lock.release()
         if len(quotes) > 0:
             random_quote_id = random.randrange(len(quotes))

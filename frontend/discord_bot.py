@@ -114,12 +114,12 @@ class PhantomGamesBot(bridge.Bot):
     '''
     Handle anything that needs to be updated when a user's discord status changes.
     '''
-    async def on_presence_update(self, before, after):
+    #async def on_presence_update(self, before, after):
         # check to see when people go live or go offline
-        if isinstance(before.activity, discord.Streaming) and not isinstance(after.activity, discord.Streaming):
-            print(f"{before.display_name} was streaming, but isn't now")
-        elif not isinstance(before.activity, discord.Streaming) and isinstance(after.activity, discord.Streaming):
-            print(f"{before.display_name} is now streaming!")
+        # if isinstance(before.activity, discord.Streaming) and not isinstance(after.activity, discord.Streaming):
+        #     print(f"{before.display_name} was streaming, but isn't now")
+        # elif not isinstance(before.activity, discord.Streaming) and isinstance(after.activity, discord.Streaming):
+        #     print(f"{before.display_name} is now streaming!")
 
     '''
     Periodically call this function to post the latest video in youtube-uploads when a new one is posted.
@@ -135,6 +135,8 @@ class PhantomGamesBot(bridge.Bot):
                 f.seek(0)
                 f.write(youtube_vid)
                 f.truncate()
+            else:
+                print(f"[YouTube] No new video. Old: \"{last_vid}\" and Current: \"{youtube_vid}\"")
     
     async def announce_youtube_vid_task(self):
         while True:

@@ -725,6 +725,7 @@ class PhantomGamesBot(commands.Bot):
     # pubsub
     #####################################################################################################
     async def setup_pubsub(self, channel: str):
+        channel = channel.lower()
         self.pubsub[channel] = pubsub.PubSubPool(self)
         topics = [
             pubsub.bits(os.environ.get(f"TWITCH_CHANNEL_TOKEN_{channel}"))[int(os.environ.get(f"TWITCH_CHANNEL_ID_{channel}"))],
@@ -739,12 +740,25 @@ class PhantomGamesBot(commands.Bot):
     async def event_pubsub_channel_points(self, event: pubsub.PubSubChannelPointsMessage):
         print(f"Channel Point Redemption [{event.timestamp}]: {event.user.name} - {event.reward.title} - {event.input}")
 
-    async def event_pubsub_channel_subscriptions(self, event: pubsub.PubSubChannelSubscribe):
+        # attempt to give the user VIP
+        if "VIP" in event.reward.title:
+            streamer = await self.fetch_channel(str(event.channel_id))
+            for channel in self.connected_channels:
+                if channel.name.lower() == streamer.user.name.lower():
+                    try:
+                        await streamer.user.add_channel_vip(os.environ.get(f"TWITCH_CHANNEL_TOKEN_{streamer.user.name.lower()}"), event.user.id)
+                        await channel.send(f"Congrats to {event.user.name} for becoming a VIP!")
+                    except:
+                        await channel.send(f"{event.user.name} was not able to automatically be assigned VIP, the streamer will try and get to this as soon as possible!")
+
+    async def event_pubsub_subscription(self, event: pubsub.PubSubChannelSubscribe):
+        print("--[PUBSUB Channel Subscription]")
         sub_type = f"{event.sub_plan_name} Gift from \"{event.user.name if event.user else 'anonymous'}\"" if event.is_gift else event.sub_plan_name
         subscriber = event.recipient if event.is_gift else event.user
         print(f"Sub [{sub_type}]: {subscriber.name} subscribed for {event.cumulative_months}")
         self.subgoal_info[event.channel.name.lower()]["subs"][event.time.month - 1] += 1
         self.save_subgoal_data()
+        print("--")
 
 def run_twitch_bot(sharedResources) -> PhantomGamesBot:
     bot = PhantomGamesBot(sharedResources)
