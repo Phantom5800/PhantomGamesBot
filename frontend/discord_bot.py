@@ -295,8 +295,9 @@ class PhantomGamesBotModule(commands.Cog):
 
     @bridge.bridge_command(name="hours")
     async def get_youtube_hours(self, ctx):
-        count, duration = self.youtube.get_total_video_length(self.bot.account, "paper AND mario AND randomizer")
-        await ctx.respond(f"There are {count} videos totalling {int(duration.total_seconds() / 60 / 60)} hours of Paper Mario Randomizer on YouTube")
+        count, duration = self.youtube.get_cache_youtube_playlist_length(self.bot.account, "Paper Mario Randomizers")
+        youtube_url = self.youtube.get_youtube_url(self.bot.account)
+        await ctx.respond(f"There are {count} videos totalling {int(duration.total_seconds() / 60 / 60)} hours of Paper Mario Randomizer on YouTube: {youtube_url}")
 
     @bridge.bridge_command(name="ftoc")
     async def farenheit_to_celcius(self, ctx, farenheit: int):

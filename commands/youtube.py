@@ -14,6 +14,8 @@ class YouTubeData:
         self.setup_youtube_api()
 
         self.cache = {}
+        for channel in self.youtube_data:
+            self.cache_youtube_data(channel)
 
     def setup_youtube_api(self):
         self.youtube = googleapiclient.discovery.build("youtube", "v3", developerKey=os.environ.get('YOUTUBE_API_KEY'))
@@ -41,24 +43,20 @@ class YouTubeData:
             json_str = json.dumps(self.youtube_data[channel], indent=2)
             json_file.write(json_str)
         self.access_lock.release()
-    
-    def get_cache(self, channel: str, cache_field: str):
-        if not self.cache.get(channel):
-            self.cache[channel] = {}
-        if not self.cache[channel].get(cache_field):
-            self.cache[channel][cache_field] = {
-                "data": None,
-                "set_time": timestamp.now()
-            }
-        return self.cache[channel][cache_field]
 
-    def set_cache(self, channel: str, cache_field: str, data):
-        if not self.cache.get(channel):
+    def cache_youtube_data(self, channel: str):
+        channel = channel.lower()
+        if self.youtube_data[channel].get("playlists"):
             self.cache[channel] = {}
-        self.cache[channel][cache_field] = {
-            "data": data,
-            "set_time": timestamp.now()
-        }
+            for playlist in self.youtube_data[channel]["playlists"]:
+                self.cache[channel][playlist] = self.get_total_video_length(channel, self.youtube_data[channel]["playlists"][playlist])
+    
+    def get_cache_youtube_playlist_length(self, channel: str, playlist: str) -> tuple:
+        channel = channel.lower()
+        if self.cache.get(channel):
+            if self.cache[channel].get(playlist):
+                return self.cache[channel][playlist]
+        return 0,None
 
     '''
     Get the sub count of whatever youtube account is bound to the given twitch channel.
@@ -79,10 +77,7 @@ class YouTubeData:
                         return int(channel["statistics"]["subscriberCount"])
         return 0
 
-    '''
-    Generate a message to be returned for channel specific youtube commands.
-    '''
-    def get_youtube_com_message(self, channel: str) -> str:
+    def get_youtube_url(self, channel: str) -> str:
         channel = channel.lower()
         if self.youtube_data.get(channel):
             youtube_url = "https://youtube.com"
@@ -91,7 +86,19 @@ class YouTubeData:
             elif self.youtube_data[channel].get('channel_id'):
                 youtube_url = f"{youtube_url}/channel/{self.youtube_data[channel].get('channel_id')}"
             else:
-                return "" # exit immediately if no youtube channel is configured
+                return ""
+            return youtube_url
+        return ""
+
+    '''
+    Generate a message to be returned for channel specific youtube commands.
+    '''
+    def get_youtube_com_message(self, channel: str) -> str:
+        channel = channel.lower()
+        if self.youtube_data.get(channel):
+            youtube_url = self.get_youtube_url(channel)
+            if len(youtube_url) == 0:
+                return "" # exit immediately if no url
 
             subgoal = self.youtube_data[channel].get("subgoal")
             submsg =  self.youtube_data[channel].get("subgoal_message")
@@ -148,38 +155,43 @@ class YouTubeData:
     '''
     Get number of videos and total length matching a query
 
-    Note: This call is very expensive for the YouTube API quota and needs to be cached.
-          Estimated quota cost is 101 for every 50 videos that query hits.
+    Note: This should get cached since the data doesn't change very often.
+          Estimated quota cost is 2 for every 50 videos that query hits.
     '''
-    def get_total_video_length(self, channel: str, query: str = "") -> tuple:
+    def get_total_video_length(self, channel: str, playlist_id: str = "") -> tuple:
         channel = channel.lower()
         if self.youtube_data.get(channel) and self.youtube_data[channel].get("channel_id"):
             # refresh youtube api
             self.setup_youtube_api()
 
-            request = self.youtube.search().list(
-                part="snippet",
-                channelId=self.youtube_data[channel]["channel_id"],
-                order="date",
+            request = self.youtube.playlistItems().list(
+                part="snippet,status",
                 maxResults=50,
-                q=query
+                playlistId=playlist_id
             )
             response = request.execute()
 
             total_duration = timedelta()
-            total_videos = response["pageInfo"].get("totalResults")
+            total_videos = 0
             while True:
                 video_id_list = ""
                 first = True
                 for video in response.get("items"):
+                    # skip over private videos in a playlist
+                    if video.get("status"):
+                        if video["status"].get("privacyStatus") == "private":
+                            continue
+
                     if first:
                         first = False
                     else:
                         video_id_list += ","
                     
-                    if video.get("id"):
-                        if video["id"].get("videoId"):
-                            video_id_list += str(video["id"]["videoId"])
+                    if video.get("snippet"):
+                        if video["snippet"].get("resourceId"):
+                            if video["snippet"]["resourceId"].get("videoId"):
+                                total_videos += 1
+                                video_id_list += str(video["snippet"]["resourceId"]["videoId"])
 
                 video_request = self.youtube.videos().list(
                     part="snippet,contentDetails",
@@ -209,7 +221,6 @@ class YouTubeData:
                     return timedelta(days=int(days), hours=int(hours), minutes=int(minutes), seconds=int(seconds))
 
                 for video in video_data.get("items"):
-                    print(video.get("snippet").get("title"))
                     if video.get("contentDetails"):
                         duration = video["contentDetails"].get("duration")
                         if duration:
@@ -217,12 +228,10 @@ class YouTubeData:
 
                 if not response.get("nextPageToken"):
                     break
-                request = self.youtube.search().list(
-                    part="snippet",
-                    channelId=self.youtube_data[channel]["channel_id"],
-                    order="date",
+                request = self.youtube.playlistItems().list(
+                    part="snippet,status",
                     maxResults=50,
-                    q=query,
+                    playlistId=playlist_id,
                     pageToken=response["nextPageToken"]
                 )
                 response = request.execute()
