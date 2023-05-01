@@ -752,13 +752,11 @@ class PhantomGamesBot(commands.Bot):
                         await channel.send(f"{event.user.name} was not able to automatically be assigned VIP, the streamer will try and get to this as soon as possible!")
 
     async def event_pubsub_subscription(self, event: pubsub.PubSubChannelSubscribe):
-        print("--[PUBSUB Channel Subscription]")
+        # this function would be better implemented as part of eventsub, but that requires a lot more work
         sub_type = f"{event.sub_plan_name} Gift from \"{event.user.name if event.user else 'anonymous'}\"" if event.is_gift else event.sub_plan_name
         subscriber = event.recipient if event.is_gift else event.user
-        print(f"Sub [{sub_type}]: {subscriber.name} subscribed for {event.cumulative_months}")
         self.subgoal_info[event.channel.name.lower()]["subs"][event.time.month - 1] += 1
         self.save_subgoal_data()
-        print("--")
 
 def run_twitch_bot(sharedResources) -> PhantomGamesBot:
     bot = PhantomGamesBot(sharedResources)

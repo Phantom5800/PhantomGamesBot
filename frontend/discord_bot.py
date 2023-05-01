@@ -1,6 +1,6 @@
 import asyncio
 from copy import deepcopy
-from datetime import datetime, timedelta
+from datetime import datetime, timedelta, timezone
 import json
 import os
 import discord
@@ -139,11 +139,22 @@ class PhantomGamesBot(bridge.Bot):
                 print(f"[YouTube] No new video. Old: \"{last_vid}\" and Current: \"{youtube_vid}\"")
     
     async def announce_youtube_vid_task(self):
+        channel = self.get_channel(self.channels["youtube-uploads"])
         while True:
-            await self.announce_new_youtube_vid()
+            now = datetime.now(timezone.utc)
 
-            now = datetime.now()
-            today = now.replace(hour = 12, minute = 10, second = 0, microsecond = 0)
+            last_post = (await channel.history(limit=1).flatten())[0]
+            last_post_time = last_post.created_at
+            time_since_last_post = now - last_post_time
+
+            if time_since_last_post.total_seconds() >= 24 * 60 * 60:
+                try:
+                    await self.announce_new_youtube_vid()
+                except:
+                    print("[Youtube] Rate limit reached for the day")
+
+            # 19:00 UTC = noon PT
+            today = now.replace(hour = 19, minute = 10, second = 0, microsecond = 0)
             tomorrow = today + timedelta(days = 1)
             seconds = (tomorrow - now).total_seconds()
             print(f"[Youtube {now}] Checking for new youtube video in {seconds} seconds")
@@ -281,6 +292,11 @@ class PhantomGamesBotModule(commands.Cog):
         self.bot.commands_since_new_status += 1
         if len(response) > 0:
             await ctx.respond(response)
+
+    @bridge.bridge_command(name="hours")
+    async def get_youtube_hours(self, ctx):
+        count, duration = self.youtube.get_total_video_length(self.bot.account, "paper AND mario AND randomizer")
+        await ctx.respond(f"There are {count} videos totalling {int(duration.total_seconds() / 60 / 60)} hours of Paper Mario Randomizer on YouTube")
 
     @bridge.bridge_command(name="ftoc")
     async def farenheit_to_celcius(self, ctx, farenheit: int):
