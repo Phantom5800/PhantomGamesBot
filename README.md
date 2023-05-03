@@ -225,6 +225,21 @@ Can only be used by the broadcaster. Sets the current sub goal amount and an inc
 !setsubgoal 100 a thing
 ```
 
+# Sub-a-thon Settings
+This is a set of commands that can be used to manage a sub-a-thon style timer where time is automatically added based on bits and subs with the ability to add more time manually.
+
+### !startsubathon ![](./readme/images/twitch.png)
+Starts an internal sub-a-thon timer
+
+### !pausesubathon ![](./readme/images/twitch.png)
+Pause the currently running timer
+
+### !resumesubathon ![](./readme/images/twitch.png)
+Resumes a previously paused sub-a-thon timer
+
+### !addsubathontime ![](./readme/images/twitch.png)
+Manually add time to the sub-a-thon timer. This value treated should be treated similarly to bits, ie., whole numbers where 100 = $1.
+
 # Discord Settings
 PhantomGamesBot supports discord as well. The only setup required is to create an application in the [Discord Developer Portal](https://discord.com/developers/applications) and copy the token for the bot into `.env`. Other settings in the portal depend entirely on what you would be using the bot for.
 

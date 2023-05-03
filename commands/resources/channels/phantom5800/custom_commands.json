@@ -117,7 +117,7 @@
   "hi": {
     "response": "hi $user",
     "cooldown": 10,
-    "last_use": 1678819330.155684
+    "last_use": 1682962444.300467
   },
   "!nmsb": {
     "response": "/announce No Major Sequence Breaks is a category that bridges the gap between Glitchless and All Cards. The important parts are that chapters must be completed in order, and story sequence can never go backwards.",
@@ -160,7 +160,7 @@
     "last_use": 1678373272.731988
   },
   "!settings": {
-    "response": "/announce Barren NonElement Dungeons, Shuffled Dungeon Entrances, Blue/Green/Gold fusions complete, Golden Enemies, 3 Goron Merchant, 1 Cucco, Pedestal Items, (almost) all wind crests open",
+    "response": "/announce Barren NonElement Dungeons, Shuffled Dungeon Entrances, Blue/Green/Gold fusions complete, Rupees, Pots, Dojo, 2 JP Goron Merchant, 1 Cucco, Pedestal Items, (almost) all wind crests open, Non Progressive Upgrades, Hendrus Shuffler",
     "cooldown": 0,
     "last_use": 0
   },
@@ -177,6 +177,6 @@
   "linkfall": {
     "response": "LinkFALL",
     "cooldown": 15,
-    "last_use": 1680539225.769813
+    "last_use": 1682963526.117161
   }
 }

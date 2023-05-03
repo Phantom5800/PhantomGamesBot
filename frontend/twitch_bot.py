@@ -1,4 +1,4 @@
-from datetime import datetime, timezone
+from datetime import datetime, timedelta, timezone
 import json
 import os
 import random
@@ -33,6 +33,9 @@ class PhantomGamesBot(commands.Bot):
                     "incentive": "",
                     "goal": 0
                 }
+
+        # sub-a-thon tracker
+        self.subathon_timer = {}
 
         # command handlers
         self.custom = sharedResources.customCommandHandler
@@ -721,6 +724,71 @@ class PhantomGamesBot(commands.Bot):
             await ctx.send(f"{ctx.message.author.mention} subgoal set to {self.subgoal_info[channel]['goal']} with the goal \"{self.subgoal_info[channel]['incentive']}\"")
             self.save_subgoal_data()
 
+    @commands.command()
+    async def wherespape(self, ctx: commands.Context):
+        streamer = await ctx.message.channel.user()
+        channel_name = streamer.name.lower()
+        if channel_name == "phantom5800":
+            count, duration = self.youtube.get_cache_youtube_playlist_length(channel_name, "Paper Mario Randomizers")
+            youtube_url = self.youtube.get_youtube_url(channel_name)
+            await self.post_chat_announcement(streamer, f"There are {count} videos totalling {int(duration.total_seconds() / 60 / 60)} hours of Paper Mario Randomizer on YouTube, surely you haven't watched all of it: {youtube_url}")
+
+    #####################################################################################################
+    # sub-a-thon timers
+    #####################################################################################################
+    @commands.command()
+    async def startsubathon(self, ctx: commands.Context, starting_hours: int = 12):
+        if ctx.message.author.is_broadcaster:
+            streamer = await ctx.message.channel.user()
+            channel_name = streamer.name.lower()
+
+            self.subathon_timer[channel_name] = {
+                "start": datetime.now(),
+                "duration": timedelta(hours = starting_hours),
+                "state": "running"
+            }
+            print(f"{channel_name} Sub-a-thon starting at {self.subathon_timer[channel_name]['start']} for {starting_hours} hours")
+
+    @commands.command()
+    async def pausesubathon(self, ctx: commands.Context):
+        if ctx.message.author.is_broadcaster:
+            streamer = await ctx.message.channel.user()
+            channel_name = streamer.name.lower()
+
+            self.subathon_timer[channel_name]["duration"] -= (datetime.now() - self.subathon_timer[channel_name]["start"])
+            self.subathon_timer[channel_name]["state"] = "paused"
+            print(f"{channel_name} Sub-a-thon timer paused with {self.subathon_timer[channel_name]['duration']} left")
+    
+    @commands.command()
+    async def resumesubathon(self, ctx: commands.Context):
+        if ctx.message.author.is_broadcaster:
+            streamer = await ctx.message.channel.user()
+            channel_name = streamer.name.lower()
+
+            self.subathon_timer[channel_name]["start"] = datetime.now()
+            self.subathon_timer[channel_name]["state"] = "running"
+            print(f"{channel_name} Sub-a-thon timer resumed at {self.subathon_timer[channel_name]['start']} with {self.subathon_timer[channel_name]['duration']}")
+
+    def add_subathon_value(self, channel_name: str, dollar_value: int):
+        if self.subathon_timer[channel_name]:
+            minutes_conv = tryParseInt(os.environ.get("MINUTE_PER_DOLLAR"), 1)
+            value = dollar_value * minutes_conv
+            minutes = int(value / 100)
+            seconds = int((value - minutes * 100) * 60 / 100)
+
+            time_added = timedelta(minutes = minutes, seconds = seconds)
+            self.subathon_timer[channel_name]["duration"] += time_added
+            return time_added
+        return None
+
+    @commands.command()
+    async def addsubathontime(self, ctx: commands.Context, dollar_value: int = 100):
+        if ctx.message.author.is_mod:
+            streamer = await ctx.message.channel.user()
+            channel_name = streamer.name.lower()
+            time_added = self.add_subathon_value(channel_name, dollar_value)
+            await ctx.send(f"{ctx.message.author.mention} added {time_added}")
+
     #####################################################################################################
     # pubsub
     #####################################################################################################
@@ -735,10 +803,11 @@ class PhantomGamesBot(commands.Bot):
         await self.pubsub[channel].subscribe_topics(topics)
 
     async def event_pubsub_bits(self, event: pubsub.PubSubBitsMessage):
-        print(f"Bits [{event.bits_used}] from {event.user.name}")
+        #print(f"Bits [{event.bits_used}] from {event.user.name}")
+        self.add_subathon_value("phantom5800", event.bits_used)
 
     async def event_pubsub_channel_points(self, event: pubsub.PubSubChannelPointsMessage):
-        print(f"Channel Point Redemption [{event.timestamp}]: {event.user.name} - {event.reward.title} - {event.input}")
+        #print(f"Channel Point Redemption [{event.timestamp}]: {event.user.name} - {event.reward.title} - {event.input}")
 
         # attempt to give the user VIP
         if "VIP" in event.reward.title:
@@ -755,6 +824,11 @@ class PhantomGamesBot(commands.Bot):
         # this function would be better implemented as part of eventsub, but that requires a lot more work
         sub_type = f"{event.sub_plan_name} Gift from \"{event.user.name if event.user else 'anonymous'}\"" if event.is_gift else event.sub_plan_name
         subscriber = event.recipient if event.is_gift else event.user
+
+        # months purchased at one time, assume 1 if not provided
+        months = event.multi_month_duration if event.multi_month_duration else 1
+        print(f"{subscriber} subbed for {event.cumulative_months} at {event.sub_plan}")
+
         self.subgoal_info[event.channel.name.lower()]["subs"][event.time.month - 1] += 1
         self.save_subgoal_data()
 
