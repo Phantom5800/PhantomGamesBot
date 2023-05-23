@@ -1,5 +1,6 @@
 import asyncio
 from copy import deepcopy
+from enum import IntEnum
 from datetime import datetime, timedelta, timezone
 import json
 import os
@@ -147,7 +148,7 @@ class PhantomGamesBot(bridge.Bot):
             last_post_time = last_post.created_at
             time_since_last_post = now - last_post_time
 
-            if time_since_last_post.total_seconds() >= 24 * 60 * 60:
+            if time_since_last_post.total_seconds() >= 12 * 60 * 60:
                 try:
                     await self.announce_new_youtube_vid()
                 except:
@@ -155,7 +156,9 @@ class PhantomGamesBot(bridge.Bot):
 
             # 19:00 UTC = noon PT
             today = now.replace(hour = 19, minute = 10, second = 0, microsecond = 0)
-            tomorrow = today + timedelta(days = 1)
+            tomorrow = today
+            if tomorrow < now:
+                tomorrow += timedelta(days = 1)
             seconds = (tomorrow - now).total_seconds()
             print(f"[Youtube {now}] Checking for new youtube video in {seconds} seconds")
 
@@ -252,7 +255,7 @@ class PhantomGamesBotModule(commands.Cog):
         response = None
 
         if "latest" in quote_id.lower():
-            await ctx.respond(self.quotes.pick_specific_quote(str(self.quotes.num_quotes() - 1), self.bot.account))
+            await ctx.respond(self.quotes.pick_specific_quote(str(self.quotes.num_quotes(self.bot.account) - 1), self.bot.account))
             return
 
         quote = tryParseInt(quote_id, -1)
@@ -266,11 +269,13 @@ class PhantomGamesBotModule(commands.Cog):
         if response is not None:
             await ctx.respond(response)
 
-    @bridge.bridge_command(name="slots")
+    @bridge.bridge_command(name="slots",
+        brief="Roll the slot machine")
     async def get_slots(self, ctx):
         await ctx.respond(self.slots.roll(""))
 
-    @bridge.bridge_command(name="chat")
+    @bridge.bridge_command(name="chat",
+        brief="Generate a random bot message")
     async def gen_chat_msg(self, ctx):
         response = self.markov.get_markov_string()
         self.bot.commands_since_new_status += 1
@@ -307,9 +312,131 @@ class PhantomGamesBotModule(commands.Cog):
     async def celcius_to_farenheit(self, ctx, celcius: int):
         await ctx.respond(f"{celcius}°C = {str(round(celcius * 9 / 5 + 32, 2))}°F")
 
+class PollButton(discord.ui.Button):
+    def __init__(self, poll_manager, poll_id: int, label=None, emoji=None, row=None):
+        super().__init__(label=label, emoji=emoji, row=row)
+        self.manager = poll_manager
+        self.id = poll_id
+
+    async def callback(self, interaction):
+        self.manager.update_votes(self.id, self.label, interaction.user)
+        await interaction.response.defer()
+
+class PollType(IntEnum):
+    BonusRandomizer = 0
+    ZeldaRando = 1
+    PapeRando = 2
+
+class PhantomGamesBotPolls(commands.Cog):
+    def __init__(self):
+        self.polls = [
+            {
+                'active': True,
+                'decision': "We're doing an extra rando this week, what should it be?",
+                'options': [
+                    "Minish Cap",
+                    "Pokémon Crystal"
+                ],
+                'votes': {}
+            },
+            {
+                'active': True,
+                'decision': "What Zelda Rando do we do this weekend?",
+                'options': [
+                    "Link to the Past",
+                    "Minish Cap",
+                    "Oracle of Seasons",
+                    "Zelda 1"
+                ],
+                'votes': {}
+            },
+            {
+                'active': True,
+                'decision': "Which extra setting should we use in Pape Rando?",
+                'options': [
+                    "Coins",
+                    "Koopa Koot",
+                    "Dungeon Shuffle",
+                    "Random Starting Location",
+                    "Jumpless"
+                ],
+                'votes': {}
+            }
+        ]
+
+    def update_votes(self, id: int, choice: str, user):
+        vote_value = 1
+        for role in user.roles:
+            # don't count the streamers vote lol
+            if role.name == "Phantom":
+                vote_value = 0
+                break
+            # one extra vote per tier of twitch sub
+            if "Twitch Subscriber: Tier" in role.name:
+                vote_value += int(role.name[-1])
+            # one extra vote for boosting the discord server
+            if role.name == "Server Booster":
+                vote_value += 1
+
+        self.polls[id]['votes'][user.id] = f"{choice} [{vote_value}]"
+
+    def count_votes(self):
+        vote_results = ""
+        for poll in self.polls:
+            if poll['active']:
+                vote_results += f"{poll['decision']}\n"
+                vote_totals = {}
+                total_votes = 0
+                for vote in poll['options']:
+                    vote_totals[vote] = 0
+                for vote in poll['votes']:
+                    segments = vote.split(' ')
+                    vote_value = int(segments[1][1:-1])
+                    vote_totals[segments[0]] += vote_value
+                    total_votes += vote_value
+                for vote in vote_totals:
+                    if total_votes > 0:
+                        vote_results += f"> {vote}: {int(vote_totals[vote] / total_votes * 100)}%\n"
+                    else:
+                        vote_results += f"> {vote}: 0%\n"
+        return vote_results
+
+    @bridge.bridge_command(name="pollresults",
+        brief="Get the results of the current stream polls")    
+    async def pollresults(self, ctx):
+        if ctx.author.id == int(os.environ.get("DISCORD_STREAMER_ID")):
+            await ctx.respond(self.count_votes())
+        else:
+            await ctx.respond("You don't have permission to see poll results")
+
+    @bridge.bridge_command(name="togglepoll",
+        brief="Toggle if a specific poll should be active this week")
+    async def togglepoll(self, ctx, poll: PollType):
+        if ctx.author.id == int(os.environ.get("DISCORD_STREAMER_ID")):
+            self.polls[poll]['active'] = not self.polls[poll]['active']
+            await ctx.respond(f"{PollType(poll).name} is now {'enabled' if self.polls[poll]['active'] else 'disabled'}")
+        else:
+            await ctx.respond("You don't have permission to set the poll")
+
+    # Polls need to only allow users to vote once, selecting another option changes their vote
+    # Twitch subs count for an extra vote per tier
+    # Need to be able to reconnect to messages when the bot restarts
+    @bridge.bridge_command(name="currentpolls",
+        brief="Get the current stream polls for users to respond to")
+    async def currentpolls(self, ctx):
+        await ctx.respond("Here are the current polls for this week. Reminder that Twitch subs and Discord Server Boosters get extra votes!")
+        for k,poll in enumerate(self.polls):
+            if poll['active']:
+                view = discord.ui.View()
+                for opt in poll['options']:
+                    button = PollButton(self, k, label=opt)
+                    view.add_item(button)
+                await ctx.channel.send(poll['decision'], view=view)
+
 def run_discord_bot(eventLoop, sharedResources):
     bot = PhantomGamesBot(sharedResources)
     bot.add_cog(PhantomGamesBotModule(bot, sharedResources))
+    bot.add_cog(PhantomGamesBotPolls())
     async def runBot():
         await bot.start(os.environ['DISCORD_TOKEN'])
 

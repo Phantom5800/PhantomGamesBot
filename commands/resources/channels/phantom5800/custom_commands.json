@@ -32,7 +32,7 @@
   "@phantomgamesbot": {
     "response": "$user $msg",
     "cooldown": 5,
-    "last_use": 1680538590.73485
+    "last_use": 1684442798.849237
   },
   "!github": {
     "response": "/announce All my open source code projects are available on github: https://github.com/Phantom5800",
@@ -87,7 +87,7 @@
   "!channelpoints": {
     "response": "/announce Link to valid speedrun games for channel point redemptions: https://docs.google.com/spreadsheets/d/e/2PACX-1vTKX_blzPsWxGhxf9yCrMRF1IOzOG_nimLyYm_5iw9QeB5TJ6fXEjxV1AN0Nxo2qKmv_UmN6I8qGTa4/pubhtml",
     "cooldown": 0,
-    "last_use": 0
+    "last_use": 1684441518.005832
   },
   "ezekiel": {
     "response": "Ezekiel",
@@ -117,7 +117,7 @@
   "hi": {
     "response": "hi $user",
     "cooldown": 10,
-    "last_use": 1682962444.300467
+    "last_use": 1684442831.628105
   },
   "!nmsb": {
     "response": "/announce No Major Sequence Breaks is a category that bridges the gap between Glitchless and All Cards. The important parts are that chapters must be completed in order, and story sequence can never go backwards.",
@@ -160,7 +160,7 @@
     "last_use": 1678373272.731988
   },
   "!settings": {
-    "response": "/announce Barren NonElement Dungeons, Shuffled Dungeon Entrances, Blue/Green/Gold fusions complete, Rupees, Pots, Dojo, 2 JP Goron Merchant, 1 Cucco, Pedestal Items, (almost) all wind crests open, Non Progressive Upgrades, Hendrus Shuffler",
+    "response": "/announce race mode, 3 dungeons, puzzle secret caves, great fairies, free gifts, misc, no starting sword, random starting island",
     "cooldown": 0,
     "last_use": 0
   },
@@ -178,5 +178,15 @@
     "response": "LinkFALL",
     "cooldown": 15,
     "last_use": 1682963526.117161
+  },
+  "!totk": {
+    "response": "fuck no lol",
+    "cooldown": 0,
+    "last_use": 0
+  },
+  "!sgdq": {
+    "response": "/announce I'll be in Minneapolis, MN for SGDQ from May 27th - June 4th! Streams will return when I get back, YouTube uploads obviously won't be impacted at all. You'll be able to see me on couch commentary for Minish Cap Any% by Myth197 on the 28th, as well as Paper Mario Any% No ACE by mx_four on the 31st! https://gamesdonequick.com/schedule/43",
+    "cooldown": 0,
+    "last_use": 0
   }
 }

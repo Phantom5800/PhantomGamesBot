@@ -335,7 +335,7 @@ class PhantomGamesBot(commands.Bot):
         message = self.custom.get_command(command, channel)
         if message is None:
             if command == "!follow":
-                msg = await self.get_follow_goal_msg(streamer)
+                msg = await self.get_goal_msg(streamer)
                 await self.post_chat_announcement(streamer, msg)
             elif command == "!subgoal":
                 msg = await self.get_subgoal_msg(streamer.name)
@@ -471,6 +471,7 @@ class PhantomGamesBot(commands.Bot):
     Get the personal best time for a game/category on speedrun.com. This command does take a few seconds to respond while it performs a search.
     '''
     @commands.command()
+    @commands.cooldown(1, 10, commands.Bucket.channel)
     async def pb(self, ctx: commands.Context):
         if len(os.environ['SRC_USER']) > 0:
             category = ctx.message.content[3:].strip()
@@ -506,6 +507,7 @@ class PhantomGamesBot(commands.Bot):
     # youtube
     #####################################################################################################
     @commands.command()
+    @commands.cooldown(1, 10, commands.Bucket.channel)
     async def youtube(self, ctx: commands.Context):
         response = self.youtube.get_youtube_com_message(ctx.message.channel.name)
         if len(response) > 0:
@@ -586,6 +588,7 @@ class PhantomGamesBot(commands.Bot):
     Attempt to get how long a user has been following the channel for.
     '''
     @commands.command()
+    @commands.cooldown(1, 60, commands.Bucket.user)
     async def followage(self, ctx: commands.Context):
         streamer = await get_twitch_user(self, ctx.message.channel.name)
         try:
@@ -628,6 +631,7 @@ class PhantomGamesBot(commands.Bot):
     Get information about the bot itself.
     '''
     @commands.command()
+    @commands.cooldown(1, 5, commands.Bucket.channel)
     async def bot(self, ctx: commands.Context):
         await ctx.send("Hey! I am a custom chatbot written in Python, my source code is available at: https://github.com/Phantom5800/PhantomGamesBot")
 
@@ -635,6 +639,7 @@ class PhantomGamesBot(commands.Bot):
     Get the current game being played on twitch.
     '''
     @commands.command()
+    @commands.cooldown(1, 5, commands.Bucket.channel)
     async def game(self, ctx: commands.Context):
         game_name = await get_game_name_from_twitch_for_user(self, ctx.message.channel.name)
         await ctx.send(game_name)
@@ -643,6 +648,7 @@ class PhantomGamesBot(commands.Bot):
     Get the current title of the stream.
     '''
     @commands.command()
+    @commands.cooldown(1, 5, commands.Bucket.channel)
     async def title(self, ctx: commands.Context):
         streamtitle = await get_stream_title_for_user(self, ctx.message.channel.name)
         await ctx.send(streamtitle)
@@ -651,6 +657,7 @@ class PhantomGamesBot(commands.Bot):
     Give a shoutout to a specific user in chat.
     '''
     @commands.command(aliases=["shoutout"])
+    @commands.cooldown(1, 60, commands.Bucket.channel)
     async def so(self, ctx: commands.Context, user: PartialUser = None):
         if ctx.message.author.is_mod and user is not None:
             game = await get_game_name_from_twitch_for_user(self, user.name)
@@ -660,23 +667,32 @@ class PhantomGamesBot(commands.Bot):
     #####################################################################################################
     # goals
     #####################################################################################################
-    async def get_follow_goal_msg(self, streamer) -> str:
+    async def get_goal_msg(self, streamer, follower: bool = True) -> str:
         token = os.environ.get(f'TWITCH_CHANNEL_TOKEN_{streamer.name.lower()}')
         generic_msg = "Be sure to follow the stream, every follower is greatly appreciated and there are no alerts for new followers, so don\'t worry about getting called out of lurk!"
         if token:
             goals = await streamer.fetch_goals(token=token)
             for goal in goals:
-                if goal.type == 'follower':
+                if goal.type == 'follower' and follower:
                     if goal.current_amount >= goal.target_amount:
                         return f'We hit our follower goal to {goal.description} and will be doing that soon! {generic_msg}'
                     else:
                         return f'We are at {goal.current_amount} / {goal.target_amount} followers towards our goal to {goal.description}! {generic_msg}'
-        return generic_msg
+                elif 'subscription' in goal.type and not follower:
+                    if goal.current_amount >= goal.target_amount:
+                        return f'We hit our follower sub to {goal.description} and will be doing that soon!'
+                    else:
+                        return f'We are at {goal.current_amount} / {goal.target_amount} subs towards our goal to {goal.description}!'
+        if follower:
+            return generic_msg
+        else:
+            return None
 
     @commands.command()
+    @commands.cooldown(1, 10, commands.Bucket.channel)
     async def follow(self, ctx: commands.Context):
         streamer = await ctx.message.channel.user()
-        message = await self.get_follow_goal_msg(streamer)
+        message = await self.get_goal_msg(streamer)
         await self.post_chat_announcement(streamer, message)
 
     def load_subgoal_data(self):
@@ -706,9 +722,12 @@ class PhantomGamesBot(commands.Bot):
             return f"Our subgoal for {month} was hit! We'll be doing {incentive} next month."
 
     @commands.command()
+    @commands.cooldown(1, 10, commands.Bucket.channel)
     async def subgoal(self, ctx: commands.Context):
         streamer = await ctx.message.channel.user()
-        msg = await self.get_subgoal_msg(ctx.message.channel.name)
+        msg = await self.get_goal_msg(streamer, follower=False)
+        if msg is None:
+            msg = await self.get_subgoal_msg(ctx.message.channel.name)
         await self.post_chat_announcement(streamer, msg)
 
     @commands.command()
@@ -725,6 +744,7 @@ class PhantomGamesBot(commands.Bot):
             self.save_subgoal_data()
 
     @commands.command()
+    @commands.cooldown(1, 10, commands.Bucket.channel)
     async def wherespape(self, ctx: commands.Context):
         streamer = await ctx.message.channel.user()
         channel_name = streamer.name.lower()
@@ -770,7 +790,7 @@ class PhantomGamesBot(commands.Bot):
             print(f"{channel_name} Sub-a-thon timer resumed at {self.subathon_timer[channel_name]['start']} with {self.subathon_timer[channel_name]['duration']}")
 
     def add_subathon_value(self, channel_name: str, dollar_value: int):
-        if self.subathon_timer[channel_name]:
+        if self.subathon_timer.get(channel_name):
             minutes_conv = tryParseInt(os.environ.get("MINUTE_PER_DOLLAR"), 1)
             value = dollar_value * minutes_conv
             minutes = int(value / 100)
@@ -782,6 +802,7 @@ class PhantomGamesBot(commands.Bot):
         return None
 
     @commands.command()
+    @commands.cooldown(1, 10, commands.Bucket.channel)
     async def addsubathontime(self, ctx: commands.Context, dollar_value: int = 100):
         if ctx.message.author.is_mod:
             streamer = await ctx.message.channel.user()
@@ -827,7 +848,7 @@ class PhantomGamesBot(commands.Bot):
 
         # months purchased at one time, assume 1 if not provided
         months = event.multi_month_duration if event.multi_month_duration else 1
-        print(f"{subscriber} subbed for {event.cumulative_months} at {event.sub_plan}")
+        print(f"{subscriber} subbed for {event.cumulative_months} at {event.sub_plan} '{event.sub_plan_name}'")
 
         self.subgoal_info[event.channel.name.lower()]["subs"][event.time.month - 1] += 1
         self.save_subgoal_data()

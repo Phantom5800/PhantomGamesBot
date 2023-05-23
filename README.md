@@ -328,8 +328,8 @@ SRC_USER={comma seperated list of speedrun.com username}
 
 # Discord bot settings
 DISCORD_TOKEN={Discord bot Token}
-DISCORD_ROLE_MESSAGE_ID={ID of message containing reaction roles}
 DISCORD_SHARED_API_PROFILE={twitch name for shared resources like custom commands and quotes}
+DISCORD_STREAMER_ID={Discord user id for account to ignore votes from}
 
 # YouTube Settings
 YOUTUBE_API_KEY=
