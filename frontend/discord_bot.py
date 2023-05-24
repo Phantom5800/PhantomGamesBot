@@ -1,9 +1,10 @@
 import asyncio
 from copy import deepcopy
-from enum import IntEnum
 from datetime import datetime, timedelta, timezone
+from enum import IntEnum
 import json
 import os
+from threading import Timer
 import discord
 import random
 from discord.ext import bridge, commands
@@ -363,6 +364,23 @@ class PhantomGamesBotPolls(commands.Cog):
                 'votes': {}
             }
         ]
+        self.load_poll_state()
+        self.save_timer = None
+
+    def save_poll_state(self):
+        with open(f'./commands/resources/discord_polls.json', 'w', encoding='utf-8') as json_file:
+            json_str = json.dumps(self.polls, indent=2)
+            json_file.write(json_str)
+
+    def load_poll_state(self):
+        with open(f'./commands/resources/discord_polls.json', 'r', encoding='utf-8') as json_file:
+            data = json.load(json_file)
+            self.polls = deepcopy(data)
+
+    def clear_votes(self):
+        for poll in self.polls:
+            poll['votes'] = {}
+        self.save_poll_state()
 
     def update_votes(self, id: int, choice: str, user):
         vote_value = 1
@@ -378,7 +396,15 @@ class PhantomGamesBotPolls(commands.Cog):
             if role.name == "Server Booster":
                 vote_value += 1
 
-        self.polls[id]['votes'][user.id] = f"{choice} [{vote_value}]"
+        self.polls[id]['votes'][str(user.id)] = f"{choice} [{vote_value}]"
+        if self.save_timer is not None:
+            self.save_timer.cancel()
+
+        def save_state():
+            self.save_poll_state()
+            self.save_timer = None
+        self.save_timer = Timer(600, save_state)
+        self.save_timer.start()
 
     def count_votes(self):
         vote_results = ""
@@ -418,9 +444,7 @@ class PhantomGamesBotPolls(commands.Cog):
         else:
             await ctx.respond("You don't have permission to set the poll")
 
-    # Polls need to only allow users to vote once, selecting another option changes their vote
-    # Twitch subs count for an extra vote per tier
-    # Need to be able to reconnect to messages when the bot restarts
+    # TODO: Need to be able to reconnect to messages when the bot restarts
     @bridge.bridge_command(name="currentpolls",
         brief="Get the current stream polls for users to respond to")
     async def currentpolls(self, ctx):
