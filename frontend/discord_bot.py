@@ -22,7 +22,8 @@ class PhantomGamesBot(bridge.Bot):
             "test-channel":         895542329514008578,
             "stream-announcements": 821288412409233409,
             "youtube-uploads":      1095269930892546109,
-            "discord-logs":         1098155843326844978
+            "discord-logs":         1098155843326844978,
+            "polls":                1115557565082894357
         }
 
         self.roles = {
@@ -69,9 +70,13 @@ class PhantomGamesBot(bridge.Bot):
     async def on_ready(self):
         print("=======================================")
         print(f"Discord [{datetime.now()}]: {self.user} is online!")
+        self.add_cog(PhantomGamesBotPolls(self))
+
         self.loop.create_task(self.announce_youtube_vid_task())
         await self.set_random_status()
         print("=======================================")
+        self.server = self.get_guild(int(os.environ['DISCORD_SERVER_ID']))
+        self.live_role = self.server.get_role(int(os.environ['DISCORD_LIVE_NOW_ID']))
 
     '''
     Handle custom commands.
@@ -113,15 +118,26 @@ class PhantomGamesBot(bridge.Bot):
         channel = self.get_channel(self.channels["discord-logs"])
         await channel.send(f"User left discord: {member.mention} {member.name}")
 
+    async def toggle_live_role(self, member, is_live=False):
+        # apply / remove the "Live Now" role from anyone marked as a "Streamer"
+        print(f"attempting to toggle live role for {member.name}")
+        if member.get_role(int(os.environ['DISCORD_STREAMER_ROLE_ID'])) is not None:
+            if is_live:
+                await member.add_roles(self.live_role)
+                print(f"assigned live role to {member.name}")
+            else:
+                await member.remove_roles(self.live_role)
+                print(f"removed live role from {member.name}")
+
     '''
     Handle anything that needs to be updated when a user's discord status changes.
     '''
-    #async def on_presence_update(self, before, after):
+    async def on_presence_update(self, before, after):
         # check to see when people go live or go offline
-        # if isinstance(before.activity, discord.Streaming) and not isinstance(after.activity, discord.Streaming):
-        #     print(f"{before.display_name} was streaming, but isn't now")
-        # elif not isinstance(before.activity, discord.Streaming) and isinstance(after.activity, discord.Streaming):
-        #     print(f"{before.display_name} is now streaming!")
+        if isinstance(before.activity, discord.Streaming) and not isinstance(after.activity, discord.Streaming):
+            await self.toggle_live_role(before, is_live=False)
+        elif not isinstance(before.activity, discord.Streaming) and isinstance(after.activity, discord.Streaming):
+            await self.toggle_live_role(before, is_live=True)
 
     '''
     Periodically call this function to post the latest video in youtube-uploads when a new one is posted.
@@ -329,7 +345,8 @@ class PollType(IntEnum):
     PapeRando = 2
 
 class PhantomGamesBotPolls(commands.Cog):
-    def __init__(self):
+    def __init__(self, bot):
+        self.bot = bot
         self.polls = [
             {
                 'active': True,
@@ -364,8 +381,18 @@ class PhantomGamesBotPolls(commands.Cog):
                 'votes': {}
             }
         ]
-        self.load_poll_state()
         self.save_timer = None
+        self.bot.loop.create_task(self.cog_load())
+
+    async def cog_load(self):
+        self.load_poll_state()
+        channel = self.bot.get_channel(self.bot.channels["polls"])
+
+        # clear old bot messages and post new ones
+        def is_bot_msg(m):
+            return m.author.id == self.bot.user.id
+        await channel.purge(limit=10, check=is_bot_msg)
+        await self.post_current_polls(channel)
 
     def save_poll_state(self):
         with open(f'./commands/resources/discord_polls.json', 'w', encoding='utf-8') as json_file:
@@ -441,26 +468,29 @@ class PhantomGamesBotPolls(commands.Cog):
         if ctx.author.id == int(os.environ.get("DISCORD_STREAMER_ID")):
             self.polls[poll]['active'] = not self.polls[poll]['active']
             await ctx.respond(f"{PollType(poll).name} is now {'enabled' if self.polls[poll]['active'] else 'disabled'}")
+            self.save_poll_state()
         else:
             await ctx.respond("You don't have permission to set the poll")
 
-    # TODO: Need to be able to reconnect to messages when the bot restarts
-    @bridge.bridge_command(name="currentpolls",
-        brief="Get the current stream polls for users to respond to")
-    async def currentpolls(self, ctx):
-        await ctx.respond("Here are the current polls for this week. Reminder that Twitch subs and Discord Server Boosters get extra votes!")
+    async def post_current_polls(self, channel):
         for k,poll in enumerate(self.polls):
             if poll['active']:
                 view = discord.ui.View()
                 for opt in poll['options']:
                     button = PollButton(self, k, label=opt)
                     view.add_item(button)
-                await ctx.channel.send(poll['decision'], view=view)
+                await channel.send(poll['decision'], view=view)
+
+    # TODO: Need to be able to reconnect to messages when the bot restarts
+    @bridge.bridge_command(name="currentpolls",
+        brief="Get the current stream polls for users to respond to")
+    async def currentpolls(self, ctx):
+        await ctx.respond("Here are the current polls for this week. Reminder that Twitch subs and Discord Server Boosters get extra votes!")
+        await self.post_current_polls(ctx.channel)
 
 def run_discord_bot(eventLoop, sharedResources):
     bot = PhantomGamesBot(sharedResources)
     bot.add_cog(PhantomGamesBotModule(bot, sharedResources))
-    bot.add_cog(PhantomGamesBotPolls())
     async def runBot():
         await bot.start(os.environ['DISCORD_TOKEN'])
 

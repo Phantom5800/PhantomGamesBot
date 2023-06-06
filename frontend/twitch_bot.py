@@ -122,6 +122,9 @@ class PhantomGamesBot(commands.Bot):
         #     return
         # super().event_command_error(ctx, error)
 
+    async def event_channel_join_failure(channel: str):
+        print(f"[ERROR] Failed to join \"{channel} for some reason, try again\"")
+
     '''
     Get a random supported color for announcements
     '''
