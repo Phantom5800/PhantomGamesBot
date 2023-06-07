@@ -384,15 +384,31 @@ class PhantomGamesBotPolls(commands.Cog):
         self.save_timer = None
         self.bot.loop.create_task(self.cog_load())
 
-    async def cog_load(self):
-        self.load_poll_state()
-        channel = self.bot.get_channel(self.bot.channels["polls"])
+    async def refresh_poll(self, channel):
+        current_poll = 0
+        async for message in channel.history(limit=10, oldest_first=True):
+            if message.author.id == self.bot.user.id:
+                if current_poll >= len(self.polls):
+                    break
+                while self.polls[current_poll]['active'] == False:
+                    current_poll += 1
+                    if current_poll >= len(self.polls):
+                        break
+                await message.edit(self.polls[current_poll]['decision'], view=self.build_poll_buttons(self.polls[current_poll], current_poll))
+                current_poll += 1
 
+    async def post_new_polls(self, channel):
         # clear old bot messages and post new ones
         def is_bot_msg(m):
             return m.author.id == self.bot.user.id
         await channel.purge(limit=10, check=is_bot_msg)
         await self.post_current_polls(channel)
+
+    async def cog_load(self):
+        self.load_poll_state()
+        channel = self.bot.get_channel(self.bot.channels["polls"])
+        await self.refresh_poll(channel)
+        #await self.post_new_polls(channel)
 
     def save_poll_state(self):
         with open(f'./commands/resources/discord_polls.json', 'w', encoding='utf-8') as json_file:
@@ -443,7 +459,7 @@ class PhantomGamesBotPolls(commands.Cog):
                 for vote in poll['options']:
                     vote_totals[vote] = 0
                 for vote in poll['votes']:
-                    segments = vote.split(' ')
+                    segments = poll['votes'][vote].rsplit(' ', 1)
                     vote_value = int(segments[1][1:-1])
                     vote_totals[segments[0]] += vote_value
                     total_votes += vote_value
@@ -472,14 +488,17 @@ class PhantomGamesBotPolls(commands.Cog):
         else:
             await ctx.respond("You don't have permission to set the poll")
 
+    def build_poll_buttons(self, poll, id):
+        view = discord.ui.View()
+        for opt in poll['options']:
+            button = PollButton(self, id, label=opt)
+            view.add_item(button)
+        return view
+
     async def post_current_polls(self, channel):
         for k,poll in enumerate(self.polls):
             if poll['active']:
-                view = discord.ui.View()
-                for opt in poll['options']:
-                    button = PollButton(self, k, label=opt)
-                    view.add_item(button)
-                await channel.send(poll['decision'], view=view)
+                await channel.send(poll['decision'], view=self.build_poll_buttons(poll, k))
 
     # TODO: Need to be able to reconnect to messages when the bot restarts
     @bridge.bridge_command(name="currentpolls",
