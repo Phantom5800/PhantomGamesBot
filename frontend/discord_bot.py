@@ -120,14 +120,11 @@ class PhantomGamesBot(bridge.Bot):
 
     async def toggle_live_role(self, member, is_live=False):
         # apply / remove the "Live Now" role from anyone marked as a "Streamer"
-        print(f"attempting to toggle live role for {member.name}")
         if member.get_role(int(os.environ['DISCORD_STREAMER_ROLE_ID'])) is not None:
             if is_live:
                 await member.add_roles(self.live_role)
-                print(f"assigned live role to {member.name}")
             else:
                 await member.remove_roles(self.live_role)
-                print(f"removed live role from {member.name}")
 
     '''
     Handle anything that needs to be updated when a user's discord status changes.
