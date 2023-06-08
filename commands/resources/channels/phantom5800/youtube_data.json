@@ -3,11 +3,11 @@
   "username": "Phantom5801",
   "handle": "PhantomVODs",
   "subgoal": 1000,
-  "subgoal_message": "We need 1000 subs for YouTube Partner and will be playing Book of Mario when the goal is hit! Please consider subscribing for PBs and rando vods:",
-  "playlists":
-  {
+  "subgoal_message": "play Book of Mario",
+  "generic_msg": "Please consider subscribing for PBs and rando vods:",
+  "playlists": {
     "Minish Cap Randomizers": "PLb3BxZ6dTPAeQVEAdlBHwFyEKcahd_7f1",
     "Paper Mario Randomizers": "PLb3BxZ6dTPAcisWihH0v9k3_noj9RrN63",
-    "Pokémon Crystal Randomizers": "PLb3BxZ6dTPAcojzca4ps75TZTVfgD4iO4"
+    "Pok\u00e9mon Crystal Randomizers": "PLb3BxZ6dTPAcojzca4ps75TZTVfgD4iO4"
   }
 }

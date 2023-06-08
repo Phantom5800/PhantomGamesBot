@@ -102,10 +102,13 @@ class YouTubeData:
 
             subgoal = self.youtube_data[channel].get("subgoal")
             submsg =  self.youtube_data[channel].get("subgoal_message")
+            genericmsg = self.youtube_data[channel].get("generic_msg")
             if subgoal > 0:
                 subcount = self.get_subscriber_count(channel)
-                return f"We are currently at {subcount} / {subgoal} subscribers on YouTube! {submsg} {youtube_url}"
-            return f"{submsg} {youtube_url}"
+                if subcount >= subgoal:
+                    return f"We hit our YouTube sub goal to {submsg} and will be starting that soon! {genericmsg} {youtube_url}"
+                return f"We are currently at {subcount} / {subgoal} subscribers on YouTube! When we hit that goal we will {submsg}! {genericmsg} {youtube_url}"
+            return f"{genericmsg} {youtube_url}"
         
         return ""
 

@@ -20,9 +20,9 @@
     "last_use": 0
   },
   "!discord": {
-    "response": "/announce Join the discord if you want to hang out. You can also spam !speed when I'm not even online https://discord.gg/XtrhKXNmRc",
-    "cooldown": 10,
-    "last_use": 1679427324.763905
+    "response": "/announce Join the discord if you want to hang out! There is a weekly poll to decide what randomizers we do on the weekends and is generally just a great place to hang out https://discord.gg/XtrhKXNmRc",
+    "cooldown": 0,
+    "last_use": 1686149643.502743
   },
   "!ohdee": {
     "response": "/announce OhDee made a ton of emotes and stream assets. Follow him on twitter because he's cool: https://twitter.com/OhDeezey",
@@ -160,7 +160,7 @@
     "last_use": 1678373272.731988
   },
   "!settings": {
-    "response": "/announce race mode, 3 dungeons, puzzle secret caves, great fairies, free gifts, misc, no starting sword, random starting island",
+    "response": "/me Icebound released some pre-made seeds with a cut down world for experimentation and that is what we are running. They are otherwise very close to race settings.",
     "cooldown": 0,
     "last_use": 0
   },
@@ -186,6 +186,16 @@
   },
   "!sgdq": {
     "response": "/announce I'll be in Minneapolis, MN for SGDQ from May 27th - June 4th! Streams will return when I get back, YouTube uploads obviously won't be impacted at all. You'll be able to see me on couch commentary for Minish Cap Any% by Myth197 on the 28th, as well as Paper Mario Any% No ACE by mx_four on the 31st! https://gamesdonequick.com/schedule/43",
+    "cooldown": 0,
+    "last_use": 0
+  },
+  "!peed": {
+    "response": "Flushed",
+    "cooldown": 0,
+    "last_use": 0
+  },
+  "!mobile": {
+    "response": "/me If you are on mobile and can't see a lot of the automated messages I post, here's a quick summary: - https://youtube.com/@PhantomVODs - https://discord.gg/XtrhKXNmRc - https://twitter.com/Phantom5800",
     "cooldown": 0,
     "last_use": 0
   }

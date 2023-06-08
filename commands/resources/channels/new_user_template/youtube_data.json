@@ -3,5 +3,6 @@
     "username": "",
     "handle": "",
     "subgoal": 0,
-    "subgoal_message": ""
+    "subgoal_message": "",
+    "generic_msg": ""
 }
