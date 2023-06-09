@@ -70,8 +70,6 @@ class PhantomGamesBot(bridge.Bot):
     async def on_ready(self):
         print("=======================================")
         print(f"Discord [{datetime.now()}]: {self.user} is online!")
-        self.add_cog(PhantomGamesBotPolls(self))
-
         self.loop.create_task(self.announce_youtube_vid_task())
         await self.set_random_status()
         print("=======================================")
@@ -333,8 +331,8 @@ class PollButton(discord.ui.Button):
         self.id = poll_id
 
     async def callback(self, interaction):
-        self.manager.update_votes(self.id, self.label, interaction.user)
-        await interaction.response.defer()
+        await self.manager.update_votes(self.id, self.label, interaction.user)
+        await interaction.response.send_message(f"Voted for {self.label}", ephemeral=True)
 
 class PollType(IntEnum):
     BonusRandomizer = 0
@@ -379,9 +377,9 @@ class PhantomGamesBotPolls(commands.Cog):
             }
         ]
         self.save_timer = None
-        self.bot.loop.create_task(self.cog_load())
 
-    async def refresh_poll(self, channel):
+    async def refresh_poll(self):
+        channel = self.bot.get_channel(self.bot.channels["polls"])
         current_poll = 0
         async for message in channel.history(limit=10, oldest_first=True):
             if message.author.id == self.bot.user.id:
@@ -394,18 +392,19 @@ class PhantomGamesBotPolls(commands.Cog):
                 await message.edit(self.polls[current_poll]['decision'], view=self.build_poll_buttons(self.polls[current_poll], current_poll))
                 current_poll += 1
 
-    async def post_new_polls(self, channel):
+    async def post_new_polls(self):
+        channel = self.bot.get_channel(self.bot.channels["polls"])
         # clear old bot messages and post new ones
         def is_bot_msg(m):
             return m.author.id == self.bot.user.id
+        self.clear_votes()
         await channel.purge(limit=10, check=is_bot_msg)
         await self.post_current_polls(channel)
 
-    async def cog_load(self):
+    @commands.Cog.listener()
+    async def on_ready(self):
         self.load_poll_state()
-        channel = self.bot.get_channel(self.bot.channels["polls"])
-        await self.refresh_poll(channel)
-        #await self.post_new_polls(channel)
+        await self.refresh_poll()
 
     def save_poll_state(self):
         with open(f'./commands/resources/discord_polls.json', 'w', encoding='utf-8') as json_file:
@@ -422,7 +421,7 @@ class PhantomGamesBotPolls(commands.Cog):
             poll['votes'] = {}
         self.save_poll_state()
 
-    def update_votes(self, id: int, choice: str, user):
+    async def update_votes(self, id: int, choice: str, user):
         vote_value = 1
         for role in user.roles:
             # don't count the streamers vote lol
@@ -445,6 +444,9 @@ class PhantomGamesBotPolls(commands.Cog):
             self.save_timer = None
         self.save_timer = Timer(600, save_state)
         self.save_timer.start()
+
+        # log new votes
+        print(f"[Vote] {id}: {choice} [{vote_value}]")
 
     def count_votes(self):
         vote_results = ""
@@ -470,20 +472,14 @@ class PhantomGamesBotPolls(commands.Cog):
     @bridge.bridge_command(name="pollresults",
         brief="Get the results of the current stream polls")    
     async def pollresults(self, ctx):
-        if ctx.author.id == int(os.environ.get("DISCORD_STREAMER_ID")):
-            await ctx.respond(self.count_votes())
-        else:
-            await ctx.respond("You don't have permission to see poll results")
+        await ctx.respond(self.count_votes())
 
     @bridge.bridge_command(name="togglepoll",
         brief="Toggle if a specific poll should be active this week")
     async def togglepoll(self, ctx, poll: PollType):
-        if ctx.author.id == int(os.environ.get("DISCORD_STREAMER_ID")):
-            self.polls[poll]['active'] = not self.polls[poll]['active']
-            await ctx.respond(f"{PollType(poll).name} is now {'enabled' if self.polls[poll]['active'] else 'disabled'}")
-            self.save_poll_state()
-        else:
-            await ctx.respond("You don't have permission to set the poll")
+        self.polls[poll]['active'] = not self.polls[poll]['active']
+        await ctx.respond(f"{PollType(poll).name} is now {'enabled' if self.polls[poll]['active'] else 'disabled'}")
+        self.save_poll_state()
 
     def build_poll_buttons(self, poll, id):
         view = discord.ui.View()
@@ -497,16 +493,18 @@ class PhantomGamesBotPolls(commands.Cog):
             if poll['active']:
                 await channel.send(poll['decision'], view=self.build_poll_buttons(poll, k))
 
-    # TODO: Need to be able to reconnect to messages when the bot restarts
     @bridge.bridge_command(name="currentpolls",
         brief="Get the current stream polls for users to respond to")
     async def currentpolls(self, ctx):
-        await ctx.respond("Here are the current polls for this week. Reminder that Twitch subs and Discord Server Boosters get extra votes!")
-        await self.post_current_polls(ctx.channel)
+        await self.post_new_polls()
+        #await ctx.respond("Here are the current polls for this week. Reminder that Twitch subs and Discord Server Boosters get extra votes!")
+        #await self.post_current_polls(ctx.channel)
+        await ctx.respond("Current polls have been updated")
 
 def run_discord_bot(eventLoop, sharedResources):
     bot = PhantomGamesBot(sharedResources)
     bot.add_cog(PhantomGamesBotModule(bot, sharedResources))
+    bot.add_cog(PhantomGamesBotPolls(bot))
     async def runBot():
         await bot.start(os.environ['DISCORD_TOKEN'])
 
