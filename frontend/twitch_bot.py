@@ -127,7 +127,7 @@ class PhantomGamesBot(commands.Bot):
 
     async def event_channel_join_failure(self, channel: str):
         print(f"[ERROR] Failed to join \"{channel} for some reason, try again\"")
-        await self.join_channels([channel])
+        #await self.join_channels([channel])
 
     '''
     Get a random supported color for announcements
@@ -359,12 +359,15 @@ class PhantomGamesBot(commands.Bot):
             if stream_channel is None:
                 print(f"[ERROR] Timer cannot find channel '{channel}' to post in??")
             else:
-                message = message.replace("/announce", "/me") # remove /announce from commands
+                is_announcement = "/announce" in message
+                message = message.replace("/announce", "") # remove /announce from commands
 
                 # try to post as an announcement, if it fails, post it with /me
                 try:
-                    announcement = message.replace("/me", "")
-                    await self.post_chat_announcement(streamer, announcement)
+                    if is_announcement:
+                        await self.post_chat_announcement(streamer, message)
+                    else:
+                        await stream_channel.send(message)
                 except:
                     await stream_channel.send(message)
         self.current_timer_msg[channel] = (self.current_timer_msg[channel] + 1) % len(self.timer_queue[channel])

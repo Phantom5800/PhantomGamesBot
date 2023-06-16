@@ -118,7 +118,7 @@ class PhantomGamesBot(bridge.Bot):
 
     async def toggle_live_role(self, member, is_live=False):
         # apply / remove the "Live Now" role from anyone marked as a "Streamer"
-        if member.get_role(int(os.environ['DISCORD_STREAMER_ROLE_ID'])) is not None:
+        if True or member.get_role(int(os.environ['DISCORD_STREAMER_ROLE_ID'])) is not None:
             if is_live:
                 await member.add_roles(self.live_role)
             else:
@@ -326,7 +326,7 @@ class PhantomGamesBotModule(commands.Cog):
 
 class PollButton(discord.ui.Button):
     def __init__(self, poll_manager, poll_id: int, label=None, emoji=None, row=None):
-        super().__init__(label=label, emoji=emoji, row=row)
+        super().__init__(label=label, custom_id=label, emoji=emoji, row=row)
         self.manager = poll_manager
         self.id = poll_id
 
@@ -338,44 +338,56 @@ class PollType(IntEnum):
     BonusRandomizer = 0
     ZeldaRando = 1
     PapeRando = 2
+    PapeStarHunt = 3
+
+defaultPolls = [
+    {
+        'active': True,
+        'decision': "We're doing an extra rando this week, what should it be?",
+        'options': [
+            "Minish Cap",
+            "Pokémon Crystal"
+        ],
+        'votes': {}
+    },
+    {
+        'active': True,
+        'decision': "What Zelda Rando do we do this weekend?",
+        'options': [
+            "Link to the Past",
+            "Minish Cap",
+            "Oracle of Seasons",
+            "Zelda 1"
+        ],
+        'votes': {}
+    },
+    {
+        'active': True,
+        'decision': "Which extra setting should we use in Pape Rando?",
+        'options': [
+            "Coins",
+            "Koopa Koot",
+            "Dungeon Shuffle",
+            "Random Starting Location",
+            "Jumpless"
+        ],
+        'votes': {}
+    },
+    {
+        'active': True,
+        'decision': "Power Star Hunt or Boss Rush in Pape Rando?",
+        'options': [
+            "Power Star Hunt",
+            "Boss Rush"
+        ],
+        'votes': {}
+    }
+]
 
 class PhantomGamesBotPolls(commands.Cog):
     def __init__(self, bot):
         self.bot = bot
-        self.polls = [
-            {
-                'active': True,
-                'decision': "We're doing an extra rando this week, what should it be?",
-                'options': [
-                    "Minish Cap",
-                    "Pokémon Crystal"
-                ],
-                'votes': {}
-            },
-            {
-                'active': True,
-                'decision': "What Zelda Rando do we do this weekend?",
-                'options': [
-                    "Link to the Past",
-                    "Minish Cap",
-                    "Oracle of Seasons",
-                    "Zelda 1"
-                ],
-                'votes': {}
-            },
-            {
-                'active': True,
-                'decision': "Which extra setting should we use in Pape Rando?",
-                'options': [
-                    "Coins",
-                    "Koopa Koot",
-                    "Dungeon Shuffle",
-                    "Random Starting Location",
-                    "Jumpless"
-                ],
-                'votes': {}
-            }
-        ]
+        self.polls = defaultPolls
         self.save_timer = None
 
     async def refresh_poll(self):
@@ -416,6 +428,10 @@ class PhantomGamesBotPolls(commands.Cog):
             data = json.load(json_file)
             self.polls = deepcopy(data)
 
+    def reset_polls(self):
+        self.polls = defaultPolls
+        self.save_poll_state()
+
     def clear_votes(self):
         for poll in self.polls:
             poll['votes'] = {}
@@ -446,7 +462,7 @@ class PhantomGamesBotPolls(commands.Cog):
         self.save_timer.start()
 
         # log new votes
-        print(f"[Vote] {id}: {choice} [{vote_value}]")
+        print(f"[Vote] {user.id}: {choice} [{vote_value}]")
 
     def count_votes(self):
         vote_results = ""
@@ -482,7 +498,7 @@ class PhantomGamesBotPolls(commands.Cog):
         self.save_poll_state()
 
     def build_poll_buttons(self, poll, id):
-        view = discord.ui.View()
+        view = discord.ui.View(timeout=None)
         for opt in poll['options']:
             button = PollButton(self, id, label=opt)
             view.add_item(button)
