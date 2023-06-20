@@ -5,6 +5,8 @@ import threading
 from copy import deepcopy
 from datetime import datetime, timedelta
 
+USE_PLAYLIST_API=True
+
 class YouTubeData:
     def __init__(self):
         self.access_lock = threading.RLock()
@@ -124,16 +126,34 @@ class YouTubeData:
             self.setup_youtube_api()
 
             # find most recent upload for channel
-            request = self.youtube.search().list(
-                part="snippet",
-                channelId=self.youtube_data[channel]["channel_id"],
-                maxResults=1,
-                order="date"
-            )
+            request = None
+
+            # use the uploads playlist for a channel to get latest video
+            if USE_PLAYLIST_API:
+                playlist_id = self.youtube_data[channel]["channel_id"]
+                playlist_id[1] = "U"
+                request = self.youtube.playlistItems().list(
+                    part="snippet,status",
+                    maxResults=1,
+                    playlistId=playlist_id
+                )
+            else:
+                request = self.youtube.search().list(
+                    part="snippet",
+                    channelId=self.youtube_data[channel]["channel_id"],
+                    maxResults=1,
+                    order="date"
+                )
             response = request.execute()
             base_url = "https://youtube.com/watch?v="
             videoId = ""
             for video in response.get("items"):
+                if video.get("snippet"):
+                    if video["snippet"].get("resourceId"):
+                        if video["snippet"]["resourceId"].get("videoId"):
+                            video_id = str(video["snippet"]["resourceId"]["videoId"])
+                            break
+
                 if video.get("id"):
                     if video["id"].get("videoId"):
                         videoId = video["id"]["videoId"]

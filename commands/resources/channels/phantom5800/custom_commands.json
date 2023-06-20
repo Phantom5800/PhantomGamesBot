@@ -178,5 +178,10 @@
     "response": "If you are on mobile and can't see a lot of the automated messages I post, here's a quick summary: - https://youtube.com/@PhantomVODs - https://discord.gg/XtrhKXNmRc - https://twitter.com/Phantom5800",
     "cooldown": 0,
     "last_use": 0
+  },
+  "!settings": {
+    "response": "$user Standard Race Settings (S1) + Dungeon Shuffle + Random Starting Location",
+    "cooldown": 0,
+    "last_use": 0
   }
 }

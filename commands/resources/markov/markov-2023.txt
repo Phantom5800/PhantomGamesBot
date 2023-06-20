@@ -27706,3 +27706,184 @@ I think I will draw a tribute to this rom hack
 Less time to stream, more time to meme Kappa
 I forget how long these crefits are
 Toads can light up their heads?
+When the Minish is capping: runera3Leave
+i mean i'm derusted on ff1
+i don't need to stream it daily
+i've pb'd twice in the last 4 days
+there's a lot to learn about seasons
+cause the route is very rng manip dependant
+oh i'm not streaming learning anything
+if you got questions lemme know
+there's a few exploits that are allowed
+GL from me and Myth <3
+gooood pb'd with those new settings
+"...to feel something" is an ominous addition to the title. You high?
+One of the other Zelda games?
+Okay, well, if I stayed for a Pokepark run, I guess I'll stay for anything.
+Do you need to show us on the doll?
+I was watching a bunch of videos about late night television this week. Everything from Carson to the two late night wars with Leno and Conan/Letterman as well as the current state of late night shows and how they are dying.
+Seems streaming and podcasts are making them less relevant.
+Which makes sense considering that the hosts are weaker and that the television medium is not able to compete with the immediacy of YouTube and this format.
+I cut the cable 5 years ago and never looked back.
+When weighing whether I wanted to waste $100 on channels I don't care about or just have Hulu, I think just having Hulu makes sense.
+i am the same way just twitch and youtube
+Twitch, Youtube, Hulu, and I have a subscription to a digital news source that is local.
+What do you want to feel?
+Hope Twitch is treating u better than me
+I mean, it could be worse... You could be going through that trouble to use Java instead of a good language :)
+IDK off the top of my head, I don't think it let me merge my own w/o a review but I don't remember
+Oh is there one pending? I can take a look quickly
+Apparently someone did another PR 3 minutes ago
+Hey hope y’all have fun with the minish cap. It’s a very underrated Zelda title imp
+I got ads, imma leave sry bro
+Okay it does let me merge after a review
+Is this 'something' in your title you're feeling a positive thing
+My youtube home page is literally just the movies tab and shorts wtf
+I told youtube to stop showing me them and now my home page is empty
+Now that I have a consistent stream schedule I might try learning some new speed games
+Yeah, I've done a fair bit of SMO, my current plan is to pick a Mario game off the shelf and try to speedrun it lol
+It is, there are also some non-platformers that are on my radar
+Mario Super Sluggers has a short enough speedrun to be reasonable
+I was learning the run for The Curse of Monkey Island
+Now here's a question, is there a way you normally test tracker changes or do you just look at the code and say, "yep, looks good"
+Now for the easy part of the game.
+So the tracker PR was for dungeon tracking, it works but has a couple small issues
+Yeah, I put in a review. I think what's here is fine but it adds another row
+It got me to realize an existing issue which you may or may not be aware of: switching between compact and non-compact tracker is quite slow
+Is there a reason the compact tracker can't be on the same page (basically mirrored) and just toggle the 2 blocks?
+I think duplicate IDs technically work (and might already be used in this system?) but yeah, definitely bad practice at the least
+IIRC in JQuery # gets the first and [id=] gets all
+I believe there were a couple instances I had to change to the latter to get it to work
+Fine by me, who's gonna do that though? :)
+Eh, I might be able to, just need to set aside a time for it
+sounds like marioman volunteer to do it Kappa
+Though if I were to, it would be just fixing compact tracker and duplicate ID issues
+And yeah, I feel you there, maintenance is hard
+IMO it's not really the end of the world to say this or that doesn't work with the map tracker but I understand why you may be frustrated with constant requests
+FootGoal SeemsGood smaugyLETSGO_HF smaugyLETSGO marcoMode marcoMode_HF
+It's largely my own fault for making a feature when I had nothing better to do and then not maintaining it
+Got here just in time for the end phanto274BLANKIES
+I remember this nostalgic game being quite difficult because I did not know how to beat the final form of the last boss!
+looks like im derusted as well
+I’m almost at 30k for a redemption
+Well, I meant to pick a game with that redemption hahaha
+I was thinking either paper mario glitchless or making him redeem himself for last night.
+Can I redo the redemption or does it not matter?
+Let me guess, start with WeLoveGoombario ?
+i just had some taco bell before the stream
+What do they make you do now, random starting location?
+idk, maybe random starting location is borked
+my phone / notifications don't tell me SQUAT
+Super Mario 3D World Any %
+I was thinking of Pape, but I noticed you reset the Kart % redemption so I picked something less costly if you reset. My logic this time.
+Shit happens. Might as well kill less of your time over it. Plus I haven’t seen that run before anyways.
+I'm surprised no one's removed that bird for rando. There's no point to fighting it, right?
+Don’t need to tell me twice. I was on comms for that.
+Have fun clearing Volcano without a flyer Kappa
+I have you playing through bluetooth so you’ll have to narrate everything that is happening.
+Well you weren’t wrong. Star Pieces are big
+huh. that live action netflix one piece is dropping sooner than i expected lol
+well oda is very actively involved with it so that's better than other live action adaptations lol
+they don't exactly have a good track record
+i just still wasn't expecting it yet and it drops in 2 months lol
+like "huh get to find out how awful it is soon"
+maybe i'll be pleasantly surprised! who knows? but i won't be waiting long lmao
+nah toy box is gonna be in chapter 7
+Makes sense, someone built a toy volcano for Science Class
+ngl i forgot what i voted for
+literally any prounciation is fine raysY
+a brief list of names i am called: me-yay, my-yer, mee-yay-ree, me-yay-ree-tah-ree, tah-ree
+feel free to select one or make your own raysY
+my name is the "select your soda" drink machine at the movies
+okay then diet vanilla root beer
+thanks god i have a easy name lol
+if you can believe this is actually easier than my previous name
+Ive had people call me Asshole instead of Axl KEKW
+How's the seed going so far?
+twitch wont let me cheer FeelsBadMan
+anyways what I was gonna say was...
+That might be an AWS problem. It had a colossal failure last night
+Cheer100 this is a test for axl oh shit my bits are gone
+maybe twitch just doesnt want me to talk about game spoilers
+"I feel like this seed is like weirdly good."
+you did not get goombario tho... the most important partner
+the artifact! now find the other 11 and you can go fight metroid prime
+someone threw it in the water
+that will be cool but i cant play a Metroid rando
+i didn't know trees could write songs too!
+hope the pape's cookin a well
+Can you deliver Artifact in ch5?
+Don't feel like skipping stones today? Kappa
+Yeah, you're getting a refund :)
+So does HS still take you to Toad Town?
+I thought that would be an interesting change of pace though
+What's better than a Blue Key? A La-ki!
+Hey Phantom phanto274BLANKIES good luck on your seed phanto274Hype
+Yay! I voted so glad to see it in action phanto274Mash
+I lurk in discord alot, sometimes too nervous to talk there
+sorry brain was in lurk mode 😅
+hope all is well pixels64Love tldr: helped someone with a couple of others to figure out a PC issue they got into
+sorting out a bad ram stick is always fun if ya got 4 of them
+I heard Pallos's name as I stirred from a nap. Had to fight the reflex to time him out.
+good that lurkers are a thing - I still cant see a good viable way for that new "partner plus with ice cream program" to not only affect like the top percentage of peeps
+I just dont get some of the more recent things twitch announced they wanna do is all my brain sits at yee PrideLaugh
+ahh so this is basically "normal rando except with dungeon ER and random starting locale" :D
+I didnt watch toooo too much pape overall, but I think then Season 0 woulda been "just" shuffle base pool or whatever it would be called and go or something like that
+and I assume this might have some extras in the sense that say boots could be anywhere or something? but aside of that its pretty much that
+i just realized i'm locked into visiting maddy's parents tomorrow because it happens to be father's day lmao
+which ch7 was ice palace stuff, so whether you need the bucket scarf and such or nah right?
+My cat somehow activated airphone mode through some menu by walking across my keyboard
+how does he CONSISTENTLY do this kinda shit
+Didn't matter unless you got 3- or 4-cappes
+yea like.. those types of timesaver things feel very much like the sort of thing which unless you race anything a LOT, its like - cool
+but ye like - those sorts of things are definitely cool things to know
+true that - its like say in MM knowing when a transform makes sense for speed v when it doesnt
+the room you're talkin about is the spiny room?
+like - pape64 spins to me directly translate to good or bad rolls in say OoT or MM when goin forward as link
+or say if you need some time to set up sidehops v "just doing sidehops" when you can as another one
+i feel like i am being call out by you and jon KEKWait
+and then in MM also a decently often seen thing (which isnt bad) of thinkin where which transformation when and why
+@blacktiger51 pixels64Love no you're not, and if rando is fun you win the big game
+like - yea speed nyoom is cool
+but havin fun playin the videogame imo is also a decent factor in whether you wanna push for any speed nyoom in the first place :D
+cus like - yea a speedrunner might not necessarily enjoy their favourite speedgame in the same ways they did before speedrunnin it for years if that makes sense or possibly dont like aspects of the game as much anymore as they did before
+but I BET that there's some passion somewhere for staying with the game otherwise why would you do it in the first place (or still do it)
+and ik I might sound heavy derp there
+ahh yes the forest menace PrideLaugh
+yo that sounds like when one checks OoT boulder of destiny that late after havin had bambs or hammer for forever PrideLaugh
+at similar ish late I mean
+wait... so stoopid brain be like... you had tubba somewhere else yet to complete this chapter, you need to get the key bring it here?
+thats both cool and whacky PrideLaugh
+so by matter of technicality that means that there's then a high chance for this direction of the game havin 2 star cards
+the story states due to "clear chapter state" PrideLaugh
+"why do I get more boots WHU" PrideLaugh
+Take advantage of this bombette color
+oh how did you like the book of mario thing for this by the by PrideLaugh
+also as a really stoopid thought: I bet it wouldnt work to apply that to the rando on top of rando right
+just askin cus I LOVE the shenanigans of playing say Hollow knight poorly translated but in rando form
+and book of mario looks for base yea
+or rather: "both look for the base"
+green huff'npuff PrideLaugh thats somethin I havent seen often
+takin a note out of them green ish clouds from ttyd
+thanks for givin us more banger dogJAM
+was that what I thought it is KEKW
+I like the story of this seed in terms of which chapter is where too btw PrideLaugh
+cus like - to get through this you needed to get through the door to flower fields which IN flower fields was the keys for this place's internals
+which to get there you needed to go through the ghost valley which also had the tubba fight
+which for THAT you needed to come from somewhere else
+just a huge amount of "if this woulda been vanilla then the ways are quite hilarious"
+since when can one run from that puzzle pixels64Eyes
+cus I definitely didnt recall that being a thing PrideLaugh
+you know? that tells how much I know about pape honestly PrideLaugh
+like - I dont dislike the game or rando just didnt spend near as much time with it as with MM in rando form PrideLaugh
+^ that - I dunno what it means but that PrideLaugh
+it sounds silly bogus enough to me
+I assume for logic, it woulda needed portrait still right?
+cus you saw weight, blue key?
+he did hold out a grand total of 4 turns or something PrideLaugh
+I know at least one of them two was somethin you thought of faintly PrideLaugh
+you know - pokerando nuzlockes are fun
+until you find a regi somewhere and it wrecks you with self-destruct KEKW
+Also just wanted to pop in and say hi, haven’t caught ya live in what feels like foreverrrr. Have fun!! :D
+I mean even if the vid in question has "just" pausees in between as to where what happens that'd be helpful right
+mainly askin cus finding resources with input display for say OoT or MM at times is not too nice dependingon which specific thing one searches for
