@@ -5,8 +5,6 @@ import threading
 from copy import deepcopy
 from datetime import datetime, timedelta
 
-USE_PLAYLIST_API=True
-
 class YouTubeData:
     def __init__(self):
         self.access_lock = threading.RLock()
@@ -119,7 +117,7 @@ class YouTubeData:
 
     Note: YouTube API Quota cost = 101 (100 for search, 1 for videos)
     '''
-    def get_most_recent_video(self, channel: str) -> str:
+    def get_most_recent_video(self, channel: str, use_playlist_api: bool = False) -> str:
         channel = channel.lower()
         if self.youtube_data.get(channel) and self.youtube_data[channel].get("channel_id"):
             # refresh youtube api
@@ -129,7 +127,7 @@ class YouTubeData:
             request = None
 
             # use the uploads playlist for a channel to get latest video
-            if USE_PLAYLIST_API:
+            if use_playlist_api:
                 playlist_id = self.youtube_data[channel]["channel_id"]
                 playlist_id[1] = "U"
                 request = self.youtube.playlistItems().list(

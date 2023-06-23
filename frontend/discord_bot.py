@@ -164,8 +164,8 @@ class PhantomGamesBot(Bot):
                 except:
                     print("[Youtube] Rate limit reached for the day")
 
-            # 19:00 UTC = noon PT
-            today = now.replace(hour = 19, minute = 10, second = 0, microsecond = 0)
+            # 20:00 UTC = 1:00PM PT
+            today = now.replace(hour = 20, minute = 00, second = 0, microsecond = 0)
             tomorrow = today
             if tomorrow < now:
                 tomorrow += timedelta(days = 1)
