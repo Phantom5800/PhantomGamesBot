@@ -526,7 +526,7 @@ class PhantomGamesBot(commands.Bot):
     
     @commands.command()
     async def newvid(self, ctx: commands.Context):
-        video = self.youtube.get_most_recent_video(ctx.message.channel.name)
+        video = self.youtube.get_most_recent_video(ctx.message.channel.name, use_playlist_api=True)
         if len(video) > 0:
             streamer = await ctx.message.channel.user()
             await self.post_chat_announcement(streamer, f"Check out the most recent YouTube upload: {video}")
