@@ -131,7 +131,7 @@ class PhantomGamesBotCommands(commands.Cog):
 
     @bridge.bridge_command(name="newvid")
     async def get_newest_youtube_video(self, ctx):
-        response = self.youtube.get_most_recent_video(self.bot.account)
+        response = self.youtube.get_most_recent_video(self.bot.account, use_playlist_api=True)
         self.bot.commands_since_new_status += 1
         await ctx.respond(f"Check out the most recent YouTube upload: {response}")
 

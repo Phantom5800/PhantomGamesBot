@@ -115,7 +115,7 @@ class YouTubeData:
     '''
     Get a link to the most recent video uploaded by a given channel.
 
-    Note: YouTube API Quota cost = 101 (100 for search, 1 for videos)
+    Note: YouTube API Quota cost = 101 (100 for search, 1 for videos). Only 2 if use_playlist_api is True!
     '''
     def get_most_recent_video(self, channel: str, use_playlist_api: bool = False) -> str:
         channel = channel.lower()
@@ -129,7 +129,7 @@ class YouTubeData:
             # use the uploads playlist for a channel to get latest video
             if use_playlist_api:
                 playlist_id = self.youtube_data[channel]["channel_id"]
-                playlist_id[1] = "U"
+                playlist_id = playlist_id[0:1] + "U" + playlist_id[2:]
                 request = self.youtube.playlistItems().list(
                     part="snippet,status",
                     maxResults=1,
@@ -149,7 +149,7 @@ class YouTubeData:
                 if video.get("snippet"):
                     if video["snippet"].get("resourceId"):
                         if video["snippet"]["resourceId"].get("videoId"):
-                            video_id = str(video["snippet"]["resourceId"]["videoId"])
+                            videoId = str(video["snippet"]["resourceId"]["videoId"])
                             break
 
                 if video.get("id"):

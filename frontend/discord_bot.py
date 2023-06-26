@@ -137,7 +137,7 @@ class PhantomGamesBot(Bot):
     '''
     async def announce_new_youtube_vid(self):
         channel = self.get_channel(self.channels["youtube-uploads"])
-        youtube_vid = self.youtube.get_most_recent_video(self.account)
+        youtube_vid = self.youtube.get_most_recent_video(self.account, use_playlist_api=True)
 
         with open('./commands/resources/last_youtube_post.txt', 'r+', encoding="utf-8") as f:
             last_vid = f.read()
