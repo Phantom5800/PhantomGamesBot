@@ -111,6 +111,9 @@ class PhantomGamesBot(commands.Bot):
                 for event in self.timer_queue[channel]:
                     txt_file.write(f"{event}\n")
 
+    async def event_error(self, error: Exception, data: Optional[str] = None):
+        print(f"[ERROR] TwitchIO Exception: {error}")
+
     '''
     Runs when an "invalid command" is sent by a user.
     '''

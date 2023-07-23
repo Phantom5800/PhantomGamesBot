@@ -9,6 +9,11 @@ class SrcGames(StrEnum):
     MinishCap = "tmc"
     DogIsland = "the_dog_island"
 
+class YouTubePlaylists(StrEnum):
+    PaperMarioRandomizer = "Paper Mario Randomizers"
+    MinishCapRandomizer = "Minish Cap Randomizers"
+    CrystalRandomizer = "Pokémon Crystal Randomizers"
+
 '''
 Unlike twitchio, discord bot is unable to embed commands directly, and requires cogs.
 '''
@@ -143,10 +148,10 @@ class PhantomGamesBotCommands(commands.Cog):
             await ctx.respond(response)
 
     @bridge.bridge_command(name="hours")
-    async def get_youtube_hours(self, ctx):
-        count, duration = self.youtube.get_cache_youtube_playlist_length(self.bot.account, "Paper Mario Randomizers")
+    async def get_youtube_hours(self, ctx, playlist: YouTubePlaylists):
+        count, duration = self.youtube.get_cache_youtube_playlist_length(self.bot.account, playlist)
         youtube_url = self.youtube.get_youtube_url(self.bot.account)
-        await ctx.respond(f"There are {count} videos totalling {int(duration.total_seconds() / 60 / 60)} hours of Paper Mario Randomizer on YouTube: {youtube_url}")
+        await ctx.respond(f"There are {count} videos totalling {int(duration.total_seconds() / 60 / 60)} hours of {playlist} on YouTube: {youtube_url}")
 
     @bridge.bridge_command(name="ftoc")
     async def farenheit_to_celcius(self, ctx, farenheit: int):

@@ -1,6 +1,5 @@
 !follow
 !discord
-!twitter
 !youtube
 !ads
 !mobile

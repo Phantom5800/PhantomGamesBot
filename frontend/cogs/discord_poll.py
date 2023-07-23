@@ -19,12 +19,16 @@ class PollType(IntEnum):
     BonusRandomizer = 0
     ZeldaRando = 1
     PapeSettings = 2
-    PapeStarHunt = 3
+    PapeBannedPartner = 3
     TMCSettings = 4
 
 defaultPolls = [
+    #########################################################################################
+    # Game Selection Polls
+    #########################################################################################
     {
-        'active': True,
+        'title': "Bonus Game",
+        'active': False,
         'decision': "We're doing an extra rando this week, what should it be?",
         'options': [
             "Minish Cap",
@@ -33,22 +37,28 @@ defaultPolls = [
         'votes': {}
     },
     {
-        'active': True,
+        'title': "Zelda Game",
+        'active': False,
         'decision': "What Zelda Rando do we do this weekend?",
         'options': [
             "Link to the Past",
+            "Link's Awakening DX",
             "Minish Cap",
             "Oracle of Seasons",
             "Zelda 1"
         ],
         'votes': {}
     },
+    #########################################################################################
+    # Pape Rando Settings
+    #########################################################################################
     {
-        'active': True,
+        'title': "Pape Setting",
+        'active': False,
         'decision': "Which extra setting should we use in Pape Rando?",
         'options': [
             "Coins",
-            "Koopa Koot",
+            "Koot + Radio + Dojo",
             "Dungeon Shuffle",
             "Random Starting Location",
             "Jumpless"
@@ -56,16 +66,27 @@ defaultPolls = [
         'votes': {}
     },
     {
-        'active': True,
-        'decision': "Power Star Hunt or Boss Rush in Pape Rando?",
+        'title': "Banned Partner",
+        'active': False,
+        'decision': "Ban me from using a partner! This includes all combat and glitches, but they can be used if required for glitchless progression.",
         'options': [
-            "Power Star Hunt",
-            "Boss Rush"
+            "Goombario",
+            "Kooper",
+            "Bombette",
+            "Parakarry",
+            "Bow",
+            "Watt",
+            "Sushie",
+            "Lakilester"
         ],
         'votes': {}
     },
+    #########################################################################################
+    # Zelda Rando Settings
+    #########################################################################################
     {
-        'active': True,
+        'title': "Minish Cap Setting",
+        'active': False,
         'decision': "Which extra setting should we use for a Minish Cap Rando?",
         'options': [
             "Keysanity (Full Keyrings)",
@@ -74,6 +95,21 @@ defaultPolls = [
             "Rupees",
             "Pots + Underwater + Digging",
             "Open World (+No Logic)"
+        ],
+        'votes': {}
+    },
+    #########################################################################################
+    # Pokémon Rando Settings
+    #########################################################################################
+    {
+        'title': "Crystal Pokémon Randomization",
+        'active': False,
+        'decision': "Should we add something weird to Pokémon Crystal?",
+        'options': [
+            "Nothing",
+            "Random Stats",
+            "Random Move Types",
+            "Random Pokémon Types"
         ],
         'votes': {}
     }
@@ -99,7 +135,7 @@ class PhantomGamesBotPolls(commands.Cog):
                 while self.polls[current_poll]['active'] == False:
                     current_poll += 1
                     if current_poll >= len(self.polls):
-                        break
+                        return
                 await message.edit(self.polls[current_poll]['decision'], view=self.build_poll_buttons(self.polls[current_poll], current_poll))
                 current_poll += 1
 
@@ -223,9 +259,13 @@ class PhantomGamesBotPolls(commands.Cog):
         return view
 
     async def post_current_polls(self, channel):
+        polls_posted = 0
         for k,poll in enumerate(self.polls):
             if poll['active']:
+                polls_posted += 1
                 await channel.send(poll['decision'], view=self.build_poll_buttons(poll, k))
+        if polls_posted == 0:
+            await channel.send("No polls this week, look forward to hopefully something special on Saturday!")
 
     @bridge.bridge_command(name="currentpolls",
         description="Get the current stream polls for users to respond to")

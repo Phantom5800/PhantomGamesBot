@@ -2,7 +2,7 @@
   "morp": {
     "response": "morp",
     "cooldown": 5,
-    "last_use": 1679161344.076462
+    "last_use": 1687962751.551179
   },
   "glenn": {
     "response": "glenn",
@@ -32,7 +32,7 @@
   "@phantomgamesbot": {
     "response": "$user $msg",
     "cooldown": 5,
-    "last_use": 1684442798.849237
+    "last_use": 1689623086.194961
   },
   "!github": {
     "response": "/announce All my open source code projects are available on github: https://github.com/Phantom5800",
@@ -110,14 +110,14 @@
     "last_use": 1663424012.429015
   },
   "!paperaces": {
-    "response": "/announce Follow Pape Races https://twitch.tv/paperaces for bi-weekly rando race restreams and occasional vanilla content as well!",
+    "response": "/announce Follow Pape Races https://twitch.tv/paperaces for bi-weekly rando race restreams and occasional vanilla content as well! This Saturday (July 22nd) I'll be participating in an All Bosses race at 3pm ET / Noon PT with Rigby234, DrToadstool and Starry_Arie",
     "cooldown": 0,
-    "last_use": 1664719702.923169
+    "last_use": 1689772463.922911
   },
   "hi": {
     "response": "hi $user",
     "cooldown": 10,
-    "last_use": 1684442831.628105
+    "last_use": 1689622896.478519
   },
   "!nmsb": {
     "response": "/announce No Major Sequence Breaks is a category that bridges the gap between Glitchless and All Cards. The important parts are that chapters must be completed in order, and story sequence can never go backwards.",
@@ -145,9 +145,9 @@
     "last_use": 1678906259.799892
   },
   "!allbosses": {
-    "response": "/announce This is the new route using a single fright jar made by myself and RandomSauce. Random has another route using two fright jars that should be a handful of seconds faster: https://docs.google.com/document/d/1leCk6h1Ls09yZ4a1VeWVhLObZCelRjbaW3REwxCAXKk/edit?usp=sharing",
-    "cooldown": 10,
-    "last_use": 1676470292.40283
+    "response": "/announce This is the new route using a single fright jar made by myself and RandomSauce: https://docs.google.com/document/d/e/2PACX-1vQSdyrVMv1XkmnKhP36JhB4YcGxcOT9sKOayNHaLVohgm0KDEujtABPWeYVLjOdyllLODlYtLa7Lz9_/pub",
+    "cooldown": 0,
+    "last_use": 0
   },
   "!speedy": {
     "response": "Speedy Spin WR: https://www.twitch.tv/videos/141392547",
@@ -167,12 +167,12 @@
   "linkfall": {
     "response": "LinkFALL",
     "cooldown": 15,
-    "last_use": 1682963526.117161
+    "last_use": 1687800607.058802
   },
   "!peed": {
     "response": "Flushed",
     "cooldown": 0,
-    "last_use": 0
+    "last_use": 1687808064.979841
   },
   "!mobile": {
     "response": "If you are on mobile and can't see a lot of the automated messages I post, here's a quick summary: - https://youtube.com/@PhantomVODs - https://discord.gg/XtrhKXNmRc - https://twitter.com/Phantom5800",
@@ -181,6 +181,16 @@
   },
   "!settings": {
     "response": "$user Standard Race Settings (S1) + Dungeon Shuffle + Random Starting Location",
+    "cooldown": 0,
+    "last_use": 0
+  },
+  "yoshi": {
+    "response": "piece of shit",
+    "cooldown": 0,
+    "last_use": 0
+  },
+  "pallos": {
+    "response": "ew kill it",
     "cooldown": 0,
     "last_use": 0
   }
