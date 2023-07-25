@@ -13,13 +13,11 @@ from utils.utils import *
 class PhantomGamesBot(commands.Bot):
     def __init__(self, sharedResources):
         self.channel_list = os.environ['TWITCH_CHANNEL'].split(',')
-        print(f"Joining twitch channels: {self.channel_list}")
         super().__init__(
             token=os.environ['TWITCH_OAUTH_TOKEN'],
             client_id=os.environ['TWITCH_CLIENT_ID'],
             nick=os.environ['BOT_NICK'],
-            prefix=os.environ['BOT_PREFIX'],
-            initial_channels=self.channel_list
+            prefix=os.environ['BOT_PREFIX']
         )
 
         # subgoal tracker
@@ -111,6 +109,9 @@ class PhantomGamesBot(commands.Bot):
                 for event in self.timer_queue[channel]:
                     txt_file.write(f"{event}\n")
 
+    async def event_ready(self):
+        await self.join_channels(self.channel_list)
+
     async def event_error(self, error: Exception, data: Optional[str] = None):
         print(f"[ERROR] TwitchIO Exception: {error}")
 
@@ -130,7 +131,6 @@ class PhantomGamesBot(commands.Bot):
 
     async def event_channel_join_failure(self, channel: str):
         print(f"[ERROR] Failed to join \"{channel} for some reason, try again\"")
-        #await self.join_channels([channel])
 
     '''
     Get a random supported color for announcements
