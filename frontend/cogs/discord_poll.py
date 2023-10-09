@@ -1,5 +1,6 @@
 import discord
 import json
+import os
 from copy import deepcopy
 from discord.ext import bridge, commands
 from enum import IntEnum
@@ -151,16 +152,19 @@ class PhantomGamesBotPolls(commands.Cog):
 
     @commands.Cog.listener()
     async def on_ready(self):
+        # create a default polls file if one does not exist
+        if not os.path.isfile('./commands/resources/discord_polls.json'):
+            self.reset_polls()
         self.load_poll_state()
         await self.refresh_poll()
 
     def save_poll_state(self):
-        with open(f'./commands/resources/discord_polls.json', 'w', encoding='utf-8') as json_file:
+        with open('./commands/resources/discord_polls.json', 'w', encoding='utf-8') as json_file:
             json_str = json.dumps(self.polls, indent=2)
             json_file.write(json_str)
 
     def load_poll_state(self):
-        with open(f'./commands/resources/discord_polls.json', 'r', encoding='utf-8') as json_file:
+        with open('./commands/resources/discord_polls.json', 'r', encoding='utf-8') as json_file:
             data = json.load(json_file)
             self.polls = deepcopy(data)
 
