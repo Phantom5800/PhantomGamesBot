@@ -283,8 +283,8 @@ If anyone else wants to run a version of this bot, or fork it.
 
 ## Initial Setup
 
-1. Install Python 3.7+
-2. Create a `.env` file (descripted below)
+1. Install Python 3.7+ (make sure it goes in AppData on Windows!!!)
+2. Create a `.env` file (described below)
 3. From a command line:
     * If you installed a version of Python that is not 3.9: `set PYVER=3.7`
     * `setup.bat`
