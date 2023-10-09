@@ -329,10 +329,12 @@ SRC_USER={comma seperated list of speedrun.com username}
 # Discord bot settings
 DISCORD_TOKEN={Discord bot Token}
 DISCORD_SHARED_API_PROFILE={twitch name for shared resources like custom commands and quotes}
-DISCORD_STREAMER_ID={Discord user id for account to ignore votes from}
+DISCORD_STREAMER_ID={Copy ID from Server Owner}
+DISCORD_SERVER_ID={Copy ID from Server}
+DISCORD_LIVE_NOW_ID={Copy ID from "Live Now" role}
 
 # YouTube Settings
-YOUTUBE_API_KEY=
+YOUTUBE_API_KEY={https://console.cloud.google.com/apis/credentials/}
 
 # Twitter API Settings
 TWITTER_CONSUMER_KEY=
