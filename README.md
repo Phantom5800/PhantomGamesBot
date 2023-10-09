@@ -249,7 +249,7 @@ PhantomGamesBot supports discord as well. The only setup required is to create a
 Support for getting information about a designated YouTube channel such as latest video, subscriber counts, etc.
 These queries are used by the Twitch and Discord bots to provide information in useful commands.
 
-This integration can be configured with extra commands that are only usable by the streamer. The only environment variable required for this integration is `YOUTUBE_API_KEY` which can be acquired through a Google developer account.
+This integration can be configured with extra commands that are only usable by the streamer. The only environment variable required for this integration is `YOUTUBE_API_KEY` which can be acquired through a Google developer account (example: https://console.cloud.google.com/apis/credentials/).
 
 ### !setyoutubechannel ![](./readme/images/twitch.png)
 This command sets the youtube channel info associated with the twitch account. This should only ever have to be used once unless these values change for whatever reason. These values are used internally when performing YouTube API queries.
@@ -305,7 +305,7 @@ At the root, anyone trying to run this will need a `.env` file that looks someth
 TWITCH_OAUTH_TOKEN={OAUTH Token for bot account}
 TWITCH_CLIENT_ID={Twitch Client ID}
 TWITCH_CHANNEL_TOKEN_{channel_name}={OAUTH Token for channel specific features}
-TWITCH_CHANNEL_ID_{channel_name}={integer ID for channel specific pubsub features}
+TWITCH_CHANNEL_ID_{channel_name}={Use: https://www.streamweasels.com/tools/convert-twitch-username-to-user-id/}
 
 # Twitch Connections
 BOT_NICK={Bot Account Name}
