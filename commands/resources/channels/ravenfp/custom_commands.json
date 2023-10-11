@@ -2,7 +2,7 @@
   "no": {
     "response": "no",
     "cooldown": 0,
-    "last_use": 1673547384.22016
+    "last_use": 1696974332.618418
   },
   "el:wadafa:yelpanafrienddandoleunabrazo": {
     "response": "el:Wadafa:yelpanaFrienddandoleunabrazo",
@@ -12,12 +12,12 @@
   "@phantomgamesbot": {
     "response": "$user $msg",
     "cooldown": 0,
-    "last_use": 0
+    "last_use": 1696974067.181047
   },
   "!peed": {
     "response": "Flushed",
     "cooldown": 0,
-    "last_use": 1672934978.917963
+    "last_use": 1696985093.480463
   },
   "runera3love": {
     "response": "runera3Love",
@@ -86,6 +86,36 @@
   },
   "!fools": {
     "response": "pacepals are none the wiser",
+    "cooldown": 0,
+    "last_use": 0
+  },
+  "!butchhartman": {
+    "response": "more like Bitch Hartman",
+    "cooldown": 0,
+    "last_use": 0
+  },
+  "!cum": {
+    "response": "I dont wanna",
+    "cooldown": 0,
+    "last_use": 1696979497.10525
+  },
+  "!vore": {
+    "response": "it's one of miyamoto's fetishes",
+    "cooldown": 0,
+    "last_use": 1696979501.630685
+  },
+  "buff00n": {
+    "response": "/timeout buff00n 1",
+    "cooldown": 0,
+    "last_use": 1696983263.846333
+  },
+  "!didyoupeed": {
+    "response": "Yes Flushed",
+    "cooldown": 0,
+    "last_use": 0
+  },
+  "!didntyoupeed": {
+    "response": "No SadgeCry",
     "cooldown": 0,
     "last_use": 0
   }
