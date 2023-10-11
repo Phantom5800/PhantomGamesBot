@@ -2,6 +2,7 @@ import discord
 import json
 import os
 from copy import deepcopy
+from datetime import datetime, timedelta
 from discord.ext import bridge, commands
 from enum import IntEnum
 from threading import Timer
@@ -20,8 +21,9 @@ class PollType(IntEnum):
     BonusRandomizer = 0
     ZeldaRando = 1
     PapeSettings = 2
-    PapeBannedPartner = 3
-    TMCSettings = 4
+    PapeBannedSetting = 3
+    PapeBannedPartner = 4
+    TMCSettings = 5
 
 defaultPolls = [
     #########################################################################################
@@ -32,6 +34,7 @@ defaultPolls = [
         'active': False,
         'decision': "We're doing an extra rando this week, what should it be?",
         'options': [
+            "Battle Network 6",
             "Minish Cap",
             "Pokémon Crystal"
         ],
@@ -67,9 +70,22 @@ defaultPolls = [
         'votes': {}
     },
     {
+        'title': "Pape Banned Setting",
+        'active': False,
+        'decision': "Which normally banned setting should we use in Pape Rando?",
+        'options': [
+            "Full Coinsanity",
+            "Traps",
+            "4x Damage",
+            "No Heart Blocks",
+            "Mystery Only"
+        ],
+        'votes': {}
+    },
+    {
         'title': "Banned Partner",
         'active': False,
-        'decision': "Ban me from using a partner! This includes all combat and glitches, but they can be used if required for glitchless progression.",
+        'decision': "Ban me from using a partner! This includes all combat and glitches (they can still be used if required for glitchless progression unless there is a reasonable alternative available at the time).",
         'options': [
             "Goombario",
             "Kooper",
@@ -98,25 +114,10 @@ defaultPolls = [
             "Open World (+No Logic)"
         ],
         'votes': {}
-    },
-    #########################################################################################
-    # Pokémon Rando Settings
-    #########################################################################################
-    {
-        'title': "Crystal Pokémon Randomization",
-        'active': False,
-        'decision': "Should we add something weird to Pokémon Crystal?",
-        'options': [
-            "Nothing",
-            "Random Stats",
-            "Random Move Types",
-            "Random Pokémon Types"
-        ],
-        'votes': {}
     }
 ]
 
-announcement_base_msg = "These polls are for the Randomizer stream on:"
+announcement_base_msg = "These polls are for Randomizer stream(s) on:"
 
 class PhantomGamesBotPolls(commands.Cog):
     def __init__(self, bot):
@@ -185,10 +186,12 @@ class PhantomGamesBotPolls(commands.Cog):
                 vote_value = 0
                 break
             # one extra vote per tier of twitch sub
-            if "Twitch Subscriber: Tier" in role.name:
+            elif "Twitch Subscriber: Tier" in role.name:
                 vote_value += int(role.name[-1])
             # one extra vote for boosting the discord server
-            if role.name == "Server Booster":
+            elif role.name == "Server Booster":
+                vote_value += 1
+            elif role.name == "YouTube Member":
                 vote_value += 1
 
         self.polls[id]['votes'][str(user.id)] = f"{choice} [{vote_value}]"
@@ -271,9 +274,17 @@ class PhantomGamesBotPolls(commands.Cog):
         if polls_posted == 0:
             await channel.send("No polls this week, look forward to hopefully something special on Saturday!")
 
-    @bridge.bridge_command(name="currentpolls",
+    @bridge.bridge_command(name="postweeklypolls",
         description="Get the current stream polls for users to respond to")
-    async def currentpolls(self, ctx, week_date: str):
+    @discord.option("multiple_days",
+        description="Set to True for Saturday and Sunday, False for just Saturday")
+    async def postweeklypolls(self, ctx, multiple_days: bool):
+        current = datetime.now()
+        delta = timedelta((12 - current.weekday()) % 7) # delta time to the next saturday from current time
+        saturday = current + delta
+        week_date = saturday.strftime("%B %d")
+        if multiple_days:
+            week_date += f" and {(saturday + timedelta(days=1)).strftime('%d')}"
         await self.post_new_polls(week_date)
         #await ctx.respond("Here are the current polls for this week. Reminder that Twitch subs and Discord Server Boosters get extra votes!")
         #await self.post_current_polls(ctx.channel)
