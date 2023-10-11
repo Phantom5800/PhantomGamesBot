@@ -2,10 +2,40 @@
   "!main": {
     "response": "/announce Be sure to follow https://twitch.tv/phantom5800 for all the main content. This account is just an alt used mostly for restreaming or for other trying some random ideas",
     "cooldown": 0,
-    "last_use": 0
+    "last_use": 1696945716.364368
   },
   "!alt": {
     "response": "/me This is an alt that I may use occasionally, my main account is https://twitch.tv/phantom5800",
+    "cooldown": 0,
+    "last_use": 1696945718.172993
+  },
+  "!mwsf": {
+    "response": "/me I'm running Any% for Minish Cap as the opener for Midwest Speedfest: Fall Frenzy this Thursday: https://oengus.io/marathon/MWSFFF/schedule",
+    "cooldown": 0,
+    "last_use": 0
+  },
+  "!temp": {
+    "response": "/me My current setup is temporary while I'm still waiting for most of my things to make their way to Vegas, but we're here and streams on main will be back soon",
+    "cooldown": 0,
+    "last_use": 1696945719.693728
+  },
+  "!peed": {
+    "response": "\ud83d\ude33",
+    "cooldown": 0,
+    "last_use": 1696947380.187208
+  },
+  "!peed69": {
+    "response": "Flushed",
+    "cooldown": 0,
+    "last_use": 0
+  },
+  "!didyoupeed": {
+    "response": "Yes Flushed",
+    "cooldown": 0,
+    "last_use": 0
+  },
+  "!rouge": {
+    "response": "rouge the bat",
     "cooldown": 0,
     "last_use": 0
   }
