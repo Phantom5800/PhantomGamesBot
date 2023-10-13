@@ -5,6 +5,7 @@ from copy import deepcopy
 from datetime import datetime, timedelta
 from discord.ext import bridge, commands
 from enum import IntEnum
+from frontend.cogs.discord_default_polls import defaultPolls
 from threading import Timer
 
 class PollButton(discord.ui.Button):
@@ -17,6 +18,60 @@ class PollButton(discord.ui.Button):
         await self.manager.update_votes(self.id, self.label, interaction.user)
         await interaction.response.send_message(f"Voted for {self.label}", ephemeral=True)
 
+class PollToggleButton(discord.ui.Button):
+    def __init__(self, parent, poll_manager, poll_id: int, label=None, emoji=None):
+        row = poll_manager.polls[poll_id]['menuRow']
+        super().__init__(label=label, custom_id=label, emoji=emoji, row=row)
+        self.id = poll_id
+        self.style = discord.ButtonStyle.green if poll_manager.polls[poll_id]['active'] else discord.ButtonStyle.red
+
+class PollToggleMenu(discord.ui.View):
+    def __init__(self, poll_manager):
+        super().__init__()
+
+        # button for posting current poll for Saturday only
+        post_button = discord.ui.Button(label="Post Saturday Polls", custom_id="Post Polls 1", row=0)
+        post_button.style = discord.ButtonStyle.primary
+        async def post_callback(interaction):
+            await poll_manager.post_weekly_polls(multiple_days=False)
+            await interaction.response.send_message("Current polls have been updated", ephemeral=True)
+        post_button.callback = post_callback
+        self.add_item(post_button)
+
+        # button for posting current poll for Saturday and Sunday
+        post_button2 = discord.ui.Button(label="Post Weekend Polls", custom_id="Post Polls 2", row=0)
+        post_button2.style = discord.ButtonStyle.primary
+        async def post_callback2(interaction, poll_manager=poll_manager):
+            await poll_manager.post_weekly_polls(multiple_days=True)
+            await interaction.response.send_message("Current polls have been updated", ephemeral=True)
+        post_button2.callback = post_callback2
+        self.add_item(post_button2)
+
+        # button for showing current results
+        results_button = discord.ui.Button(label="Show Results", custom_id="Show Results", row=0)
+        results_button.style = discord.ButtonStyle.primary
+        async def results_callback(interaction, poll_manager=poll_manager):
+            await interaction.response.send_message(poll_manager.count_votes(True), ephemeral=True)
+        results_button.callback = results_callback
+        self.add_item(results_button)
+
+        # create a button for each poll in the set
+        for k,poll in enumerate(poll_manager.polls):
+            button = PollToggleButton(self, poll_manager, k, label=poll['title'])
+            async def button_callback(interaction, button=button):
+                button.style = discord.ButtonStyle.red if poll_manager.polls[button.id]['active'] else discord.ButtonStyle.green
+                interaction = await interaction.response.edit_message(view=self)
+                await poll_manager.togglepoll(button.id)
+            button.callback = button_callback
+
+            self.add_item(button)
+
+    async def post_menu(self, ctx):
+        self.message = await ctx.respond(view=self)
+
+    async def on_timeout(self):
+        await self.message.delete_original_response()
+
 class PollType(IntEnum):
     BonusRandomizer = 0
     ZeldaRando = 1
@@ -24,98 +79,6 @@ class PollType(IntEnum):
     PapeBannedSetting = 3
     PapeBannedPartner = 4
     TMCSettings = 5
-
-defaultPolls = [
-    #########################################################################################
-    # Game Selection Polls
-    #########################################################################################
-    {
-        'title': "Bonus Game",
-        'active': False,
-        'decision': "We're doing an extra rando this week, what should it be?",
-        'options': [
-            "Battle Network 6",
-            "Minish Cap",
-            "Pokémon Crystal"
-        ],
-        'votes': {}
-    },
-    {
-        'title': "Zelda Game",
-        'active': False,
-        'decision': "What Zelda Rando do we do this weekend?",
-        'options': [
-            "Link to the Past",
-            "Link's Awakening DX",
-            "Minish Cap",
-            "Oracle of Seasons",
-            "Zelda 1"
-        ],
-        'votes': {}
-    },
-    #########################################################################################
-    # Pape Rando Settings
-    #########################################################################################
-    {
-        'title': "Pape Setting",
-        'active': False,
-        'decision': "Which extra setting should we use in Pape Rando?",
-        'options': [
-            "Coins",
-            "Koot + Radio + Dojo",
-            "Dungeon Shuffle",
-            "Random Starting Location",
-            "Jumpless"
-        ],
-        'votes': {}
-    },
-    {
-        'title': "Pape Banned Setting",
-        'active': False,
-        'decision': "Which normally banned setting should we use in Pape Rando?",
-        'options': [
-            "Full Coinsanity",
-            "Traps",
-            "4x Damage",
-            "No Heart Blocks",
-            "Mystery Only"
-        ],
-        'votes': {}
-    },
-    {
-        'title': "Banned Partner",
-        'active': False,
-        'decision': "Ban me from using a partner! This includes all combat and glitches (they can still be used if required for glitchless progression unless there is a reasonable alternative available at the time).",
-        'options': [
-            "Goombario",
-            "Kooper",
-            "Bombette",
-            "Parakarry",
-            "Bow",
-            "Watt",
-            "Sushie",
-            "Lakilester"
-        ],
-        'votes': {}
-    },
-    #########################################################################################
-    # Zelda Rando Settings
-    #########################################################################################
-    {
-        'title': "Minish Cap Setting",
-        'active': False,
-        'decision': "Which extra setting should we use for a Minish Cap Rando?",
-        'options': [
-            "Keysanity (Full Keyrings)",
-            "Kinstones (Kinstone Bags)",
-            "Figurine Hunt",
-            "Rupees",
-            "Pots + Underwater + Digging",
-            "Open World (+No Logic)"
-        ],
-        'votes': {}
-    }
-]
 
 announcement_base_msg = "These polls are for Randomizer stream(s) on:"
 
@@ -125,6 +88,7 @@ class PhantomGamesBotPolls(commands.Cog):
         self.polls = defaultPolls
         self.save_timer = None
 
+    # edit the current weekly poll on a bot start to refresh buttons
     async def refresh_poll(self):
         channel = self.bot.get_channel(self.bot.channels["polls"])
         current_poll = 0
@@ -141,6 +105,7 @@ class PhantomGamesBotPolls(commands.Cog):
                 await message.edit(self.polls[current_poll]['decision'], view=self.build_poll_buttons(self.polls[current_poll], current_poll))
                 current_poll += 1
 
+    # delete the old polls and post a new set
     async def post_new_polls(self, week_date):
         channel = self.bot.get_channel(self.bot.channels["polls"])
         # clear old bot messages and post new ones
@@ -240,23 +205,20 @@ class PhantomGamesBotPolls(commands.Cog):
                         vote_results += f"> {vote}: 0%\n"
         return vote_results
 
-    @bridge.bridge_command(name="pollresults",
-        description="Get the results of the current stream polls")    
-    async def pollresults(self, ctx, show_vote_counts: bool = False):
-        await ctx.respond(self.count_votes(show_vote_counts))
-
-    @bridge.bridge_command(name="togglepoll",
-        description="Toggle if a specific poll should be active this week")
-    async def togglepoll(self, ctx, poll: PollType):
+    async def togglepoll(self, poll: int):
         self.polls[poll]['active'] = not self.polls[poll]['active']
-        await ctx.respond(f"{PollType(poll).name} is now {'enabled' if self.polls[poll]['active'] else 'disabled'}")
         self.save_poll_state()
 
+    @bridge.bridge_command(name="pollselectmenu",
+        description="Display the menu for toggling which polls are enabled")
+    async def pollselectmenu(self, ctx):
+        await PollToggleMenu(self).post_menu(ctx)
+
     @bridge.bridge_command(name="resetpolls",
-        description="Reset polls to default state, use this when new polls have been added to the system.")
+        description="Reset all polls to default states")
     async def resetpolls(self, ctx):
         self.reset_polls()
-        await ctx.respond("Polls have been reset to default state")
+        await ctx.respond("Polls have been reset")
 
     def build_poll_buttons(self, poll, id):
         view = discord.ui.View(timeout=None)
@@ -274,11 +236,7 @@ class PhantomGamesBotPolls(commands.Cog):
         if polls_posted == 0:
             await channel.send("No polls this week, look forward to hopefully something special on Saturday!")
 
-    @bridge.bridge_command(name="postweeklypolls",
-        description="Get the current stream polls for users to respond to")
-    @discord.option("multiple_days",
-        description="Set to True for Saturday and Sunday, False for just Saturday")
-    async def postweeklypolls(self, ctx, multiple_days: bool):
+    async def post_weekly_polls(self, multiple_days: bool):
         current = datetime.now()
         delta = timedelta((12 - current.weekday()) % 7) # delta time to the next saturday from current time
         saturday = current + delta
@@ -286,6 +244,3 @@ class PhantomGamesBotPolls(commands.Cog):
         if multiple_days:
             week_date += f" and {(saturday + timedelta(days=1)).strftime('%d')}"
         await self.post_new_polls(week_date)
-        #await ctx.respond("Here are the current polls for this week. Reminder that Twitch subs and Discord Server Boosters get extra votes!")
-        #await self.post_current_polls(ctx.channel)
-        await ctx.respond("Current polls have been updated")

@@ -193,5 +193,15 @@
     "response": "ew kill it",
     "cooldown": 0,
     "last_use": 0
+  },
+  "!mwsf": {
+    "response": "I'm running MInish Cap Any% for MidWest Speedfest Fall Frenzy tomorrow! https://oengus.io/marathon/MWSFFF/schedule",
+    "cooldown": 0,
+    "last_use": 0
+  },
+  "!rogue": {
+    "response": "/me I am partnered with Rogue Energy! Lot's of great flavors for an energy boost as well as plenty of vitamins, be sure to use my code for 20% off https://rogueenergy.com/discount/PHANTOM?ref=Phantom",
+    "cooldown": 0,
+    "last_use": 0
   }
 }
