@@ -42,6 +42,7 @@ defaultPolls = [
             "Koot + Radio + Dojo",
             "Dungeon Shuffle",
             "Random Starting Location",
+            "Multicoin and Upgrades",
             "Jumpless"
         ],
         'votes': {}

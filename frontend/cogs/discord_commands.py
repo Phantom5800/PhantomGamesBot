@@ -10,9 +10,10 @@ class SrcGames(StrEnum):
     DogIsland = "the_dog_island"
 
 class YouTubePlaylists(StrEnum):
-    PaperMarioRandomizer = "Paper Mario Randomizers"
-    MinishCapRandomizer = "Minish Cap Randomizers"
-    CrystalRandomizer = "Pokémon Crystal Randomizers"
+    MinishCapRando = "Minish Cap Randomizers"
+    PaperMarioBlackPit = "Paper Mario Black Pit"
+    PaperMarioRando = "Paper Mario Randomizers"
+    PokemonCrystalRando = "Pokémon Crystal Randomizers"
 
 '''
 Unlike twitchio, discord bot is unable to embed commands directly, and requires cogs.
@@ -147,7 +148,8 @@ class PhantomGamesBotCommands(commands.Cog):
         if len(response) > 0:
             await ctx.respond(response)
 
-    @bridge.bridge_command(name="hours")
+    @bridge.bridge_command(name="hours",
+        description="How many hours of VOD content are available on YouTube?")
     async def get_youtube_hours(self, ctx, playlist: YouTubePlaylists):
         count, duration = self.youtube.get_cache_youtube_playlist_length(self.bot.account, playlist)
         youtube_url = self.youtube.get_youtube_url(self.bot.account)
