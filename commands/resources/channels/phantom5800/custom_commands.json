@@ -203,5 +203,10 @@
     "response": "/me I am partnered with Rogue Energy! Lot's of great flavors for an energy boost as well as plenty of vitamins, be sure to use my code for 20% off https://rogueenergy.com/discount/PHANTOM?ref=Phantom",
     "cooldown": 0,
     "last_use": 0
+  },
+  "!wonderseed": {
+    "response": "LSD yippee!",
+    "cooldown": 0,
+    "last_use": 0
   }
 }
