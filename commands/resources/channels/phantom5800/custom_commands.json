@@ -2,7 +2,7 @@
   "morp": {
     "response": "morp",
     "cooldown": 5,
-    "last_use": 1687962751.551179
+    "last_use": 1694298807.664122
   },
   "glenn": {
     "response": "glenn",
@@ -22,7 +22,7 @@
   "!discord": {
     "response": "/announce Join the discord if you want to hang out! There is a weekly poll to decide what randomizers we do on the weekends and is generally just a great place to hang out https://discord.gg/XtrhKXNmRc",
     "cooldown": 0,
-    "last_use": 1686149643.502743
+    "last_use": 1694120388.546421
   },
   "!ohdee": {
     "response": "/announce OhDee made a ton of emotes and stream assets. Follow him on twitter because he's cool: https://twitter.com/OhDeezey",
@@ -32,7 +32,7 @@
   "@phantomgamesbot": {
     "response": "$user $msg",
     "cooldown": 5,
-    "last_use": 1689623086.194961
+    "last_use": 1694294209.624711
   },
   "!github": {
     "response": "/announce All my open source code projects are available on github: https://github.com/Phantom5800",
@@ -67,7 +67,7 @@
   "weloveprologue": {
     "response": "/announce If Prologue has a million fans I am one of them. If Prologue has ten fans I am one of them. If Prologue has only one fan, that is me. If Prologue has no fans, that means I am no longer on earth. If the world is against Prologue, I am against the world.",
     "cooldown": 10,
-    "last_use": 1676214927.223423
+    "last_use": 1694104507.784647
   },
   "!pmrando": {
     "response": "/announce The PM64 Randomizer can be found over at https://pm64randomizer.com/ and a tracker can be over on https://pmr-tracker.phantom-games.com/",
@@ -87,12 +87,12 @@
   "!channelpoints": {
     "response": "/announce Link to valid speedrun games for channel point redemptions: https://docs.google.com/spreadsheets/d/e/2PACX-1vTKX_blzPsWxGhxf9yCrMRF1IOzOG_nimLyYm_5iw9QeB5TJ6fXEjxV1AN0Nxo2qKmv_UmN6I8qGTa4/pubhtml",
     "cooldown": 0,
-    "last_use": 1684441518.005832
+    "last_use": 1695310171.056575
   },
   "ezekiel": {
     "response": "Ezekiel",
     "cooldown": 5,
-    "last_use": 1676211772.50535
+    "last_use": 1694291065.407068
   },
   "!waggle": {
     "response": "SkeletonPls SkeletonPls SkeletonPls SkeletonPls SkeletonPls",
@@ -117,12 +117,12 @@
   "hi": {
     "response": "hi $user",
     "cooldown": 10,
-    "last_use": 1689622896.478519
+    "last_use": 1695577949.113266
   },
   "!nmsb": {
-    "response": "/announce No Major Sequence Breaks is a category that bridges the gap between Glitchless and All Cards. The important parts are that chapters must be completed in order, and story sequence can never go backwards.",
+    "response": "/me No Major Sequence Breaks is a category that bridges the gap between Glitchless and All Cards. The important parts are that chapters must be completed in order, and story sequence can never go backwards.",
     "cooldown": 0,
-    "last_use": 1669040257.675363
+    "last_use": 0
   },
   "!glundo": {
     "response": "The ancient pape gods determined that 100% should be defined by the chalkboard in Mario's house; meaning star pieces, recipes, and badges must all be collected. Additionally they mandated that all permanent key items must be acquired such as the diploma from the dojo. A band of paper rebels has since determined it is not enough, and as part of 101% demands that Kent C. Koopa, Buzzar and the Anti Guy Squad must all die as well",
@@ -167,12 +167,12 @@
   "linkfall": {
     "response": "LinkFALL",
     "cooldown": 15,
-    "last_use": 1687800607.058802
+    "last_use": 1695324821.425143
   },
   "!peed": {
     "response": "Flushed",
     "cooldown": 0,
-    "last_use": 1687808064.979841
+    "last_use": 1695309685.385803
   },
   "!mobile": {
     "response": "If you are on mobile and can't see a lot of the automated messages I post, here's a quick summary: - https://youtube.com/@PhantomVODs - https://discord.gg/XtrhKXNmRc - https://twitter.com/Phantom5800",
@@ -187,10 +187,35 @@
   "yoshi": {
     "response": "piece of shit",
     "cooldown": 0,
+    "last_use": 1694024132.235527
+  },
+  "!bluesky": {
+    "response": "/announce I'm on bluesky now if you have an account! https://bsky.app/profile/phantom-games.com",
+    "cooldown": 0,
+    "last_use": 1692446940.776055
+  },
+  "!nwmwsf": {
+    "response": "/me I'll be running Minish Cap Any% for both Northwest Speedfest on September 23rd and Midwest Speedfest on October 12th. So expect a decent bit of derusting and attempts during streams as well as some normal randomizers",
+    "cooldown": 0,
+    "last_use": 1694290554.333038
+  },
+  "!cheater": {
+    "response": "Cheating? modCheck",
+    "cooldown": 0,
+    "last_use": 1694290358.429164
+  },
+  "!chetrippo": {
+    "response": "I love you",
+    "cooldown": 0,
+    "last_use": 1694303711.993234
+  },
+  "!drunk": {
+    "response": "you're never too drunk to block",
+    "cooldown": 0,
     "last_use": 0
   },
-  "pallos": {
-    "response": "ew kill it",
+  "!rogue": {
+    "response": "/me I am partnered with Rogue Energy! Lot's of great flavors for an energy boost as well as plenty of vitamins, be sure to use my code for 20% off https://rogueenergy.com/discount/PHANTOM?ref=Phantom",
     "cooldown": 0,
     "last_use": 0
   },

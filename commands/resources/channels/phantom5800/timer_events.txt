@@ -3,4 +3,5 @@
 !youtube
 !ads
 !mobile
+!bluesky
 !rogue
