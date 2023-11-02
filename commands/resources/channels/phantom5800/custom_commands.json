@@ -194,11 +194,6 @@
     "cooldown": 0,
     "last_use": 1692446940.776055
   },
-  "!nwmwsf": {
-    "response": "/me I'll be running Minish Cap Any% for both Northwest Speedfest on September 23rd and Midwest Speedfest on October 12th. So expect a decent bit of derusting and attempts during streams as well as some normal randomizers",
-    "cooldown": 0,
-    "last_use": 1694290554.333038
-  },
   "!cheater": {
     "response": "Cheating? modCheck",
     "cooldown": 0,
@@ -211,16 +206,6 @@
   },
   "!drunk": {
     "response": "you're never too drunk to block",
-    "cooldown": 0,
-    "last_use": 0
-  },
-  "!rogue": {
-    "response": "/me I am partnered with Rogue Energy! Lot's of great flavors for an energy boost as well as plenty of vitamins, be sure to use my code for 20% off https://rogueenergy.com/discount/PHANTOM?ref=Phantom",
-    "cooldown": 0,
-    "last_use": 0
-  },
-  "!mwsf": {
-    "response": "I'm running MInish Cap Any% for MidWest Speedfest Fall Frenzy tomorrow! https://oengus.io/marathon/MWSFFF/schedule",
     "cooldown": 0,
     "last_use": 0
   },

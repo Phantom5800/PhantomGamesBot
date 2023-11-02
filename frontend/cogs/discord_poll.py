@@ -156,8 +156,14 @@ class PhantomGamesBotPolls(commands.Cog):
             # one extra vote for boosting the discord server
             elif role.name == "Server Booster":
                 vote_value += 1
-            elif role.name == "YouTube Member":
-                vote_value += 1
+            # youtube member tiers, nothing extra for base supporter
+            elif "YouTube Member" in role.name:
+                # 1 extra vote for $4.99 premium tier
+                if "Premium" in role.name:
+                    vote_value += 1
+                # 2 extra votes for $9.99 gold tier
+                elif "Gold" in role.name:
+                    vote_value += 2
 
         self.polls[id]['votes'][str(user.id)] = f"{choice} [{vote_value}]"
         if self.save_timer is not None:
