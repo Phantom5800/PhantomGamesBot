@@ -15,31 +15,21 @@ class PhantomGamesBotSchedule(commands.Cog):
         single_day_delta = timedelta(1)
         next_monday = current + next_monday_delta
 
-        schedule = [
-            monday,
-            tuesday,
-            wednesday,
-            thursday,
-            friday,
-            saturday,
-            sunday
-        ]
-
-        days = [
-            "Monday",
-            "Tuesday",
-            "Wednesday",
-            "Thursday",
-            "Friday",
-            "Saturday",
-            "Sunday"
-        ]
+        schedule = {
+            "Monday": monday,
+            "Tuesday": tuesday,
+            "Wednesday": wednesday,
+            "Thursday": thursday,
+            "Friday": friday,
+            "Saturday": saturday,
+            "Sunday": sunday
+        }
 
         response = ""
-        for i in range(0, len(schedule)):
-            response += f"_**{days[i]}**_: "
-            if schedule[i] is not None:
-                response += f"{schedule[i]} @ <t:{int((next_monday + single_day_delta * i).timestamp())}:t>\n"
+        for i, day in enumerate(schedule):
+            response += f"_**{day}**_: "
+            if schedule[day] is not None:
+                response += f"{schedule[day]} @ <t:{int((next_monday + single_day_delta * i).timestamp())}:t>\n"
             else:
                 response += "_NO STREAM_\n"
 
