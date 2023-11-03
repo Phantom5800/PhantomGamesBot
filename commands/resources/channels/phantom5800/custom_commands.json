@@ -218,5 +218,10 @@
     "response": "LSD yippee!",
     "cooldown": 0,
     "last_use": 0
+  },
+  "!tts": {
+    "response": "$user Everything you need to know for TTS: https://tts.monster/phantom5800",
+    "cooldown": 0,
+    "last_use": 0
   }
 }

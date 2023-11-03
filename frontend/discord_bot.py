@@ -8,6 +8,7 @@ from datetime import datetime, timedelta, timezone
 from discord.ext.bridge import Bot
 from frontend.cogs.discord_commands import PhantomGamesBotCommands
 from frontend.cogs.discord_poll import PhantomGamesBotPolls
+from frontend.cogs.discord_schedule import PhantomGamesBotSchedule
 from utils.utils import *
 
 class PhantomGamesBot(Bot):
@@ -21,7 +22,8 @@ class PhantomGamesBot(Bot):
             "stream-announcements": 821288412409233409,
             "youtube-uploads":      1095269930892546109,
             "discord-logs":         1098155843326844978,
-            "polls":                1115557565082894357
+            "polls":                1115557565082894357,
+            "weekly-schedule":      1117682254701932655
         }
 
         self.roles = {
@@ -182,6 +184,7 @@ def run_discord_bot(eventLoop, sharedResources):
     bot = PhantomGamesBot(sharedResources)
     bot.add_cog(PhantomGamesBotCommands(bot, sharedResources))
     bot.add_cog(PhantomGamesBotPolls(bot))
+    bot.add_cog(PhantomGamesBotSchedule(bot))
     async def runBot():
         await bot.start(os.environ['DISCORD_TOKEN'])
 
