@@ -223,5 +223,10 @@
     "response": "$user Everything you need to know for TTS: https://tts.monster/phantom5800",
     "cooldown": 0,
     "last_use": 0
+  },
+  "!kyogre": {
+    "response": "Your opinion doesn't matter, 252+ SpA Choice Specs Adaptability Kyogre Water Spout (150 BP) vs. 252 HP/4 SpD Toxapex in Rain: 329-388 (108.2 - 127.6%) -- guaranteed OHKO",
+    "cooldown": 0,
+    "last_use": 0
   }
 }
