@@ -3,6 +3,7 @@ import discord
 import json
 import os
 import random
+import time
 from copy import deepcopy
 from datetime import datetime, timedelta, timezone
 from discord.ext.bridge import Bot
@@ -170,8 +171,9 @@ class PhantomGamesBot(Bot):
                 except:
                     print("[Youtube] Rate limit reached for the day")
 
-            # 20:00 UTC = 1:00PM PT
-            today = now.replace(hour = 20, minute = 00, second = 0, microsecond = 0)
+            # 21:00 UTC = 2:00PM PDT / 1:00PM PST
+            # trying to check at 1PM regardless of DST
+            today = now.replace(hour = 21 - time.localtime().tm_isdst, minute = 00, second = 0, microsecond = 0)
             tomorrow = today
             if tomorrow < now:
                 tomorrow += timedelta(days = 1)

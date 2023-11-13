@@ -7,7 +7,8 @@ class PhantomGamesBotSchedule(commands.Cog):
     def __init__(self, bot):
         self.bot = bot
 
-    @bridge.bridge_command(name="weeklyschedule")
+    @bridge.bridge_command(name="weeklyschedule",
+        description="Leading any parameter with a | character will mark that day as off with a description.")
     async def weeklyschedule(self, ctx, monday: str = None, tuesday: str = None, wednesday: str = None, thursday: str = None, friday: str = None, saturday: str = None, sunday: str = None):
         current = datetime.now()
         current = current.replace(hour=14, minute=0) # set to 2pm local time
@@ -25,11 +26,14 @@ class PhantomGamesBotSchedule(commands.Cog):
             "Sunday": sunday
         }
 
-        response = ""
+        response = f"{next_monday.strftime('%m/%d')} - {(next_monday + single_day_delta * 6).strftime('%m/%d')}\n\n"
         for i, day in enumerate(schedule):
             response += f"_**{day}**_: "
             if schedule[day] is not None:
-                response += f"{schedule[day]} @ <t:{int((next_monday + single_day_delta * i).timestamp())}:t>\n"
+                if schedule[day].startswith("|"):
+                    response += f"_NO STREAM_ ({schedule[day][1:]})\n"
+                else:
+                    response += f"{schedule[day]} @ <t:{int((next_monday + single_day_delta * i).timestamp())}:t>\n"
             else:
                 response += "_NO STREAM_\n"
 

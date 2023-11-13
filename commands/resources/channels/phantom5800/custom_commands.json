@@ -22,7 +22,7 @@
   "!discord": {
     "response": "/announce Join the discord if you want to hang out! There is a weekly poll to decide what randomizers we do on the weekends and is generally just a great place to hang out https://discord.gg/XtrhKXNmRc",
     "cooldown": 0,
-    "last_use": 1694120388.546421
+    "last_use": 1699218731.657285
   },
   "!ohdee": {
     "response": "/announce OhDee made a ton of emotes and stream assets. Follow him on twitter because he's cool: https://twitter.com/OhDeezey",
@@ -32,7 +32,7 @@
   "@phantomgamesbot": {
     "response": "$user $msg",
     "cooldown": 5,
-    "last_use": 1694294209.624711
+    "last_use": 1699199996.533311
   },
   "!github": {
     "response": "/announce All my open source code projects are available on github: https://github.com/Phantom5800",
@@ -117,7 +117,7 @@
   "hi": {
     "response": "hi $user",
     "cooldown": 10,
-    "last_use": 1695577949.113266
+    "last_use": 1699205660.311293
   },
   "!nmsb": {
     "response": "/me No Major Sequence Breaks is a category that bridges the gap between Glitchless and All Cards. The important parts are that chapters must be completed in order, and story sequence can never go backwards.",
@@ -142,7 +142,7 @@
   "buffoon": {
     "response": "It's buff00n with two zeros, please and thank you! :)",
     "cooldown": 6000,
-    "last_use": 1678906259.799892
+    "last_use": 1699200631.535198
   },
   "!allbosses": {
     "response": "/announce This is the new route using a single fright jar made by myself and RandomSauce: https://docs.google.com/document/d/e/2PACX-1vQSdyrVMv1XkmnKhP36JhB4YcGxcOT9sKOayNHaLVohgm0KDEujtABPWeYVLjOdyllLODlYtLa7Lz9_/pub",
@@ -222,10 +222,30 @@
   "!tts": {
     "response": "$user Everything you need to know for TTS: https://tts.monster/phantom5800",
     "cooldown": 0,
-    "last_use": 0
+    "last_use": 1699207604.859819
   },
   "!kyogre": {
     "response": "Your opinion doesn't matter, 252+ SpA Choice Specs Adaptability Kyogre Water Spout (150 BP) vs. 252 HP/4 SpD Toxapex in Rain: 329-388 (108.2 - 127.6%) -- guaranteed OHKO",
+    "cooldown": 0,
+    "last_use": 0
+  },
+  "!race": {
+    "response": "https://racetime.gg/pm64r/curious-bowser-9104",
+    "cooldown": 0,
+    "last_use": 1699200816.720447
+  },
+  "!bot": {
+    "response": "what's with all the weird shit the bot says?",
+    "cooldown": 0,
+    "last_use": 1699200401.845341
+  },
+  "!peed69": {
+    "response": "Flushed",
+    "cooldown": 0,
+    "last_use": 0
+  },
+  "!category": {
+    "response": "/me Twitch deleted the combined categories for every BN game and I refuse to stream to a specific version, so BN1 it is",
     "cooldown": 0,
     "last_use": 0
   }

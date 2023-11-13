@@ -80,13 +80,12 @@ class PollType(IntEnum):
     PapeBannedPartner = 4
     TMCSettings = 5
 
-announcement_base_msg = "These polls are for Randomizer stream(s) on:"
+announcement_base_msg = "<@&1171521685527208007> New polls for Randomizer stream(s) on:"
 
 class PhantomGamesBotPolls(commands.Cog):
     def __init__(self, bot):
         self.bot = bot
         self.polls = defaultPolls
-        self.save_timer = None
 
     # edit the current weekly poll on a bot start to refresh buttons
     async def refresh_poll(self):
@@ -166,14 +165,7 @@ class PhantomGamesBotPolls(commands.Cog):
                     vote_value += 2
 
         self.polls[id]['votes'][str(user.id)] = f"{choice} [{vote_value}]"
-        if self.save_timer is not None:
-            self.save_timer.cancel()
-
-        def save_state():
-            self.save_poll_state()
-            self.save_timer = None
-        self.save_timer = Timer(600, save_state)
-        self.save_timer.start()
+        self.save_poll_state()
 
         # log new votes
         print(f"[Vote] {user.id}: {choice} [{vote_value}]")
@@ -240,13 +232,13 @@ class PhantomGamesBotPolls(commands.Cog):
                 polls_posted += 1
                 await channel.send(poll['decision'], view=self.build_poll_buttons(poll, k))
         if polls_posted == 0:
-            await channel.send("No polls this week, look forward to hopefully something special on Saturday!")
+            await channel.send("No polls this week! See <#1117682254701932655> for details on what is happening this week!")
 
     async def post_weekly_polls(self, multiple_days: bool):
         current = datetime.now()
         delta = timedelta((12 - current.weekday()) % 7) # delta time to the next saturday from current time
-        saturday = current + delta
-        week_date = saturday.strftime("%B %d")
+        first_day = current + delta
+        week_date = first_day.strftime("%B %d")
         if multiple_days:
-            week_date += f" and {(saturday + timedelta(days=1)).strftime('%d')}"
+            week_date += f" and {(first_day + timedelta(days=1)).strftime('%d')}"
         await self.post_new_polls(week_date)

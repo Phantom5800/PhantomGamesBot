@@ -38,11 +38,11 @@ defaultPolls = [
         'active': False,
         'decision': "Which extra setting should we use in Pape Rando?",
         'options': [
-            "Coins",
+            "Coin Blocks",
             "Koot + Radio + Dojo",
             "Dungeon Shuffle",
             "Random Starting Location",
-            "Multicoin and Upgrades",
+            "Multicoin and Upgrade Blocks",
             "Jumpless"
         ],
         'votes': {}
@@ -62,19 +62,16 @@ defaultPolls = [
         'votes': {}
     },
     {
-        'title': "Banned Partner",
+        'title': "Blitz Changes",
         'menuRow': 2,
         'active': False,
-        'decision': "Ban me from using a partner! This includes all combat and glitches (they can still be used if required for glitchless progression unless there is a reasonable alternative available at the time).",
+        'decision': "Let's experiment and change the Blitz settings! What should be added / changed?",
         'options': [
-            "Goombario",
-            "Kooper",
-            "Bombette",
-            "Parakarry",
-            "Bow",
-            "Watt",
-            "Sushie",
-            "Lakilester"
+            "Glitch Logic",
+            "Panels",
+            "Unused Badges",
+            "Shuffle Dungeon Entrances",
+            "Partner Upgrade Shuffle"
         ],
         'votes': {}
     },
@@ -93,6 +90,22 @@ defaultPolls = [
             "Rupees",
             "Pots + Underwater + Digging",
             "Open World (+No Logic)"
+        ],
+        'votes': {}
+    },
+    #########################################################################################
+    # Pokémon Crystal Settings
+    #########################################################################################
+    {
+        'title': "Pokémon Crystal Setting",
+        'menuRow': 3,
+        'active': False,
+        'decision': "How should Pokémon be randomized in Crystal?",
+        'options': [
+            "Random Base Stats",
+            "Random Types",
+            "Random Move Power",
+            "Random Move Types"
         ],
         'votes': {}
     }
