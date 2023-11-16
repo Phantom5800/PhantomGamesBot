@@ -67,7 +67,7 @@
   "weloveprologue": {
     "response": "/announce If Prologue has a million fans I am one of them. If Prologue has ten fans I am one of them. If Prologue has only one fan, that is me. If Prologue has no fans, that means I am no longer on earth. If the world is against Prologue, I am against the world.",
     "cooldown": 10,
-    "last_use": 1694104507.784647
+    "last_use": 1699886105.676701
   },
   "!pmrando": {
     "response": "/announce The PM64 Randomizer can be found over at https://pm64randomizer.com/ and a tracker can be over on https://pmr-tracker.phantom-games.com/",
@@ -117,7 +117,7 @@
   "hi": {
     "response": "hi $user",
     "cooldown": 10,
-    "last_use": 1699205660.311293
+    "last_use": 1699885018.178263
   },
   "!nmsb": {
     "response": "/me No Major Sequence Breaks is a category that bridges the gap between Glitchless and All Cards. The important parts are that chapters must be completed in order, and story sequence can never go backwards.",
@@ -246,6 +246,11 @@
   },
   "!category": {
     "response": "/me Twitch deleted the combined categories for every BN game and I refuse to stream to a specific version, so BN1 it is",
+    "cooldown": 0,
+    "last_use": 0
+  },
+  "!countto7": {
+    "response": "1342657",
     "cooldown": 0,
     "last_use": 0
   }
