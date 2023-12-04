@@ -9,7 +9,7 @@ defaultPolls = [
         'decision': "We're doing an extra rando this week, what should it be?",
         'options': [
             "Battle Network 6",
-            "Black Pit",
+            "Super Mario RPG (SNES)",
             "Minish Cap",
             "Pokémon Crystal"
         ],
@@ -24,8 +24,8 @@ defaultPolls = [
             "Link to the Past",
             "Link's Awakening DX",
             "Minish Cap",
-            "Oracle of Seasons",
-            "Zelda 1"
+            "Ocarina of Time",
+            "Twilight Princess"
         ],
         'votes': {}
     },

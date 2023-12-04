@@ -6,6 +6,7 @@ import re
 from copy import deepcopy
 from typing import Optional
 from twitchio import PartialUser
+from twitchio.http import Route
 from twitchio.ext import commands, pubsub, routines
 from commands.slots import Slots, SlotsMode
 from utils.utils import *
@@ -109,6 +110,9 @@ class PhantomGamesBot(commands.Bot):
                 for event in self.timer_queue[channel]:
                     txt_file.write(f"{event}\n")
 
+    #####################################################################################################
+    # error handling
+    #####################################################################################################
     async def event_ready(self):
         await self.join_channels(self.channel_list)
 
@@ -126,6 +130,13 @@ class PhantomGamesBot(commands.Bot):
         #     return
         # super().event_command_error(ctx, error)
 
+    async def event_token_expired(self):
+        print("[ERROR] OAUTH token expired")
+        return None
+
+    #####################################################################################################
+    # generic events
+    #####################################################################################################
     async def event_channel_joined(self, channel):
         print(f"[Twitch] Joined channel: {channel.name}")
 
@@ -331,6 +342,25 @@ class PhantomGamesBot(commands.Bot):
                 await ctx.send(f"{ctx.message.author.mention} make sure to specify a command!")
 
     #####################################################################################################
+    # ad manager
+    #####################################################################################################
+    async def get_ad_schedule(self, streamer: PartialUser):
+        streamer_id = os.environ.get(f"TWITCH_CHANNEL_ID_{streamer.name.lower()}")
+        token = os.environ.get(f"TWITCH_CHANNEL_TOKEN_{streamer.name.lower()}")
+
+        endpoint = Route("GET", "channels/ads", query=[("broadcaster_id", streamer_id)], token=token)
+
+        data = await self._http.request(endpoint, paginate=False)
+        return data[0]['next_ad_at']
+
+    @commands.command()
+    @commands.cooldown(1, 10, commands.Bucket.channel)
+    async def ad(self, ctx):
+        streamer = await ctx.message.channel.user()
+        next_ad = await self.get_ad_schedule(streamer)
+        print(next_ad)
+
+    #####################################################################################################
     # timer
     #####################################################################################################
     '''
@@ -381,6 +411,15 @@ class PhantomGamesBot(commands.Bot):
     @routines.routine(minutes=int(os.environ['TIMER_MINUTES']), wait_first=True)
     async def timer_update(self):
         for channel in self.channel_list:
+            # update sub count file
+            if channel == "phantom5800":
+                stream_channel = self.get_channel(channel)
+                streamer = await stream_channel.user()
+                with open('C:/StreamAssets/SubCount.txt', 'w', encoding="utf-8") as sub_count:
+                    count = await self.get_subscriber_count(streamer)
+                    sub_count.write(f"{count}")
+
+            # check for timer messages
             if self.messages_since_timer[channel] >= self.timer_lines[channel] and len(self.timer_queue[channel]) > 0:
                 await self.post_next_timer_message(channel)
 
@@ -693,13 +732,25 @@ class PhantomGamesBot(commands.Bot):
                         return f'We are at {goal.current_amount} / {goal.target_amount} followers towards our goal to {goal.description}! {generic_msg}'
                 elif 'subscription' in goal.type and not follower:
                     if goal.current_amount >= goal.target_amount:
-                        return f'We hit our follower sub to {goal.description} and will be doing that soon!'
+                        return f'We hit our sub goal to {goal.description} and will be doing that soon!'
                     else:
                         return f'We are at {goal.current_amount} / {goal.target_amount} subs towards our goal to {goal.description}!'
         if follower:
             return generic_msg
         else:
             return None
+
+    async def get_subscriber_count(self, streamer) -> int:
+        token = os.environ.get(f'TWITCH_CHANNEL_TOKEN_{streamer.name.lower()}')
+        if token:
+            sub_list = await streamer.fetch_subscriptions(token=token)
+            return len(sub_list) - 1
+        return -1
+
+    @commands.command()
+    async def subcount(self, ctx):
+        streamer = await ctx.message.channel.user()
+        await self.get_subscriber_count(streamer)
 
     @commands.command()
     @commands.cooldown(1, 10, commands.Bucket.channel)
@@ -828,17 +879,21 @@ class PhantomGamesBot(commands.Bot):
     #####################################################################################################
     async def setup_pubsub(self, channel: str):
         channel = channel.lower()
+        token = os.environ.get(f"TWITCH_CHANNEL_TOKEN_{channel}")
+        channel_id = int(os.environ.get(f"TWITCH_CHANNEL_ID_{channel}"))
         self.pubsub[channel] = pubsub.PubSubPool(self)
         topics = [
-            pubsub.bits(os.environ.get(f"TWITCH_CHANNEL_TOKEN_{channel}"))[int(os.environ.get(f"TWITCH_CHANNEL_ID_{channel}"))],
-            pubsub.channel_points(os.environ.get(f"TWITCH_CHANNEL_TOKEN_{channel}"))[int(os.environ.get(f"TWITCH_CHANNEL_ID_{channel}"))],
-            pubsub.channel_subscriptions(os.environ.get(f"TWITCH_CHANNEL_TOKEN_{channel}"))[int(os.environ.get(f"TWITCH_CHANNEL_ID_{channel}"))]
+            pubsub.bits(token)[channel_id],
+            pubsub.channel_points(token)[channel_id],
+            pubsub.channel_subscriptions(token)[channel_id]
         ]
         await self.pubsub[channel].subscribe_topics(topics)
 
     async def event_pubsub_bits(self, event: pubsub.PubSubBitsMessage):
         #print(f"Bits [{event.bits_used}] from {event.user.name}")
         self.add_subathon_value("phantom5800", event.bits_used)
+        with open('C:/StreamAssets/LatestCheer.txt', 'w', encoding="utf-8") as last_cheer:
+            last_cheer.write(f"Last Cheer: {event.bits_used} {event.user.name}")
 
     async def event_pubsub_channel_points(self, event: pubsub.PubSubChannelPointsMessage):
         #print(f"Channel Point Redemption [{event.timestamp}]: {event.user.name} - {event.reward.title} - {event.input}")
@@ -865,6 +920,14 @@ class PhantomGamesBot(commands.Bot):
 
         self.subgoal_info[event.channel.name.lower()]["subs"][event.time.month - 1] += 1
         self.save_subgoal_data()
+
+        with open('C:/StreamAssets/LatestSub.txt', 'w', encoding="utf-8") as last_sub:
+            last_sub.write(f"New Sub: {subscriber.name}")
+
+        with open('C:/StreamAssets/SubCount.txt', 'w', encoding="utf-8") as sub_count:
+            user = await event.channel.user()
+            count = await self.get_subscriber_count(user)
+            sub_count.write(f"{count}")
 
 def run_twitch_bot(sharedResources) -> PhantomGamesBot:
     bot = PhantomGamesBot(sharedResources)
