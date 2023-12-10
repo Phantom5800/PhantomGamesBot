@@ -117,7 +117,7 @@
   "hi": {
     "response": "hi $user",
     "cooldown": 10,
-    "last_use": 1700154236.570092
+    "last_use": 1701725599.587115
   },
   "!nmsb": {
     "response": "/me No Major Sequence Breaks is a category that bridges the gap between Glitchless and All Cards. The important parts are that chapters must be completed in order, and story sequence can never go backwards.",
@@ -212,7 +212,7 @@
   "!rogue": {
     "response": "/me I am partnered with Rogue Energy! Lot's of great flavors for an energy boost as well as plenty of vitamins, be sure to use my code for 20% off https://rogueenergy.com/discount/PHANTOM?ref=Phantom",
     "cooldown": 0,
-    "last_use": 0
+    "last_use": 1701721328.330745
   },
   "!wonderseed": {
     "response": "LSD yippee!",
@@ -266,6 +266,11 @@
   },
   "!rrlat": {
     "response": "/me I have two runs in Really Really Long-a-thon this year and will be spending a good chunk of time over the next month prepping for them. The full schedule is over here: https://oengus.io/marathon/RRLAT7/schedule",
+    "cooldown": 0,
+    "last_use": 1701713462.090383
+  },
+  "!subgoals": {
+    "response": "/me There is a large list of sub incentives for December! The goals are posted in !discord, but in general, every 25 sub points will hit a new incentive. Sub discounts start on the 13th on Twitch, but the tracking is for the whole month",
     "cooldown": 0,
     "last_use": 0
   }
