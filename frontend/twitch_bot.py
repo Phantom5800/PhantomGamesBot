@@ -745,63 +745,6 @@ class PhantomGamesBot(commands.Bot):
         await self.post_chat_announcement(streamer, msg)
 
     #####################################################################################################
-    # sub-a-thon timers
-    #####################################################################################################
-    @commands.command()
-    async def startsubathon(self, ctx: commands.Context, starting_hours: int = 12):
-        if ctx.message.author.is_broadcaster:
-            streamer = await ctx.message.channel.user()
-            channel_name = streamer.name.lower()
-
-            self.subathon_timer[channel_name] = {
-                "start": datetime.now(),
-                "duration": timedelta(hours = starting_hours),
-                "state": "running"
-            }
-            print(f"{channel_name} Sub-a-thon starting at {self.subathon_timer[channel_name]['start']} for {starting_hours} hours")
-
-    @commands.command()
-    async def pausesubathon(self, ctx: commands.Context):
-        if ctx.message.author.is_broadcaster:
-            streamer = await ctx.message.channel.user()
-            channel_name = streamer.name.lower()
-
-            self.subathon_timer[channel_name]["duration"] -= (datetime.now() - self.subathon_timer[channel_name]["start"])
-            self.subathon_timer[channel_name]["state"] = "paused"
-            print(f"{channel_name} Sub-a-thon timer paused with {self.subathon_timer[channel_name]['duration']} left")
-    
-    @commands.command()
-    async def resumesubathon(self, ctx: commands.Context):
-        if ctx.message.author.is_broadcaster:
-            streamer = await ctx.message.channel.user()
-            channel_name = streamer.name.lower()
-
-            self.subathon_timer[channel_name]["start"] = datetime.now()
-            self.subathon_timer[channel_name]["state"] = "running"
-            print(f"{channel_name} Sub-a-thon timer resumed at {self.subathon_timer[channel_name]['start']} with {self.subathon_timer[channel_name]['duration']}")
-
-    def add_subathon_value(self, channel_name: str, dollar_value: int):
-        if self.subathon_timer.get(channel_name):
-            minutes_conv = tryParseInt(os.environ.get("MINUTE_PER_DOLLAR"), 1)
-            value = dollar_value * minutes_conv
-            minutes = int(value / 100)
-            seconds = int((value - minutes * 100) * 60 / 100)
-
-            time_added = timedelta(minutes = minutes, seconds = seconds)
-            self.subathon_timer[channel_name]["duration"] += time_added
-            return time_added
-        return None
-
-    @commands.command()
-    @commands.cooldown(1, 10, commands.Bucket.channel)
-    async def addsubathontime(self, ctx: commands.Context, dollar_value: int = 100):
-        if ctx.message.author.is_mod:
-            streamer = await ctx.message.channel.user()
-            channel_name = streamer.name.lower()
-            time_added = self.add_subathon_value(channel_name, dollar_value)
-            await ctx.send(f"{ctx.message.author.mention} added {time_added}")
-
-    #####################################################################################################
     # pubsub
     #####################################################################################################
     async def setup_pubsub(self, channel: str):
@@ -818,7 +761,6 @@ class PhantomGamesBot(commands.Bot):
 
     async def event_pubsub_bits(self, event: pubsub.PubSubBitsMessage):
         #print(f"Bits [{event.bits_used}] from {event.user.name}")
-        self.add_subathon_value("phantom5800", event.bits_used)
         with open('C:/StreamAssets/LatestCheer.txt', 'w', encoding="utf-8") as last_cheer:
             last_cheer.write(f"Last Cheer: {event.bits_used} {event.user.name}")
 
