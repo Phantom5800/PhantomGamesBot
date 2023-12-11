@@ -683,17 +683,6 @@ class PhantomGamesBot(commands.Bot):
         streamtitle = await get_stream_title_for_user(self, ctx.message.channel.name)
         await ctx.send(streamtitle)
 
-    '''
-    Give a shoutout to a specific user in chat.
-    '''
-    @commands.command(aliases=["shoutout"])
-    @commands.cooldown(1, 60, commands.Bucket.channel)
-    async def so(self, ctx: commands.Context, user: PartialUser = None):
-        if ctx.message.author.is_mod and user is not None:
-            game = await get_game_name_from_twitch_for_user(self, user.name)
-            #await ctx.send(f"/shoutout {user.name}")
-            await ctx.send(f"Checkout {user.name}, maybe drop them a follow! They were most recently playing {game} over at https://twitch.tv/{user.name}")
-
     #####################################################################################################
     # goals
     #####################################################################################################
@@ -724,11 +713,6 @@ class PhantomGamesBot(commands.Bot):
             sub_list = await streamer.fetch_subscriptions(token=token)
             return len(sub_list) - 1
         return -1
-
-    @commands.command()
-    async def subcount(self, ctx):
-        streamer = await ctx.message.channel.user()
-        await self.get_subscriber_count(streamer)
 
     @commands.command()
     @commands.cooldown(1, 10, commands.Bucket.channel)
