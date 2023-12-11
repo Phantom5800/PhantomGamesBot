@@ -7,9 +7,9 @@ import time
 from copy import deepcopy
 from datetime import datetime, timedelta, timezone
 from discord.ext.bridge import Bot
-from frontend.cogs.discord_commands import PhantomGamesBotCommands
-from frontend.cogs.discord_poll import PhantomGamesBotPolls
-from frontend.cogs.discord_schedule import PhantomGamesBotSchedule
+from frontend.discord_cogs.discord_commands import PhantomGamesBotCommands
+from frontend.discord_cogs.discord_poll import PhantomGamesBotPolls
+from frontend.discord_cogs.discord_schedule import PhantomGamesBotSchedule
 from utils.utils import *
 
 class PhantomGamesBot(Bot):

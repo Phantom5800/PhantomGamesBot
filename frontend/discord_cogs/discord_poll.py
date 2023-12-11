@@ -5,7 +5,7 @@ from copy import deepcopy
 from datetime import datetime, timedelta
 from discord.ext import bridge, commands
 from enum import IntEnum
-from frontend.cogs.discord_default_polls import defaultPolls
+from frontend.discord_cogs.discord_default_polls import defaultPolls
 from threading import Timer
 
 class PollButton(discord.ui.Button):
