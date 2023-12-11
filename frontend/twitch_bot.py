@@ -21,20 +21,8 @@ class PhantomGamesBot(commands.Bot):
             prefix=os.environ['BOT_PREFIX']
         )
 
-        # subgoal tracker
+        # event tracking
         self.pubsub = {}
-        self.subgoal_info = {}
-        self.load_subgoal_data()
-        for channel in self.channel_list:
-            if self.subgoal_info[channel] is None:
-                self.subgoal_info[channel] = {
-                    "subs": [0] * 12,
-                    "incentive": "",
-                    "goal": 0
-                }
-
-        # sub-a-thon tracker
-        self.subathon_timer = {}
 
         # command handlers
         self.custom = sharedResources.customCommandHandler
@@ -593,16 +581,6 @@ class PhantomGamesBot(commands.Bot):
             self.youtube.set_youtube_handle(ctx.message.channel.name, params[0])
             await ctx.send(f"{ctx.message.author.mention} set your YouTube handle to @{params[0]}")
 
-    @commands.command()
-    async def setyoutubesubgoal(self, ctx: commands.Context):
-        if ctx.message.author.is_broadcaster:
-            params = ctx.message.content[len("!setyoutubesubgoal"):].strip().split(" ", 1)
-            if len(params) != 2:
-                await ctx.send(f"{ctx.message.author.mention} !setyoutubegoal needs an integer goal and a message to be displayed. A goal of 0 will not show a sub goal in the !youtube command")
-                return
-            self.youtube.set_youtube_subgoal(ctx.message.channel.name, int(params[0]), params[1])
-            await ctx.send(f"{ctx.message.author.mention} set the YouTube sub goal to: {int(params[0])}")
-
     #####################################################################################################
     # fun stream commands
     #####################################################################################################
@@ -759,63 +737,12 @@ class PhantomGamesBot(commands.Bot):
         message = await self.get_goal_msg(streamer)
         await self.post_chat_announcement(streamer, message)
 
-    def load_subgoal_data(self):
-        with open(f'./commands/resources/subgoals.json', 'r', encoding="utf-8") as json_file:
-            data = json.load(json_file)
-            self.subgoal_info = deepcopy(data)
-
-    def save_subgoal_data(self):
-        with open(f'./commands/resources/subgoals.json', 'w', encoding="utf-8") as json_file:
-            json_str = json.dumps(self.subgoal_info, indent=2)
-            json_file.write(json_str)
-
-    async def get_subgoal_msg(self, channel: str) -> str:
-        channel = channel.lower()
-        now = datetime.now()
-        goal = self.subgoal_info[channel]["goal"]
-        current = self.subgoal_info[channel]["subs"][now.month - 1]
-        incentive = self.subgoal_info[channel]["incentive"]
-        month = now.strftime("%B")
-
-        if goal == 0:
-            return "There currently isn't a subgoal for this month, but subs are all still massively appreciated for those that are able to!"
-
-        if current < goal:
-            return f"We are currently at {current} / {goal} subs for {month}. If the goal is hit, we will be doing {incentive} next month!"
-        else:
-            return f"Our subgoal for {month} was hit! We'll be doing {incentive} next month."
-
     @commands.command()
     @commands.cooldown(1, 10, commands.Bucket.channel)
     async def subgoal(self, ctx: commands.Context):
         streamer = await ctx.message.channel.user()
         msg = await self.get_goal_msg(streamer, follower=False)
-        if msg is None:
-            msg = await self.get_subgoal_msg(ctx.message.channel.name)
         await self.post_chat_announcement(streamer, msg)
-
-    @commands.command()
-    async def setsubgoal(self, ctx: commands.Context):
-        if ctx.message.author.is_broadcaster:
-            params = ctx.message.content[len("!setsubgoal"):].strip().split(" ", 1)
-            if len(params) != 2:
-                await ctx.send(f"{ctx.message.author.mention} !setsubgoal needs an integer goal and a message to be displayed. A goal of 0 will not show a sub goal in the !subgoal command")
-                return
-            channel = ctx.message.channel.name.lower()
-            self.subgoal_info[channel]["goal"] = int(params[0])
-            self.subgoal_info[channel]["incentive"] = params[1]
-            await ctx.send(f"{ctx.message.author.mention} subgoal set to {self.subgoal_info[channel]['goal']} with the goal \"{self.subgoal_info[channel]['incentive']}\"")
-            self.save_subgoal_data()
-
-    @commands.command()
-    @commands.cooldown(1, 10, commands.Bucket.channel)
-    async def wherespape(self, ctx: commands.Context):
-        streamer = await ctx.message.channel.user()
-        channel_name = streamer.name.lower()
-        if channel_name == "phantom5800":
-            count, duration = self.youtube.get_cache_youtube_playlist_length(channel_name, "Paper Mario Randomizers")
-            youtube_url = self.youtube.get_youtube_url(channel_name)
-            await self.post_chat_announcement(streamer, f"There are {count} videos totalling {int(duration.total_seconds() / 60 / 60)} hours of Paper Mario Randomizer on YouTube, surely you haven't watched all of it: {youtube_url}")
 
     #####################################################################################################
     # sub-a-thon timers
@@ -917,9 +844,6 @@ class PhantomGamesBot(commands.Bot):
         # months purchased at one time, assume 1 if not provided
         months = event.multi_month_duration if event.multi_month_duration else 1
         print(f"{subscriber} subbed for {event.cumulative_months} at {event.sub_plan} '{event.sub_plan_name}'")
-
-        self.subgoal_info[event.channel.name.lower()]["subs"][event.time.month - 1] += 1
-        self.save_subgoal_data()
 
         with open('C:/StreamAssets/LatestSub.txt', 'w', encoding="utf-8") as last_sub:
             last_sub.write(f"New Sub: {subscriber.name}")
