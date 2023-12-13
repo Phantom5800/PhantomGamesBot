@@ -1,4 +1,5 @@
 import discord
+import os
 import time
 from datetime import datetime, timedelta
 from discord.ext import bridge, commands
@@ -9,7 +10,10 @@ class PhantomGamesBotSchedule(commands.Cog):
 
     @bridge.bridge_command(name="weeklyschedule",
         description="Leading any parameter with a | character will mark that day as off with a description.")
-    async def weeklyschedule(self, ctx, monday: str = None, tuesday: str = None, wednesday: str = None, thursday: str = None, friday: str = None, saturday: str = None, sunday: str = None):
+    @discord.option("post_twitch",
+        description="Whether or not to post these streams to the twitch schedule (default True)")
+    async def weeklyschedule(self, ctx, monday: str = None, tuesday: str = None, wednesday: str = None, thursday: str = None, friday: str = None, saturday: str = None, sunday: str = None, post_twitch: bool = True):
+        # figure out the next Monday stream time as a basis
         current = datetime.now()
         current = current.replace(hour=14, minute=0) # set to 2pm local time
         next_monday_delta = timedelta((7 - current.weekday()) % 7)
@@ -26,6 +30,7 @@ class PhantomGamesBotSchedule(commands.Cog):
             "Sunday": sunday
         }
 
+        # format schedule based on input params
         response = f"{next_monday.strftime('%m/%d')} - {(next_monday + single_day_delta * 6).strftime('%m/%d')}\n\n"
         for i, day in enumerate(schedule):
             response += f"_**{day}**_: "
@@ -33,11 +38,31 @@ class PhantomGamesBotSchedule(commands.Cog):
                 if schedule[day].startswith("|"):
                     response += f"_NO STREAM_ ({schedule[day][1:]})\n"
                 else:
-                    response += f"{schedule[day]} @ <t:{int((next_monday + single_day_delta * i).timestamp())}:t>\n"
+                    stream_time = next_monday + single_day_delta * i
+                    response += f"{schedule[day]} @ <t:{int(stream_time.timestamp())}:t>\n"
+
+                    # post the day to twitch's schedule
+                    if post_twitch:
+                        await self.post_single_twitch_schedule(start_time=stream_time, duration="3600", category_id="", title=schedule[day])
             else:
                 response += "_NO STREAM_\n"
 
+        # remove old schedule and post the new one
         channel = self.bot.get_channel(self.bot.channels["weekly-schedule"])
         await channel.purge(limit=5)
         await channel.send(response)
         await ctx.respond("Schedule updated", ephemeral=True)
+
+    async def post_single_twitch_schedule(self, start_time: datetime, duration: str, category_id: str, title: str):
+        # POST https://api.twitch.tv/helix/schedule/segment
+
+        query=[("broadcaster_id", os.environ.get("TWITCH_CHANNEL_ID_phantom5800"))]
+
+        body = {
+            "start_time": start_time.strftime("%Y-%m-%dT%H:%M:%SZ"),
+            "timezone": "America/Los_Angeles",
+            "duration": duration,
+            "is_recurring": False,
+            #"category_id": category_id, # this is technically optional, but would be nice to specify sometimes?
+            "title": title
+        }

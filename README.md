@@ -349,7 +349,7 @@ In order to fill out the `.env`, you'll need to register as a [Twitch developer]
 This is an example URI used to generate a valid OAuth user token for all Twitch APIs used:
 
 ```
-https://id.twitch.tv/oauth2/authorize?response_type=token&client_id=<enter your client id here>&redirect_uri=http%3A//localhost%3A3000&scope=bits%3Aread+chat%3Aread+chat%3Aedit+channel%3Aedit%3Acommercial+channel%3Amanage%3Abroadcast+channel%3Amoderate+channel%3Amanage%3Apolls+moderator%3Aread%3Achat_settings+moderator%3Amanage%3Achat_settings+moderator%3Aread%3Ashoutouts+moderator%3Amanage%3Ashoutouts+channel%3Amanage%3Apredictions+channel%3Aread%3Agoals+channel%3Aread%3Aredemptions+channel%3Aread%3Asubscriptions+channel%3Amanage%3Avips+moderator%3Aread%3Achatters+moderator%3Amanage%3Aannouncements+channel%3Aread%3Aads+channel%3Amanage%3Aads
+https://id.twitch.tv/oauth2/authorize?response_type=token&client_id=<enter your client id here>&redirect_uri=http%3A//localhost%3A3000&scope=bits%3Aread+chat%3Aread+chat%3Aedit+channel%3Aedit%3Acommercial+channel%3Amanage%3Abroadcast+channel%3Amoderate+channel%3Amanage%3Apolls+moderator%3Aread%3Achat_settings+moderator%3Amanage%3Achat_settings+moderator%3Aread%3Ashoutouts+moderator%3Amanage%3Ashoutouts+channel%3Amanage%3Apredictions+channel%3Aread%3Agoals+channel%3Aread%3Aredemptions+channel%3Aread%3Asubscriptions+channel%3Amanage%3Avips+moderator%3Aread%3Achatters+moderator%3Amanage%3Aannouncements+channel%3Aread%3Aads+channel%3Amanage%3Aads+channel%3Amanage%3Aschedule
 ```
 
 For readability sake, this is the list of permissions granted to the bot:
@@ -358,19 +358,20 @@ For readability sake, this is the list of permissions granted to the bot:
 * chat:read - read chat messages
 * chat:edit - post in chat
 * channel:edit:commercial - run ads (currently not used, but could be)
-* channel:manage:broadcast - modify game, title, etc.
-* channel:moderate - moderator actions
-* channel:manage:polls - view, create and end polls
-* moderator:read:chat_settings - check for chat settings like slow mode, sub mode, etc.
-* moderator:manage:chat_settings - modify chat settings like slow mode, sub mode, etc.
-* moderator:read:shoutouts - view shoutouts
-* moderator:manage:shoutouts - send shoutouts
-* channel:manage:predictions - create and end predictions
+* channel:read:ads - ad schedule
 * channel:read:goals - read sub and follower goals set for stream
 * channel:read:redemptions - channel point redemptions
 * channel:read:subscriptions - view list of subscribers to a channel and check if user is subscribed
-* channel:manage:vips - view, add and remove vips
-* moderator:read:chatters - view list of people in chat
-* moderator:manage:announcements - post announcements
-* channel:read:ads - ad schedule
 * channel:manage:ads - allows snoozing ads
+* channel:manage:broadcast - modify game, title, etc.
+* channel:manage:polls - view, create and end polls
+* channel:manage:predictions - create and end predictions
+* channel:manage:schedule - post schedules automatically
+* channel:manage:vips - view, add and remove vips
+* channel:moderate - moderator actions
+* moderator:read:chat_settings - check for chat settings like slow mode, sub mode, etc.
+* moderator:read:chatters - view list of people in chat
+* moderator:read:shoutouts - view shoutouts
+* moderator:manage:announcements - post announcements
+* moderator:manage:chat_settings - modify chat settings like slow mode, sub mode, etc.
+* moderator:manage:shoutouts - send shoutouts

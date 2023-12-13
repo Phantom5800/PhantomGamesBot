@@ -23,9 +23,12 @@ class PhantomGamesBot:
         )
 
         self.last_tweet_time = datetime.now()
-        with open("./commands/resources/twitter.txt", "r", encoding="utf-8") as f:
-            time = f.read()
-            self.last_tweet_time = datetime.strptime(time, "%Y-%m-%d %H:%M:%S")
+        try:
+            with open("./commands/resources/twitter.txt", "r", encoding="utf-8") as f:
+                time = f.read()
+                self.last_tweet_time = datetime.strptime(time, "%Y-%m-%d %H:%M:%S")
+        except:
+            print("twitter.txt does not exist")
 
     def post_tweet(self):
         # create tweet
