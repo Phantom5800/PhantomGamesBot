@@ -3,6 +3,23 @@ import os
 import time
 from datetime import datetime, timedelta
 from discord.ext import bridge, commands
+from utils.ext_classes import AliasDict
+
+# these categories are hand selected as common options
+TwitchCategoryIDs = AliasDict({
+    "battle network":   "????",
+    "minish cap":       "6969",
+    "paper mario":      "????",
+    "pokemon crystal":  "????",
+    "super mario rpg":  "????"
+})
+
+# create a set of shorthand aliases for categories
+TwitchCategoryIDs.add_alias("battle network", "bn")
+TwitchCategoryIDs.add_alias("minish cap", "tmc")
+TwitchCategoryIDs.add_alias("paper mario", "pape")
+TwitchCategoryIDs.add_alias("pokemon crystal", "crystal")
+TwitchCategoryIDs.add_alias("super mario rpg", "smrpg")
 
 class PhantomGamesBotSchedule(commands.Cog):
     def __init__(self, bot):
@@ -12,7 +29,23 @@ class PhantomGamesBotSchedule(commands.Cog):
         description="Leading any parameter with a | character will mark that day as off with a description.")
     @discord.option("post_twitch",
         description="Whether or not to post these streams to the twitch schedule (default True)")
-    async def weeklyschedule(self, ctx, monday: str = None, tuesday: str = None, wednesday: str = None, thursday: str = None, friday: str = None, saturday: str = None, sunday: str = None, post_twitch: bool = True):
+    async def weeklyschedule(self, ctx, 
+        monday: str = None, 
+        tuesday: str = None, 
+        wednesday: str = None, 
+        thursday: str = None, 
+        friday: str = None, 
+        saturday: str = None, 
+        sunday: str = None, 
+        post_twitch: bool = True,
+        monday_cat: str = None,
+        tuesday_cat: str = None,
+        wednesday_cat: str = None,
+        thursday_cat: str = None,
+        friday_cat: str = None,
+        saturday_cat: str = None,
+        sunday_cat: str = None
+    ):
         # figure out the next Monday stream time as a basis
         current = datetime.now()
         current = current.replace(hour=14, minute=0) # set to 2pm local time
@@ -20,6 +53,7 @@ class PhantomGamesBotSchedule(commands.Cog):
         single_day_delta = timedelta(1)
         next_monday = current + next_monday_delta
 
+        # format data into usable structures
         schedule = {
             "Monday": monday,
             "Tuesday": tuesday,
@@ -28,6 +62,16 @@ class PhantomGamesBotSchedule(commands.Cog):
             "Friday": friday,
             "Saturday": saturday,
             "Sunday": sunday
+        }
+
+        categories = {
+            "Monday": monday_cat,
+            "Tuesday": tuesday_cat,
+            "Wednesday": wednesday_cat,
+            "Thursday": thursday_cat,
+            "Friday": friday_cat,
+            "Saturday": saturday_cat,
+            "Sunday": sunday_cat
         }
 
         # format schedule based on input params
@@ -43,7 +87,10 @@ class PhantomGamesBotSchedule(commands.Cog):
 
                     # post the day to twitch's schedule
                     if post_twitch:
-                        await self.post_single_twitch_schedule(start_time=stream_time, duration="3600", category_id="", title=schedule[day])
+                        category = None
+                        if categories[day] is not None and categories[day].lower() in TwitchCategoryIDs:
+                            category = TwitchCategoryIDs[categories[day].lower()]
+                        await self.post_single_twitch_schedule(start_time=stream_time, duration="3600", title=schedule[day], category_id=category)
             else:
                 response += "_NO STREAM_\n"
 
@@ -53,7 +100,7 @@ class PhantomGamesBotSchedule(commands.Cog):
         await channel.send(response)
         await ctx.respond("Schedule updated", ephemeral=True)
 
-    async def post_single_twitch_schedule(self, start_time: datetime, duration: str, category_id: str, title: str):
+    async def post_single_twitch_schedule(self, start_time: datetime, duration: str, title: str, category_id: str = None):
         # POST https://api.twitch.tv/helix/schedule/segment
 
         query=[("broadcaster_id", os.environ.get("TWITCH_CHANNEL_ID_phantom5800"))]
@@ -63,6 +110,11 @@ class PhantomGamesBotSchedule(commands.Cog):
             "timezone": "America/Los_Angeles",
             "duration": duration,
             "is_recurring": False,
-            #"category_id": category_id, # this is technically optional, but would be nice to specify sometimes?
             "title": title
         }
+
+        # this is technically optional, but would be nice to specify sometimes?
+        if category_id is not None:
+            body["category_id"] = category_id
+
+        print(body)
