@@ -186,8 +186,9 @@ def run_discord_bot(eventLoop, sharedResources):
     bot = PhantomGamesBot(sharedResources)
     bot.add_cog(PhantomGamesBotCommands(bot, sharedResources))
     bot.add_cog(PhantomGamesBotPolls(bot))
-    bot.add_cog(PhantomGamesBotSchedule(bot))
+    bot.add_cog(PhantomGamesBotSchedule(bot, sharedResources))
     async def runBot():
         await bot.start(os.environ['DISCORD_TOKEN'])
 
     eventLoop.create_task(runBot())
+    return bot

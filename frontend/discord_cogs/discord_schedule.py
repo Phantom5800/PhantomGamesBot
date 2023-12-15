@@ -3,6 +3,7 @@ import os
 import time
 from datetime import datetime, timedelta
 from discord.ext import bridge, commands
+from twitchio.http import Route
 from utils.ext_classes import AliasDict
 
 # these categories are hand selected as common options
@@ -22,8 +23,9 @@ TwitchCategoryIDs.add_alias("pokemon crystal", "crystal")
 TwitchCategoryIDs.add_alias("super mario rpg", "smrpg")
 
 class PhantomGamesBotSchedule(commands.Cog):
-    def __init__(self, bot):
+    def __init__(self, bot, sharedResources):
         self.bot = bot
+        self.twitch_bot = sharedResources.twitch_bot
 
     @bridge.bridge_command(name="weeklyschedule",
         description="Leading any parameter with a | character will mark that day as off with a description.")
@@ -48,7 +50,7 @@ class PhantomGamesBotSchedule(commands.Cog):
     ):
         # figure out the next Monday stream time as a basis
         current = datetime.now()
-        current = current.replace(hour=14, minute=0) # set to 2pm local time
+        current = current.replace(hour=14, minute=0, second=0) # set to 2pm local time
         next_monday_delta = timedelta((7 - current.weekday()) % 7)
         single_day_delta = timedelta(1)
         next_monday = current + next_monday_delta
@@ -90,7 +92,7 @@ class PhantomGamesBotSchedule(commands.Cog):
                         category = None
                         if categories[day] is not None and categories[day].lower() in TwitchCategoryIDs:
                             category = TwitchCategoryIDs[categories[day].lower()]
-                        await self.post_single_twitch_schedule(start_time=stream_time, duration="3600", title=schedule[day], category_id=category)
+                        await self.post_single_twitch_schedule(start_time=stream_time, duration="360", title=schedule[day], category_id=category)
             else:
                 response += "_NO STREAM_\n"
 
@@ -103,7 +105,11 @@ class PhantomGamesBotSchedule(commands.Cog):
     async def post_single_twitch_schedule(self, start_time: datetime, duration: str, title: str, category_id: str = None):
         # POST https://api.twitch.tv/helix/schedule/segment
 
-        query=[("broadcaster_id", os.environ.get("TWITCH_CHANNEL_ID_phantom5800"))]
+        # convert start time to UTC
+        start_time = start_time + timedelta(hours=8) # TODO: adjust this for DST
+
+        channel = "phantom5800"
+        query=[("broadcaster_id", os.environ.get(f"TWITCH_CHANNEL_ID_{channel}"))]
 
         body = {
             "start_time": start_time.strftime("%Y-%m-%dT%H:%M:%SZ"),
@@ -118,3 +124,6 @@ class PhantomGamesBotSchedule(commands.Cog):
             body["category_id"] = category_id
 
         print(body)
+        endpoint = Route("POST", "schedule/segment", query=query, body=body, token=os.environ.get(f"TWITCH_CHANNEL_TOKEN_{channel}"))
+        await self.twitch_bot._http.request(endpoint)
+

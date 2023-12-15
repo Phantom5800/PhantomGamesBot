@@ -22,7 +22,7 @@
   "!peed": {
     "response": "\ud83d\ude33",
     "cooldown": 0,
-    "last_use": 1696947380.187208
+    "last_use": 1702484344.23203
   },
   "!peed69": {
     "response": "Flushed",
@@ -36,6 +36,11 @@
   },
   "!rouge": {
     "response": "rouge the bat",
+    "cooldown": 0,
+    "last_use": 0
+  },
+  "!flowerfields": {
+    "response": "I love Flower Fields. If I could, I would replace all areeas with Flower Fields. The amount of skill, calculations, and sheer intelligence involved in navigating the many entrances make for the most memorable area in Paper Mario. I can't think of a single reason why anyone would want to skip this area or even worse, remove it from the game. The only possible substitute that comes to mind is The Great Boggly Tree, but that is a story for a different day.",
     "cooldown": 0,
     "last_use": 0
   }

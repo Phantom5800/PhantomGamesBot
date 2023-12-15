@@ -29,15 +29,15 @@ if __name__ == "__main__":
     sharedResources.youtube = YouTubeData()
 
     # twitch bot acts as a master bot that appends other bot event loops to its own
-    masterBot = run_twitch_bot(sharedResources)
+    sharedResources.twitch_bot = run_twitch_bot(sharedResources)
 
     # verify and run discord bot
     # TODO: better verification, but empty is probably good enough
     if os.environ['DISCORD_TOKEN'] is not None and len(os.environ['DISCORD_TOKEN']) > 0:
-        run_discord_bot(masterBot.loop, sharedResources)
+        sharedResources.discord_bot = run_discord_bot(sharedResources.twitch_bot.loop, sharedResources)
 
     # verify that twitter credentials are configured
     if os.environ['TWITTER_CONSUMER_KEY'] is not None and len(os.environ['TWITTER_CONSUMER_KEY']) > 0:
-        run_twitter_bot(masterBot.loop, sharedResources.markovHandler)
+        run_twitter_bot(sharedResources.twitch_bot.loop, sharedResources.markovHandler)
 
-    masterBot.run()
+    sharedResources.twitch_bot.run()
