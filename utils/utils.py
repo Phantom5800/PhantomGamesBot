@@ -36,7 +36,7 @@ async def get_game_name_from_twitch_for_user(twitchClient: twitchCommands.Bot, u
     # get the channel info for requested user, this should typically work immediately
     streamer = await get_twitch_user(twitchClient, username)
     if streamer is not None:
-        debugPrint(f"[Get Game Name] Found streamer immediately: {username}")
+        debugPrint(f"[Get Game Name] Found streamer immediately: {username} playing {streamer.game_name}: {streamer.game_id}")
         return streamer.game_name
 
     # backup, do a full search
@@ -49,7 +49,7 @@ async def get_game_name_from_twitch_for_user(twitchClient: twitchCommands.Bot, u
             game_list = await twitchClient.fetch_games(game_ids)
             if len(game_list) > 0:
                 game = game_list[0]
-                debugPrint(f"[Get Game Name] Found game: {game.name}")
+                debugPrint(f"[Get Game Name] Found game: {game.name}: {streamer.game_id}")
                 return game.name
             return "No Category Set"
     return f"User Not Found {username}"
@@ -69,7 +69,8 @@ Take game name's from twitch and map them to the name of games that appear on sp
 def convert_twitch_to_src_game(twitchGame: str) -> str:
     mapping = {
         "Pokémon: Let's Go, Eevee!": "Pokémon Let's Go Pikachu/Eevee",
-        "Pokémon: Let's Go, Pikachu!": "Pokémon Let's Go Pikachu/Eevee"
+        "Pokémon: Let's Go, Pikachu!": "Pokémon Let's Go Pikachu/Eevee",
+        "Super Mario RPG": "Super Mario RPG (Switch)"
     }
     if twitchGame in mapping:
         return mapping[twitchGame]
