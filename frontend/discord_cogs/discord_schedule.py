@@ -10,9 +10,9 @@ from utils.ext_classes import AliasDict
 TwitchCategoryIDs = AliasDict({
     "battle network":   "7542", # BN1 category
     "minish cap":       "5635",
-    "paper mario":      "6855",
+    "paper mario":      "18231",
     "pokemon crystal":  "14543",
-    "super mario rpg":  "254327" # or 1675405846
+    "super mario rpg":  "1675405846"
 })
 
 # create a set of shorthand aliases for categories
