@@ -48,6 +48,9 @@ class PhantomGamesBotSchedule(commands.Cog):
         saturday_cat: str = None,
         sunday_cat: str = None
     ):
+        # defer because this is gonna take a bit to process
+        await ctx.defer(ephemeral=True)
+
         # figure out the next Monday stream time as a basis
         current = datetime.now()
         current = current.replace(hour=14, minute=0, second=0) # set to 2pm local time
