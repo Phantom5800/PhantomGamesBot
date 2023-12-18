@@ -8,7 +8,7 @@ defaultPolls = [
         'active': False,
         'decision': "We're doing an extra rando this week, what should it be?",
         'options': [
-            "Battle Network 6",
+            "Battle Network 3",
             "Super Mario RPG (SNES)",
             "Minish Cap",
             "Pokémon Crystal"
