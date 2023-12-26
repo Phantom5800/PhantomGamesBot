@@ -21,8 +21,8 @@ twitch_user_cache = {}
 '''
 Get a user object from cache if it exists, otherwise make a request and store the result.
 '''
-async def get_twitch_user(twitchClient: twitchCommands.Bot, username: str):
-    if username in twitch_user_cache:
+async def get_twitch_user(twitchClient: twitchCommands.Bot, username: str, reset_cache: bool = False):
+    if reset_cache == False and username in twitch_user_cache:
         return twitch_user_cache[username]
     streamer = await twitchClient.fetch_channel(username)
     if streamer is not None:
@@ -34,7 +34,7 @@ Find the current stream category for a given user.
 '''
 async def get_game_name_from_twitch_for_user(twitchClient: twitchCommands.Bot, username: str) -> str:
     # get the channel info for requested user, this should typically work immediately
-    streamer = await get_twitch_user(twitchClient, username)
+    streamer = await get_twitch_user(twitchClient, username, reset_cache=True)
     if streamer is not None:
         debugPrint(f"[Get Game Name] Found streamer immediately: {username} playing {streamer.game_name}: {streamer.game_id}")
         return streamer.game_name

@@ -8,19 +8,34 @@ from utils.ext_classes import AliasDict
 
 # these categories are hand selected as common options
 TwitchCategoryIDs = AliasDict({
-    "battle network":   "7542", # BN1 category
-    "minish cap":       "5635",
-    "paper mario":      "18231",
-    "pokemon crystal":  "14543",
-    "super mario rpg":  "1675405846"
+    "battle network":           "7542", # BN1 category
+    "kirby 64":                 "15681",
+    "link to the past":         "9435",
+    "minish cap":               "5635",
+    "ocarina of time":          "11557",
+    "paper mario":              "18231",
+    "pokemon colosseum":        "11879",
+    "pokemon crystal":          "14543",
+    "pokemon emerald":          "10609",
+    "super mario rpg":          "1675405846",
+    "super smash bros brawl":   "18833",
+    "twilight princess":        "17828"
 })
 
 # create a set of shorthand aliases for categories
 TwitchCategoryIDs.add_alias("battle network", "bn")
+TwitchCategoryIDs.add_alias("link to the past", "lttp")
+TwitchCategoryIDs.add_alias("link to the past", "z3")
 TwitchCategoryIDs.add_alias("minish cap", "tmc")
+TwitchCategoryIDs.add_alias("ocarina of time", "oot")
 TwitchCategoryIDs.add_alias("paper mario", "pape")
+TwitchCategoryIDs.add_alias("pokemon colosseum", "colo")
+TwitchCategoryIDs.add_alias("pokemon colosseum", "colosseum")
 TwitchCategoryIDs.add_alias("pokemon crystal", "crystal")
+TwitchCategoryIDs.add_alias("pokemon emerald", "emerald")
 TwitchCategoryIDs.add_alias("super mario rpg", "smrpg")
+TwitchCategoryIDs.add_alias("super smash bros brawl", "brawl")
+TwitchCategoryIDs.add_alias("twilight princess", "tp")
 
 class PhantomGamesBotSchedule(commands.Cog):
     def __init__(self, bot, sharedResources):

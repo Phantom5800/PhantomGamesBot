@@ -29,6 +29,17 @@ defaultPolls = [
         ],
         'votes': {}
     },
+    {
+        'title': "Pokémon Game",
+        'menuRow': 1,
+        'active': False,
+        'decision': "What Pokémon Rando do we do this weekend?",
+        'options': [
+            "Crystal",
+            "Emerald"
+        ],
+        'votes': {}
+    },
     #########################################################################################
     # Pape Rando Settings
     #########################################################################################
@@ -100,12 +111,12 @@ defaultPolls = [
         'title': "Pokémon Crystal Setting",
         'menuRow': 3,
         'active': False,
-        'decision': "How should Pokémon be randomized in Crystal?",
+        'decision': "What should we add to Pokémon Crystal?",
         'options': [
             "Random Base Stats",
-            "Random Types",
-            "Random Move Power",
-            "Random Move Types"
+            "Random Move Types",
+            "Evolve Every Level",
+            "Shopsanity"
         ],
         'votes': {}
     }
