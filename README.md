@@ -332,7 +332,7 @@ In order to fill out the `.env`, you'll need to register as a [Twitch developer]
 This is an example URI used to generate a valid OAuth user token for all Twitch APIs used:
 
 ```
-https://id.twitch.tv/oauth2/authorize?response_type=token&client_id=<enter your client id here>&redirect_uri=http%3A//localhost%3A3000&scope=bits%3Aread+chat%3Aread+chat%3Aedit+channel%3Aedit%3Acommercial+channel%3Amanage%3Abroadcast+channel%3Amoderate+channel%3Amanage%3Apolls+moderator%3Aread%3Achat_settings+moderator%3Amanage%3Achat_settings+moderator%3Aread%3Ashoutouts+moderator%3Amanage%3Ashoutouts+channel%3Amanage%3Apredictions+channel%3Aread%3Agoals+channel%3Aread%3Aredemptions+channel%3Aread%3Asubscriptions+channel%3Amanage%3Avips+moderator%3Aread%3Achatters+moderator%3Amanage%3Aannouncements+channel%3Aread%3Aads+channel%3Amanage%3Aads+channel%3Amanage%3Aschedule
+https://id.twitch.tv/oauth2/authorize?response_type=token&client_id=<enter your client id here>&redirect_uri=http%3A//localhost%3A3000&scope=bits%3Aread+chat%3Aread+chat%3Aedit+channel%3Aedit%3Acommercial+channel%3Amanage%3Abroadcast+channel%3Amoderate+channel%3Amanage%3Apolls+moderator%3Aread%3Achat_settings+moderator%3Amanage%3Achat_settings+moderator%3Aread%3Ashoutouts+moderator%3Amanage%3Ashoutouts+channel%3Amanage%3Apredictions+channel%3Aread%3Agoals+channel%3Aread%3Aredemptions+channel%3Aread%3Asubscriptions+channel%3Amanage%3Avips+moderator%3Aread%3Achatters+moderator%3Amanage%3Aannouncements+channel%3Aread%3Aads+channel%3Amanage%3Aads+channel%3Amanage%3Aschedule+moderator%3Aread%3Afollowers
 ```
 
 For readability sake, this is the list of permissions granted to the bot:
@@ -354,6 +354,7 @@ For readability sake, this is the list of permissions granted to the bot:
 * channel:moderate - moderator actions
 * moderator:read:chat_settings - check for chat settings like slow mode, sub mode, etc.
 * moderator:read:chatters - view list of people in chat
+* moderator:read:followers - check follower info
 * moderator:read:shoutouts - view shoutouts
 * moderator:manage:announcements - post announcements
 * moderator:manage:chat_settings - modify chat settings like slow mode, sub mode, etc.

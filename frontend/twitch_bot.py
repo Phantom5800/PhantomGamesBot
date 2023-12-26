@@ -641,12 +641,13 @@ class PhantomGamesBot(commands.Bot):
         streamer = await get_twitch_user(self, ctx.message.channel.name)
         try:
             twitch_user = await ctx.message.author.user()
-            follow_event = await twitch_user.fetch_follow(to_user=streamer.user, token=os.environ['TWITCH_OAUTH_TOKEN'])
+            follow_event = await streamer.user.fetch_channel_followers(token=os.environ['TWITCH_OAUTH_TOKEN'], user_id=twitch_user.id)
         except Exception as e:
             print(e)
             await ctx.send(f"{ctx.message.author.mention} something went wrong, oops")
             return
-        if follow_event is not None:
+        if follow_event is not None and len(follow_event) == 1:
+            follow_event = follow_event[0]
             span = datetime.now(timezone.utc) - follow_event.followed_at
 
             hours, remainder = divmod(span.total_seconds(), 3600)
