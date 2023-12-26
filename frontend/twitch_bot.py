@@ -297,6 +297,24 @@ class PhantomGamesBot(commands.Bot):
                 await ctx.send(f"{ctx.message.author.mention} make sure to specify a command and a cooldown!")
 
     '''
+    Set the random response chance for a custom command through twitch chat.
+    '''
+    @commands.command()
+    async def setrng(self, ctx: commands.Context):
+        if ctx.message.author.is_mod:
+            command_parts = self.command_msg_breakout(ctx.message.content, 3)
+            if command_parts is not None:
+                command = command_parts[1]
+                rng = tryParseInt(command_parts[2])
+                command_edited = self.custom.set_rng_response(command, rng, ctx.message.channel.name)
+                if command_edited:
+                    await ctx.send(f"{ctx.message.author.mention} Response chance for [{command}] = {rng}%")
+                else:
+                    await ctx.send(f"{ctx.message.author.mention} Command [{command}] does not exist.")
+            else:
+                await ctx.send(f"{ctx.message.author.mention} make sure to specify a command and a response chance!")
+
+    '''
     Edit a custom command through twitch chat.
     '''
     @commands.command(aliases=["editcom"])

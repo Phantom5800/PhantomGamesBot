@@ -39,11 +39,11 @@ defaultPolls = [
         'decision': "Which extra setting should we use in Pape Rando?",
         'options': [
             "Coin Blocks",
-            "Koot + Radio + Dojo",
             "Dungeon Shuffle",
             "Random Starting Location",
             "Multicoin and Upgrade Blocks",
-            "Jumpless"
+            "Jumpless",
+            "Mirror Mode"
         ],
         'votes': {}
     },

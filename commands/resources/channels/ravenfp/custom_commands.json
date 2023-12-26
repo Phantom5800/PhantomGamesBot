@@ -118,5 +118,11 @@
     "response": "No SadgeCry",
     "cooldown": 0,
     "last_use": 0
+  },
+  "passtheburrito": {
+    "response": "PassTheBurrito",
+    "cooldown": 0,
+    "last_use": 0,
+    "rng": 25
   }
 }

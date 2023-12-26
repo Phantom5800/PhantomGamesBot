@@ -22,7 +22,7 @@
   "!discord": {
     "response": "/announce Join the discord if you want to hang out! There is a weekly poll to decide what randomizers we do on the weekends and is generally just a great place to hang out https://discord.gg/XtrhKXNmRc",
     "cooldown": 0,
-    "last_use": 1699218731.657285
+    "last_use": 1703440615.815646
   },
   "!ohdee": {
     "response": "/announce OhDee made a ton of emotes and stream assets. Follow him on twitter because he's cool: https://twitter.com/OhDeezey",
@@ -117,7 +117,7 @@
   "hi": {
     "response": "hi $user",
     "cooldown": 10,
-    "last_use": 1701725599.587115
+    "last_use": 1703346550.776625
   },
   "!nmsb": {
     "response": "/me No Major Sequence Breaks is a category that bridges the gap between Glitchless and All Cards. The important parts are that chapters must be completed in order, and story sequence can never go backwards.",
@@ -180,7 +180,7 @@
     "last_use": 1700150753.609477
   },
   "!settings": {
-    "response": "$user Standard Race Settings (S1) + Dungeon Shuffle + Random Starting Location",
+    "response": "Coinsanity, 45 Badge Pool, 100/120 Power Star Hunt",
     "cooldown": 0,
     "last_use": 0
   },
@@ -212,7 +212,7 @@
   "!rogue": {
     "response": "/me I am partnered with Rogue Energy! Lot's of great flavors for an energy boost as well as plenty of vitamins, be sure to use my code for 20% off https://rogueenergy.com/discount/PHANTOM?ref=Phantom",
     "cooldown": 0,
-    "last_use": 1701721328.330745
+    "last_use": 1703440712.940653
   },
   "!wonderseed": {
     "response": "LSD yippee!",
@@ -271,6 +271,11 @@
   },
   "!subgoals": {
     "response": "/me There is a large list of sub incentives for December! The goals are posted in !discord, but in general, every 25 sub points will hit a new incentive. Sub discounts start on the 13th on Twitch, but the tracking is for the whole month",
+    "cooldown": 0,
+    "last_use": 0
+  },
+  "!speedguideslive": {
+    "response": "https://github.com/Phantom5800/Speed-Guides-Live",
     "cooldown": 0,
     "last_use": 0
   }

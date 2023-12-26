@@ -10,6 +10,7 @@ class SrcGames(StrEnum):
     DogIsland = "the_dog_island"
 
 class YouTubePlaylists(StrEnum):
+    BattleNetworkRando = "Battle Network Randomizers"
     MinishCapRando = "Minish Cap Randomizers"
     PaperMarioBlackPit = "Paper Mario Black Pit"
     PaperMarioRando = "Paper Mario Randomizers"
@@ -47,6 +48,7 @@ class PhantomGamesBotCommands(commands.Cog):
         help="Get a list of all PB's for a given game.\nUsage:\n\t!pb {Game name}\n\tExample: !pb paper mario")
     async def get_pb(self, ctx, game: SrcGames):
         self.bot.commands_since_new_status += 1
+        await ctx.defer()
         categories = self.speedrun.get_categories(game)
         response = ""
         for category in categories:

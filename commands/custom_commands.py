@@ -1,5 +1,6 @@
 import json
 import os
+import random
 import threading
 from copy import deepcopy
 from datetime import datetime
@@ -116,6 +117,21 @@ class CustomCommands:
         return False
 
     '''
+    Set a random response chance in the range [1,100]
+    '''
+    def set_rng_response(self, command: str, rng: int, channel: str) -> bool:
+        channel = channel.lower()
+        command_lower = command.lower()
+        self.file_lock.acquire()
+        if self.command_exists(command_lower, channel):
+            self.command_set[channel][command_lower]["rng"] = rng
+            self.file_lock.release()
+            self.save_commands(channel)
+            return True
+        self.file_lock.release()
+        return False
+
+    '''
     Edit the response for a given command.
     '''
     def edit_command(self, command: str, response: str, cooldown: int, channel: str) -> bool:
@@ -160,7 +176,14 @@ class CustomCommands:
             self.file_lock.acquire()
             # check if command has been used, and if it has, if it is past the cooldown period
             current_seconds = (datetime.now() - datetime(1970,1,1)).total_seconds()
-            if self.command_set[channel][lower_message]["last_use"] == 0 or current_seconds - self.command_set[channel][lower_message]["last_use"] > self.command_set[channel][lower_message]["cooldown"]:
+            unused_command = self.command_set[channel][lower_message]["last_use"] == 0
+            cooldown_passed = current_seconds - self.command_set[channel][lower_message]["last_use"] > self.command_set[channel][lower_message]["cooldown"]
+            try:
+                response_chance = self.command_set[channel][lower_message]["rng"]
+            except:
+                response_chance = 100
+            can_respond = random.randint(0, 100) < response_chance
+            if (unused_command or cooldown_passed) and can_respond:
                 self.command_set[channel][lower_message]["last_use"] = current_seconds
                 response = self.get_command(lower_message, channel)
             self.file_lock.release()
