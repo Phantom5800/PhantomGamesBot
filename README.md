@@ -153,6 +153,13 @@ Set the cooldown on a custom command to restrict how often it can be used.
 !setcooldown {command} {cooldown in seconds}
 ```
 
+### !setrng ![](./readme/images/twitch.png)
+Sets the random chance the bot will respond to a given message.
+
+```
+!setrng {command} [1,100]
+```
+
 ### Command Variables
 These variables can be used in custom commands to fill in data dynamically.
 
@@ -215,30 +222,6 @@ Removes a command from the timer queue.
 ### !timerevents ![](./readme/images/twitch.png)
 Get a list of all the current events added to the timer.
 
-# Stream Goals
-These commands are used for various dynamically updating stream goals.
-
-### !setsubgoal ![](./readme/images/twitch.png)
-Can only be used by the broadcaster. Sets the current sub goal amount and an incentive. If the amount is set to 0, the incentive message is never shown, but still needs to be provided.
-
-```
-!setsubgoal 100 a thing
-```
-
-# Sub-a-thon Settings
-This is a set of commands that can be used to manage a sub-a-thon style timer where time is automatically added based on bits and subs with the ability to add more time manually.
-
-### !startsubathon ![](./readme/images/twitch.png)
-Starts an internal sub-a-thon timer
-
-### !pausesubathon ![](./readme/images/twitch.png)
-Pause the currently running timer
-
-### !resumesubathon ![](./readme/images/twitch.png)
-Resumes a previously paused sub-a-thon timer
-
-### !addsubathontime ![](./readme/images/twitch.png)
-Manually add time to the sub-a-thon timer. This value treated should be treated similarly to bits, ie., whole numbers where 100 = $1.
 
 # Discord Settings
 PhantomGamesBot supports discord as well. The only setup required is to create an application in the [Discord Developer Portal](https://discord.com/developers/applications) and copy the token for the bot into `.env`. Other settings in the portal depend entirely on what you would be using the bot for.
