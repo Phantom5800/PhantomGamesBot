@@ -10,6 +10,7 @@ from utils.ext_classes import AliasDict
 TwitchCategoryIDs = AliasDict({
     "battle network":           "7542", # BN1 category
     "kirby 64":                 "15681",
+    "links awakening":          "3337", # 959980201 is the LAS category
     "link to the past":         "9435",
     "minish cap":               "5635",
     "ocarina of time":          "11557",
@@ -17,6 +18,7 @@ TwitchCategoryIDs = AliasDict({
     "pokemon colosseum":        "11879",
     "pokemon crystal":          "14543",
     "pokemon emerald":          "10609",
+    "retro":                    "27284",
     "super mario rpg":          "1675405846",
     "super smash bros brawl":   "18833",
     "twilight princess":        "17828"
@@ -26,6 +28,8 @@ TwitchCategoryIDs = AliasDict({
 TwitchCategoryIDs.add_alias("battle network", "bn")
 TwitchCategoryIDs.add_alias("link to the past", "lttp")
 TwitchCategoryIDs.add_alias("link to the past", "z3")
+TwitchCategoryIDs.add_alias("links awakening", "la")
+TwitchCategoryIDs.add_alias("links awakening", "ladx")
 TwitchCategoryIDs.add_alias("minish cap", "tmc")
 TwitchCategoryIDs.add_alias("ocarina of time", "oot")
 TwitchCategoryIDs.add_alias("paper mario", "pape")

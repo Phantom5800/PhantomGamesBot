@@ -9,6 +9,7 @@ defaultPolls = [
         'decision': "We're doing an extra rando this week, what should it be?",
         'options': [
             "Battle Network 3",
+            "Link's Awakening DX",
             "Super Mario RPG (SNES)",
             "Minish Cap",
             "Pokémon Crystal"
@@ -16,14 +17,24 @@ defaultPolls = [
         'votes': {}
     },
     {
-        'title': "Zelda Game",
+        'title': "2D Zelda Game",
         'menuRow': 1,
         'active': False,
         'decision': "What Zelda Rando do we do this weekend?",
         'options': [
             "Link to the Past",
             "Link's Awakening DX",
-            "Minish Cap",
+            "Oracle of Seasons",
+            "Minish Cap"
+        ],
+        'votes': {}
+    },
+    {
+        'title': "3D Zelda Game",
+        'menuRow': 1,
+        'active': False,
+        'decision': "What Zelda Rando do we do this weekend?",
+        'options': [
             "Ocarina of Time",
             "Twilight Princess"
         ],
