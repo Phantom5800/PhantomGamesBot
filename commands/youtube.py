@@ -215,7 +215,7 @@ class YouTubeData:
                                 video_id_list += str(video["snippet"]["resourceId"]["videoId"])
 
                 video_request = self.youtube.videos().list(
-                    part="snippet,contentDetails",
+                    part="snippet,contentDetails,statistics",
                     id=video_id_list
                 )
                 video_data = video_request.execute()
@@ -246,6 +246,8 @@ class YouTubeData:
                         duration = video["contentDetails"].get("duration")
                         if duration:
                             total_duration += parse_isoduration(duration)
+                    if video.get("statistics"):
+                        views = video["statistics"].get("viewCount")
 
                 if not response.get("nextPageToken"):
                     break

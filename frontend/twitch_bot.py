@@ -726,11 +726,24 @@ class PhantomGamesBot(commands.Bot):
         else:
             return None
 
-    async def get_subscriber_count(self, streamer) -> int:
+    async def get_subscriber_count(self, streamer, plus_points: bool = False) -> int:
         token = os.environ.get(f'TWITCH_CHANNEL_TOKEN_{streamer.name.lower()}')
         if token:
+            count = 0
             sub_list = await streamer.fetch_subscriptions(token=token)
-            return len(sub_list) - 1
+            if plus_points:
+                for sub in sub_list:
+                    if sub.user.name.lower() == streamer.name.lower():
+                        continue
+                    if not sub.gift:
+                        # tier 3's are worth 6, tier 1 and 2 are worth their tier level
+                        if sub.tier == 3:
+                            count += 3
+                        count += sub.tier
+                        # can't tell if prime but those aren't supposed to count
+            else:
+                count = len(sub_list) - 1
+            return count
         return -1
 
     @commands.command()
@@ -746,6 +759,13 @@ class PhantomGamesBot(commands.Bot):
         streamer = await ctx.message.channel.user()
         msg = await self.get_goal_msg(streamer, follower=False)
         await self.post_chat_announcement(streamer, msg)
+
+    @commands.command()
+    @commands.cooldown(1, 10, commands.Bucket.channel)
+    async def plus(self, ctx: commands.Context):
+        streamer = await ctx.message.channel.user()
+        plus_points = await self.get_subscriber_count(streamer, True)
+        await ctx.send(f"/me We are at {plus_points} / 100 sub points towards qualifying for a 60% sub split. If you are able, please consider subscribing at tier 1, 2 or 3 to help reach that!")
 
     #####################################################################################################
     # pubsub

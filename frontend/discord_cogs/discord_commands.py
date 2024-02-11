@@ -11,10 +11,12 @@ class SrcGames(StrEnum):
 
 class YouTubePlaylists(StrEnum):
     BattleNetworkRando = "Battle Network Randomizers"
+    LADXRando = "Link's Awakening Randomizers"
     MinishCapRando = "Minish Cap Randomizers"
     PaperMarioBlackPit = "Paper Mario Black Pit"
     PaperMarioRando = "Paper Mario Randomizers"
     PokemonCrystalRando = "Pokémon Crystal Randomizers"
+    PokemonEmeraldRando = "Pokémon Emerald Randomizers"
 
 '''
 Unlike twitchio, discord bot is unable to embed commands directly, and requires cogs.

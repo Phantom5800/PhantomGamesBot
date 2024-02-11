@@ -124,5 +124,10 @@
     "cooldown": 0,
     "last_use": 0,
     "rng": 25
+  },
+  "!morshu": {
+    "response": "Lamp Oil, Ropes, BOMBS!? You want it? It's yours my friend, as long as you have enough Rubies!",
+    "cooldown": 0,
+    "last_use": 0
   }
 }

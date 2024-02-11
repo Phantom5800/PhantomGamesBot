@@ -8,11 +8,13 @@ defaultPolls = [
         'active': False,
         'decision': "We're doing an extra rando this week, what should it be?",
         'options': [
-            "Battle Network 3",
+            #"Battle Network 3",
             "Link's Awakening DX",
-            "Super Mario RPG (SNES)",
             "Minish Cap",
-            "Pokémon Crystal"
+            "Pokémon Crystal",
+            "Pokémon Emerald",
+            "Pokémon Red/Blue",
+            #"Super Mario RPG (SNES)"
         ],
         'votes': {}
     },
@@ -100,6 +102,20 @@ defaultPolls = [
     #########################################################################################
     # Zelda Rando Settings
     #########################################################################################
+    {
+        'title': "LADX Setting",
+        'menuRow': 3,
+        'active': False,
+        'decision': "Which extra setting should we enable for a Link's Awakening DX Rando?",
+        'options': [
+            "Owl Statue Checks",
+            "Boss Shuffle",
+            "Bowwow Start",
+            "Dungeon Shuffle",
+            "Random Starting Location"
+        ],
+        'votes': {}
+    },
     {
         'title': "Minish Cap Setting",
         'menuRow': 3,
