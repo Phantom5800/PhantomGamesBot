@@ -48,6 +48,7 @@ defaultPolls = [
         'active': False,
         'decision': "What Pokémon Rando do we do this weekend?",
         'options': [
+            "Red/Blue",
             "Crystal",
             "Emerald"
         ],

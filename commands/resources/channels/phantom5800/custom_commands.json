@@ -22,7 +22,7 @@
   "!discord": {
     "response": "/announce Join the discord if you want to hang out! There is a weekly poll to decide what randomizers we do on the weekends and is generally just a great place to hang out https://discord.gg/XtrhKXNmRc",
     "cooldown": 0,
-    "last_use": 1703965701.484868
+    "last_use": 1708365998.101162
   },
   "!ohdee": {
     "response": "/announce OhDee made a ton of emotes and stream assets. Follow him on twitter because he's cool: https://twitter.com/OhDeezey",
@@ -117,7 +117,7 @@
   "hi": {
     "response": "hi $user",
     "cooldown": 10,
-    "last_use": 1704052150.030913
+    "last_use": 1708366754.287933
   },
   "!nmsb": {
     "response": "/me No Major Sequence Breaks is a category that bridges the gap between Glitchless and All Cards. The important parts are that chapters must be completed in order, and story sequence can never go backwards.",
@@ -281,6 +281,11 @@
   },
   "!2024": {
     "response": "/me All year we are doing a new speedrun every month! That doesn't mean games get dropped each month, but we'll be focusing on new runs very often. The current revealed schedule is here: https://i.imgur.com/R4LvPZt.png",
+    "cooldown": 0,
+    "last_use": 0
+  },
+  "!ap": {
+    "response": "If you are a twitch sub or youtube member, we are starting archipelago multiworld games in !discord and you can participate if you want. These aren't streamed and you can play at your own pace whenever you have time and available checks in whatever game you choose",
     "cooldown": 0,
     "last_use": 0
   }

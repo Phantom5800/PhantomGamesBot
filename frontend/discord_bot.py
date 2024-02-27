@@ -144,11 +144,12 @@ class PhantomGamesBot(Bot):
 
         last_upload_cache = './commands/resources/last_youtube_post.txt'
         if not os.path.isfile(last_upload_cache):
-            open(last_upload_cache, 'w').close()
+            open(last_upload_cache, 'w', encoding="utf-8").close()
 
         with open(last_upload_cache, 'r+', encoding="utf-8") as f:
             last_vid = f.read()
             if last_vid != youtube_vid:
+                print(f"[YouTube] New video. Old: \"{last_vid}\" and Current: \"{youtube_vid}\"")
                 await channel.send(f"{self.roles['youtube-alerts']} {youtube_vid}")
                 f.seek(0)
                 f.write(youtube_vid)

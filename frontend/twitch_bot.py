@@ -65,6 +65,12 @@ class PhantomGamesBot(commands.Bot):
             for i, word in enumerate(self.banned_words):
                 self.banned_words[i] = word.strip()
 
+        # data
+        self.first_redeems = {}
+        with open('./commands/resources/first.json', 'r', encoding="utf-8") as first_redeems:
+            data = json.load(first_redeems)
+            self.first_redeems = deepcopy(data)
+
         # random message response
         self.bless_count = 0
         self.bless_sent = False
@@ -767,6 +773,14 @@ class PhantomGamesBot(commands.Bot):
         plus_points = await self.get_subscriber_count(streamer, True)
         await ctx.send(f"/me We are at {plus_points} / 100 sub points towards qualifying for a 60% sub split. If you are able, please consider subscribing at tier 1, 2 or 3 to help reach that!")
 
+    @commands.command()
+    async def first(self, ctx: commands.Context):
+        username = ctx.message.author.name.lower()
+        if username in self.first_redeems:
+            await ctx.send(f"{ctx.message.author.mention} has been first {self.first_redeems[username]} times!")
+        else:
+            await ctx.send(f"{ctx.message.author.mention} has never been first phanto274D")
+
     #####################################################################################################
     # pubsub
     #####################################################################################################
@@ -789,6 +803,18 @@ class PhantomGamesBot(commands.Bot):
 
     async def event_pubsub_channel_points(self, event: pubsub.PubSubChannelPointsMessage):
         #print(f"Channel Point Redemption [{event.timestamp}]: {event.user.name} - {event.reward.title} - {event.input}")
+
+        # track first redemptions
+        if "First" in event.reward.title:
+            username = event.user.name.lower()
+            if username in self.first_redeems:
+                self.first_redeems[username] += 1
+            else:
+                self.first_redeems[username] = 1
+            with open('./commands/resources/first.json', 'w', encoding="utf-8") as first_redeems:
+                json_str = json.dumps(self.first_redeems, indent=2)
+                first_redeems.write(json_str)
+            print(f"{username} redeemed First {self.first_redeems[username]} times")
 
         # attempt to give the user VIP
         if "VIP" in event.reward.title:

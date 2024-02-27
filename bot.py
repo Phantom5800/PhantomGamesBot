@@ -10,7 +10,7 @@ from frontend.twitch_bot import run_twitch_bot
 from frontend.discord_bot import run_discord_bot
 from frontend.twitter_bot import run_twitter_bot
 
-if __name__ == "__main__":
+def run():
     # Shared resources
     sharedResources = lambda:None
     print("========== Custom Commands ==========")
@@ -41,3 +41,6 @@ if __name__ == "__main__":
         run_twitter_bot(sharedResources.twitch_bot.loop, sharedResources.markovHandler)
 
     sharedResources.twitch_bot.run()
+
+if __name__ == "__main__":
+    run()
