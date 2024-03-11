@@ -128,7 +128,7 @@ class PhantomGamesBotSchedule(commands.Cog):
         # POST https://api.twitch.tv/helix/schedule/segment
 
         # convert start time to UTC
-        start_time = start_time + timedelta(hours=8) # TODO: adjust this for DST
+        start_time = start_time + timedelta(hours=(8 - time.localtime().tm_isdst))
 
         channel = "phantom5800"
         query=[("broadcaster_id", os.environ.get(f"TWITCH_CHANNEL_ID_{channel}"))]

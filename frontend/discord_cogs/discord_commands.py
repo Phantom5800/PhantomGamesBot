@@ -1,13 +1,18 @@
 import discord
 from commands.slots import Slots, SlotsMode
 from discord.ext import bridge, commands
-from enum import StrEnum
 from utils.utils import *
 
+# StrEnum was added in Python 3.11. For previous versions, you can install strenum with pip
+try:
+    from enum import StrEnum
+except:
+    from strenum import StrEnum
+
 class SrcGames(StrEnum):
-    PaperMario = "pm64"
-    MinishCap = "tmc"
-    DogIsland = "the_dog_island"
+    PaperMario = "Paper Mario"
+    MinishCap = "The Legend of Zelda: The Minish Cap"
+    DogIsland = "THE DOG Island"
 
 class YouTubePlaylists(StrEnum):
     BattleNetworkRando = "Battle Network Randomizers"
@@ -52,6 +57,7 @@ class PhantomGamesBotCommands(commands.Cog):
         self.bot.commands_since_new_status += 1
         await ctx.defer()
         categories = self.speedrun.get_categories(game)
+        print(f"Categories found for {game}: {categories}")
         response = ""
         for category in categories:
             response += self.speedrun.get_pb(game, category, True) + "\n"

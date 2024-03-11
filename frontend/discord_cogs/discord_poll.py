@@ -32,7 +32,7 @@ class PollToggleMenu(discord.ui.View):
         # button for posting current poll for Saturday only
         post_button = discord.ui.Button(label="Post Saturday Polls", custom_id="Post Polls 1", row=0)
         post_button.style = discord.ButtonStyle.primary
-        async def post_callback(interaction):
+        async def post_callback(interaction, poll_manager=poll_manager):
             await poll_manager.post_weekly_polls(multiple_days=False)
             await interaction.response.send_message("Current polls have been updated", ephemeral=True)
         post_button.callback = post_callback
@@ -58,7 +58,7 @@ class PollToggleMenu(discord.ui.View):
         # create a button for each poll in the set
         for k,poll in enumerate(poll_manager.polls):
             button = PollToggleButton(self, poll_manager, k, label=poll['title'])
-            async def button_callback(interaction, button=button):
+            async def button_callback(interaction, button=button, poll_manager=poll_manager):
                 button.style = discord.ButtonStyle.red if poll_manager.polls[button.id]['active'] else discord.ButtonStyle.green
                 interaction = await interaction.response.edit_message(view=self)
                 await poll_manager.togglepoll(button.id)

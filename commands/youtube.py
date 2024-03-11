@@ -2,6 +2,7 @@ import googleapiclient.discovery
 import json
 import os
 import threading
+import traceback
 from copy import deepcopy
 from datetime import datetime, timedelta
 
@@ -14,8 +15,14 @@ class YouTubeData:
         self.setup_youtube_api()
 
         self.cache = {}
-        for channel in self.youtube_data:
-            self.cache_youtube_data(channel)
+        try:
+            for channel in self.youtube_data:
+                self.cache_youtube_data(channel)
+        except:
+            tb = traceback.format_exc()
+            print(f"--------\n\t{tb}\n--------")
+        else:
+            print("YouTube data has been initialized")
 
     def setup_youtube_api(self):
         self.youtube = googleapiclient.discovery.build("youtube", "v3", developerKey=os.environ.get('YOUTUBE_API_KEY'))
@@ -49,7 +56,10 @@ class YouTubeData:
         if self.youtube_data[channel].get("playlists"):
             self.cache[channel] = {}
             for playlist in self.youtube_data[channel]["playlists"]:
-                self.cache[channel][playlist] = self.get_total_video_length(channel, self.youtube_data[channel]["playlists"][playlist])
+                try:
+                    self.cache[channel][playlist] = self.get_total_video_length(channel, self.youtube_data[channel]["playlists"][playlist])
+                except:
+                    raise
     
     def get_cache_youtube_playlist_length(self, channel: str, playlist: str) -> tuple:
         channel = channel.lower()
@@ -190,7 +200,12 @@ class YouTubeData:
                 maxResults=50,
                 playlistId=playlist_id
             )
-            response = request.execute()
+            response = None
+            try:
+                response = request.execute()
+            except Exception as e:
+                print(f"[YouTube Error] Error getting playlist: {playlist_id} - {e}")
+                raise
 
             total_duration = timedelta()
             total_videos = 0

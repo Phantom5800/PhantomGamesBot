@@ -169,8 +169,8 @@ class PhantomGamesBot(Bot):
             if time_since_last_post.total_seconds() >= 12 * 60 * 60:
                 try:
                     await self.announce_new_youtube_vid()
-                except:
-                    print("[Youtube] Rate limit reached for the day")
+                except Exception as err:
+                    print(f"[Youtube] Failed to get latest video - {err}")
 
             # 21:00 UTC = 2:00PM PDT / 1:00PM PST
             # trying to check at 1PM regardless of DST

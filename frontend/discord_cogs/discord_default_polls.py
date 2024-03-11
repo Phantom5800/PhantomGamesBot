@@ -3,10 +3,10 @@ defaultPolls = [
     # Game Selection Polls
     #########################################################################################
     {
-        'title': "Bonus Game",
+        'title': "Saturday Rando",
         'menuRow': 1,
         'active': False,
-        'decision': "We're doing an extra rando this week, what should it be?",
+        'decision': "What rando are we playing on Saturday?",
         'options': [
             #"Battle Network 3",
             "Link's Awakening DX",
@@ -15,6 +15,7 @@ defaultPolls = [
             "Pokémon Emerald",
             "Pokémon Red/Blue",
             #"Super Mario RPG (SNES)"
+            "Twilight Princess"
         ],
         'votes': {}
     },

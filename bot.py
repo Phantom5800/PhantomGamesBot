@@ -24,9 +24,10 @@ def run():
     sharedResources.srcHandler = SrcomApi(srcUsers[0])
     print("============= Markov ================")
     sharedResources.markovHandler = MarkovHandler()
+    print("============= YouTube ================")
+    sharedResources.youtube = YouTubeData()
     print("=====================================")
     sharedResources.anilist = Anilist()
-    sharedResources.youtube = YouTubeData()
 
     # twitch bot acts as a master bot that appends other bot event loops to its own
     sharedResources.twitch_bot = run_twitch_bot(sharedResources)
