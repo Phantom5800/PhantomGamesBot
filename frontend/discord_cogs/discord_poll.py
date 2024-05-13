@@ -212,6 +212,10 @@ class PhantomGamesBotPolls(commands.Cog):
     async def pollselectmenu(self, ctx):
         await PollToggleMenu(self).post_menu(ctx)
 
+    @bridge.bridge_command(name="showpollresults")
+    async def showpollresults(self, ctx):
+        await ctx.respond(self.count_votes(False), ephemeral=True)
+
     @bridge.bridge_command(name="resetpolls",
         description="Reset all polls to default states")
     async def resetpolls(self, ctx):

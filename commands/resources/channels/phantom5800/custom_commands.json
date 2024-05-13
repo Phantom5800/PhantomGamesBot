@@ -7,12 +7,12 @@
   "glenn": {
     "response": "glenn",
     "cooldown": 5,
-    "last_use": 1678643521.557629
+    "last_use": 1714924895.411156
   },
   "!lurk": {
     "response": "ok $user",
     "cooldown": 0,
-    "last_use": 1664549762.369702
+    "last_use": 1714488038.759325
   },
   "!unlurk": {
     "response": "alright $user",
@@ -117,7 +117,7 @@
   "hi": {
     "response": "hi $user",
     "cooldown": 10,
-    "last_use": 1708366754.287933
+    "last_use": 1714924901.264319
   },
   "!nmsb": {
     "response": "/me No Major Sequence Breaks is a category that bridges the gap between Glitchless and All Cards. The important parts are that chapters must be completed in order, and story sequence can never go backwards.",
@@ -187,7 +187,7 @@
   "yoshi": {
     "response": "piece of shit",
     "cooldown": 0,
-    "last_use": 1694024132.235527
+    "last_use": 1714918452.781959
   },
   "!bluesky": {
     "response": "/announce I'm on bluesky now if you have an account! https://bsky.app/profile/phantom-games.com",
@@ -230,7 +230,7 @@
     "last_use": 0
   },
   "!race": {
-    "response": "https://racetime.gg/pm64r/intrepid-frightjar-4097",
+    "response": "https://racetime.gg/pm64r/silly-zaptap-2551",
     "cooldown": 0,
     "last_use": 0
   },
@@ -280,12 +280,22 @@
     "last_use": 0
   },
   "!2024": {
-    "response": "/me All year we are doing a new speedrun every month! That doesn't mean games get dropped each month, but we'll be focusing on new runs very often. The current revealed schedule is here: https://i.imgur.com/R4LvPZt.png",
+    "response": "/me All year we are doing a new speedrun every month! That doesn't mean games get dropped each month, but we'll be focusing on new runs very often. The current revealed schedule is here: https://imgur.com/a4bbmN5.png",
     "cooldown": 0,
-    "last_use": 0
+    "last_use": 1714586950.624613
   },
   "!ap": {
     "response": "If you are a twitch sub or youtube member, we are starting archipelago multiworld games in !discord and you can participate if you want. These aren't streamed and you can play at your own pace whenever you have time and available checks in whatever game you choose",
+    "cooldown": 0,
+    "last_use": 0
+  },
+  "runera3swag": {
+    "response": "runera3Swag",
+    "cooldown": 0,
+    "last_use": 0
+  },
+  "raven": {
+    "response": "runera3Swag",
     "cooldown": 0,
     "last_use": 0
   }

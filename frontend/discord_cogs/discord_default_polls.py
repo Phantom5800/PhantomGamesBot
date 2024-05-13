@@ -67,7 +67,7 @@ defaultPolls = [
             "Coin Blocks",
             "Dungeon Shuffle",
             "Random Starting Location",
-            "Multicoin and Upgrade Blocks",
+            "Random Puzzles",
             "Jumpless",
             "Mirror Mode"
         ],
@@ -133,12 +133,25 @@ defaultPolls = [
         ],
         'votes': {}
     },
+    {
+        'title': "Twilight Princess Setting",
+        'menuRow': 3,
+        'active': False,
+        'decision': "What should we try adding to Twilight Princess Rando?",
+        'options': [
+            "Poes (Overworld)",
+            "Big Keysanity",
+            "Dungeon Rewards Anywhere",
+            "Enable Agitha"
+        ],
+        'votes': {}
+    },
     #########################################################################################
     # Pokémon Crystal Settings
     #########################################################################################
     {
         'title': "Pokémon Crystal Setting",
-        'menuRow': 3,
+        'menuRow': 4,
         'active': False,
         'decision': "What should we add to Pokémon Crystal?",
         'options': [

@@ -2,7 +2,7 @@
   "no": {
     "response": "no",
     "cooldown": 0,
-    "last_use": 1696974332.618418
+    "last_use": 1713795525.346822
   },
   "el:wadafa:yelpanafrienddandoleunabrazo": {
     "response": "el:Wadafa:yelpanaFrienddandoleunabrazo",
@@ -22,7 +22,7 @@
   "runera3love": {
     "response": "runera3Love",
     "cooldown": 0,
-    "last_use": 0
+    "last_use": 1713186196.019185
   },
   "!reset": {
     "response": "It's Reset Time\u2122 baby! KKona ! Nothing we do matters, no timesave is good enough, and our run is very dead.",
@@ -44,15 +44,10 @@
     "cooldown": 0,
     "last_use": 1681085690.132164
   },
-  "hello": {
-    "response": "HELLO, GORDON",
-    "cooldown": 0,
-    "last_use": 1673966750.097925
-  },
   "stinkycheese": {
     "response": "StinkyCheese",
     "cooldown": 0,
-    "last_use": 1673968235.954255
+    "last_use": 1713742852.123091
   },
   "!discord": {
     "response": "https://discord.gg/cxDBexV",
@@ -72,7 +67,7 @@
   "ggs": {
     "response": "We did it Reddit!",
     "cooldown": 0,
-    "last_use": 1673968277.062039
+    "last_use": 1713808803.300339
   },
   "trusty": {
     "response": "#TipTrusty https://twitter.com/Trustyalt",
@@ -129,5 +124,20 @@
     "response": "Lamp Oil, Ropes, BOMBS!? You want it? It's yours my friend, as long as you have enough Rubies!",
     "cooldown": 0,
     "last_use": 0
+  },
+  "!bracket": {
+    "response": "https://www.start.gg/tournament/tns-king-of-fighters-xv-tourney-90-crossplay/event/king-of-fighters-xv/brackets/1605798/2401220",
+    "cooldown": 0,
+    "last_use": 0
+  },
+  "runera3swag": {
+    "response": "runera3Swag",
+    "cooldown": 0,
+    "last_use": 0
+  },
+  "oshawottdance": {
+    "response": "Oshawottdance",
+    "cooldown": 0,
+    "last_use": 1713743854.412931
   }
 }

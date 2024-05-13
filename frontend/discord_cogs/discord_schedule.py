@@ -26,6 +26,7 @@ TwitchCategoryIDs = AliasDict({
 
 # create a set of shorthand aliases for categories
 TwitchCategoryIDs.add_alias("battle network", "bn")
+TwitchCategoryIDs.add_alias("link to the past", "alttp")
 TwitchCategoryIDs.add_alias("link to the past", "lttp")
 TwitchCategoryIDs.add_alias("link to the past", "z3")
 TwitchCategoryIDs.add_alias("links awakening", "la")
@@ -50,14 +51,14 @@ class PhantomGamesBotSchedule(commands.Cog):
         description="Leading any parameter with a | character will mark that day as off with a description.")
     @discord.option("post_twitch",
         description="Whether or not to post these streams to the twitch schedule (default True)")
-    async def weeklyschedule(self, ctx, 
-        monday: str = None, 
-        tuesday: str = None, 
-        wednesday: str = None, 
-        thursday: str = None, 
-        friday: str = None, 
-        saturday: str = None, 
-        sunday: str = None, 
+    async def weeklyschedule(self, ctx,
+        monday: str = None,
+        tuesday: str = None,
+        wednesday: str = None,
+        thursday: str = None,
+        friday: str = None,
+        saturday: str = None,
+        sunday: str = None,
         post_twitch: bool = True,
         monday_cat: str = None,
         tuesday_cat: str = None,

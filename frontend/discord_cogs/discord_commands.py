@@ -22,6 +22,7 @@ class YouTubePlaylists(StrEnum):
     PaperMarioRando = "Paper Mario Randomizers"
     PokemonCrystalRando = "Pokémon Crystal Randomizers"
     PokemonEmeraldRando = "Pokémon Emerald Randomizers"
+    TwilightPrincessRando = "Twilight Princess Randomizers"
 
 '''
 Unlike twitchio, discord bot is unable to embed commands directly, and requires cogs.
@@ -35,12 +36,12 @@ class PhantomGamesBotCommands(commands.Cog):
         self.anilist = sharedResources.anilist
         self.youtube = sharedResources.youtube
         self.slots = Slots(SlotsMode.DISCORD)
-    
+
     @bridge.bridge_command(description="Get a link to the bot's github.", help="Get a link to the bot's github.")
     async def bot(self, ctx: commands.Context):
         await ctx.respond("Hey! I am a custom chatbot written in Python, my source code is available at: https://github.com/Phantom5800/PhantomGamesBot")
 
-    @bridge.bridge_command(name="commands", 
+    @bridge.bridge_command(name="commands",
         description="Get a list custom commands created on twitch.",
         help="Get a list of all basic response commands. These commands are all added by moderators on twitch.")
     async def get_commands(self, ctx):
@@ -49,8 +50,8 @@ class PhantomGamesBotCommands(commands.Cog):
         command_list.sort()
         await ctx.respond(f"List of all the current custom commands: {command_list}")
 
-    @bridge.bridge_command(name="pb", 
-        description="Get a list of personal bests for a specified game.", 
+    @bridge.bridge_command(name="pb",
+        description="Get a list of personal bests for a specified game.",
         usage="game_name",
         help="Get a list of all PB's for a given game.\nUsage:\n\t!pb {Game name}\n\tExample: !pb paper mario")
     async def get_pb(self, ctx, game: SrcGames):
@@ -106,7 +107,7 @@ class PhantomGamesBotCommands(commands.Cog):
         else:
             await ctx.respond(f"Could not find anime {name}")
 
-    @bridge.bridge_command(name="quote", 
+    @bridge.bridge_command(name="quote",
         description="Get a random or specific quote.",
         help="Get a quote that has been added on twitch.\nUsage:\n\t!quote - Get a random quote\n\t!quote {#} - Get a specific quote by id\n\tExample: !quote 3")
     @discord.option("quote_id",

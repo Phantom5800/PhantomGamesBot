@@ -223,7 +223,7 @@ class PhantomGamesBot(commands.Bot):
                                 f.write(f"{message.content}\n")
                             except:
                                 print(f"[ERROR] Failed to add string to markov: {message.content}")
-    
+
     #####################################################################################################
     # custom commands
     #####################################################################################################
@@ -283,7 +283,7 @@ class PhantomGamesBot(commands.Bot):
                     await ctx.send(f"{ctx.message.author.mention} Command [{command}] already exists.")
             else:
                 await ctx.send(f"{ctx.message.author.mention} make sure to specify a command and a response!")
-    
+
     '''
     Set cooldown on a custom command through twitch chat.
     '''
@@ -456,7 +456,7 @@ class PhantomGamesBot(commands.Bot):
                     await ctx.send(f"{ctx.message.author.mention} Command [{command}] does not exist")
             else:
                 await ctx.send(f"{ctx.message.author.mention} Specify a command to add to the timer")
-    
+
     @commands.command()
     async def removetimer(self, ctx: commands.Context, command: str = ""):
         if ctx.message.author.is_mod:
@@ -468,7 +468,7 @@ class PhantomGamesBot(commands.Bot):
                     await ctx.send(f"{ctx.message.author.mention} [{command}] has been removed from the timer")
             else:
                 await ctx.send(f"{ctx.message.author.mention} Specify a command to remove from the timer")
-    
+
     @commands.command(aliases=["timer", "timers"])
     async def timerevents(self, ctx: commands.Context):
         if ctx.message.author.is_mod:
@@ -520,7 +520,7 @@ class PhantomGamesBot(commands.Bot):
                 quote = command_parts[2]
                 response = self.quotes.edit_quote(quote_id, quote, ctx.message.channel.name)
                 await ctx.send(response)
-    
+
     @commands.command(aliases=["delquote"])
     async def removequote(self, ctx: commands.Context, quote_id: str = "-1"):
         if ctx.message.author.is_mod:
@@ -577,7 +577,7 @@ class PhantomGamesBot(commands.Bot):
         if len(response) > 0:
             streamer = await ctx.message.channel.user()
             await self.post_chat_announcement(streamer, response)
-    
+
     @commands.command()
     async def newvid(self, ctx: commands.Context):
         video = self.youtube.get_most_recent_video(ctx.message.channel.name, use_playlist_api=True)
@@ -594,7 +594,7 @@ class PhantomGamesBot(commands.Bot):
                 return
             self.youtube.set_youtube_channel_data(ctx.message.channel.name, params[0], params[1])
             await ctx.send(f"{ctx.message.author.mention} set YouTube channel username to '{params[0]}' and channel id to '{params[1]}'")
-    
+
     @commands.command()
     async def setyoutubehandle(self, ctx: commands.Context):
         if ctx.message.author.is_broadcaster:
@@ -678,7 +678,7 @@ class PhantomGamesBot(commands.Bot):
     @commands.command()
     async def ctof(self, ctx: commands.Context, celcius: int):
         await ctx.send(f"{celcius}°C = {str(round(celcius * 9 / 5 + 32, 2))}°F")
-        
+
     #####################################################################################################
     # stream info
     #####################################################################################################
@@ -847,4 +847,5 @@ class PhantomGamesBot(commands.Bot):
 def run_twitch_bot(sharedResources) -> PhantomGamesBot:
     bot = PhantomGamesBot(sharedResources)
     bot.loop.create_task(bot.setup_pubsub("phantom5800"))
+    # EventSubWSClient - websocket for eventsub that might just work as a drop in replacement for pubsub?
     return bot
