@@ -6,8 +6,10 @@ import random
 import time
 from copy import deepcopy
 from datetime import datetime, timedelta, timezone
+from discord.ext import bridge, commands
 from discord.ext.bridge import Bot
 from frontend.discord_cogs.discord_commands import PhantomGamesBotCommands
+from frontend.discord_cogs.discord_goals import PhantomGamesBotGoals
 from frontend.discord_cogs.discord_poll import PhantomGamesBotPolls
 from frontend.discord_cogs.discord_schedule import PhantomGamesBotSchedule
 from utils.utils import *
@@ -103,12 +105,12 @@ class PhantomGamesBot(Bot):
                     await super().on_message(message)
             else:
                 await super().on_message(message)
-        
+
         # get new status sometimes
         if old_status_count != self.commands_since_new_status:
             if self.commands_since_new_status >= 100 or random.randrange(self.commands_since_new_status, 100) > 75:
                 await self.set_random_status()
-    
+
     async def on_member_join(self, member):
         channel = self.get_channel(self.channels["discord-logs"])
         await channel.send(f"New discord member: {member.mention} {member.name}")
@@ -156,7 +158,7 @@ class PhantomGamesBot(Bot):
                 f.truncate()
             else:
                 print(f"[YouTube] No new video. Old: \"{last_vid}\" and Current: \"{youtube_vid}\"")
-    
+
     async def announce_youtube_vid_task(self):
         channel = self.get_channel(self.channels["youtube-uploads"])
         while True:
@@ -188,6 +190,7 @@ def run_discord_bot(eventLoop, sharedResources):
     bot.add_cog(PhantomGamesBotCommands(bot, sharedResources))
     bot.add_cog(PhantomGamesBotPolls(bot))
     bot.add_cog(PhantomGamesBotSchedule(bot, sharedResources))
+    bot.add_cog(PhantomGamesBotGoals(bot, sharedResources))
     async def runBot():
         await bot.start(os.environ['DISCORD_TOKEN'])
 

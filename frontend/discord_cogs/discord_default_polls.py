@@ -139,10 +139,10 @@ defaultPolls = [
         'active': False,
         'decision': "What should we try adding to Twilight Princess Rando?",
         'options': [
-            "Poes (Overworld)",
+            "Poes",
             "Big Keysanity",
-            "Dungeon Rewards Anywhere",
-            "Enable Agitha"
+            "Mirror Shards",
+            "Open Hyrule Castle"
         ],
         'votes': {}
     },

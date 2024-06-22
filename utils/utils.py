@@ -91,13 +91,13 @@ async def replace_vars_generic(message: str) -> str:
             minimum = tryParseInt(match_groups[2], 0)
             maximum = tryParseInt(match_groups[3], 100)
             rand = random.randint(minimum, maximum)
-            
+
             start = len(matches.groups()[0])
             end = len(matches.groups()[0]) + len(matches.groups()[1]) + len(matches.groups()[2]) + len(matches.groups()[3]) + 2
             out_str = f"{out_str[:start]}{rand}{out_str[end:]}"
         else:
             out_str = out_str.replace("$randnum", "[$randnum must have a minimum and maximum: example \"$randnum(10,50)\"]")
-    
+
     return out_str
 
 '''

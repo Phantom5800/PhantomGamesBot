@@ -12,7 +12,7 @@
   "!lurk": {
     "response": "ok $user",
     "cooldown": 0,
-    "last_use": 1714488038.759325
+    "last_use": 1717337330.434357
   },
   "!unlurk": {
     "response": "alright $user",
@@ -22,7 +22,7 @@
   "!discord": {
     "response": "/announce Join the discord if you want to hang out! There is a weekly poll to decide what randomizers we do on the weekends and is generally just a great place to hang out https://discord.gg/XtrhKXNmRc",
     "cooldown": 0,
-    "last_use": 1708365998.101162
+    "last_use": 1717917999.16307
   },
   "!ohdee": {
     "response": "/announce OhDee made a ton of emotes and stream assets. Follow him on twitter because he's cool: https://twitter.com/OhDeezey",
@@ -32,7 +32,7 @@
   "@phantomgamesbot": {
     "response": "$user $msg",
     "cooldown": 5,
-    "last_use": 1700156986.201555
+    "last_use": 1718651809.700026
   },
   "!github": {
     "response": "/announce All my open source code projects are available on github: https://github.com/Phantom5800",
@@ -87,7 +87,7 @@
   "!channelpoints": {
     "response": "/announce Link to valid speedrun games for channel point redemptions: https://docs.google.com/spreadsheets/d/e/2PACX-1vTKX_blzPsWxGhxf9yCrMRF1IOzOG_nimLyYm_5iw9QeB5TJ6fXEjxV1AN0Nxo2qKmv_UmN6I8qGTa4/pubhtml",
     "cooldown": 0,
-    "last_use": 1695310171.056575
+    "last_use": 1716910897.191458
   },
   "ezekiel": {
     "response": "Ezekiel",
@@ -117,7 +117,7 @@
   "hi": {
     "response": "hi $user",
     "cooldown": 10,
-    "last_use": 1714924901.264319
+    "last_use": 1718561445.31932
   },
   "!nmsb": {
     "response": "/me No Major Sequence Breaks is a category that bridges the gap between Glitchless and All Cards. The important parts are that chapters must be completed in order, and story sequence can never go backwards.",
@@ -167,7 +167,7 @@
   "linkfall": {
     "response": "LinkFALL",
     "cooldown": 15,
-    "last_use": 1695324821.425143
+    "last_use": 1716825066.880557
   },
   "!peed": {
     "response": "Flushed",
@@ -180,7 +180,7 @@
     "last_use": 1700150753.609477
   },
   "!settings": {
-    "response": "Coinsanity, 45 Badge Pool, 100/120 Power Star Hunt",
+    "response": "5 chapter LCL no peaking SSS, dungeon entrance shuffle, coin blocks, open mt rugged, 25 badges, 3 magical seeds",
     "cooldown": 0,
     "last_use": 0
   },
@@ -230,7 +230,7 @@
     "last_use": 0
   },
   "!race": {
-    "response": "https://racetime.gg/pm64r/silly-zaptap-2551",
+    "response": "https://racetime.gg/pm64r/innocent-dustyhammer-4570",
     "cooldown": 0,
     "last_use": 0
   },
@@ -282,7 +282,7 @@
   "!2024": {
     "response": "/me All year we are doing a new speedrun every month! That doesn't mean games get dropped each month, but we'll be focusing on new runs very often. The current revealed schedule is here: https://imgur.com/a4bbmN5.png",
     "cooldown": 0,
-    "last_use": 1714586950.624613
+    "last_use": 1716823453.065741
   },
   "!ap": {
     "response": "If you are a twitch sub or youtube member, we are starting archipelago multiworld games in !discord and you can participate if you want. These aren't streamed and you can play at your own pace whenever you have time and available checks in whatever game you choose",
@@ -298,5 +298,15 @@
     "response": "runera3Swag",
     "cooldown": 0,
     "last_use": 0
+  },
+  "!controller": {
+    "response": "The main controller I've used for paper mario for almost 2 years stopped working last night due to what appears to be a short, I'm working on getting replacements + backups, but any help would be appreciated: https://ko-fi.com/phantom5800/goal?g=0",
+    "cooldown": 0,
+    "last_use": 1717346783.040359
+  },
+  "!ffr": {
+    "response": "/me I'll be running TP Rando for the FFR Marathon this next weekend, check out the schedule here: http://ffrando.com/marathon/",
+    "cooldown": 0,
+    "last_use": 1718474430.980362
   }
 }

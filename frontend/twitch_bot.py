@@ -428,8 +428,11 @@ class PhantomGamesBot(commands.Bot):
                 stream_channel = self.get_channel(channel)
                 streamer = await stream_channel.user()
                 with open('C:/StreamAssets/SubCount.txt', 'w', encoding="utf-8") as sub_count:
-                    count = await self.get_subscriber_count(streamer)
-                    sub_count.write(f"{count}")
+                    try:
+                        count = await self.get_subscriber_count(streamer)
+                        sub_count.write(f"{count}")
+                    except:
+                        sub_count.write("OAUTH")
 
             # check for timer messages
             if self.messages_since_timer[channel] >= self.timer_lines[channel] and len(self.timer_queue[channel]) > 0:

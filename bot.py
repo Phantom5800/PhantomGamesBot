@@ -2,6 +2,7 @@ import asyncio
 import os
 from commands.anilist import Anilist
 from commands.custom_commands import CustomCommands
+from commands.goals import Goals
 from commands.quotes import QuoteHandler
 from commands.src import SrcomApi
 from commands.markov import MarkovHandler
@@ -28,6 +29,8 @@ def run():
     sharedResources.youtube = YouTubeData()
     print("=====================================")
     sharedResources.anilist = Anilist()
+    sharedResources.goals = Goals("phantom5800")
+    sharedResources.goals.load_goals()
 
     # twitch bot acts as a master bot that appends other bot event loops to its own
     sharedResources.twitch_bot = run_twitch_bot(sharedResources)

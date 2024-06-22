@@ -1,0 +1,66 @@
+{
+  "channel": "phantom5800",
+  "progress": 0,
+  "goals": [
+    {
+      "value": 3000,
+      "goal": "Paper Mario Black Pit run"
+    },
+    {
+      "value": 6000,
+      "goal": "Super Koopa RPG (SMRPG romhack)"
+    },
+    {
+      "value": 9000,
+      "goal": "Twilight Princess All MIrror Shards runs"
+    },
+    {
+      "value": 12000,
+      "goal": "Paper Mario Glitchless on iQue"
+    },
+    {
+      "value": 15000,
+      "goal": "Link's Awakening DX Full Decoupled Entrance Rando"
+    },
+    {
+      "value": 18000,
+      "goal": "Mario Party 1 Minigame Island Any%"
+    },
+    {
+      "value": 21000,
+      "goal": "Mario Kart 8 DX with subs"
+    },
+    {
+      "value": 24000,
+      "goal": "Twilight Princess Full Rando + Keysanity"
+    },
+    {
+      "value": 27000,
+      "goal": "Pokemon Stadium 2 Gym Leader Castle"
+    },
+    {
+      "value": 30000,
+      "goal": "Solo AP Multiworld"
+    },
+    {
+      "value": 36000,
+      "goal": "Mario Party Superstars with subs"
+    },
+    {
+      "value": 42000,
+      "goal": "Shadow Pure Hero"
+    },
+    {
+      "value": 48000,
+      "goal": "TTYD Glitchless"
+    },
+    {
+      "value": 54000,
+      "goal": "Wind Waker Rando"
+    },
+    {
+      "value": 60000,
+      "goal": "Subspace Hard Co-Op"
+    }
+  ]
+}

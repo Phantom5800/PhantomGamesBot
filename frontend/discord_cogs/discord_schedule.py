@@ -14,13 +14,18 @@ TwitchCategoryIDs = AliasDict({
     "link to the past":         "9435",
     "minish cap":               "5635",
     "ocarina of time":          "11557",
+    "okami":                    "18791",
     "paper mario":              "18231",
     "pokemon colosseum":        "11879",
     "pokemon crystal":          "14543",
     "pokemon emerald":          "10609",
     "retro":                    "27284",
+    "shadow the hedgehog":      "17794",
+    "sonic adventure":          "7195",
+    "sonic adventure 2":        "1386697379",
     "super mario rpg":          "1675405846",
     "super smash bros brawl":   "18833",
+    "the thousand-year door":   "2029972667", # 6855 is the original
     "twilight princess":        "17828"
 })
 
@@ -38,8 +43,12 @@ TwitchCategoryIDs.add_alias("pokemon colosseum", "colo")
 TwitchCategoryIDs.add_alias("pokemon colosseum", "colosseum")
 TwitchCategoryIDs.add_alias("pokemon crystal", "crystal")
 TwitchCategoryIDs.add_alias("pokemon emerald", "emerald")
+TwitchCategoryIDs.add_alias("shadow the hedgehog", "shadow")
+TwitchCategoryIDs.add_alias("sonic adventure", "sa1")
+TwitchCategoryIDs.add_alias("sonic adventure 2", "sa2")
 TwitchCategoryIDs.add_alias("super mario rpg", "smrpg")
 TwitchCategoryIDs.add_alias("super smash bros brawl", "brawl")
+TwitchCategoryIDs.add_alias("the thousand-year door", "ttyd")
 TwitchCategoryIDs.add_alias("twilight princess", "tp")
 
 class PhantomGamesBotSchedule(commands.Cog):
