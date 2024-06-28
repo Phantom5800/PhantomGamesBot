@@ -14,6 +14,7 @@ class Goals:
       )
     with open(f'./commands/resources/channels/{self.channel}/goals.json', 'w', encoding="utf-8") as json_file:
       json_file.write(json_str)
+    self.update_progress_file()
 
   def load_goals(self):
     try:
@@ -27,6 +28,10 @@ class Goals:
     except:
       print(f"Goals do not exist for {self.channel}")
 
+  def update_progress_file(self):
+    with open(f'./commands/resources/channels/{self.channel}/goal_progress.txt', 'w', encoding="utf-8") as txt:
+      txt.write(f"Goal: ${self.progress / 100} / ${self.goals[-1]['value'] / 100}")
+
   def add_goal(self, sub_count:int, desc:str):
     self.goals.append({
       "value": sub_count * 300, # treat a tier 1 sub as $3
@@ -35,16 +40,17 @@ class Goals:
     self.goals.sort(key=lambda x: x["value"])
     self.save_goals()
 
-  def add_tier1(self):
-    self.progress += 300
+  def add_prime(self):
+    self.progress += 225 # prime value if coming from a US account
     self.save_goals()
 
-  def add_tier2(self):
-    self.progress += 500
-    self.save_goals()
-
-  def add_tier3(self):
-    self.progress += 1250
+  def add_sub(self, tier: int):
+    if tier == 1:
+      self.progress += 300
+    elif tier == 2:
+      self.progress += 500
+    elif tier == 3:
+      self.progress += 1250
     self.save_goals()
 
   def add_bits(self, bits):

@@ -31,6 +31,7 @@ class PhantomGamesBot(commands.Bot):
         self.markov = sharedResources.markovHandler
         self.anilist = sharedResources.anilist
         self.youtube = sharedResources.youtube
+        self.goals = sharedResources.goals
         self.slots = Slots(SlotsMode.TWITCH)
 
         # custom timers
@@ -803,6 +804,7 @@ class PhantomGamesBot(commands.Bot):
         #print(f"Bits [{event.bits_used}] from {event.user.name}")
         with open('C:/StreamAssets/LatestCheer.txt', 'w', encoding="utf-8") as last_cheer:
             last_cheer.write(f"Last Cheer: {event.bits_used} {event.user.name}")
+        self.goals.add_bits(event.bits_used)
 
     async def event_pubsub_channel_points(self, event: pubsub.PubSubChannelPointsMessage):
         #print(f"Channel Point Redemption [{event.timestamp}]: {event.user.name} - {event.reward.title} - {event.input}")
@@ -846,6 +848,11 @@ class PhantomGamesBot(commands.Bot):
             user = await event.channel.user()
             count = await self.get_subscriber_count(user)
             sub_count.write(f"{count}")
+
+        if event.sub_plan == "Prime":
+            self.goals.add_prime()
+        else:
+            self.goals.add_sub(int(int(event.sub_plan) / 1000))
 
 def run_twitch_bot(sharedResources) -> PhantomGamesBot:
     bot = PhantomGamesBot(sharedResources)

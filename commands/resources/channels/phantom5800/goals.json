@@ -1,6 +1,6 @@
 {
   "channel": "phantom5800",
-  "progress": 0,
+  "progress": 1300,
   "goals": [
     {
       "value": 3000,
@@ -12,7 +12,7 @@
     },
     {
       "value": 9000,
-      "goal": "Twilight Princess All MIrror Shards runs"
+      "goal": "Twilight Princess All Mirror Shards runs"
     },
     {
       "value": 12000,

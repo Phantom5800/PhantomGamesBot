@@ -32,7 +32,7 @@
   "@phantomgamesbot": {
     "response": "$user $msg",
     "cooldown": 5,
-    "last_use": 1718651809.700026
+    "last_use": 1719173011.514354
   },
   "!github": {
     "response": "/announce All my open source code projects are available on github: https://github.com/Phantom5800",
@@ -117,7 +117,7 @@
   "hi": {
     "response": "hi $user",
     "cooldown": 10,
-    "last_use": 1718561445.31932
+    "last_use": 1719431553.229781
   },
   "!nmsb": {
     "response": "/me No Major Sequence Breaks is a category that bridges the gap between Glitchless and All Cards. The important parts are that chapters must be completed in order, and story sequence can never go backwards.",
@@ -187,7 +187,7 @@
   "yoshi": {
     "response": "piece of shit",
     "cooldown": 0,
-    "last_use": 1714918452.781959
+    "last_use": 1719173003.170401
   },
   "!bluesky": {
     "response": "/announce I'm on bluesky now if you have an account! https://bsky.app/profile/phantom-games.com",
@@ -230,7 +230,7 @@
     "last_use": 0
   },
   "!race": {
-    "response": "https://racetime.gg/pm64r/innocent-dustyhammer-4570",
+    "response": "https://racetime.gg/tpr/kind-rutela-0308",
     "cooldown": 0,
     "last_use": 0
   },
