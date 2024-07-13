@@ -59,8 +59,8 @@ class Goals:
 
   def get_next_goal(self) -> str:
     for goal in self.goals:
-      if goal["value"] < self.progress:
-        return f"Next sub / bit goal is \"{goal['goal']}\" at {int(goal['value'] / 300)} subs or equivalent bits!"
+      if goal["value"] > self.progress:
+        return f"Next sub / bit goal is \"{goal['goal']}\" at {int(self.progress / 300)}/{int(goal['value'] / 300)} subs or equivalent bits!"
     return "Currently no new sub goals, everything has been hit!"
 
   def get_all_goals(self) -> str:

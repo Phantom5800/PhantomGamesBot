@@ -32,7 +32,7 @@
   "@phantomgamesbot": {
     "response": "$user $msg",
     "cooldown": 5,
-    "last_use": 1719173011.514354
+    "last_use": 1719506360.200335
   },
   "!github": {
     "response": "/announce All my open source code projects are available on github: https://github.com/Phantom5800",
@@ -302,11 +302,21 @@
   "!controller": {
     "response": "The main controller I've used for paper mario for almost 2 years stopped working last night due to what appears to be a short, I'm working on getting replacements + backups, but any help would be appreciated: https://ko-fi.com/phantom5800/goal?g=0",
     "cooldown": 0,
-    "last_use": 1717346783.040359
+    "last_use": 1719928663.83017
   },
   "!ffr": {
     "response": "/me I'll be running TP Rando for the FFR Marathon this next weekend, check out the schedule here: http://ffrando.com/marathon/",
     "cooldown": 0,
     "last_use": 1718474430.980362
+  },
+  "!blossom": {
+    "response": "Twilight Princess Rando Blossom Settings: https://icogn.github.io/tp-docs/docs/rando/blossom-race-rules",
+    "cooldown": 0,
+    "last_use": 0
+  },
+  "!bbq": {
+    "response": "/me I will be running Minish Cap Any% this Saturday for Binary Breakers 1 day online event over on https://twitch.tv/Binary_Breakers",
+    "cooldown": 0,
+    "last_use": 0
   }
 }

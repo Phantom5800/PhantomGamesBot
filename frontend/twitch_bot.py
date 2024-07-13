@@ -778,6 +778,10 @@ class PhantomGamesBot(commands.Bot):
         await ctx.send(f"/me We are at {plus_points} / 100 sub points towards qualifying for a 60% sub split. If you are able, please consider subscribing at tier 1, 2 or 3 to help reach that!")
 
     @commands.command()
+    async def goal(self, ctx: commands.Context):
+        await ctx.send(self.goals.get_next_goal())
+
+    @commands.command()
     async def first(self, ctx: commands.Context):
         username = ctx.message.author.name.lower()
         if username in self.first_redeems:
