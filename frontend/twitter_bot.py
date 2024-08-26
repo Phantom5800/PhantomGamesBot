@@ -15,13 +15,6 @@ class PhantomGamesBot:
             "access_token_secret"   : os.environ["TWITTER_ACCESS_TOKEN_SECRET"]
         }
 
-        self.oauth = OAuth1Session(
-            self.twitter_auth_keys["consumer_key"],
-            client_secret=self.twitter_auth_keys["consumer_secret"],
-            resource_owner_key=self.twitter_auth_keys["access_token"],
-            resource_owner_secret=self.twitter_auth_keys["access_token_secret"]
-        )
-
         self.last_tweet_time = datetime.now()
         try:
             with open("./commands/resources/twitter.txt", "r", encoding="utf-8") as f:
@@ -36,7 +29,14 @@ class PhantomGamesBot:
         tweet_payload = {"text" : message}
 
         # make the post
-        response = self.oauth.post("https://api.twitter.com/2/tweets", json=tweet_payload)
+        oauth = OAuth1Session(
+            self.twitter_auth_keys["consumer_key"],
+            client_secret=self.twitter_auth_keys["consumer_secret"],
+            resource_owner_key=self.twitter_auth_keys["access_token"],
+            resource_owner_secret=self.twitter_auth_keys["access_token_secret"]
+        )
+
+        response = oauth.post("https://api.twitter.com/2/tweets", json=tweet_payload)
 
         if response.status_code != 201:
             print(f"[Twitter Error] {response.status_code, response.text}")

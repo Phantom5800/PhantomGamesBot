@@ -7,15 +7,15 @@
   "glenn": {
     "response": "glenn",
     "cooldown": 5,
-    "last_use": 1714924895.411156
+    "last_use": 1721482665.633818
   },
   "!lurk": {
-    "response": "ok $user",
+    "response": "ok $user phanto274Lurk",
     "cooldown": 0,
     "last_use": 1717337330.434357
   },
   "!unlurk": {
-    "response": "alright $user",
+    "response": "phanto274Wave $user",
     "cooldown": 0,
     "last_use": 0
   },
@@ -85,9 +85,9 @@
     "last_use": 1667339074.435393
   },
   "!channelpoints": {
-    "response": "/announce Link to valid speedrun games for channel point redemptions: https://docs.google.com/spreadsheets/d/e/2PACX-1vTKX_blzPsWxGhxf9yCrMRF1IOzOG_nimLyYm_5iw9QeB5TJ6fXEjxV1AN0Nxo2qKmv_UmN6I8qGTa4/pubhtml",
+    "response": "/me Link to valid speedrun games for channel point redemptions: https://docs.google.com/spreadsheets/d/e/2PACX-1vTKX_blzPsWxGhxf9yCrMRF1IOzOG_nimLyYm_5iw9QeB5TJ6fXEjxV1AN0Nxo2qKmv_UmN6I8qGTa4/pubhtml",
     "cooldown": 0,
-    "last_use": 1716910897.191458
+    "last_use": 0
   },
   "ezekiel": {
     "response": "Ezekiel",
@@ -109,15 +109,10 @@
     "cooldown": 0,
     "last_use": 1663424012.429015
   },
-  "!paperaces": {
-    "response": "/announce Follow Pape Races https://twitch.tv/paperaces for bi-weekly rando race restreams and occasional vanilla content as well! This Saturday (July 22nd) I'll be participating in an All Bosses race at 3pm ET / Noon PT with Rigby234, DrToadstool and Starry_Arie",
-    "cooldown": 0,
-    "last_use": 1689772463.922911
-  },
   "hi": {
     "response": "hi $user",
     "cooldown": 10,
-    "last_use": 1719431553.229781
+    "last_use": 1724596336.856976
   },
   "!nmsb": {
     "response": "/me No Major Sequence Breaks is a category that bridges the gap between Glitchless and All Cards. The important parts are that chapters must be completed in order, and story sequence can never go backwards.",
@@ -159,15 +154,10 @@
     "cooldown": 10,
     "last_use": 1678373272.731988
   },
-  "!logic": {
-    "response": "/announce In 2022, JCog implemented some custom logic changes to lowered star spirit seeds where chapters not deemed \"required\" are completely out of logic. I took those changes and integrated them forward with support for dungeon entrance shuffle as well",
-    "cooldown": 0,
-    "last_use": 0
-  },
   "linkfall": {
     "response": "LinkFALL",
     "cooldown": 15,
-    "last_use": 1716825066.880557
+    "last_use": 1723134752.763726
   },
   "!peed": {
     "response": "Flushed",
@@ -177,67 +167,37 @@
   "!socials": {
     "response": "Follow all the things: - https://youtube.com/@PhantomVODs - https://discord.gg/XtrhKXNmRc - https://twitter.com/Phantom5800 - https://bsky.app/profile/phantom-games.com",
     "cooldown": 0,
-    "last_use": 1700150753.609477
+    "last_use": 1722700978.892388
   },
   "!settings": {
     "response": "5 chapter LCL no peaking SSS, dungeon entrance shuffle, coin blocks, open mt rugged, 25 badges, 3 magical seeds",
     "cooldown": 0,
-    "last_use": 0
+    "last_use": 1722790645.063295
   },
   "yoshi": {
     "response": "piece of shit",
     "cooldown": 0,
-    "last_use": 1719173003.170401
+    "last_use": 1723123038.830267
   },
   "!bluesky": {
     "response": "/announce I'm on bluesky now if you have an account! https://bsky.app/profile/phantom-games.com",
     "cooldown": 0,
     "last_use": 1692446940.776055
   },
-  "!cheater": {
-    "response": "Cheating? modCheck",
-    "cooldown": 0,
-    "last_use": 1694290358.429164
-  },
-  "!chetrippo": {
-    "response": "I love you",
-    "cooldown": 0,
-    "last_use": 1694303711.993234
-  },
-  "!drunk": {
-    "response": "you're never too drunk to block",
-    "cooldown": 0,
-    "last_use": 0
-  },
   "!rogue": {
     "response": "/me I am partnered with Rogue Energy! Lot's of great flavors for an energy boost as well as plenty of vitamins, be sure to use my code for 20% off https://rogueenergy.com/discount/PHANTOM?ref=Phantom",
     "cooldown": 0,
-    "last_use": 1703947627.703274
-  },
-  "!wonderseed": {
-    "response": "LSD yippee!",
-    "cooldown": 0,
-    "last_use": 0
+    "last_use": 1723312199.218913
   },
   "!tts": {
     "response": "$user Everything you need to know for TTS: https://tts.monster/phantom5800",
     "cooldown": 0,
     "last_use": 1699207604.859819
   },
-  "!kyogre": {
-    "response": "Your opinion doesn't matter, 252+ SpA Choice Specs Adaptability Kyogre Water Spout (150 BP) vs. 252 HP/4 SpD Toxapex in Rain: 329-388 (108.2 - 127.6%) -- guaranteed OHKO",
-    "cooldown": 0,
-    "last_use": 0
-  },
   "!race": {
-    "response": "https://racetime.gg/tpr/kind-rutela-0308",
+    "response": "https://racetime.gg/pm64r/silly-lemoncandy-4477",
     "cooldown": 0,
     "last_use": 0
-  },
-  "!bot": {
-    "response": "what's with all the weird shit the bot says?",
-    "cooldown": 0,
-    "last_use": 1699200401.845341
   },
   "!peed69": {
     "response": "Flushed",
@@ -264,25 +224,15 @@
     "cooldown": 60,
     "last_use": 1703809929.425402
   },
-  "!rrlat": {
-    "response": "/me I have two runs in Really Really Long-a-thon this year and will be spending a good chunk of time over the next month prepping for them. The full schedule is over here: https://oengus.io/marathon/RRLAT7/schedule",
-    "cooldown": 0,
-    "last_use": 1701713462.090383
-  },
-  "!subgoals": {
-    "response": "/me There is a large list of sub incentives for December! The goals are posted in !discord, but in general, every 25 sub points will hit a new incentive. Sub discounts start on the 13th on Twitch, but the tracking is for the whole month",
-    "cooldown": 0,
-    "last_use": 0
-  },
   "!speedguideslive": {
     "response": "https://github.com/Phantom5800/Speed-Guides-Live",
     "cooldown": 0,
     "last_use": 0
   },
   "!2024": {
-    "response": "/me All year we are doing a new speedrun every month! That doesn't mean games get dropped each month, but we'll be focusing on new runs very often. The current revealed schedule is here: https://imgur.com/a4bbmN5.png",
+    "response": "/me All year we are doing a new speedrun every month! That doesn't mean games get dropped each month, but we'll be focusing on new runs very often. The current revealed schedule is here: https://i.imgur.com/mKCGUBg.jpeg",
     "cooldown": 0,
-    "last_use": 1716823453.065741
+    "last_use": 0
   },
   "!ap": {
     "response": "If you are a twitch sub or youtube member, we are starting archipelago multiworld games in !discord and you can participate if you want. These aren't streamed and you can play at your own pace whenever you have time and available checks in whatever game you choose",
@@ -297,25 +247,35 @@
   "raven": {
     "response": "runera3Swag",
     "cooldown": 0,
-    "last_use": 0
+    "last_use": 1722614305.372379
   },
   "!controller": {
     "response": "The main controller I've used for paper mario for almost 2 years stopped working last night due to what appears to be a short, I'm working on getting replacements + backups, but any help would be appreciated: https://ko-fi.com/phantom5800/goal?g=0",
     "cooldown": 0,
     "last_use": 1719928663.83017
   },
-  "!ffr": {
-    "response": "/me I'll be running TP Rando for the FFR Marathon this next weekend, check out the schedule here: http://ffrando.com/marathon/",
+  "!zzz": {
+    "response": "Bedge",
     "cooldown": 0,
-    "last_use": 1718474430.980362
+    "last_use": 1721482602.842402
   },
-  "!blossom": {
-    "response": "Twilight Princess Rando Blossom Settings: https://icogn.github.io/tp-docs/docs/rando/blossom-race-rules",
+  "railed": {
+    "response": "RAILED",
     "cooldown": 0,
     "last_use": 0
   },
-  "!bbq": {
-    "response": "/me I will be running Minish Cap Any% this Saturday for Binary Breakers 1 day online event over on https://twitch.tv/Binary_Breakers",
+  "!quickspin": {
+    "response": "https://youtu.be/kliNVKsuDVE?si=_JCwWlocd6K0lCOZ",
+    "cooldown": 0,
+    "last_use": 0
+  },
+  "!stickers": {
+    "response": "Set of 4 stickers from SGDQ 2024 are available here: https://ko-fi.com/s/b277a29f0d",
+    "cooldown": 0,
+    "last_use": 1724528883.690131
+  },
+  "!pax": {
+    "response": "I'll be running Twilight Princess Randomizer at PAX West on September 1st for GDQ using the Season 1 Race Settings on https://twitch.tv/gamesdonequick",
     "cooldown": 0,
     "last_use": 0
   }

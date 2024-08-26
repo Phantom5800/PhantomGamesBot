@@ -1,66 +1,61 @@
 {
   "channel": "phantom5800",
-  "progress": 3825,
+  "progress": 38042,
   "goals": [
     {
       "value": 3000,
-      "goal": "Paper Mario Black Pit run"
+      "goal": "Paper Mario Black Pit run",
+      "complete": true
     },
     {
       "value": 6000,
-      "goal": "Super Koopa RPG (SMRPG romhack)"
+      "goal": "Super Koopa RPG (SMRPG romhack)",
+      "complete": true
     },
     {
       "value": 9000,
-      "goal": "Twilight Princess All Mirror Shards runs"
+      "goal": "Twilight Princess Full Rando + Keysanity",
+      "complete": true
     },
     {
       "value": 12000,
-      "goal": "Paper Mario Glitchless on iQue"
+      "goal": "Paper Mario Glitchless on iQue",
+      "complete": true
     },
     {
       "value": 15000,
-      "goal": "Link's Awakening DX Full Decoupled Entrance Rando"
+      "goal": "Link's Awakening DX Full Decoupled Entrance Rando",
+      "complete": true
     },
     {
       "value": 18000,
-      "goal": "Mario Party 1 Minigame Island Any%"
+      "goal": "Mario Party 1 Minigame Island Any%",
+      "complete": true
     },
     {
       "value": 21000,
-      "goal": "Mario Kart 8 DX with subs"
+      "goal": "Mario Kart 8 DX with subs",
+      "complete": true
     },
     {
       "value": 24000,
-      "goal": "Twilight Princess Full Rando + Keysanity"
+      "goal": "Twilight Princess All Mirror Shards runs",
+      "complete": false
     },
     {
       "value": 27000,
-      "goal": "Pokemon Stadium 2 Gym Leader Castle"
+      "goal": "Pokemon Stadium 2 Gym Leader Castle",
+      "complete": true
     },
     {
       "value": 30000,
-      "goal": "Solo AP Multiworld"
+      "goal": "Solo AP Multiworld",
+      "complete": false
     },
     {
-      "value": 36000,
-      "goal": "Mario Party Superstars with subs"
-    },
-    {
-      "value": 42000,
-      "goal": "Shadow Pure Hero"
-    },
-    {
-      "value": 48000,
-      "goal": "TTYD Glitchless"
-    },
-    {
-      "value": 54000,
-      "goal": "Wind Waker Rando"
-    },
-    {
-      "value": 60000,
-      "goal": "Subspace Hard Co-Op"
+      "value": 33000,
+      "goal": "30 Minute Casual Game Wheel",
+      "complete": false
     }
   ]
 }

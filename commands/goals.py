@@ -32,12 +32,34 @@ class Goals:
     with open(f'./commands/resources/channels/{self.channel}/goal_progress.txt', 'w', encoding="utf-8") as txt:
       txt.write(f"Goal: ${self.progress / 100} / ${self.goals[-1]['value'] / 100}")
 
+  def reset_progress(self):
+    self.progress = 0
+    self.save_goals()
+
+  def reset_goals(self):
+    self.progress = 0
+    self.goals = []
+    self.save_goals()
+
   def add_goal(self, sub_count:int, desc:str):
-    self.goals.append({
-      "value": sub_count * 300, # treat a tier 1 sub as $3
-      "goal": desc
-    })
-    self.goals.sort(key=lambda x: x["value"])
+    value = sub_count * 300 # treat a tier 1 sub as $3
+
+    exists = False
+    # override existing value if already entered
+    for goal in self.goals:
+      if goal["value"] == value:
+        goal["goal"] = desc
+        goal["complete"] = False
+        exists = True
+
+    # enter new goal
+    if not exists:
+      self.goals.append({
+        "value": value,
+        "goal": desc,
+        "complete": False
+      })
+      self.goals.sort(key=lambda x: x["value"])
     self.save_goals()
 
   def add_prime(self):
@@ -65,11 +87,16 @@ class Goals:
 
   def get_all_goals(self) -> str:
     if len(self.goals) > 0:
-      goal_list = ""
+      goal_list = f"Current Progress = {int(self.progress / 300)}\n"
       for goal in self.goals:
-        goal_info = f"• {int(goal['value'] / 300)} Subs: {goal['goal']}"
+        goal_info = ""
+        if goal["complete"]:
+          goal_info += "~~"
+        goal_info += f"• {int(goal['value'] / 300)} Subs: {goal['goal']}"
         if goal["value"] <= self.progress:
           goal_info += " - COMPLETED"
+        if goal["complete"]:
+          goal_info += "~~"
         goal_list += f"{goal_info}\n"
       return goal_list
     return "Currently no goals have been created"

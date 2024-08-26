@@ -75,7 +75,14 @@ class PhantomGamesBotSchedule(commands.Cog):
         thursday_cat: str = None,
         friday_cat: str = None,
         saturday_cat: str = None,
-        sunday_cat: str = None
+        sunday_cat: str = None,
+        monday_offset: int = 0,
+        tuesday_offset: int = 0,
+        wednesday_offset: int = 0,
+        thursday_offset: int = 0,
+        friday_offset: int = 0,
+        saturday_offset: int = 0,
+        sunday_offset: int = 0
     ):
         # defer because this is gonna take a bit to process
         await ctx.defer(ephemeral=True)
@@ -84,7 +91,7 @@ class PhantomGamesBotSchedule(commands.Cog):
         current = datetime.now()
         current = current.replace(hour=14, minute=0, second=0) # set to 2pm local time
         next_monday_delta = timedelta((7 - current.weekday()) % 7)
-        single_day_delta = timedelta(1)
+        single_day_delta = timedelta(days=1)
         next_monday = current + next_monday_delta
 
         # format data into usable structures
@@ -108,6 +115,16 @@ class PhantomGamesBotSchedule(commands.Cog):
             "Sunday": sunday_cat
         }
 
+        offsets = {
+            "Monday": monday_offset,
+            "Tuesday": tuesday_offset,
+            "Wednesday": wednesday_offset,
+            "Thursday": thursday_offset,
+            "Friday": friday_offset,
+            "Saturday": saturday_offset,
+            "Sunday": sunday_offset
+        }
+
         # format schedule based on input params
         response = f"{next_monday.strftime('%m/%d')} - {(next_monday + single_day_delta * 6).strftime('%m/%d')}\n\n"
         for i, day in enumerate(schedule):
@@ -116,7 +133,8 @@ class PhantomGamesBotSchedule(commands.Cog):
                 if schedule[day].startswith("|"):
                     response += f"_NO STREAM_ ({schedule[day][1:]})\n"
                 else:
-                    stream_time = next_monday + single_day_delta * i
+                    offset = timedelta(hours=offsets[day])
+                    stream_time = next_monday + single_day_delta * i + offset
                     response += f"{schedule[day]} @ <t:{int(stream_time.timestamp())}:t>\n"
 
                     # post the day to twitch's schedule

@@ -72,6 +72,10 @@ class PhantomGamesBot(commands.Bot):
             data = json.load(first_redeems)
             self.first_redeems = deepcopy(data)
 
+        # giveaway
+        self.giveaway_open = False
+        self.giveaway_list = []
+
         # random message response
         self.bless_count = 0
         self.bless_sent = False
@@ -684,6 +688,34 @@ class PhantomGamesBot(commands.Bot):
         await ctx.send(f"{celcius}°C = {str(round(celcius * 9 / 5 + 32, 2))}°F")
 
     #####################################################################################################
+    # giveaways
+    #####################################################################################################
+    @commands.command()
+    async def gaopen(self, ctx: commands.Context):
+        if ctx.message.author.is_broadcaster:
+            if self.giveaway_open == False:
+                self.giveaway_list = []
+                self.giveaway_open = True
+
+                await ctx.send("Giveaway is now open! Type '!join' to be added to the list!")
+
+    @commands.command()
+    async def gaclose(self, ctx: commands.Context):
+        if ctx.message.author.is_broadcaster:
+            if self.giveaway_open:
+                self.giveaway_open = False
+                if len(self.giveaway_list):
+                    await ctx.send(f"Congrats to @{random.choice(self.giveaway_list)}! You have won! Give {ctx.message.author.name} a moment to contact you for your prize.")
+
+    @commands.command()
+    async def join(self, ctx: commands.Context):
+        if self.giveaway_open:
+            user = ctx.message.author.name
+            if not user in self.giveaway_list:
+                self.giveaway_list.append(user)
+                print(f"[Giveaway] Added {user} [{len(self.giveaway_list)}]")
+
+    #####################################################################################################
     # stream info
     #####################################################################################################
     '''
@@ -780,6 +812,14 @@ class PhantomGamesBot(commands.Bot):
     @commands.command()
     async def goal(self, ctx: commands.Context):
         await ctx.send(self.goals.get_next_goal())
+
+    @commands.command()
+    async def addvalue(self, ctx: commands.Context, value: int):
+        if ctx.author.is_broadcaster:
+            self.goals.add_bits(value)
+            await ctx.send(f"/me Added {value} points towards the sub goal progress!")
+        else:
+            await ctx.send(f"{ctx.message.author.mention} you do not have permission to use this command")
 
     @commands.command()
     async def first(self, ctx: commands.Context):

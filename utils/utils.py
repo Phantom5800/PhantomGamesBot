@@ -84,7 +84,7 @@ async def replace_vars_generic(message: str) -> str:
 
     # generate a random number in a range
     if "$randnum" in out_str:
-        regex = r"(.*)\W*((?i)\$randnum\((?-i:))\W*([0-9]*),([0-9]*)\)(.*)"
+        regex = r"(.*)\W*((?i:)\$randnum\((?-i:))\W*([0-9]*),([0-9]*)\)(.*)"
         matches = re.match(regex, out_str)
         if matches is not None:
             match_groups = matches.groups()

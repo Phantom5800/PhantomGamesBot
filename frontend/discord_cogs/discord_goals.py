@@ -15,3 +15,8 @@ class PhantomGamesBotGoals(commands.Cog):
   @bridge.bridge_command(name="getgoals")
   async def get_goals(self, ctx):
     await ctx.respond(self.goals.get_all_goals())
+
+  @bridge.bridge_command(name="addgoalvalue")
+  async def add_value(self, ctx, value:int):
+    self.goals.add_bits(value)
+    await ctx.respond(f"Added {value} to goal progress")
