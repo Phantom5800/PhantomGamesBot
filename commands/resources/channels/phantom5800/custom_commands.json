@@ -2,7 +2,7 @@
   "morp": {
     "response": "morp",
     "cooldown": 5,
-    "last_use": 1704041364.735731
+    "last_use": 1724875625.427418
   },
   "glenn": {
     "response": "glenn",
@@ -22,7 +22,7 @@
   "!discord": {
     "response": "/announce Join the discord if you want to hang out! There is a weekly poll to decide what randomizers we do on the weekends and is generally just a great place to hang out https://discord.gg/XtrhKXNmRc",
     "cooldown": 0,
-    "last_use": 1717917999.16307
+    "last_use": 1725815045.694932
   },
   "!ohdee": {
     "response": "/announce OhDee made a ton of emotes and stream assets. Follow him on twitter because he's cool: https://twitter.com/OhDeezey",
@@ -32,7 +32,7 @@
   "@phantomgamesbot": {
     "response": "$user $msg",
     "cooldown": 5,
-    "last_use": 1719506360.200335
+    "last_use": 1726935810.750841
   },
   "!github": {
     "response": "/announce All my open source code projects are available on github: https://github.com/Phantom5800",
@@ -52,7 +52,7 @@
   "!pbchance": {
     "response": "There is a $randnum(0,100)% chance of a pb!",
     "cooldown": 0,
-    "last_use": 1668954836.010753
+    "last_use": 1724683090.174735
   },
   "!trusty": {
     "response": "/announce Trusty made my sub badges and most likely any art that I use as backgrounds in livesplit! Their twitter is: https://twitter.com/Trustyalt and you should definitely follow them",
@@ -67,7 +67,7 @@
   "weloveprologue": {
     "response": "/announce If Prologue has a million fans I am one of them. If Prologue has ten fans I am one of them. If Prologue has only one fan, that is me. If Prologue has no fans, that means I am no longer on earth. If the world is against Prologue, I am against the world.",
     "cooldown": 10,
-    "last_use": 1699886105.676701
+    "last_use": 1726582188.827639
   },
   "!pmrando": {
     "response": "/announce The PM64 Randomizer can be found over at https://pm64randomizer.com/ and a tracker can be over on https://pmr-tracker.phantom-games.com/",
@@ -112,7 +112,7 @@
   "hi": {
     "response": "hi $user",
     "cooldown": 10,
-    "last_use": 1724596336.856976
+    "last_use": 1726948341.139872
   },
   "!nmsb": {
     "response": "/me No Major Sequence Breaks is a category that bridges the gap between Glitchless and All Cards. The important parts are that chapters must be completed in order, and story sequence can never go backwards.",
@@ -169,15 +169,10 @@
     "cooldown": 0,
     "last_use": 1722700978.892388
   },
-  "!settings": {
-    "response": "5 chapter LCL no peaking SSS, dungeon entrance shuffle, coin blocks, open mt rugged, 25 badges, 3 magical seeds",
-    "cooldown": 0,
-    "last_use": 1722790645.063295
-  },
   "yoshi": {
     "response": "piece of shit",
     "cooldown": 0,
-    "last_use": 1723123038.830267
+    "last_use": 1726424122.554282
   },
   "!bluesky": {
     "response": "/announce I'm on bluesky now if you have an account! https://bsky.app/profile/phantom-games.com",
@@ -195,7 +190,7 @@
     "last_use": 1699207604.859819
   },
   "!race": {
-    "response": "https://racetime.gg/pm64r/silly-lemoncandy-4477",
+    "response": "https://racetime.gg/pm64r/wild-diamondstone-2489",
     "cooldown": 0,
     "last_use": 0
   },
@@ -247,7 +242,7 @@
   "raven": {
     "response": "runera3Swag",
     "cooldown": 0,
-    "last_use": 1722614305.372379
+    "last_use": 1725386575.75778
   },
   "!controller": {
     "response": "The main controller I've used for paper mario for almost 2 years stopped working last night due to what appears to be a short, I'm working on getting replacements + backups, but any help would be appreciated: https://ko-fi.com/phantom5800/goal?g=0",
@@ -274,8 +269,18 @@
     "cooldown": 0,
     "last_use": 1724528883.690131
   },
-  "!pax": {
-    "response": "I'll be running Twilight Princess Randomizer at PAX West on September 1st for GDQ using the Season 1 Race Settings on https://twitch.tv/gamesdonequick",
+  "!route": {
+    "response": "Okami Glitchless NG Any%: https://docs.google.com/document/d/1cDRkKo6G8w2fzXMLXnviuTQ8EvmIZmeMIFo6FLnxRDk/edit",
+    "cooldown": 0,
+    "last_use": 0
+  },
+  "!gamecube": {
+    "response": "/me For the foreseeable future, we are running a casual challenge to finish every single GameCube game officially released in North America. Many of these will also be done with RetroAchievements, for the full list check this spreadsheet: https://docs.google.com/spreadsheets/d/e/2PACX-1vSli3D9ztf4PBHDpsLgHqyFgc9d9R6CZeoU7AKVXvmEIXisRyTySpSzsCeyrgiEDhoqkxwqTjHuVfiZ/pubhtml?gid=0&single=true",
+    "cooldown": 0,
+    "last_use": 0
+  },
+  "!ra": {
+    "response": "RetroAchievements profile: https://retroachievements.org/user/Phantom5800",
     "cooldown": 0,
     "last_use": 0
   }

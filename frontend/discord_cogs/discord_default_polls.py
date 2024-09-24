@@ -8,50 +8,12 @@ defaultPolls = [
         'active': False,
         'decision': "What rando are we playing on Saturday?",
         'options': [
-            #"Battle Network 3",
             "Link's Awakening DX",
             "Minish Cap",
             "Pokémon Crystal",
             "Pokémon Emerald",
             "Pokémon Red/Blue",
-            #"Super Mario RPG (SNES)"
             "Twilight Princess"
-        ],
-        'votes': {}
-    },
-    {
-        'title': "2D Zelda Game",
-        'menuRow': 1,
-        'active': False,
-        'decision': "What Zelda Rando do we do this weekend?",
-        'options': [
-            "Link to the Past",
-            "Link's Awakening DX",
-            "Oracle of Seasons",
-            "Minish Cap"
-        ],
-        'votes': {}
-    },
-    {
-        'title': "3D Zelda Game",
-        'menuRow': 1,
-        'active': False,
-        'decision': "What Zelda Rando do we do this weekend?",
-        'options': [
-            "Ocarina of Time",
-            "Twilight Princess"
-        ],
-        'votes': {}
-    },
-    {
-        'title': "Pokémon Game",
-        'menuRow': 1,
-        'active': False,
-        'decision': "What Pokémon Rando do we do this weekend?",
-        'options': [
-            "Red/Blue",
-            "Crystal",
-            "Emerald"
         ],
         'votes': {}
     },
@@ -59,106 +21,38 @@ defaultPolls = [
     # Pape Rando Settings
     #########################################################################################
     {
-        'title': "Pape Setting",
+        'title': "Ad Timing",
         'menuRow': 2,
         'active': False,
-        'decision': "Which extra setting should we use in Pape Rando?",
+        'decision': "It's been a while since I've asked, but what would people prefer for Twitch ad timing?",
         'options': [
-            "Coin Blocks",
-            "Dungeon Shuffle",
-            "Random Starting Location",
-            "Random Puzzles",
-            "Jumpless",
-            "Mirror Mode"
+            "1:30 every 30 minutes (keep it the same)",
+            "3 minutes every hour",
+            "1 minute every 20 minutes"
         ],
         'votes': {}
     },
     {
-        'title': "Pape Banned Setting",
+        'title': "Speedrun",
         'menuRow': 2,
         'active': False,
-        'decision': "Which normally banned setting should we use in Pape Rando?",
+        'decision': "I do intend on finishing out the last couple of 2024 speedruns, but am wanting to shift my focus more. What would people prefer?",
         'options': [
-            "Full Coinsanity",
-            "Traps",
-            "4x Damage",
-            "No Heart Blocks",
-            "Mystery Only"
+            "Keep up the same schedule of runs",
+            "Do a few of the new runs, but overall shift focus early",
+            "1-2 of the new runs a day, then move to casual"
         ],
         'votes': {}
     },
     {
-        'title': "Blitz Changes",
+        'title': "Echoes",
         'menuRow': 2,
         'active': False,
-        'decision': "Let's experiment and change the Blitz settings! What should be added / changed?",
+        'decision': "Should I stream my Echoes of Wisdom playthrough?",
         'options': [
-            "Glitch Logic",
-            "Panels",
-            "Unused Badges",
-            "Shuffle Dungeon Entrances",
-            "Partner Upgrade Shuffle"
-        ],
-        'votes': {}
-    },
-    #########################################################################################
-    # Zelda Rando Settings
-    #########################################################################################
-    {
-        'title': "LADX Setting",
-        'menuRow': 3,
-        'active': False,
-        'decision': "Which extra setting should we enable for a Link's Awakening DX Rando?",
-        'options': [
-            "Owl Statue Checks",
-            "Boss Shuffle",
-            "Bowwow Start",
-            "Dungeon Shuffle",
-            "Random Starting Location"
-        ],
-        'votes': {}
-    },
-    {
-        'title': "Minish Cap Setting",
-        'menuRow': 3,
-        'active': False,
-        'decision': "Which extra setting should we use for a Minish Cap Rando?",
-        'options': [
-            "Keysanity (Full Keyrings)",
-            "Kinstones (Kinstone Bags)",
-            "Figurine Hunt",
-            "Rupees",
-            "Pots + Underwater + Digging",
-            "Open World (+No Logic)"
-        ],
-        'votes': {}
-    },
-    {
-        'title': "Twilight Princess Setting",
-        'menuRow': 3,
-        'active': False,
-        'decision': "What should we try adding to Twilight Princess Rando?",
-        'options': [
-            "Poes",
-            "Big Keysanity",
-            "Mirror Shards",
-            "Open Hyrule Castle"
-        ],
-        'votes': {}
-    },
-    #########################################################################################
-    # Pokémon Crystal Settings
-    #########################################################################################
-    {
-        'title': "Pokémon Crystal Setting",
-        'menuRow': 4,
-        'active': False,
-        'decision': "What should we add to Pokémon Crystal?",
-        'options': [
-            "Random Base Stats",
-            "Random Move Types",
-            "Evolve Every Level",
-            "Shopsanity"
+            "On main, yes",
+            "On the alt",
+            "No, not interested"
         ],
         'votes': {}
     }

@@ -86,6 +86,15 @@ class PhantomGamesBot(Bot):
         if message.author.id == self.user.id:
             return
 
+        # only allow custom commands in specific channels
+        valid_channel = False
+        for channel in self.channels:
+            if self.channels[channel] == message.channel.id:
+                valid_channel = True
+                break
+        if valid_channel == False:
+            return
+
         # get the message context so that we don't have to reply
         ctx = await self.get_context(message)
 

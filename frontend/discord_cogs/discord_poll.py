@@ -80,7 +80,7 @@ class PollType(IntEnum):
     PapeBannedPartner = 4
     TMCSettings = 5
 
-announcement_base_msg = "<@&1171521685527208007> New polls for Randomizer stream(s) on:"
+announcement_base_msg = "<@&1171521685527208007> New polls ending on:"
 
 class PhantomGamesBotPolls(commands.Cog):
     def __init__(self, bot):
