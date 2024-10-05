@@ -2,12 +2,12 @@
   "no": {
     "response": "no",
     "cooldown": 0,
-    "last_use": 1713795525.346822
+    "last_use": 1727738887.240771
   },
   "el:wadafa:yelpanafrienddandoleunabrazo": {
     "response": "el:Wadafa:yelpanaFrienddandoleunabrazo",
     "cooldown": 0,
-    "last_use": 1673374217.137529
+    "last_use": 1727729337.885734
   },
   "@phantomgamesbot": {
     "response": "$user $msg",
@@ -47,7 +47,7 @@
   "stinkycheese": {
     "response": "StinkyCheese",
     "cooldown": 0,
-    "last_use": 1713742852.123091
+    "last_use": 1727730190.433994
   },
   "!discord": {
     "response": "https://discord.gg/cxDBexV",
