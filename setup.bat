@@ -7,7 +7,7 @@ pip install pipenv
 pipenv --python %PYVER%
 pipenv install twitchio
 pipenv install srcomapi
-pipenv install py-cord
+pipenv install py-cord==2.4.1
 pipenv install AnilistPython==0.1.3
 pipenv install markovify
 pipenv install tweepy
