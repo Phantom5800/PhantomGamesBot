@@ -887,10 +887,25 @@ class PhantomGamesBot(commands.Bot):
         else:
             print(f"[Eventsub] {cheerData.user.name.lower()} cheered {cheerData.bits} bits!")
 
+        # record bit cheers
+        with open('C:/StreamAssets/LatestCheer.txt', 'w', encoding="utf-8") as last_cheer:
+            last_cheer.write(f"Last Cheer: {cheerData.bits} {cheerData.user.name}")
+        self.goals.add_bits(cheerData.bits)
+
     async def event_eventsub_notification_subscription(self, event: NotificationEvent):
         subData = event.Data
+        # update most recent sub for non gifts
         if not event.is_gift:
-            print(f"[Eventsub] {subData.user.name.lower()} subscribed at tier {subData.tier}!")
+            print(f"[Eventsub] {subData.user.name.lower()} subscribed at tier {subData.tier} for {subData.cumulative_months} months!")
+
+            with open('C:/StreamAssets/LatestSub.txt', 'w', encoding="utf-8") as last_sub:
+                last_sub.write(f"New Sub: {subData.user.name}")
+
+        # update sub count
+        with open('C:/StreamAssets/SubCount.txt', 'w', encoding="utf-8") as sub_count:
+            count = await self.get_subscriber_count(subData.broadcaster)
+            sub_count.write(f"{count}")
+        self.goals.add_sub(subData.tier)
 
     async def event_eventsub_notification_subscription_gifts(self, event: NotificationEvent):
         subData = event.Data
@@ -899,51 +914,7 @@ class PhantomGamesBot(commands.Bot):
         else:
             print(f"[Eventsub] {subData.user.name.lower()} gifted {subData.total} tier {subData.tier} subs!")
 
-    #####################################################################################################
-    # pubsub
-    #####################################################################################################
-    async def setup_pubsub(self, channel: str):
-        channel = channel.lower()
-        token = os.environ.get(f"TWITCH_CHANNEL_TOKEN_{channel}")
-        channel_id = int(os.environ.get(f"TWITCH_CHANNEL_ID_{channel}"))
-        self.pubsub[channel] = pubsub.PubSubPool(self)
-        topics = [
-            pubsub.bits(token)[channel_id],
-            pubsub.channel_subscriptions(token)[channel_id]
-        ]
-        await self.pubsub[channel].subscribe_topics(topics)
-
-    async def event_pubsub_bits(self, event: pubsub.PubSubBitsMessage):
-        #print(f"Bits [{event.bits_used}] from {event.user.name}")
-        with open('C:/StreamAssets/LatestCheer.txt', 'w', encoding="utf-8") as last_cheer:
-            last_cheer.write(f"Last Cheer: {event.bits_used} {event.user.name}")
-        self.goals.add_bits(event.bits_used)
-
-    async def event_pubsub_subscription(self, event: pubsub.PubSubChannelSubscribe):
-        # this function would be better implemented as part of eventsub, but that requires a lot more work
-        sub_type = f"{event.sub_plan_name} Gift from \"{event.user.name if event.user else 'anonymous'}\"" if event.is_gift else event.sub_plan_name
-        subscriber = event.recipient if event.is_gift else event.user
-
-        # months purchased at one time, assume 1 if not provided
-        months = event.multi_month_duration if event.multi_month_duration else 1
-        print(f"{subscriber} subbed for {event.cumulative_months} at {event.sub_plan} '{event.sub_plan_name}'")
-
-        with open('C:/StreamAssets/LatestSub.txt', 'w', encoding="utf-8") as last_sub:
-            last_sub.write(f"New Sub: {subscriber.name}")
-
-        with open('C:/StreamAssets/SubCount.txt', 'w', encoding="utf-8") as sub_count:
-            user = await event.channel.user()
-            count = await self.get_subscriber_count(user)
-            sub_count.write(f"{count}")
-
-        if event.sub_plan == "Prime":
-            self.goals.add_prime()
-        else:
-            self.goals.add_sub(int(int(event.sub_plan) / 1000))
-
 def run_twitch_bot(sharedResources) -> PhantomGamesBot:
     bot = PhantomGamesBot(sharedResources)
-    bot.loop.create_task(bot.setup_pubsub("phantom5800"))
     bot.loop.create_task(bot.setup_eventsub("phantom5800"))
-    # EventSubWSClient - websocket for eventsub that might just work as a drop in replacement for pubsub?
     return bot
