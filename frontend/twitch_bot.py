@@ -838,13 +838,28 @@ class PhantomGamesBot(commands.Bot):
         channel = channel.lower()
         token = os.environ.get(f"TWITCH_CHANNEL_TOKEN_{channel}")
         channel_id = int(os.environ.get(f"TWITCH_CHANNEL_ID_{channel}"))
+        mod_id = int(os.environ.get(f"TWITCH_CHANNEL_ID_phantomgamesbot"))
         self.esclient = EventSubWSClient(self)
         try:
+            # stream events
             #await self.esclient.subscribe_channel_ad_break_begin(broadcaster=channel_id, token=token)
             await self.esclient.subscribe_channel_cheers(broadcaster=channel_id, token=token)
             await self.esclient.subscribe_channel_points_redeemed(broadcaster=channel_id, token=token)
             await self.esclient.subscribe_channel_subscriptions(broadcaster=channel_id, token=token)
             await self.esclient.subscribe_channel_subscription_gifts(broadcaster=channel_id, token=token)
+
+            # notifications
+            # await self.esclient.subscribe_channel_hypetrain_begin(broadcaster=channel_id, token=token)
+            # await self.esclient.subscribe_channel_hypetrain_progress(broadcaster=channel_id, token=token)
+            # await self.esclient.subscribe_channel_hypetrain_end(broadcaster=channel_id, token=token)
+            # await self.esclient.subscribe_channel_stream_start(broadcaster=channel_id, token=token)
+            # await self.esclient.subscribe_channel_stream_end(broadcaster=channel_id, token=token)
+
+            # mod actions
+            # await self.esclient.subscribe_channel_bans(broadcaster=channel_id, token=token)
+            # await self.esclient.subscribe_channel_unban_request_create(broadcaster=channel_id, moderator=mod_id, token=token)
+            # await self.esclient.subscribe_channel_unban_request_resolve(broadcaster=channel_id, moderator=mod_id, token=token)
+            # await self.esclient.subscribe_suspicious_user_update(broadcaster=channel_id, moderator=mod_id, token=token)
         except Exception as e:
             print(f"[Error] Eventsub subscriptions: {e}")
 
@@ -875,6 +890,7 @@ class PhantomGamesBot(commands.Bot):
                     except:
                         await channel.send(f"{rewardData.user.name} was not able to automatically be assigned VIP, the streamer will try and get to this as soon as possible!")
 
+    # NYI in 2.10
     # async def event_eventsub_ad_break_begin(self, event: NotificationEvent):
     #     adData = event.data
     #     if event.is_automatic:
