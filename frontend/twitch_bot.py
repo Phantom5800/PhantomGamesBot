@@ -8,6 +8,8 @@ from typing import Optional
 from twitchio import PartialUser
 from twitchio.http import Route
 from twitchio.ext import commands, pubsub, routines
+from twitchio.ext.eventsub.models import *
+from twitchio.ext.eventsub.websocket import EventSubWSClient
 from commands.slots import Slots, SlotsMode
 from utils.utils import *
 
@@ -830,32 +832,29 @@ class PhantomGamesBot(commands.Bot):
             await ctx.send(f"{ctx.message.author.mention} has never been first phanto274D")
 
     #####################################################################################################
-    # pubsub
+    # eventsub
     #####################################################################################################
-    async def setup_pubsub(self, channel: str):
+    async def setup_eventsub(self, channel: str):
         channel = channel.lower()
         token = os.environ.get(f"TWITCH_CHANNEL_TOKEN_{channel}")
         channel_id = int(os.environ.get(f"TWITCH_CHANNEL_ID_{channel}"))
-        self.pubsub[channel] = pubsub.PubSubPool(self)
-        topics = [
-            pubsub.bits(token)[channel_id],
-            pubsub.channel_points(token)[channel_id],
-            pubsub.channel_subscriptions(token)[channel_id]
-        ]
-        await self.pubsub[channel].subscribe_topics(topics)
+        self.esclient = EventSubWSClient(self)
+        try:
+            #await self.esclient.subscribe_channel_ad_break_begin(broadcaster=channel_id, token=token)
+            await self.esclient.subscribe_channel_cheers(broadcaster=channel_id, token=token)
+            await self.esclient.subscribe_channel_points_redeemed(broadcaster=channel_id, token=token)
+            await self.esclient.subscribe_channel_subscriptions(broadcaster=channel_id, token=token)
+            await self.esclient.subscribe_channel_subscription_gifts(broadcaster=channel_id, token=token)
+        except Exception as e:
+            print(f"[Error] Eventsub subscriptions: {e}")
 
-    async def event_pubsub_bits(self, event: pubsub.PubSubBitsMessage):
-        #print(f"Bits [{event.bits_used}] from {event.user.name}")
-        with open('C:/StreamAssets/LatestCheer.txt', 'w', encoding="utf-8") as last_cheer:
-            last_cheer.write(f"Last Cheer: {event.bits_used} {event.user.name}")
-        self.goals.add_bits(event.bits_used)
-
-    async def event_pubsub_channel_points(self, event: pubsub.PubSubChannelPointsMessage):
-        #print(f"Channel Point Redemption [{event.timestamp}]: {event.user.name} - {event.reward.title} - {event.input}")
+    async def event_eventsub_notification_channel_reward_redeem(self, event: NotificationEvent):
+        rewardData = event.data
+        print(f"[Eventsub {rewardData.redeemed_at}] {rewardData.user.name.lower()} redeemed {rewardData.reward.title}")
 
         # track first redemptions
-        if "First" in event.reward.title:
-            username = event.user.name.lower()
+        if "First" in rewardData.reward.title:
+            username = rewardData.user.name.lower()
             if username in self.first_redeems:
                 self.first_redeems[username] += 1
             else:
@@ -866,15 +865,59 @@ class PhantomGamesBot(commands.Bot):
             print(f"{username} redeemed First {self.first_redeems[username]} times")
 
         # attempt to give the user VIP
-        if "VIP" in event.reward.title:
-            streamer = await self.fetch_channel(str(event.channel_id))
+        if "VIP" in rewardData.reward.title:
+            streamer = rewardData.broadcaster
             for channel in self.connected_channels:
-                if channel.name.lower() == streamer.user.name.lower():
+                if channel.name.lower() == streamer.name.lower():
                     try:
-                        await streamer.user.add_channel_vip(os.environ.get(f"TWITCH_CHANNEL_TOKEN_{streamer.user.name.lower()}"), event.user.id)
-                        await channel.send(f"Congrats to {event.user.name} for becoming a VIP!")
+                        await streamer.add_channel_vip(os.environ.get(f"TWITCH_CHANNEL_TOKEN_{streamer.name.lower()}"), rewardData.user.id)
+                        await channel.send(f"Congrats to {rewardData.user.name} for becoming a VIP!")
                     except:
-                        await channel.send(f"{event.user.name} was not able to automatically be assigned VIP, the streamer will try and get to this as soon as possible!")
+                        await channel.send(f"{rewardData.user.name} was not able to automatically be assigned VIP, the streamer will try and get to this as soon as possible!")
+
+    # async def event_eventsub_ad_break_begin(self, event: NotificationEvent):
+    #     adData = event.data
+    #     if event.is_automatic:
+    #         print(f"[Eventsub] Automatic ad break of {adData.duration} seconds started at {adData.started_at}")
+
+    async def event_eventsub_notification_cheer(self, event: NotificationEvent):
+        cheerData = event.data
+        if event.is_anonymous:
+            print(f"[Eventsub] Anonymous cheered {cheerData.bits} bits!")
+        else:
+            print(f"[Eventsub] {cheerData.user.name.lower()} cheered {cheerData.bits} bits!")
+
+    async def event_eventsub_notification_subscription(self, event: NotificationEvent):
+        subData = event.Data
+        if not event.is_gift:
+            print(f"[Eventsub] {subData.user.name.lower()} subscribed at tier {subData.tier}!")
+
+    async def event_eventsub_notification_subscription_gifts(self, event: NotificationEvent):
+        subData = event.Data
+        if event.is_anonymous:
+            print(f"[Eventsub] Anonymous gifted {subData.total} tier {subData.tier} subs!")
+        else:
+            print(f"[Eventsub] {subData.user.name.lower()} gifted {subData.total} tier {subData.tier} subs!")
+
+    #####################################################################################################
+    # pubsub
+    #####################################################################################################
+    async def setup_pubsub(self, channel: str):
+        channel = channel.lower()
+        token = os.environ.get(f"TWITCH_CHANNEL_TOKEN_{channel}")
+        channel_id = int(os.environ.get(f"TWITCH_CHANNEL_ID_{channel}"))
+        self.pubsub[channel] = pubsub.PubSubPool(self)
+        topics = [
+            pubsub.bits(token)[channel_id],
+            pubsub.channel_subscriptions(token)[channel_id]
+        ]
+        await self.pubsub[channel].subscribe_topics(topics)
+
+    async def event_pubsub_bits(self, event: pubsub.PubSubBitsMessage):
+        #print(f"Bits [{event.bits_used}] from {event.user.name}")
+        with open('C:/StreamAssets/LatestCheer.txt', 'w', encoding="utf-8") as last_cheer:
+            last_cheer.write(f"Last Cheer: {event.bits_used} {event.user.name}")
+        self.goals.add_bits(event.bits_used)
 
     async def event_pubsub_subscription(self, event: pubsub.PubSubChannelSubscribe):
         # this function would be better implemented as part of eventsub, but that requires a lot more work
@@ -901,5 +944,6 @@ class PhantomGamesBot(commands.Bot):
 def run_twitch_bot(sharedResources) -> PhantomGamesBot:
     bot = PhantomGamesBot(sharedResources)
     bot.loop.create_task(bot.setup_pubsub("phantom5800"))
+    bot.loop.create_task(bot.setup_eventsub("phantom5800"))
     # EventSubWSClient - websocket for eventsub that might just work as a drop in replacement for pubsub?
     return bot
