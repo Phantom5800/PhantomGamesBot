@@ -989,22 +989,22 @@ class PhantomGamesBot(commands.Bot):
         banData = event.data
         reason = banData.reason or "Unspecified reason"
         if banData.permanent:
-            banString = f"`{banData.user.name}` has been banned in **{banData.broadcaster.name}** by _{banData.moderator.name}_ for '{reason}'"
+            banString = f"❌ `{banData.user.name}` has been banned in **{banData.broadcaster.name}** by _{banData.moderator.name}_ for '{reason}'"
             await utils.events.twitchevents.twitch_log(banString)
-            print(f"[Eventsub] {banString}")
         else:
-            timeoutString = f"`{banData.user.name}` has been timed out in **{banData.broadcaster.name}** by _{banData.moderator.name}_ until {banData.ends_at} for '{reason}'"
+            unix_epoch = datetime.strptime("1970-1-1 00:00:00.000000+0000", "%Y-%m-%d %H:%M:%S.%f%z")
+            seconds_from_epoch = int((banData.ends_at - unix_epoch).total_seconds())
+            discord_timestamp = f"<t:{seconds_from_epoch}:R>"
+            timeoutString = f"❌ `{banData.user.name}` has been timed out in **{banData.broadcaster.name}** by _{banData.moderator.name}_ until {discord_timestamp} for '{reason}'"
             await utils.events.twitchevents.twitch_log(timeoutString)
-            print(f"[Eventsub] {timeoutString}")
 
     '''
     User unbanned
     '''
     async def event_eventsub_notification_unban(self, event: NotificationEvent):
         banData = event.data
-        banString = f"`{banData.user.name}` has been unbanned in **{banData.broadcaster.name}** by _{banData.moderator.name}_"
+        banString = f"✅ `{banData.user.name}` has been unbanned in **{banData.broadcaster.name}** by _{banData.moderator.name}_"
         await utils.events.twitchevents.twitch_log(banString)
-        print(f"[Eventsub] {banString}")
 
 def run_twitch_bot(sharedResources) -> PhantomGamesBot:
     bot = PhantomGamesBot(sharedResources)
