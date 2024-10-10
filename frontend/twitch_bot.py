@@ -3,6 +3,7 @@ import json
 import os
 import random
 import re
+import utils.events
 from copy import deepcopy
 from typing import Optional
 from twitchio import PartialUser
@@ -842,7 +843,6 @@ class PhantomGamesBot(commands.Bot):
         self.esclient = EventSubWSClient(self)
         try:
             # stream events
-            #await self.esclient.subscribe_channel_ad_break_begin(broadcaster=channel_id, token=token)
             await self.esclient.subscribe_channel_cheers(broadcaster=channel_id, token=token)
             await self.esclient.subscribe_channel_points_redeemed(broadcaster=channel_id, token=token)
             await self.esclient.subscribe_channel_subscriptions(broadcaster=channel_id, token=token)
@@ -850,6 +850,7 @@ class PhantomGamesBot(commands.Bot):
             await self.esclient.subscribe_channel_subscription_gifts(broadcaster=channel_id, token=token)
 
             # notifications
+            # await self.esclient.subscribe_channel_ad_break_begin(broadcaster=channel_id, token=token)
             # await self.esclient.subscribe_channel_hypetrain_begin(broadcaster=channel_id, token=token)
             # await self.esclient.subscribe_channel_hypetrain_progress(broadcaster=channel_id, token=token)
             # await self.esclient.subscribe_channel_hypetrain_end(broadcaster=channel_id, token=token)
@@ -857,13 +858,17 @@ class PhantomGamesBot(commands.Bot):
             await self.esclient.subscribe_channel_stream_end(broadcaster=channel_id, token=token)
 
             # mod actions
-            # await self.esclient.subscribe_channel_bans(broadcaster=channel_id, token=token)
+            await self.esclient.subscribe_channel_bans(broadcaster=channel_id, token=token)
+            await self.esclient.subscribe_channel_unbans(broadcaster=channel_id, token=token)
             # await self.esclient.subscribe_channel_unban_request_create(broadcaster=channel_id, moderator=mod_id, token=token)
             # await self.esclient.subscribe_channel_unban_request_resolve(broadcaster=channel_id, moderator=mod_id, token=token)
             # await self.esclient.subscribe_suspicious_user_update(broadcaster=channel_id, moderator=mod_id, token=token)
         except Exception as e:
             print(f"[Error] Eventsub subscriptions: {e}")
 
+    #####################################################################################################
+    # eventsub stream events
+    #####################################################################################################
     '''
     Channel point redemption event
     '''
@@ -893,12 +898,6 @@ class PhantomGamesBot(commands.Bot):
                         await channel.send(f"Congrats to {rewardData.user.name} for becoming a VIP!")
                     except:
                         await channel.send(f"{rewardData.user.name} was not able to automatically be assigned VIP, the streamer will try and get to this as soon as possible!")
-
-    # NYI in 2.10
-    # async def event_eventsub_ad_break_begin(self, event: NotificationEvent):
-    #     adData = event.data
-    #     if event.is_automatic:
-    #         print(f"[Eventsub] Automatic ad break of {adData.duration} seconds started at {adData.started_at}")
 
     '''
     Bit cheer event
@@ -957,6 +956,15 @@ class PhantomGamesBot(commands.Bot):
         else:
             print(f"[Eventsub] {subData.user.name.lower()} gifted {subData.total} tier {subData.tier} subs!")
 
+    #####################################################################################################
+    # eventsub notifications
+    #####################################################################################################
+    # NYI in 2.10
+    # async def event_eventsub_ad_break_begin(self, event: NotificationEvent):
+    #     adData = event.data
+    #     if event.is_automatic:
+    #         print(f"[Eventsub] Automatic ad break of {adData.duration} seconds started at {adData.started_at}")
+
     '''
     Stream went live event
     '''
@@ -970,6 +978,33 @@ class PhantomGamesBot(commands.Bot):
     async def event_eventsub_notification_stream_end(self, event: NotificationEvent):
         streamOfflineData = event.data
         print(f"[Eventsub] Stream has ended for {streamOfflineData.broadcaster.name}")
+
+    #####################################################################################################
+    # eventsub mod events
+    #####################################################################################################
+    '''
+    User banned
+    '''
+    async def event_eventsub_notification_ban(self, event: NotificationEvent):
+        banData = event.data
+        reason = banData.reason or "Unspecified reason"
+        if banData.permanent:
+            banString = f"`{banData.user.name}` has been banned in **{banData.broadcaster.name}** by _{banData.moderator.name}_ for '{reason}'"
+            await utils.events.twitchevents.twitch_log(banString)
+            print(f"[Eventsub] {banString}")
+        else:
+            timeoutString = f"`{banData.user.name}` has been timed out in **{banData.broadcaster.name}** by _{banData.moderator.name}_ until {banData.ends_at} for '{reason}'"
+            await utils.events.twitchevents.twitch_log(timeoutString)
+            print(f"[Eventsub] {timeoutString}")
+
+    '''
+    User unbanned
+    '''
+    async def event_eventsub_notification_unban(self, event: NotificationEvent):
+        banData = event.data
+        banString = f"`{banData.user.name}` has been unbanned in **{banData.broadcaster.name}** by _{banData.moderator.name}_"
+        await utils.events.twitchevents.twitch_log(banString)
+        print(f"[Eventsub] {banString}")
 
 def run_twitch_bot(sharedResources) -> PhantomGamesBot:
     bot = PhantomGamesBot(sharedResources)

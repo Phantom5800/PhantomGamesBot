@@ -4,6 +4,7 @@ import json
 import os
 import random
 import time
+import utils.events
 from copy import deepcopy
 from datetime import datetime, timedelta, timezone
 from discord.ext import bridge, commands
@@ -26,7 +27,8 @@ class PhantomGamesBot(Bot):
             "youtube-uploads":      1095269930892546109,
             "discord-logs":         1098155843326844978,
             "polls":                1115557565082894357,
-            "weekly-schedule":      1117682254701932655
+            "weekly-schedule":      1117682254701932655,
+            "twitch-logs":          1294053787400404992
         }
 
         self.roles = {
@@ -63,6 +65,8 @@ class PhantomGamesBot(Bot):
             "youtube.com/@PhantomVODs"
         ]
         self.commands_since_new_status = 0
+
+        utils.events.twitchevents.register_events(self)
 
     async def set_random_status(self):
         status = self.messages[random.randrange(len(self.messages))]
@@ -193,6 +197,13 @@ class PhantomGamesBot(Bot):
             print(f"[Youtube {now}] Checking for new youtube video in {seconds} seconds")
 
             await asyncio.sleep(seconds)
+
+    #####################################################################################################
+    # cross bot events
+    #####################################################################################################
+    async def on_twitch_event_log(self, msg):
+        channel = self.get_channel(self.channels["twitch-logs"])
+        await channel.send(msg)
 
 def run_discord_bot(eventLoop, sharedResources):
     bot = PhantomGamesBot(sharedResources)
