@@ -8,7 +8,7 @@ from typing import Optional
 from twitchio import PartialUser
 from twitchio.http import Route
 from twitchio.ext import commands, pubsub, routines
-from twitchio.ext.eventsub.models import *
+from twitchio.ext.eventsub.models import NotificationEvent
 from twitchio.ext.eventsub.websocket import EventSubWSClient
 from commands.slots import Slots, SlotsMode
 from utils.utils import *
@@ -838,7 +838,7 @@ class PhantomGamesBot(commands.Bot):
         channel = channel.lower()
         token = os.environ.get(f"TWITCH_CHANNEL_TOKEN_{channel}")
         channel_id = int(os.environ.get(f"TWITCH_CHANNEL_ID_{channel}"))
-        mod_id = int(os.environ.get(f"TWITCH_CHANNEL_ID_phantomgamesbot"))
+        mod_id = int(os.environ.get(f"TWITCH_CHANNEL_ID_{os.environ.get('BOT_NICK').lower()}"))
         self.esclient = EventSubWSClient(self)
         try:
             # stream events
@@ -846,14 +846,15 @@ class PhantomGamesBot(commands.Bot):
             await self.esclient.subscribe_channel_cheers(broadcaster=channel_id, token=token)
             await self.esclient.subscribe_channel_points_redeemed(broadcaster=channel_id, token=token)
             await self.esclient.subscribe_channel_subscriptions(broadcaster=channel_id, token=token)
+            await self.esclient.subscribe_channel_subscription_messages(broadcaster=channel_id, token=token)
             await self.esclient.subscribe_channel_subscription_gifts(broadcaster=channel_id, token=token)
 
             # notifications
             # await self.esclient.subscribe_channel_hypetrain_begin(broadcaster=channel_id, token=token)
             # await self.esclient.subscribe_channel_hypetrain_progress(broadcaster=channel_id, token=token)
             # await self.esclient.subscribe_channel_hypetrain_end(broadcaster=channel_id, token=token)
-            # await self.esclient.subscribe_channel_stream_start(broadcaster=channel_id, token=token)
-            # await self.esclient.subscribe_channel_stream_end(broadcaster=channel_id, token=token)
+            await self.esclient.subscribe_channel_stream_start(broadcaster=channel_id, token=token)
+            await self.esclient.subscribe_channel_stream_end(broadcaster=channel_id, token=token)
 
             # mod actions
             # await self.esclient.subscribe_channel_bans(broadcaster=channel_id, token=token)
@@ -863,6 +864,9 @@ class PhantomGamesBot(commands.Bot):
         except Exception as e:
             print(f"[Error] Eventsub subscriptions: {e}")
 
+    '''
+    Channel point redemption event
+    '''
     async def event_eventsub_notification_channel_reward_redeem(self, event: NotificationEvent):
         rewardData = event.data
         print(f"[Eventsub {rewardData.redeemed_at}] {rewardData.user.name.lower()} redeemed {rewardData.reward.title}")
@@ -896,9 +900,12 @@ class PhantomGamesBot(commands.Bot):
     #     if event.is_automatic:
     #         print(f"[Eventsub] Automatic ad break of {adData.duration} seconds started at {adData.started_at}")
 
+    '''
+    Bit cheer event
+    '''
     async def event_eventsub_notification_cheer(self, event: NotificationEvent):
         cheerData = event.data
-        if event.is_anonymous:
+        if cheerData.is_anonymous:
             print(f"[Eventsub] Anonymous cheered {cheerData.bits} bits!")
         else:
             print(f"[Eventsub] {cheerData.user.name.lower()} cheered {cheerData.bits} bits!")
@@ -908,27 +915,61 @@ class PhantomGamesBot(commands.Bot):
             last_cheer.write(f"Last Cheer: {cheerData.bits} {cheerData.user.name}")
         self.goals.add_bits(cheerData.bits)
 
+    async def update_sub_counts(self, broadcaster):
+        with open('C:/StreamAssets/SubCount.txt', 'w', encoding="utf-8") as sub_count:
+            count = await self.get_subscriber_count(broadcaster)
+            sub_count.write(f"{count}")
+        self.goals.add_sub(subData.tier)
+
+    '''
+    New sub event
+    '''
     async def event_eventsub_notification_subscription(self, event: NotificationEvent):
-        subData = event.Data
+        subData = event.data
         # update most recent sub for non gifts
-        if not event.is_gift:
-            print(f"[Eventsub] {subData.user.name.lower()} subscribed at tier {subData.tier} for {subData.cumulative_months} months!")
+        if not subData.is_gift:
+            print(f"[Eventsub] {subData.user.name.lower()} subscribed at tier {subData.tier} for the first time!")
 
             with open('C:/StreamAssets/LatestSub.txt', 'w', encoding="utf-8") as last_sub:
                 last_sub.write(f"New Sub: {subData.user.name}")
 
-        # update sub count
-        with open('C:/StreamAssets/SubCount.txt', 'w', encoding="utf-8") as sub_count:
-            count = await self.get_subscriber_count(subData.broadcaster)
-            sub_count.write(f"{count}")
-        self.goals.add_sub(subData.tier)
+        await self.update_sub_counts(subData.broadcaster)
 
-    async def event_eventsub_notification_subscription_gifts(self, event: NotificationEvent):
-        subData = event.Data
+    '''
+    Resub event
+    '''
+    async def event_eventsub_notification_subscription_message(self, event: NotificationEvent):
+        subData = event.data
+        print(f"[Eventsub] {subData.user.name.lower()} subscribed at tier {subData.tier} for {subData.cumulative_months} months!")
+
+        with open('C:/StreamAssets/LatestSub.txt', 'w', encoding="utf-8") as last_sub:
+            last_sub.write(f"New Sub: {subData.user.name}")
+
+        await self.update_sub_counts(subData.broadcaster)
+
+    '''
+    Gift sub event
+    '''
+    async def event_eventsub_notification_subscription_gift(self, event: NotificationEvent):
+        subData = event.data
         if event.is_anonymous:
             print(f"[Eventsub] Anonymous gifted {subData.total} tier {subData.tier} subs!")
         else:
             print(f"[Eventsub] {subData.user.name.lower()} gifted {subData.total} tier {subData.tier} subs!")
+
+    '''
+    Stream went live event
+    '''
+    async def event_eventsub_notification_stream_start(self, event: NotificationEvent):
+        streamOnlineData = event.data
+        print(f"[Eventsub {streamOnlineData.started_at}] Stream has started for {streamOnlineData.broadcaster.name}")
+
+    '''
+    Stream ended event
+    '''
+    async def event_eventsub_notification_stream_end(self, event: NotificationEvent):
+        streamOfflineData = event.data
+        print(f"[Eventsub] Stream has ended for {streamOfflineData.broadcaster.name}")
 
 def run_twitch_bot(sharedResources) -> PhantomGamesBot:
     bot = PhantomGamesBot(sharedResources)
