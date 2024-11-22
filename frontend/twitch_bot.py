@@ -832,6 +832,15 @@ class PhantomGamesBot(commands.Bot):
         else:
             await ctx.send(f"{ctx.message.author.mention} has never been first phanto274D")
 
+    @commands.command()
+    async def notfirst(self, ctx: commands.Context):
+        username = ctx.message.author.name.lower()
+        count = self.first_redeems[username] if username in self.first_redeems else 0
+        total = 0
+        for user in self.first_redeems:
+            total += self.first_redeems[user]
+        await ctx.send(f"{ctx.message.author.mention} has not been first {total - count} times SadPag")
+
     #####################################################################################################
     # eventsub
     #####################################################################################################
@@ -914,11 +923,11 @@ class PhantomGamesBot(commands.Bot):
             last_cheer.write(f"Last Cheer: {cheerData.bits} {cheerData.user.name}")
         self.goals.add_bits(cheerData.bits)
 
-    async def update_sub_counts(self, broadcaster):
+    async def update_sub_counts(self, broadcaster, tier):
         with open('C:/StreamAssets/SubCount.txt', 'w', encoding="utf-8") as sub_count:
             count = await self.get_subscriber_count(broadcaster)
             sub_count.write(f"{count}")
-        self.goals.add_sub(subData.tier)
+        self.goals.add_sub(tier)
 
     '''
     New sub event
@@ -932,7 +941,7 @@ class PhantomGamesBot(commands.Bot):
             with open('C:/StreamAssets/LatestSub.txt', 'w', encoding="utf-8") as last_sub:
                 last_sub.write(f"New Sub: {subData.user.name}")
 
-        await self.update_sub_counts(subData.broadcaster)
+        await self.update_sub_counts(subData.broadcaster, subData.tier)
 
     '''
     Resub event
@@ -944,7 +953,7 @@ class PhantomGamesBot(commands.Bot):
         with open('C:/StreamAssets/LatestSub.txt', 'w', encoding="utf-8") as last_sub:
             last_sub.write(f"New Sub: {subData.user.name}")
 
-        await self.update_sub_counts(subData.broadcaster)
+        await self.update_sub_counts(subData.broadcaster, subData.tier)
 
     '''
     Gift sub event

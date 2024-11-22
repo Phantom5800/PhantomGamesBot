@@ -67,7 +67,7 @@
   "weloveprologue": {
     "response": "/announce If Prologue has a million fans I am one of them. If Prologue has ten fans I am one of them. If Prologue has only one fan, that is me. If Prologue has no fans, that means I am no longer on earth. If the world is against Prologue, I am against the world.",
     "cooldown": 10,
-    "last_use": 1726582188.827639
+    "last_use": 1729779778.619919
   },
   "!pmrando": {
     "response": "/announce The PM64 Randomizer can be found over at https://pm64randomizer.com/ and a tracker can be over on https://pmr-tracker.phantom-games.com/",
@@ -92,7 +92,7 @@
   "ezekiel": {
     "response": "Ezekiel",
     "cooldown": 5,
-    "last_use": 1694291065.407068
+    "last_use": 1729782721.271922
   },
   "!waggle": {
     "response": "SkeletonPls SkeletonPls SkeletonPls SkeletonPls SkeletonPls",
@@ -112,7 +112,7 @@
   "hi": {
     "response": "hi $user",
     "cooldown": 10,
-    "last_use": 1726948341.139872
+    "last_use": 1729781650.066296
   },
   "!nmsb": {
     "response": "/me No Major Sequence Breaks is a category that bridges the gap between Glitchless and All Cards. The important parts are that chapters must be completed in order, and story sequence can never go backwards.",
@@ -190,7 +190,7 @@
     "last_use": 1699207604.859819
   },
   "!race": {
-    "response": "https://racetime.gg/pm64r/wild-diamondstone-2489",
+    "response": "https://racetime.gg/pm64r/amazing-toybox-6964",
     "cooldown": 0,
     "last_use": 0
   },
@@ -275,12 +275,17 @@
     "last_use": 0
   },
   "!gamecube": {
-    "response": "/me For the foreseeable future, we are running a casual challenge to finish every single GameCube game officially released in North America. Many of these will also be done with RetroAchievements, for the full list check this spreadsheet: https://docs.google.com/spreadsheets/d/e/2PACX-1vSli3D9ztf4PBHDpsLgHqyFgc9d9R6CZeoU7AKVXvmEIXisRyTySpSzsCeyrgiEDhoqkxwqTjHuVfiZ/pubhtml?gid=0&single=true",
+    "response": "/me For the foreseeable future, we are running a casual challenge to finish every single GameCube game officially released in North America. Many of these will also be done with RetroAchievements, for the full list check this spreadsheet: https://docs.google.com/spreadsheets/d/e/2PACX-1vSli3D9ztf4PBHDpsLgHqyFgc9d9R6CZeoU7AKVXvmEIXisRyTySpSzsCeyrgiEDhoqkxwqTjHuVfiZ/pubhtml",
     "cooldown": 0,
-    "last_use": 0
+    "last_use": 1729789179.198761
   },
   "!ra": {
     "response": "RetroAchievements profile: https://retroachievements.org/user/Phantom5800",
+    "cooldown": 0,
+    "last_use": 1729354816.808827
+  },
+  "!dev": {
+    "response": "Boss Room Shuffle, Bowser's Castle as part of Dungeon Entrance Shuffle, Random Stats with base level, All Chapters 8 scaled all the time, new glitches in logic",
     "cooldown": 0,
     "last_use": 0
   }
