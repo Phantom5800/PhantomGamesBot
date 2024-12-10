@@ -22,7 +22,7 @@
   "!discord": {
     "response": "/announce Join the discord if you want to hang out! There is a weekly poll to decide what randomizers we do on the weekends and is generally just a great place to hang out https://discord.gg/XtrhKXNmRc",
     "cooldown": 0,
-    "last_use": 1725815045.694932
+    "last_use": 1732553467.946869
   },
   "!ohdee": {
     "response": "/announce OhDee made a ton of emotes and stream assets. Follow him on twitter because he's cool: https://twitter.com/OhDeezey",
@@ -32,7 +32,7 @@
   "@phantomgamesbot": {
     "response": "$user $msg",
     "cooldown": 5,
-    "last_use": 1726935810.750841
+    "last_use": 1733088698.510267
   },
   "!github": {
     "response": "/announce All my open source code projects are available on github: https://github.com/Phantom5800",
@@ -52,7 +52,7 @@
   "!pbchance": {
     "response": "There is a $randnum(0,100)% chance of a pb!",
     "cooldown": 0,
-    "last_use": 1724683090.174735
+    "last_use": 1732724870.111518
   },
   "!trusty": {
     "response": "/announce Trusty made my sub badges and most likely any art that I use as backgrounds in livesplit! Their twitter is: https://twitter.com/Trustyalt and you should definitely follow them",
@@ -67,7 +67,7 @@
   "weloveprologue": {
     "response": "/announce If Prologue has a million fans I am one of them. If Prologue has ten fans I am one of them. If Prologue has only one fan, that is me. If Prologue has no fans, that means I am no longer on earth. If the world is against Prologue, I am against the world.",
     "cooldown": 10,
-    "last_use": 1729779778.619919
+    "last_use": 1732726866.742734
   },
   "!pmrando": {
     "response": "/announce The PM64 Randomizer can be found over at https://pm64randomizer.com/ and a tracker can be over on https://pmr-tracker.phantom-games.com/",
@@ -87,12 +87,12 @@
   "!channelpoints": {
     "response": "/me Link to valid speedrun games for channel point redemptions: https://docs.google.com/spreadsheets/d/e/2PACX-1vTKX_blzPsWxGhxf9yCrMRF1IOzOG_nimLyYm_5iw9QeB5TJ6fXEjxV1AN0Nxo2qKmv_UmN6I8qGTa4/pubhtml",
     "cooldown": 0,
-    "last_use": 0
+    "last_use": 1732564563.59899
   },
   "ezekiel": {
     "response": "Ezekiel",
     "cooldown": 5,
-    "last_use": 1729782721.271922
+    "last_use": 1733768217.294531
   },
   "!waggle": {
     "response": "SkeletonPls SkeletonPls SkeletonPls SkeletonPls SkeletonPls",
@@ -112,7 +112,7 @@
   "hi": {
     "response": "hi $user",
     "cooldown": 10,
-    "last_use": 1729781650.066296
+    "last_use": 1733768363.989928
   },
   "!nmsb": {
     "response": "/me No Major Sequence Breaks is a category that bridges the gap between Glitchless and All Cards. The important parts are that chapters must be completed in order, and story sequence can never go backwards.",
@@ -260,7 +260,7 @@
     "last_use": 0
   },
   "!quickspin": {
-    "response": "https://youtu.be/kliNVKsuDVE?si=_JCwWlocd6K0lCOZ",
+    "response": "https://youtu.be/kliNVKsuDVE",
     "cooldown": 0,
     "last_use": 0
   },
@@ -277,7 +277,7 @@
   "!gamecube": {
     "response": "/me For the foreseeable future, we are running a casual challenge to finish every single GameCube game officially released in North America. Many of these will also be done with RetroAchievements, for the full list check this spreadsheet: https://docs.google.com/spreadsheets/d/e/2PACX-1vSli3D9ztf4PBHDpsLgHqyFgc9d9R6CZeoU7AKVXvmEIXisRyTySpSzsCeyrgiEDhoqkxwqTjHuVfiZ/pubhtml",
     "cooldown": 0,
-    "last_use": 1729789179.198761
+    "last_use": 1732553334.179222
   },
   "!ra": {
     "response": "RetroAchievements profile: https://retroachievements.org/user/Phantom5800",
@@ -286,6 +286,11 @@
   },
   "!dev": {
     "response": "Boss Room Shuffle, Bowser's Castle as part of Dungeon Entrance Shuffle, Random Stats with base level, All Chapters 8 scaled all the time, new glitches in logic",
+    "cooldown": 0,
+    "last_use": 0
+  },
+  "!kofi": {
+    "response": "5 Seed Paper Mario Rando shuffler goal is on Ko-fi https://ko-fi.com/phantom5800/goal?g=0",
     "cooldown": 0,
     "last_use": 0
   }
