@@ -142,45 +142,54 @@ class YouTubeData:
                 playlist_id = playlist_id[0:1] + "U" + playlist_id[2:]
                 request = self.youtube.playlistItems().list(
                     part="snippet,status",
-                    maxResults=1,
+                    maxResults=5,
                     playlistId=playlist_id
                 )
             else:
                 request = self.youtube.search().list(
                     part="snippet",
                     channelId=self.youtube_data[channel]["channel_id"],
-                    maxResults=1,
+                    maxResults=5,
                     order="date"
                 )
             response = request.execute()
             base_url = "https://youtube.com/watch?v="
             videoId = ""
             for video in response.get("items"):
+                # playlist response
                 if video.get("snippet"):
                     if video["snippet"].get("resourceId"):
                         if video["snippet"]["resourceId"].get("videoId"):
-                            videoId = str(video["snippet"]["resourceId"]["videoId"])
-                            break
-
-                if video.get("id"):
+                            if len(videoId) >= 1:
+                                videoId += ","
+                            videoId += str(video["snippet"]["resourceId"]["videoId"])
+                # search response
+                elif video.get("id"):
                     if video["id"].get("videoId"):
-                        videoId = video["id"]["videoId"]
-                        break
+                        if len(videoId) >= 1:
+                            videoId += ","
+                        videoId += video["id"]["videoId"]
             if len(videoId) < 1:
                 return ""
             
             # get video title
             request = self.youtube.videos().list(
-                part="snippet",
+                part="id,snippet,liveStreamingDetails",
                 id=videoId
             )
-            response = request.execute()
-            title = ""
-            for metadata in response.get("items"):
+            video_response = request.execute()
+            for metadata in video_response.get("items"):
+                # skip over live broadcasts
+                if metadata.get("liveStreamingDetails"):
+                    print("[YouTube] Found live video in most recent, skipping")
+                    continue
+
                 if metadata.get("snippet"):
                     title = metadata["snippet"].get("title")
+                    if metadata.get("id"):
+                        videoId = metadata["id"]
+                        return f"{title} - {base_url + videoId}"
 
-            return f"{title} - {base_url + videoId}"
         return ""
     
     '''

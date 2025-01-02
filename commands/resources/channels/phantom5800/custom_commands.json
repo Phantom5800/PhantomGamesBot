@@ -12,7 +12,7 @@
   "!lurk": {
     "response": "ok $user phanto274Lurk",
     "cooldown": 0,
-    "last_use": 1717337330.434357
+    "last_use": 1733841881.895572
   },
   "!unlurk": {
     "response": "phanto274Wave $user",
@@ -32,7 +32,7 @@
   "@phantomgamesbot": {
     "response": "$user $msg",
     "cooldown": 5,
-    "last_use": 1733088698.510267
+    "last_use": 1733843722.646924
   },
   "!github": {
     "response": "/announce All my open source code projects are available on github: https://github.com/Phantom5800",
@@ -92,7 +92,7 @@
   "ezekiel": {
     "response": "Ezekiel",
     "cooldown": 5,
-    "last_use": 1733768217.294531
+    "last_use": 1733849427.47987
   },
   "!waggle": {
     "response": "SkeletonPls SkeletonPls SkeletonPls SkeletonPls SkeletonPls",
@@ -112,7 +112,7 @@
   "hi": {
     "response": "hi $user",
     "cooldown": 10,
-    "last_use": 1733768363.989928
+    "last_use": 1733849097.292286
   },
   "!nmsb": {
     "response": "/me No Major Sequence Breaks is a category that bridges the gap between Glitchless and All Cards. The important parts are that chapters must be completed in order, and story sequence can never go backwards.",
@@ -291,6 +291,16 @@
   },
   "!kofi": {
     "response": "5 Seed Paper Mario Rando shuffler goal is on Ko-fi https://ko-fi.com/phantom5800/goal?g=0",
+    "cooldown": 0,
+    "last_use": 0
+  },
+  "egg": {
+    "response": "fuck that kid",
+    "cooldown": 0,
+    "last_use": 0
+  },
+  "!throne": {
+    "response": "/me I do have one of these if you want to give me money / something more specific: https://throne.com/phantom5800",
     "cooldown": 0,
     "last_use": 0
   }

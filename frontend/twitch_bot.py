@@ -960,7 +960,7 @@ class PhantomGamesBot(commands.Bot):
     '''
     async def event_eventsub_notification_subscription_gift(self, event: NotificationEvent):
         subData = event.data
-        if event.is_anonymous:
+        if subData.is_anonymous:
             print(f"[Eventsub] Anonymous gifted {subData.total} tier {subData.tier} subs!")
         else:
             print(f"[Eventsub] {subData.user.name.lower()} gifted {subData.total} tier {subData.tier} subs!")
