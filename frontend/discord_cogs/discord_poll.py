@@ -2,11 +2,12 @@ import discord
 import json
 import os
 from copy import deepcopy
-from datetime import datetime, timedelta
+from datetime import datetime, timedelta, timezone
 from discord.ext import bridge, commands
 from enum import IntEnum
 from frontend.discord_cogs.discord_default_polls import defaultPolls
 from threading import Timer
+from typing import Optional
 
 class PollButton(discord.ui.Button):
     def __init__(self, poll_manager, poll_id: int, label=None, emoji=None, row=None):
@@ -71,6 +72,75 @@ class PollToggleMenu(discord.ui.View):
 
     async def on_timeout(self):
         await self.message.delete_original_response()
+
+class SimplePoll(discord.ui.View):
+    def __init__(self, 
+        minutes:int, 
+        question: str,
+        option1:str, 
+        option2:str, 
+        option3:Optional[str] = None, 
+        option4:Optional[str] = None,
+        option5:Optional[str] = None):
+        super().__init__(timeout=minutes*60)
+
+        self.responses = {}
+        self.question = question
+
+        self.add_item(PollButton(self, 0, label=option1))
+        self.add_item(PollButton(self, 0, label=option2))
+        if option3: self.add_item(PollButton(self, 0, label=option3))
+        if option4: self.add_item(PollButton(self, 0, label=option4))
+        if option5: self.add_item(PollButton(self, 0, label=option5))
+
+    async def update_votes(self, id: int, choice: str, user):
+        self.responses[str(user.id)] = choice
+
+    async def on_timeout(self):
+        totals = ""
+        total_votes = 0
+        total_counts = {}
+        for opt in self.children:
+            count = 0
+            for response in self.responses:
+                if self.responses[response] == opt.label:
+                    total_votes += 1
+                    count += 1
+            total_counts[opt.label] = count
+
+        highest_value = 0
+        for opt in total_counts:
+            if total_counts[opt] > highest_value:
+                highest_value = total_counts[opt]
+
+        for opt in total_counts:
+            totals += f"{'✅' if total_counts[opt] == highest_value else '❌'} {opt}: {total_counts[opt]} ({int(total_counts[opt] / total_votes * 100)}%)\n"
+
+        self.clear_items()
+        if self.msg:
+            message = await self.msg.original_response()
+            await message.edit(f"{self.question}\n{totals}", view=self)
+
+class PhantomGamesBotSimplePolls(commands.Cog):
+    def __init__(self, bot):
+        self.bot = bot
+
+    @bridge.bridge_command(name="poll", description="Post a limited poll with a timeout")
+    async def post_poll(self, ctx, 
+        minutes:int, 
+        question:str, 
+        option1:str, 
+        option2:str, 
+        option3:Optional[str] = None, 
+        option4:Optional[str] = None,
+        option5:Optional[str] = None):
+        view = SimplePoll(minutes, question, option1, option2, option3, option4, option5)
+
+        unix_epoch = datetime.strptime("1970-1-1 00:00:00.000000+0000", "%Y-%m-%d %H:%M:%S.%f%z")
+        poll_end_time = datetime.now(timezone.utc) + timedelta(minutes=minutes)
+        seconds_from_epoch = int((poll_end_time - unix_epoch).total_seconds())
+        discord_timestamp = f"<t:{seconds_from_epoch}:R>"
+        view.msg = await ctx.respond(f"{question} - Poll ends {discord_timestamp}", view=view)
 
 class PollType(IntEnum):
     BonusRandomizer = 0

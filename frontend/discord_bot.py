@@ -12,6 +12,7 @@ from discord.ext.bridge import Bot
 from frontend.discord_cogs.discord_commands import PhantomGamesBotCommands
 from frontend.discord_cogs.discord_goals import PhantomGamesBotGoals
 from frontend.discord_cogs.discord_poll import PhantomGamesBotPolls
+from frontend.discord_cogs.discord_poll import PhantomGamesBotSimplePolls
 from frontend.discord_cogs.discord_schedule import PhantomGamesBotSchedule
 from utils.utils import *
 
@@ -209,6 +210,7 @@ def run_discord_bot(eventLoop, sharedResources):
     bot = PhantomGamesBot(sharedResources)
     bot.add_cog(PhantomGamesBotCommands(bot, sharedResources))
     bot.add_cog(PhantomGamesBotPolls(bot))
+    bot.add_cog(PhantomGamesBotSimplePolls(bot))
     bot.add_cog(PhantomGamesBotSchedule(bot, sharedResources))
     bot.add_cog(PhantomGamesBotGoals(bot, sharedResources))
     async def runBot():

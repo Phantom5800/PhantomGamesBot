@@ -112,7 +112,7 @@
   "hi": {
     "response": "hi $user",
     "cooldown": 10,
-    "last_use": 1733849097.292286
+    "last_use": 1736959935.500089
   },
   "!nmsb": {
     "response": "/me No Major Sequence Breaks is a category that bridges the gap between Glitchless and All Cards. The important parts are that chapters must be completed in order, and story sequence can never go backwards.",
@@ -301,6 +301,16 @@
   },
   "!throne": {
     "response": "/me I do have one of these if you want to give me money / something more specific: https://throne.com/phantom5800",
+    "cooldown": 0,
+    "last_use": 0
+  },
+  "!events": {
+    "response": "/announce MMBN1 Single Segment for Aquathon (Jan 18 @ 7pm PT) and Midwest Speedfest Tune-Up (Jan 31 @ 12:30pm PT)",
+    "cooldown": 0,
+    "last_use": 0
+  },
+  "!hotfix": {
+    "response": "/me I will be doing a GDQ Hotfix on the 26th at 10am PT / 1pm ET for Paper Mario Rando. It will be using glitch logic with various other settings and I am trying to test and make sure this can fit under the estimate",
     "cooldown": 0,
     "last_use": 0
   }
