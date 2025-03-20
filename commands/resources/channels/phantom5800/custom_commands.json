@@ -2,12 +2,12 @@
   "morp": {
     "response": "morp",
     "cooldown": 5,
-    "last_use": 1724875625.427418
+    "last_use": 1739299975.953658
   },
   "glenn": {
     "response": "glenn",
     "cooldown": 5,
-    "last_use": 1721482665.633818
+    "last_use": 1739207833.22793
   },
   "!lurk": {
     "response": "ok $user phanto274Lurk",
@@ -22,7 +22,7 @@
   "!discord": {
     "response": "/announce Join the discord if you want to hang out! There is a weekly poll to decide what randomizers we do on the weekends and is generally just a great place to hang out https://discord.gg/XtrhKXNmRc",
     "cooldown": 0,
-    "last_use": 1732553467.946869
+    "last_use": 1738531327.712097
   },
   "!ohdee": {
     "response": "/announce OhDee made a ton of emotes and stream assets. Follow him on twitter because he's cool: https://twitter.com/OhDeezey",
@@ -32,7 +32,7 @@
   "@phantomgamesbot": {
     "response": "$user $msg",
     "cooldown": 5,
-    "last_use": 1733843722.646924
+    "last_use": 1741632491.719581
   },
   "!github": {
     "response": "/announce All my open source code projects are available on github: https://github.com/Phantom5800",
@@ -87,12 +87,12 @@
   "!channelpoints": {
     "response": "/me Link to valid speedrun games for channel point redemptions: https://docs.google.com/spreadsheets/d/e/2PACX-1vTKX_blzPsWxGhxf9yCrMRF1IOzOG_nimLyYm_5iw9QeB5TJ6fXEjxV1AN0Nxo2qKmv_UmN6I8qGTa4/pubhtml",
     "cooldown": 0,
-    "last_use": 1732564563.59899
+    "last_use": 1738595844.929512
   },
   "ezekiel": {
     "response": "Ezekiel",
     "cooldown": 5,
-    "last_use": 1733849427.47987
+    "last_use": 1740843856.252593
   },
   "!waggle": {
     "response": "SkeletonPls SkeletonPls SkeletonPls SkeletonPls SkeletonPls",
@@ -112,7 +112,7 @@
   "hi": {
     "response": "hi $user",
     "cooldown": 10,
-    "last_use": 1736959935.500089
+    "last_use": 1741624447.800104
   },
   "!nmsb": {
     "response": "/me No Major Sequence Breaks is a category that bridges the gap between Glitchless and All Cards. The important parts are that chapters must be completed in order, and story sequence can never go backwards.",
@@ -122,7 +122,7 @@
   "!glundo": {
     "response": "The ancient pape gods determined that 100% should be defined by the chalkboard in Mario's house; meaning star pieces, recipes, and badges must all be collected. Additionally they mandated that all permanent key items must be acquired such as the diploma from the dojo. A band of paper rebels has since determined it is not enough, and as part of 101% demands that Kent C. Koopa, Buzzar and the Anti Guy Squad must all die as well",
     "cooldown": 0,
-    "last_use": 0
+    "last_use": 1741629858.682559
   },
   "!wheel": {
     "response": "/announce We're playing random games from a wheel for *minimum* 30 minutes. Extending the time beyond that is up to chat. Once time is up, we'll bring the wheel back up and spin again to see what comes up next!",
@@ -157,7 +157,7 @@
   "linkfall": {
     "response": "LinkFALL",
     "cooldown": 15,
-    "last_use": 1723134752.763726
+    "last_use": 1739210202.991996
   },
   "!peed": {
     "response": "Flushed",
@@ -167,7 +167,7 @@
   "!socials": {
     "response": "Follow all the things: - https://youtube.com/@PhantomVODs - https://discord.gg/XtrhKXNmRc - https://twitter.com/Phantom5800 - https://bsky.app/profile/phantom-games.com",
     "cooldown": 0,
-    "last_use": 1722700978.892388
+    "last_use": 1738790899.708683
   },
   "yoshi": {
     "response": "piece of shit",
@@ -242,7 +242,7 @@
   "raven": {
     "response": "runera3Swag",
     "cooldown": 0,
-    "last_use": 1725386575.75778
+    "last_use": 1740832482.854725
   },
   "!controller": {
     "response": "The main controller I've used for paper mario for almost 2 years stopped working last night due to what appears to be a short, I'm working on getting replacements + backups, but any help would be appreciated: https://ko-fi.com/phantom5800/goal?g=0",
@@ -262,7 +262,7 @@
   "!quickspin": {
     "response": "https://youtu.be/kliNVKsuDVE",
     "cooldown": 0,
-    "last_use": 0
+    "last_use": 1738680091.657369
   },
   "!stickers": {
     "response": "Set of 4 stickers from SGDQ 2024 are available here: https://ko-fi.com/s/b277a29f0d",
@@ -304,13 +304,33 @@
     "cooldown": 0,
     "last_use": 0
   },
-  "!events": {
-    "response": "/announce MMBN1 Single Segment for Aquathon (Jan 18 @ 7pm PT) and Midwest Speedfest Tune-Up (Jan 31 @ 12:30pm PT)",
+  "!hotfix": {
+    "response": "/me I will be doing a GDQ Hotfix on the 26th at 10am PT / 1pm ET for Paper Mario Rando. It will be using glitch logic with various other settings and I am trying to test and make sure this can fit under the estimate",
+    "cooldown": 0,
+    "last_use": 1738164809.341405
+  },
+  "!mwsf": {
+    "response": "/announce I will be running Twilight Princess All Mirror Shards for Midwest Speedfest in Minneapolis, MN on April 12th. There is also going to be a donation incentive to run JotWaD after. The schedule can be found here: https://oengus.io/marathon/mwsf2025/schedule/main",
     "cooldown": 0,
     "last_use": 0
   },
-  "!hotfix": {
-    "response": "/me I will be doing a GDQ Hotfix on the 26th at 10am PT / 1pm ET for Paper Mario Rando. It will be using glitch logic with various other settings and I am trying to test and make sure this can fit under the estimate",
+  "!pronouns": {
+    "response": "Use this site to add your pronouns so other people can see them on twitch: https://pr.alejo.io/",
+    "cooldown": 0,
+    "last_use": 0
+  },
+  "!settings": {
+    "response": "Keysanity, No Shadow Crystal Start, Fused Shadows (progression anywhere), All Poes, Insects, No Locations Excluded, FREESTANDING RUPEES, Random Start Location",
+    "cooldown": 0,
+    "last_use": 0
+  },
+  "!borng": {
+    "response": "During Bo 1, Bo has a 25% chance of picking any of four options: slap, side step, grab and do nothing. Slap beats 2 of those options and therefore wins 50% of the time. During Bo 2, Bo has a 50% chance of slapping, 25% chance of sidestep and 25% grab, therefore grab wins against slap 50% of the time, but slap is faster if you get it first",
+    "cooldown": 0,
+    "last_use": 0
+  },
+  "!retrothon": {
+    "response": "/announce I'll be running Paper Mario Glitchless, Battle Network 6 Any% and Twilight Princess All Mirror Shards for Retrothon between April 21-27 so will occasionally be doing these runs to prep before the event",
     "cooldown": 0,
     "last_use": 0
   }

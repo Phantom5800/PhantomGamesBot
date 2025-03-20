@@ -1,18 +1,18 @@
 {
   "no": {
-    "response": "no",
+    "response": "No",
     "cooldown": 0,
-    "last_use": 1727738887.240771
+    "last_use": 0
   },
   "el:wadafa:yelpanafrienddandoleunabrazo": {
     "response": "el:Wadafa:yelpanaFrienddandoleunabrazo",
     "cooldown": 0,
-    "last_use": 1727729337.885734
+    "last_use": 1738890483.273457
   },
   "@phantomgamesbot": {
     "response": "$user $msg",
     "cooldown": 0,
-    "last_use": 1696974067.181047
+    "last_use": 1738935521.874856
   },
   "!peed": {
     "response": "Flushed",
@@ -47,7 +47,7 @@
   "stinkycheese": {
     "response": "StinkyCheese",
     "cooldown": 0,
-    "last_use": 1727730190.433994
+    "last_use": 1739022929.562584
   },
   "!discord": {
     "response": "https://discord.gg/cxDBexV",
@@ -62,7 +62,7 @@
   "bro": {
     "response": "this level is too hard",
     "cooldown": 0,
-    "last_use": 0
+    "last_use": 1738888113.558249
   },
   "ggs": {
     "response": "We did it Reddit!",
@@ -102,7 +102,7 @@
   "buff00n": {
     "response": "/timeout buff00n 1",
     "cooldown": 0,
-    "last_use": 1696983263.846333
+    "last_use": 1738882303.923106
   },
   "!didyoupeed": {
     "response": "Yes Flushed",

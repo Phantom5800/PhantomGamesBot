@@ -10,14 +10,16 @@ from threading import Timer
 from typing import Optional
 
 class PollButton(discord.ui.Button):
-    def __init__(self, poll_manager, poll_id: int, label=None, emoji=None, row=None):
+    def __init__(self, poll_manager, poll_id: int, label=None, emoji=None, row=None, show_count:bool = False):
         super().__init__(label=label, custom_id=label, emoji=emoji, row=row)
         self.manager = poll_manager
         self.id = poll_id
+        self.show_count = show_count
+        self.real_label = label
 
     async def callback(self, interaction):
-        await self.manager.update_votes(self.id, self.label, interaction.user)
-        await interaction.response.send_message(f"Voted for {self.label}", ephemeral=True)
+        count = await self.manager.update_votes(self.id, self.real_label, interaction.user)
+        await interaction.response.send_message(f"Voted for {self.real_label}", ephemeral=True)
 
 class PollToggleButton(discord.ui.Button):
     def __init__(self, parent, poll_manager, poll_id: int, label=None, emoji=None):
@@ -93,8 +95,13 @@ class SimplePoll(discord.ui.View):
         if option4: self.add_item(PollButton(self, 0, label=option4))
         if option5: self.add_item(PollButton(self, 0, label=option5))
 
-    async def update_votes(self, id: int, choice: str, user):
+    async def update_votes(self, id: int, choice: str, user) -> int:
         self.responses[str(user.id)] = choice
+        count = 0
+        for response in self.responses:
+            if self.responses[response] == choice:
+                count += 1
+        return count
 
     async def on_timeout(self):
         totals = ""
@@ -116,6 +123,7 @@ class SimplePoll(discord.ui.View):
         for opt in total_counts:
             totals += f"{'✅' if total_counts[opt] == highest_value else '❌'} {opt}: {total_counts[opt]} ({int(total_counts[opt] / total_votes * 100)}%)\n"
 
+        print(totals)
         self.clear_items()
         if self.msg:
             message = await self.msg.original_response()
@@ -212,7 +220,7 @@ class PhantomGamesBotPolls(commands.Cog):
             poll['votes'] = {}
         self.save_poll_state()
 
-    async def update_votes(self, id: int, choice: str, user):
+    async def update_votes(self, id: int, choice: str, user) -> int:
         vote_value = 1
         for role in user.roles:
             # don't count the streamers vote lol
@@ -239,6 +247,7 @@ class PhantomGamesBotPolls(commands.Cog):
 
         # log new votes
         print(f"[Vote] {user.id}: {choice} [{vote_value}]")
+        return 0 # maybe update this to show actual values
 
     def count_votes(self, show_counts):
         vote_results = ""
