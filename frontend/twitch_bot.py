@@ -645,12 +645,12 @@ class PhantomGamesBot(commands.Bot):
         else:
             self.misgender_warnings[self.last_misgender_user] = 1
 
-        if self.last_misgender_user != "":
+        if ctx.author.is_mod and self.last_misgender_user != "":
             chatter = await get_twitch_user(self, self.last_misgender_user)
             streamer = await get_twitch_user(self, ctx.message.channel.name)
 
-            # provide a warning regardless of who uses the command
-            if self.misgender_warnings[self.last_misgender_user] <= 3 or not ctx.author.is_mod:
+            # provide a warning a handful of times first
+            if self.misgender_warnings[self.last_misgender_user] <= 3:
                 try:
                     await streamer.user.warn_user(
                         moderator=self.user_id, 
@@ -659,17 +659,16 @@ class PhantomGamesBot(commands.Bot):
                 except Exception as e:
                     print(f"[ERROR] Unable to provide warning to {self.last_misgender_user} -- {e}")
             else:
-                # if a mod uses the command and the user has been warned multiple times, time them out
-                if ctx.author.is_mod:
-                    try:
-                        await streamer.user.timeout_user(
-                            token=os.environ['TWITCH_OAUTH_TOKEN'], 
-                            moderator_id=self.user_id, 
-                            user_id=chatter.user.id, 
-                            duration=(self.misgender_warnings[self.last_misgender_user] - 1) * 60, # 1 minute per warning
-                            reason="pronouns")
-                    except Exception as e:
-                        print(f"[ERROR] Can't timeout {self.last_misgender_user} -- {e}")
+                # if it still happens after enough warnings, timeout
+                try:
+                    await streamer.user.timeout_user(
+                        token=os.environ['TWITCH_OAUTH_TOKEN'], 
+                        moderator_id=self.user_id, 
+                        user_id=chatter.user.id, 
+                        duration=self.misgender_warnings[self.last_misgender_user] * 60, # 1 minute per warning
+                        reason="pronouns")
+                except Exception as e:
+                    print(f"[ERROR] Can't timeout {self.last_misgender_user} -- {e}")
 
         self.last_misgender_user = ""
         await ctx.send("They / Them")
