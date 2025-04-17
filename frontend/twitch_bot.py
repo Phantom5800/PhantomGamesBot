@@ -658,6 +658,7 @@ class PhantomGamesBot(commands.Bot):
                 self.misgender_warnings[self.last_misgender_user] += 1
             else:
                 self.misgender_warnings[self.last_misgender_user] = 1
+            self.save_user_warnings()
 
             if ctx.author.is_mod:
                 chatter = await get_twitch_user(self, self.last_misgender_user)
@@ -685,7 +686,6 @@ class PhantomGamesBot(commands.Bot):
                         print(f"[ERROR] Can't timeout {self.last_misgender_user} -- {e}")
 
         self.last_misgender_user = ""
-        self.save_user_warnings()
         await ctx.send("They / Them")
 
     '''
