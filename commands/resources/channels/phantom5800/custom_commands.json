@@ -309,16 +309,6 @@
     "cooldown": 0,
     "last_use": 1738164809.341405
   },
-  "!mwsf": {
-    "response": "/announce I will be running Twilight Princess All Mirror Shards for Midwest Speedfest in Minneapolis, MN on April 12th. There is also going to be a donation incentive to run JotWaD after. The schedule can be found here: https://oengus.io/marathon/mwsf2025/schedule/main",
-    "cooldown": 0,
-    "last_use": 0
-  },
-  "!pronouns": {
-    "response": "Use this site to add your pronouns so other people can see them on twitch: https://pr.alejo.io/",
-    "cooldown": 0,
-    "last_use": 0
-  },
   "!settings": {
     "response": "Keysanity, No Shadow Crystal Start, Fused Shadows (progression anywhere), All Poes, Insects, No Locations Excluded, FREESTANDING RUPEES, Random Start Location",
     "cooldown": 0,
@@ -331,6 +321,11 @@
   },
   "!retrothon": {
     "response": "/announce I'll be running Paper Mario Glitchless, Battle Network 6 Any% and Twilight Princess All Mirror Shards for Retrothon between April 21-27 so will occasionally be doing these runs to prep before the event",
+    "cooldown": 0,
+    "last_use": 0
+  },
+  "!twitchpronouns": {
+    "response": "Use this site to add your pronouns so other people can see them on twitch: https://pr.alejo.io/",
     "cooldown": 0,
     "last_use": 0
   }

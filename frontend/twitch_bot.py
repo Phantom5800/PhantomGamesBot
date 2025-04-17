@@ -82,6 +82,7 @@ class PhantomGamesBot(commands.Bot):
         # random message response
         self.bless_count = 0
         self.bless_sent = False
+        self.last_misgender_user = ""
 
         # load relevant data
         self.load_timer_events()
@@ -183,6 +184,10 @@ class PhantomGamesBot(commands.Bot):
                 else:
                     self.bless_count = 0
                     self.bless_sent = False
+
+                misgender_pattern = r"(^|\s)?(he|him|his)($|\s)"
+                if re.search(misgender_pattern, message.content.lower()) is not None:
+                    self.last_misgender_user = message.author.name
 
                 # look for commands
                 command = message.content.split()[0]
@@ -627,6 +632,22 @@ class PhantomGamesBot(commands.Bot):
     async def chat(self, ctx: commands.Context):
         response = self.markov.get_markov_string()
         await ctx.send(response)
+
+    '''
+    If a mod uses this command, the last user to have used he/him/his gets timed out for 1 second in addition to the response.
+    '''
+    @commands.command()
+    async def pronouns(self, ctx: commands.Context):
+        if ctx.author.is_mod and self.last_misgender_user != "":
+            chatter = await get_twitch_user(self, self.last_misgender_user)
+            streamer = await get_twitch_user(self, ctx.message.channel.name)
+            try:
+                await streamer.user.timeout_user(token=os.environ[f'TWITCH_OAUTH_TOKEN'], moderator_id=self.user_id, user_id=chatter.user.id, duration=1, reason="pronouns")
+            except Exception as e:
+                print(f"[ERROR] Can't timeout {self.last_misgender_user} -- {e}")
+
+        self.last_misgender_user = ""
+        await ctx.send("They / Them")
 
     '''
     Periodically posts automatically generated messages to chat.
