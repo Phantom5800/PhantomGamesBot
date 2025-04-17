@@ -84,6 +84,7 @@ class PhantomGamesBot(commands.Bot):
         self.bless_count = 0
         self.bless_sent = False
         self.last_misgender_user = ""
+        self.load_user_warnings()
 
         # load relevant data
         self.load_timer_events()
@@ -113,6 +114,18 @@ class PhantomGamesBot(commands.Bot):
             with open(f'./commands/resources/channels/{channel}/timer_events.txt', 'w', encoding="utf-8") as txt_file:
                 for event in self.timer_queue[channel]:
                     txt_file.write(f"{event}\n")
+
+    def load_user_warnings(self):
+        try:
+            with open(f'./commands/resources/warnings.json', 'r', encoding="utf-8") as text_file:
+                data = json.load(text_file)
+                self.misgender_warnings = deepcopy(data)
+        except:
+            print("[ERROR] warnigs.json does not exist yet.")
+
+    def save_user_warnings(self):
+        with open(f'./commands/resources/warnings.json', 'w', encoding="utf-8") as text_file:
+            text_file.write(json.dumps(self.misgender_warnings))
 
     #####################################################################################################
     # error handling
@@ -639,38 +652,40 @@ class PhantomGamesBot(commands.Bot):
     '''
     @commands.command()
     async def pronouns(self, ctx: commands.Context):
-        # increment a count of how many times this user has been warned
-        if self.last_misgender_user in self.misgender_warnings:
-            self.misgender_warnings[self.last_misgender_user] += 1
-        else:
-            self.misgender_warnings[self.last_misgender_user] = 1
-
-        if ctx.author.is_mod and self.last_misgender_user != "":
-            chatter = await get_twitch_user(self, self.last_misgender_user)
-            streamer = await get_twitch_user(self, ctx.message.channel.name)
-
-            # provide a warning a handful of times first
-            if self.misgender_warnings[self.last_misgender_user] <= 3:
-                try:
-                    await streamer.user.warn_user(
-                        moderator=self.user_id, 
-                        user_id=chatter.user.id, 
-                        reason=f"{ctx.message.channel.name} uses they/them pronouns and we request that you use them when referencing the streamer")
-                except Exception as e:
-                    print(f"[ERROR] Unable to provide warning to {self.last_misgender_user} -- {e}")
+        if self.last_misgender_user != "":
+            # increment a count of how many times this user has been warned
+            if self.last_misgender_user in self.misgender_warnings:
+                self.misgender_warnings[self.last_misgender_user] += 1
             else:
-                # if it still happens after enough warnings, timeout
-                try:
-                    await streamer.user.timeout_user(
-                        token=os.environ['TWITCH_OAUTH_TOKEN'], 
-                        moderator_id=self.user_id, 
-                        user_id=chatter.user.id, 
-                        duration=self.misgender_warnings[self.last_misgender_user] * 60, # 1 minute per warning
-                        reason="pronouns")
-                except Exception as e:
-                    print(f"[ERROR] Can't timeout {self.last_misgender_user} -- {e}")
+                self.misgender_warnings[self.last_misgender_user] = 1
+
+            if ctx.author.is_mod:
+                chatter = await get_twitch_user(self, self.last_misgender_user)
+                streamer = await get_twitch_user(self, ctx.message.channel.name)
+
+                # provide a warning a handful of times first
+                if self.misgender_warnings[self.last_misgender_user] <= 3:
+                    try:
+                        await streamer.user.warn_user(
+                            moderator=self.user_id, 
+                            user_id=chatter.user.id, 
+                            reason=f"{ctx.message.channel.name} uses they/them pronouns and we request that you use them when referencing the streamer")
+                    except Exception as e:
+                        print(f"[ERROR] Unable to provide warning to {self.last_misgender_user} -- {e}")
+                else:
+                    # if it still happens after enough warnings, timeout
+                    try:
+                        await streamer.user.timeout_user(
+                            token=os.environ['TWITCH_OAUTH_TOKEN'], 
+                            moderator_id=self.user_id, 
+                            user_id=chatter.user.id, 
+                            duration=self.misgender_warnings[self.last_misgender_user] * 60, # 1 minute per warning
+                            reason="pronouns")
+                    except Exception as e:
+                        print(f"[ERROR] Can't timeout {self.last_misgender_user} -- {e}")
 
         self.last_misgender_user = ""
+        self.save_user_warnings()
         await ctx.send("They / Them")
 
     '''
