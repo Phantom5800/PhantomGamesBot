@@ -6,6 +6,8 @@ from discord.ext import bridge, commands
 from twitchio.http import Route
 from utils.ext_classes import AliasDict
 
+LocalStartTimeHours = 10 # 10am
+
 # these categories are hand selected as common options
 TwitchCategoryIDs = AliasDict({
     "battle network":           "7542", # BN1 category
@@ -89,7 +91,7 @@ class PhantomGamesBotSchedule(commands.Cog):
 
         # figure out the next Monday stream time as a basis
         current = datetime.now()
-        current = current.replace(hour=14, minute=0, second=0) # set to 2pm local time
+        current = current.replace(hour=LocalStartTimeHours, minute=0, second=0) # set to 10am local time
         next_monday_delta = timedelta((7 - current.weekday()) % 7)
         single_day_delta = timedelta(days=1)
         next_monday = current + next_monday_delta

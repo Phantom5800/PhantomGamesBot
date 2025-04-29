@@ -158,20 +158,21 @@ class PhantomGamesBot(Bot):
         channel = self.get_channel(self.channels["youtube-uploads"])
         youtube_vid = self.youtube.get_most_recent_video(self.account, use_playlist_api=True)
 
-        last_upload_cache = './commands/resources/last_youtube_post.txt'
-        if not os.path.isfile(last_upload_cache):
-            open(last_upload_cache, 'w', encoding="utf-8").close()
+        if youtube_vid != "":
+            last_upload_cache = './commands/resources/last_youtube_post.txt'
+            if not os.path.isfile(last_upload_cache):
+                open(last_upload_cache, 'w', encoding="utf-8").close()
 
-        with open(last_upload_cache, 'r+', encoding="utf-8") as f:
-            last_vid = f.read()
-            if last_vid != youtube_vid:
-                print(f"[YouTube] New video. Old: \"{last_vid}\" and Current: \"{youtube_vid}\"")
-                await channel.send(f"{self.roles['youtube-alerts']} {youtube_vid}")
-                f.seek(0)
-                f.write(youtube_vid)
-                f.truncate()
-            else:
-                print(f"[YouTube] No new video. Old: \"{last_vid}\" and Current: \"{youtube_vid}\"")
+            with open(last_upload_cache, 'r+', encoding="utf-8") as f:
+                last_vid = f.read()
+                if last_vid != youtube_vid:
+                    print(f"[YouTube] New video. Old: \"{last_vid}\" and Current: \"{youtube_vid}\"")
+                    await channel.send(f"{self.roles['youtube-alerts']} {youtube_vid}")
+                    f.seek(0)
+                    f.write(youtube_vid)
+                    f.truncate()
+                else:
+                    print(f"[YouTube] No new video. Old: \"{last_vid}\" and Current: \"{youtube_vid}\"")
 
     async def announce_youtube_vid_task(self):
         channel = self.get_channel(self.channels["youtube-uploads"])

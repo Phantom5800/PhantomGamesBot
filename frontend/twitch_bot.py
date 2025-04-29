@@ -199,7 +199,7 @@ class PhantomGamesBot(commands.Bot):
                     self.bless_count = 0
                     self.bless_sent = False
 
-                misgender_pattern = r"(^|\s)?(he|him|his)($|\s)"
+                misgender_pattern = r"(^|\s)?(he|him|his|sir)($|\s)"
                 if re.search(misgender_pattern, message.content.lower()) is not None:
                     self.last_misgender_user = message.author.name
 

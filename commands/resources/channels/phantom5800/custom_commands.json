@@ -12,7 +12,7 @@
   "!lurk": {
     "response": "ok $user phanto274Lurk",
     "cooldown": 0,
-    "last_use": 1733841881.895572
+    "last_use": 1744984649.572592
   },
   "!unlurk": {
     "response": "phanto274Wave $user",
@@ -320,12 +320,17 @@
     "last_use": 0
   },
   "!retrothon": {
-    "response": "/announce I'll be running Paper Mario Glitchless, Battle Network 6 Any% and Twilight Princess All Mirror Shards for Retrothon between April 21-27 so will occasionally be doing these runs to prep before the event",
+    "response": "https://horaro.org/retrothon2025/schedule",
     "cooldown": 0,
     "last_use": 0
   },
   "!twitchpronouns": {
     "response": "Use this site to add your pronouns so other people can see them on twitch: https://pr.alejo.io/",
+    "cooldown": 0,
+    "last_use": 0
+  },
+  "!hugo": {
+    "response": "https://www.youtube.com/watch?v=KxLpFg1_-fo",
     "cooldown": 0,
     "last_use": 0
   }
