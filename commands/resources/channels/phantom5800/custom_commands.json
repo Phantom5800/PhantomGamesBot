@@ -330,7 +330,12 @@
     "last_use": 0
   },
   "!hugo": {
-    "response": "https://www.youtube.com/watch?v=KxLpFg1_-fo",
+    "response": "https://youtu.be/KxLpFg1_-fo",
+    "cooldown": 0,
+    "last_use": 0
+  },
+  "!purplefriend": {
+    "response": "https://youtu.be/cuWfhEzxFAA",
     "cooldown": 0,
     "last_use": 0
   }

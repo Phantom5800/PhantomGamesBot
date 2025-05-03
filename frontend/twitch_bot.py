@@ -750,6 +750,14 @@ class PhantomGamesBot(commands.Bot):
     async def ctof(self, ctx: commands.Context, celcius: int):
         await ctx.send(f"{celcius}°C = {str(round(celcius * 9 / 5 + 32, 2))}°F")
 
+    @commands.command()
+    async def mitokm(self, ctx: commands.Context, miles: int):
+        await ctx.send(f"{miles}mi is about {round(miles * 1.609344, 2)}km")
+
+    @commands.command()
+    async def kmtomi(self, ctx: commands.Context, km: int):
+        await ctx.send(f"{km}km is about {round(km / 1.609344, 2)}mi")
+
     #####################################################################################################
     # giveaways
     #####################################################################################################
