@@ -751,12 +751,20 @@ class PhantomGamesBot(commands.Bot):
         await ctx.send(f"{celcius}°C = {str(round(celcius * 9 / 5 + 32, 2))}°F")
 
     @commands.command()
-    async def mitokm(self, ctx: commands.Context, miles: int):
-        await ctx.send(f"{miles}mi is about {round(miles * 1.609344, 2)}km")
+    async def mitokm(self, ctx: commands.Context, miles: str):
+        try:
+            miles_f = float(miles)
+            await ctx.send(f"{miles}mi is about {round(miles_f * 1.609344, 2)}km")
+        except:
+            await ctx.send(f"{ctx.message.author.mention} please specify a number to convert")
 
     @commands.command()
-    async def kmtomi(self, ctx: commands.Context, km: int):
-        await ctx.send(f"{km}km is about {round(km / 1.609344, 2)}mi")
+    async def kmtomi(self, ctx: commands.Context, km: str):
+        try:
+            km_f = float(km)
+            await ctx.send(f"{km}km is about {round(km_f / 1.609344, 2)}mi")
+        except:
+            await ctx.send(f"{ctx.message.author.mention} please specify a number to convert")
 
     #####################################################################################################
     # giveaways

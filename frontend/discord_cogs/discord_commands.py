@@ -167,17 +167,17 @@ class PhantomGamesBotCommands(commands.Cog):
         await ctx.respond(f"There are {count} videos totalling {int(duration.total_seconds() / 60 / 60)} hours of {playlist} on YouTube: {youtube_url}")
 
     @bridge.bridge_command(name="ftoc")
-    async def farenheit_to_celcius(self, ctx, farenheit: int):
+    async def farenheit_to_celcius(self, ctx, farenheit: float):
         await ctx.respond(f"{farenheit}°F = {str(round((farenheit - 32) * 5 / 9, 2))}°C")
 
     @bridge.bridge_command(name="ctof")
-    async def celcius_to_farenheit(self, ctx, celcius: int):
+    async def celcius_to_farenheit(self, ctx, celcius: float):
         await ctx.respond(f"{celcius}°C = {str(round(celcius * 9 / 5 + 32, 2))}°F")
 
     @bridge.bridge_command(name="mitokm")
-    async def miles_to_kilometers(self, ctx: commands.Context, miles: int):
+    async def miles_to_kilometers(self, ctx: commands.Context, miles: float):
         await ctx.respond(f"{miles}mi is about {round(miles * 1.609344, 2)}km")
 
     @bridge.bridge_command(name="kmtomi")
-    async def kilometers_to_miles(self, ctx: commands.Context, km: int):
+    async def kilometers_to_miles(self, ctx: commands.Context, km: float):
         await ctx.respond(f"{km}km is about {round(km / 1.609344, 2)}mi")
