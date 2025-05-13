@@ -911,6 +911,7 @@ class PhantomGamesBot(commands.Bot):
             # await self.esclient.subscribe_channel_hypetrain_begin(broadcaster=channel_id, token=token)
             # await self.esclient.subscribe_channel_hypetrain_progress(broadcaster=channel_id, token=token)
             # await self.esclient.subscribe_channel_hypetrain_end(broadcaster=channel_id, token=token)
+            await self.esclient.subscribe_channel_raid(to_broadcaster=channel_id, token=token)
             await self.esclient.subscribe_channel_stream_start(broadcaster=channel_id, token=token)
             await self.esclient.subscribe_channel_stream_end(broadcaster=channel_id, token=token)
 
