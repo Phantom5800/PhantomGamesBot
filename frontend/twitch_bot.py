@@ -767,34 +767,6 @@ class PhantomGamesBot(commands.Bot):
             await ctx.send(f"{ctx.message.author.mention} please specify a number to convert")
 
     #####################################################################################################
-    # giveaways
-    #####################################################################################################
-    @commands.command()
-    async def gaopen(self, ctx: commands.Context):
-        if ctx.message.author.is_broadcaster:
-            if self.giveaway_open == False:
-                self.giveaway_list = []
-                self.giveaway_open = True
-
-                await ctx.send("Giveaway is now open! Type '!join' to be added to the list!")
-
-    @commands.command()
-    async def gaclose(self, ctx: commands.Context):
-        if ctx.message.author.is_broadcaster:
-            if self.giveaway_open:
-                self.giveaway_open = False
-                if len(self.giveaway_list):
-                    await ctx.send(f"Congrats to @{random.choice(self.giveaway_list)}! You have won! Give {ctx.message.author.name} a moment to contact you for your prize.")
-
-    @commands.command()
-    async def join(self, ctx: commands.Context):
-        if self.giveaway_open:
-            user = ctx.message.author.name
-            if not user in self.giveaway_list:
-                self.giveaway_list.append(user)
-                print(f"[Giveaway] Added {user} [{len(self.giveaway_list)}]")
-
-    #####################################################################################################
     # stream info
     #####################################################################################################
     '''
@@ -1063,6 +1035,15 @@ class PhantomGamesBot(commands.Bot):
     async def event_eventsub_notification_stream_end(self, event: NotificationEvent):
         streamOfflineData = event.data
         print(f"[Eventsub] Stream has ended for {streamOfflineData.broadcaster.name}")
+
+    '''
+    Raid event
+    '''
+    async def event_eventsub_notification_raid(self, event: NotificationEvent):
+        raidData = event.data
+        if raidData.viewer_count > 1:
+            await raidData.reciever.shoutout(token=os.environ['TWITCH_OAUTH_TOKEN'], to_broadcaster_id=raidData.raider.id, moderator_id=self.user_id)
+        print(f"[Raid] {raidData.raider.name} raided with {raidData.viewer_count} viewers")
 
     #####################################################################################################
     # eventsub mod events
