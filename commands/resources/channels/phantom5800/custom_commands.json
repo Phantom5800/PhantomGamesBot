@@ -112,7 +112,7 @@
   "hi": {
     "response": "hi $user",
     "cooldown": 10,
-    "last_use": 1741624447.800104
+    "last_use": 1747570465.693171
   },
   "!nmsb": {
     "response": "/me No Major Sequence Breaks is a category that bridges the gap between Glitchless and All Cards. The important parts are that chapters must be completed in order, and story sequence can never go backwards.",
@@ -147,7 +147,7 @@
   "!speedy": {
     "response": "Speedy Spin WR: https://www.twitch.tv/videos/141392547",
     "cooldown": 0,
-    "last_use": 0
+    "last_use": 1747610396.401508
   },
   "!ads": {
     "response": "/announce We are running 90 seconds of ads every 30 minutes to disable prerolls and it even pays part of my bills every month. If you really don't want to see ads, subscribers should never see a single ad! The ad timer is visible on screen so you will know when to expect ads coming up.",
@@ -336,6 +336,11 @@
   },
   "!purplefriend": {
     "response": "https://youtu.be/cuWfhEzxFAA",
+    "cooldown": 0,
+    "last_use": 0
+  },
+  "!zelda": {
+    "response": "17 Cycle Zelda: https://www.youtube.com/watch?v=Xn4dbC6k2UM",
     "cooldown": 0,
     "last_use": 0
   }
