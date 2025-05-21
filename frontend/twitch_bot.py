@@ -25,7 +25,7 @@ class PhantomGamesBot(commands.Bot):
         )
 
         # event tracking
-        self.pubsub = {}
+        self.esclient = EventSubWSClient(self)
 
         # command handlers
         self.custom = sharedResources.customCommandHandler
@@ -384,7 +384,7 @@ class PhantomGamesBot(commands.Bot):
     # ad manager
     #####################################################################################################
     async def get_ad_schedule(self, streamer: PartialUser):
-        streamer_id = os.environ.get(f"TWITCH_CHANNEL_ID_{streamer.name.lower()}")
+        streamer_id = streamer.id
         token = os.environ.get(f"TWITCH_CHANNEL_TOKEN_{streamer.name.lower()}")
 
         endpoint = Route("GET", "channels/ads", query=[("broadcaster_id", streamer_id)], token=token)
@@ -898,7 +898,7 @@ class PhantomGamesBot(commands.Bot):
         channel_token = os.environ.get(f"TWITCH_CHANNEL_TOKEN_{channel}", None)
         channel_info = await get_twitch_user(self, channel)
         channel_id = channel_info.user.id
-        self.esclient = EventSubWSClient(self)
+
         try:
             # register all events that require channel access
             if channel_token:
@@ -915,7 +915,10 @@ class PhantomGamesBot(commands.Bot):
                 # await self.esclient.subscribe_channel_unban_request_create(broadcaster=channel_id, moderator=self.user_id, token=channel_token)
                 # await self.esclient.subscribe_channel_unban_request_resolve(broadcaster=channel_id, moderator=self.user_id, token=channel_token)
                 # await self.esclient.subscribe_suspicious_user_update(broadcaster=channel_id, moderator=self.user_id, token=channel_token)
+        except Exception as e:
+            print(f"[Eventsub Error] Error subscribing to events on {channel}({channel_id}) with channel token: {e}")
 
+        try:
             # notifications
             # await self.esclient.subscribe_channel_ad_break_begin(broadcaster=channel_id, token=channel_token)
             # await self.esclient.subscribe_channel_hypetrain_begin(broadcaster=channel_id, token=channel_token)
@@ -925,7 +928,8 @@ class PhantomGamesBot(commands.Bot):
             await self.esclient.subscribe_channel_stream_start(broadcaster=channel_id, token=mod_token)
             await self.esclient.subscribe_channel_stream_end(broadcaster=channel_id, token=mod_token)
         except Exception as e:
-            print(f"[Eventsub Error] Error subscribing to events on {channel}: {e}")
+            print(f"[Eventsub Error] Error subscribing to events on {channel}({channel_id}) with mod token: {e}")
+        print(f"[Eventsub] Finished initializing for {channel}")
 
     #####################################################################################################
     # eventsub stream events
