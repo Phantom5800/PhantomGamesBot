@@ -3,3 +3,4 @@
 !youtube
 !ads
 !bluesky
+!kofi

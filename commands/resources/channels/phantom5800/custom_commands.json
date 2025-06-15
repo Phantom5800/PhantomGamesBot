@@ -22,7 +22,7 @@
   "!discord": {
     "response": "/announce Join the discord if you want to hang out! There is a weekly poll to decide what randomizers we do on the weekends and is generally just a great place to hang out https://discord.gg/XtrhKXNmRc",
     "cooldown": 0,
-    "last_use": 1738531327.712097
+    "last_use": 1748969383.712686
   },
   "!ohdee": {
     "response": "/announce OhDee made a ton of emotes and stream assets. Follow him on twitter because he's cool: https://twitter.com/OhDeezey",
@@ -112,7 +112,7 @@
   "hi": {
     "response": "hi $user",
     "cooldown": 10,
-    "last_use": 1747570465.693171
+    "last_use": 1748965544.867367
   },
   "!nmsb": {
     "response": "/me No Major Sequence Breaks is a category that bridges the gap between Glitchless and All Cards. The important parts are that chapters must be completed in order, and story sequence can never go backwards.",
@@ -167,7 +167,7 @@
   "!socials": {
     "response": "Follow all the things: - https://youtube.com/@PhantomVODs - https://discord.gg/XtrhKXNmRc - https://twitter.com/Phantom5800 - https://bsky.app/profile/phantom-games.com",
     "cooldown": 0,
-    "last_use": 1738790899.708683
+    "last_use": 1748969378.46614
   },
   "yoshi": {
     "response": "piece of shit",
@@ -290,7 +290,7 @@
     "last_use": 0
   },
   "!kofi": {
-    "response": "5 Seed Paper Mario Rando shuffler goal is on Ko-fi https://ko-fi.com/phantom5800/goal?g=0",
+    "response": "/announce If you want to help me out, anything given on ko-fi goes towards paying for my therapy to work towards more positive mental health: https://ko-fi.com/phantom5800",
     "cooldown": 0,
     "last_use": 0
   },
@@ -341,6 +341,16 @@
   },
   "!zelda": {
     "response": "17 Cycle Zelda: https://www.youtube.com/watch?v=Xn4dbC6k2UM",
+    "cooldown": 0,
+    "last_use": 0
+  },
+  "!puwp": {
+    "response": "/announce Check out the schedule for Power up with Pride where I'll be doing pape rando: https://horaro.org/puwp25/schedule",
+    "cooldown": 0,
+    "last_use": 1748965740.380372
+  },
+  "!raf": {
+    "response": "I will be running Mega Man Battle Network Single Segment for RaF at the end of July! Check out the full schedule because it's full of bangers: https://docs.google.com/spreadsheets/d/1JjBl9OCZzrwFE0Ctc_mywpKXNVDY3Z5zUJfxNvhI2RA/edit?gid=0#gid=0",
     "cooldown": 0,
     "last_use": 0
   }

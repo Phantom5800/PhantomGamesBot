@@ -133,9 +133,10 @@ class PhantomGamesBot(Bot):
         channel = self.get_channel(self.channels["discord-logs"])
         await channel.send(f"User left discord: {member.mention} {member.name}")
 
-    async def toggle_live_role(self, member, is_live=False):
+    async def toggle_live_role(self, member, is_live: bool):
         # apply / remove the "Live Now" role from anyone marked as a "Streamer"
-        if True or member.get_role(int(os.environ['DISCORD_STREAMER_ROLE_ID'])) is not None:
+        unrestricted = True
+        if unrestricted or member.get_role(int(os.environ['DISCORD_STREAMER_ROLE_ID'])) is not None:
             if is_live:
                 await member.add_roles(self.live_role)
             else:
@@ -195,7 +196,7 @@ class PhantomGamesBot(Bot):
             tomorrow = today
             if tomorrow < now:
                 tomorrow += timedelta(days = 1)
-            seconds = (tomorrow - now).total_seconds()
+            seconds = round((tomorrow - now).total_seconds())
             print(f"[Youtube {now}] Checking for new youtube video in {seconds} seconds")
 
             await asyncio.sleep(seconds)
@@ -211,7 +212,7 @@ def run_discord_bot(eventLoop, sharedResources):
     bot = PhantomGamesBot(sharedResources)
     bot.add_cog(PhantomGamesBotCommands(bot, sharedResources))
     bot.add_cog(PhantomGamesBotPolls(bot))
-    bot.add_cog(PhantomGamesBotSimplePolls(bot))
+    #bot.add_cog(PhantomGamesBotSimplePolls(bot))
     bot.add_cog(PhantomGamesBotSchedule(bot, sharedResources))
     bot.add_cog(PhantomGamesBotGoals(bot, sharedResources))
     async def runBot():

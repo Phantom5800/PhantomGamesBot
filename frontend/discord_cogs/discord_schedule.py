@@ -5,6 +5,7 @@ from datetime import datetime, timedelta
 from discord.ext import bridge, commands
 from twitchio.http import Route
 from utils.ext_classes import AliasDict
+from utils.utils import get_twitch_user
 
 LocalStartTimeHours = 10 # 10am
 
@@ -161,7 +162,8 @@ class PhantomGamesBotSchedule(commands.Cog):
         start_time = start_time + timedelta(hours=(8 - time.localtime().tm_isdst))
 
         channel = "phantom5800"
-        query=[("broadcaster_id", os.environ.get(f"TWITCH_CHANNEL_ID_{channel}"))]
+        twitch_channel = await get_twitch_user(self.twitch_bot, channel)
+        query=[("broadcaster_id", twitch_channel.user.id)]
 
         body = {
             "start_time": start_time.strftime("%Y-%m-%dT%H:%M:%SZ"),

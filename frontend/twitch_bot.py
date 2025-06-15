@@ -920,10 +920,10 @@ class PhantomGamesBot(commands.Bot):
 
         try:
             # notifications
-            # await self.esclient.subscribe_channel_ad_break_begin(broadcaster=channel_id, token=channel_token)
-            # await self.esclient.subscribe_channel_hypetrain_begin(broadcaster=channel_id, token=channel_token)
-            # await self.esclient.subscribe_channel_hypetrain_progress(broadcaster=channel_id, token=channel_token)
-            # await self.esclient.subscribe_channel_hypetrain_end(broadcaster=channel_id, token=channel_token)
+            # await self.esclient.subscribe_channel_ad_break_begin(broadcaster=channel_id, token=mod_token)
+            # await self.esclient.subscribe_channel_hypetrain_begin(broadcaster=channel_id, token=mod_token)
+            # await self.esclient.subscribe_channel_hypetrain_progress(broadcaster=channel_id, token=mod_token)
+            # await self.esclient.subscribe_channel_hypetrain_end(broadcaster=channel_id, token=mod_token)
             await self.esclient.subscribe_channel_raid(to_broadcaster=channel_id, token=mod_token)
             await self.esclient.subscribe_channel_stream_start(broadcaster=channel_id, token=mod_token)
             await self.esclient.subscribe_channel_stream_end(broadcaster=channel_id, token=mod_token)
@@ -1024,11 +1024,15 @@ class PhantomGamesBot(commands.Bot):
     #####################################################################################################
     # eventsub notifications
     #####################################################################################################
-    # NYI in 2.10
-    # async def event_eventsub_ad_break_begin(self, event: NotificationEvent):
-    #     adData = event.data
-    #     if event.is_automatic:
-    #         print(f"[Eventsub] Automatic ad break of {adData.duration} seconds started at {adData.started_at}")
+    '''
+    Ad play started
+    '''
+    async def event_eventsub_notification_channel_ad_break_begin(self, event: NotificationEvent):
+        adData = event.data
+        if event.is_automatic:
+            print(f"[Eventsub {adData.broadcaster.name}] Automatic ad break of {adData.duration} seconds started at {adData.started_at}")
+        else:
+            print(f"[Eventsub {adData.broadcaster.name}] Manual ad break of {adData.duration} seconds started at {adData.started_at}")
 
     '''
     Stream went live event
