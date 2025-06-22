@@ -1,4 +1,5 @@
 import os
+import random
 
 pm64_bit_values = {
     5:      "Set FP Max",
@@ -19,6 +20,15 @@ pm64_bit_values = {
     1000:   "OHKO Mode"             # 5 minutes
 }
 
+pm64_sub_values = {
+    1:  "Slow Go",      # 90 seconds
+    5:  "OHKO Mode",    # 5-10 minutes (random)
+    50: "Poverty"       # 1hp, 0fp, 0 coins, 
+                        # disable heart blocks for 10 minutes, 
+                        # slow go for 10 minutes, 
+                        # ohko 10 minutes
+}
+
 cc_root = "./commands/resources/crowdcontrol"
 cc_multiplier = int(os.environ.get("CC_MULTIPLIER", "1"))
 slowgo_queue        = 0
@@ -31,6 +41,36 @@ ohko_queue          = 0
 def set_cc_multiplier(mult: int):
     if mult != 0:
         cc_multiplier = mult
+
+def handle_pm64_cc_subs(subcnt):
+    if subcnt in pm64_sub_values:
+        if pm64_sub_values[subcnt] == "Slow Go":
+            print("[CC] Slow Go")
+            with open(f"{cc_root}/pm64r-slowgo.txt", "w+") as f:
+                f.write("YEP")
+            slowgo += 90
+        elif pm64_sub_values[subcnt] == "OHKO Mode":
+            print("[CC] OHKO Mode")
+            with open(f"{cc_root}/pm64r-ohko.txt", "w+") as f:
+                f.write("eww")
+            ohko_queue += random.randint(300, 600)
+        elif pm64_sub_values[subcnt] == "Poverty":
+            print("[CC] POVERTY")
+            with open(f"{cc_root}/pm64r-sethp.txt", "w+") as f:
+                f.write("1")
+            with open(f"{cc_root}/pm64r-setfp.txt", "w+") as f:
+                f.write("0")
+            with open(f"{cc_root}/pm64r-addcoins.txt", "w+") as f:
+                f.write("-999")
+            with open(f"{cc_root}/pm64r-disable-heart-blocks.txt", "w+") as f:
+                f.write("eww")
+            with open(f"{cc_root}/pm64r-slowgo.txt", "w+") as f:
+                f.write("eww")
+            with open(f"{cc_root}/pm64r-ohko.txt", "w+") as f:
+                f.write("eww")
+            ohko_queue += 600
+            slowgo_queue += 600
+            heart_block_queue += 600
 
 def handle_pm64_cc_bits(bits):
     global slowgo_queue

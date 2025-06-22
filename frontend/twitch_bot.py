@@ -1040,6 +1040,11 @@ class PhantomGamesBot(commands.Bot):
         else:
             print(f"[Eventsub] {subData.user.name.lower()} gifted {subData.total} tier {subData.tier} subs!")
 
+        # pass sub amounts to crowd control
+        if int(os.environ.get("CC_ENABLE")) == 1:
+            handle_pm64_cc_subs(subData.total)
+
+
     #####################################################################################################
     # eventsub notifications
     #####################################################################################################
