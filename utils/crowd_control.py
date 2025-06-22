@@ -7,9 +7,10 @@ pm64_bit_values = {
     16:     "Subtract 10 Coins",
     20:     "Set HP 1",
     25:     "Set HP 2",
-    50:     "Random Pitch"
+    50:     "Random Pitch" # adds one minute to the queue
     55:     "Set FP 0",
-    100:    "Slow Go",
+    75:     "Shuffle Current Seed", # change seed being played
+    100:    "Slow Go", # adds one minute to the queue
     200:    "Disable All Badges"
 }
 
@@ -71,6 +72,10 @@ def handle_pm64_cc_bits(bits):
             print("[CC] Disable All Badges")
             with open(f"{cc_root}/pm64r-disablebadges.txt", "w+") as f:
                 f.write("Rude af")
+        elif pm64_bit_values[bits] == "Shuffle Current Seed":
+            print("[CC] Shuffle Current Seed")
+            with open(f"{cc_root}/pm64r-shuffle.txt", "w+") as f:
+                f.write("Shuffle")
 
 def handle_pm64_cc_periodic_update(seconds):
     slowgo_queue = max(slowgo_queue - seconds, 0)
