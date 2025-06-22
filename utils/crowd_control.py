@@ -7,16 +7,16 @@ pm64_bit_values = {
     16:     "Subtract 10 Coins",
     20:     "Set HP 1",
     25:     "Set HP 2",
-    50:     "Random Pitch" # adds one minute to the queue
+    50:     "Random Pitch",         # 1 minute
     55:     "Set FP 0",
     60:     "Toggle Mirror Mode",
     75:     "Shuffle Current Seed", # change seed being played
-    80:     "Disable Speedy Spin", # 1 minute
-    100:    "Slow Go", # adds one minute to the queue
+    80:     "Disable Speedy Spin",  # 1 minute
+    100:    "Slow Go",              # 1 minute
     200:    "Disable All Badges",
     220:    "Disable Heart Blocks", # 5 minutes
-    250:    "Disable Save Blocks", # 5 minutes
-    1000:   "OHKO Mode" # 5 minutes
+    250:    "Disable Save Blocks",  # 5 minutes
+    1000:   "OHKO Mode"             # 5 minutes
 }
 
 cc_root = "./commands/resources/crowdcontrol"
@@ -33,6 +33,13 @@ def set_cc_multiplier(mult: int):
         cc_multiplier = mult
 
 def handle_pm64_cc_bits(bits):
+    global slowgo_queue
+    global random_pitch_queue
+    global speedy_queue
+    global heart_block_queue
+    global save_block_queue
+    global ohko_queue
+
     bits //= cc_multiplier
     if bits in pm64_bit_values:
         if pm64_bit_values[bits] == "Set FP Max":
@@ -72,7 +79,7 @@ def handle_pm64_cc_bits(bits):
             slowgo_queue += 60
         elif pm64_bit_values[bits] == "Random Pitch":
             pitch_file = f"{cc_root}/pm64r-random-pitch.txt"
-            if not(os.path.isfile(slowgo_file)):
+            if not(os.path.isfile(pitch_file)):
                 print("[CC] Random Pitch enabled")
                 with open(pitch_file, "w+") as f:
                     f.write("why??")
@@ -110,9 +117,14 @@ def handle_pm64_cc_bits(bits):
                 f.write("eww")
             ohko_queue += 300
 
-
-
 def handle_pm64_cc_periodic_update(seconds):
+    global slowgo_queue
+    global random_pitch_queue
+    global speedy_queue
+    global heart_block_queue
+    global save_block_queue
+    global ohko_queue
+
     update_time = lambda a : max(a - seconds, 0)
 
     slowgo_queue = update_time(slowgo_queue)
