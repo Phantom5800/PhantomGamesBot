@@ -13,6 +13,7 @@ from twitchio.ext.eventsub.models import NotificationEvent
 from twitchio.ext.eventsub.websocket import EventSubWSClient
 from commands.slots import Slots, SlotsMode
 from utils.utils import *
+from utils.crowd_control import *
 
 class PhantomGamesBot(commands.Bot):
     def __init__(self, sharedResources):
@@ -95,6 +96,8 @@ class PhantomGamesBot(commands.Bot):
         try:
             self.timer_update.start()
             self.automatic_chat.start()
+            if int(os.environ.get("CC_ENABLE")) == 1:
+                self.periodic_cc_update.start()
         except RuntimeError:
             print("Timer is already running")
 
@@ -872,6 +875,9 @@ class PhantomGamesBot(commands.Bot):
         else:
             await ctx.send(f"{ctx.message.author.mention} you do not have permission to use this command")
 
+    #####################################################################################################
+    # fun stuff
+    #####################################################################################################
     @commands.command()
     async def first(self, ctx: commands.Context):
         username = ctx.message.author.name.lower()
@@ -888,6 +894,15 @@ class PhantomGamesBot(commands.Bot):
         for user in self.first_redeems:
             total += self.first_redeems[user]
         await ctx.send(f"{ctx.message.author.mention} has not been first {total - count} times SadPag")
+
+    @commands.command()
+    async def sendcc(self, ctx: commands.Context, bits: int):
+        if ctx.message.author.is_broadcaster:
+            handle_pm64_cc_bits(bits)
+
+    @routines.routine(seconds=10, wait_first=True)
+    async def periodic_cc_update(self):
+        handle_pm64_cc_periodic_update(10)
 
     #####################################################################################################
     # eventsub
@@ -973,6 +988,10 @@ class PhantomGamesBot(commands.Bot):
             print(f"[Eventsub] Anonymous cheered {cheerData.bits} bits!")
         else:
             print(f"[Eventsub] {cheerData.user.name.lower()} cheered {cheerData.bits} bits!")
+
+        # pass bit amounts to crowd control
+        if int(os.environ.get("CC_ENABLE")) == 1:
+            handle_pm64_cc_bits(cheerData.bits)
 
         # record bit cheers
         with open('C:/StreamAssets/LatestCheer.txt', 'w', encoding="utf-8") as last_cheer:

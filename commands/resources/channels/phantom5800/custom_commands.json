@@ -344,13 +344,8 @@
     "cooldown": 0,
     "last_use": 0
   },
-  "!puwp": {
-    "response": "/announce Check out the schedule for Power up with Pride where I'll be doing pape rando: https://horaro.org/puwp25/schedule",
-    "cooldown": 0,
-    "last_use": 1748965740.380372
-  },
   "!raf": {
-    "response": "I will be running Mega Man Battle Network Single Segment for RaF at the end of July! Check out the full schedule because it's full of bangers: https://docs.google.com/spreadsheets/d/1JjBl9OCZzrwFE0Ctc_mywpKXNVDY3Z5zUJfxNvhI2RA/edit?gid=0#gid=0",
+    "response": "/announce I will be running Mega Man Battle Network Single Segment for RaF at the end of July! Check out the full schedule because it's full of bangers: https://docs.google.com/spreadsheets/d/1JjBl9OCZzrwFE0Ctc_mywpKXNVDY3Z5zUJfxNvhI2RA/edit?gid=0#gid=0",
     "cooldown": 0,
     "last_use": 0
   }
