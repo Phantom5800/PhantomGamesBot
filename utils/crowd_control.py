@@ -25,6 +25,7 @@ pm64_sub_values = {
     5:  "OHKO Mode",    # 5-10 minutes (random)
     50: "Poverty"       # 1hp, 0fp, 0 coins, 
                         # disable heart blocks for 10 minutes, 
+                        # disable save blocks for 10 minutes, 
                         # slow go for 10 minutes, 
                         # ohko 10 minutes
 }
@@ -46,16 +47,20 @@ def handle_pm64_cc_subs(subcnt):
     if subcnt in pm64_sub_values:
         if pm64_sub_values[subcnt] == "Slow Go":
             print("[CC] Slow Go")
+            slowgo_queue += 90
             with open(f"{cc_root}/pm64r-slowgo.txt", "w+") as f:
                 f.write("YEP")
-            slowgo += 90
         elif pm64_sub_values[subcnt] == "OHKO Mode":
             print("[CC] OHKO Mode")
+            ohko_queue += random.randint(300, 600)
             with open(f"{cc_root}/pm64r-ohko.txt", "w+") as f:
                 f.write("eww")
-            ohko_queue += random.randint(300, 600)
         elif pm64_sub_values[subcnt] == "Poverty":
             print("[CC] POVERTY")
+            ohko_queue += 600
+            slowgo_queue += 600
+            heart_block_queue += 600
+            save_block_queue += 600
             with open(f"{cc_root}/pm64r-sethp.txt", "w+") as f:
                 f.write("1")
             with open(f"{cc_root}/pm64r-setfp.txt", "w+") as f:
@@ -64,13 +69,12 @@ def handle_pm64_cc_subs(subcnt):
                 f.write("-999")
             with open(f"{cc_root}/pm64r-disable-heart-blocks.txt", "w+") as f:
                 f.write("eww")
+            with open(f"{cc_root}/pm64r-disable-save-blocks.txt", "w+") as f:
+                f.write("eww")
             with open(f"{cc_root}/pm64r-slowgo.txt", "w+") as f:
                 f.write("eww")
             with open(f"{cc_root}/pm64r-ohko.txt", "w+") as f:
                 f.write("eww")
-            ohko_queue += 600
-            slowgo_queue += 600
-            heart_block_queue += 600
 
 def handle_pm64_cc_bits(bits):
     global slowgo_queue
@@ -112,18 +116,18 @@ def handle_pm64_cc_bits(bits):
                 f.write("-10")
         elif pm64_bit_values[bits] == "Slow Go":
             slowgo_file = f"{cc_root}/pm64r-slowgo.txt"
+            slowgo_queue += 60
             if not(os.path.isfile(slowgo_file)):
                 print("[CC] Slow Go enabled")
                 with open(slowgo_file, "w+") as f:
                     f.write("Of course")
-            slowgo_queue += 60
         elif pm64_bit_values[bits] == "Random Pitch":
             pitch_file = f"{cc_root}/pm64r-random-pitch.txt"
+            random_pitch_queue += 60
             if not(os.path.isfile(pitch_file)):
                 print("[CC] Random Pitch enabled")
                 with open(pitch_file, "w+") as f:
                     f.write("why??")
-            random_pitch_queue += 60
         elif pm64_bit_values[bits] == "Disable All Badges":
             print("[CC] Disable All Badges")
             with open(f"{cc_root}/pm64r-disablebadges.txt", "w+") as f:
@@ -138,24 +142,24 @@ def handle_pm64_cc_bits(bits):
                 f.write("eww")
         elif pm64_bit_values[bits] == "Disable Speedy Spin":
             print("[CC] Disable Speedy Spin")
+            speedy_queue += 60
             with open(f"{cc_root}/pm64r-disable-speedy.txt", "w+") as f:
                 f.write("eww")
-            speedy_queue += 60
         elif pm64_bit_values[bits] == "Disable Heart Blocks":
             print("[CC] Disable Heart Blocks")
+            heart_block_queue += 300
             with open(f"{cc_root}/pm64r-disable-heart-blocks.txt", "w+") as f:
                 f.write("eww")
-            heart_block_queue += 300
         elif pm64_bit_values[bits] == "Disable Save Blocks":
             print("[CC] Disable Save Blocks")
+            save_block_queue += 300
             with open(f"{cc_root}/pm64r-disable-save-blocks.txt", "w+") as f:
                 f.write("eww")
-            save_block_queue += 300
         elif pm64_bit_values[bits] == "OHKO Mode":
             print("[CC] OHKO Mode")
+            ohko_queue += 300
             with open(f"{cc_root}/pm64r-ohko.txt", "w+") as f:
                 f.write("eww")
-            ohko_queue += 300
 
 def handle_pm64_cc_periodic_update(seconds):
     global slowgo_queue
