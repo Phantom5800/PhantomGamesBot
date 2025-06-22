@@ -9,6 +9,7 @@ pm64_bit_values = {
     25:     "Set HP 2",
     50:     "Random Pitch" # adds one minute to the queue
     55:     "Set FP 0",
+    60:     "Toggle Mirror Mode",
     75:     "Shuffle Current Seed", # change seed being played
     100:    "Slow Go", # adds one minute to the queue
     200:    "Disable All Badges"
@@ -76,6 +77,11 @@ def handle_pm64_cc_bits(bits):
             print("[CC] Shuffle Current Seed")
             with open(f"{cc_root}/pm64r-shuffle.txt", "w+") as f:
                 f.write("Shuffle")
+        elif pm64_bit_values[bits] == "Toggle Mirror Mode":
+            print("[CC] Toggle Mirror Mode")
+            with open(f"{cc_root}/pm64r-toggle-mirror.txt", "w+") as f:
+                f.write("eww")
+
 
 def handle_pm64_cc_periodic_update(seconds):
     slowgo_queue = max(slowgo_queue - seconds, 0)
