@@ -2,6 +2,7 @@ from datetime import datetime
 import os
 import random
 
+# triggers on exact amounts of bits cheered
 pm64_bit_values = {
     5:      "Set FP Max",
     10:     "Set HP Max",
@@ -11,17 +12,19 @@ pm64_bit_values = {
     25:     "Set HP 2",
     50:     "Random Pitch",         # 1 minute
     55:     "Set FP 0",
-    60:     "Toggle Mirror Mode",
+    69:     "Toggle Mirror Mode",
     75:     "Shuffle Current Seed", # change seed being played
     80:     "Disable Speedy Spin",  # 1 minute
     100:    "Slow Go",              # 1 minute
     200:    "Disable All Badges",
     220:    "Disable Heart Blocks", # 5 minutes
     250:    "Disable Save Blocks",  # 5 minutes
+    300:    "Homeward Shroom",
     500:    "Interval Swap",        # change seed 10 times in 10 second intervals
     1000:   "OHKO Mode"             # 5 minutes
 }
 
+# triggers on exact amounts of gift subs
 pm64_sub_values = {
     1:  "Slow Go",          # 90 seconds
     5:  "OHKO Mode",        # 5-10 minutes (random)
@@ -44,6 +47,7 @@ ohko_queue          = 0
 interval_swaps      = 0
 
 def set_cc_multiplier(mult: int):
+    global cc_multiplier
     if mult != 0:
         cc_multiplier = mult
 
@@ -94,6 +98,7 @@ def handle_pm64_cc_subs(subcnt):
                 f.write("eww")
 
 def handle_pm64_cc_bits(bits):
+    global cc_multiplier
     global slowgo_queue
     global random_pitch_queue
     global speedy_queue
@@ -183,6 +188,10 @@ def handle_pm64_cc_bits(bits):
             print(f"[CC {datetime.now()}] OHKO Mode {ohko_queue}")
             with open(f"{cc_root}/pm64r-ohko.txt", "w+") as f:
                 f.write("eww")
+        elif pm64_bit_values[bits] == "Homeward Shroom":
+            print(f"[CC {datetime.now()}] Homeward Shroom")
+            with open(f"{cc_root}/pm64r-homeward-shroom.txt", "w+") as f:
+                f.write("god dammit")
 
 def handle_pm64_cc_periodic_update(seconds):
     global slowgo_queue

@@ -348,5 +348,10 @@
     "response": "/announce I will be running Mega Man Battle Network Single Segment for RaF at the end of July! Check out the full schedule because it's full of bangers: https://docs.google.com/spreadsheets/d/1JjBl9OCZzrwFE0Ctc_mywpKXNVDY3Z5zUJfxNvhI2RA/edit?gid=0#gid=0",
     "cooldown": 0,
     "last_use": 0
+  },
+  "!shuffler": {
+    "response": "$user a list of all bit and gift sub values can be found here: https://i.imgur.com/UcvX1OX.jpeg",
+    "cooldown": 0,
+    "last_use": 0
   }
 }
