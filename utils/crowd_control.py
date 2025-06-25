@@ -47,6 +47,7 @@ heart_block_queue   = 0
 save_block_queue    = 0
 ohko_queue          = 0
 interval_swaps      = 0
+hs_interval_swaps   = 0
 
 def set_cc_multiplier(mult: int):
     global cc_multiplier
@@ -62,6 +63,7 @@ def handle_pm64_cc_subs(subcnt):
     global save_block_queue
     global ohko_queue
     global interval_swaps
+    global hs_interval_swaps
 
     if subcnt in pm64_sub_values:
         if pm64_sub_values[subcnt] == "Slow Go":
@@ -76,7 +78,10 @@ def handle_pm64_cc_subs(subcnt):
                 f.write("eww")
         elif pm64_sub_values[subcnt] == "Interval Swap":
             interval_swaps += 29 # 30 including the current one
+            hs_interval_swaps += 4
             print(f"[CC {datetime.now()}] Adding Interval Swaps {interval_swaps}")
+            with open(f"{cc_root}/pm64r-set-homeward-shroom.txt", "w+") as f:
+                f.write("oh no")
             with open(f"{cc_root}/pm64r-shuffle.txt", "w+") as f:
                 f.write("Shuffle")
         elif pm64_sub_values[subcnt] == "Poverty":
@@ -217,6 +222,7 @@ def handle_pm64_cc_periodic_update(seconds):
     global save_block_queue
     global ohko_queue
     global interval_swaps
+    global hs_interval_swaps
 
     update_time = lambda a : max(a - seconds, 0)
 
@@ -268,4 +274,9 @@ def handle_pm64_cc_periodic_update(seconds):
         with open(f"{cc_root}/pm64r-shuffle.txt", "w+") as f:
             f.write("Shuffle")
         interval_swaps -= 1
+
+    if hs_interval_swaps > 0:
+        hs_interval_swaps -= 1
+        with open(f"{cc_root}/pm64r-set-homeward-shroom.txt", "w+") as f:
+            f.write("oh no")
 
