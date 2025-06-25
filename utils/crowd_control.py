@@ -10,6 +10,7 @@ pm64_bit_values = {
     16:     "Subtract 10 Coins",
     20:     "Set HP 1",
     25:     "Set HP 2",
+    40:     "Berserker",            # 1 minute
     50:     "Random Pitch",         # 1 minute
     55:     "Set FP 0",
     69:     "Toggle Mirror Mode",
@@ -21,7 +22,7 @@ pm64_bit_values = {
     250:    "Disable Save Blocks",  # 5 minutes
     300:    "Homeward Shroom",
     500:    "Interval Swap",        # change seed 10 times in 10 second intervals
-    1000:   "OHKO Mode"             # 5 minutes
+    1000:   "Set Homeward Shroom"
 }
 
 # triggers on exact amounts of gift subs
@@ -39,6 +40,7 @@ pm64_sub_values = {
 cc_root = "./commands/resources/crowdcontrol"
 cc_multiplier = int(os.environ.get("CC_MULTIPLIER", "1"))
 slowgo_queue        = 0
+berserker_queue     = 0
 random_pitch_queue  = 0
 speedy_queue        = 0
 heart_block_queue   = 0
@@ -53,6 +55,7 @@ def set_cc_multiplier(mult: int):
 
 def handle_pm64_cc_subs(subcnt):
     global slowgo_queue
+    global berserker_queue
     global random_pitch_queue
     global speedy_queue
     global heart_block_queue
@@ -100,6 +103,7 @@ def handle_pm64_cc_subs(subcnt):
 def handle_pm64_cc_bits(bits):
     global cc_multiplier
     global slowgo_queue
+    global berserker_queue
     global random_pitch_queue
     global speedy_queue
     global heart_block_queue
@@ -137,6 +141,13 @@ def handle_pm64_cc_bits(bits):
             print(f"[CC {datetime.now()}] Subtract 10 Coins")
             with open(f"{cc_root}/pm64r-addcoins.txt", "w+") as f:
                 f.write("-10")
+        elif pm64_bit_values[bits] == "Berserker":
+            berserker_file = f"{cc_root}/pm64r-berserker.txt"
+            berserker_queue += 60
+            if not(os.path.isfile(berserker_file)):
+                print(f"[CC {datetime.now()}] Berserker {berserker_queue} seconds")
+                with open(berserker_file, "w+") as f:
+                    f.write("who?")
         elif pm64_bit_values[bits] == "Slow Go":
             slowgo_file = f"{cc_root}/pm64r-slowgo.txt"
             slowgo_queue += 60
@@ -192,9 +203,14 @@ def handle_pm64_cc_bits(bits):
             print(f"[CC {datetime.now()}] Homeward Shroom")
             with open(f"{cc_root}/pm64r-homeward-shroom.txt", "w+") as f:
                 f.write("god dammit")
+        elif pm64_bit_values[bits] == "Set Homeward Shroom":
+            print(f"[CC {datetime.now()}] Set Homeward Shroom")
+            with open(f"{cc_root}/pm64r-set-homeward-shroom.txt", "w+") as f:
+                f.write("oh no")
 
 def handle_pm64_cc_periodic_update(seconds):
     global slowgo_queue
+    global berserker_queue
     global random_pitch_queue
     global speedy_queue
     global heart_block_queue
@@ -205,6 +221,7 @@ def handle_pm64_cc_periodic_update(seconds):
     update_time = lambda a : max(a - seconds, 0)
 
     slowgo_queue = update_time(slowgo_queue)
+    berserker_queue = update_time(berserker_queue)
     random_pitch_queue = update_time(random_pitch_queue)
     speedy_queue = update_time(speedy_queue)
     heart_block_queue = update_time(heart_block_queue)
@@ -212,6 +229,7 @@ def handle_pm64_cc_periodic_update(seconds):
     ohko_queue = update_time(ohko_queue)
 
     slowgo_file = f"{cc_root}/pm64r-slowgo.txt"
+    berserker_file = f"{cc_root}/pm64r-berserker.txt"
     pitch_file = f"{cc_root}/pm64r-random-pitch.txt"
     speedy_file = f"{cc_root}/pm64r-disable-speedy.txt"
     heart_block_file = f"{cc_root}/pm64r-disable-heart-blocks.txt"
@@ -221,6 +239,10 @@ def handle_pm64_cc_periodic_update(seconds):
     if slowgo_queue <= 0 and os.path.isfile(slowgo_file):
         print(f"[CC {datetime.now()}] Slow Go no longer enabled")
         os.remove(slowgo_file)
+
+    if berserker_queue <= 0 and os.path.isfile(berserker_file):
+        print(f"[CC {datetime.now()}] Berserker no longer enabled")
+        os.remove(berserker_file)
 
     if random_pitch_queue <= 0 and os.path.isfile(pitch_file):
         print(f"[CC {datetime.now()}] Random Pitch no longer enabled")
