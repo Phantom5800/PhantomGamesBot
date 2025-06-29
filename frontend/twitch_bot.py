@@ -900,6 +900,11 @@ class PhantomGamesBot(commands.Bot):
         if ctx.message.author.is_broadcaster:
             handle_pm64_cc_bits(bits)
 
+    @commands.command()
+    async def sendcc2(self, ctx: commands.Context, subs: int):
+        if ctx.message.author.is_broadcaster:
+            handle_pm64_cc_subs(subs)
+
     @routines.routine(seconds=10, wait_first=True)
     async def periodic_cc_update(self):
         handle_pm64_cc_periodic_update(10)

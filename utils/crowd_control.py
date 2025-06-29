@@ -1,6 +1,7 @@
 from datetime import datetime
 import os
 import random
+import shutil
 
 # triggers on exact amounts of bits cheered
 pm64_bit_values = {
@@ -30,11 +31,12 @@ pm64_sub_values = {
     1:  "Slow Go",          # 90 seconds
     5:  "OHKO Mode",        # 5-10 minutes (random)
     10: "Interval Swap",    # change seed 30 times in 10 second intervals
-    50: "Poverty"           # 1hp, 0fp, 0 coins, 
+    50: "Poverty",          # 1hp, 0fp, 0 coins, 
                             # disable heart blocks for 10 minutes, 
                             # disable save blocks for 10 minutes, 
                             # slow go for 10 minutes, 
                             # ohko 10 minutes
+    100: "Add Seeds"
 }
 
 cc_root = "./commands/resources/crowdcontrol"
@@ -104,6 +106,21 @@ def handle_pm64_cc_subs(subcnt):
                 f.write("eww")
             with open(f"{cc_root}/pm64r-ohko.txt", "w+") as f:
                 f.write("eww")
+        elif pm64_sub_values[subcnt] == "Add Seeds":
+            print(f"[CC {datetime.now()}] Adding 5 more seeds!")
+            bizhawk_folder = "C:/Games/Bizhawk-2.9.1/bizhawk-shuffler-2"
+            games_dir = os.fsencode(bizhawk_folder + "/games")
+            extra_games_dir = os.fsencode(bizhawk_folder + "/extra-games")
+            i = 0
+            for file in os.listdir(extra_games_dir):
+                src = os.path.join(extra_games_dir, file)
+                dst = os.path.join(games_dir, file)
+                shutil.copyfile(src, dst)
+                os.remove(src)
+                i += 1
+                # don't copy more than 5 seeds at a time
+                if i >= 5:
+                    break
 
 def handle_pm64_cc_bits(bits):
     global cc_multiplier
