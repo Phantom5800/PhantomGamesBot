@@ -11,12 +11,12 @@ pm64_bit_values = {
     16:     "Subtract 10 Coins",
     20:     "Set HP 1",
     25:     "Set HP 2",
+    30:     "Disable Speedy Spin",  # 1 minute
     40:     "Berserker",            # 1 minute
     50:     "Random Pitch",         # 1 minute
     55:     "Set FP 0",
     69:     "Toggle Mirror Mode",
     75:     "Shuffle Current Seed", # change seed being played
-    80:     "Disable Speedy Spin",  # 1 minute
     100:    "Slow Go",              # 1 minute
     200:    "Disable All Badges",
     220:    "Disable Heart Blocks", # 5 minutes
@@ -30,7 +30,7 @@ pm64_bit_values = {
 pm64_sub_values = {
     1:  "Slow Go",          # 90 seconds
     5:  "OHKO Mode",        # 5-10 minutes (random)
-    10: "Interval Swap",    # change seed 30 times in 10 second intervals
+    20: "Interval Swap",    # change seed 30 times in 10 second intervals
     50: "Poverty",          # 1hp, 0fp, 0 coins, 
                             # disable heart blocks for 10 minutes, 
                             # disable save blocks for 10 minutes, 

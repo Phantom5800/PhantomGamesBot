@@ -460,7 +460,10 @@ class PhantomGamesBot(commands.Bot):
                 with open('C:/StreamAssets/SubCount.txt', 'w', encoding="utf-8") as sub_count:
                     try:
                         count = await self.get_subscriber_count(streamer)
-                        sub_count.write(f"{count}")
+                        if count >= 99:
+                            sub_count.write("99+")
+                        else:
+                            sub_count.write(f"{count}")
                     except:
                         sub_count.write("OAUTH")
 
@@ -928,6 +931,8 @@ class PhantomGamesBot(commands.Bot):
                 await self.esclient.subscribe_channel_subscriptions(broadcaster=channel_id, token=channel_token)
                 await self.esclient.subscribe_channel_subscription_messages(broadcaster=channel_id, token=channel_token)
                 await self.esclient.subscribe_channel_subscription_gifts(broadcaster=channel_id, token=channel_token)
+                await self.esclient.subscribe_channel_prediction_begin(broadcaster=channel_id, token=channel_token)
+                await self.esclient.subscribe_channel_charity_donate(broadcaster=channel_id, token=channel_token)
 
                 # mod actions
                 await self.esclient.subscribe_channel_bans(broadcaster=channel_id, token=channel_token)
@@ -1006,7 +1011,10 @@ class PhantomGamesBot(commands.Bot):
     async def update_sub_counts(self, broadcaster, tier):
         with open('C:/StreamAssets/SubCount.txt', 'w', encoding="utf-8") as sub_count:
             count = await self.get_subscriber_count(broadcaster)
-            sub_count.write(f"{count}")
+            if count >= 99:
+                sub_count.write("99+")
+            else:
+                sub_count.write(f"{count}")
         self.goals.add_sub(tier)
 
     '''
@@ -1049,6 +1057,20 @@ class PhantomGamesBot(commands.Bot):
         if int(os.environ.get("CC_ENABLE")) == 1:
             handle_pm64_cc_subs(subData.total)
 
+    '''
+    Precition
+    '''
+    async def event_eventsub_notification_prediction_begin(self, event: NotificationEvent):
+        predData = event.data
+        await self.post_chat_announcement(predData.broadcaster, f"Prediction has started! Win channel points by predicting at the top of chat: {predData.title}")
+
+    '''
+    Charity donate
+    '''
+    async def event_eventsub_notification_channel_charity_donate(self, event: NotificationEvent):
+        donoData = event.data
+        value = donoData.donation_value / 10 ** donoData.decimal_places
+        print(f"[Eventsub] Charity donation: {donoData.user.name.lower()} donated {value:.2f} {donoData.donation_currency} to {donoData.charity_name}!")
 
     #####################################################################################################
     # eventsub notifications

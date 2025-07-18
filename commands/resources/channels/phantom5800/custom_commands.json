@@ -22,7 +22,7 @@
   "!discord": {
     "response": "/announce Join the discord if you want to hang out! There is a weekly poll to decide what randomizers we do on the weekends and is generally just a great place to hang out https://discord.gg/XtrhKXNmRc",
     "cooldown": 0,
-    "last_use": 1748969383.712686
+    "last_use": 1751334294.362301
   },
   "!ohdee": {
     "response": "/announce OhDee made a ton of emotes and stream assets. Follow him on twitter because he's cool: https://twitter.com/OhDeezey",
@@ -112,7 +112,7 @@
   "hi": {
     "response": "hi $user",
     "cooldown": 10,
-    "last_use": 1748965544.867367
+    "last_use": 1751327301.351975
   },
   "!nmsb": {
     "response": "/me No Major Sequence Breaks is a category that bridges the gap between Glitchless and All Cards. The important parts are that chapters must be completed in order, and story sequence can never go backwards.",
@@ -167,7 +167,7 @@
   "!socials": {
     "response": "Follow all the things: - https://youtube.com/@PhantomVODs - https://discord.gg/XtrhKXNmRc - https://twitter.com/Phantom5800 - https://bsky.app/profile/phantom-games.com",
     "cooldown": 0,
-    "last_use": 1748969378.46614
+    "last_use": 1751334324.038499
   },
   "yoshi": {
     "response": "piece of shit",
@@ -305,9 +305,9 @@
     "last_use": 0
   },
   "!hotfix": {
-    "response": "/me I will be doing a GDQ Hotfix on the 26th at 10am PT / 1pm ET for Paper Mario Rando. It will be using glitch logic with various other settings and I am trying to test and make sure this can fit under the estimate",
+    "response": "/announce I'll be running Mega Man Battle Network Single Segment for Passion Project on July 25th around 10pm ET / 7pm PT for GDQ Hotfix",
     "cooldown": 0,
-    "last_use": 1738164809.341405
+    "last_use": 0
   },
   "!settings": {
     "response": "Keysanity, No Shadow Crystal Start, Fused Shadows (progression anywhere), All Poes, Insects, No Locations Excluded, FREESTANDING RUPEES, Random Start Location",
@@ -350,7 +350,7 @@
     "last_use": 0
   },
   "!shuffler": {
-    "response": "$user a list of all bit and gift sub values can be found here: https://i.imgur.com/HyVu5xh.jpeg",
+    "response": "$user a list of all the current bit and gift sub values can be found here: https://i.imgur.com/GHWpsLe.jpeg",
     "cooldown": 0,
     "last_use": 0
   }
