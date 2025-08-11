@@ -18729,3 +18729,2970 @@ Oh yeah, did you know that entering the metro is technically a cutscene you can 
 Only learned about it because of the manip route LUL
 That's probably like, 1-2s per metro trip, yeah
 well skipping all the metro "cutscenes" will save like 30 seconds right there :P
+Oh yea we rockin the praccy once again
+Minish Cap Rando after finishing hotfix and are free
+im waiting on food then Im starting an async with MM and Banjo
+I really need to document a video on the BN2 SS manip, maybe I should look at the BN1 one as well
+Im doing Zaxbys. So chicken tenders, fries, and a slice of toast.
+Either one works, I used DeepL to figure out his BN2 spreadsheet
+Ive been keeping an eye out for the next risch stream so I can see if !fortnite still works LMAO
+It's funny seeing the way certain words get translated
+Well, now that you say something, I can just go disable it rischSmile
+can you frame perfect skip that encounter?
+I wonder what happens if you try Life Virus skipping it
+I assume someone has considered it
+The same technique used for Polar Bear skip, and Style Change skip in BN2
+I know NT has a life virus...
+Ahh, my bad, forgot the DLC boss isn't well known
+The rest of the comps are just like, look at maps
+Also that, or struggle profusely with another terrifying boss LUL
+When exe1 OSS was revealed honestly I was thinking it would be a new opening scenario to set the stage, then have you do one scenario from each game like power plant, netopia castle, ect, then the end game scenario.
+Yeah, you cannot do the same skip strat for that fight in Oven Comp. It's basically a cutscene trigger, so no known way to skip it
+for GBi i use switch snes controller, I have a gcn blutooth dongle
+i was using the snes mini controller but my A button has gotten loose
+also the dongle has complete button remapping
+so I can play bn with start mapped to L making it easier to skip cutscenes
+Majora was awful yesterday. My first dungeon was great bay and I stumbled thru it as others werre finishing their games phanto274S
+Recomp is awesome tho! love having more games not require bizhawk
+@Risch Yo! Hows ur summer goin so far?
+Yo stavros, it's going well. Spent the last 2.5 weeks with my girlfriend, and have a family beach trip coming up in August
+Man, that 1s, just gone LUL
+@Risch Kinda feeling homesick no lie but my 1st bday without my dad wasnt too bad last month and was a great time. I am absolutely loving DK Bananza
+I wish TrnArrow was this easy in BN6 Sadge
+You can still technically sub 1:40 :)
+I think any time you enter the metro and need to take it, try holding start as you area transition basically
+Yep, that would be the way to do it
+This split wildly varies because of all the encounters you can technically skip too
+With step counter resets and all
+It was clearly because of Tri Arrow
+No worries, I can always translate anything else I need
+Yep, that's basically the same as the BN2 one LUL
+A page for each possible frame
+I reached the end of Donkey Kong Bananza and I feel enlightened
+Oh, that's basically just tutorial draws I think
+The window the manip targets for the tutorial is just every other frame
+So it's like a 50-50 to get it
+Oh I just got auto-invited to the new NSO playtest
+Well, there are 2 frames in there that draw 3 cannons, and the rest of the odd frames draw 2 cannons
+i must be tired. the text looks like jibberish
+The even frames you can technically do in 2 turns, you get a minibomb and then take like, 3 other chips, and draw 2 cannons on turn 2
+I wonder if it'll run at 60fps on Switch 2
+At least, I assume that might be the case. The spreadsheet doesn't list the turn 2 draws, I only know from the 1 frame I hit LUL
+im gonna attack you with… addition! hahaha
+i can put numbers on balls too… lol
+theres a small addition to god needed
+heading out will be lurkin from time to time
+Also, upon further testing, the "draw 2 cannons on turn 2" strat is not guaranteed sadly LUL
+I also don't see any documentation on how fights with 2 cannons are supposed to align with 3 cannon fights for the Internet 1 manip
+Cause the 40 extra buster shots increases RNG a ton
+If you wanted to go insane, you could analyze the buster particles in the 2nd fight to know exactly which RNG value you're on and force the 3 cannon draw everytime :)
+Idk, I was just messing around with this to understand
+Also, looking at this movement, the trees in ACDC are annoying, I got stuck on them multiple times LUL
+The only problem I have with this manip is there are basically only 2 good frames in the tutorial, making this incredibly difficult. Idk if I'd want to reset that heavily
+The elec manip was actually way better, I don't remember the exact amount
+It was when I tried manipping aqua, that was a single frame
+But at least there I had the most amazing audio cue that I somehow never missed
+Yeah, nowadays I'd always go for elec
+This was prior to me manipping 50% of the game
+Any% can save and reset to fix it, but can't reset in SS, so you have to jack in
+I do need to reclaim a better leaderboard spot
+I'm looking at this internet 1 manip, and man, the memorization on some these movements is gonna be stupid
+is this ran on pc or the gba
+i know nothing about this game but gl
+how many chips do you have right now or is it something you check later?
+do you speedrun other games or just mmbn?
+stupid ads just came the second you answered
+piplikeWave yo phantom gl speedrun prep
+whats the difference between a gdq and a gdq hotfix?
+btw about the shuffler AP thing, i got too into routing a pokemon romhack so i haven't had time yet
+but i do still plan to do it just after im done with this project
+well yea its in the name Kappa RNG Chips
+i actually didnt know that lol im probably just dumb xD
+but lets go isnt as RNG i would think
+i would say its just more adaptive rng
+isnt gutsman available as a fight or is that a later game?
+Yeah, works almost identically in BN2
+Except there's no armor to boost your level
+Well, it's how sneakrun rates are determined
+Yeah, just having the armor is the important part LUL
+Also, idk if I'm just stupid
+Until you have to talk to the prog
+And then I don't get what Jugoomba does to keep it consistent
+Well, most of the text sequences you just hold B for
+Yeah, it also kinda sucks you have to mash fast through Glyde LUL
+I kept going late because my mashing is slow
+I'm also really bad at the Tutorial Fight 2 because I can't always get the buster shots in
+Yeah, it's just those 29 that are a struggle
+Honestly it's not even a problem if you do one extra, unless you were on the last frame
+It's just one extra RNG advance
+So, the frames he highlighted are 1321-1332
+So it's like, an 11 frame window, but every other frame
+So you have .1833333s to hit the "window"
+It's not awful, except for the fact you can't reasonably know if you're on an even or odd frame LUL
+Me neither, that would probably explain it
+I think devil had WR until Jugoomba went back to BN5 earlier this year
+is there a place you can learn the run if i say wanted to get into it?
+All the even frames look identical
+But yeah, slightly late when you draw MiniBomb L and Cannon A
+And just a single Cannon is also late
+Drako was saying earlier that it's a "based fucking run"
+BN1 is such a good game
+how come that one wasnt a rng chip the shockwave earlier?
+Shockwave is technically a chip you can get guaranteed
+Getting it randomly from a fight just saves the time of grabbing the BMD later
+ah ok thank you for answering
+Uhh, you can get 50-50d in BN2 as well
+i don't think i've seen it when i was playing it
+The SS manip relies on it to get some good 200z drops early on
+I do think later games have generally nicer drop tables
+But also collect makes you forget about it
+Literally BN1 has a 100% drop rate for TriArrow at S rank
+Why tf couldn't they just keep that energy
+Yeah, 50-50 for A or B code
+maybe its better to not mention it lol
+Most chips are at least a 50-50 at 6 rank, so it was a fair attempt
+Yeah, it was a 1/6 LUL
+That is one of the beauties about this category though
+i remember as a kid...getting stuck on number man for a long time lol
+Lots of on the fly decision making
+cause i couldnt figure out the damn umbrella
+or wait am i thinking the wrong game lol
+9 is the number of seats in 5A
+One of them is like, the number of books in the library
+i did not know that haha
+it's still engraved in my mind when i accidentally traded in a prism chip during my Hotfix run of BN 2 ssonicLUL
+i had one luckily, but had a chance to have at least 2
+i didn't realize it saves automatically
+that should be fine for marathon runs i think
+although the category would change, right?
+i do want to come back to BN 2 at some point
+NT is on my radar for a future run to learn
+was lurking cuz I was dead for most the day due to being ill
+stg, I ate my mum's cooking then started feeling worse throughout the days. Cannot tell if that's why I got sick
+cuz I'm masked up at work
+less food poisioning more I hear her hacking up a lung on occasion
+joke's on her, my life insurance's set to go straight to my older brother
+I love the ElecSword strat LUL
+4 checks, 3.125%, 6.25%, 9.375%, and 12%
+I think its a 72% chance to avoid the encounter, so 28% overall chance at getting it
+I love RedWave more, but still
+RedWave is nuts, it gets used a lot in the manip run
+80 across all rows ain't bad
+RedWave is only 100 total, so pretty comparable
+Damn, traffic comps giving out some stuff today
+Also, I think I figured out the Internet 1 manip thing
+I think just like BN2 with the GMD, you need to check your shadow location when talking to the prog to see how far away you are from the expected spot
+And adjust your movement a bit based on that
+Which is annoying, but I'm not surprised Jugoomba does it
+I was going to go check if DynaWave is one of the 50-50 options
+I almost would never risk going for RingZap3
+And gold the final split by saving 4s with metro cutscenes :)
+Just get FireManV3 on the way :)
+Clearly, you golded because you skipped those metro cutscenes
+Ignore the fact that you didn't take the metro 12 times for that to make sense
+hello hello, good luck on your run
+I mean, 2 extra turns probably loses 20-24s
+that's what i've been doing this whole time
+Tbf, that fight was relatively fast
+You might have also just gotten fewer than typical encounters, maybe by 1 or 2
+FireMan is just a 2 turn virus fight LUL
+Did you get Dash prior to Chip Trader?
+You definitely didn't count it during that
+cool i was going to lurk there
+Probably won't be able to stick around long but had to get those out while I got the chance
+just gold everything and you'll prolly sub 1:30! :D
+how insane was that fireman gold split?
+the tas of this must be crazy
+looks like the game wants you to suffer today
+Zenny can be exchanged for chips and services phanto274Smile
+This game and RNG being weird Sadge
+I think your fan is scouting your room
+gotta love the golds that don't matter cuz you'll never get them again
+So I'm working on backing up a bunch of discs. And this one has an extra scene file that I don't see where in the DVD it's used so I don't know what episode its for LUL
+was fun, been playing FF3 pixel remaster
+same! i like the original FF3 and the DS version lol
+but the pixel remaster is far and away better
+the pixel remaster OST is giving me the feels
+that doesn't surprise me too much
+i actually have yet to play any of these. i off and on consider getting the collection (or remasters? w/e) when its on sale
+will u start commentary practice tomorow or next week?
+Phantom, I've only ever seen you do Zelda before. Today is an odd day
+oh yeah i would be getting it just to play
+yeah you also do like paper mario n stuff right
+... okay, but I'm a dumb dumb and mostly only watch Zelda streams...
+@PippyInATopHat you say as i was playing FF
+Well, as established, your stream was my second choice after gym's TP run... which ended... the problem was handled by that XD
+@PippyInATopHat "you're my second choice", i'm honored
+Hey, my greatest accomplishment is being HeidiPHD's 2nd favorite speedrunner
+And one of Linkus's "three favorite people"
+I thought u and phantom were friends for like half a decade and helped u on ur partner push?
+i went to GDQ once and its been a spiral of knowing more and more people since
+(to be clear, Linkus called me one of his "three favorite people" while drunk one night. I barely know the dude but this was the funniest thing imo)
+SHadow ur here to! Lots of familiar names today.
+@stavros12c34anenoglou It's been awhile! Heya hello!
+I became a GDQ host and suddenly everyone is my coworker :3
+i mean i may not be a coworker next event
+i'm really thinking of taking one off and just attending
+well i'll probably table, but otherwise, the attendee life
+Oh, I thought that you'd be my boss Punkin
+@PippyInATopHat we both know you'd never listen to me
+And the Goddess Sword from this past SGDQ
+You assume I listen to the host leads and don't just go rogue on mic :>
+@PippyInATopHat i'm assuming nothing, I *know* you dont listen to me lol
+...I don't go rogue on mic... I fear authority...
+That was a very interesting sword to make marphNODDERS Also my first one. Definitely learned a lot between the Prize sword and the one I made for Glubbers
+games making sure theres a little humility
+Skyward Sword runner brain = engaged
+Am I allowed to swear here?
+Sorry, I'm from New Jersey, I need to swear for emphasis
+pippy, actively hearing the streamer swear, "am i allowed to swear here"
+oh yeah does this board sort by RTA or IGT?
+person who only runs SA2: "hm. imagine having inaccurate IGT"
+would be hard to use IGT anyway since it doesn't display in seconds
+only if you tell me how to do Minish Cap rando in aggressive detail
+the IGT in SA2 is absurdly accurate iirc
+Hope the BN1 speedrun reviewers don't hear that you're a filthy cheater :P
+oh btw what program do you use for displaying your button inputs? As someone that's gonna have to stream some racing very soon I would like to display inputs as well :D
+My audio tech during my stream tech shift at GDQ was making fun of me for answering questions on the comms system that were definitely intended for the stage manager but were just... about how the wii works
+i just use the SNES style 8Bit Do for everything atm
+They were asking about like the aspect ratio outputs and I was like "dude, I've never played this game, but I have the release year and I know the Wii, fire away"
+Oh I was suggesting naming it UwU
+oh right yeah I don't play Mario Kart much lmao I thought Waluigi had his own pinball game that I'd never heard of lmao
+I guess I'm Link now XD
+pippy is link.. congrats on the transition king...
+I feel like the DLC for HW is already almost rando
+Most of my memories of that game are "PLEASE GIVE ME THE ITEM I NEED MISSION. I DON'T WANT TO PLAY AS AGATHA ANYMORE."
+gearing up for the next run
+glgl rando for fun (not switching) (clickbait) (fake)
+what kind of psycho wants to race with traps on???
+I like a good solid trap once in a while in my rando
+idk if I'd want it for a race rando tho
+standard race naturally, there may be some kinda sickos rando race of pain and despair fatpidSip
+I mean the hearts are always on screen so marking them isn't really that necessary
+I... zoned out while I was reviewing game submissions... what did I just witness?
+this game is held together with tape and glue
+much like every other zelda game
+@PippyInATopHat Phantom was just pulling the pillar, what's so weird about that?
+Not really? Only bits and pieces XD
+I was going to play it casually in the next few weeks
+I've only ever seen bits and pieces, but with the other stuff done in the speedrun I just kinda blink and go 'yeah'
+just draw bombs and they appear
+simply buy the bombs from the vendor in castle town (that isn't totally a trap quiver)
+@PippyInATopHat big fan of organs actually
+Organs are very important for living yeah
+@oblobb that's what Big Organ WANTS you to think.
+oh yeah I just got a graded 10 rainbow charizard V Max not sure if i told u yesterday
+What if I wanna skip gust bellows?
+he's a nerd and an artist I am morally obliged to like him
+There's always One (1) bomb maze...
+it's more false imprisonment than cheating I feel like
+how much do fairies sell for? :D
+you ate the pasta already I guess
+nice spawn camping tektite there lmao
+didnt expect this til after the hotfix lol
+also i deleted my banjo async last night, forgot about the async and thought it was an old sync seed. Luckily im in end game and just needed to rush bosses
+last night was a trip, we did a sync seed and 5 of us did a banjo mumbo token item link. When 1 person finds one we all get one. Only 100 in the pool and goal was 80. It took like 5 hours lmao
+we should get the guys together for a paper mario powerr star item link
+you just add it to yaml
+but yeah, every yaml has item link by default
+same area you junk checks and start with hints
+i hope minish AP will be good
+im sure itll be easier to learn than MM
+there is a pop tracker for auto tracking as well. I know there were some checks that wouldnt send I havent been keeping up with it tho
+ive been swayed to more over to pop tracker, the auto tracking is just so valuable when your in a live group of 20 and checks are coming from everywhere
+3 weeks ago minsih cap went beta. Looks like its time to try it now
+i was basically just waiting on alpha to finish
+Still in development! Fusions are locked to "Open" right now and there's no setting for dhc access, only either a Vaati/Pedestal finish
+so all key items are required like how pape handles it?
+there is a default yaml and expert yaml
+No way chickens like that also work in real life
+okay so you set number of elements. If Vaati is goal you need this many before DHC opens, otherwise collect elements and enter sanctuary
+Phantom, my mum's made nachos again. I think she's plotting another attempt on my life.
+@DreamcatcherSky the last time I ate said cooking, I got notably sick
+I've got an odd cramp claw going on with my left hand
+I'm not bothered by it, cramps are, by and large, fun for me
+Basically the only section of muscle I can't tolerate cramping is along the back of my calfs. I can and have, out of boredom, induced cramps in other major muscle groups since I was wee.
+@DreamcatcherSky "induced cramps in other major muscle groups since I was wee" HUH
+The muscles get so very tightly constricted, like steel cords
+I understood the "wee" part, the part about inflicting cramps upon oneself is what got me
+NODDERS I'd go that way first
+@buff00n Oh, yeah. I've been doing it for so long that most of the involved muscle groups have become resistant to manual induction of cramping unless they've been involved in extended strenous activity, such as running around at work for six+ hours.
+So it's become more of a relaxation technique for sore muscles.
+you can run minish cap AP from mGBA
+i love not supporting bizhawk LUL
+glad its only a HP, that means I can skip it no problem
+@Axl_SR What, or who, is Bizhawk
+Final thoughts on DK banaza now that 2 of my streaming pals just finished it 15/10 A master class mix of Metroid, Zelda, and Odyssey.
+ive played bananza for less than an hour still lol
+does it have SMO post game structure?
+not really, just a yes or no
+Real ones will say it's DK64 if it was good
+What do you get when you cross a rabbit with a water hose? Hare spray.
+also base yaml with no changes had 330 checks
+if you add rupeesnaity, shuffle pots, shuffle digging, and shuffler underwater its 487
+also underwater rupees are in the underwater grouping
+what is this blasphemous "rando for fun"? WutFace
+lol i know you've been back from gdq but wb
+i peeked at minish AP, turns out it went beta 3 weeks ago
+RE7 AP is playable which is CRAZY
+Re2 Remake is pretty solid in AP
+but tbf, RE2 Remake is a perfect game soooo
+minish AP had a rough start, then once they got permission from LeonarchCG and Myth it started to pick up steam.
+i need to pick on re7 on pc now i guess
+yeah there's a lot, the typewriter warp helps a lot with RE2/3/7
+yup! it keeps it from being too linear
+you unlock it once you interact with it
+just added re7 to my wish list gonna get it when it go on sale
+oh for sure, it's a great idea, and they're all RE Engine so they can all utilize it
+its always go on sale for super cheap
+i forget non-RE games are on RE engine too lol. not a lot, but a few
+monster hunter wilds is on re engine
+devil may cry i think is too
+street fighter 6 is on re engine too
+i find it interesting that Fzero GX and super monkey ball used the dame engine, then you also have wario land 4 and metroid fusion too
+i dont know if it was the same team but it was the same engine
+i wonder what else the Deer Force did besides SM, i never saw their name
+Oh both games were made by amusement vision so yeah
+Deer Force was real kinda like Rare but got disbanded real quick
+@RvPA coorperate the worst masterminds of em all. Will never forgive nintendo for stealing goemon 3 for oot zelda not getting banjo threeie not getting conker 2 and diddy Kong Racing 2.
+sure id love to see a 3rd banjo game but I seen in interviews that a 3rd banjo game was never planed. As for that banjo footage on gamecube? just a tech demo
+@Axl_SR which was later used on and FOR Mario Odyssey
+even if rare stayed with banjo we may have not gotten anymore banjo games. However we def wouldve gotten Conker's Other Bad Fur Day.
+it was microsoft or activition, which funny enough now they own activition
+Booties my fave weapon in this game!
+calling boots a weapon is a stretch
+you get it at the shoemaker
+wherre else would you get shoes phanto274Smile
+today i started watching a speedrun documentary called running with speed. Have you seen it? Mitch got a huge spotlight in it.
+my parents stream plutoTV and I saw it was free on there with ads
+the doc i watched was he most recent gdq panel of the speedrunners mental and health
+its a free app on my TV
+Oh that's a cool Bomberman shirt
+calls PB not good that bops Risch, are you calling risch not good at exe1? LUL
+On my way to the dentist for the bi-annual tooth cleaning
+I can actually be here because I’m not working lol
+No reset?  But I thought we were going for max resets possible vampir7Itsfine
+ive gotten into my weird mood of loving farming sims again so I got into this weird love/hate relationships with how bad some of the fishing minigames are
+I literally hated it so much i downloaded a mod for stardew to skip that fricking minigame.  I didnt have time for that.
+its a quicktime clicking minigame where you need to keep it within the bar and you dont know what fish is on the line until it starts moving.
+and if it ever leaves the bar you are "punished" by missing the perfect catch bonus.
+i've learned up almost through cits
+yeah pillar is still really inconsistent
+i'm def having more success with the setupless, yeah
+i'll check those out at some point for sure
+AD seems to be a favorite for a lot of folks in the community from what i've seen/heard
+glad i'm learning a route that does pillar clip then I guess haha
+eventually want to run AD too I think
+does AD do gorge void stuff?
+gotcha, I'm also just glad you don't have to epona slide over the damn pit there
+because that for me has been the hardest
+yeah, i'd heard morpheel is really bad
+honestly between that and the epona slide i might just say fuck it and learn the more optimal route lol
+i'll have to look a bit more but yeah, probably
+it might be a thing where I keep the pillar clip route since it carries over to AD
+i forgot how funny some of the minibosses are in this game
+like, I forgot death sword existed
+Sparta'd him straight into the pit
+Wow, 20 months. That's almost old enough months to drink in the USA!
+▬▬▬▬▬▬▬▬▬▬HOLY▬▬▬▬▬▬▬▬▬▬ ⠀⠀⠀⠀⠀⠀⠀⠀ Look at DiscotecaDeGato him go!▬▬▬▬▬▬▬▬▬▬SHIT!▬▬▬▬▬▬▬▬▬▬
+it doesnt quite fit the lines with that emote but good enough
+It's like always been here idk
+Me or cats added it forever ago cause Ik it's in morphs chat
+▬▬▬▬▬▬▬▬▬ஜ۩۞۩ஜ▬▬▬▬▬▬▬▬ HolidayPresent YOU'VE FOUND A FRIEND! TYPE el:Wadafa:yelpanaFrienddandoleunabrazo TO CLAIM ▬▬▬▬▬▬▬▬▬ஜ۩۞۩ஜ▬▬▬▬▬▬▬▬
+Fuck all these dont work with the emotes I care about
+It should line up with potfriend lemme do that
+▬▬▬▬▬▬▬▬▬ஜ۩۞۩ஜ▬▬▬▬▬▬▬▬ HolidayPresent YOU'VE FOUND A FRIEND! TYPE PotFriend TO CLAIM ▬▬▬▬▬▬▬▬▬ஜ۩۞۩ஜ▬▬▬▬▬▬▬▬
+Oh no it still does that nvm
+These are fuckin old i dont remember when I saved these
+⡀⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠘⠄⠄⠈⠙⢿⣿⣿⠈⢻⣿⣿⣿⣿⡟ ⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⣀⣀⣀⣀⠄⠄⠄⠄⠄⠄⠈⢀⣼⣿⣿⣿⠄⠄ ⠄⠄⠄⠄⠄⠄⠄⠈⠉⠉⠉⠉⠉⠁⠄⠄⠄⠄⠄⠄⠄⣠⣿⣿⣿⣿⣿⠄⠄ ⠄⠄⠄⠄⠄⠄⠄⠄⣦⡀⠄⠄⢀⣀⡀⠄⢀⣀⣠⣤⣾⣿⣿⣿⣿⣿⣿⡃⠄ ⠄⠄⠄⠄⠄⠄⠄⠄⢿⣿⣷⣶⣾⣿⣿⣿⣿⣿⣿⣿⣿⡿⠿⠿⠿⢿⣿⡇⠄ ⠄⠄⠄⠄⠄⠄⠄⢀⣼⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⠋⠄⠄⠄⠄⣈⣿⣿⣶ ⠄⠄⠄⠄⠄⠄⠺⣁⣤⠄⠄⢙⣿⣿⣿⣿⣿⣿⡟⠋⠳⣦⣶⣶⣾⣿⣯⣍⣩ ⠄⠄⠄⠄⠄⠄⣴⣷⣤⣤⣶⣾⣿⣿⡟⠉⠉⠉⠁⢘⣿⣿⣿⣿⣿⣿⣿⣿⣿ ⠄⠄⠄⠄⠄⠄⣹⣿⣿⣿⣿⣿⣿⣿⣤⣴⡤⢤⣴⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿ ⠄⠄⠄⠄⠄⠄⣸⣿⣿⣿⣿⣿⣿⣿⣿⣿⡇⠈⠻⠿⠿⣿⣿⣿⣿⣿⣿⣿⣿ ⠄⠄⠄⠄⠄⠄⠄⠈⢿⣿⣿⣿⣿⣿⡿⠉⣀⣨⣭⣴⣴⣿⣴⣾⣿⣿⣿⣿⣿ ⠄⠄⠄⠄⠄⠄⠄⠄⠈⢿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿ ⠄⠄⠄⠄⠄⠄⠄⠄⠄⠈⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿ ⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⢸⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⠿⠿⠻⠻⠛
+oh god that one doesnt work in my chat
+is my window fucked or something that ascii should work
+I dont resize my chat at all I just put it on the left
+It did break my 2 color chat thing but that doesnt mess with text spacing
+ok that one still works fine
+Yea it's been there forever LMAO
+I didn't know that command existed
+I think I had that when it was still nightbot and added it when you made your own lmao
+Usually when I desire a weed picture I just post the runera3Swag
+So I've not used it in forever
+ɴᴏᴡ ᴘʟᴀʏɪɴɢ: 1stcycle ───────────────⚪──── ◄◄⠀▐▐ ⠀►►⠀⠀ ⠀ 2:58/ 22:30 ⠀ ───○ 🔊
+Morph is playing mm again I can pop that one soon
+Morph just abandons every speedgame you get into runera3True
+First pape now tp just start running MM and he'll do a new thing
+plug in that wii u and I'll teach you windwaker
+facts dont matter here lemme project things onto morph
+I just scrolled past the megan cheer stuff and felt sad
+There was always new wonders around every corner with her Sadge
+The current tts sounds are pretty tame
+Adam is the best one for just typing whatever stupid shit cause he usually delivers it well and or breaks
+Idk what the fuck that character is
+I'm gonna start putting that in parts of tweets to make people think they're going insane
+⣿⡿⢟⣵⣶⣶⣶⣝⠟⣫⣶⣶⣶⣶⣶⣌⠻⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿ ⠫⣾⣿⣿⣿⣿⣿⣿⣿⣿⣿⡿⡋⣻⣿⣿⣷⡝⣿⣿⣿⣿⣿⢛⣛⢿⣿⣿⣿⣿ ⡇⠻⠿⠟⣿⣿⣿⡏⡙⠛⠋⣠⣾⣿⣿⡿⠋⠁⣿⢻⣿⠻⣿⢸⣿⠃⣿⣿⣿⣿ ⣿⣦⡄⣼⣿⣿⡿⣸⠱⢂⣼⣿⣿⡿⠋⠀⣠⢈⣭⣸⣿⣬⣭⣼⣿⠠⢿⢿⣿⣿ ⣿⡟⣸⣿⣿⣿⢣⢇⣵⣿⣿⣿⣯⣶⣾⣿⣷⡾⠛⢻⣿⠉⠋⢹⣿⠟⠻⣷⡎⡻ ⣿⣧⢹⣿⣿⡟⡶⣌⢿⣿⣿⣿⣿⡿⠿⠛⠋⠁⠂⣾⣿⡼⢸⢸⣿⢰⠀⣿⡇⡇ ⣿⣿⣆⠉⠉⠙⢳⣿⣦⡉⠉⠉⠁⣀⣠⣤⣶⣿⣇⠉⠉⠁⠼⡈⠉⠸⢠⡉⠁ 󠀀
+oh god that one is also broken
+I need that updated anyway for 24th
+holy shit one of the things I saved for blank text got like added as working characters to discord so now I just have arabic in here
+From the Hebrew name יְחֶזְקֵאל (Yechezqel) meaning "Round-ass bird", from the roots חָזַק (chazaq) meaning "very" and אֵל ('el) meaning "round". Ezekiel is a major prophet of Chapter 5, the author of the Kolorado letter. He lived in Yoshi Village until the babies wouldn't shut the fuck up, at which time he soared across the ocean.
+I saved that over 3 years ago
+In a dark future where the evil Arbitrary Code Execution has destroyed all categories, the remnants of the Pape Mod Team send Morpheus080 back in time with the secret acronym he would need to change humanity's fate forever... Join your favorite Pape runners for the series' thrilling conclusion this October when The Paper Mario Speedrunning Chronicles 3: WABITR comes to theaters worldwide.
+lookUp fuck you talkin about bot
+I will EAT a Fright Jar if this run PBs. I will crack the lid with my teeth and suck out all of that sweet fright juice. Then, I'll insert the jar in my mouth and begin crunching. Once it has been reduced to several sharp chunks, I will unleash it into my unsuspecting stomach. After that, it's up to my doctor. That is how confident I am that this run is dead.
+"After that, it's up to my doctor" always kills me
+EzekielHD : You have allowed Ezekiel2 to twist your mind, until now... until now you've become the very thing you swore to destroy. Ezekiel : Don't lecture me, EzekielHD ! I see through the lies of the Jedi. I do not fear Ezekiel2 as you do. I have brought peace, freedom, justice, and security to my new Empire. EzekielHD : Your new empire? Ezekiel : Don't make me kill you. EzekielHD : Ezekiel , my allegiance is to the Republic, to democracy! Ezekiel : If you're not with me, then you're my ene
+I think that was the color inversion one
+I'd have to edit the pasta and that's effort
+Why did I save the gummy bear song in german in here
+When did I ever use that
+it's better to not know the gummy bear song that shit is annoying
+gummi bears! bouncing herre and tthere and everywherre LUL
+Hopefully u will do this as a bonus run for raf
+BIGBUGGIES my life Derek in style
+so i thought of a way to make item link work in MM. You plando remains on fairy rewards and item link all the stray fairies.
+there is no stray fairy goal so this is the only way to do it
+Epona is the true final boss
+Fave tunic of the series and with that said gotta go. BigTimeSigh (emergency dinner pickup)
+ACTION stops attacking for 5 seconds
+'I'm not touching you' looking gate
+i take it glitchless did not go well
+So what I'm hearing is the game is choosing violins
+Jamal owes you pizza is what I am hearing
+Returned from the teeth cleaning with a bunch of chinese food
+I kinda wish I had some form of meat handy
+I could use the protein and iron
+the c up method is good and fair
+i've been making all masks saves and it's nice that i can make a save for every possible thing/room that i want
+idk what it is with my kz but it takes me like 20+ seconds to export a save
+it was funny for the first like 5 save states
+yeah it's never taken that long
+i tried a different sd card and it was the same thing
+my childhood wii is just on the verge of exploding i guess
+oh wow you land right here
+the movement into the boss room looks sketch with the boots
+i bought a bunch of new pc parts
+like the any% method looks free in comparison
+things gonna have a 12 core cpu and 64gb of ram
+it's if you go too far back iirc
+did you hear ozzy osbourne passed away today Sadge
+So i'm over covid, but now I have an ear infection and a bacterial sinus infection lol
+AINTNOWAY so avp sent u scathing message
+Will u commentate this time or no?
+not a fan of risch on coms?
+one of the more knowledgable peeople
+Oh its not that just saying if speech and knowledge need tuneups as well
+yyou know it well enough to bop risch lol
+Hotfix, it's Risch and I on comms
+Look, morph is a BN enjoyer
+is your run on the board yet?
+Oh, right, I can maybe go and review it
+Maybe not for BN1 tho, I forget LUL
+An hour ago and it's not accepted???
+risch should flag it so he doesnt get bopped LUL
+its so someone is always available
+Make me a mod too, I love not doing work
+Also, looks like I am a BN1 mod, so I'll get around to that after work
+Phantom send me these notes again
+Dalus, Drako, fatkid, Terraj, Prism, myself, Kilios, lucky, existence, smog, and yukki
+Prism is on that list!? THE PRISM!?!
+I havent seen prism in like 11 years
+He was at the teambn meetup a few years ago
+That was my first interaction with them
+yeah, i remember watching prism runs back in the day
+welcome in raiders to raf run
+Kinda debating between running BN2 or fully relearning this category LUL
+WTF did you draw in your PB?
+Well, his fireman time is also probably nuts by nature of manip
+I didn’t answer yet because my phone needed plugged in but I’m doing okay. got a headache on one side of my head so I’m just laying down for a bit since I ate to see if that helps
+make sure you PB so we can run back minish cap rando again LUL
+That's the third time in the last few days
+You could have technically bought a second one, twice as likely to draw :3
+Honestly it is probably better to save for an extra chip, yeah
+What's your estimate? 1:50 or 2:00?
+Yeah, this run is kinda bad that way
+I was about to say, that's probably the better way to go
+Force at least a few so you're not doing some miserable strats
+Well, at least BN2 has a backup for ZapRing2 B you can save before too in a worst case
+At least they aren't physically required tho
+Hmm, I've been thinking about it
+I'd probably expand the manip so that even if I go early or late, I can chain into at least 4 dashes
+And in a truly worst case, I can have a save that starts right after the GMD so that I can at least show off the rest of the route if I fail something
+Yeah, the 1600z is needed for the early HPMem and sneakruns
+The pax submissions aren't on the GDQ website, right? I keep looking and not seeing them, is it just through Twitter/blue sky?
+Ahh, makes sense. I was wondering what was up LUL
+I did find the link on blue sky, but was wondering why I couldn't find it on the website
+Also, I went and looked it up. That tutorial frame you hit was 2 frames early
+If you pb I'll shove an entire paper roll up my ass
+Now have fun with not pb ing
+Did you see the Pokemon news?
+Mega Lopunny confirmed was the best part for me
+I think it's fine, but also uninspired
+felt like pokemon said here, damn 🙄
+I would stay for longer, but gotta prepare myself for a hour zoom call for an client. So see ya around Phantom
+Hello. My footage began rendering. And suddenly I was here.
+Dude, I'm rendering my PB footage from last night? Over 20 seconds lost to the final boss just deciding not to become vulnerable
+I don't know the LA bosses by name...
+Ah, I did not beat LA
+But sounds similar. You have to wait for it's eye to open on the top screen then do a stylus input
+I also have to depart as we're going out for groceries in a sec here. I hope the rest of the stream is good <3
+It's eye operates pretty independently of what the boss is doing so it has like one attack that prevents the eye from opening until it's done attacking
+But it didn't even do that last night... he just walked at me menacingly... and didn't open it's eye
+brb I need to charge my human (aka get food)
+Just did that, the Swiss enchiladas was a mistake
+The cheese got stuck in the plate
+It's just cheese within the salsa
+Oh it's not Swiss cheese, idk where Swiss comes from but it's gouda or cheddar usually
+The original recipe is with gouda but with it having a strong flavor they opt for cheddar most times
+Vegan wrap from a local place
+Nah, just one of the many... okay, not many, but two at least?
+I am close to finishing I think but need to go take care of Stuff ™️ so I'll look at it again after
+Ye just fenangling with the fine lol
+She said she hated the flames
+IT'S THE SHADOW, I'M NOT SATISFIED LOL
+With some it looked like ocean more than fire KEKW
+Also did variety nag you for not running the game?
+She does that for kicks sometimes
+Even though you PBd like 2 days ago
+THIS guy can't battle the network YOU
+Nah fuck you too much spam
+Told you sticking things up my ass as a promise curses runs
+I'm a big fan of the fictional character Spamton G. Spamton
+The turkey was close but nope
+BN1 trying to not be convoluted challenge
+Wait this was in the show right?
+The one I don't remember is if zero is covered in the animé
+But same tldr? Virus king kinda?
+zero was in the beyondard arc so bn6 timeline
+Where does that piece of shit take place time wise
+Zero being there and then in 6
+I just remember oh cool my fav character followed by malding
+bass is post game in exe1 as well
+Oh, do you know about the FireTowr F trade?
+I remember bass in nt I think?
+My goat was just vibing until BN3
+I remember beating him and that's it
+Some kid behind Mayls house gives it
+It starts in like, Chapter 3?
+Can I yell at you since Variety can't?
+Idk if that's post NumberMan, or post StoneMan, or even post IceMan tho LUL
+According to trez, Chapter 3 is StoneMan scenario, so
+Yeah, I saw you get it and didn't seem as excited as I was, and I was like "does he know about this? Idk what notes includes it or not"
+TimeLinks notes mention the trade, but like, near the end LUL
+So I'm still not 100% sure when it opens
+It might also be after sleeping after NumberMan, tbf
+Well, I guess you don't sleep, huh. Not for a while anyway
+is that how this game usually goes?
+so some of the harder stuff is at the beginning
+So there's an auto splitter for emu, since it looks at stuff in memory. I've considered picture based autosplitters, but it's a bit awkward because the time starts when the screen barely starts fading to black, so idk the best way to handle that
+And do the math on what the timer offset should be
+I might mess with that myself at some point
+Oh, I sent you a picture of the draws around the window
+I can add a tab to your translated spreadsheet if you want
+I think you didn't skip the cutscene fast, cause I thought I saw stuff outside of battle between the fights
+But I may have been hallucinating
+idk what that's supposed to mean bot
+12s for an extra turn sounds about right
+Did you know that the number doors are technically not random?
+They're just based on the frame counter since power on
+It's not using the random function at all
+I had a strat that tried to get the doors to be 00 every time LUL
+I uh, lined it up by hard resetting prior to starting a run, and keeping an eye on the timer
+Normally, Any% just used the standard number doors strat though, it doesn't try to manip them
+Uhhhh, I think it's a time stop, and drops a snake on the enemy field
+Idk how much damage it does, could be worthwhile?
+I'm doing alright. Sinuses are bleh, but eh
+what can you do with this weird fucking weahter?
+oh good, that's good to hear! PrideUwu
+Also I just sent The Goods ™️
+i need to get some emotes focused on GBCQ or something
+That'd be REALLY fucking funny if I sent edibles considering I have never been in contact with them
+I'm g you kids have fun swifOld
+I kid though. I don't do them a whole lot PrideLaugh
+@OhHeyItJaye I'm glad there are people out there that responsibly enjoy them, I like doing things like walking back the fucked up people from a diff hotel anyways tippiNice
+@Swiftalu LOL, that's usually been my job in the past PrideLaugh I don't generally like to get fucked up. It's extremely rare ohheyi30Hehe
+Somehow able to spot me even tho I was never a webcam streamer (But I mean hey I look the same as I did when I was 14/15 lmfao)
+I just like to help people out
+i only met you cause ice was chatting with you lmao
+Zeke is so easy to spot, I literally was watching a gdq video on bsky where it's the 2 people holding the sign with the dot, and Zeke was in that video
+@Mirby_Studios Ice easy to find 👁️ 👄 👁️
+it is pretty easy to find someone who is frozen ohheyi30Hehe
+but in seriousness, they're easy to spot
+and then i kept running into you after lol
+Some people could not find me
+phantom everyone is small compared to you :P
+Swift almost hid me in her pocket
+Dang, so someone actually taller than I am
+Oh yea that animated fire turned out way better than I hoped
+He like, came shortly after me in 2019, left within a year or 2, came back for another year, and then left a year later or something
+Yeah, I don't think he was enjoying Amazon, then came back after being hired by Twitch, and still realized that wasn't for him
+Second job out of college, and is still there, kinda miserable
+OK, fair, mine has been there maybe 4 or 5 now
+I keep seeing all my old coworkers on LinkedIn, there's maybe 1 or 2 still there
+getting my MC yaml readdy for tonight, just need to run thru palace of winds before starrting
+Don't ever pin me down btw hope this helps -> megaFlushed
+so is this the month of battle network
+make it a race, they love races
+imagine if you raced fatkid on the stage lol
+look man, i'm satisfied with how my tourney run went
+i got dalus to do comms on my pb
+go follow paperaces for daily pape content
+so what im thinking is vaati:false, elements:4, swords:5, and dungeons:4
+you can set elements to anywhere, meaning you can do less dungeons
+I'm happy that a option but no i want them in dungeons
+it lets you shuffle elements but still give value to clearing dungeons
+I love the floating e background
+i take it in your rando cloud and swamp kinstones are anywhere?
+damn not the right one this time
+you ever think about why a stove needs multiple network areas?
+im trying to steal my neighbor's recipes if we had that irl tbh
+thinking of other in-house dungeons, yai's makes sense because its the ac for the whole mansion
+I was going to suggest that the only thing you can really do is stand near the front and pray he tries to punch you
+But you were standing in the front and he was a jerk both times, so
+Love praying for the 3/8 chance that an enemy comes to the front
+oh you know, dozing off in my chair while "working"
+Nice, I'm just taking a little lunch break since I finally got one nightmare ticket done with
+if you try sometimes, you might just find you get what you need
+me? come to a BN stream? I wouldnt be caught dead
+too late axl, we have photos
+I was gonna say, Lock On is a cool chip
+will htere be a humor incentive?
+I did see Gaia, yeah LUL
+Honestly dont even know what Gaia does in this game
+its up to risch to find a list of the jokes and tell em
+Tbf, that humor incentive is pretty good. Just force commentary to read from a list of the humor jokes randomly per donation LUL
+I did that for MAGFest a while back
+It might have been, I can't remember
+I just know that Terraj wasn't there that year and I had to do it all myself Sadge
+Did something about the run change your mind? LUL
+Oh yeah, I remember you mentioning that the other day
+simply be bad enough to not use them
+I think he just... moved on the right moment to dodge the ''impact'' of Gaia
+It did , the screen kept shaking
+I may need to expand the frames you can see, if you want the English version
+Yeah, that was probably 1313 or 1315
+there you go stop getting bad rng
+Bop Smog and then never care again rischSmile
+man that leaderboard is crazy, 5 minutes between 4th and 5th then 6 minutes between 1 and 3 phanto274S
+Dex installed DOOM on himself! He's been singing One Beer for the past hour!
+RNG only advances in battle when it's called, so it should only be buster shots, particles, and explosions
+Or like, enemies that move randomly
+Yeah, probably faster to just buster normally LUL
+Imagine even the ability to reg a chip
+Or you know, just run away without drawing a chip :)
+gl on runs + hotfix that’s awesome!
+what's a time you're willing to take on Fireman?
+If you're confident you're late, you can always do fewer busters, or yeah not overlapping
+Yeah, I think that was at least 8 frames late
+There's a few different triple minibomb frames that are all late
+You claimed the max amount Madge
+It could be early or late, I think
+What tf is this time variance hypnoWhat
+So we've got rng served with the rng
+finally making into an actual stream and not just the vod on youtube
+happens to the best runners man, sorry you had that happen.
+once you enter dark hyrule castle can you not leave?
+we need to plan another sync ap been awhile
+im gonna run MM for that
+im trying to priortize new games
+yeah, i run TP when I just want to turn my brain off
+i would do a link to the past but snes controller Deadge
+KEKW I think this was the 1st time in history i had the same streamer thrice on tabs
+Welcome in raiders to battle network.
+Doin fine just got done with ot and and having late snack now
+well, im currently trying to max out everything in dragon quest treasures for switch. have 16 million left until rank 15 base
+oh yeah that remind me dragon quest builders 2 is on sale
+the prequel to dragon quest XI, the one about treasure hunting and dragon’s and fighting other monster gang’s
+Like you don't use the password 1234 YOU
+yeah it's not a very secure system...
+"based on how long the world has existed"
+that woulda been nice slightly earlier
+If you pb I'll shove a crab up my ass
+Luck is for losers, you have luck
+damn there are 16 different yugioh sounds!?
+Meanwhile the worlds one had only subs
+oh yeah the new emotes phanto274Fine
+It was Tuesday so as soon as swift finished them
+ooh, too bad my memory is too bad to tell which ones are the new ones.
+How about you draw this fuck instead swiftp11Nom
+They sniff and hunt that phantom aura
+i am here to make one message
+youre welcome my engagements is off the charts
+@stavros12c34anenoglou  glennj5WAVE  Stravos i am dying rn
+@Glennjaamin Just got done with my own OT
+heat exhaustion symptoms are brutal i am 4 bottles of water deep rn
+ive been out in 3 weeks of heat wave and today it was probably only like 95 on turf Disappointed
+i saw you got into RaF
+I think that's what it is, anyway
+I remember looking at it because I was like "but what if we use 2 steals on NumberMan and sword him in Any%"
+i am the true phantom fan
+LuL real ones show up without notice or warning
+real ones show up specifically to bug phantom el:Wadafa:yelpanaFrienddandoleunabrazo
+im dead serious i have done NOTHING this summer but work
+I still haven't heard back from GDQ about not receiving password reset emails
+thats what i thought you thought Analyze
+Debating if I should just dm someone on discord LUL
+I know, it's some time this weekend
+Lemme just message Richard and see what happens
+DK Bananza is nuts the pros already getting 130
+BN1 has some amazing encounter rates
+Why can't they all be like Power Plant comp, which is the standard dungeon comp rate in later games I feel
+Chip is so good on bosses
+hopefully I’ll be able to make it. I work tomorrow
+While we wait we just watch people die
+late chore doing brings an extra lvl of tiring
+Did you count RingZap as a random chip? Or did the number go up because of Mine2 later?
+The real problem with doing resets of this category
+It is still stellar to me Also my mixed veggie cooking is done.
+is BN1 the most straightforward BN run ?
+a coworker showed me that Hogan died and my immediate first thought was the JJJ "Thanks for the good news!"
+that's ridiculous, they obviously should start with 4.5 :P
+And the BN2 recommendation comes with the old Single Segment route, that was basically "get PAs and just wait until you draw them"
+I love in the anime that if "Ms. Mari" had her hair put into a croissant, that meant Lan was in for a bad time
+i mean ti's actually a possibility now!
+Late game fights were just "dodge until you get Gater"
+real talk the mobile games were actually really fun lmao
+Then we started hyper optimizing that category, and now it looks scary
+BN4 is also not bad if you do Set Seed, which is just starting from a specific save file that hits tourney manip already
+Frame perfect trick with confirmation 20 minutes later :)
+better than BN2 where you find out like an hour later :P
+You mean like style change manip?
+yeah that's what i'm referring to lol
+It's also a 5 frame window with a pretty solid audio cue to confirm, at least to me
+so, BN6 basically brought that chip back as AirRaid. Cool.
+You do have 6 escapes :)
+the best strim ever considering circumstances
+does 4 years of this game mean this time you're live with pape rando for 4 years
+oh so it's been 4 years, not you're planning 4 years
+Risky meaning the end part for bowser?
+i have 630h18m27s of TP AD specifically, apparently
+roughly the same timespan, so i was curious
+Might as well do risky you're already that close to just do it
+If you pb can I punch mirby?
+Fine can I bitch slap glub?
+@theglubbers cmere cat girl time to make you meow
+honestly i'm surprised both were accounts
+Wasn't there a runner that was just jelly?
+jelly has an actual picture so probably pichu lol
+you stole the grape soda joke before i could say it in chat last night lmao
+We love the grape soda jokes in BN
+it's just not very good grape soda
+it's taht one store brand that nobody likes
+I hope the run is going well
+I just got my letter from pax saying I didn't make the run up program for indies dev, but im still really excited to go.
+But still really cool that I can just apply. I made an AFK game for Twitch streamers.
+So this one, the twitch sends commands to control a duck in a race, kind of like of like mario kart.
+but that would be really dope to see you in real life.
+Do you have to pay for each one?
+Make a speed run but in reverse? Start at Bowser and make it to the beginning.
+Hit them with the Earthworm Jim 100%.
+That's better than some men can say
+Ofc I couldn't get math autism, I got obsessed over a fictional hedgehog autism
+I'm definitely a "good at English, bad at math" girlie
+And yet sometimes I talk so fast I stumble over my own words
+I liked math and was good at it, and was good at writing but HATED it
+I do have this one problem
+I get like blindness when I see too many variables at once
+Calc 2 is the highest math I've taken so idk
+Like a bunch of different numbers put together
+awww, did it make you dizzy?
+I keep having dreams I'm back in college
+(i'm honestly really curious, I don't know how you'd teach just fuzzy logic for a semester)
+Like I keep taking new courses
+I think fuzzy logic is actually kinda useful for modeling AI imo
+Are there customization options for dreams
+that's honestly really cool that it worked well for that
+I wonder if Eldstar ever needs to shave
+Like does his beard just stay like that
+gl to you phantom, Ima be lurking 👀
+Question, how did Goombas put on those Spike hats
+.....that must've been one painful pregnancy
+Isn't Jr. Troopa's spike canonically from a spiked Goomba?
+@mariomantaw That's gruesome if they were both with it on them
+Just ripping part of someone's body off of them and attaching it
+That is the smallest train I've ever seen
+It's like if a delivery truck didn't have the storage on the back
+I wonder if anyone thought Parakarry had blue eyes
+Parakarry, the rare blue eyed Paratroopa
+Still waiting on the sleeves I ordered
+Most likely will be here by Monday
+DOOD is probably going to be a sneak peek I was wavering on going to but now that it has Rose Dragons and some stealth Dark Magician support
+Yeah a new Link 2 that helps out Dark Magician a whole lot
+By basically being the glue for the engine pile of Dark Magician
+Miasma Necromancer is that new Link 2
+If my pokemon deckbuilding knowledge wasn't 8 years out of date I'd maybe know better lmao. All I remember is Garbodor OP.
+There used to be like tools that went on enemy pokemon
+I assume those don't exist anymore tho.
+Gholdengo is just a dumb mon in general
+Yo 4 years of pape is crazy. GL Phantom lueygaGoodLuck
+yeah that's the store's problem not the service's
+the delivery service can't magically make the items exist lmao
+i feel ya, happens to me and like yeah, if i'm not getting charged that's fine. ain't your fault
+i can't believe mario is dead
+now that i'm not saving points for a big thing anymore...
+some people are REALLY particular about that though
+i remember when i worked at lowe's someone came to the register with a discount plant. turns out it wasn't discounted. they didn't want the plant anymore
+they did not want to pay that 60 cents lmao
+how many more vods are there of that
+i'm guessing there's a few of those left LUL
+i decided to order the one thing i didn't get at SGDQ for lunch: culver's. cause there happens to be one near me lol
+also yeah i agree it is strange but i'm not complaining lmao
+mmm portillos. we have one of those here too
+i got to have that pope sandwich they released
+can't believe every midwesterner that was subbed just canceled their sub to you smh my head
+the au jus needs to be nice a flavorful
+and the sandwich needs to be resilient so it doesn't dissolve in the au jus
+that's how you know i know about french dips i call it au jus :P
+i've had better french dips from arby's than portillo's lmfao
+can't believe shadow lacks flavor and is annoying to eat
+hah, i meant soggy and falling apart
+it spread for sure, cause i'm norcal born and my mom got me hooked on them lol
+i think the french dip is also good cause you dip it yourself. the italian beef when dipped comes that way and is kinda sticky and not pleasant to hold
+and it's a sandwich so you kinda should hold it lmao
+we have beef against the italian beef :P
+also phantom i'm trying to eat can you please get that trash off the screen :P
+yeah the italian beef is like $9-10 depending
+in n out is good for the price
+but outside of that it's okay
+i don't like them on burgers period
+I don't mind them on some sandwiches
+ok i wish you was playing rando for that voice line KEKW
+phantom to the new line being played "ah so you finally came"
+tails offering to help with his napalm
+But i can't help but laugh
+just remember that in shadow 05 the president is trans
+the president is voiced by maddie blaustein who was trans. also the original meowth
+she also voiced omega in sonic 06
+i love the recent jehtt video that explains exactly why mephiles's plan was dumb
+because as shadow said in that one, "the existence of the plan necessitates its failure"
+he says all time is concurrent but if that were true there wouldn't be any discussing the plan because by erasing time and time was concurrent the discussions wouldn't happen as time would be erased. time still existing in any form means his plan failed. and would always fail lmfao
+Matt is coming up stairs with lemon ice tea, enjoy :)
+They got one of our drinks wrong and no one will drink it because they are bitches oranLUL
+No Ace is which route again?
+Why would you do this to yourself
+Most I remember is PW hell
+okay but have you considered what I think? The Viewer?
+thanks! it was great. always wanted to play this game
+nice to know I can follow minish cap rando now
+yesterday I rolled a solo and did every single overworld check
+HUH Pokémon pocket have twitch drops
+got to have a random stream open for 45 mins i guess
+i do not remember that lol
+i only open packs and get off KEKW
+komari starting exe6, I can give the play by play LUL
+I played the game recently and man, that spin badge.i see the appeal speedrunning this game lol
+it was my first experience and it was a blast
+now I’m split which Paper RPG is better
+I also fought that Blind koopa boss I forgot the boss name. I thought the boss would be easy and I forgot to save. I had to do the WHOLE island arc again 💀
+I think he after the master is the hardest boss in this game
+the first time around yeah, 2nd time I used Waltz. my downfall the first time was Mario getting lucky when he would attack Mario and the partner
+Mario would dodge it 💀 and it would hit my partner
+i forgot about this room lol
+i just checked my first run of this
+my prologue was a 22:20 and my log skip split was a 1:26:34
+i think if i wasn't in call with mx4, i would have reset long before that 1:26 lmfao
+I've only done log skip one time and was just like, nope never again LOL
+I don't remember what I was doing it on tbh
+i should come back and do time out for this run
+wait, it's a JP only trick, isn't it?
+I wonder. is it possible to get multiple of those spin badges?
+maybe I did try it on Wii U then PrideLaugh
+the big one for this run is mainly just item duping
+damn I was just imagining how much faster you could go
+i think that trick alone make or breaks routes cuz of how easy/reliable duping
+that would be resting in the inn here in ch5 right
+i only remember that part of the route cuz i think it's funny that resting at the inn is optimal
+i was under the impression it was 2 but i guess only doing risky strats will do that to me
+as much as this run sucks, i love how fast it is
+while still playing at least a little bit of the game
+oh i remember now, i thought it was 2 repels cuz i did a pape races run of this and grabbed an extra for safety
+what would you say is the hardest boss in this game?
+3 transform is jump x2, jump x1
+oh not the master? that’s interesting take nodders
+do you have 10 or 15 hp rn
+does the 3 anti guys count as a boss fight?
+i was gonna say, don't get 2% on duplighosts Kappa
+true, get the damage boost and and the magic damage boost and you can shred him
+I agree lol my first playthrough I was loaded with life shrooms and wappa bumps and those 3 boogers took all my items lol
+it’s weird how that blind koopa was my only game over 😭😵 smh
+do they sleep for differing amounts of turns or no
+80%? We’ll I must be the most unlucky mother trucker
+i know there's a 1 turn difference between time out and lullaby on hallway
+Literally me. I brute forces it haha
+used waltz and I had rng magic power ups
+honestly losing a run to kent while having bow is so stupid
+man. I sware to beat his butt my 2nd playthrough
+bro living rent free in my head
+omg you can farm powerups here
+in the risky routes you level there for sure
+okay so my pb has 67exp on that fight
+iirc this route defeats the hammer bro that you usually lure
+i would not have caught that tbh
+i feel like i remember two bullets but maybe it's been too long
+oh nope, it's written like that on this route i have from m4 as well
+and it's also a bullet point lmao
+pape brings around some funny chatters for sure
+ya know the consistency of the goombas in both rpgs being broken is pretty impressive 💀
+his only meaningful fight in all speedrun categories for this game and he's sitting on his ass charging
+can't make this shit up fr
+hey he charged better than anyone else could LOL
+i wonder how many times you could dink time out and be faster than this
+let me see a delayed shield
+i forget the shield turns are different on hallway
+the scrolling just contributes to the time loss tbh
+at least when you charge, it's like 1 outcome
+really 2 outcomes but it's so shit you dont consider it
+i still can't believe someone worked out all of this
+this run was so bad for so long cuz no one could figure out how to make this consistent lmao
+you just let bowser decide if your time was wasted :)
+oh god this fight took so long cuz Bowser kept healing 💀
+this fight casually is so sick
+casually this fight RIPS (in a positive way)
+@FatPidgeyBirb literally unkillable, he has 189hp with his heals
+And you have what, 50 HP ideally if you max everything out and don't use HP plus?
+yeah 50 is the max before modifiers
+It feels like you're fighting a Proper Monster
+this fight is a bag of tricks the whole time tbh
+no tossing him three times and calling it a day
+okay i thought this fight was a perfect kill so that scared me lol
+i was concerned when you missed the bomb damage
+is this really your first any%? or it's just been so long or a different route that you needed new splits?
+with how much you play Pape I woulda imagined it woulda happened at some point
+man i love this category but it's so stupid
+i think he got like a 1:5x but never submitted
+he was chasing 1:49 and never got it :(
+AT least i made it for finale
+back when 1:4x was like top 15
+Had a great party and awful cleanup.
+idk what the fastest safe time is in this run
+if it's not m4, it's probably my 1:45
+that time is so slow now with seed dupe context
+I think I can say GG now
+a lot of pape tricks suck
+that clip made me stop playing again in those few weeks
+I think you should do this again because you got SUCH a good time!
+idk what happened I was tuned out for most of this
+I think you should do RAC :)
+all cards routing hype, all cards as a run booooo
+I'm a menace and saying it just to be a menace
+but also RAC is unironically my fave cat
+because it is utter hot dogshit trash
+i think rac is really funny.
+no ace, any%, glitchless, all cards, all bosses should be the main board
+i agree that it should be a CE on principle
+RAC is funny in the way that watching a gladiator fight to the death is entertainiing
+but it's still really, really funny that it's possible
+not even tas can do it?
+I was gonna post the fake 7TV 100000 bit cheer emote with the message "Play RAC" but it seems it's gone
+dude i was trying to learn wii u vc any% no ace a few years ago and I got through the entire route, got good enough for a likely sub 2 first run. gave up after losing several runs to power bounces on the fucking blooper. those are so impossible on wii u
+but like unironically power bounces were the single worst part of the entire run, everything else was mega easy aside from like bhs i guess
+Rubix lost the gless summer event race because of wii vc shit
+were you still planning on monday archi?
+oh yeah AP got the new version update too
+I'm sad it never got finished
+komari hasnt played bn1 since we did the april fools race in like 2021 lol
+Gonna have dinner soon then I got my first Moogle Cup race in 2 hours so I'll miss most of this but gl with the rusn.
+are you in a new house??
+is it the old house you lived?
+i pass there all the time and i go thats where pahntom used to live
+Hey there! How is everything going?
+My team just won the epic and grand 1545. What a gauntet
+and yes glad the schedule worked out that way.
+laserg8Smile monadoSmile phanto274Smile popesSmile waterp7SmileW u bet that will be the case
+i have 2 mc doubles on the way
+Yeah the only thing I like is their frosties
+last time maddy and i tried ordering frosties they were trash
+like the flavor was pooled all at the bottom, it wasn't even mixed, it was just the most low-effort shit
+Sadly there are no DQs near where I live
+Now the boba place down the street...weekly
+Unsweetened coffee milk tea with extra boba
+That strat is always funny to me
+if you where a prime number, what would you be? and why?
+aslo, i never played this geme, but is this not the one when link turns into a furry? or nha?
+this will be my sleep stream
+Nah.  This is the game where the final boss is just goats
+I can't believe two worms just had sex on the RAF stream
+witch zelda does link turn itno a femboy?
+there is some shit going on in nintendo
+Into a femboy?  If the internet has taught me anything link is a sword lesbian.
+does link not dress in like girls clothing for a mission in one of the games?
+link = femboy confirmed, brb drawing fanart
+And then the internet got mad they removed it in the second one
+link dresses as a gerudo voe to infiltrate geurdo city
+they have literally no way of telling with gorons tho so gorons get free reign lol
+it wasn't needed in totk cuz link had the gerudo pass
+Not what i expected to hear
+is it not faster to run the game in another language? to make the dialoge go faster, or am i thinking about another game?
+oh wow, it looks like i know something
+omg he is a good boy now!
+speedrunners deserve more cred then they get tbh. good on you man, its impressive.
+there's multiple almost drowning areas in this game that makes me wonder how the fuck they designed the game in such a way to even make this route possible
+all lines up so perfectly lol
+why is link not always a good boy, i dont know the lore
+No I mean like even the pillar clip
+if that pillar was just slightly further it wouldn't be possible
+morpheels boss room is just the right size to not drown
+I think you'd drown before you hit the cutscene otherwise
+What else would I play LUL
+we back to regular scoob he beat the scooblocke
+Yeah I've been grinding down a category to submit to Collectathon
+I want to submit to more events tbh
+I would love to speedrun this game but that sounds like a lot of time to jsut learn the route LUL
+The game is just very demanding and volatile
+As a viewer I love watching it tho
+I think I would do like IL's or shorter cat extensions if I were to learn the game
+Wait this actually looks good I didn't know this category existed
+Dude shorter cat and you play temple of time GIGACHAD
+At least it isn't early snow peak in HD NiceSoftlock
+Who up here grooming thy lycaon
+i love that he just fucking bowls link over
+lots of mistakes, but i pb'd
+I'd like sub 2:50 but im not gonna hold myself to it for now
+rn 52 or 51 is fine, if i feel liike continuing grinding i will keep going
+yeah tp is like you can have a perfectly good run and then one small mistake ruins the pace
+well maybe a lot of runs are like that idk, i dont run too many games
+In here it's not don't worry it'll get better, it's don't worry it could've been a lot worse KEKW
+i wasnt paying attention do you have to do ebf dangoro here?
+oh wait prob not cause you bite after rang
+i meant do you have ebf when you fight dangoro, so that the fight starts instanntly and you cant do the setup strat
+wii ad has to do that
+You got hit by Fyrus YOU
+Might be the worst boss they ever designed tbh
+Then again a lot of bosses in this game are ass imo
+EASY TIME SAVE for next time
+When will u jump to stallord skip?
+At least i get to see my fave dungeon but yeah ultimately on u. Gonna have my dinner now
+how is 9 dungeons different from all dungeons? do you not do Hyrule castle?
+oh good I’m not too late
+I gotcha. I was at work. got sent home early because I slid across the floor and fell on water. 😂
+just a sore butt cheek and a bruise on my leg. no broken bones at least.
+i am good on that thanks lmao
+You should go fuck yourself on that
+still cant believe hes a 3d runner now
+there you go ice, your new hot run after chrono trigger
+just remember, it's not a zelda run until a keese fucks you up
+Yo. I'm back from my tournament match. I'm undefeated, neva laust... for now at least. LUL
+it was an awful seed and I had some pretty bad luck on top of it but a win's a win ig LUL
+wow speaking of awful luck :(
+What an unfortunate way to end the run. Hope u a nice rest of day. Looking forward to the Showcases.
+I took a nap today, I wonder why?
+Surely because I wasn't up at 4 AM playing [REDACTED]
+10 TP seed would take a month
+switching between seeds in TP would be so much more annoying I feel like.
+That's so funny considering like... how popular it is
+I feel like people don't usually struggle to have people watch them when playing it so surprising to hear
+it'd be interesting if someone did a swap between 1 seed of every single Zelda game. Altho given that many of them would have to be diff emulators idk if that would be possible to automate...
+Link can't roll over 3 inch ledges ig LUL
+Well SM64 it's just how ceilings and floors are done being stupid LUL
+Gross, I feel that heat tho, I got the same around me
+Yeah it was 97 where I'm at today, and a lot more than 4% humidity lmao.
+That's the hardest trick in the entire game
+What is the lore on Jake
+my boss said I can work a mid tomorrow, so I'm definitely getting weed and a burrito after work tomorrow
+Nintendo just made 3 lap races in Mario Kart World more common lol
+Yeah they effectively rolled back intermission races being more common
+a finger curls on the monkeys paw as i go into the vod...
+lemme read zsr but yes its something stupid
+i would argue that zsr is not totally clear
+basically you need to pull it straight back from fyrus, you pulled it to his side
+but zsr just says "away", which could be interpreted radially
+howdy hey, hope the run is going well!
+i don't think i do that at all, lemme check my vod and input viewer, i imagine i throw to the right and probably go neutral
+i don't touch the control stick after the backflips until i'm climbing the ledge
+at which point i ofc hold up
+how rough is the second armos clip manip
+it was one i didn't try originally
+oh you got red sword didn't you
+i can def do the first one, with the kinstone manip on top
+the only hard part of the first manip imo is the slash turns into the lever pull
+cuz you have to be fast enough to get the armos to not move at all to get the kinstone
+the default ladder emoji is hype
+and other statements that would confuse basically anyone out of context
+idk what other people would call it even
+but thats like calling DSS "superjump"
+there's the wii spot already in lakebed
+but KB2 skip is a step clip using eponas head
+A huge congrats are in order!
+U were awsm and love the commentary vibes.
+When is AG not taking a dump
+What is it with me and getting to the dungeon I hate the most
+That conditional being the key word
+spiderwatch is on high alert monkaS
+Its sky Time the fight for the run starts now
+the roll off of that is like, down left
+pet the dagron? nah, I'MA KICK IT IN THE DICK
+tried my hand at just using UT for minish cap tonight. Went most good but I peeked at it a few times
+using universal with pop tracker gets confusing cause quite a few check names dont match up
+ive had a good experience with banjo check names at least
+for example for deepwood the tracker uses 1F, B1, B2... while AP uses F1, F2, and B2
+i mean B1 at the end
+"blue rupee chest" yea sure i know what that chest has in vanilla
+im just eager to learn the checks and logic so i dont have to think abouut location names
+so majoras mask has taken a backseat for me
+when I get something like that I check my hints first to at least guide me
+i mean other people hinting stuff yeah
+im ready for tomorrow, i redeemed for someone to play book of mario LUL
+i hate this phase so much
+It's the Barry Sanders of horses.
+what i hate too is sometimes he just get into a loop of chasing after you and you can't do anything about it really
+i know the technical part of it, but i think the phase is just bad casually
+dylanjWave tippiWave monadoWave phanto274Wave Excellent time.
+I'm gonna rip a celebratory fart just for the run finishing
+Ironic timing for the stream to die
+i'm happy i got my new emotes in
+Finally out of ad hell lol
+phantom, i got it to work. I just went its doing this wrong, now its doing this other thing wrong, and now its stable LUL
+i now have a proper angy emote
+LINKS? but you got pape in not TP
+im just glad I didnt have to ask you for help with it. Im sure you wouldnt mind but id have no idea what Im doing.
+So what are the settings if this is not base 2/3?
+Hmm, I wonder if we'd ever consider re-closing Prologue for races
+Oh, also chat isn't on screen
+The first one being spooky is on brand
+i'm gonna hide an important item and we should play keep away from DANG
+I think the big factors in opening Prologue were nerfing Super Hammer and deleting Goomba King
+See now I'm just imaging starting with base 0 item inventory until you find pouches.  Make it even harder after removing jump/hammer
+GK at least has less cutscenes in minimal, not sure how people feel about the extra fights or gearbalancing though
+hey SS check out my new emotes mirbysAngy mirbysO7 mirbysHug mirbysSmug mirbysLUL
+Vanilla?  In our rando?  Reroll time
+the hardest part was deciding if mirbysO7 should be O7 or Salute as the code lol
+So far this seed has been pretty tame
+unfortunately i'll be missing out on Pax West this year, but i'm gonna try to go to TwitchCon/GDQx
+What else did you submit besides pape?
+i gotta think about what to submit this time
+Ah.  I've been enjoying the 1 runs.
+Even the upcoming changes aside, I dig the NPCs at the top of the tracker
+Oh it's fully random monkaS did not realize
+At least it's not something like 9 fp squirt of sushi
+You predict dungeon shuffle for s5?
+Hey kooper.  We have your shell.
+See I was joking about the random fp costs since I didn't know it was actually enabled
+I think that's where I was remembering the random over costed squirt vs lava pirhana
+During fully random BP they're still capped at 6, since I found 1-8 without biasing to be obnoxious
+Yeah, fully random eas never intended for competition, lol. It was an interesting choice for sure
+I wouldn't be opposed to random fp but it has a chance to be +-1 of original.  So some randomness but it's workable
+Great minds think alike then haha!
+The fp costs have like locked this seed.  Gross.
+Even after all this time I'm still unsure if the 10% for fully random during balanced random was a good idea
+Since you almost always only notice it if something gets unreasonably expensive
+I don't mind the 10%.  It's low enough it's not gonna screw over every ability on a single partner even if one is bad
+Oh for a showcase it's really bad I agree
+Dungeon entrance shuffle w/ LCL tends to sometimes just run long during generation. Something about placing dungeon entrances first can cause some rerolls
+oh my god they got david hasslehoff back to spongebob for the trailer for the new game
+I guess 2 with late hammer?
+I'm hoping I finally made the perfect spreadsheet so I can put it to rest
+Shows how much i know, lol
+Sup Phantom, grats on getting into PAX tippiSway
+Yo grats to you too AVP
+Cheer5 I will spam this until you make an alert (I won't actually).
+So its 8 min in and you have all your friends????
+free five cents is what they called me coming out of college
+That's more or less what I want for season 5. On the fence of another panel season vs merlow logic
+Yeah vague hints might make it less of a mess as season 3 so im leaning towards that
+nintendo: have a whale in a game that you can't go inside of challenge impossible
+I kinda want to do a season4.5 or something with co-op/some other various weird thing
+Bossess arent shuffled or anything right?
+Co-op sounds fun. Surprised no one stepped up to do an off season thing like people wanted
+Does pape have multiworld support yet?
+yeah I think everyone just expected someone else to step up and do that
+Uh, I watched a playthrough of TTYD one time. That's enough, right? avarie1Clueless
+I both want to know the context and don't about why Mario's ass would be sore.
+The only difference is it has better partners.  It doesn't have the burden
+Is there an easy way to play this game?
+I mean that is only a little over an hour drive away from me
+Hmmmm I do have a WiiU
+I speedrun BioShock Infinite, I was born in the input delay, buddy.
+yeah it is 75$ for one day or 260 for the whole event
+Yo, good luck at PAX. New PB at PAX? VoteYea
+A lot of people have been begging for trick list to be changed since we've been using the same list since season 2
+Adding new stuff really. They wanna do stuff like skilling pulse stone etc...
+Ive been asked to allow lp skip lmaoooo
+I also think that there should be a rule where if both racers agree to  something that it should be allowed/enabled  even if it normally isn't
+That could solve a lot of headaches for people wanting different things.
+Wouldnt allow unrestricted,  but could do race rules with gentleman aggreements to add stuff lime pulse stone skip and such
+no tricks enabled mandatory mirror mode so people cant complain it isnt a fresh rule set SeemsGood
+or we could try a draft for different settings or something
+Even if badges suck at least you have all your friends
+i only have 5.9 friends iceblueBigsad
+@Swiftalu is laki really not your friend to
+there's nothing wrong with the .9 friend he's just really short
+i would just to be contrarian
+"Fuck the cake mix I have cake"
+i cant get the normal skip for that ultra block to work so i have to use clippy and crawl around its dumb how consitent ive gotten at it now lol
+Uhhh, I don't think I've ever paid attention to that
+Wait why does this chapter have a boss?  I thought you just got the star for free.
+@crimsonkn what can't you get to work for the normal skip?
+i dont have a good controller for angles i think is my issue but i can get clippy and jump around the top
+which part are you messing up
+i cant land it after the ledge no matter what i try im assuming its just a controller issue as i said
+have the trick rules even changed since you came up with that google doc
+I mean what if someone were to accidentally get on sushie at that exact postion  Kappa
+Im also probably considering allowing jumping on koopa to get ultra boot block in sewers
+also logic question if the clippy tricks are enabled does it include for the tree ledge and tree in prolog? since its super free
+TIL Rigby is a pape runner Flushed
+Yeah, I was a top 10 runnsr until SOMEONE beat me. I cant remember who
+How would I when I didn't even know he ran the game
+Nowadays I just run the rando league
+yeah vanilla is kinda dead ngl
+there NOW you have every partner
+not a single one you're missing
+Just finished ur GDQ vid. That was epic
+Risch and ice should team up more often
+clearly this trick shouldn't be allowed Kappa
+Thinking about it, since we are dungeon  shuffle this season, I might allow pulse stone skip and raph skip too
+Gee, if only there were a badge that made you immune to status effects!
+Just thinking of allowing easier access to some dungeons just to see what they are
+I did like the 0-star-required seeds I sentenced Adam to a while back.
+Race with dojo does sound miserable
+dojo in logic for blitz when?
+Really good room tbf.  Not needed but nice.
+but will they all cost 8 BP?
+Can we get an option for the rando to include Book of Mario text? With required quizzes and letter delivery rewards?
+GL and grats on getting into pax rischBless
+I mean, I'll be alive in the Seattle area for sure LUL
+I haven't been in a few years, the last time I went I just walked around for a bit, started to get a migraine, and left
+I think it was like, the first one since the pandemic, so like 2021 or 2022?
+Nice of the game to hand you 2 more damage on your feet
+laki clips could maybe be allowed to seeing as they arent that hard
+because there is also like warehouse key skip and kooper skip (with laki)
+so Dungeon Shuffle with LCL only shuffles in logic dungeons?
+make an any% category and a glitchless category LUL
+Yeah thats what id be worried of, I would want to add stuff to allow access to dungeons early so you can see what was randomized but im not sure yet
+I mean with just laki clips laki alone doesn't do too much
+Potential ch 5 access is the big one
+I mean laki clips don't help you really skip any c5 stuff
+1 hr slammaroo and my chilli is done
+I could see c7 sushie glitch being allowed to
+To be fair though,  cake mix is often early enough in logic so 9 times out of 10 you'll have cake by the time you decide to come here
+personally I dislike when a trick is banned just because it skips too much even when it isn't hard at all to do
+When I did a poll last season, literally 0 people voted for random puzzle lmao
+IMO I would be fine with mystery note being required but none of the other random puzzles
+the rule set to me is a slippery slope
+but i dont like pay to play or cash out for top 5 like OOT
+I mean the way I think about it having glitches allowed enables more decision making which is better, the issue is just when not everyone knows all the glitches
+Only tricks I learnt I did when I was actively running the game
+Didn't learn anything for the rando
+I mean there is also certain people that do actually learn glitches to and the issue is pleasing both crowds
+like I mainly quit joining league because I wanted to do glitches in my seeds
+I can probably count on 1 hand the amount of current rando runners who've also played vanilla speedruns
+finding settings to appease everyone is next to impossible, I deal with it in KH2 rando as well
+And 2 of those 3 are glitchless runners
+I am sure that at least some of the people would be willing to learn more tricks if they were allowed
+i mean active people is low, there is so many people in the kh2 rando discord
+Yeah not a lot of people are as willing lol
+I mean not too many but at least some
+like, learning tricks would be nice but how often will they be allowed in league is the question, learning something to just not be allowed to use it feels bad for most
+oh my god is that bowser?!?
+yeah I feel like if a lot of glitches are allowed you would want to up it to at least 5 chapters
+I hate it when microsoft windows slows down opening toybox :(
+Yeah season 5 looking pretty similar to these settings
+my new emotes came in ice :3
+i'll mark your star rod phantom
+If you wanna send it now
+wow Amazon missing out on free money.
+I was told if I ever get front page again, to turn on 20 minutes of ads
+ad from the past huh iceblue69LLLLLLLLLLLLLLLLLL
+yo how we still got mirrored webcams in the year of our lord 2025?
+Just make a casual 500 dollars off ads lol
+at that point it's basically a secret stream
+if your'e subbed or have turbo you get to watch but if you don't and are idling on front page thanks for the free money!
+just mirror your whole stream then Kappa
+I did that for an april fools stream once
+i have plans for the next april fool's, i am gonna play a GBC game that may not actually be beatable lol
+only sushi i eat now is shrimp other latest was scallops
+the only thing goombario has ever been good for is memeing on
+Who left this Bow out to dry dock
+but how else will you make mushroom risotto tonight
+For sale one turtle in a cloud
+What was the only Nintendo series to really fall flat? Paper Mario
+@Mirby_Studios He probably has a Watt locked in his cellar too lmao.
+Oh yeah my sleeves came in for my cards
+Yeah the chronicles Sky Striker sleeves
+I want to make a more modern Dark Magician Deck but need to wait for DOOD to come out with some support for that deck
+Yeah the Link 2 Miasma Necromancer
+It also helps that I want to build Rose Dragons too
+IDK if Rigby told you but he posted a thought for next season which is mostly what you have but with panel shuffle and vague hints
+1 more HP than you needed
+Oh sweet, you finally regained the will to play Pape rando
+Luigi invites Mario over to play some Nintendo Switch... ...as they get ready to fire up some Smash Bros. Mario notices Luigi has a new avatar.  Mario asks, "Say, Luigi, what kind picture is that?"  Luigi says... "It's a Mii, Mario."
+Rando? I was Randoed once... In Mario, Paper mario, in a Paper mario rando, it made me randoed
+doing rando at Pax is crazy
+I might’ve gone to PAX West if I didn’t already go to East this year
+the only two people i really know who got into pax for runs are both doing mario related runs lol
+If I had pto, and flying to seattle wasn't 300 quadrillion dollars, i'd go
+Flying to Boston was only $130 for me since I’m in PA, Seattle would be a couple dollars more than that probably
+yeah shas got in with wario land 4 normal any% zipless
+you left the dirt in goomba village
+he's standing next to his sister
+may i offer you a nice egg in this trying time
+Just ban me now I'm so sorry :(
+Question! When do you think you'd be ending stream? (don't rush for my sake) we just have a semi large package outside that is heavy and it's been out there since yesterday oranLUL
+So I finally ordered my desk last weekend
+and then yesterday they discounted it $40 :(
+Gotcha!! That's what I figured lol, it's like.. 80 pounds x2 and large so neither Shen and I can do it unfortunately oranCry
+Shen was like "I can lock in" and I go.. "no don't please LOL"
+It's an L-shaped so I think it's two 48x24 segments
+just give me like... 10 hours
+Oh no it's 160 pounds and really large haha
+yea 2 separate boxes each 80 pounds I think tapped together LOL
+oh shit i didn't know you could skip that one too
+So the frame already arrived, the desktops should arrive tomorrow so fingers crossed
+Because I really would like to get my computer set back up
+Although I had to wait on getting a new chair
+Money getting tight and I'm not feeling great about where work is at ATM
+But it's okay Phantom! They suggested using AI to cope with your unemployment
+Which you can pay for as part of your Bing Subscription
+So, I currently work in tech and ngl I kinda hate myself for it now LUL
+(I laugh so I don't cry :( )
+Did they replace you with AI?
+You mean all the things that a company would love to know about you for completely altruistic purposes?
+And certainly not all for manipulative tactics?
+But yeah I'm trying to get out but it's been very difficult especially with everything going on
+But hopefully labor day sales will make chair more affordable
+For now I went with a standing desk stool which came today and was super cheap. It's alright, and it beats standing all the time, but no backrest or anything to relax
+tbf I said that before you said Pax, my default state is to just doubt myself YEP
+But yeah, hopefully labor day sales Prayge
+You are crazy AND there's 2
+8bp for both power plus and mega rush is just disrespectful
+Yeah that should be illegal lol
+also hey man how's the randomizer wolfyh2Wooper
+my gf and i have been going through ttyd for the first time and we were both devastated to see quick change was 7bp
+been lurking since.... since you were talking about how Rigby was the only person could touch you in rando league
+it was her favorite because she likes tattling it hurts lmao
+didn't know that was an attack
+i have also never seen that attack
+making tacos atm. Thinking about it, I make tacos a LOT
+what is the benefit of getting power jump exactly
+that's where i left my nuts
+me when i'm considering an orchiectomy "i really don't want all these nuts"
+This Ruins couldn't be deader lmao
+will you have to go back to fight tutankoopa at some point?
+right yeah one more key, i forgor wolfyh2Wooper
+it's not cheating it's just ignoring the rules!
+that's what you get for thinking of cheating
+yeah that's why you gotta go back around
+Who's up dreamin of cheating in they rando tonight 👀
+it's right there in the text message
+POLICE ARE ILLEGAL CALL IN THE DANCING LOBSTERS
+Diamond stone is on digdogger in level 5
+I ate it, sorry did you need it
+I can get it back to you in 2-3 business days
+I'm not about to shit at the speed of light over some ronk I ate
+this sounds like a sponsor for Miralax
+(From the side of the frame) I hate cherry!
+ate your diamond stone? try Miralax! phanto274Smile
+everything always is in cherry and I hate it
+i would rather eat a tub of sand then have anything artificial grape flavored
+orange can be pretty bad too
+tho, I guess that's kind of how we got into this situation in the first place, except the sand is in collected, single ronk form
+someone out there would do it too
+i was JUST about to ask if you were hungry phanto274Lurk
+I'm considering a bowl of cereal
+the ronk didn't exactly whet my appetite
+i have dinner being made, chicken drumsticks with some potatoes wolfyh2AYAYA
+geez Lakilester looks like a ninja turtle. or sick
+Tomorrow I get to test out the blackberry jam I made from the fresh berries out back
+:( So rude of the passion fruit smh
+I thought you were gonna say Passionfruit pantheon
+I am very Normal (Celeste Pilled)
+Passionfruit Pantheon is the name of the Grandmaster Lobby in Strawberry Jam, which is a Celeste mod
+Yeah just drop your run from pax honestly
+who up blooping their rando rn
+that would be so tragic LUL
+I might be able to think of one thing but it may count as backseating to say
+I was gonna say when you left that it's totally gonna be on Pokeys LUL
+altho idk if it'd work very well on the stone chomps
+ugh. I should do witch shit but I dun wanna
+oh gdi I got here right at the end. Stupid work AngyTwink
+oh I did a rando the other day. I got some really good reads into where I needed to find items, but still got a 3:15 3:
+I think I had to double dip some places
+nerdCheck 1st still haven't been redeem
+What do you need star peices for?
+Oh star peices are in logic too?
+Kinda. I dont want  situation where a seed has exact amount if star peices for something
+Without doing something cringe for it
+I can leave it on if it isnt that bad
+Yeah I'll do the same when I play the settings, I wont do pulse stone skip or anything immediately
+It doesnt even seem bad in practice either having panels and merlow logic
+Merlow without panels become get superboots and you have your merlow item
+I am like halfway through assembling
+I am now tired and am taking a break until next year
+This is a very open seed
+Literally 5 places you can go
+Yeah ch 5 dungeon seems really good atm since its on the way and logic is pointing towards ruins
+Im definitely gonna forget 50 coin blocks
+Desert unironically are the ones ill remember
+Ill just be in S4 mode and ignore them
+you got a baby rando lmao. everythings one tap
+So just a bomb for go
+I forget,  is that check ruins completion specifically or ch 2 in general?
+Yeah I expect 1:4x to be the average
+Toybox in general is nerfed a lot with block coins
+Green station without parakarry gonna feel really bad now
+The panels oddly matter more with merlow logic than being checks themselves
+If my console turns on ill try
+i put more spaces than that but twitch said no
+Funny getting a partner from Goombario
+@Rgamer0 "here's someone more useful than me"
+Only half of the holes are where I need them
+So like. The 4 on the edge of the frame are in the correct place. But the ones in the middle just don't exist
+Like, there isn't even a hole in between the edges that would suggest I did something wrong :(
+According to many reviews it seems this is not an uncommon issue
+I think I just put in the edge ones, and then I'll try to get the other ones in somehow
+You would think/hope that, but alas
+crazy seed so far. Wild item placements
+We like "not bad" seeds around here
+seed is on the vase Nodders
+it's s5 settings, progression always on vase
+Ok, so I finally found a user assembly video and they were basically like "Yep these holes aren't pre drilled, just drill them in"
+we gotta submit Pape Rando to next years Evo tbh
+But at least I didn't do anything wronf
+Yeah basically it sounds like they reuse the tops with multiple frames, so they just drill common holes and different mounting options but they don't always line up for all frames
+Get what you pay for I guess
+Ngl what was even more dumb was they say how it's all reversible except with their support brackets you can't fit the two wood pieces next to each other in all options
+So like basically I have one laying down as the long side of the L, the short side can only stick out on one side
+So like they have all these unused holes for all these options except the one I wanted and also not for the frame I specifically bought it with
+But again. I guess I can't complain too much for what I paid compared to other option
+Like basically. The way I originally wanted was for the long side to against my wall, with the small side next to my door, except the top wouldn't go together that way LUL
+based streamer giving us more time to listen to this banger of a song
+I'm planning on joining for S5, even if I get my butt whooped every time
+The train in toybox was  comical because of that
+I did that trying to skip ruins
+I did the yellow berry stuff right after bsating 6
+Since laki was in gulch, you should've had it when beating 6
+Ok that made the big difference then
+I had like 6 lifeshrooms so I had no problems burning them
+So used 1 on jr and 1 on final
+I saw you changed your name and then promptly forgor
+I thought I heard a snippet of MM
+is it in Chinese or Japanese
+cause if it's in Japanese I can help
+the bot has too much audacity
+I too love the main menu cause it reminds me I am about to commit many sins and atrocities against god
+marcoGL phanto274GL Let the best pape(r) win!
+glhf as much as the game allows
+The last 3 times Lopez completed Goombario, he got 11:03, 11:05 and 11:06 total time.
+The last 3 times Lopez completed Prologue, he got 22:00, 22:03 and 22:03 total time.
+he's a king he has to have modesty
+blind races happen all the time so its not a farfetched challenge
+And they all allude to their shadiness
+back in time for the race
+if I ever meet @blacktiger51 irl, we GOTTA hit each other with Yo
+i got money on this race let's goooooo
+oh jeez imagine a lakitu without a shell or the cloud
+Spiny eggs hatch into spinies, which lakitus regurgitate. However, Yoshis vore creatures in order to make their eggs
+i think they get partially stuck to build up momentum
+@FatPidgeyBirb Are these eggs their young, or just ammunition?
+you're their young if you survive being used as ammunition
+this is like when me and Tiff have a giggle fit and can't stop laughing
+Yo phantom, been loving that nightmare shuffle
+how do i convince my almost 3 year old to have a pape themed birthday party over minnie mouse since she shares a birthday with pape
+its been a good run lol
+i THINK 5-7 years, before they added Neon to Valorant
+if anybody knows when taht was
+i appealed, but we'll see. "Cum" is latin for with so...
+I’m home and I had to finish my game before I went to work. lol
+BJs too crowded every time i go :(
+nooo don't stop i will cry
+why are we trying to erase paper mario even more
+that's a cursed thought and i hate you for that
+WHY WOULD YOU CURSE ME WITH THIS KNOWLEDGE
+I NOW HAVE TO LIVE WITH THIS KNOWLEDGE FOR THE REST OF MY LIFE NOW
+it's literally all i want in life is for my friends to play glitchless forever
+and to convert new people to glitchless
+i will run glitchless this year i swear i just have like 5 sidequests and the main quest right now
+you PB'd the other day right?!
+12 hour celeste session the next day
+and then 24 hour pape stream
+and then spontaneous combustion at the end (fireworks show)
+okay well 24 hour pape stream????
+@GTM__ gl btw, I believe random239Bless
+yeah im tryna integrate myself with toher communities more
+leave the sm64 bubble and embark on a new quest of friends
+yesss!! we love new friends here
+bring all your friends (as long as they chill lol)
+hey don't lump me in with your cynicism
+i've truly never made fun of anyone ever in my life
+youve never been evil for fun?
+@GTM__ hehe of course not :3
+wow I also resent that statement
+arie you just lost friendship/romance points
+do you prefer vanilla or randomizer phantom?
+golden deer is that even a question
+if you join that churchy bitch I am judging you
+dw im here to provide entertainment
+to make it feel like running glitchless is worth it
+plus i'm just catching lobsters on runescape
+I better get to bed. I have to work at 10am. hopefully I can catch your next stream phantom. have good night everyone. phanto274Sleep
+Dude you fucking risked it all
+GLHF Phantom megaFlushed yo blopez gl
+I saw you were playing last night
+When you playing next? Ill hop on next session
+After another jamboree wr, I need something to do
+Took me 3 finished runs to get all minigames wr
+BEAT THE CRAP OUTTA BL- I mean yo gl
+why did it send that emote
+I don't randomly get those Ads I research them smilers
+I'm an expert on coq, does that count?
+Just play Mario Kart as bowser and win both
+I think this race is healing my soul a little bit
+It feels so nostalgic all my homies hanging out over pape serend17Sad
+I miss when phantom ... 😳
+i can't believe phantom is alive
+this game can't just let people have a GOOD NIGHT for ONCE
+one of these days I need to do a random glitchless run, just to see if I beat my old time KEKW
+Damn I should be in Las Vegas right now
+My brothers are drunk and huddled around a tv watching High School Musical
+I did enjoy watching it after having not seen it in years
+I just heard my brother shout about Italian racism in the film
+this guy bopped me on an average run
+ty stream, both of you random239Love
+ty for the euphoria of watching glitchless
+I was in the bathroom and busy doing stuff. Can you do Ch. 8 again? :)
+just do the whole game again
+oh no i can't watch it from the UK
+Nice solid race. Sad about u not winning but fun nonetheless. Hope u have a great rest of day.
+Do all of the dungeons, but fast
+So apparently I need to warranty the desk, so this has been a fantastic weekend 4Head
+They don't even know they're not required
+Ayo, a DVD? We're gonna watch a movie?
+This movie is called The Legend of Zelda: Twilight Princess: All dungeons (quickly): A speedrun tale
+i hope its not a tamer
+not a fan of that genre
+oh so no grinding... seems doable
+play the game in 3:59 or less or i'm reenacting the movie "national treasure" tonight
+shuffler has been alot of fun, and its the best way to experience BN4... 3 minutes at a time LUL
+phantom did i show you the somewhat secret idea i have for my pax run
+@axl_sr see...now I kinda want to do a randomizer where it's all 6 games shuffled up
+check dms when you get a sec
+not to be confused with the public idea, which is whatever jersey thing we're doing in the discord
+@Penguin_Cuddles if only we knew someone that did something like that with a rando like... oh, i dont know... maybe paper mario?
+Mr. The of Glubbers, I need to warranty my desk :(
+i'm gonna do it as long as gobb signs off on it as my commentator
+One of the legs is broken
+i don't imagine he will, he's one of the seattle natives i go out with, with momo/variety/req
+so i know him somewhat and it seems like he'd be down
+We are gonna eat that goat.  Who's ready for kabobs?
+Like it's pretty much completely defective
+Based on the last few bo's.  It's gonna be a 12 slap upset
+basically the only thing i want him to sign off on is not giving away the joke early
+Every stream is a mid stream HypeFire /teasing
+I gtg now, but good luck with the run(s) today
+i never noticed that wolf link's shadow shows midna here as well, neat
+i pressed enter on accident as you could tell
+i regret not going this year
+idk hoping that i might live closer next year if things go well
+i mean the question still stands
+well you could just do this category, slowly
+we arent going for the fastest time, we;'re going for the longest timne
+Nah clearly it's a 60k redeem.  Long speedrun or bust :p
+started a new job, so lost an infinite amount of free time
+i just notice no bed in background with miscelanous plushies and or cat on them
+im gonna be cleaning out asbestos the next 6-8 weeks
+yeah i have my abatement lisence, it is gonna suck major ass, but itll be very good money
+how do you feel about season 5 settings?
+ill prob join races but I dont wanna be confined to the league
+working at heights, skidskeet, mini excavator, propane, acetalyne cutting, forklift, asbestos, first aid, fire watch, book seven (setting up road closure zones) and flagging and uh...  cant remember what else
+season 4 I had to do 16 races... that was so dumb
+i am very very overqualified for the flagging job ive been doing yes lmao
+see, if you continue runs with 8 IB times, you end up 40s behind. never worth it
+i never said there was causation
+i really enjot that one of the game redeems for gamews to learn is fuckin... Petz Dogs 2
+yeah that was a position i personally take every time
+tghe best solution, just git good
+pikaSmoke no this is better actually
+my gold's 5:04 if you're asking what a "good" one is, likely sub 5
+im gonna go do bow -> ocarina like 3 times then go finish re-learning the route, hopefully i can do a run tonight
+yeah i could pretty reasonably do it today if i weren't just busy as shit
+oh no I killed the run by coming in
+I'm sendin some pics of stuff I got from the patio garden 'v'
+I'm hoping now that they're not being choked by the mint, the rosemary and lavender starts coming in stronger
+gl next run 👏 may it not die to bad and unfair tricks
+i've been applying to jobs recently and i'm lowkey nervous af about interview bc of obvious reasobs
+I need to start looking for a job soon again and I am not amused at the thought
+everything around here is retail or warehouse and I *refuse* to go back to retail
+i think I'll fine just interesting what kind of reaction the person interviewing me will have when they actually see me
+outside world is overrated, stay indoors kids
+wish I was a teense closer to Mass, people are normally chill there
+Unfortunately the outside world is a necessary requirement to deal with life 😒
+I'm considering getting a day pass, yeah
+but it isn't that bad, it has bodies of water for swimming at least
+Ahh, I'm in queen Anne, pretty close to the Fremont bridge
+I've been in SLU briefly during an Amazon internship, then Capitol Hill the first year after college, then been in Queen Anne since
+LUL yeah, I was in SLU in 2018, I think they were working on that Google building at the time
+this is true there's no reason to go to SLU for me unless im for some reason getting food in SLU
+I think you should do a run that goes all the way to stabbing Ganondorf YEP
+I can tell you EXACTLY what he did wrong
+He is guilty of two things
+link engages in the hylian tradition of carrying the heusafel stone
+isn't that the exact reason why he is in the twilight realm in this game?
+1) He messed with Link's village. Not a major problem, except Ordon produces cheese. You don't disrupt my cheese supply chain. That's crime #1
+2) He made us have to fight Zant and look at him and just generally be aware of his existance. That's crime #2
+The Boulder would argue that its name is not Dwayne
+THE BOULDER has no conflict with correcting his name
+i've never seen a TP run before so i've never seen that wrong warp to the menu before
+Listen up Gate! You may be big, but you ain't bad... THE BOULDER's gonna win this.. in a landslide
+i'd say that's an average sized key
+Medium keys are a terrible value
+It's almost always better to upgrade to a Big Key
+Or just get a Small Key and save money
+my favorite part was distracting ganon with the rod
+That's so funny that they just disappear fivever
+I got trnarw1 A first try lmao
+oh boy this stupid part that was even more tedious in skyward sword
+@FatPidgeyBirb Drunk after dinner with lots of overtime on the shift this week.
+hell yeah, the paycheck is gonna be lit
+what was that guy that jumped off of called
+midna is probably like "not quite the sword i was talking about but i guess it's fine"
+What’s an Enderman’s favourite band?   Click for answer Imagine Dragons.
+My cousin said he wanted “Wolfenstein” for his birthday, so I got him a stone shaped like a wolf…
+Did you hear about the guy who met a Mirelurk at the bar? He’s got crabs now.
+"link finish him off now with your move you have" link-"my what?"
+ganondorf just laying there on the ground waiting for you put him out
+Most tricks in tp look hard to be consistent at
+Yo a game i actually played before
+Let's see how hard the bot drops the ball
+3rd times the charm syaing still exists
+just make a new account EZ Kappa
+@blacktiger51 I already have a main and alt
+@SwiftPichu_ i have a level 60 main account
+If you say miyabi I swear to fuck
+I like yi xuan but that hasn't stopped me from being an Evelyn main lol
+@SwiftPichu_ you got her best team tho?
+damn lighter make that team nasty
+Right now it's Astra yixuan and Evelyn while I get koleda running
+That loses less time than what I expected
+Everyone makes it out to be like losing 5 mins
+damn i could get the world record for the new account speed run on star rail that doesn't sounds bad
+yeah but it does have a skip story button now
+my cat is so cute when she sleeps
+GoldPLZ dylanjGold rubenl12RubnSkadushGold is a start
+i put one of her sleeping in your server
+she got a plastic bag stuck around her neck earlier today
+i saw you three were on
+What was the real separator in the race ?
+oh so it wasnt a bad ice king or fire petey
+you must have gotten really unlucky while lopez didn't
+shoutout to butter and i being 2s apart
+yo veil ty for the gl
+yo morp ty for the gl
+lopez is just too good at shaving frames in every room in the run
+it adds up to so much time save
+he'd probably be crazy good at all bosses
+no ace is a bit more manageable only cuz it isn't as long
+my pb should have been 1:3x smh
+i know blockless clip is better now, it makes me want to try it again one day
+i've found the game i'm good at
+but i know if i play no ace, i plan to kill it as much as i can
+outside of kooper skip/sun tower skip
+just look at my playtime on mario kart
+but the runs would be either prologue simulator or "im on the run of my life rn"
+the timing for that 2nd jump attack is so weird
+BIGBUGGIES my Derek all Day Long.
+i love playing well and then i encounter the lilypad bugs
+it's actually one of the dumbest parts of this game OMEGALUL
+The Bot knows my dirty I am probably going to have romantic inclinations toward Pauline, Peach, Daisy, and Donkey Kong Classics... okay forget Donkey Kong Bananza and I have some kinda crazy with the sword
+my brain is too brain rotted for MM, running this game was a lot of fun though
+MM just itches my brain in a way that idk if another game can or will
+but phantom air tricking is slow it delays your trick boost when you nd
+there are really bonkers fast strats though on like every actual track
+wait you grab stuff with the ball loool
+the longer i stay away from this game the more i miss it
+the mm equivalent of what just happened was snowball on snowhead.
+I know this run is a pain, but we are still rooting for you to break a PB.
+I return with homemade CHIKI NUGGIE (and homefrie)
+makes less sense because there are usually less graphemes for basic english text they could have wrote this game in ascii
+man it gets claimed like 25 times over
+I'm BACK IN THE FUCKING SEWERS
+Link is hiding his kink side apparently
+is this another run since the one i was at earlier
+the whiplash when i first encountered this cutscene lmao
+Nintendo told RTA in Japan they need licenses to feature Nintendo games in their marathons
+How the hell do people find these HypeLol
+wait, if its been 9 years I should have more cchannel points
+ill be doing more shuffler later LUL
+bro, my streamerrs start at noon, I need a consistent 9-noon
+I was rewatching my delete quickman submission. its still WR. It was just a regular run but had a sub 30 quickman which was crazy for me back then.
+guess who is now a masterballer in pokemon PogChamp
+so you could improve it phanto274ColonD
+that must mean im the worlds best pokemon player
+then you had people grind that category only for over a year
+"i yearn for life outside the gate"
+a truck almost tboned me the only thing he thankfully did was break the fender some and scratched up the car some
+I just don’t like to drive because I’m not the problem other people are lol
+now I’m going to listen to stream and take a nap.
+Midna looks like she has a very uncomfortable saddle
+then it's a very bad airbag
+Proposal: We need a standard email line that slaps the other person when they're being an idiot
+Well then maybe people should stop being idiots NODDERS
+ooo I can make emotes. I’ll have to come up with something unique
+maybe my son can come up with something I’m not very creative but he is.
+right I’ll do that after my nap
+I need to stop playing scooby
+I need to speedrun other games
+True every game I play must have a dog in it
+go back to dog island then
+I'm stoopid I don't remeber that
+you are just too goated to practice damn
+I wish that were me Sadge
+Can't make up my mind about something so help me out here
+Oh shit that's this month?? Awesome
+i took a vacation there once and just let myself get lost
+Apparently its Owl Awareness Day. "A hoot-tastic day...."
+I gotta head out but I'll catch you later evo17Hiyo
+shower though i just had: doesnt ai very explicitly direspect gpl licenses? zfgThink
+remember when it got delayed like 5 times because of major security issues
+or how it absolutely MURDER ssd
+yea but that was just insane lol
+first beta of recall did so much read write it reduced the lifespan by like 10x or something crazy
+their answer would be "reinstall windows"
+Gonna unlurk to say def in some mood for some pape but Battlenetwork wasnt an option
+theres so much random bugs they just don't care anymore
+is there something youd rather :)
+pape any% how long is it not familliar with modern any%
+ok wasnt sure if it was like ace credit warp lol
+figured thats what it was but wanted to make sure
+Madge time to redo the poll Kappa
+havent watched pape any% in years
+it did volcano glitch over and over
+Bitch you know it wouldn't have
+What if I gave a fuck
+am I just speaking up? I've been lurking since I was dm'ing you
+do you think if they ever remake this game theyll make goomba king a secret superboss?
+I love your streams of Paper Mario
+would you want to race again Saturday
+finally achieved sub 3 in smrpg breezy
+and probably acquiring a switch 2 this month
+im looking forward to a lag free Boomer
+the amount of Shockers I have dropped on Boomer...
+anyways i need to stretch the leggies after that so brb
+no resetting until blooper, my pizza will be done then
+can i have the tunder bolt then?
+Im trying to get discussion going for the league. We have 2 weeks to finalize and you know how much input like to weigh in with LUL
+remember when M4 submitted settings and no one said anything so that became the ruleset then people complained?
+yea this didn't exist in the route i watched
+yea ok i don't even know what route i watched then KEKW
+reminds me of lets go mount skip, can only be done with specific controllers
+@Axl_SR nyacinthsNerdge it can be done with any but good luck
+much like many tricks in 3d zeldas were considered TAS only for a while before someone crazy enough made it rta viable
+MM Lullaby skip with ONLY Goron rolling without pause buffering is one such (lets be real its still not rta viable)
+i can't insist on how cursed that trick is btw because wind cycles are rng
+now im really eager for archipelago 0.6.3 to drop
+yea looked it up WR doesn't have glitchless lullaby skip still KEKW and its been years since it was made "rta viable"
+a PR got merged recently to adds in game hints to the hint client. My days of writing down banjo hints are over!
+it was allowed, then banned, then allowed, then banned, then allowed
+maybe it was banned again monadoShrug
+MultiServer: CreateHints command (Allows clients to hint own items in other worlds) > Pull request successfully merged and closed
+Hey Phantom, if you could keep Sushi as a pet, would you?
+Well hey at least you could have someone to talk to if your ever gaming alone! :)
+I can't believe this isn't ACE
+wow, no ACE? well what if I am Ace? phanto274Leave
+how are yoshis still alive this volcano is crazy active
+Goombario the real hero in this game
+bowser forgot how to breath fire
+The problem is that Bowser is not that bright.
+i love boss fight speedrun notes that are 5 pages long
+sounds like they could stand to make it a little more concise
+you should see my notes for the final boss of Stella Glow, turn 1 it branches off into like 5 different path lmao
+yea, a lot of wildly different things
+he's fr whipping out the star rod with these lightnings
+this was an outrageous pattern from what i came into
+one big peach warps split is the wave
+My pitch for BN7, HBD is real, but what if Yuuichiro exaggerated Hub’s condition to justify digitizing him? Maybe Hub wasn’t going to die right away—and Yuuichiro made the call anyway. Lan knew, kept the secret, and Patch only learns the truth decades later after finding HBD.LOG in some old files.
+I found some old fan theories about yuuichiro and expanded on it. Patch doing it is my original idea
+imagine BN as a visual novel KEKW
+i never bought the DVDs but I do still have the manga
+like bass fuses with flazar for example
+i dont remember that much from the manga but I do know Sean was used a lot more
+when lan visits yuuichiro in the hospital
+they've had it too good for too long
+it was only used as a way to teach Lan to aton for his crimes of setting Scilab on fire.
+In BCC he is freezeman's net op
+Hii Phantom str9ngLove str9ngLove how are you?
+I'm doing pretty good, just about to move next week so been working on getting ready for that. Miss your streams str9ngSadge
+Luckily only an hour away from where i am now, so not too bad
+Rivals 2 pushed out an update with a bug where certain characters can freeze their foes forever just by using a throw
+After being at EVO of all things
+Yup! So looking forward to it! Hope i can make it to your streams more often retrop32Free1
+Buddy saw the emote someone else had today and said "yo me too" swifSmug
+Oh lmfao I'm thinking of the spinner emote
+I can't wait to squish them like a pancake
+But you should still consider the legs :)
+God I hate the ad timer cause it never works
+I should probably do that but my last time tangoing with CSS was back when I was on dA swifOld
+The first time I played pokepark 2 I had just gotten my braces on, ah memories
+I can't believe colo is losing now in that one poll
+Nah you should do all snags so I finally make the sheet for it
+now this is a good stream title
+Which would be poetic, because that's what I got partnered off of
+It's losing by 1 point anyways
+why are there so many one framers in this game
+i dont think about them until i miss all of them in a split and im like, why did i lose more than i thought
+Yo fuck that guy in particular
+I actually really hate this bridge segment too
+Horse back riding is so jak
+I have in fact done it and it is no where near that jank 😩
+btw I was wondering what is the most beginner friendly TP category? I was suggested All Mirror Shards
+good resources, do a few runs over a month and get to show it off for a race
+yeah thank you, thinking of running an event and want to have some options for people who want to participate
+its weirdly well received as one
+yeah, AMS is also not my favorite because it's a... mid game? category?
+you neither start at the start or end at the end
+AFS is also notably harder than AMS
+@TheGlubbers yeah the problem is just that its going to be over 3 hours, we are looking for 30min to 2hour runs
+category extensions are fine, they just need to have decent resources for learning
+Pirate ArrTA I also heard is good
+other games categories we have as ideas are ALTTP NMG, OoT GSR, SSHD Harp
+Looking for something for WWHD that is easier than Any% No MSS
+was alright, got a ~50s PB in No IBG, tried another then some any%
+@Myth197 AMS is a solid one then, it can be done largely* glitchlessly
+*all the glitches required are trivial
+it seems like for long categories, the best way to practice everything is to just do runs lol
+i used to stream practice but not so much anymore
+unless you know where to look
+bsky is better because thats where all the cool trans people are
+i don't have a bluesky never use socials anyway beside twitch and youtube
+link is pretty cool, he kills bugs and doesn’t afraid of anything
+isnt there that big thing that adds an extra analog
+yeah without CPP idk what else there would be
+Thought you said "nice dick" KEKW
+only 3ds game i care about is dragon quest 8
+only 3ds game i care about is all of them
+i really liked spirit tracks, i haven't played it in ages though
+only zelda i haven't beat is zelda 2
+Who doesn't love running across a field on all fours and completely nude?
+@blacktiger51 Zelda II is scuffed,but enjoyable
+youtube already has my ID anyway though
+if that id thing come to Canada vpn time
+i heard that only if you have a shit vpn
+i rather pay then give youtube my id
+Pretty sure I gave youtube my ID to get a student discount on premium
+I forgot to follow you last time
+I need to go now see you Phantom
+WOOO! Time to stick your sword in GANON'S ASS TIME
+Gee, I wonder what GANON'S up to anyways
+hold up, lemme unfollow and follow again then
+Twitch be glitching like usual.  Was wondering why it hadn't started yet and realized after the ads it paused the stream.  Pass goats and everything already haha.
+On mobile today so it always comes with weird even more glitches
+Are any goats eligible for eating today?
+Haha that's good.  I make the joke since there is always the one goat that goes off to wonderland and beyond so I make the joke "guess we're eating that one"
+Or the last time where the 6 shadow birds almost killed you blocking the way to zelda
+Hey we didn't get cockblocked by them this time!
+Oh them I see them do Sonic ones all the time
+They got a $500 Morrigan statue
+hey Phantom can you read the following backwards? "was it a car or a cat I saw" Cheer100
+if you take out the spaces it matches
+battle network shuffler wil def bring the viewers in... just have to change your name to risch KEKW
+i dont watch bingo, do people find that appealing?
+Time to learn every zelda game over for a gba shuffler
+I have seen a lttp and minish shuffled before.  Was neat.
+I think a mario advance shuffler could be interesting. Advance 1-4
+Crossworlds for alltp is pretty well solved right?
+Well...have like 6 windows up.  Have a timer up to spin a wheel to swap to the next one?  It's a low tech solution I've seen before.
+Ah true...the paper mario one was pretty well
+how did you remove the seed once you finished one?
+At that point with a game that is less known having it limited to 2 might be better.  So you just swap to the other window
+I mean...I didn't watch it on YouTube since I watched it live 😅🤣
+At that point splice it and make a supercut
+I've heard more and more people are just leaving YouTube.  At the mercy of an algorithm with zero transparency has killed multiple channels over the years
+Yeah...a couple I watch started on YouTube and transitioned to twitch doing the games live with viewers watching then just uploading the vods because YouTube one day just went "nope"
+Huh neat.  I'll have to check if I've watch that one.  I found you from the mario randos from watching another creator.
+So. I finally heard they're sending me a replacement and it should arrive Monday night
+ooh skies of arcadia legends RA set is out
+... they sent *an entire new frame*
+And they said I don't need to send the old one back
+So like. I'm still a little PJSalt y at how long it took and the fact I've been without a working desk for an extra week
+(I'm also on call next week so that'll be extra fun)
+Like. I called Sunday and they said they would need to replacement. It took until last night for it to ship because of the one-email-a-day and asking for silly things like the video and then the address they already had and then a whole extra day just to tell the warehouse to ship it. Etc
+But like... I basically got an extra 2 legged desk out of the ordeal
+RIP that sucked for no reason
+That was worse than the desk company
+So basically i could just order a butcher block or something, and have a normal 2 legged sit stand desk, or use the broken leg and just have a non-adjustable L desk
+I guess this is all assuming the new legs actually work LUL
+Yeah the horse back fights in this game always have me a bit monkaS on spur management and dealing with extra enemies
+Would you like me to sue the game?
+I wouldn't trust a wario amiibo either
+Could you just PB without someone subscribing?
+I appreciate you at least make it valuable then
+I don't have any submarine sandwiches :(
+And I would probably eat one if I did
+Ok that was an awkward time for an ad
+I had no idea what happened with the trick LUL
+Like you were going down into the lake and then ad
+If Twitch was trying to convince someone to subscribe that might have worked
+Unfortunately I am broke. I just spent the rest of my future income on Nier Automata because it was on sale
+Look $13 and apparently the best sale they've ever had
+Ehh. If I don't play it for 2 whole hours I can refund it
+I tried that peak game but it kept crashing and glitching so I refunded that :(
+It looked interesting. But the hour I tried it was just frustrating and I didn't feel like spending $7 on a game that I'd only enjoy with friends knowing the chances they played it again were between negative and zero
+Especially when it basically didn't work for more than 10 minutes at a time
+Yeah. Like I think I bought R.E.P.O but that one is much easier to find a group for and also didn't crash any time I played it
+You might still be able to tbh
+Like the official policy is 2 weeks
+But I've heard of like a month or two
+Unfortunately that same situation is me with Baulders Gate 3
+Paid like $60, friends played by themselves, haven't played it and since it's gone on sale for like $40
+I could be convinced to play
+I don't like a lot of multiplayer games for that too
+Like one I've had is Dungeon Defenders. It's one those you don't need multiple people but solo gets more and more difficult
+Over the Hedge. VoteNay  Over the Ledge VoteYea
+But yeah we'll see how I feel about Nier
+I got reminded of it from Clair Obscur. I don't usually care for those gameplay styles but the story seems really good
+game giving you trouble since i left?
+And for $13 I figured I could give it a shot and see if I could get into it
+Game has stabbed him the back, twisted the knife, stabbed him in the front, and then asked "why you mad bro" while poking his eye
+you are not having a good time...started out kickin but you're too far in i'm guessing?
+nobody questions why the rock floats and disintegrates along with a human turning into a wolf and doing the same
+you are capable...you're awesome ass hell
+That run needed to be put down
+i gotta say...as much as i love lake hylia...those shadow beasts fucking suck
+if you end up having to start again...take a quick breather
+i gotta close my eyes for a bit so im gonna change to my phone and lurk
+Time for those goats and that bo
+Okay I gotta do what I said i was gonna do lol
+You know what the world needs more of?
+Zelda games with dungeons that have dungeon items and maybe not strictly linear but semi-linear progression YEP
+They're gonna switch 2 using dungeons again
+Take a break... clear the mind
+I said A rando lolz not tp
+Can also just do vanilla plays
+And if you're not even streaming, why are you odd?
+Did you guys hear about the fire in Canada being started by a flying fish?
+I would have watched Clair Obscure: Expedition 34
+I get ya... but maybe some days we should just take time out of the stats and just stream something you enjoy playing
+The only way that would actually make sense is if he set up a second channel
+I have a headache and just got out the shower a bit ago
+I don't understand the vods thing...idk how to stop them from expiring
+I'm good just got back from the beach
+You have to download them or export them to another platform
+Only 7 days for me :/
+It's 7 standard, 14 for affiliates, 60 for partners, or Twitch Turbo/Prime users
+I was recommended from someone idr to upload them on YouTube
+Thank you Sam lolz I like the play on your name
+Haha yeah me too I thought that one up a while ago and I've been using it ever since
+I just like the name Ann
+Makes sense tbh...I get a lot of like...art people showing up
+I was gonna ask about MM lolz
+I haven't gotten a chance to understand how to do it...I wanna do like the OoT MM randomizers
+I watched someone do like...tp ww rando and was just like WOW
+It just seemed unreal...like a "you can do that?"
+But also have fun evo17Hiyo evo17Heart
+You don't want me to go?
+I will say for me. It's usually less of the game/category and more just trying to gauge how sus chat is being that day LUL
+Like I don't really care for PM
+"Boy you sure are thick"....midna why
+Judging my the chain freaking out...probably
+I can stay for a bit longer
+Boy, you sure are thick lol
+I am infact doing well. making dinner
+That's just funny that Midna says that
+@samshine12 I'm not sure if shes talking about the fact that youre trying to skip it lol
+I'm too poor for sub atm lolz
+Sam I'm always gonna be there lol
+But uh...yeah so much stuff is being handled in the house that my money is just getting drained
+No...I'm on SSI. Epileptic so I cant work or drive...and i miss working :(
+I wish i was at least a different category rather than the tonic clonic one. But I just got approved this year so its been a few months
+Awwww that must be so hard to deal with
+I have the one where I lose consciousness and convulse
+I had a traumatic brain injury at a young age
+I mean it doesnt help i broke my leg at the start of 2025 either xD
+That sounds awful I'm so sorry
+@samshine12 What happened? evo17Wut if youre okay with me asking
+Only 1 month left...then "here i go again on my oooown"
+My dad hurt me real badly
+Omg i wish I could hug you evo17Wut
+I'm still doing physical therapy 20 years later
+DK64R has their first season 4 qualifiers right now... the race time as 44 people and every single one is streaming
+@samshine12 I didn't know they do pt for brain injuries...but at least youre getting help
+I thought they stopped the charity stream?
+I think it was on purpose
+its hard enough just to get 6 people for pape
+@samshine12 He's a bully if on purpose...but if an accident then I hope he apologized lots
+I don't think I can do pape rando...the music is too relaxing
+plus all the top racers dropped it like jcog, M4, paperario, ect.
+He went to jail but he did apologize
+@samshine12 Well...bad but at least he apologized
+I'm gonna be honest...I really miss my dad. And regret being mad for so long
+Even though I haven't seen him for 20 years
+Overtime shift is now done and today was supposed to be my day off
+i get asked why I dont race anymore, its cause people dont know how to make good race settings anymore
+have you ever played majoras mask
+Thank you for sharing about your epilepsy Anni
+did minish races ever take off?
+Thank you for telling me about your injury Sammy
+Majoras Mask is a great game
+Dude MM and TP are top tier
+is 15k points enough to ask you to do like hug% in majora or should i keep saving points. i don't even care if its a rando or whatever i just thought it would be really funny for someone to do hug%
+Anni would you like to be friends?
+hug% requires 2 dungeon clears if vanilla
+That would be nice sam! Sure
+I have never beaten skyward sword bc black avocado is always in my nightmares from the uncensored commercials on tv.
+yeah i don't like time mechanics either
+I think it would be nice too
+i love the idea of it like in shenmue
+playing on 3DS makes it easier LUL
+only if you patch the 3ds version
+because they ruined ice arrows and the deku bounce momentum
+and the boss fight for the worms
+every time the worm goes in the ground the hp resets. but the 3ds does have that time book and the guide rocks
+there are still some things that are ambiguous on 3ds that you can get stuck on
+I'm looking for advice atm Phan and community
+i went back to wind waker the other day and i was freaking lost
+I haven't been able to stream because appointments. I'm free Tuesday but also not. Is it a good idea to stream on a grieving day?
+Tuesday is the day my dad passed
+I'm just unsure is the most part
+It's been a year but its like 2 days before my grandma's birthday
+tomorrow marks 8 years since my grandmother passed
+if you're asking if its "correct" i don't think ur dad would want you to mope for his sake but if you're too emotional to stream it makes sense not to
+@Axl_SR I'm sorry...even though its been so long
+@TomaThePolliwog I guess I'll start and then see how I end up...doing
+my nana has been gone since 2015 and i don't really think about her death day. but i do think about her on her birthday or on holidays so
+Makes sense yeah...I wish i could visit his grave but that's an 8 hr drive
+yeah thats a tough place to be.
+Yeah..tried to make things better but it was too late
+you might wish you had more empathy even though you were put through hell
+It's harder to deal with death when youre older :/
+:( have a nice night/day heh
+i had to go through the like. realization that my parents are just people and trying not to blame them too hard for things ive been through
+We all make mistake even parents do
+I don't think I'll ever forgive my grandpa for..."harassing" me though
+its hard for me to relate to my family. my nana was the only one who really ever inquired about what i was interested in. but now I'm like. is my role to ask instead of expecting to be asked? but sometimes you talk and its just like. they have no interest in forming a frame of reference
+I never thought of life like that...let alone family
+i think my nana's outwardness came from a deep pain of being ignored
+I should talk to my grandma more...shes the one I'm always afraid of losing
+yeah, if you can. what i would do is talk and record her but just don't tell her. ask her about stories
+you might be the only one who ever has their voice
+I don't think I can record her from another state lolz
+i've had this message in my chatbox for like 4h lol
+If something for october...play a spooky scary game
+i love twitch not sending messages
+what if you shuffle a spooky hat
+or could do an archipelago shuffler if i ever get around to making that work
+or would have to use process based shuffler
+could play through games you've never played on shuffler Kappa
+wind waker but the shuffle is the boat gets teleported to a random spot
+the devs knew what they were doing in this game
+process based def open up a bit more options but is also prob more annoying to use
+@TomaThePolliwog Exactly they barrier locked the barriers.
+can't imagine obs playing nice with that either
+i meant spending so long on midna's facial animations but ok
+it struggles with a few things like dolphin having a different window for games
+@TomaThePolliwog even though there are golden wall skips hardly anyone ever does zach skip on castle climb.
+you could always have some kind of obs program to swap filters, start all the games and then when the process swaps just swap the crop in obs idk
+i'm also thinking on an AP perspective tbh
+EponaHonse the 12 year old of this world.
+yeah ive recently run into a scenario where i needed sql notify but its easier to just write a wrapper
+Remember to pay that skeleton for tuition
+yea it would def require some setup work that's for sure
+just gonna support more that way
+i think the wrapper would be sufficient
+so long the wrapper has access to what it needs
+i've done my part of very dubious hack im sure that would be reasonable
+i've overriden win32 method pointers once KEKW
+it was to handle third party code starting thread that would just... die randomly with the entire process
+so i did a hack to inject an exception capture for threads
+work makes you do stupid stuff sometimes KEKW
+never thought id ever say this but BopBop just has replaced Burgy and McDZombieHamburglar as my fave emote.
+sometimes its just that kinda day
+Yes so u r doing it after all would have been better if u replied though. GL on this today
+The dark souls run with the DDR pad is one of the best possible runs ever.
+Which goat are we gonna eat today
+Oh we don't get to eat any today darn
+Ooh we got it first try LuvSign
+2nd try Hugo was not a referee tis day
+Sub 3?  But you still have 17 goats to go then
+Ngl that sounds like a semi balanced breakfast
+It's collective eating.  So it doesn't have to be but it usually is.
+I’m so upsetti spaghetti I missed the race invite
+forest bit took me a while to figure out tbh
+i do the whole full set up tho, the lanbtern lioght, the flip the turn, and i STILL fuck up the timing of getting the sword horizontal
+I’m so hype you’re finally doing any%
+Yo phanto274GL on the race i been here lurking
+i walk in on "good luck to only me"
+before i go ahead and pass out
+i uh...went to the salon with my MIL...i got convinced into doing my nails
+but hey my ankle stopped being stiff so...W. like you're gonna get a W here
+good luck I’m going to go stream for a bit before work
+No way my name is also Phantom5800
+safe to say i did not wake up for this
+i finished an all masks run at 4:30am KEKW
+no because i missed TCS at the end of the run :(
+I'm trying to find a speedgame to run
+The thing is, I was a Undertale/deltarune speedrunnner until I was cyberbullied & banned for accidently calling people by the wrong pronouns a few times
+Which i still think is messed up
+wreaked a bit of havoc in botwsr
+Oh wait i recognize that name too lol
+Ok but did you atleast floor it?
+So hopefully the boost is all charged up then
+oh yeah babey we're so Paper Mario rn
+So does that mean checks you need will never be in 1, 2 etc etc?
+Ohh neat, I gotta try these settings then
+its 23:43 here. gonna be a while
+Yoooo how goes the Rando? majora66Love
+Paper Mario 64 is an all time classic for me.
+i lurked for the TP race how did it go??
+they should add the option to remove all saves
+yeah i think the wr is a 2:40 ish or smth?
+for a first run thats great
+youre quicker then 6 billion ppl
+that was a little worth it
+Howdy Phantom hope you’re having a good one! how did the race go? missed the end
+Alright, I haven’t done a  s5 seed yet, how are they feeling so far?
+I’m excited to try the dungeon shuffle, I haven’t got around to trying it yet
+Jr try harder, you’re just getting walked over phanto274Fine
+can’t go wrong with more Pape
+also I saw your footage was used in that GaMetal video, Mirby, congrats that’s hype!
+i have done footage for so so many gametal videos lol
+literally a moment of "do you have any idea how little that narrows it down" mirbysLUL
+what's next, a rock on mt rugged?
+lmfao I think it was the newer Gangplank galleon one
+ah yeah lol. yeah i did the DKC GBC footage there
+I went down a rabbit hole after seeing the composer for Pokemon Colosseum and XD play with someone who did a medley and then boom it was VGM remixes and saw you mentioned
+that’s pretty cool to be credited there
+I would have forgot it the first time I did it so I’m betting I still will
+I haven’t done coin block shuffle and I’m not looking forward to relearning my desert routing
+Honestly nothin like a good ol paper mario stream to calm the nerves
+I'm doing meh, something really bad happened before the race
+It's fine, it's just one of those temporary bad moments that will pass and then everything will be fine
+Question, in a paper mario randomizer, absolutely everything is randomized? Like even the load zones are randomized for example
+oh right I forgot standalone are off, that makes 4 not completely loaded now
+"Mario HATES Star Pieces." Absolutely loathes those things."
+yeah that’s right it was so front loaded you pretty much should go there immediately if you could
+was lurking since you trashed the cloud machine
+Oh woah, i didn't even notice you were playing as waluigi
+I’m just glad your map tracker has the visual, I can learn the coin blocks on the fly at least
+Okay I return now. How did everything go?
+are we going to be lucky and have a s5 preset? monadoCope
+I still can't believe the item spawning behind Mario was always a thing..
+Are there randomizers for the mario and luigi rpg games?
+Cause that would be fun to see
+The Superstar Saga one is okay but it’s mostly AP only
+I didn't even knew paper mario could get such high numbers
+@Amishman19 i've played SS in AP before, quite enjoy it
+honestly i just wish it was a harder game in rando PrideLaugh
+Oh look, a mush badge, destroy every fight
+i'm actually playing an archi tonight doing some smz3 TPFufun
+Speaking of console, you're playing this in a real n64 right?
+i'm good at sm and terrible at lttp lol
+Yeah isn't this game like hard to emulate 100% or something?
+I know LttP tricks, but I'm not familiar with the glitches. Outside of early Dark World.
+Nintendo can’t even emulate it correctly
+LttP was my introduction to Zelda, so I've got a huge soft spot for it
+i tried to run lttp once
+Minish cap is the one with toon link right?
+so i gave up when I wasn't immediately a wr runner
+Then it's the best game ever made
+tf were they smoking with that dude
+I'unno why but smiting enemies with lightning is always fun to me
+I’ve tried to play MM so many times and could never get into it
+MM has few dungeons but they're all well designed
+the mm dungeons are good beside stt
+ww dungeons aren't very good yeah
+side note, last night our neighbor gave us pizza with mushrooms, pineapple and pepperoni. That shit was ASS.
+@buff00n the mushrooms ruin it smh
+i always get lost in stt always miss a chest or something
+earth temple is fine but fuck wind temple
+I'd like MM dungeons more if I wasn't hunting for stray fairies
+The game is fun until the triforce piece hunt imo
+@buff00n i mean that's not REQUIRED but like... yeah why wouldn't you
+i refuse to do a ww rando cuz of wind temple
+just junk all of wind temple KEKW
+What would be the BLJ equivalent of mario 64 in paper mario?
+hell i don't even want to do totg
+If I knew WW well enough I think I'd like rando but its been a few years since I played
+@RobinWings_ there's a very nice map tracker you can use if you wanna get back into it
+I REALLY wanna do a Skyward Sword rando but setting that up is beyond me
+I'unno who decided that the MM spin attack upgrade applies to the 360 shortcut, but I hope that people got a raise
+Like, a trick that allows you to move really fast or even glitch through the collision or something like that
+@wolfyhii Oooo something to look into for sure
+didn't play TotK cuz I figured I wouldn't care for it since I was ehh on BotW
+sub 1:30 go mode is incredible to me
+@buff00n it's basically just slightly better botw with a way better story imo
+I'd have liked BotW more if weapons didn't break so easily, but I'm told the game wouldn't make sure w/o breakable weapons.
+@wolfyhii saw Phantom play it, and knew it wasn't gonna grab me
+legit, everything I disliked about BotW, a friend told me he LOVED all those things
+@buff00n that was one of the things that made me struggle to get into it
+the Thunder Temple is not well designed imo, very confusing
+I did all of the Divine Beasts, then just never booted up the game ever again
+yeahh that dungeon was bad, even the lead up to it kinda sucked
+I honestly thought that one was the best
+the stamina being so limited early feels so bad with the world being so big too
+But that's not saying much lol
+also, cannot fathom that the DLC to make power up the Master Sword, doesn't fix it from breaking. Wot's the bloody point.
+They're all just designed the same way as the divine beasts
+The Goron dungeon was pretty sick from what I remember, it being in the depths and whatnot
+doesn't help that Link goes NOWHERE when running. It doesn't feel much faster than his jog, imo
+I get the intention of Fuse
+I'm less into games that expect me to make my own fun / experiences. I want that shit already made for me to enjoy.
+It was mainly to address people's complaints with the weapon durability
+I still havent updated my game since they patched duping LUL
+Hey i'm not saying i was the biggest fan either LUL
+I heard they were super hard pressed to patch every glitch that was discovered
+also, MAYBE if the weapons from the dead champions didn't break, those would be worth something. But no. "If you gather the material, I can make you another" NO THANKS
+so, it's better to run BotW on Switch 1?
+That’s crazy, every other game gets faster and this slows down
+oh we're getting into dogshit territory if close call is needed
+is that generally how this plays out with s5 settings
+yeah all the blitz ones it’s not just a walk
+all 7 chapters just guaranteed danger and the end game was trivial
+@Amishman19 the bit i played in the early builds, i def agree
+watt really feels like a masterpiece of a partner in so many ways
+it's for sure more interesting like this, can probably just suck in a race setting sometimes lol
+There is the odd race it’s bad but I don’t find it happens too too often
+how much defense does bowser get from shielding himself?
+it’s 4/5 on English/JP hallway right?
+GG fam. just got here lol
+I think you’re the best blitz player on the world so you’re probably pretty safe lmao
+nah at my desk setting up now
+gonna root against Phantom in their own chat? smdh
+listen Lopez always gets gl from me
+how fast y'all setup cannon jumps now is mindboggling
+am I right this is GIGAFRIENDS music or is this end credits
+wait this is Minish then isn’t it
+No it can’t be which is it
+phanto274Lurk lurky struggling to stay awake hospital getting worse   i give u power to win
+Darn missed the whole thing it seems the card show and work job went well.
+HERE'S YOUR CHANCE TO WIN BIG, CHAT
+KEKW as soon as i wanted to gamba for first time ever it closed up.
+ty I don’t need them but I can’t resist a free win KEKW
+I mean you got this Phantom! phanto274S
+We are all the coughing baby to Lopez’s hydrogen bomb
+oh so u sub 4ed awsm!
+Forgot to say here GLHF dont die or crash
+I can hear the Mario Kart being setup now
+Hello, Paper Mario. This is Goomba King, and I write this letter painstakingly to inform you that I will be pressing charges against you for your misdemeanors. I will need to be paid damages for the destruction of my house, the hospital bills for my flavored goombas (Eldstar bless their souls), the hours that went into scraping me off of the background, and the nut you dislodged from my tree. Don't think you'll be spinning your way out of this one, I'll see you in court.
+omg I don’t think I’ve seen that bot announcement before lmao
+i feel like paper mario is the kind of game that is like doom. but it doesn't have the cult following to get ported to everything
+just send parakarry out for delivery to trade the mushroom
+Dang went to taste test my Tortellini dinner and boom burned out tonguies
+Solid start from both prologue went well
+finally we can trade that mushroom. carry this letter across the internet parakarry thanks
+Nobody accidentally talked to Buzzar, race is dead
+fair point, the later the funnier too
+Lopez was out here playing rando the whole time
+Don't worry someone is going to paste a link soon
+i died here twice during a rando i played cause the chain chomps were lethal
+1 hr party and no forfeits niceys
+damn those support beams aren't connected smh Sadge
+legend says the boo mansion now has two more boo butlers... toadsworth and diddy kong
+Man am I sweating on this pred now
+that 0.5 seconds makes all the difference in bake time
+how is it, without fail, every pape64 stream i see from anyone i catch chapter 5
+2 hr slamboree and strong ToetoToe
+this has consistently happened since jcog was running RAC
+...as i don't run this game i didn't realize that
+it's time for FUCK! THIS! GAMESHOW!
+Livesplit didn't automatically fuck you over 👏
+Hi, quick question (so it's fast). Are you using the NOS in this race?
+phantom is super far behind huh
+Probably because he hasn't used the NOS
+back on your Kart bullshit M4? 😏
+Oh goodness and boy both my stream stutters and stall lags missed my fave huff n puff
+bad times all around were had 😔
+castle library one scripted for the final fights already, I assume?
+me fighting my mint bush tomorrow like
+3 hrs of no quit greatness
+Bow to our King of chilly greatness. Lets all Ice out.
+you can forget everything else. forget boo feet for the love of everything unholy
+Pape dailies can be forgotten alongside boo feet
+be gay do crime as they say
+everyone gets a chance to support their local library, how wholesome fatpidCOMNFY
+suggestion: jump on him until he dies
+it's only the 5th entry for some reason
+bad choices were made all around today
+@buff00n It's fun for a small multiplayer game
+Good news, ad break skipped peach fight
+still eating, will be a minute
+i didnt know wha half the setting were soooo
+surely you can just beat it without cheating NODDERS
+very interested in watching this glitch logic
+omg is this like...rando but without the perks?
+this is very very evil i love it
+have i made a softlocked  seed?
+just checking cause i have spoiler   is the spheres the "logic"
+glitch logic is everything on right
+always assuming everything is done simultaneously within a single sphere
+this is looking like a very cursed seed
+imagine if ive made a impossible seed
+i gave u spinner cause i like spinner
+do scents count as an item?
+am i allowed to give hint too
+what if you talk to the spirit in faron? doesn't it count as a cutscene?
+does this have fast spinner enabled
+@TheMasterZelda I think i missed that
+can't wait for the nuts duping to epona clip into forest temple
+i gave spinner cause me like spinner
+Phantom of phantom. I think those Twilight Beasts want to attack tou
+the things didn't appear when you were on the spinner
+I may have done that backwards
+Been a while since I've watched that season
+how are we all doing today? :)
+for refrence jewel i know nothing and  pressed buttons  and read tiny descriptions
+makes it all more fun when you don't know what's going on lol
+that explosion is what happening inside phantoms head doing this seed :P
+was on the phone with my sister lol
+Okay but ngl if I saw a dog posting on Discord I'd back away slowly hoping it didn't notice me
+I don't want to be replaced by a dog
+so this gonna be like a 8 hour rando
+that is cutest fucking dog EVER
+so uh i was dm'd and uh gl
+well this is really gonna cut into your time...
+i'm pretty sure spinner from start is what makes this so weird
+autosaving... man wouldn't that be wonderful...?
+yea at least it wasn't lanayru twilight
+yeah if that had happened like 2 hours in that would have sucked...
+not that it doesn't suck now but it would have really sucked...
+and who knows what'll be behind rang
+OK urrm I have made another seed JUST incase u wana swap and i think ive chosen better
+i am extremely tired lol but gotta stay up
+That's like an Okami level fight trigger skip LUL
+don't go into malo mart and just head straight for death mountain lol
+I'm good about to have dinner
+whatcha makin for the din din?
+Why do you have to stay up Anni?
+i had 2 red bulls and coffee and it's not time to sleep yet
+technically 2 because i had one at like 1 am
+Greek Salad and Steak is dinner tonight
+For some reason it couldn't let me chat and said that i needed to verify my phone number
+i gotta refill my meds hold on
+Ok now I've definitely broke twitch, it's letting me see a stream of someone that banned me from their streams, it even let's me type and spend points, wth twitch fix your platform
+<3 u can do it phantommm sorry the seed is jank :P
+i've seen some early version crash
+Honestly, i dig the purple hearts, they look cooler than the overrated red hearts
+Ngl that scared me a bit
+probably from not doing king bulb and also not going deeper into uh...DM
+cause it been almost a hour can i give u sphere 0 hint
+post goron mine is for the owl mask
+post king bulb because he mentions wanting to be a hero too without fighting
+tbh i can't figure out the sphere 0 hint lmao
+def some glitched logic shenanigan going on
+Me when i touch the rupee of instant freezing
+Thanks for making me feel welcome
+you're always welcome here my friend!
+you can just cuccoo jump no?
+phantom cause malo was crashing do u want me to check if malo is required
+malon has it you have to go to lon lon ranch to get the dom rod
+can you run over shadow beasts with epona?
+wait what's the requirement for warping
+is there a way out of Eldin as wolf?
+this might be a sign to pack it up and roll a new seed lmao
+no we just gotta keep pushing lol
+im kinda surprised it softlock you even in rando
+wait what about the other bug location?
+@Phantom5800 i sent u a glitchless one if u wnat
+rain said epona looks like a zombie
+wait 50 rupees head to bomb dude?
+eeee made u not glitched one
+apple dm this seed to me lolz i wanna try
+and i think you're softlocked of doing it now?
+i can hint to what you are required to do for sphere 0
+all of sphere 0 checks are locked behind the same thing
+i genuinely don't even know how to do said thing
+maybe try faron with epona since you cleared eldin?
+you may not be locked out of it but idk if it needs map glitch or something else
+can you get to lake hylia from the bridge?
+wait does the Ordon loading zone still exist?
+when do we call it quit ;-;
+shuffled entrance: "Castle Town North Inside Barrier -> Forest Temple Entrance",
+are you able to even jump that gate?
+r u sure u dont wana just swap and save ur sanity?
+atleast the other seed is glitchless
+hopefully the other seed is beatble
+@AppleQueenUwU I CANNOT SWEEP, I CANNOT DWEAM TONIIIIIGHT
+if it was at least listed....
+@AppleQueenUwU I Miss You - Blink 183
+also fyi the dominion rod wasn't ever required
+i think i turne twilight off on 2nd
+but it ruins the game :/
+whats the things about wolf being able to do it without midna charge
+my only thought was can u get the bugs without wolf
+is it only with wolf bite attack that it works?
+@TheMasterZelda you mean during MDH or the fact it was only 1?
+<3 thank u again btw phantom
+i'm hungry now so imma brb
+just throwing the only thing i know lol
+hehhee put a bounty out for the seed? or ask devs
+it may also just be a glitched seed because of some specific settings combination
+phantomm i dont understand anything on th paper mario one
+hello i'm playing Superstar Saga in an archi and im already locked out of checks phanto274Smile
+i could but i'd rather someone else do it megara11Durp
+its way too hot here i can't
+maybe tp rando is just bad Kappa
+i always just use dolphin so idk
+so what did i miss so far?
+U HAVE FAST SPINNER THIS TIME
+i think the random starting is funny
+WE CAN PLAY THE GAME THIS TEIMEE
+can it be like in oot and the BK specifically is what is locked behind dungeons?
+I see things are going swimmingly
+hehehe better than last seed still
+that is some interesting epona coloring
+it's why i never say "h!" lol
+is a damage multiplier on or something
+image if you only had zora armor...
+I thought you were at full which is why I was like ?! I know ice does normally what, a heart, half a heard in other games
+the multiplier is TEN for zora armor???
+this seed just got a lot more cursed
+ur reaction shows tha not good?
+there is a museum dedicated to the 90s. one of main attraction is the N64
+Link looks weird with lighter blonde hair here
+the 2 chests on top of the pillars must be my most hated checks in the game
+wondering how its not getting more snow
+gonna make a watermelon mint mocktail and churro cookies
+we have a massive mint plant we've done nothing with so far
+also i did an oopsy, meant less
+or any snow at all really
+man this heat is killing my brain
+but sometimes the chicken just walk off
+just placed an order for a buncha chicken bones for an art project and I am wiggling excitedly
+each time u freeze me giggle
+Unfortunately they need to be properly degreased
+and that takes 2 months worth of cleaning or more (natural cleaning) otherwise
+I've processed bones I've found before, it takes a lot of soaking and gently cleaning them with dawn and a little bit of hydrogen peroxide
+If you *do* wanna store up a buncha bones for later tho after they've gotten a simple wash, I will take a care package if you're just gonna toss em
+Wishbones especially go for a lot in bone trader circles
+The only chicken I really eat is breastmeat and my mom's vegan so I cannot justify getting a whole one for just the bones and breast meat
+you can kill the old man now
+2 minutes for that beautiful disaster
+it's nice there's hints, is that recent?
+I don't remember them from before
+apparently I just never get here early enough to see them then
+gotta support the church funded terrorism fund
+Outta all the castle towns, this is definitely my fave
+i prefer minish cap castle town
+it feels the most flavorful like yeah there'd totally be a minigame to collect light
+@FatPidgeyBirb this one feels like a proper castle town, then oot's
+Minish Cap is pretty good, but this has the sauce
+lamp oil, rope? bombs? you want it? it's YOURS, my friend, as long as you have enough rupees
+I'd say this is my least favorite grotto, but like half of em are my least favorite LUL
+there are a lot that randomly suck
+may as well have been vanilla
+like that's imitation vanilla it's not even french
+thank goodness for that big wallet to hold that orange rupee
+not required, but often is helpful
+i kind of wanna attempt a "dungeon rewards anywhere" type of seed...but i wanna know how annoying is it
+it becomes mostly a treasure hunt
+personally not a big fan of these
+i like having a set goal
+but sometimes I like fishing up a buncha treasure casually on the Great Sea, I can see the appeal
+i love how this seed is like 2 items from go mode but also we need all sky characters lol
+now I'm curious about what you were gonna try lmao.
+i shall one day create a dungeon reward anywhere seed for test. hopefully i can not be as agitated lol
+yea i know there's cuckoo in the cave but genuinely didn't know it actually unlocked them outside too
+oh my ad had orange chicken at the end...
+i just know it said now you can go to faron woods or something like that
+think apple fell asleep...which is what i do too lol
+i always just cross the alcove out along with springwater rush because they piss me off so much
+the seller of the beginner violin I was peeking at just sent me an offer for $30 off, and I'm just glaring at it with desire
+if you're not on a budget then go for it
+but my hands crave a new hobby
+I could open up some cheap commissions for it I guess
+but I'd need to do it soon, I got 4 days
+It's a pretty nice starter instrument, they go for like $500 new
+Yeah it was. Wonder if that's a bug with that rupee specifically.
+watc the bommerrang be springwater rush
+I made a nametag at work that'll probably get me fired
+bombs? ?? ? not useful??? ZELDA BLASPHEMY
+you got iron boots quto um qoute
+its just you need zero rupiees to use it
+i vaguely remember it not working to activate anything weight related, including goron stuff
+i COULD be wrong however, this is second hand knowledge
+all you're missing is master sword right?
+wait don't we know where boomerang is
+N O D U N G E O N R E Q U I R E D
+wait, doesn't that mean its likely to be the boomerang?
+final sky characters check is in eldin no?
+or unless when you get the final one it just give the "true" reward
+also this fire looks mega hot monkaGIGA
+how nice of that ice trap to put out the fire on you
+I'm in upper intermediate french now
+they had english to ask the questions before!!! MY METAPHORICAL CRUTCHES
+that's like asking if a songbird is an instrument
+malo mart is perfectly functional YEP
+not at all a nuke YEP
+I did a wizzrobe msu seed after
+A bunch of different siivagunner tracks LUL
+Wizzrobe makes these every few months and finds the best bangers
+R E Q U I R E D
+oh yea you do need bow for that... unless the boss is randomized
+Yes woot ur still on just had a major meltdown fight with my mom and all steamed out.
+The fact that you have double claw and no sword
+got it like 30m in max lol
+the fact that "no dungeon required" but rolled "sky characters (required)" is so funny
+oh boy double the amount of checks required
+you can get your bow (unrequired)
+swipelefted on the Bow LUL KEKW
+wait you have bow now, lakebed goes much further
+i wonder why this one specifically Kappa
+all fun and game until AP ichimaiaAwk
+there's like hundred of digging spots KEKW
+but hey you have a sky character
+over 2 hrs in and no sword
+@morpheus080 How do u go about tp randos dungeons first or spear zeroes?
+does the game hate you or is this normal
+there's... 4? sword in the pool
+@stavros12c34anenoglou i have no idea stavros, i barely play MM rando as it is
+never sure if butter sword is
+@morpheus080 the game must the earlier seed he was transform and sword locked NotLikeThis
+this game keeps on getting weirder ichimaiaAwk
+this room is such a meme
+temple of time behind mirror ichimaiaAwk
+N O D U N G E O N R E Q U I R E D
+uh i though you needed bombs for these
+idk all speedruns use bombs for them so i just though it didn't work
+well you used to kill the other ones
+there's uh... the boss key ichimaiaAwk
+fast spinner is silly i love it
+no dungeon required slowly turning into all dungeons required
+i love the lack of damage feedback
+swift fight i must say good going
+D: You just killed those twilight beasts
+we know lakebed entrance is foolish
+time to check eldin for gale boomerang? shiruClown
+if you had a sword shiruHAH
+one was hinted in a dungeon
+you could use the icetrap to drain money faster
+youtube AI has kicked off, they cant even pin comments
+ChatGpt the death of us all
+man I love the magic armor. too bad we never see it
+I know how you can lose all your money
+ill take your bits if you dont want them
+Couldn't you donate them to malo mart?
+Hey Phantom, you in the market for any kinda vtuber stuff Kappa
+Streamer those enemies are attacking you
+this is a good pee break
+I wish I could get 10 dollars each time I attacked someone
+As long as you attack the right target and attack them successfully
+link just nervously looking at the rats with his hand on the sword is kinda funny
+Yeah but that involves giving money to the church
+I urge you not to do that
+Giving 500 to a church sounds terrible
+Just because it's a tax deductible expense doesn't mean it's not a waste of 500
+ill take ur 500 but u can't write it off
+I could do for a solid 500 rn
+If I had 500, I'd definitely order some pizza
+no but i have 25 bits themas213Grelda
+I would but car name change and number incoming
+giant emotes are funny i agree
+this seed hints as gaslighting us
+may have been that specific bow was not required then
+I know WWR likes to only put one bottle in logic
+but you need bow to beat temple of time
+i love pick a path YEP
+Sorry but that's a kind of perfect number
+Not sure I can change that
+1700 just doesn't have the same ring
+the fact this seed is still less cursed than the other one
+trick only ever possibly relevant in rando with random spawn location
+the reminds me of castle vania 64 dracula fight LuL
+drop 10 enemy on the player
+doesn't these chests require light sword in logic to avoid softlocks?
+you're brave doing these checks with zora armor on still 😏
+its looking more and more that its a sword upgrade ngl
+since one of the dungeon is locked behind boomerang
+but we have like 4 dungeon entrances left
+and we know hyrule castle can't be gm or forest right?
+true could be worth a try
+fun fact mini freezers destroy bombs
+Yo, caught a randomizer. Just dropping in to say hello. phanto274Wave
+I'm doing well. How about yourself?
+i will never understand damage values in this game
+if its city this is over
+So you fall into a void to beat up King Bulblin
+Let go your earthly tether. Enter the void. Empty and become wind
+The airbenders foretold how to defeat KB a long time ago
+I just now realized you only had the wooden sword
+i love how you beat up KB just to get into hyrule castle to beat up KB again
+I was like I do NOT remember these enemies being this difficult
+But maybe I've watched too many speedruns where they only do quick spins and stuff
+nah wooden sword truly is just that bad
+Then why did you slice back?
+this isn't in logic anyway right?
+wait maybe the sky character reward is the key
+legit no sword is more fun than wooden sword
+crazy your still on usually with work I miss you
+Sounds like a rando redemption well spent!
+o/. gl on 3d paper luigi
+i wasn't watching when you passed here earlier
+turns out eldin sky character isn't specific enough
+good luck with the rest YEP
+oh it is kinda late for you huh
+I remember the hint for it, at least
+its def awkward for the more casual audience
+for it to be required, where would be the last sword upgrade
+unless palace of shadow has the key
+oh that would explain one of the required thing
+last sword upgrade could be behind temple of time entrance
+pls not temple of time ichimaiaAwk
+a goron, they live here didn'tcha know
+wait... i think its guaranteed to be temple of time
+temple of time has to be vanilla or here
+temple of time can't be on sky cannon
+i always thought the very first room of temple of time looked like a crying clown
+i tend to see weird things in zelda maps for some reason
+like the Desert Colossus in oot looks like a deflating balloon
+fun fact as a kid i though this poe was missable KEKW
+i never saw the small statue
+i though you HAD to smash the gate
+i think i thought the same thing tbh
+dom rod never loses power if you go back to ToT
+on my tiny ass CRT you literally couldn't see them
+i also never knew how to get this chest in here until i was like 19
+i did figure out this one
+the one thing i didn't figure out was the south hyrule fountain chest
+that chest HAUNTED ME as a kid
+i could just never find the hookshot target
+tbf that target is so awkward
+like why is it so finicky
+smh Agatha doesn't want a cute puppy girl
+that's what she says if you talk to her as a wolf
+yeah she says "hi puppy, i don't speak puppy"
+the one npc not scared of you KEKW
+hey lil puppy, hey lil puppy. I wish you were a bug so i could put you in my bug museum
+and its the fancy lil girl KEKW
+she ain't a dog person but she may be a dog person you know what i'm sayin
+@TheMasterZelda hey mr bird nest head also says "I'm not afraid of you, my sister is way scarier"
+coro killed the first seed ichimaiaAwk
+coro had both sphere 0 checks ichimaiaAwk
+oh you do have the spinner
+for some reason i thought ad runners use the spinner to kill all those spiders
+i don't think any category kill those spiders
+maybe ad runners realllly need the health
+ok no its just garbage in that chest
+never know because i always just get every chests casually ichimaiaAwk
+bruh he had like no health wtf
+you know something tells me all dungeons have nothing in them
+considering we've literally found nothing useful in any of them ichimaiaAwk
+hey at least temple of time isn't behind mirror ichimaiaAwk
+be back in a min ✌️
+AAAAA i blacked out  gm isthis till me seed?
+giant enemy spider, doo doooo, dododododododododododooooo
+@AppleQueenUwU did you make this seed
+you know i don't like spiders but armagohma never really bothered me
+@a_variety_pack i'm the same actually it just looks a little TOO fake i guess??
+how many fused shadow u got
+im pretty sure i put 3 onn  one ofsettings
+So the swords are all overworld
+hey now we can get the sky symbol ichimaiaAwk
+maybe both swords are locked behind ichimaiaAwk
+remember when we saw "no dungeons required" and we though it was a baby seed?
+evil and fucked up and unfair settings
+so these settings are  Me randomly pressing butttonscause idk what the settings do
+i saw a seed where master sword was in treasure room.
+so if we ever roll a seed for you, should we save you the trouble and turn hints off going forward 😏
+I take back what I said about hints by the by in this game
+my bet's on a sword being there
+**VERY UNSAFE MATERIAL FOR A DILDO**
+oh I meant having to do all the stuff to get to cats
+this seed is *quality* in that it is so bad
+no i watch beest i get it
+**COUNTRY GIRLS DO NOT HAVE TO MAKE DO**
+i have seen spoiler log, i am not allowed to say anything anymore etchyLMFAO
+i only sent it u tmz just incase i passout again u didnt have to looook
+normally how many sphere does a tp rando have
+i think there's a bug if you do the howling stone it prevents doing it?
+oh good I got back just in time for CATS
+and the sky characters are MEGA cringe
+its spread in like 3 dungeon
+Dang nab it a red rupee
+this is like the highest honor of a seed maker one could get
+don't you like it it when your gf gets her memory back after being taken to the netherworld and in return she gives you 20 dollars
+I aspire to make a seed this trollworthy
+because of all these + Ilia quest there's 13 sphere ichimaiaAwk
++ city keys to reach the bulblin camp key
+for comparison, how many spheres is a standard seed you do?
+its like a chain of 8 checks lol
+Maybe a Hero of Time has a pointy thing
+that would have been really funny
+I am thoroughly entertained and so are many others
+I doubt Phantom wouldn't be here if the seed was THAT bad
+a real glutton for punishment fatpidSip
+you got 11 hearts, you're fiiiiiiiine
+ik i passed out cause was like 3am and stuff but THANK u so much again making hospital not a bad and making me happy
+just don't get hit by two or more
+the only funny ass i wanna see is squidna's
+i can see squidna i just i don't know either
+who up in they twitch chat imagining squidna's ass tonight
+i lost my second run to door jump
+first run i was over 5m behind after manips and ended up getting a small pb
+that was like 10 less bomb arrows than big moblin
+because literally everyone who's taught me door jump has just said "its a rhythm i can't describe"
+i was told to not mash it
+i was literally 2m ahead again in DHC and stopped streaming because i was 3m behind and still there
+i come back 2hrs later and all you have is a wood sword
+some shit you just can't make up
+i will say, one of the swords you will probably never find because you prob don't even know its a check
+i didn't know it was one ichimaiaAwk
+hey there's 2 other sword ichimaiaAwk
+I'm tempted to think that a sword is going to be on Argorok
+it's a good thing dungeons aren't required 😏
+i'd hint you if it was actually required to get that one specifically because its messed up KEKW
+can't say anything about that ichimaiaAwk
+like in hidden village or whatever it's called
+a cold wind blows is incredibly funny to say you're fucked
+sky characters being required for a single key is so funny
+I have one billion years of delay because mobile okay
+when you get fed up with the seed
+look lizalfos struggle in this game
+2 times in a row is just incompetence
+its been just swords for almost 2h KEKW
+can I ask for the log so I can peek through it? Promise no spoilers, I just wanna see the sword locations so I can estimate how many more snacks I'll need tonight
+corners in this game are fucked up
+i bonk on so many of them
+I take my snacking very srsly
+Probably best to make yourself a meal then
+I can't make a meal till Phantom beats the game
+How about a basic Egg and potatoes
+hot midna won't be around until then
+the hit sounds for the wood sword so good NiceSoftlock
+@morpheus080 its so funny with helm split NiceSoftlock
+link just JUMP above the enemy and
+i tried tilt n tumble on switch 2 and now my arm hurts
+phantom can you show helm split to the wooden sword fans
+not really no, controls felt way overtuned and i'm gonna start fresh tomorrow with the d-pad hack lol
+like i'd barely tilt the control and the game would go 500 mph to that direction
+kirby just wanted to fall off all the time
+were you doing pape before or am i tripping
+cake has been in a call with me for like 5 minutes
+i will now never fail door jumping again
+before this seed was a WORSEE seed
+its okay the run was bad
+Glubbers what were you doing wrong
+and drop another fucking fake sword LOL
+@BasilOuija i will rant in your dm's
+i wish a cold wind was blowing it's over 100 degrees
+I could go for a chilly breeze
+the ice cream helped a bit
+could be worse! could be argarok! oh wait. 😏
+I just walked out of the bathroom, see my little brother and the first thing he says to me is: "I'm so drunk right now"
+look it's the same music it's close enough
+Come to think of it both of my brothers were out and about tonight while I was at home filling out surveys
+i was in call with cake for 8 minutes
+i think i spent longer *doing* the jump beforehand than that
+the question here is is the eye really the bosses only weakness or is link just a dick
+PLEASE be a trap I'm BEGGING
+i can't believe pidgey is banned
+Did you finally make progress yet btw?
+the YT edit is going to be *fantastic*
+yeah it's called the B&C swings 90 times in his face and stunlocks him
+is it too late for a melatonin
+gotta give king bulblin some props
+do you need to be awake before 10am hex
+I bet this seed wants you to do that for a sword
+i mean he can withstand 93 ball and chain swings to the face
+if you don't gotta be awake, go for it
+i thought i was then i got in bed LMAO
+oh god i know that feeling
+i don't think i could survive one let alone 93
+yeah but then i couldn't have raided you
+yeah if you finished a while ago i would've raided bdamja again or something
+it's slumber party vibes up in here rn
+that was right before i left to stream lol
+also you know the face link makes in skyward sword when he gets a rupoor
+surely there won't be a 4th time
+that's phantom at every check right now
+94 Balls in the face incoming PAUSERS
+94 balls to the face in the fight, 94 balls to the face! Swing it round, hips abound, 93 balls to the face in the fight
+yeah idr exactly what it was
+this is so dumb i absolutely love it
+i just remember taking a hand off the controller and laughing while i ate
+its okay mister orge i too am stun locked when im hit in face by balls
+10/10 memorable seeds of all time
+lmfaooooo whatever I just watched I love it
+im okay with slightly psychopathic tendencies. better to be open and honest with it
+he enjoyed getting smacked in the face with balls, look at him
+And then he gives you the cold shoulder afterwards
+wait that didn't sound as funny as earlier but still good
+im very curious what brand of bullshit it requires you to do
+I wanna know the secret third sword
+the melly has been popped o7
+also that is a lovely heart color
+well if you're live when i wake up for work in 5.5 hours i'll ask you where the 2nd sword was
+i’m still chillin but i’ll prob be taken out soon
+i mean at this rate glubbers
+but you also know that one of the sword you'll probably never find
+why is shadow fusing is that a new power from black doom
+GOT TAHT ONE RIGHT NEAR A KEY
+i've been trying to time that for so long lmao
+oh yeah, i was told to set my sights on "sub hour enter ToD" for now
+basil may also just not be aware i don't sleep much period
+like 5h is pretty normal for me, i'm winding down atm
+you're almost getting into my bedtime timing
+imagine living on the west coast
+beest just pinged me in the TP discord OMEGALUL
+gonna go get some water burgyLeave
+anyways so yeah sub hour enter ToD right
+they said that during the run that pb'd today, and i checked retroactively
+my enter ToD was 1:17:42 OMEGALUL
+what if at 3 AM it reset the clock back two hours so we all could get like two hours of extra sleep
+so at like 2:59 it would go to 1.5:00
+and at 2.5:59 it would just go to 3 like bro am
+yeah but two hour extra sleep
+smash squidna?? instructions unclear knuckles. is my meme approved
+hex my ass read "1.5:00" as "1 and a half o clock"
+or free time if you’re a night owl
+do you feel like you're missing out
+@TheGlubbers LMAO that’s the thoguht i had bc i was like “well what if you don’t know if it’s 1 o clock (1) or 1 o clock (2)
+Glubbers I'm getting Hershey's ads again
+what would you like me to do about it
+same amount of time as normal if you use B&C
+john universe should consider my idea
+can you go to the store and buy me a Hershey bar
+@hexspeedruns you should sub with Twitch Prime
+ur random is the 5 hour
+there's what, 8 treasure chests there?
+fax machines are a crazy concept
+i think it's 8 of each?
+@theglubbers can you fax me some blue cheese?
+yeah it'll be un-moldy via fax tho
+that would make it just cheese then
+please walk towards me slowly, Jojo style
+please know that your suffering is bringing me much joy
+i love how the two arrows just went through bro
+basil thank you for being a shining light in the TP community
+idk if phantom will be glad or mad shiruThink
+@TheMasterZelda porque no los dos? PrideShrug
+i was basically obligated to add that
+i need to know the context
+im here for treasure room then i go sleep
+good news is hyrule castle will be ready to finish the game
+I think I can guess the context for that one
+TMZ trolling with vague statements is everything I wish to accomplish when I get handed spoiler logs tbh
+hey i have that sword on my wall
+I'm too nice to troll outside of constantly sipping a drink coyly
+omg just in time for treasure room
+that's some shitty armor if a wooden sword can break it
+stream was good got a pb in totk ad
+this seed is the stuff of nightmares and dreams
+the only thing worse would be finding just one (1) sword
+you can go kill argorok now
+hey at least you found ONE
+i think it's in the sky probably
+its gonna take either 20m or 5h
+this seed is an atrocity and i love it
+this seed is a warcrime. Hilarious hilarious warcrimes
+when i talked about the sword in treasure room earlier i still didn't see spoiler log KEKW
+how many more checks are available? Does tracker tell you?
+wha happen first  sword or phantom ask
+how does link hold the third clawshot
+tmz has been laughing for 5 hours straight i'm sure
+jokes on you i'm laughing either ways
+I know I've been laughin myself
+hey tbh i remember without the spoiler log
+trying to think what else we haven't seen
+tmz only has spoiler log  incase i get  rushed around in hospital or pass out
+one (1) check left in here ichimaiaAwk
+if this is on the mountain does that make this grossly-colored snow
+why the snow a funny color
+basil give me back the brain cell
+average new england experience: brown snow
+Let me guess, PoT has a Sword
+no I need it to live
+remember when we were here 3 hours ago ichimaiaAwk
+Best death kill in zelda history.
+really taking out your frustrations on that boss aren't you
+it was a good idea. that's why it was the wrong one
+think of a bad idea that's where the master sword will be
+tbh when i checked spoiler log and searched for "sword" it went to this chest and i was like "NOWAY"
+I'm so curious about the third one
+and you had 2.5k at some point too
+no malo mart required sword in here
+fave character hybrid the water goron
+even worse than an ice trap
+"like a normal person" what's that icysylvieHuh
+idk how it got pass QA
+idk either but it is bad and unfair
+6 hr slammer on logic zachar4Shook tippiShock surprised my shots didnt kick in it
+Can it heal with a sword
+I'll probably make some spicy ramen for a snack
+I still have that thing of pickle ramen
+I swear these ad breaks get longer every time
+maybe the true master sword are the friends we made along the way
+holy fuck you're still at it
+i have a secret for ads
+I saw it at the grocery store and went 'oh that's cursed. I have to try it'
+Yeah I bought Korean ramen because I was super upset yesterday with how someone annoyed me
+no she just doesn't speak puppy
+i'm concerned that the church wants you to bomb things
+hey lil mantis hey lil mantis. i wanna see you stickbug dance all day long.
+whats behind door number dynastid beetle
+6 hour seed with "no dungeons required"
+phantom if u ever wana bully someone just send them this seed?
+all the AGGIES was blanked in ice
+did you have a bad idea
+phantom just a random question like that do you do MM randos? Clueless
+i made probably the single worst mm plando
+it requires some of the dumbest tricks to exist
+i don't do any randos except i tried paper mario once
+@TheMasterZelda lemme guess. all 5 fairies required, both skulltula houses, Goron Racing, beavers and Anju/Kafei
+HAVE A BAD IDEA AND THATS WHERE IT IS
+all u needed was my good rng
+bo wasn't satisfied with ruining your runs
+he stole your fucking sword too
+swords were eziest check and hardest check what bonkers
+master sword was sphere 2 KEKW
+well, you're never forgetting these checks again
+ok so idk where this is but
+genuinely have no idea that existed KEKW
+BoBoss stole the light from all of us.
+IT WAS JUST THERE THE ENTIRE TIME
+the sword just sitting there omfg
+the most nonchalant grab of the mastersword ever
+The fact it trolled us by being the shape of the sword being blinded to us
+just like the castle town bridge...
+a game where it took until 2019 to find out about one specific invisible rupee
+there are so many fucking invisible rupees in MM
+the randomiser bit jank tho  first seed  then this seed :P
+if you shoot the middle of the clock on clock tower it drops 3 rupees
+that was discovered in like 2019 KEKW
+if you shoot some symbols in Pirate's Fortress they also drop rupees
+i wonder how many rupees are normally there
+oh, and the random crack on the wall outside west Clocktown, the shell on the top of that gate, and the guay you can find by looking at the swamp that slowly flies around
+we need a new stream background now I survived the great tp rando. with a chicken Bo and a treasure chest for the room in each corner.
+this seed is legendary. for all the wrong reasons
+speaking of things in zelda games that are lesser known
+sakurai did a great job making tp ganon into smash
+oh. The fucking snowballs that shrink after you bring spring to Snowhead change, at the beginning of the road to the Mountain Village, and the pots outside of the Witches Hut post Woodfall too
+did you know that in lttp if you use magic powder on the cucco under the pot in the house west of bottle merchant it turns into a woman
+literal old man who cant do shit
+another super unknown MM fact: if you play song of healing in Poe hut it gives you a discount for the minigame
+it is yeah that's how i found out
+heading to bed, thanks for stream and playing this it was painful
+she's like "oh you must be who's been teasing my friends. i'm amazed i can talk."
+and then she goes "i hate being human i want to be a chicken again"
+@TheMasterZelda and if you do... what is it, day 3 honey and darlings? if you pay as Deku it's also cheaper
+since we never had to use squidna can we deploy her during the final battle
+speedrunning community didn't know about that one until a random chatter told a streamer to do it in the middle of a bingo
+Magic Armor in this game gives u iron boot properties as a call back to OOT with Goron Tunic actually being more useful in water temple bc of spike immunity.
+@stavros12c34anenoglou *some of iron boots properties*
+you put them there very specifically
+THATS FOR MOVING MY POTS OLD MAN
+WUNSCHIES I desire an end to this seed.
+sprawled out on the ground, that's gonna be phantom after this seed
+clown ganon would be really funny
+It'd be neat to do custom Zelda colors based on other Zeldas and other characters
+to hell with this seed! 🎉
+i mean plenty of ideas from her hyrule warriors costumes, pidgey
+Is this seed gonna be interesting to rewatch? LUL
+and now benedict cumberbatch will pronounce ganon dead
+bye YT, seed was trash, like and subscribe for more terrible seeds like this one
+the sword ice trap troll was funny
+agitha having 6 ice traps was incredible too
+I might have to watch the vod then
+but to access city you needed goron mine
+I got flashbacks to the SMRPG Rando where you constantly got screwed
+you let those legendary pokemon escape
+hidden rupee is a thing that exist
+phantom's gonna turn off that grotto check permanently
+I like having a 3rd klawshot existing.
+ye ive said multiple times  i pressed random stuffs
+OMG, it’s her, the Twilight Princess
+I am no longer obligated to stay awake I'm going to bed gn
+hey so that's a war crime
+isn't any worse than oot chained dungeons lol
+I would love to make a seed like that for you :^)
+what's another war crime after the dozens this committed, pidgey
+hyrule castle doesn't count because the door themselves aren't the loading zone
+im like 95% sure of that
+what would be the equivalent of the Geneva Convention in Hyrule you think
+thank you for punishing phantom with it @AppleQueenUwU
+10/10 ggs again 👏 this was a fun evening
+this was a 11/10 seed nyacinthsLMAO
+"i need to delete twitter" fixed your statement :)
+thank you for suffering for our entertainment

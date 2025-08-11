@@ -7,7 +7,7 @@ from twitchio.http import Route
 from utils.ext_classes import AliasDict
 from utils.utils import get_twitch_user
 
-LocalStartTimeHours = 10 # 10am
+LocalStartTimeHours = 14 # 2pm
 
 # these categories are hand selected as common options
 TwitchCategoryIDs = AliasDict({
@@ -85,7 +85,8 @@ class PhantomGamesBotSchedule(commands.Cog):
         thursday_offset: int = 0,
         friday_offset: int = 0,
         saturday_offset: int = 0,
-        sunday_offset: int = 0
+        sunday_offset: int = 0,
+        extra_comment: str = None
     ):
         # defer because this is gonna take a bit to process
         await ctx.defer(ephemeral=True)
@@ -148,6 +149,9 @@ class PhantomGamesBotSchedule(commands.Cog):
                         await self.post_single_twitch_schedule(start_time=stream_time, duration="360", title=schedule[day], category_id=category)
             else:
                 response += "_NO STREAM_\n"
+
+        if extra_comment is not None:
+            response += f"\n{extra_comment}\n"
 
         # remove old schedule and post the new one
         channel = self.bot.get_channel(self.bot.channels["weekly-schedule"])

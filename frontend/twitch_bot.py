@@ -932,7 +932,7 @@ class PhantomGamesBot(commands.Bot):
                 await self.esclient.subscribe_channel_subscription_messages(broadcaster=channel_id, token=channel_token)
                 await self.esclient.subscribe_channel_subscription_gifts(broadcaster=channel_id, token=channel_token)
                 await self.esclient.subscribe_channel_prediction_begin(broadcaster=channel_id, token=channel_token)
-                await self.esclient.subscribe_channel_charity_donate(broadcaster=channel_id, token=channel_token)
+                # await self.esclient.subscribe_channel_charity_donate(broadcaster=channel_id, token=channel_token)
 
                 # mod actions
                 await self.esclient.subscribe_channel_bans(broadcaster=channel_id, token=channel_token)
@@ -1084,6 +1084,26 @@ class PhantomGamesBot(commands.Bot):
             print(f"[Eventsub {adData.broadcaster.name}] Automatic ad break of {adData.duration} seconds started at {adData.started_at}")
         else:
             print(f"[Eventsub {adData.broadcaster.name}] Manual ad break of {adData.duration} seconds started at {adData.started_at}")
+
+    '''
+    Hype Train start
+    '''
+    async def event_eventsub_notification_channel_hypetrain_begin(self, event: NotificationEvent):
+        hypeData = event.data
+        print(f"[Eventsub] Hype train started at {hypeData.started_at}")
+
+    '''
+    Hype Train progress
+    '''
+    async def event_eventsub_notification_channel_hypetrain_progress(self, event: NotificationEvent):
+        hypeData = event.data
+
+    '''
+    Hype Train ended
+    '''
+    async def event_eventsub_notification_channel_hypetrain_end(self, event: NotificationEvent):
+        hypeData = event.data
+        print(f"[Eventsub] Hype train ended at {hypeData.ended_at} at level {hypeData.level}")
 
     '''
     Stream went live event
