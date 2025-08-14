@@ -10,7 +10,6 @@ from datetime import datetime, timedelta, timezone
 from discord.ext import bridge, commands
 from discord.ext.bridge import Bot
 from frontend.discord_cogs.discord_commands import PhantomGamesBotCommands
-from frontend.discord_cogs.discord_goals import PhantomGamesBotGoals
 from frontend.discord_cogs.discord_poll import PhantomGamesBotPolls
 from frontend.discord_cogs.discord_poll import PhantomGamesBotSimplePolls
 from frontend.discord_cogs.discord_schedule import PhantomGamesBotSchedule
@@ -214,7 +213,6 @@ def run_discord_bot(eventLoop, sharedResources):
     bot.add_cog(PhantomGamesBotPolls(bot))
     #bot.add_cog(PhantomGamesBotSimplePolls(bot))
     bot.add_cog(PhantomGamesBotSchedule(bot, sharedResources))
-    bot.add_cog(PhantomGamesBotGoals(bot, sharedResources))
     async def runBot():
         await bot.start(os.environ['DISCORD_TOKEN'])
 

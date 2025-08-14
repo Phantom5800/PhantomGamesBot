@@ -3,6 +3,79 @@ import os
 import random
 import shutil
 
+cc_root = "./commands/resources/crowdcontrol"
+cc_multiplier = int(os.environ.get("CC_MULTIPLIER", "1"))
+
+current_threshold = 5000
+threshold_modifier = 2500
+threshold_tier_size = 3
+total_bits = 0
+total_adds = 0
+
+def set_cc_multiplier(mult: int):
+    global cc_multiplier
+    if mult != 0:
+        cc_multiplier = mult
+
+#####################################################################################################
+# Generic Shuffler Handling
+#####################################################################################################
+'''
+Helper function to add more games to the shuffler.
+'''
+def add_next_game(count:int = 1) -> int:
+    i = 0
+    bizhawk_folder = "C:/Games/Bizhawk-2.9.1/bizhawk-shuffler-2"
+    games_dir = os.fsencode(bizhawk_folder + "/games")
+    extra_games_dir = os.fsencode(bizhawk_folder + "/extra-games")
+    for file in os.listdir(extra_games_dir):
+        src = os.path.join(extra_games_dir, file)
+        dst = os.path.join(games_dir, file)
+        shutil.copyfile(src, dst)
+        os.remove(src)
+        i += 1
+        # don't copy more than 5 seeds at a time
+        if i >= count:
+            break
+    return i
+
+'''
+Handle gift subs (treated as tier 1 monetary value in USD for simplicity).
+'''
+def handle_generic_cc_subs(subcnt: int, tier: int = 1):
+    mult = 300 # $3 from tier 1's
+    if tier == 2:
+        mult = 500 # $5 from tier 2's
+    elif tier == 3:
+        mult = 1250 # $12.50 from tier 3's
+    handle_generic_cc_bits(subcnt * mult)
+
+'''
+Handle generic shuffler and adding new games at bit milestones.
+'''
+def handle_generic_cc_bits(bits: int):
+    global current_threshold
+    global total_bits
+    global total_adds
+    total_bits += bits
+    num_swaps = bits // 75
+    if num_swaps >= 1:
+        interval_swaps += (num_swaps - 1)
+        print(f"[CC {datetime.now()}] Swapping {num_swaps} times")
+        with open(f"{cc_root}/cc-shuffle.txt", "w+") as f:
+            f.write("Shuffle")
+
+    while total_bits >= current_threshold:
+        added_game_count = add_next_game()
+        print(f"[CC {datetime.now()}] Adding {added_game_count} game(s)")
+        total_bits -= current_threshold
+        total_adds += 1
+        if total_adds % threshold_tier_size == 0:
+            current_threshold += threshold_modifier
+
+#####################################################################################################
+# PM64R CC Handlers
+#####################################################################################################
 # triggers on exact amounts of bits cheered
 pm64_bit_values = {
     5:      "Set FP Max",
@@ -39,8 +112,7 @@ pm64_sub_values = {
     100: "Add Seeds"
 }
 
-cc_root = "./commands/resources/crowdcontrol"
-cc_multiplier = int(os.environ.get("CC_MULTIPLIER", "1"))
+# pm64r queue trackers
 slowgo_queue        = 0
 berserker_queue     = 0
 random_pitch_queue  = 0
@@ -51,12 +123,10 @@ ohko_queue          = 0
 interval_swaps      = 0
 hs_interval_swaps   = 0
 
-def set_cc_multiplier(mult: int):
-    global cc_multiplier
-    if mult != 0:
-        cc_multiplier = mult
-
-def handle_pm64_cc_subs(subcnt):
+'''
+Special handling for PM64R effects on gift subs.
+'''
+def handle_pm64_cc_subs(subcnt: int, tier: int = 1):
     global slowgo_queue
     global berserker_queue
     global random_pitch_queue
@@ -84,7 +154,7 @@ def handle_pm64_cc_subs(subcnt):
             print(f"[CC {datetime.now()}] Adding Interval Swaps {interval_swaps}")
             with open(f"{cc_root}/pm64r-set-homeward-shroom.txt", "w+") as f:
                 f.write("oh no")
-            with open(f"{cc_root}/pm64r-shuffle.txt", "w+") as f:
+            with open(f"{cc_root}/cc-shuffle.txt", "w+") as f:
                 f.write("Shuffle")
         elif pm64_sub_values[subcnt] == "Poverty":
             print(f"[CC {datetime.now()}] POVERTY")
@@ -108,21 +178,12 @@ def handle_pm64_cc_subs(subcnt):
                 f.write("eww")
         elif pm64_sub_values[subcnt] == "Add Seeds":
             print(f"[CC {datetime.now()}] Adding 5 more seeds!")
-            bizhawk_folder = "C:/Games/Bizhawk-2.9.1/bizhawk-shuffler-2"
-            games_dir = os.fsencode(bizhawk_folder + "/games")
-            extra_games_dir = os.fsencode(bizhawk_folder + "/extra-games")
-            i = 0
-            for file in os.listdir(extra_games_dir):
-                src = os.path.join(extra_games_dir, file)
-                dst = os.path.join(games_dir, file)
-                shutil.copyfile(src, dst)
-                os.remove(src)
-                i += 1
-                # don't copy more than 5 seeds at a time
-                if i >= 5:
-                    break
+            add_next_game(count=5)
 
-def handle_pm64_cc_bits(bits):
+'''
+Special handling for PM64R effects on bits.
+'''
+def handle_pm64_cc_bits(bits: int):
     global cc_multiplier
     global slowgo_queue
     global berserker_queue
@@ -190,12 +251,12 @@ def handle_pm64_cc_bits(bits):
                 f.write("Rude af")
         elif pm64_bit_values[bits] == "Shuffle Current Seed":
             print(f"[CC {datetime.now()}] Shuffle Current Seed")
-            with open(f"{cc_root}/pm64r-shuffle.txt", "w+") as f:
+            with open(f"{cc_root}/cc-shuffle.txt", "w+") as f:
                 f.write("Shuffle")
         elif pm64_bit_values[bits] == "Interval Swap":
             interval_swaps += 9 # 10 including the current one
             print(f"[CC {datetime.now()}] Adding Interval Swaps {interval_swaps}")
-            with open(f"{cc_root}/pm64r-shuffle.txt", "w+") as f:
+            with open(f"{cc_root}/cc-shuffle.txt", "w+") as f:
                 f.write("Shuffle")
         elif pm64_bit_values[bits] == "Toggle Mirror Mode":
             print(f"[CC {datetime.now()}] Toggle Mirror Mode")
@@ -230,7 +291,10 @@ def handle_pm64_cc_bits(bits):
             with open(f"{cc_root}/pm64r-set-homeward-shroom.txt", "w+") as f:
                 f.write("oh no")
 
-def handle_pm64_cc_periodic_update(seconds):
+'''
+Handle periodic updates for effects that retrigger on a timer.
+'''
+def handle_cc_periodic_update(seconds):
     global slowgo_queue
     global berserker_queue
     global random_pitch_queue
@@ -288,7 +352,7 @@ def handle_pm64_cc_periodic_update(seconds):
         os.remove(ohko_file)
 
     if interval_swaps > 0:
-        with open(f"{cc_root}/pm64r-shuffle.txt", "w+") as f:
+        with open(f"{cc_root}/cc-shuffle.txt", "w+") as f:
             f.write("Shuffle")
         interval_swaps -= 1
 

@@ -35,7 +35,6 @@ class PhantomGamesBot(commands.Bot):
         self.markov = sharedResources.markovHandler
         self.anilist = sharedResources.anilist
         self.youtube = sharedResources.youtube
-        self.goals = sharedResources.goals
         self.slots = Slots(SlotsMode.TWITCH)
 
         # custom timers
@@ -96,7 +95,7 @@ class PhantomGamesBot(commands.Bot):
         try:
             self.timer_update.start()
             self.automatic_chat.start()
-            if int(os.environ.get("CC_ENABLE")) == 1:
+            if int(os.environ.get("CC_ENABLE")) >= 1:
                 self.periodic_cc_update.start()
         except RuntimeError:
             print("Timer is already running")
@@ -642,7 +641,7 @@ class PhantomGamesBot(commands.Bot):
             await ctx.send(f"{ctx.message.author.mention} set your YouTube handle to @{params[0]}")
 
     #####################################################################################################
-    # fun stream commands
+    # chatting
     #####################################################################################################
     '''
     Post a randomly generated chat message, 60 second per-channel cooldown.
@@ -652,6 +651,71 @@ class PhantomGamesBot(commands.Bot):
     async def chat(self, ctx: commands.Context):
         response = self.markov.get_markov_string()
         await ctx.send(response)
+
+    '''
+    Periodically posts automatically generated messages to chat.
+    '''
+    @routines.routine(minutes=int(os.environ['AUTO_CHAT_MINUTES']), wait_first=True)
+    async def automatic_chat(self):
+        for channel in self.channel_list:
+            if self.auto_chat_msg[channel] >= self.auto_chat_lines[channel]:
+                self.auto_chat_msg[channel] = 0
+                try:
+                    self.auto_chat_lines[channel] = tryParseInt(os.environ[f'AUTO_CHAT_LINES_MIN_{channel}'], 20) + random.randint(0, self.auto_chat_lines_mod[channel])
+                except:
+                    self.auto_chat_lines[channel] = 20 + random.randint(0, self.auto_chat_lines_mod[channel])
+
+                stream_channel = self.get_channel(channel)
+                if stream_channel is None:
+                    print(f"[ERROR] Timer cannot find channel '{channel}' to post in??")
+                else:
+                    message = self.markov.get_markov_string()
+                    print(f"[{datetime.now()}] Generated Message in {channel}: {message}")
+                    await stream_channel.send(message)
+
+    #####################################################################################################
+    # "fun commands"
+    #####################################################################################################
+    @commands.command()
+    @commands.cooldown(1, 60, commands.Bucket.channel)
+    async def clip(self, ctx: commands.Context):
+        streamer = await ctx.message.channel.user()
+        try:
+            # try and make a clip using the person that used this command
+            chatter = await ctx.message.author.user()
+            clip = await streamer.create_clip(token_for=chatter) 
+            await ctx.send(f"{ctx.message.author.mention} {clip.edit_url}")
+        except Exception as e:
+            print(e)
+            await ctx.send(f"{ctx.message.author.mention} failed to create a clip")
+
+    '''
+    Attempt to get how long a user has been following the channel for.
+    '''
+    @commands.command()
+    @commands.cooldown(1, 60, commands.Bucket.user)
+    async def followage(self, ctx: commands.Context):
+        streamer = await ctx.message.channel.user()
+        try:
+            twitch_user = await ctx.message.author.user()
+            follow_event = await streamer.fetch_channel_followers(token=os.environ['TWITCH_OAUTH_TOKEN'], user_id=twitch_user.id)
+        except Exception as e:
+            print(e)
+            await ctx.send(f"{ctx.message.author.mention} something went wrong, oops")
+            return
+        if follow_event is not None and len(follow_event) == 1:
+            follow_event = follow_event[0]
+            span = datetime.now(timezone.utc) - follow_event.followed_at
+
+            hours, remainder = divmod(span.total_seconds(), 3600)
+            minutes, seconds = divmod(remainder, 60)
+            days, hours = divmod(hours, 24)
+            years, days = divmod(days, 365.25)
+
+            duration_str = f"{int(years)} years, {int(days)} days, {int(hours)} hours, {int(minutes)} minutes"
+            await ctx.send(f"{ctx.message.author.mention} has been following for {duration_str}!")
+        else:
+            await ctx.send(f"{ctx.message.author.mention} is not even following phanto274Shrug")
 
     '''
     If a mod uses this command, the last user to have used he/him/his gets timed out for 1 minute for each warning after the third in addition to the response.
@@ -694,60 +758,14 @@ class PhantomGamesBot(commands.Bot):
         self.last_misgender_user = ""
         await ctx.send("They / Them")
 
-    '''
-    Periodically posts automatically generated messages to chat.
-    '''
-    @routines.routine(minutes=int(os.environ['AUTO_CHAT_MINUTES']), wait_first=True)
-    async def automatic_chat(self):
-        for channel in self.channel_list:
-            if self.auto_chat_msg[channel] >= self.auto_chat_lines[channel]:
-                self.auto_chat_msg[channel] = 0
-                try:
-                    self.auto_chat_lines[channel] = tryParseInt(os.environ[f'AUTO_CHAT_LINES_MIN_{channel}'], 20) + random.randint(0, self.auto_chat_lines_mod[channel])
-                except:
-                    self.auto_chat_lines[channel] = 20 + random.randint(0, self.auto_chat_lines_mod[channel])
-
-                stream_channel = self.get_channel(channel)
-                if stream_channel is None:
-                    print(f"[ERROR] Timer cannot find channel '{channel}' to post in??")
-                else:
-                    message = self.markov.get_markov_string()
-                    print(f"[{datetime.now()}] Generated Message in {channel}: {message}")
-                    await stream_channel.send(message)
-
-    '''
-    Attempt to get how long a user has been following the channel for.
-    '''
-    @commands.command()
-    @commands.cooldown(1, 60, commands.Bucket.user)
-    async def followage(self, ctx: commands.Context):
-        streamer = await get_twitch_user(self, ctx.message.channel.name)
-        try:
-            twitch_user = await ctx.message.author.user()
-            follow_event = await streamer.user.fetch_channel_followers(token=os.environ['TWITCH_OAUTH_TOKEN'], user_id=twitch_user.id)
-        except Exception as e:
-            print(e)
-            await ctx.send(f"{ctx.message.author.mention} something went wrong, oops")
-            return
-        if follow_event is not None and len(follow_event) == 1:
-            follow_event = follow_event[0]
-            span = datetime.now(timezone.utc) - follow_event.followed_at
-
-            hours, remainder = divmod(span.total_seconds(), 3600)
-            minutes, seconds = divmod(remainder, 60)
-            days, hours = divmod(hours, 24)
-            years, days = divmod(days, 365.25)
-
-            duration_str = f"{int(years)} years, {int(days)} days, {int(hours)} hours, {int(minutes)} minutes"
-            await ctx.send(f"{ctx.message.author.mention} has been following for {duration_str}!")
-        else:
-            await ctx.send(f"{ctx.message.author.mention} is not even following phanto274Shrug")
-
     @commands.command()
     @commands.cooldown(1, 10, commands.Bucket.user)
     async def slots(self, ctx: commands.Context):
         await ctx.send(self.slots.roll(ctx.message.author.mention))
 
+    #####################################################################################################
+    # conversions
+    #####################################################################################################
     @commands.command()
     async def ftoc(self, ctx: commands.Context, farenheit: int):
         await ctx.send(f"{farenheit}°F = {str(round((farenheit - 32) * 5 / 9, 2))}°C")
@@ -812,9 +830,9 @@ class PhantomGamesBot(commands.Bot):
             for goal in goals:
                 if goal.type == 'follower' and follower:
                     if goal.current_amount >= goal.target_amount:
-                        return f'We hit our follower goal to {goal.description} and will be doing that soon! {generic_msg}'
+                        return f'We hit our follower goal of {goal.target_amount}! {generic_msg}'
                     else:
-                        return f'We are at {goal.current_amount} / {goal.target_amount} followers towards our goal to {goal.description}! {generic_msg}'
+                        return f'We are at {goal.current_amount} / {goal.target_amount} followers towards our goal! {generic_msg}'
                 elif 'subscription' in goal.type and not follower:
                     if goal.current_amount >= goal.target_amount:
                         return f'We hit our sub goal to {goal.description} and will be doing that soon!'
@@ -859,25 +877,6 @@ class PhantomGamesBot(commands.Bot):
         msg = await self.get_goal_msg(streamer, follower=False)
         await self.post_chat_announcement(streamer, msg)
 
-    @commands.command()
-    @commands.cooldown(1, 10, commands.Bucket.channel)
-    async def plus(self, ctx: commands.Context):
-        streamer = await ctx.message.channel.user()
-        plus_points = await self.get_subscriber_count(streamer, True)
-        await ctx.send(f"/me We are at {plus_points} / 100 sub points towards qualifying for a 60% sub split. If you are able, please consider subscribing at tier 1, 2 or 3 to help reach that!")
-
-    @commands.command()
-    async def goal(self, ctx: commands.Context):
-        await ctx.send(self.goals.get_next_goal())
-
-    @commands.command()
-    async def addvalue(self, ctx: commands.Context, value: int):
-        if ctx.author.is_broadcaster:
-            self.goals.add_bits(value)
-            await ctx.send(f"/me Added {value} points towards the sub goal progress!")
-        else:
-            await ctx.send(f"{ctx.message.author.mention} you do not have permission to use this command")
-
     #####################################################################################################
     # fun stuff
     #####################################################################################################
@@ -901,16 +900,22 @@ class PhantomGamesBot(commands.Bot):
     @commands.command()
     async def sendcc(self, ctx: commands.Context, bits: int):
         if ctx.message.author.is_broadcaster:
-            handle_pm64_cc_bits(bits)
+            if int(os.environ.get("CC_ENABLE")) == 1:
+                handle_generic_cc_bits(bits)
+            elif int(os.environ.get("CC_ENABLE")) == 2:
+                handle_pm64_cc_bits(bits)
 
     @commands.command()
     async def sendcc2(self, ctx: commands.Context, subs: int):
         if ctx.message.author.is_broadcaster:
-            handle_pm64_cc_subs(subs)
+            if int(os.environ.get("CC_ENABLE")) == 1:
+                handle_generic_cc_subs(subs)
+            elif int(os.environ.get("CC_ENABLE")) == 2:
+                handle_pm64_cc_subs(subs)
 
     @routines.routine(seconds=10, wait_first=True)
     async def periodic_cc_update(self):
-        handle_pm64_cc_periodic_update(10)
+        handle_cc_periodic_update(10)
 
     #####################################################################################################
     # eventsub
@@ -940,20 +945,29 @@ class PhantomGamesBot(commands.Bot):
                 # await self.esclient.subscribe_channel_unban_request_create(broadcaster=channel_id, moderator=self.user_id, token=channel_token)
                 # await self.esclient.subscribe_channel_unban_request_resolve(broadcaster=channel_id, moderator=self.user_id, token=channel_token)
                 # await self.esclient.subscribe_suspicious_user_update(broadcaster=channel_id, moderator=self.user_id, token=channel_token)
+
+                # notifications
+                # await self.esclient.subscribe_channel_ad_break_begin(broadcaster=channel_id, token=channel_token)
+                # await self.esclient.subscribe_channel_hypetrain_begin(broadcaster=channel_id, token=channel_token)
+                # await self.esclient.subscribe_channel_hypetrain_progress(broadcaster=channel_id, token=channel_token)
+                # await self.esclient.subscribe_channel_hypetrain_end(broadcaster=channel_id, token=channel_token)
+                await self.esclient.subscribe_channel_raid(to_broadcaster=channel_id, token=channel_token)
+                await self.esclient.subscribe_channel_stream_start(broadcaster=channel_id, token=channel_token)
+                await self.esclient.subscribe_channel_stream_end(broadcaster=channel_id, token=channel_token)
         except Exception as e:
             print(f"[Eventsub Error] Error subscribing to events on {channel}({channel_id}) with channel token: {e}")
 
-        try:
-            # notifications
-            # await self.esclient.subscribe_channel_ad_break_begin(broadcaster=channel_id, token=mod_token)
-            # await self.esclient.subscribe_channel_hypetrain_begin(broadcaster=channel_id, token=mod_token)
-            # await self.esclient.subscribe_channel_hypetrain_progress(broadcaster=channel_id, token=mod_token)
-            # await self.esclient.subscribe_channel_hypetrain_end(broadcaster=channel_id, token=mod_token)
-            await self.esclient.subscribe_channel_raid(to_broadcaster=channel_id, token=mod_token)
-            await self.esclient.subscribe_channel_stream_start(broadcaster=channel_id, token=mod_token)
-            await self.esclient.subscribe_channel_stream_end(broadcaster=channel_id, token=mod_token)
-        except Exception as e:
-            print(f"[Eventsub Error] Error subscribing to events on {channel}({channel_id}) with mod token: {e}")
+        # try:
+        #     # notifications
+        #     # await self.esclient.subscribe_channel_ad_break_begin(broadcaster=channel_id, token=mod_token)
+        #     # await self.esclient.subscribe_channel_hypetrain_begin(broadcaster=channel_id, token=mod_token)
+        #     # await self.esclient.subscribe_channel_hypetrain_progress(broadcaster=channel_id, token=mod_token)
+        #     # await self.esclient.subscribe_channel_hypetrain_end(broadcaster=channel_id, token=mod_token)
+        #     await self.esclient.subscribe_channel_raid(to_broadcaster=channel_id, token=mod_token)
+        #     await self.esclient.subscribe_channel_stream_start(broadcaster=channel_id, token=mod_token)
+        #     await self.esclient.subscribe_channel_stream_end(broadcaster=channel_id, token=mod_token)
+        # except Exception as e:
+        #     print(f"[Eventsub Error] Error subscribing to events on {channel}({channel_id}) with mod token: {e}")
         print(f"[Eventsub] Finished initializing for {channel}")
 
     #####################################################################################################
@@ -1001,12 +1015,13 @@ class PhantomGamesBot(commands.Bot):
 
         # pass bit amounts to crowd control
         if int(os.environ.get("CC_ENABLE")) == 1:
+            handle_generic_cc_bits(cheerData.bits)
+        elif int(os.environ.get("CC_ENABLE")) == 2:
             handle_pm64_cc_bits(cheerData.bits)
 
         # record bit cheers
         with open('C:/StreamAssets/LatestCheer.txt', 'w', encoding="utf-8") as last_cheer:
             last_cheer.write(f"Last Cheer: {cheerData.bits} {cheerData.user.name}")
-        self.goals.add_bits(cheerData.bits)
 
     async def update_sub_counts(self, broadcaster, tier):
         with open('C:/StreamAssets/SubCount.txt', 'w', encoding="utf-8") as sub_count:
@@ -1015,7 +1030,6 @@ class PhantomGamesBot(commands.Bot):
                 sub_count.write("99+")
             else:
                 sub_count.write(f"{count}")
-        self.goals.add_sub(tier)
 
     '''
     New sub event
@@ -1055,7 +1069,9 @@ class PhantomGamesBot(commands.Bot):
 
         # pass sub amounts to crowd control
         if int(os.environ.get("CC_ENABLE")) == 1:
-            handle_pm64_cc_subs(subData.total)
+            handle_generic_cc_subs(subData.total, subData.tier)
+        elif int(os.environ.get("CC_ENABLE")) == 2:
+            handle_pm64_cc_subs(subData.total, subData.tier)
 
     '''
     Precition
@@ -1153,6 +1169,17 @@ class PhantomGamesBot(commands.Bot):
     async def event_eventsub_notification_unban(self, event: NotificationEvent):
         banData = event.data
         banString = f"✅ `{banData.user.name}` has been unbanned in **{banData.broadcaster.name}** by _{banData.moderator.name}_"
+        await utils.events.twitchevents.twitch_log(banString)
+
+    '''
+    Unban request made
+    '''
+    async def event_eventsub_notification_unban_request_create(self, event: NotificationEvent):
+        banData = event.data
+        unix_epoch = datetime.strptime("1970-1-1 00:00:00.000000+0000", "%Y-%m-%d %H:%M:%S.%f%z")
+        seconds_from_epoch = int((banData.user.created_at - unix_epoch).total_seconds())
+        discord_timestamp = f"<t:{seconds_from_epoch}:f>"
+        banString = f"[{discord_timestamp}] '{banData.user.name}' has created an unban request: '{banData.text}'"
         await utils.events.twitchevents.twitch_log(banString)
 
 def run_twitch_bot(sharedResources) -> PhantomGamesBot:
