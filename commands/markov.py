@@ -13,7 +13,12 @@ class MarkovHandler:
             print(filename)
             if os.path.isfile(f):
                 with open(f, "r", encoding="utf-8") as markov_file:
-                    logtext += markov_file.read()
+                    line = markov_file.read()
+                    delimiter = line.find("] @ ")
+                    if delimiter == -1:
+                        logtext += line
+                    else:
+                        logtext += line[delimiter+4:]
 
         # state_size=1 is complete nonsense, 2 makes more ... real sentences, 3 is not random enough
         state_size = 3

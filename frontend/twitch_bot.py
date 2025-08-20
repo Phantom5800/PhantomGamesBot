@@ -62,7 +62,7 @@ class PhantomGamesBot(commands.Bot):
 
         # markov
         self.markov_data_store = True
-        self.markov_store_minlen = 6
+        self.markov_store_minlen = 4
         self.banned_words = []
         with open('./commands/resources/bannedwords.txt', 'r', encoding="utf-8") as banned_words:
             self.banned_words = banned_words.readlines()
@@ -249,7 +249,7 @@ class PhantomGamesBot(commands.Bot):
                     else:
                         with open(f"./commands/resources/markov/markov-{datetime.now().year}.txt", "a+", encoding="utf-8") as f:
                             try:
-                                f.write(f"{message.content}\n")
+                                f.write(f"[{message.author.name}] @ {message.content}\n")
                             except:
                                 print(f"[ERROR] Failed to add string to markov: {message.content}")
 
