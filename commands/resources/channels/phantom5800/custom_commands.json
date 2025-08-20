@@ -112,7 +112,7 @@
   "hi": {
     "response": "hi $user",
     "cooldown": 10,
-    "last_use": 1754678495.760496
+    "last_use": 1755528598.946322
   },
   "!nmsb": {
     "response": "/me No Major Sequence Breaks is a category that bridges the gap between Glitchless and All Cards. The important parts are that chapters must be completed in order, and story sequence can never go backwards.",
@@ -167,7 +167,7 @@
   "!socials": {
     "response": "Follow all the things: - https://youtube.com/@PhantomVODs - https://discord.gg/XtrhKXNmRc - https://twitter.com/Phantom5800 - https://bsky.app/profile/phantom-games.com",
     "cooldown": 0,
-    "last_use": 1751334324.038499
+    "last_use": 1755531630.459781
   },
   "yoshi": {
     "response": "piece of shit",
@@ -190,7 +190,7 @@
     "last_use": 1699207604.859819
   },
   "!race": {
-    "response": "https://racetime.gg/tp/messy-bahamut-7137",
+    "response": "https://racetime.gg/pm64r/jammy-lanternghost-0590",
     "cooldown": 0,
     "last_use": 0
   },
@@ -297,7 +297,7 @@
   "egg": {
     "response": "fuck that kid",
     "cooldown": 0,
-    "last_use": 0
+    "last_use": 1755530914.258325
   },
   "!throne": {
     "response": "/me I do have one of these if you want to give me money / something more specific: https://throne.com/phantom5800",
@@ -362,7 +362,7 @@
   "!pax": {
     "response": "/announce I am running Paper Mario Rando for GDQ at PAX West on August 29th: https://gamesdonequick.com/schedule/59",
     "cooldown": 0,
-    "last_use": 1754065002.082587
+    "last_use": 1755528436.799939
   },
   "!sdat": {
     "response": "/announce I am running Paper Mario Glitchless for SDAT 2025 on August 23rd, full weekend schedule: https://horaro.org/speeddocsathon/sdat-2025-weekend-one",

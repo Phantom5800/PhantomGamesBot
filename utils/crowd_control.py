@@ -62,8 +62,13 @@ def handle_generic_cc_bits(bits: int):
     if num_swaps >= 1:
         interval_swaps += (num_swaps - 1)
         print(f"[CC {datetime.now()}] Swapping {num_swaps} times")
-        with open(f"{cc_root}/cc-shuffle.txt", "w+") as f:
-            f.write("Shuffle")
+        cc_file = f"{cc_root}/cc-shuffle.txt"
+        # increment interval swaps if the file still exists (effectively two cheers in a <16ms window)
+        if os.path.isfile(cc_file):
+            interval_swaps += 1
+        else:
+            with open(cc_file, "w+") as f:
+                f.write("Shuffle")
 
     while total_bits >= current_threshold:
         added_game_count = add_next_game()
