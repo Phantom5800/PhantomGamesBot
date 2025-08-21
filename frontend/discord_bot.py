@@ -207,6 +207,12 @@ class PhantomGamesBot(Bot):
         channel = self.get_channel(self.channels["twitch-logs"])
         await channel.send(msg)
 
+    async def on_twitch_stream_event(self, eventType:utils.events.TwitchEventType, msg:str):
+        if eventType == utils.events.TwitchEventType.GoLive:
+            print(f"[Discord Stream Event] Stream has gone live - {msg}")
+        elif eventType == utils.events.TwitchEventType.EndStream:
+            print(f"[Discord Stream Event] Stream has gone offline - {msg}")
+
 def run_discord_bot(eventLoop, sharedResources):
     bot = PhantomGamesBot(sharedResources)
     bot.add_cog(PhantomGamesBotCommands(bot, sharedResources))

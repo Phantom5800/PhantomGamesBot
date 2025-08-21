@@ -1127,6 +1127,8 @@ class PhantomGamesBot(commands.Bot):
     async def event_eventsub_notification_stream_start(self, event: NotificationEvent):
         streamOnlineData = event.data
         print(f"[Eventsub {streamOnlineData.started_at}] Stream has started for {streamOnlineData.broadcaster.name}")
+        streamtitle = await get_stream_title_for_user(self, streamOnlineData.broadcaster.name)
+        await utils.events.twitchevents.twitch_stream_event(utils.events.TwitchEventType.GoLive, streamtitle)
 
     '''
     Stream ended event
@@ -1134,6 +1136,7 @@ class PhantomGamesBot(commands.Bot):
     async def event_eventsub_notification_stream_end(self, event: NotificationEvent):
         streamOfflineData = event.data
         print(f"[Eventsub] Stream has ended for {streamOfflineData.broadcaster.name}")
+        await utils.events.twitchevents.twitch_stream_event(utils.events.TwitchEventType.EndStream)
 
     '''
     Raid event
