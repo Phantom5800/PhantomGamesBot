@@ -19,12 +19,12 @@ class TwitchEvent:
         if stream_event_method:
             self.twitch_event_stream_event_listeners.append(stream_event_method)
 
-    async def twitch_log(self, msg):
+    async def twitch_log(self, user:str, msg:str):
         for func in self.twitch_event_log_listeners:
-            await func(msg)
+            await func(user, msg)
 
-    async def twitch_stream_event(self, eventType: TwitchEventType, msg:str = None):
+    async def twitch_stream_event(self, user:str, eventType: TwitchEventType, msg:str = None):
         for func in self.twitch_event_stream_event_listeners:
-            await func(eventType, msg)
+            await func(user, eventType, msg)
 
 twitchevents = TwitchEvent()

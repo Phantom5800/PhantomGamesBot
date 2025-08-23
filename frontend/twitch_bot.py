@@ -1128,7 +1128,7 @@ class PhantomGamesBot(commands.Bot):
         streamOnlineData = event.data
         print(f"[Eventsub {streamOnlineData.started_at}] Stream has started for {streamOnlineData.broadcaster.name}")
         streamtitle = await get_stream_title_for_user(self, streamOnlineData.broadcaster.name)
-        await utils.events.twitchevents.twitch_stream_event(utils.events.TwitchEventType.GoLive, streamtitle)
+        await utils.events.twitchevents.twitch_stream_event(streamOnlineData.broadcaster.name, utils.events.TwitchEventType.GoLive, streamtitle)
 
     '''
     Stream ended event
@@ -1136,7 +1136,7 @@ class PhantomGamesBot(commands.Bot):
     async def event_eventsub_notification_stream_end(self, event: NotificationEvent):
         streamOfflineData = event.data
         print(f"[Eventsub] Stream has ended for {streamOfflineData.broadcaster.name}")
-        await utils.events.twitchevents.twitch_stream_event(utils.events.TwitchEventType.EndStream)
+        await utils.events.twitchevents.twitch_stream_event(streamOfflineData.broadcaster.name, utils.events.TwitchEventType.EndStream)
 
     '''
     Raid event
@@ -1164,7 +1164,7 @@ class PhantomGamesBot(commands.Bot):
             seconds_from_epoch = int((banData.ends_at - unix_epoch).total_seconds())
             discord_timestamp = f"<t:{seconds_from_epoch}:R>"
             timeoutString = f"❌ `{banData.user.name}` has been timed out in **{banData.broadcaster.name}** by _{banData.moderator.name}_ until {discord_timestamp} for '{reason}'"
-            await utils.events.twitchevents.twitch_log(timeoutString)
+            await utils.events.twitchevents.twitch_log(banData.broadcaster.name, timeoutString)
 
     '''
     User unbanned
@@ -1172,7 +1172,7 @@ class PhantomGamesBot(commands.Bot):
     async def event_eventsub_notification_unban(self, event: NotificationEvent):
         banData = event.data
         banString = f"✅ `{banData.user.name}` has been unbanned in **{banData.broadcaster.name}** by _{banData.moderator.name}_"
-        await utils.events.twitchevents.twitch_log(banString)
+        await utils.events.twitchevents.twitch_log(banData.broadcaster.name, banString)
 
     '''
     Unban request made
@@ -1183,7 +1183,7 @@ class PhantomGamesBot(commands.Bot):
         seconds_from_epoch = int((banData.user.created_at - unix_epoch).total_seconds())
         discord_timestamp = f"<t:{seconds_from_epoch}:f>"
         banString = f"[{discord_timestamp}] '{banData.user.name}' has created an unban request: '{banData.text}'"
-        await utils.events.twitchevents.twitch_log(banString)
+        await utils.events.twitchevents.twitch_log(banData.broadcaster.name, banString)
 
 def run_twitch_bot(sharedResources) -> PhantomGamesBot:
     bot = PhantomGamesBot(sharedResources)

@@ -203,13 +203,15 @@ class PhantomGamesBot(Bot):
     #####################################################################################################
     # cross bot events
     #####################################################################################################
-    async def on_twitch_event_log(self, msg):
+    async def on_twitch_event_log(self, user:str, msg:str):
         channel = self.get_channel(self.channels["twitch-logs"])
         await channel.send(msg)
 
-    async def on_twitch_stream_event(self, eventType:utils.events.TwitchEventType, msg:str):
+    async def on_twitch_stream_event(self, user:str, eventType:utils.events.TwitchEventType, msg:str):
         if eventType == utils.events.TwitchEventType.GoLive:
-            print(f"[Discord Stream Event] Stream has gone live - {msg}")
+            channel = self.get_channel(self.channels["stream-announcements"])
+            msg = await channel.send(f"{self.roles['stream-notifs']} {msg} https://twitch.tv/{user}")
+            await msg.publish()
         elif eventType == utils.events.TwitchEventType.EndStream:
             print(f"[Discord Stream Event] Stream has gone offline - {msg}")
 
