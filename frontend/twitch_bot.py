@@ -913,9 +913,10 @@ class PhantomGamesBot(commands.Bot):
             elif int(os.environ.get("CC_ENABLE")) == 2:
                 handle_pm64_cc_subs(subs)
 
-    @routines.routine(seconds=10, wait_first=True)
+    @routines.routine(seconds=int(os.environ.get("CC_UPDATE_SECONDS", 10)), wait_first=True)
     async def periodic_cc_update(self):
-        handle_cc_periodic_update(10)
+        interval = int(os.environ.get("CC_UPDATE_SECONDS", 10))
+        handle_cc_periodic_update(interval)
 
     #####################################################################################################
     # eventsub
@@ -1039,6 +1040,11 @@ class PhantomGamesBot(commands.Bot):
         # update most recent sub for non gifts
         if not subData.is_gift:
             print(f"[Eventsub] {subData.user.name.lower()} subscribed at tier {subData.tier} for the first time!")
+
+            if int(os.environ.get("CC_ENABLE")) == 1:
+                handle_generic_cc_subs(1, subData.tier)
+            elif int(os.environ.get("CC_ENABLE")) == 2:
+                handle_pm64_cc_subs(1, subData.tier)
 
             with open('C:/StreamAssets/LatestSub.txt', 'w', encoding="utf-8") as last_sub:
                 last_sub.write(f"New Sub: {subData.user.name}")

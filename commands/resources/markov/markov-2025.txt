@@ -23660,3 +23660,1117 @@ more bad ideas: show off early whale at pax
 [themasterzelda] @ wait no you can do post twilight and just fly up to gorons
 [annilyn2] @ gtg night! evo17Hiyo terragStalZone
 [themasterzelda] @ Link just turns into a tube
+[zeliversal] @ 58 of Phantom of 00
+[zeliversal] @ May I have permission to politely sue Amazon a few times?
+[icebound777] @ Yeah I have them loaded in another tab already, didn't look through them yet
+[zeliversal] @ I was going to buy a controller for playing Nier and then I slept on it overnight and then they increased the price by $10 SirMad
+[icebound777] @ Also, on-stream chat display is ded
+[rgamer0] @ Yoy! phanto274Wave phanto274Smile iceblueArrive
+[terppyslabs21] @ Hope you are having a good day! Found your YouTube over the weekend and gotta say I am hooked like the fishing episode of SpongeBob.
+[icebound777] @ hate when that happens
+[zeliversal] @ So can I sue? :)
+[stavros12c34anenoglou] @ Sounds good and like a plan to me
+[rgamer0] @ hitting ya with the good badges right away
+[zeliversal] @ Or can I at least write a strongly worded letter?
+[zeliversal] @ "I was going to buy a controller for playing Nier and then I slept on it overnight and then they increased the price by $10  SirMad "
+[rgamer0] @ Need one level to equip these badges
+[stavros12c34anenoglou] @ Had a great time yesterday at the card show. Got 2 slab haul. A Water rayquaza in a 6 and Shiny Articuno in a 9.
+[rgamer0] @ Hey a star spirit
+[bsmith906] @ uuhhh did you just get a star spirit?
+[zeliversal] @ It probably depends on how many I write YEP
+[zeliversal] @ $10 is a lot of money
+[zeliversal] @ That ALMOST buys you a potato
+[icebound777] @ Well the spirits aren't "junk" junk. They can't be on Whacka or the OOL Rip Cheato checks
+[robinwings_] @ Yo what up gamers
+[robinwings_] @ Did I just see Misstar come out of that block?? LOL
+[zeliversal] @ D: I'm getting robbed?
+[rgamer0] @ Yo it's a child all alone
+[robinwings_] @ Ohhh so cool :D
+[zeliversal] @ Are they finally fixing the hot?
+[icebound777] @ at which point do they just put you on the payroll frfr
+[zeliversal] @ Will it be cooler now?
+[rgamer0] @ Taunting you with the feesh you want
+[rgamer0] @ Desert of many boots
+[bsmith906] @ boots of people who died in the desert
+[zeliversal] @ I want to take a nap but I also want dinner
+[zeliversal] @ Imagine being practiced on
+[rgamer0] @ Just drop a feesh from the heavens
+[angellove94] @ 17 minutes in and 2 stars already?
+[robinwings_] @ very fast seed Kappa
+[angellove94] @ lol I’m at work
+[angellove94] @ got to get back to work. wanted to stop by and say hi.
+[mr_zebra776] @ what settings is this
+[icebound777] @ curious, I've always done the storeroom escape without pushing right during, except for the last step
+[icebound777] @ I usually do two parakarries without movement, and then a tap jump right to get the camera to turn
+[icebound777] @ oh interesting, I never counted flaps for the ending, just doing a timed tap jump
+[icebound777] @ Sure, could implement that. Tho that may go a bit against one of it's goals, which was making star pieces less of a bean counting endeavor
+[icebound777] @ Oh, I see, yeah that could be done
+[mr_zebra776] @ @Icebound777 IMO I think double is just a bit high so it could be it logically expects more than are required but less than double
+[icebound777] @ The cheap setting for Merlow was just thrown in there, without any changes to the actual logic. But I could see adding a recalculation of logical star pieces required
+[icebound777] @ On a similar topic, getting star pieces from vanilla letter checks. I've thought about addressing it, but then the chances for even earlier SuperBoots / UltraHammer for panels may manifest
+[mr_zebra776] @ you would also want to take out the koot star pieces to
+[icebound777] @ According to mariowiki there are 32 star pieces that dont come from letters, panels, quizmo or koot
+[mr_zebra776] @ are these glitches in logic or are you just doing them?
+[mr_zebra776] @ so kooper skip is enabled right :)
+[mr_zebra776] @ for now at least
+[mr_zebra776] @ what kooper locked LZ
+[mr_zebra776] @ I mean it is the kooper bridge in crystal palace thatis required for
+[icebound777] @ re-counted the star pieces: 64 quizmo, 15 koot, 36 panels, 11 letters, 34 overworld + item trades
+[mr_zebra776] @ isn't there a way to activate it with watt
+[axl_sr] @ Platinum AP is very close
+[axl_sr] @ and by close I mean the first alpha, and it uses bizhawk
+[icebound777] @ I think I do remember seeing a clip of a way of glitching a partner through that wall and that triggering the scene .... hm
+[axl_sr] @ yeah i tired it and it booted the rom just fine
+[icebound777] @ Or maybe that was people just experimenting with it via fp
+[icebound777] @ It triggers with any partner IIRC, but the position check isn't that shallow
+[mr_zebra776] @ give me a sec will send it
+[icebound777] @ Yup. I had to implement a custom exception to this for entrance shuffle, otherwise it would just trigger every time you enter via that entrance
+[icebound777] @ Wow that's so trivial
+[icebound777] @ just hold watt into the wall??
+[mr_zebra776] @ it seems like there is a little more to it
+[mr_zebra776] @ based on the message right after it saying how to do it
+[mr_zebra776] @ kooper is still required to beat the chapter though because of the bridge right after it
+[mr_zebra776] @ yeah 1 block+ panel (+a 3rd with small statue skip)
+[mr_zebra776] @ doesn't look like it
+[mr_zebra776] @ probably because it would have no use in rando as you would always have kooper there before
+[icebound777] @ Oh, I got it, took a bit tho. And while you can mash cdown for this, you can get yourself into a state where a crash is unavoidable
+[mr_zebra776] @ yeah think it crashes ifyou hammer the guys or they pick you up
+[mr_zebra776] @ so you have to do kooper puzzle skip afterwards
+[icebound777] @ for me it also crashes when hammering kooper ...
+[mr_zebra776] @ maybe picking up doesn't crash am not sure
+[mr_zebra776] @ haven't actually tested it much
+[icebound777] @ yeah, in the thread it mentions that every option here crashes on n64, only wii vc survives hammering kooper
+[icebound777] @ so, no bueno for rando
+[mr_zebra776] @ doing puzzle skip didn't crash I thought
+[mr_zebra776] @ so it could be useful in rando
+[icebound777] @ oh i meant every option other than puzzle skip
+[icebound777] @ you crash when hammering either kooper or fake koopers
+[icebound777] @ oh i havent tried that
+[icebound777] @ No crash on getting grabbed by the NPCs. I was unable to try (and fail) kooper puzzle skip like 6-7 times until I got it
+[icebound777] @ Yup, I've got no qualms with this. Clippy can also crash if you do it wrong, as axl demonstrated in the bug reports channel once xp
+[darkness3827] @ yo berserk strats lfg!
+[icebound777] @ ayo a feeling fine alternative
+[darkness3827] @ immunity to status effects is very nice!
+[mr_zebra776] @ yeah getting grabbed is fine it is just hammering
+[icebound777] @ berserker builder mario is just entirely orange
+[rgamer0] @ Lake's heating source is malfunctioning
+[icebound777] @ time for the sound of 🇫
+[icebound777] @ not long enough for the estimate
+[icebound777] @ how long can we ride the berserker train for
+[rgamer0] @ Chapter 4 is likely to push the Go mode button
+[icebound777] @ need stacking berserkers. see mario go ssj3
+[rgamer0] @ Don't you mean Ultra Mario One?
+[0b1jc0b] @ mario went Super Star Rod Super Star!
+[0b1jc0b] @ oh, Berserker was made by Intelligent Sys? idek there were beta badges
+[icebound777] @ show the long item description in the badge menu, lol
+[peelb4758] @ Yo, first time catching a rando!
+[icebound777] @ really late chapter 6 also narrows down you available locations a bit
+[peelb4758] @ Wait autosmash isn't vanilla, right?
+[icebound777] @ fun useless trivia, when I was first experimenting with progressive gear (w/o clover's help at that time) I used the auto jump/smash as item sprites for the progressive items
+[rgamer0] @ Prepare for annihilation Crystal King
+[icebound777] @ he sure tried, again
+[peelb4758] @ Poor CK, he didn't see it coming
+[icebound777] @ im still waiting for one of the seeds to be on a chapter clear reward
+[rgamer0] @ Surely a seed or a stone should be here
+[icebound777] @ Actually, that's kinda bad ... having a chapter entering item on a boss reward, that's just logical rowf but more extreme
+[icebound777] @ Isn't a chapter boss reward just like a 4th rowf item for that set? for the first few chapters anyway
+[peelb4758] @ Ohhh, I thought it was Ralph
+[venlafaxinequeen] @ is this an all chapters rando?
+[morpheus0800] @ TIL the only channels i follow on this account are yours and pape races KEKW
+[icebound777] @ Wasnt pape rando on RNG at some point?
+[morpheus0800] @ i think i've only been on passion project and think fast
+[morpheus0800] @ yeah a few months back
+[morpheus0800] @ and think fast was all cards with jcog
+[venlafaxinequeen] @ Think fast is very fun
+[venlafaxinequeen] @ i’d kill at it
+[morpheus0800] @ all i know is i got 3 capped by jr in that run and was sad about it KEKW
+[morpheus0800] @ it was so sketch with how barebones all cards already is, im surprised i even finished under estimate
+[morpheus0800] @ why did it just skip 16 lmfao
+[darkness3827] @ Here, have some mail!
+[icebound777] @ will we berserker hallway for content?
+[darkness3827] @ Berserker Final would be maximum content
+[icebound777] @ ispy is the most edible looking badge. like a decorated cookie
+[icebound777] @ id rather shuffle quizmo pieces
+[icebound777] @ which isnt that terribly unlikely tbf
+[peelb4758] @ I want to eat damage dodge and no one can stop me
+[icebound777] @ we're kind of running out of items to shuffle though. trumpet plants, fire bars ...
+[darkness3827] @ Oh doing each individual location that makes more sense. I was thinking making each question a check LUL
+[icebound777] @ I find the thought of 10 random consumables amusing tbh
+[icebound777] @ but not seriously considering that
+[icebound777] @ I don't think I have thought about it since coin bags became a thing, so ... yeah makes sense
+[darkness3827] @ Make every single enemy encounter be a check LUL
+[darkness3827] @ Yeah also what would you need add to the pool for those? Just more coins and consumables?
+[icebound777] @ Apparently people have been enjoying tattlesanity in ttydr
+[darkness3827] @ I mean ig it gives you a reason to use tattle, idk what like any of the tattles are so it'd be fun to see them all but I'd never want to play it more than once.
+[icebound777] @ I haven't tried it (for lack of a ntsc ttyd disc), but tattlesanity sounds kind of dry
+[icebound777] @ I mean, that's what the new pit checkpoints are for, so I wouldn't mind that part
+[icebound777] @ the two pape rando channels are the only channels on the AP discord I pretty much "monitor"
+[icebound777] @ I also follow the Luigi's Mansion one, but that still needs some time in the oven from what I've seen of bug reports
+[peelb4758] @ SPM has an enemy rando im fairly sure
+[peelb4758] @ I remember seeing a mod that added turn based battles to SPM, but it was really bare bones
+[icebound777] @ This seems like over half an hour under estimate
+[icebound777] @ That sleepy sheep from Mamar is fitting
+[peelb4758] @ Just add koopa koot Kappa
+[icebound777] @ dungeon shuffle adds asinine backtracking at times, but it's not the longest treks ever
+[icebound777] @ Yeah, and even if it's in a bad location just grab the area hint from hallway
+[venlafaxinequeen] @ when is your run?
+[icebound777] @ What was it that caused the 3:45 estimate again, in terms of settings?
+[icebound777] @ Oh so more tricks, and jumpless hammerless
+[icebound777] @ Yeah, not both at least
+[darkness3827] @ you don't enjoy bombing the block you have to hit 100 times???
+[morpheus0800] @ is there anything else for a mash that actually just sucks ass like power shock
+[morpheus0800] @ or did they make it uniquely bad
+[icebound777] @ Did you grab the dodge master from Rowf
+[morpheus0800] @ they looked at dizzy shell and said never again
+[icebound777] @ Ah, shows what I know
+[morpheus0800] @ the visual for fire is so weird here
+[morpheus0800] @ could jump on a koopratrol COPIUM
+[theglubbers] @ it's a 3h estimate right
+[theglubbers] @ is it posible to just add another chapter or is that inconsistent
+[theglubbers] @ oh i saw the one greyed out and was like "isn't this all but one"
+[darkness3827] @ star rod shuffle when?
+[theglubbers] @ i saw the numbers, assumed it was that, then realized wait you get the star spirits and realized the answer was the same regardless
+[peelb4758] @ Wait star spirit shuffle is a thing?
+[morpheus0800] @ is it ever normal with this fight
+[morpheus0800] @ this happens every time i watch
+[morpheus0800] @ i wouldn't know, im too busy dying to time out
+[peelb4758] @ Someone said dungeon shuffle?
+[darkness3827] @ panels with vague hints is cool and doesn't add a ton of time
+[rgamer0] @ Yeah need to add in things
+[mariomantaw] @ What are the settings like here?
+[rgamer0] @ Panels and dungeon shuffle and boss shuffle
+[darkness3827] @ Yeah have you done an event run with hints before?
+[mariomantaw] @ Just turn on Bombette pushes YEP
+[peelb4758] @ Yeah there was that one seed in the shuffler that didn't get a hammer for ages
+[theglubbers] @ oh yeah izzy finished another emote
+[theglubbers] @ she's got one more she's working on
+[theglubbers] @ it's ciela but everyone's gonna say navi lmfao
+[theglubbers] @ cuz in PH the one using the hammer is ciela
+[iceblue] @ what the hell was your channel name before cause of that prefix?
+[iceblue] @ That's more on brand
+[theglubbers] @ @Iceblue the only reason it's not changed is that "cmdrgl" is shit but its better than "glubbe2"
+[mariomantaw] @ Multi-coin blocks don't add that much, do they?
+[theglubbers] @ er that was the old one, "theglu4"
+[iceblue] @ Just use "cumglub" as your prefix
+[mariomantaw] @ I guess yeah there are several in the desert
+[darkness3827] @ @Iceblue think it would be cumglu
+[theglubbers] @ if i could have a custom prefix maybe monadoHands
+[iceblue] @ my prefix is 7 letters
+[iceblue] @ hell my prefix is literally my name
+[theglubbers] @ partners get more leniency
+[mariomantaw] @ Yeah just get partner Clueless
+[theglubbers] @ genius ice, i just lost my job so maybe i should go on that partner grind Clueless
+[peelb4758] @ Wow, 'lmao' is censored for me, but not 'cumglu'
+[iceblue] @ the shit desi had to do to get that prefix
+[iceblue] @ he's had it removed before
+[iceblue] @ he got reported for it by some homophobe
+[iceblue] @ and he argued, and got it back
+[rgamer0] @ Gay means happy, what you mean it has other meanings phanto274Thonk
+[rgamer0] @ I mean it gives LP a chance rather then getting LP skipped every time you finish chapter 5
+[icebound777] @ at the top, gameplay tab
+[darkness3827] @ That's one way to add time, don't skip LP :P
+[peelb4758] @ Wait this is GROOVY phanto274Jam
+[icebound777] @ That reminds me, I read something about someone getting the everdrive recognized as removable media via the dev port. And use it to transfer files
+[darkness3827] @ I was gonna say if you're asking it must be dog island LUL
+[peelb4758] @ Been a while since I've heard a marimba solo
+[icebound777] @ krikzz example code does something like that as well
+[darkness3827] @ I don't even know what locations exist for it to be in the game LUL
+[peelb4758] @ I've never even heard of dog Island
+[darkness3827] @ I've only heard of it from you.
+[rgamer0] @ Beware of Huskies and Malinois
+[theglubbers] @ i told pippy you run dog island and she was like "they do????"
+[darkness3827] @ Damn that's chill music for a boss fight.
+[theglubbers] @ i think it was like in the post run channel after LASS
+[peelb4758] @ No I just finished exams for the year, I don't need a tests on dog Island knowledge
+[rgamer0] @ Husky will be stubborn and destructive and Malinois are literal crack addicts
+[theglubbers] @ yep she told me about this
+[theglubbers] @ she already leaked this verbally and that's how it came up
+[rgamer0] @ Chihuahuas are angry little munchkins
+[peelb4758] @ Omg 2 seeds in a day, as a VODhead, this is unheard of
+[mariomantaw] @ 2 Fortress Keys is crazy
+[mariomantaw] @ Fortress Keys already don't even matter
+[swiftpichu_] @ the fuck did nancy do to you
+[mariomantaw] @ Oh right that's what the partner was for
+[mariomantaw] @ Well not for ch1, maybe for ch3 though if we're lucky
+[mariomantaw] @ This seed is amazing already
+[darkness3827] @ guess you're doin danger strats LUL
+[mariomantaw] @ Coin blocks are on, right?
+[mariomantaw] @ My stream delay is being funky today apparently
+[peelb4758] @ Yeah I've got barely any
+[theglubbers] @ i swapped to firefox from chrome ~1mo ago and my delay has gone to near zero
+[mariomantaw] @ Third Fortress Key HUH
+[rgamer0] @ Boots in the desert again
+[angellove94] @ the desert and toy box are usually the gold mines
+[icebound777] @ It plays a metallic sound
+[iceblue] @ Quick someone cheer 690
+[theglubbers] @ phantom, how is walk peahat clip supposed to work on a dpad
+[iceblue] @ Unless you changed it
+[iceblue] @ It used to be 690
+[iceblue] @ Yeah but i want the one that lasts a minute lol
+[iceblue] @ omg thank you LUL
+[iceblue] @ The zoom in while mario beats the block gets me every time
+[darkness3827] @ no not the hustle drink :(
+[iceblue] @ Phantom for no reason at all, you should add a 6969 bit alert, where it's mario hitting that block... but for 5 minutes straight
+[iceblue] @ I made a bit alert for "Dental Plan, Lisa needs braces" but it's just them back and forth for 2 minutes
+[iceblue] @ And I set it to like 1500
+[iceblue] @ And people have done it LUL
+[iceblue] @ The people love memes
+[iceblue] @ Lemme go see how long it actually is
+[iceblue] @ Okay, it's 74 seconds long
+[peelb4758] @ Wait weren't you gonna turn on panel hints?
+[iceblue] @ omg i clicked preview
+[rgamer0] @ Mucho iceblueBet this seed
+[iceblue] @ power shock is cheap
+[mariomantaw] @ Hey wait a minute, this isn't where you use Fortress Keys...
+[iceblue] @ can i change my name to chapter?
+[mariomantaw] @ This seed is amazing
+[nina_calico] @ iceblueBan kiawaBONK phanto274Ban zoiBonk
+[mariomantaw] @ I'm not sure this is going to be much slower lol
+[mariomantaw] @ It's not like you cleared out the extra checks in the first 20 minutes or anything
+[mariomantaw] @ And already have a ton of good stuff
+[laichan] @ all i just hear is "auto smack" as im trying to get stuff done
+[swiftpichu_] @ sent something if you haven't seen it
+[swiftpichu_] @ I laughed so fucking hard
+[swiftpichu_] @ how many life shrooms are there in the game?
+[mariomantaw] @ Oh, why'd you choose to make them invisible? For Watt logic? Or was it just the preset?
+[darkness3827] @ mario, you have to jump to jump
+[darkness3827] @ Sushie sacrifices herself to kill Blooper
+[mariomantaw] @ I mean, the Laki TP isn't THAT hard
+[mariomantaw] @ We have video documentation now at least
+[mariomantaw] @ You could beat Toybox with a detour to town, right?
+[mariomantaw] @ Oh right Toybox clip, also wasn't sure if Watt skip is in logic
+[mariomantaw] @ Surely this is Fortress, right?
+[mariomantaw] @ Took a different spirit than usual hostage
+[peelb4758] @ We need to save him
+[pierrezebub] @ Bo in black and white is a vibe!
+[mariomantaw] @ That would've been a good one, yeah
+[peelb4758] @ With star spirit shuffle, is it just for star moves, or do you need them for star rod?
+[peelb4758] @ Is it just a better flower saver?
+[peelb4758] @ Yeah, not worth 7 lol
+[ezzlin] @ I tried out Kirby 64 per your recommendation, it was fun!
+[ezzlin] @ Sounds good, have fun with the rest of your seed
+[mariomantaw] @ So just don't miss the blocks YEP
+[peelb4758] @ It's calling to you
+[mariomantaw] @ And we still haven't found the Fortress HUH
+[mariomantaw] @ I bet the other magical seed is somewhat early
+[peelb4758] @ We can save the hostage now
+[mariomantaw] @ We'll have lots of star power for all the bosses now, huh
+[impurpp] @ how'd you know? :o
+[impurpp] @ lol monday night bingo was tonight
+[impurpp] @ cool! lol how many last minute showcases have you done before?
+[impurpp] @ I just remember that pokepark thing
+[peelb4758] @ Will that just be on GDQ's Twich?
+[janitorbeav] @ wait so we get double Phantom on GDQ?
+[mariomantaw] @ I knew this would be early, Fortress HAS to be in chapter 6... surely...
+[peelb4758] @ Wait, what day is it for you?
+[peelb4758] @ I'm Australian btw,  that's why I asked
+[peelb4758] @ Time zones are stupid
+[rgamer0] @ Shy Guys of the damned
+[janitorbeav] @ and waiting for you behind door #3 is death
+[swiftpichu_] @ what's in door 4
+[mariomantaw] @ If you want to go check 6 entrance before turning in portrait
+[mariomantaw] @ Oh right I guess you can, how long have you had Star Stone?
+[themasterzelda] @ you could have what?
+[themasterzelda] @ but Watt could you have had?
+[peelb4758] @ That is the question
+[mariomantaw] @ I thought it was a Life Shroom too lol
+[peelb4758] @ The beta badges are cool but I have no clue what they do
+[mariomantaw] @ I bet you could
+[mariomantaw] @ But idk for sure
+[peelb4758] @ What is this, the mushroom kingdom?
+[mariomantaw] @ Snowman on ice lol
+[mariomantaw] @ Can't wait to see you star storm 1-scaled Koopa Bros YEP
+[mariomantaw] @ Right I keep forgetting
+[mariomantaw] @ If you need stones, then 5 yeah
+[peelb4758] @ Bowsers castle keys, no?
+[mariomantaw] @ You have Star Storm tho
+[mariomantaw] @ Red berry-locked red berry OMEGALUL
+[feli_heli] @ wait what was your question lol
+[feli_heli] @ i had delay so i refreshed
+[mariomantaw] @ Along-side a vanilla yellow berry, right?
+[feli_heli] @ what emote was it lol
+[feli_heli] @ that is in my chat
+[iceblue] @ Phantom, add that emote
+[feli_heli] @ i dont think i added it though
+[feli_heli] @ people just be adding emotes to my channel
+[iceblue] @ Feli, you know you wanna
+[peelb4758] @ We need the Yoshi chief emote
+[peelb4758] @ Hold on, let me switch to desktop
+[peelb4758] @ I need to find this
+[feli_heli] @ i dont think so lmfao
+[iceblue] @ I don't look at Monado's emotes for that very reason
+[feli_heli] @ ive seen some of glubbers
+[iceblue] @ I don't have 7tv installed
+[peelb4758] @ No Yoshi Chief, That's against TOS!
+[themasterzelda] @ what in the TP name
+[peelb4758] @ isnt the bird ezikiel?
+[iceblue] @ 2 bp power plus LUL
+[iceblue] @ Handing you massive damage on a silver platter
+[peelb4758] @ and all of the peril badges as well
+[peelb4758] @ right t the start of the game
+[iceblue] @ Love that the really bad mash got him paralyzed
+[peelb4758] @ i love pink Watt
+[peelb4758] @ my favourite is blue Bombette
+[iceblue] @ pink watt is too good
+[iceblue] @ damn USPS has the ability to kill final bowser
+[rubixtheslime] @ yo phantom i wish the best of gl
+[peelb4758] @ cheating never wins smh
+[iceblue] @ @PeelB4758 then why does rigby win a lot? Kappa
+[iceblue] @ man was guarding 1 coin with his LIFE
+[amishman19] @ It's something to do with Laki and merhigh
+[blacktiger51] @ i was tabbed out and heard my name
+[pierrezebub] @ ''im in peril , please call an ambulance... for you!''
+[iceblue] @ Honey syrup right out of her mammories
+[pierrezebub] @ she gave you the sweet stuff
+[iceblue] @ It was a wish.com diamond stone LUL
+[pierrezebub] @ is the Dojo relevant in a rando?
+[blacktiger51] @ no can i have some
+[stavros12c34anenoglou] @ I put vanilla pudding and ranch on my Pizza not sad at all
+[pierrezebub] @ quesadilla and sour cream is a thing so no?
+[iceblue] @ stavros what the fuck
+[mirby_studios] @ okay that's just gross stavros
+[mirby_studios] @ keep that pizza away from me
+[lampy_m] @ sounds good to me lol]
+[rgamer0] @ I throw shichimi spice onto my pizzas
+[iceblue] @ i should time you out stavros
+[mirby_studios] @ that is the weirdest way i've ever seen quesadilla spelled lmao
+[pierrezebub] @ i use ranch instead of sour cream with my quesadillas xD
+[iceblue] @ see that's fine pierre
+[blacktiger51] @ who know maybe we all bots Kappa
+[iceblue] @ i just hate sour cream lol
+[mirby_studios] @ ranch with quesadillas is fine, like it's pretty common
+[mirby_studios] @ like bacon ranch quesadillas are something i see often
+[peelb4758] @ i like microwaving cheese and BBQ sauce together on a plate till it's a puddle
+[venlafaxinequeen] @ I love sour cream but sour cream doesn’t like me
+[pierrezebub] @ i put some of that leftover costco rotisserie on mine usually xD
+[peelb4758] @ Its good I swear
+[mirby_studios] @ and in today's chat, we have people i am banning from my kitchen forever
+[iceblue] @ phantom you're not allowed in my room for agdq
+[stavros12c34anenoglou] @ Would u all like to know what i just had?
+[mirby_studios] @ no i would not
+[pierrezebub] @ @stavros12c34anenoglou corndog with vanilla pudding?
+[impurpp] @ But could you make a cheesy BBQ cocktail?? 🤔
+[str9ngest9r] @ Hii Phantom str9ngHappy str9ngLove
+[peelb4758] @ @ImPurpp youre a genius
+[stavros12c34anenoglou] @ @PierreZebub u givin me ideas stonee1Huh urooglHuh beestQ zachar4IQ
+[rgamer0] @ Have you heard of Nashville Hot Mozzarella Sticks
+[mirby_studios] @ mai can't believe we've got them pinned down
+[pierrezebub] @ @Mirby_Studios this sounds like it could be a thing xD
+[iceblue] @ cook the vanilla pudding
+[rgamer0] @ And then top the nashville hot mozzarella sticks with hot honey
+[stavros12c34anenoglou] @ air fry the jello so much u can change its color dont forget paprika and garlic.
+[peelb4758] @ @stavros12c34anenoglou you sicken me/j
+[pierrezebub] @ no but like , a deep fried square that you think: oh deep fried ice cream , nope deep fried jello
+[peelb4758] @ deep fried ice cream is just cream, no?
+[peelb4758] @ all for that LUL
+[iceblue] @ That one koopa probably likes anchovies on pizza
+[peelb4758] @ Their just salty goodness
+[mirby_studios] @ i don't like them but maddy does
+[str9ngest9r] @ They definitely look gross lol
+[rgamer0] @ They're just salt bombs
+[pierrezebub] @ anchovies on a white pie aint bad
+[stavros12c34anenoglou] @ @Iceblue Whats ur toppings and go to then?
+[iceblue] @ all of you need the time out corner
+[rgamer0] @ I'm freaking so basic with toppings
+[peelb4758] @ This seed is giving me seed 4 flashbacks
+[rgamer0] @ Maybe I need to put hot honey on my pizzas
+[iceblue] @ coulda just walked outside
+[stavros12c34anenoglou] @ maple syrup and honey on pizza sausage
+[stavros12c34anenoglou] @ dont know if preggo or raugu would be the better mix on that
+[rgamer0] @ Pizza would be best in the summer
+[mirby_studios] @ @stavros12c34anenoglou it's Prego. not preggo. the sauce is not pregnant lmao
+[iceblue] @ not yet it's not mirby
+[mirby_studios] @ that's the white sauce
+[stavros12c34anenoglou] @ u should live stream ur quessidella phantom
+[iceblue] @ you said that wrong phantom
+[rgamer0] @ I live by manhattan so I can get some prime pizzas
+[rgamer0] @ Though I want to try making Funeral Potatoes one day
+[str9ngest9r] @ Yoo food stream?? phanto274BLANKIES
+[stavros12c34anenoglou] @ the hunt for the key begins
+[rgamer0] @ I think we found the ideal settings for your hotfix
+[stavros12c34anenoglou] @ @Rgamer0 yes recipe settings
+[vixey_lycan] @ what about the chest up top in the elevator room?
+[iceblue] @ did we find the last key?
+[iceblue] @ that looks very unshuffled
+[rgamer0] @ So these settings seem to be final then minus a few of the glitch logic tricks
+[rgamer0] @ Parakarry was so late in the logic chain
+[rgamer0] @ My guess is finishing around a 3:10
+[rgamer0] @ So which boss got skipped today
+[rgamer0] @ So they were waiting in the Volcano and never got the chance to fight because they got cooked
+[rgamer0] @ Anyone want to check up on those poor Koopa Bros?
+[peelb4758] @ would a cooked koopa bro go well with sour cream?
+[iceblue] @ wtf what skolar need shoes for
+[rgamer0] @ Remember that last seed all the shoes were in the desert
+[iceblue] @ put it on stavros's pizza
+[peelb4758] @ omg I just remembered a crazy pizza i had as a kid
+[peelb4758] @ it was a loaded vegemite pizza
+[peelb4758] @ Im Aussie so I have to disagree
+[adamx0315] @ I see you're doing hotfix
+[stavros12c34anenoglou] @ @Iceblue i cant reach sour cream and the quesadilla to put on my pizza and speaking of this topic got to put the rest of it in the fridge.
+[adamx0315] @ do you need support
+[peelb4758] @ do you know what time it will be?
+[rgamer0] @ Oh hey you guys were cooked
+[adamx0315] @ Okay nvm I retract that now knowing the time KEKW
+[know15] @ no take backsies Adam
+[adamx0315] @ I mean I'm technically not full-time employment, but I do value my sleep schedule KEKW
+[peelb4758] @ oh perfect, that's midday for me
+[themasterzelda] @ 10pm est, easy just a 1am go to bed time
+[venlafaxinequeen] @ @peelb4758 let me guess. You’re Australian l
+[angellove94] @ no shoes for you
+[iceblue] @ how much for slow go
+[angellove94] @ I only have 200
+[themasterzelda] @ its just that easy
+[angellove94] @ @themasterzelda we did it lol
+[adamx0315] @ I was like "for what"
+[angellove94] @ I have 1 bit left 🤣
+[themasterzelda] @ LOOK AT THE PACE
+[adamx0315] @ I may need to start using that
+[angellove94] @ thanks for humoring us phantom
+[venlafaxinequeen] @ What is even the point of slow go?
+[iceblue] @ How much to go back and get the last rip cheato item
+[know15] @ with slow go on @iceblue?
+[iceblue] @ I just want more rando LUL
+[themasterzelda] @ ah yes all the emotes i already have
+[themasterzelda] @ Unlockable Emotes HeyHeyGuys Level 25
+[angellove94] @ dang! oh well it’s the thought that counts
+[themasterzelda] @ danger mario just a bit balanced
+[mirby_studios] @ you get the knockoff shitty gg orb lmao
+[themasterzelda] @ that was the easiest bowser fight i've seen in a while
+[impurpp] @ Cheer100 a give phantom money train?? I'm in (GG)
+[stavros12c34anenoglou] @ I had Peperoni pizza slathered with Lobster bisque and corn bread with mixed veggies and added garlic celery and onions bonus on the noodles. BTW.
+[rgamer0] @ The pizza still needs to be able to hold up with all of that
+[angellove94] @ I’m heading to bed soon. have to work tomorrow
+[str9ngest9r] @ Hope you have a great night, that sounds bomb af phanto274BLANKIES phanto274BLANKIES
+[themasterzelda] @ starts in -5 seconds
+[themasterzelda] @ yea there's something like that
+[rgamer0] @ Yoy! phanto274Wave phanto274Smile iceblueArrive
+[shrike890] @ Joooo lets gooo for great runs this day 😁 good luck buddy you will do this !
+[venlafaxinequeen] @ She paper on my Mario until I rando
+[venlafaxinequeen] @ Seattle is nice 😊
+[mariomantaw] @ phanto274GL Oh that's new
+[venlafaxinequeen] @ Is someone going to be on coms for your runs?
+[wolfyhii] @ finally playing some Echoes of Wisdom after... one year
+[wolfyhii] @ yeah i got it for my birthday (sep 26th) played for like 4 hours and haven't touched it since KEKW
+[mariomantaw] @ Bucket doesn't necessarily matter either
+[wolfyhii] @ part of it was my gf not wanting to be spoiled and she likes watching whatever game i play so i didn't want to ruin it for her
+[wolfyhii] @ the rest of the time was laziness
+[peelb4758] @ I'm still not spoiled on echo's of wisdom because one day I'll have the free time to play it
+[wolfyhii] @ i only made it to like the second area but i've avoided spoilers all this time aside from people just saying they liked it
+[peelb4758] @ Yeah, same here. I've seen the intro and tutorial, but that's it
+[wolfyhii] @ i got it gifted to me for my birthday i felt bad not playing it all this time uuh
+[peelb4758] @ I got Skyward Sword HD for my birthday a few years ago and made it most of the way through but lost interest
+[wolfyhii] @ did you ever play og skyward sword peel?
+[peelb4758] @ Nah, I had a wii,  but only played Skylanders on it
+[wolfyhii] @ ok yeah cuz Skyward Sword is a very highs and lows type game so i don't blame you giving up on it phanto274Smile
+[zeliversal] @ That room is hated
+[peelb4758] @ Yeah, there's that one boss fight against that big purple guy that you do like 8 times I swear
+[wolfyhii] @ fight the imprisoned three times PLUS ghirahim three times as well
+[wolfyhii] @ the best part of Skyward Sword is the middle section
+[peelb4758] @ It was too much for me phanto274Sigh
+[oakest5000] @ phanto274Smile and the bandits have the same eyes I just noticed
+[wolfyhii] @ the first revisit to areas is actually good
+[wolfyhii] @ the second revisit is when it gets stale
+[wolfyhii] @ it does the beginning is a massive slog
+[wolfyhii] @ yeah that's totally fair the game just lacks variety
+[rgamer0] @ Whelp the game decided where you're going this seed
+[wolfyhii] @ he should've been a mini boss
+[wolfyhii] @ the flamboyant bad guy
+[rgamer0] @ Damn Ultra hammer right away
+[peelb4758] @ Omg I hate that guys fight, but he is an icon
+[rgamer0] @ He's basically a gimmick fight for all of his boss fights
+[zeliversal] @ Like, I get the point that it was supposed to 'teach' you how sword position mattered, except for the fact that we had TONS of enemies up to that point that had that mechanic
+[wolfyhii] @ to be fair every fight in skyward sword could be labeled as "a gimmick fight" because of the nature of the controls PrideLaugh
+[wolfyhii] @ @Zeliversal literally the stalfos in that SAME dungeon already serves that purpose
+[peelb4758] @ And the deku babas
+[rgamer0] @ Yeah it's not fun when every fight is figure out which way his shield isn't guarded against
+[zeliversal] @ And then it's like "Oh it teaches you that he can steal your sword if you're not careful" except that NEVER comes up again
+[zeliversal] @ Like the ONLY thing that fight does accomplish in it's intended writing is teaching you "You are currently in over your head and nothing except headstrong"
+[zeliversal] @ Except literally any other fight could have accomplished that
+[rgamer0] @ D-Down Pound is okay
+[zeliversal] @ Case of "Great story, less than idea execution"
+[stavros12c34anenoglou] @ Hey all!  obiyoLurk    phanto274Lurk    urooglLurk    zachar4Lurk   mode indeed activated injured right arm on groceries.
+[zeliversal] @ I feel like the motion controls were super cool and I liked the gimmicks, but I think it just needed a better translation into the game for it to be more friendly
+[stavros12c34anenoglou] @ Yay got my gold train the raid out didnt screw me over
+[oakest5000] @ more points at least
+[wolfyhii] @ it does have great dungeons
+[wolfyhii] @ story and dungeons are the best parts of ss
+[themasterzelda] @ you say that like its a coincidence
+[themasterzelda] @ some days i don't feel like debating
+[amishman19] @ gl on the seeds, hopefully you’re closer to estimate on these lol
+[themasterzelda] @ i hope there's someone who knows nothing about the game
+[themasterzelda] @ meme aside it can make for nice commentary
+[blacktiger51] @ ok i swear the redeem just know what to play KEKW
+[amishman19] @ that Yugioh redeem is gold
+[themasterzelda] @ has anyone ever held a n64 controller properly?
+[mariomantaw] @ I have played this game... and held an N64 controller... but never both at the same time...
+[rgamer0] @ Can't wait in a few months when there's a bunch of Yu-Gi-Oh product that I'm going to buy
+[hexspeedruns] @ actually did stuff today so i’m vibing
+[amishman19] @ Okay I gotta here the reason for the N64 controller being that way. I have a hunch but I can’t remember if my hunch is right
+[rgamer0] @ Time to ground feesh
+[hexspeedruns] @ have you ever done TTYD rando?
+[peelb4758] @ Holy air Ball from Nintendo
+[amishman19] @ Okay that was along the lines of what I remembered hearing, I was not quite correct
+[themasterzelda] @ oh boy i love shadow queen cutscenes
+[hexspeedruns] @ my first playthrough was the remaster lol
+[mariomantaw] @ There's a new dev build with some removed cutscenes
+[mariomantaw] @ With those being among the few removed
+[amishman19] @ Shadow Queen cutscenes FeelsOkayMan
+[themasterzelda] @ maybe i'll try it
+[themasterzelda] @ shadow queen cutscenes is a deal breaker for me
+[oakest5000] @ I never played the original ttyd but I’ve 100 percented the switch remake twice
+[themasterzelda] @ i'll never finish a seed if there's 10m of cutscenes at the end
+[themasterzelda] @ i struggle at finishing randos because i lose interest real fast
+[rgamer0] @ Mailman stuck in a tree makes sense phanto274Notes phanto274Thonk
+[mariomantaw] @ It's a dev build, so you have to have the tester role in the TTYDR server but it exists
+[themasterzelda] @ ideally it would be the remake warp room
+[mariomantaw] @ I quite like the fast travel but I've only done 1-2 seeds w/ it
+[peelb4758] @ I love a good warp room
+[rgamer0] @ It's funny Chapter 5 now makes sense
+[amishman19] @ getting rid of spinning was horrendous
+[themasterzelda] @ i love how yoshi is the fastest movement but it quite literally cannot jump stairs
+[peelb4758] @ Origami king had amazing overworld game play, that's where my praise ends
+[mariomantaw] @ With 64's movement and world size, I'd agree that that level of fast travel is unnecessary but it's quite nice in TTYD
+[themasterzelda] @ for sure, but its also more work
+[peelb4758] @ Is that easy to implement, I've got no clue about anything but mine craft modding
+[mariomantaw] @ I think the map warps might be optional actually
+[themasterzelda] @ that kind of things benefit a lot from being options imo
+[mariomantaw] @ I would rather have them than not for races but I don't race it lol
+[peelb4758] @ Customisability my beloved phanto274Love
+[mariomantaw] @ Yeah, the fast travel is a setting you can turn on/off lol
+[peelb4758] @ It's a great multi world game as a viewer
+[mariomantaw] @ And it defaults to off
+[peelb4758] @ Oops, misclick. No need to hold anything
+[peelb4758] @ Was that quake jump?
+[peelb4758] @ As a certified VOD-head, tattle-sanity is exciting because it mixes up how you do battles, instead of just being as optimal as possible
+[peelb4758] @ It's like a mini-challenge every battle
+[peelb4758] @ He almost made it out on his own
+[rgamer0] @ Thankfully Toybox is baby zone
+[rgamer0] @ This seed is heavily hinting 7 coming up
+[peelb4758] @ What does 'bonus damage' mean, in the badge menu. Is it a dev build thing?
+[robinwings_] @ Yo what's up gamer
+[peelb4758] @ Oh is that the badge synergy thing you mention a few runs ago?
+[tweak613] @ Like how quake hammer gets a buff if you equip all three?
+[0b1jc0b] @ is there a simple reason why the bonuses exist?
+[0b1jc0b] @ im taking that as 'no' :)
+[0b1jc0b] @ nah - 'some person with prolly lots of game understanding wanted it' ain't simple :)
+[amishman19] @ don’t forget the colour palettes
+[peelb4758] @ I just keep accidentally doing lzs, if only there was a way to prevent it Kappa
+[realblopez] @ yo amish ty for the gl
+[amishman19] @ yo Lopez ty for the gl
+[oakest5000] @ I’ll take that bet
+[rgamer0] @ Just need a bombette for Toybox
+[stavros12c34anenoglou] @ bet my left arm
+[peelb4758] @ That's the 3rd star spirit on sale this seed
+[robinwings_] @ I didn't know that tree came off LOL that's new
+[robinwings_] @ I've learned a lot of item locations thanks to rando its great
+[axl_sr] @ yo phantom, pokemon twitch is doing the anime again so was enjoying early johto episodes
+[axl_sr] @ chat memeing on team rocket puns is the best!
+[a_variety_pack] @ Shamrock7 when was the last time you failed to escape
+[wolfyhii] @ why was it agitha
+[a_variety_pack] @ i don't like bugs tho
+[a_variety_pack] @ not EVEN if they're gold
+[peelb4758] @ I would've lost all of my points on that bet
+[rgamer0] @ Hey we found star beam!
+[wolfyhii] @ i always think the star beam is the Archipelago logo
+[peelb4758] @ "Mario will never find the star rod here!"
+[a_variety_pack] @ i am getting cologne sidebar ads do i have a manly aura
+[a_variety_pack] @ i mean i guess i would have a manly aura if i used cologne
+[axl_sr] @ has the new tracker update been pushed to emo?
+[axl_sr] @ alright, i just wont touch the new stuff then
+[peelb4758] @ i use a a very expensive cologne. its called 'lynx'
+[peelb4758] @ i think they call it 'axe' or something in america?
+[axl_sr] @ So you never forget again just remember... Chet Rippo is the one that looks like a platypus, which is fitting because his name rhymes with hippo, and hippos and platypuses are both semi aquatic mammals. meanwhile Rip Cheato is the one that moreso fits the gamer stereotype, and Cheetos are a large part of the stereotypical gamer's diet. Cheer100
+[axl_sr] @ that legit is how i remember it lmao
+[axl_sr] @ i think i swipped that from Maddie
+[peelb4758] @ its the exact same brand just a different name
+[oakest5000] @ whuts the flavour of a hustle drink? is it just red bull
+[peelb4758] @ it looks like pepto bismol
+[blacktiger51] @ no red bulls give you wings
+[oceanicthoughts] @ Its just a tropical redbull with a splash of tabasco
+[oakest5000] @ maybe it’s just a bottle of lstd and makes you forget how turns work
+[oceanicthoughts] @ Ive never had it lol but Im sure itd do something to make you act twice
+[peelb4758] @ @OceanicThoughts thats just 4 loco
+[oceanicthoughts] @ Pre or post formular change peel?
+[peelb4758] @ we dont have 4 loco in Australia, I just know it as the frat boy drink
+[oceanicthoughts] @ Ive never had them but Ive heard the watermelon ones are decent
+[audioblood] @ Original 4 loko went hard asf, new 4 loko is mild
+[audioblood] @ The original was just also caffeine loaded or something so it was an energy drink that got you fucked up
+[audioblood] @ Correct, uppers and downers should not mix
+[oceanicthoughts] @ Dont mix your uppers with your downers
+[peelb4758] @ that sounds like a free ticket to the hospital
+[audioblood] @ She has a grass for you, but she put it over there
+[peelb4758] @ she made you put in the effort to touch grass
+[audioblood] @ Yeah, it was forcibly removed
+[audioblood] @ I was on that shit in high school, it was super not ok
+[oceanicthoughts] @ It was dangerous yeah, there was concern of like alcohol poisoning and people being prone to blackouts and heart conditions
+[audioblood] @ I think so, I don't remember. Lemme see if google knows
+[oakest5000] @ give kolarado the artifact
+[audioblood] @ It was 12-14% when I was drinking it in 2008
+[wolfyhii] @ coca cola shy guy
+[oceanicthoughts] @ I think one of the current popular "get you fucked up" drinks I cant stand myself are buzzballs
+[oakest5000] @ anti guy looks like he’s made of gingerbread
+[audioblood] @ I don't get drunk anymore, but when I did it was whatever was the best drunk:price ratio, did not care what the liquid was
+[rgamer0] @ So essentially going full Husky mode
+[oceanicthoughts] @ I dont really drink in general but buzzballs feel like your drinking... if the old Bug Juice things as kids were made in the same building as Pinesol but add alcohol
+[audioblood] @ I've been following since april 2022 so I may or may not remember, time is a blur
+[oakest5000] @ it does have a cool ending though
+[audioblood] @ quickest way to get me off a game: make me grind
+[audioblood] @ same, but i only played like 30h
+[oakest5000] @ I’m really good at turning off my Brain when grinding
+[wolfyhii] @ that's why i'm at the final boss in FF1 pixel remaster without having finished the game
+[blacktiger51] @ speaking of dragon quest 11 i might do another playthrough
+[oceanicthoughts] @ I am fine with grinding but like. I need something else to do in the meantime. Throw on a stream or have something going to pass the time
+[rgamer0] @ And I'm going to do Dragon Quest I and II HD-2D remake in a few months
+[wolfyhii] @ that's what i've heard about 3 lmao
+[peelb4758] @ omg, i just looked it up, and in Australia they had to cut the alcohol content of 4 loko by HALF to be legal to sell
+[rgamer0] @ Yeah FFIII has a nasty endgame
+[blacktiger51] @ its only take like 30 mins to get to level 99 on dq11 so i didn't mind it ( i done it 2 times)
+[wolfyhii] @ i full odds shiny hunt in Pokemon from time to time so i don't mind grinding if it's something i care about
+[audioblood] @ @wolfyhii grinding because i want to and because i feel forced to are very different things
+[amishman19] @ good riddance worst pyroguy
+[oceanicthoughts] @ Grinding is like... doing housework. Sometimes you just get that motivation to take out the trash or do the dishes and everything is fine but the moment someone asks or tells you to it is the suddenly the absolute worst
+[peelb4758] @ big lantern ghost mixed his whites and reds in the wash
+[blacktiger51] @ i rather grind then go get collectibles
+[peelb4758] @ min maxed partners ftw
+[rgamer0] @ Also RIP General Guy's tune
+[oceanicthoughts] @ Are partner upgrades random then? Like an item in a box could just be "Bombette Upgraded" ?
+[rgamer0] @ We found you in here already
+[swiftpichu_] @ I love shoving Chipotles up my ass and shit seeds
+[swiftpichu_] @ Look sometimes you gotta spice things up
+[rgamer0] @ I eat chinese hot peppers
+[swiftpichu_] @ Even if that means one's own ass
+[rgamer0] @ Like how many hours ago
+[pierrezebub] @ GL for the rest of the run!
+[pierrezebub] @ oh the star powers are also randomized , dope!
+[blacktiger51] @ oh cool twitch have a Recommended Categories tab now let see gacha gacha and more gacha KEKW
+[oakest5000] @ yo watt let’s go
+[pierrezebub] @ Ah , and is the order you should get within logic or the order you grab them?
+[peelb4758] @ wait i was alt tabbed what happened?
+[amishman19] @ I think so KEKW
+[pierrezebub] @ TY. sorry for the dumb questions , i only did rando for ALttP xD
+[peelb4758] @ how many checks are there total?
+[rgamer0] @ Went from no rank to ultra watt
+[peelb4758] @ imma do some rough maths rq
+[oceanicthoughts] @ Good Lord, I was just remember, when I first made my account, I started watching PM64 speedruns. This was around when GigaDB had WR. I just looked at the site and that was at least 9/10 years ago
+[audioblood] @ Ooo oceanic your account is one of the oldest ones I've come across after mine
+[pierrezebub] @ she just got back recently too
+[audioblood] @ 2014 is a long time ago
+[oceanicthoughts] @ Well a part of the group I was in had split a bit considering one of the guys later had some controversy with being a bit.. aggressive with his girlfriend and others at the time
+[theglubbers] @ yo, i'm thinking of getting an uber for some cheese curds
+[oceanicthoughts] @ So some of them definitely arent around lol
+[rgamer0] @ I'll probably make some mac and cheese tonight
+[pierrezebub] @ @TheGlubbers i second that
+[peelb4758] @ unless my maths is wrong, it was a 1 in 179 700 for both watt upgrades to be in that specific tree
+[oceanicthoughts] @ At least that group in general split ways and did their own thing
+[rgamer0] @ With some fried eggs on the side
+[theglubbers] @ alternatively i drive and get them myself and save $20
+[pierrezebub] @ @TheGlubbers do you have a good cheeserie nearby your location? i have one about 30 mins away and i can get warm ones
+[pierrezebub] @ depend if the parachute worked or not
+[amishman19] @ Or would it be dove… Hmm
+[oakest5000] @ sky dove I think
+[rgamer0] @ Laki is such a troll
+[pierrezebub] @ skydived correct , skydove accepted by urban dictionarries
+[pierrezebub] @ according to the all knowing machine in my pocket
+[oakest5000] @ go get power rush while delivering the artifact
+[themasterzelda] @ ah yes urban dictionary the most reliable dictionary
+[theglubbers] @ tmz do you still have matekta
+[rgamer0] @ Beat it in all ways that matters minus the artifact
+[morpheus080] @ @TheGlubbers no idea but it's been idling just fine since i finished bingo
+[morpheus080] @ but im skeptical regardless
+[amishman19] @ god that noise was crunchy Morph
+[morpheus080] @ did you see the vc crash in posted phantom
+[peelb4758] @ Im such a huge fan of the shiver mountain music
+[rgamer0] @ Or just find the Palace Key here
+[morpheus080] @ nice palace key location
+[pierrezebub] @ orange is not bombettes color
+[peelb4758] @ She slays no matter what she looks like
+[oakest5000] @ I like all the colour swaps for the partners but bow definitely got the best ones
+[pierrezebub] @ i agree , but girl needs to accessorice better , brown shoe with orange color is not it xD #RuPaperDragRace
+[themasterzelda] @ oh koops is obsolete now?
+[peelb4758] @ @PierreZebub you do have a point
+[morpheus080] @ literally didn't know this was possible until you told me lmfao
+[morpheus080] @ @TheMasterZelda unfortunately not, you still need him for the next mirror puzzle
+[blacktiger51] @ i didn't know this was a thing
+[morpheus080] @ how could they make an early game partner relevant in the second to last chapter
+[morpheus080] @ how dare they even
+[blacktiger51] @ that sounds like a trick i should learn
+[pierrezebub] @ thats so cool though when a rando has its own little extra tactics that sr doesnt use
+[blacktiger51] @ oh wait you cant beat the ch yeah fuck that
+[themasterzelda] @ what exactly is kooper skip
+[amishman19] @ god Kooper Skip is insane
+[themasterzelda] @ does it fully skips kooper?
+[amishman19] @ let me find a video TMZ
+[themasterzelda] @ and it was a retro achievement? lmao who made that
+[amishman19] @ actually disgusting watching it again
+[amishman19] @ crazy people put that into runs
+[themasterzelda] @ @Amishman19 what the fuck
+[rgamer0] @ So go mode turtles
+[themasterzelda] @ Rain — 10/30/2021 2:31 PM kooper skip is ez
+[amishman19] @ Rain is an LZS freak
+[themasterzelda] @ THAT MAKE MORE SENSE
+[audioblood] @ Clicking the timeout button is a time honored way to kill pape runs
+[oceanicthoughts] @ Not the cartoon fart cloud
+[amishman19] @ pour one out for all of the runs that Timeout killed Lakhighlester
+[peelb4758] @ gotta pour out a hustle drink for the one's we've lost
+[amishman19] @ Goes to show crazy Random is tbh
+[amishman19] @ yup 1:38:23 versus 1:37:07
+[rgamer0] @ That's such a troll, Goombario power up
+[oceanicthoughts] @ Are the dojo certs also random or are they left out?
+[rgamer0] @ He had the turtle in a cloud
+[oceanicthoughts] @ I figured as much lol
+[rgamer0] @ So just Tubba's castle key for go then
+[rgamer0] @ Well now it's just that lunar stone for go anyways
+[rgamer0] @ Would be really funny if Gusty Gulch has the portrait and that Bow holds the Lunar stone
+[venlafaxinequeen] @ what does Ripp Cheato give in vanilla?
+[pierrezebub] @ the more i watch these rando stream , the more i realized that ive been underusing watt
+[peelb4758] @ yo Phantom, gotta dip now, but I hope you have a great time at PAX!
+[audioblood] @ A meme 600 coins
+[audioblood] @ At least the insane amount of coins you need in TTYD can be gotten with the goofy sponsorship thing
+[oceanicthoughts] @ Yeah, just sell everything that doesnt matter and buy like 72 power rush badges
+[rgamer0] @ Watch this be go mode again
+[oakest5000] @ what about the coin gambling games and the liloink machine
+[oakest5000] @ yeah but cooking ultras and jellies, or just using save states
+[rgamer0] @ So who was deleted?
+[oakest5000] @ it costs 10 not 20
+[oakest5000] @ that’s why you use the hammer exploit
+[pbandjelly12] @ hey, doing my first randomizer right now. do you know of a way to save without the ability to jump?
+[amishman19] @ the little animation is kind goofy too
+[oakest5000] @ if you use save states and the hammer glitch you can collect every item without entering the fence and scaring them off
+[oakest5000] @ ok what about the gamble games next to the lil oink fence
+[oakest5000] @ is it the vase
+[pbandjelly12] @ @Amishman19 can confirm, is goofy
+[oakest5000] @ this seed was so bad
+[amishman19] @ word for the wise, you can use zip lines without jumping too PBandJ
+[stavros12c34anenoglou] @ todays pizza toppings shrimp, deep fried potato, mixed veggies, beef, ketchup, and heavy garlic
+[animatedelf] @ punishment for playing pap mario
+[animatedelf] @ instead of the superior title
+[rgamer0] @ So bad but will probably still make estimate
+[pierrezebub] @ @stavros12c34anenoglou italian jambalaya on dough
+[stavros12c34anenoglou] @ bow to the king at 3 hrs
+[pbandjelly12] @ they're practically the same guy Tbh
+[oakest5000] @ everything we need he says as two of the star spirits are just gone
+[mirby_studios] @ oh cool they added in-app remapping to the SNES NSO app
+[rgamer0] @ We know one of them requires Boo's Portrait
+[mirby_studios] @ yeah but they just put a video about it on the SNES one up 8 minutes ago lol
+[rgamer0] @ 6th star post 7th chapter
+[rgamer0] @ Give Bowser this apple
+[oceanicthoughts] @ You know, I have to respect the innovation Kammy brings along with "lets take the guy we thought was invincible and make him invincible-er"
+[pbandjelly12] @ then he gets invincible-er-er
+[oakest5000] @ GG  but yeah that sucked
+[oceanicthoughts] @ Oh I remember watching a Bringle video on TTYD vs the Remake and why Power Bounce feels horrible. I guess for some reason in the remake they just make the 4th jump 1 frame button press then goes back to normal??
+[rgamer0] @ Bad but still 5 minutes under estimate
+[mirby_studios] @ or even hype point this video which is a thing now?
+[mirby_studios] @ i don't get it
+[mirby_studios] @ they're in america at least
+[mirby_studios] @ folks were seeing them on the latest gametal who i know are also american lmao
+[mirby_studios] @ and were like "wtf are these"
+[pbandjelly12] @ the bobombs having arms in the parade is cursed
+[oceanicthoughts] @ Ah probably then, Ill have to take a look
+[animatedelf] @ That sounds like a glan thing to check
+[mirby_studios] @ apparently when i high five lucky (one of the dogs i'm watching) while he's on his back it sets him upright like switch or something lmfao
+[oceanicthoughts] @ Plus like, if its to discourage cheesing like PM64, why just the 4th and 8th?? Its so random and odd
+[mirby_studios] @ he just did that 3 times in a row
+[oceanicthoughts] @ That is weird yeah, youd think if anything itd give more incentive to get the switch 2
+[pierrezebub] @ *sending the glubs signal , which is a light in the sky in the shape of a cheese curd*
+[mirby_studios] @ i'm gonna mess with lucky some more during this break
+[pbandjelly12] @ bean burrito time VoHiYo
+[blacktiger51] @ damn i miss the ending
+[mirby_studios] @ i really wish you could drag and drop what emotes were in what slots on twitch's emotes manager
+[oceanicthoughts] @ I had curry. Tikka masala and rice
+[pierrezebub] @ pizaa , but you play the stravos wheel
+[oceanicthoughts] @ Thats fair, I only *just* found this place on the other side of town last friday and its so good
+[blacktiger51] @ and you broke KEKW
+[pierrezebub] @ that one bodega that has everything
+[mirby_studios] @ but you could have vanilla pudding and sauerkraut and cinnamon pizza with the stavros wheel
+[blacktiger51] @ next shop is also loaded
+[mirby_studios] @ i got nauseous typing that
+[pierrezebub] @ return to school shopping spree%
+[oceanicthoughts] @ Lord Jabu Jabu in Paper Mario
+[oceanicthoughts] @ If I have to
+[mirby_studios] @ Pride100 sure fine here's a dollar
+[oceanicthoughts] @ We commit to bits around here
+[mirby_studios] @ pondering ideas for emotes, and what if gun emote but sword instead
+[mirby_studios] @ like iceblueGun but sword lmao
+[mirby_studios] @ oh yeah good point
+[oceanicthoughts] @ I have to workshop some of my own later
+[mirby_studios] @ yeah i just got a sketch back of maddy's new sona so i'm trying to think of emotes that would incorporate them
+[mirby_studios] @ already gonna have them be notes and jam
+[mirby_studios] @ i'm thinking bless as well
+[mirby_studios] @ maddy did study to be a pastor years ago so i think it would be fitting lmao
+[oceanicthoughts] @ I have 4 animated emotes I think. 1 isnt mine since its Bob from animal crossing, then 3 I drew (2 from games) but just using twitch's auto animate
+[oceanicthoughts] @ oceani55BunWHAT oceani55DaveFury oceani55ViLeave oceani55Bob
+[oceanicthoughts] @ One day Ill learn to make an actual animated one
+[oceanicthoughts] @ oceani55Criplup Criplup will always be top tier though
+[oceanicthoughts] @ Lol I can post it in the discord
+[mirby_studios] @ life's hard in the streets of jubilife
+[pbandjelly12] @ are the star spirits itemized or still boss rewards?
+[rgamer0] @ Start is pretty similar to the last one
+[rgamer0] @ Even down to the same spirits
+[rgamer0] @ Only things different is hammer and shoe upgrade swapped
+[mirby_studios] @ maddy replied to my idea
+[rgamer0] @ She couldn't climb a tree
+[oceanicthoughts] @ To be fair she has no arms
+[mirby_studios] @ "you should use me for that one lol. cause im chaplin and can actually bless it"
+[oceanicthoughts] @ Theres something kind of fitting about a monochromatic Bow
+[pbandjelly12] @ removing creepy flower girl behind the tree is blessed
+[pbandjelly12] @ Smack no, punch yes
+[pbandjelly12] @ a man of principle
+[pbandjelly12] @ koopa bros dropped him on the way back
+[adamx0315] @ ohhey nice star spirit
+[rgamer0] @ So he was free but broke his back and rendered unable to escape
+[rgamer0] @ Sure would be nice to have a turtle of some kind
+[oceanicthoughts] @ Tastes like shelled lizard
+[witz2020] @ I've never had turtle, but I have eaten Python before
+[oceanicthoughts] @ I dont remember, its been years since Ive had it
+[pierrezebub] @ but like , most reptiles tastes like chicken cause of common ancestors tthe dinos
+[mirby_studios] @ i did. they tasted swampy so they were not good
+[rvpa] @ yeah alligator taste like chicken too
+[oceanicthoughts] @ Frog legs tasting like chicken just means "theres very little meat and shit ton of fried batter and thats all youre going to taste"
+[pbandjelly12] @ is that jump as hard as your making it look?
+[rgamer0] @ Yeah that's the truth of Frog Legs
+[adamx0315] @ @PBandJelly12 it's frame perfect
+[rgamer0] @ Barely have any meat at all
+[pierrezebub] @ also frog legs arent bad
+[adamx0315] @ fried gator tail is pretty good
+[pbandjelly12] @ @adamX0315 so yes thejma10Wazzzap
+[rvpa] @ gotta get a thicc frog to enjoy it
+[darkness3827] @ well as a species their deliciousness has prolly helped them survive but on an individual level yeah they get merc'd very early in life
+[pierrezebub] @ misstar knows her worth
+[themasterzelda] @ look 50$ in this economy is a lot
+[pierrezebub] @ 50 red coins , which is 100 KEKW
+[mirby_studios] @ is that an hourly rate
+[pbandjelly12] @ for how many hours?
+[rgamer0] @ One time purchase that you will regret
+[pierrezebub] @ considering you can have mushrooms that brings you back to life for less , id argue 50 is alot
+[pbandjelly12] @ Smited for being dumb
+[oceanicthoughts] @ Something something folded like an omelet
+[rgamer0] @ 50 bucks buys you a Yu-Gi-Oh deck and a side deck
+[blacktiger51] @ for 50 bucks that deck must sucks
+[rgamer0] @ Didn't have to say a meta deck
+[blacktiger51] @ and that why you play master duel Kappa
+[animatedelf] @ It's not cheap if you wanna be top
+[oceanicthoughts] @ Yugioh is just the MtG of Pokemon
+[witz2020] @ Magic on the other hand haha
+[witz2020] @ my competitive Magic commander deck is $2k
+[pbandjelly12] @ most stressful sleep music
+[rgamer0] @ Yummy right now which is the current top meta deck in Yu-gi-oh TCG is like about 300 bucks
+[animatedelf] @ IDK I was looking at a meta poke deck and it was like, 200
+[animatedelf] @ I think it was gold
+[animatedelf] @ Cause Garde used to be like 40 each
+[animatedelf] @ maybe, I wasn't paying attention to that
+[themasterzelda] @ tbh in PTCG because of the rarity levels most card aren't very expensives
+[themasterzelda] @ like the priciest default card is around 5$ at most
+[themasterzelda] @ it did go up with the pocket craze
+[rgamer0] @ I only buy alt arts for cards because I like seeing the different artworks
+[rgamer0] @ Not like there hasn't been good video games for me to spend on because they're all fall games
+[darkness3827] @ yeah def not vanilla
+[morpheus080] @ im continuing my playthrough of rebirth and ignoring every sidequest has made this game way more fun NiceSoftlock
+[rgamer0] @ Such a thing as too much content
+[themasterzelda] @ final fantasy side quests have never really been... good
+[themasterzelda] @ if you ask me
+[morpheus080] @ 90% of them im like, this is not why im playing this game
+[mirby_studios] @ i enjoyed all of that in rebirth but i can see how it gets overwhelming
+[venlafaxinequeen] @ It’s an Ubisoft game????
+[themasterzelda] @ it was all downhill from there
+[rvpa] @ hell yeah let's go
+[mirby_studios] @ i didn't get into them until a few years ago so i missed the train when it started 20 years ago lmao
+[themasterzelda] @ the name for this jump should be "the stupid jump"
+[mirby_studios] @ and even then i haven't played that many
+[morpheus080] @ like i dont even feel bad actively skipping all of this stuff, mainly cuz the original had significantly less of this bloat lol
+[themasterzelda] @ @morpheus080 gotta bloat the game to justify being 3 individual games instead BatChest
+[rvpa] @ woah i didn't know you could go that way LUL
+[themasterzelda] @ i'd argue botw was a unique take on it that nothing managed to imitate
+[morpheus080] @ lava puzzle skip my hated randomly
+[mirby_studios] @ one of my favorite BotW memories is the treehouse live where bill trinen blew himself up with TNT barrels with aonuma there and he busted up laughing
+[morpheus080] @ couldn't even bring myself to finish botw
+[mirby_studios] @ blowing yourself up: universally funny
+[themasterzelda] @ to me its the one game that managed to do open world in a way that was actually fun
+[robinwings_] @ you saved him :D
+[mirby_studios] @ this seed is trash
+[morpheus080] @ insanely convenient place for him to be KEKW
+[mirby_studios] @ we banished him to the pillar
+[darkness3827] @ I mean idk like Mario 64 or any 3D zelda pre BotW is basically just a bunch of small open worlds stitched together so I don't really see much of a difference between them. Altho obv the bigger an area is the more empty it is gonna feel generally.
+[pbandjelly12] @ surly this is logic LUL
+[themasterzelda] @ @Darkness3827 full open world is extremely overrated if you ask me
+[themasterzelda] @ very few games do it in a way that justify it
+[themasterzelda] @ botw was one of them
+[rgamer0] @ I think Tears of the Kingdom was supposed to be DLC for BotW
+[mirby_studios] @ tears of the kingdom gave me what i never got from skyward sword: a satisfying amount of sky islands to explore
+[morpheus080] @ i think the only really open world game i've enjoyed was fallout 3 and i played it once like 12yrs ago
+[themasterzelda] @ also it kinda screw over a lot of what made botw botw to begin with
+[themasterzelda] @ @Mirby_Studios im gonna be real, that was one of my biggest disappointment from totk
+[themasterzelda] @ totk sky islands were too copy pasted
+[morpheus080] @ yeah i would agree
+[pbandjelly12] @ looks like someone payed the 50 coin rate
+[darkness3827] @ Are they? They're very empty games.
+[rgamer0] @ And that's why Misstar that you will never get bought
+[mirby_studios] @ i mean fair but i'm still mad at skyward sword being all YOU CAN EXPLORE THE SKY and i expected something like wind waker where there was plenty to see there but there's like 10 islands and that's it lmao
+[rgamer0] @ Rot in frozen jail for all time
+[themasterzelda] @ tbh i had basically no exposure to SS advertisement so that wasn't a disappointment to me
+[rgamer0] @ That's the big problem with Zelda games that are open world
+[mirby_studios] @ i mean fair, i wasn't expecting the full on 49 islands to find but i did expect more than we got in SS lol
+[rgamer0] @ It's just a big expanse of nothing
+[themasterzelda] @ forsaken fortress 1 my behated
+[darkness3827] @ I mean WW is essentially open world as well.
+[themasterzelda] @ i have a mixed opinion
+[morpheus080] @ i think MM is the only one that gets it right in that regard
+[buff00n] @ When done right a small, concise world that gradually opens up is usually more engaging, imo
+[themasterzelda] @ dungeons isn't inherently what makes a good zelda, but its a big factor
+[rgamer0] @ Yeah I hate when they have forced things in the overworld to do
+[themasterzelda] @ @Rgamer0 so you love twilight princess right? Kappa
+[rgamer0] @ Like if it has some gear you need to progress that's fine
+[rgamer0] @ I just don't like how the BotW series tries to be Fire Emblem at the same time
+[themasterzelda] @ i like non-linear progression too, but most games just go full "NON-LINEAR? NO PROGRESSION"
+[darkness3827] @ @buff00n Yeah and it's very hard to do that with an open world. The upside of open world tho is you have a lot more options.
+[rgamer0] @ And the rewards in BotW and TotK sucked
+[buff00n] @ Peach's Castle is a good example cuz for the start, you're teasing with a buncha stuff you can't access (star doors), or you have to realize you have access (Secret Slide, Coins in the Aquarium, Wing Cap)
+[rgamer0] @ I enjoyed Echoes for what it was worth
+[themasterzelda] @ to me the shrines were the reward in botw
+[themasterzelda] @ in totk it was just annoying ultrahand """"puzzles""""
+[mirby_studios] @ yeah echoes showed they remembered that they can put actual rewards behind sidequests lol
+[buff00n] @ mind you, all that's in the first floor of the castle
+[rgamer0] @ Though they could use more of a classic return to a more fixed gear set
+[pbandjelly12] @ collecting all 999 koroks Was the reward B)
+[rgamer0] @ Like I get it that Zelda as the protagonist can't play like Link
+[morpheus080] @ what the hell was that
+[morpheus080] @ that puzzle skip KEKW
+[themasterzelda] @ heck even a link between world despite having the item renting shit did it mostly right
+[buff00n] @ the BotW / TotK tablets aren't engaging enough to carry an game and breakable weapons isn't fun
+[morpheus080] @ actual rando moment wth
+[darkness3827] @ I mean personally I thought BotW did a really good job of slowly giving you access to more areas. Or at least as good as an open world game possibly could.
+[buff00n] @ I liked ALttP too much to like ALBWs
+[mariomantaw] @ It's JP-only in vanilla but was patched into rando
+[themasterzelda] @ @buff00n personally i enjoy the breakable weapons, really feeds into the "the world is a post apocalyptic state and everything is disposable" feeling
+[morpheus080] @ MM is prob the only zelda game where the dungeons aren't the highlight of the game and i prefer it that way
+[morpheus080] @ everything else is a lot of fun to me
+[buff00n] @ @TheMasterZelda I disliked it cuz I felt whatever I find wasn't worth breaking weapons, bows and using arrows
+[morpheus080] @ i dont think other zeldas with that same design nail it like MM
+[rvpa] @ giant's knife be like
+[buff00n] @ I saved everything for mining ores cuz I got money which I could use for clothes, that didn't break
+[rgamer0] @ Yeah with the Masks in MM I don't expect them all to have a use as a tool
+[morpheus080] @ honestly finding out the master sword breaks and you have to let it recharge was probably what made me stop playing it
+[themasterzelda] @ i understand but don't really agree, because you get way more weapons back. exception would be stuff like lynels that are just HP sponges
+[rgamer0] @ It's kind of like the Echoes in Echoes of Wisdom in a sense
+[morpheus080] @ cuz of what you just said
+[darkness3827] @ yeah I mean I think it'd be a bit different if they didn't all break in like 3 hits. Like I didn't mind the durability mechanic anywhere near as much in TotK
+[rgamer0] @ Again if I want to play a game with durability weapons Fire Emblem is that way
+[themasterzelda] @ in totk they "fixed" the durability by making it so barely matter that it breaks the design
+[buff00n] @ when I got Zora girl's spear and was told that shit would break, and I'd need to gather resources to make another one, I stopped caring about the Champions' gear
+[themasterzelda] @ oh yea those weapons are shit
+[themasterzelda] @ that's the weakest part of the mechanic
+[buff00n] @ the weapon just EVAPORATING, rubs me the wrong way
+[themasterzelda] @ one of the thing that makes it work to me is the mix of weapon breaking dealing more damage + weapon throwing
+[themasterzelda] @ its satisfying to just yeet a weapon about to break at an enemy face
+[pbandjelly12] @ minecraft weapon durability SeemsGood
+[darkness3827] @ yeah same I think I threw a weapon once and then never again.
+[themasterzelda] @ minecraft equipment durability is so ass lol
+[buff00n] @ OOT had that shit figured out, you break the Giant's Knife and pay to fix it, or do the sidequest to get a Biggoron's Sword
+[themasterzelda] @ they ruined it with enchantments
+[themasterzelda] @ @buff00n ah yes the giant knife that can literally break in one hit
+[themasterzelda] @ only people i've heard say that are people that never really engaged with the old style
+[starry_arie] @ who up testin they seed
+[venlafaxinequeen] @ Skyward Sword wasn’t 20 years ago
+[morpheus080] @ that or the switch games were their first zelda games
+[robinwings_] @ man not the skyward sword hate :(
+[themasterzelda] @ its weird because im the type of person to not use consumables in jrpg until the very end, but somehow weapon durability is literally non issue to me in botw
+[venlafaxinequeen] @ What about the Switch port?
+[themasterzelda] @ actually i think the weapon durability is what makes botw work at all
+[robinwings_] @ NOT THE CONTROLS HATE TOO... no im kidding i totally see that argument, i just never had issues with it ever
+[themasterzelda] @ open world games have a major issue in general where you just find a really good weapon and then nothing you explore matter anymore
+[mariomantaw] @ Only Zeldas I've played are WWHD, BotW, TotK and EoW (haven't finished). Don't mind BotW/TotK but I also haven't played many other open-world games of the style
+[starry_arie] @ genuinely my issues with skyward sword are with the horrible pacing and specifically the motion controls for the water sections. they didn't bother me anywhere else
+[darkness3827] @ @TheMasterZelda I mean that's all games idk how that's exclusive to open world ones.
+[morpheus080] @ idr having issues with the controls when i played it but 14yrs ago i was 14 yrs old so NiceSoftlock
+[morpheus080] @ i probably just put up with it and didn't realize
+[themasterzelda] @ @Darkness3827 because other games normally its progressive, not "oh you found this one strong weapon cool"
+[starry_arie] @ the water sections have you shaking the remote and holding it in weird directions a lot, very cringe
+[darkness3827] @ open world games for the most part are progressive unless you're somehow able to take down like the hardest enemies in the game at like level 1 or whatever.
+[themasterzelda] @ @Starry_Arie shake the nunchuk, not the wiimote
+[themasterzelda] @ if it was the wiimote it would be the most dogshit controls ever
+[robinwings_] @ Ik there's an option to turn off motion but i feel like that would make it worse imo?? I never tested it myself tho
+[buff00n] @ @Starry_Arie I'm remembering how much I hated the Mermaid Suit in Ages
+[starry_arie] @ it just wouldn't like... be a game without the motion controls. they were kinda the whole point. it falls apart without them
+[themasterzelda] @ Skyward Sword would still be a good game without the motion controls, it just would need some pretty big changes... especially to the combat
+[darkness3827] @ So it's Metroid Prime? LUL
+[darkness3827] @ There should be some sort of bonus for equipping both P-Up D-Down and D-Up P-Down LUL
+[themasterzelda] @ yea but the average player don't know how to do that
+[themasterzelda] @ oot/mm/ww/tp players all struggle with that lol
+[darkness3827] @ How are the motion controls for TP?
+[themasterzelda] @ @Darkness3827 we don't talk about those
+[themasterzelda] @ its the worst imo
+[themasterzelda] @ literal just annoying motions
+[buff00n] @ Best thing about SS was that dude doing front flips and backflips while playing the game
+[darkness3827] @ All Sushie Glitches %
+[themasterzelda] @ its like if mario galaxy made it so you had to shake the wiimote to jump instead of spin
+[themasterzelda] @ its why i hate tp wii so much lol
+[themasterzelda] @ also it was just basic motions, not motion+
+[axl_sr] @ phantom help, Im testing platinum I had 20 checks, found the bike and it jumped to 155 phanto274S
+[axl_sr] @ i dont rememberr the bike being that good
+[buff00n] @ FIRMLY GRASP IT, STREAMER
+[themasterzelda] @ i personally recommend the OG with a proper setup
+[themasterzelda] @ technically if you have a wii u gamepad you can hack something up for smaller distance
+[themasterzelda] @ wii u gamepad is closer range :D
+[buff00n] @ " Mario HATES Ultra Boots. The red drives him crazy. "
+[themasterzelda] @ wii u gamepad is about arm distance i'd say
+[themasterzelda] @ it is however a bit annoying to setup
+[themasterzelda] @ i haven't played HD so i can't comment on that
+[themasterzelda] @ but i do know that switch 1 joycon gyro is not accurate enough for SS
+[themasterzelda] @ according to Mondo switch 2 joycons are much better on that regard
+[themasterzelda] @ the original motion+ did that with the sensor bar
+[themasterzelda] @ its actually one of the only thing the game uses it for
+[themasterzelda] @ yea i genuinely can't imagine pro controller controls being better unless you really can't use motions
+[themasterzelda] @ well compared to wii
+[themasterzelda] @ switch 1 motions are just NOPERS
+[themasterzelda] @ its so easy on wii
+[themasterzelda] @ you just.... swing the nunchuk along the wiimote
+[themasterzelda] @ isn't there a button for rolling?
+[themasterzelda] @ it should have been just that button + right stick direction.....
+[themasterzelda] @ i love stick clicking (i don't)
+[buff00n] @ fwiw, the only Zelda game I didn't mind Stamina was ABLWs. Everything else was annoying.
+[themasterzelda] @ yea speedrun uses the stab a lot
+[themasterzelda] @ i like stamina in SS because stamina is only ever used to go FASTER
+[themasterzelda] @ and there's some level design with the stamina fruit placement
+[themasterzelda] @ makes for interesting movement
+[themasterzelda] @ and default running speed is already like, decent
+[themasterzelda] @ botw totk stamina tho YEP
+[themasterzelda] @ you think its bad in botw? they made it worse in totk
+[themasterzelda] @ in botw you can still climb, with proper technique, you slip at a fixed rate
+[themasterzelda] @ in totk its fuck you YEP
+[witz2020] @ so, do you have to find all of the star spirits and star beam or are you given star beam upon completion of X number of chapters?
+[0b1jc0b] @ but can't Yelshi be traded to the shopkeep?
+[witz2020] @ odds the seed and beam are in Rowf's?
+[0b1jc0b] @ yo - TMNT bros!
+[witz2020] @ Donnie is definitely not the leader haha
+[0b1jc0b] @ um, splinter is the main character?
+[buff00n] @ Rise of the TMNT was actually VERY good
+[witz2020] @ Ice Power in case of LP?
+[witz2020] @ watch Yoshi/Vase be Magical Seed
+[witz2020] @ What was that +1 to boots? Do the charge badges auto give boosts?
+[themasterzelda] @ i heard "did i fuck this blooper"
+[robinwings_] @ oh cmon you dot want Slow Go? Kappa
+[themasterzelda] @ the council will decide
+[witz2020] @ Are Koot favors turned on?
+[angellove94] @ nevermind I didn’t miss all of stream! yay
+[angellove94] @ MegaConsume that’s the emote I got yesterday
+[themasterzelda] @ the star spirit black market
+[blacktiger51] @ new plando idea all 6 in shop for 999 coins each Kappa
+[themasterzelda] @ step 1 of progression is buying something at 999 coins Kappa
+[blacktiger51] @ i should really work on my plando but way to lazy rn Deadge
+[themasterzelda] @ with the single worst possible money farming
+[themasterzelda] @ is there an area you can spawn in where you are fully stuck with no money farming?
+[themasterzelda] @ asking for a friend
+[themasterzelda] @ so the only money maker would be buy and resell :)
+[themasterzelda] @ for 1 coin profit at a time
+[blacktiger51] @ just beat kent at level 1 with only goombario Kappa
+[themasterzelda] @ never let me make a plando
+[themasterzelda] @ only 50k more points SMILERS
+[themasterzelda] @ isn't that true for all events enemies?
+[themasterzelda] @ koopatrol that drops the key
+[themasterzelda] @ uh, that's weird then
+[rgamer0] @ Send back bag, maybe get seed?
+[rgamer0] @ Getting Bowser all sticky
+[angellove94] @ time for me to go to sleep
+[angellove94] @ goodnight phantom and chat. I have tomorrow off but I worked 10.5 hours today and I’m tired
+[themasterzelda] @ you went back to get slow go
+[themasterzelda] @ im a big fan of just dying
+[buff00n] @ ON YOUTUBE / TWITCH

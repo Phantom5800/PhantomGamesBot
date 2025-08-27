@@ -23,7 +23,7 @@ def set_cc_multiplier(mult: int):
 '''
 Helper function to add more games to the shuffler.
 '''
-def add_next_game(count:int = 1) -> int:
+def add_next_game(count: int = 1) -> int:
     i = 0
     bizhawk_folder = "C:/Games/Bizhawk-2.9.1/bizhawk-shuffler-2"
     games_dir = os.fsencode(bizhawk_folder + "/games")
@@ -34,7 +34,7 @@ def add_next_game(count:int = 1) -> int:
         shutil.copyfile(src, dst)
         os.remove(src)
         i += 1
-        # don't copy more than 5 seeds at a time
+        # don't copy more than "count" seeds at a time
         if i >= count:
             break
     return i
@@ -299,7 +299,7 @@ def handle_pm64_cc_bits(bits: int):
 '''
 Handle periodic updates for effects that retrigger on a timer.
 '''
-def handle_cc_periodic_update(seconds):
+def handle_cc_periodic_update(seconds: int):
     global slowgo_queue
     global berserker_queue
     global random_pitch_queue
