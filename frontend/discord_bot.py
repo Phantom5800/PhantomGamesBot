@@ -74,7 +74,7 @@ class PhantomGamesBot(Bot):
         message = discord.Game(status)
         await self.change_presence(activity=message)
 
-    async def on_ready(self):
+    async def setup_hook(self):
         print("=======================================")
         print(f"Discord [{datetime.now()}]: {self.user} is online!")
         self.loop.create_task(self.announce_youtube_vid_task())
