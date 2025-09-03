@@ -74,14 +74,16 @@ class PhantomGamesBot(Bot):
         message = discord.Game(status)
         await self.change_presence(activity=message)
 
-    async def setup_hook(self):
+    async def on_ready(self):
         print("=======================================")
         print(f"Discord [{datetime.now()}]: {self.user} is online!")
-        self.loop.create_task(self.announce_youtube_vid_task())
-        await self.set_random_status()
-        print("=======================================")
         self.server = self.get_guild(int(os.environ['DISCORD_SERVER_ID']))
         self.live_role = self.server.get_role(int(os.environ['DISCORD_LIVE_NOW_ID']))
+        await self.set_random_status()
+        print("=======================================")
+
+    async def setup_hook(self):
+        self.loop.create_task(self.announce_youtube_vid_task())
 
     '''
     Handle custom commands.
