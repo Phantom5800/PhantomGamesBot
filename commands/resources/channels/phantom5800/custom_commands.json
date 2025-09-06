@@ -304,11 +304,6 @@
     "cooldown": 0,
     "last_use": 0
   },
-  "!hotfix": {
-    "response": "/announce Paper Mario Rando for a GDQ Hotfix on September 3rd. 7 Chapters, Star Spirit Shuffle, (some) Glitch Logic, otherwise fairly basic settings to fit in a 3 hour timeslot",
-    "cooldown": 0,
-    "last_use": 0
-  },
   "!settings": {
     "response": "Glitch Logic City opens PoT, PoT opens HC, Fused Shadows opens HC BK, Twilights not cleared, Prologue Skipped, Traps on Mayhem, All Dungeon Entrances Shuffled, Hidden + Freestanding Rupees, Bugs, Sky Characters, NPC Items, All Poes, Shop Items",
     "cooldown": 0,
@@ -317,7 +312,7 @@
   "!borng": {
     "response": "During Bo 1, Bo has a 25% chance of picking any of four options: slap, side step, grab and do nothing. Slap beats 2 of those options and therefore wins 50% of the time. During Bo 2, Bo has a 50% chance of slapping, 25% chance of sidestep and 25% grab, therefore grab wins against slap 50% of the time, but slap is faster if you get it first",
     "cooldown": 0,
-    "last_use": 0
+    "last_use": 1757083431.205609
   },
   "!retrothon": {
     "response": "https://horaro.org/retrothon2025/schedule",
@@ -359,13 +354,13 @@
     "cooldown": 0,
     "last_use": 1754070539.30357
   },
-  "!pax": {
-    "response": "/announce I am running Paper Mario Rando for GDQ at PAX West on August 29th: https://gamesdonequick.com/schedule/59",
-    "cooldown": 0,
-    "last_use": 1755528436.799939
-  },
   "!sdat": {
     "response": "/announce I am running Paper Mario Glitchless for SDAT 2025 on August 23rd, full weekend schedule: https://horaro.org/speeddocsathon/sdat-2025-weekend-one",
+    "cooldown": 0,
+    "last_use": 0
+  },
+  "!goats": {
+    "response": "Goats are bullshit, but they always spawn in the same locations and facing the same direction, the rng comes from how they react to Link when he approaches and when you whoop. Whether they react from further away, run further, or just don't give a shit",
     "cooldown": 0,
     "last_use": 0
   }

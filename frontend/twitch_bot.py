@@ -290,7 +290,7 @@ class PhantomGamesBot(commands.Bot):
         # cannot actually append the custom list because the message is too long
         #command_list.extend(self.custom.get_command_list())
         command_list.sort()
-        await ctx.send(f"Built in commands: {command_list}. Custom commands: https://github.com/Phantom5800/PhantomGamesBot/blob/master/commands/resources/custom_commands.json")
+        await ctx.send(f"Built in commands: {command_list}. Custom commands: https://github.com/Phantom5800/PhantomGamesBot/blob/master/commands/resources/channels/{ctx.message.channel.name}/custom_commands.json")
 
     '''
     Add a custom command through twitch chat.
