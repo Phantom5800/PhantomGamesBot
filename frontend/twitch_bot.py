@@ -1008,10 +1008,10 @@ class PhantomGamesBot(commands.Bot):
         # RNG tracking
         if "RNG" in rewardData.reward.title:
             if "Good" in rewardData.reward.title:
-                self.current_rng = self.current_rng + 1
+                self.current_rng += 1
             elif "Bad" in rewardData.reward.title:
-                self.current_rng = self.current_rng - 1
-            with open('./commands/resources/rng.txt', 'r', encoding="utf-8") as rng_value:
+                self.current_rng -= 1
+            with open('./commands/resources/rng.txt', 'w', encoding="utf-8") as rng_value:
                 rng_value.write(self.current_rng)
 
         # attempt to give the user VIP
