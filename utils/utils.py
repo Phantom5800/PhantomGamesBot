@@ -58,7 +58,7 @@ async def get_game_name_from_twitch_for_user(twitchClient: twitchCommands.Bot, u
 Get the stream title for a specific user.
 '''
 async def get_stream_title_for_user(twitchClient: twitchCommands.Bot, username: str) -> str:
-    streamer = await get_twitch_user(twitchClient, username)
+    streamer = await get_twitch_user(twitchClient, username, reset_cache=True)
     if streamer is not None:
         return streamer.title
     return f"User Not Found {username}"

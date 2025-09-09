@@ -6,6 +6,7 @@ from commands.quotes import QuoteHandler
 from commands.src import SrcomApi
 from commands.markov import MarkovHandler
 from commands.youtube import YouTubeData
+from frontend.bsky_bot import run_bsky_bot
 from frontend.twitch_bot import run_twitch_bot
 from frontend.discord_bot import run_discord_bot
 from frontend.twitter_bot import run_twitter_bot
@@ -31,6 +32,12 @@ def run():
 
     # twitch bot acts as a master bot that appends other bot event loops to its own
     sharedResources.twitch_bot = run_twitch_bot(sharedResources)
+
+    # bsky bot for posting / deleting go live notifications
+    bsky_handle = os.environ.get("BSKY_HANDLE")
+    bsky_pw = os.environ.get("BSKY_PW")
+    if bsky_handle and bsky_pw:
+        sharedResources.bsky_bot = run_bsky_bot(bsky_handle, bsky_pw)
 
     # verify and run discord bot
     # TODO: better verification, but empty is probably good enough

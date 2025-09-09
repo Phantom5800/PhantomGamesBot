@@ -75,6 +75,9 @@ class PhantomGamesBot(commands.Bot):
             data = json.load(first_redeems)
             self.first_redeems = deepcopy(data)
         self.misgender_warnings = {}
+        self.current_rng = 0
+        with open('./commands/resources/rng.txt', 'r', encoding="utf-8") as rng_value:
+            self.current_rng = tryParseInt(rng_value.readline())
 
         # giveaway
         self.giveaway_open = False
@@ -763,6 +766,15 @@ class PhantomGamesBot(commands.Bot):
     async def slots(self, ctx: commands.Context):
         await ctx.send(self.slots.roll(ctx.message.author.mention))
 
+    @commands.command()
+    async def rng(self, ctx: commands.Context):
+        if self.current_rng == 0:
+            await ctx.send("Current RNG: Neutral")
+        elif self.current_rng > 0:
+            await ctx.send(f"Current RNG: Good ({self.current_rng})")
+        elif self.current_rng < 0:
+            await ctx.send(f"Current RNG: Bad ({self.current_rng * -1})")
+
     #####################################################################################################
     # conversions
     #####################################################################################################
@@ -993,6 +1005,15 @@ class PhantomGamesBot(commands.Bot):
                 first_redeems.write(json_str)
             print(f"{username} redeemed First {self.first_redeems[username]} times")
 
+        # RNG tracking
+        if "RNG" in rewardData.reward.title:
+            if "Good" in rewardData.reward.title:
+                self.current_rng = self.current_rng + 1
+            elif "Bad" in rewardData.reward.title:
+                self.current_rng = self.current_rng - 1
+            with open('./commands/resources/rng.txt', 'r', encoding="utf-8") as rng_value:
+                rng_value.write(self.current_rng)
+
         # attempt to give the user VIP
         if "VIP" in rewardData.reward.title:
             streamer = rewardData.broadcaster
@@ -1134,7 +1155,9 @@ class PhantomGamesBot(commands.Bot):
         streamOnlineData = event.data
         print(f"[Eventsub {streamOnlineData.started_at}] Stream has started for {streamOnlineData.broadcaster.name}")
         streamtitle = await get_stream_title_for_user(self, streamOnlineData.broadcaster.name)
-        await utils.events.twitchevents.twitch_stream_event(streamOnlineData.broadcaster.name, utils.events.TwitchEventType.GoLive, streamtitle)
+        game = await get_game_name_from_twitch_for_user(self, streamOnlineData.broadcaster.name)
+        notif = f"{game} | {streamtitle}"
+        await utils.events.twitchevents.twitch_stream_event(streamOnlineData.broadcaster.name, utils.events.TwitchEventType.GoLive, notif)
 
     '''
     Stream ended event

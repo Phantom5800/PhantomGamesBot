@@ -11,11 +11,11 @@ class TwitchEvent:
         self.twitch_event_stream_event_listeners = []
 
     def register_events(self, obj):
-        event_log_method = getattr(obj, "on_twitch_event_log")
+        event_log_method = getattr(obj, "on_twitch_event_log", None)
         if event_log_method:
             self.twitch_event_log_listeners.append(event_log_method)
 
-        stream_event_method = getattr(obj, "on_twitch_stream_event")
+        stream_event_method = getattr(obj, "on_twitch_stream_event", None)
         if stream_event_method:
             self.twitch_event_stream_event_listeners.append(stream_event_method)
 

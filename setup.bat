@@ -13,3 +13,4 @@ pipenv install markovify
 pipenv install tweepy
 pipenv install google-api-python-client
 pipenv install google-auth-oauthlib google-auth-httplib2
+pipenv install atproto
