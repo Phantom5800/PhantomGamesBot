@@ -13,9 +13,10 @@ class PhantomGamesBot:
 
     async def on_twitch_stream_event(self, user:str, eventType:utils.events.TwitchEventType, msg:str):
         if eventType == utils.events.TwitchEventType.GoLive:
-            print(f"[BSKY Live] {msg}")
-        elif eventType == utils.events.TwitchEventType.EndStream:
-            print(f"[BSKY End] {msg}")
+            self.live_post = self.client.send_post(text=msg)
+        elif eventType == utils.events.TwitchEventType.EndStream and self.live_post:
+            self.client.delete_post(self.live_post.uri)
+            self.live_post = None
 
 def run_bsky_bot(handle:str, password:str):
     bot = PhantomGamesBot(handle, password)
