@@ -4,6 +4,8 @@ from enum import Enum
 class TwitchEventType(Enum):
     GoLive = 1
     EndStream = 2
+    HypeTrainStart = 3
+    HypeTrainEnd = 4
 
 class TwitchEvent:
     def __init__(self):

@@ -1134,6 +1134,8 @@ class PhantomGamesBot(commands.Bot):
     async def event_eventsub_notification_channel_hypetrain_begin(self, event: NotificationEvent):
         hypeData = event.data
         print(f"[Eventsub] Hype train started at {hypeData.started_at}")
+        notif = "A Hype Train has started!"
+        await utils.events.twitchevents.twitch_stream_event(hypeData.broadcaster.name, utils.events.TwitchEventType.HypeTrainStart, notif)
 
     '''
     Hype Train progress

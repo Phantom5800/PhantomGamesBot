@@ -3,17 +3,25 @@ import discord
 import json
 import os
 import random
-import time
+from time import localtime
 import utils.events
 from copy import deepcopy
-from datetime import datetime, timedelta, timezone
-from discord.ext import bridge, commands
+from datetime import datetime, time, timedelta, timezone
+from discord.ext import bridge, commands, tasks
 from discord.ext.bridge import Bot
 from frontend.discord_cogs.discord_commands import PhantomGamesBotCommands
 from frontend.discord_cogs.discord_poll import PhantomGamesBotPolls
 from frontend.discord_cogs.discord_poll import PhantomGamesBotSimplePolls
 from frontend.discord_cogs.discord_schedule import PhantomGamesBotSchedule
 from utils.utils import *
+
+# 21:00 UTC = 2:00PM PDT / 1:00PM PST
+# trying to check at 1PM regardless of DST
+youtube_update_time = time(hour=21 - localtime().tm_isdst, 
+                           minute=0,
+                           second=0,
+                           microsecond=0,
+                           tzinfo=timezone.utc)
 
 class PhantomGamesBot(Bot):
     def __init__(self, sharedResources):
@@ -67,6 +75,7 @@ class PhantomGamesBot(Bot):
         self.commands_since_new_status = 0
 
         utils.events.twitchevents.register_events(self)
+        self.announce_youtube_vid_task.start()
 
     async def set_random_status(self):
         status = self.messages[random.randrange(len(self.messages))]
@@ -81,9 +90,6 @@ class PhantomGamesBot(Bot):
         self.live_role = self.server.get_role(int(os.environ['DISCORD_LIVE_NOW_ID']))
         await self.set_random_status()
         print("=======================================")
-
-    async def setup_hook(self):
-        self.loop.create_task(self.announce_youtube_vid_task())
 
     '''
     Handle custom commands.
@@ -176,31 +182,12 @@ class PhantomGamesBot(Bot):
                 else:
                     print(f"[YouTube] No new video. Old: \"{last_vid}\" and Current: \"{youtube_vid}\"")
 
+    @tasks.loop(time=youtube_update_time)
     async def announce_youtube_vid_task(self):
-        channel = self.get_channel(self.channels["youtube-uploads"])
-        while True:
-            now = datetime.now(timezone.utc)
-
-            last_post = (await channel.history(limit=1).flatten())[0]
-            last_post_time = last_post.created_at
-            time_since_last_post = now - last_post_time
-
-            if time_since_last_post.total_seconds() >= 12 * 60 * 60:
-                try:
-                    await self.announce_new_youtube_vid()
-                except Exception as err:
-                    print(f"[Youtube] Failed to get latest video - {err}")
-
-            # 21:00 UTC = 2:00PM PDT / 1:00PM PST
-            # trying to check at 1PM regardless of DST
-            today = now.replace(hour = 21 - time.localtime().tm_isdst, minute = 00, second = 0, microsecond = 0)
-            tomorrow = today
-            if tomorrow < now:
-                tomorrow += timedelta(days = 1)
-            seconds = round((tomorrow - now).total_seconds())
-            print(f"[Youtube {now}] Checking for new youtube video in {seconds} seconds")
-
-            await asyncio.sleep(seconds)
+        try:
+            await self.announce_new_youtube_vid()
+        except Exception as err:
+            print(f"[Youtube] Failed to get latest video - {err}")
 
     #####################################################################################################
     # cross bot events
