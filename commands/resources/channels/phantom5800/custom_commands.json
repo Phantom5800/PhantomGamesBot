@@ -363,5 +363,15 @@
     "response": "Goats are bullshit, but they always spawn in the same locations and facing the same direction, the rng comes from how they react to Link when he approaches and when you whoop. Whether they react from further away, run further, or just don't give a shit",
     "cooldown": 0,
     "last_use": 0
+  },
+  "!ruinstoneskip": {
+    "response": "/announce If you're confused about what is going on in Dry Dry Ruins, check out this explanation: https://www.youtube.com/watch?v=sbBl7I9ey4M",
+    "cooldown": 0,
+    "last_use": 0
+  },
+  "!s5rules": {
+    "response": "https://docs.google.com/document/d/1az5cbe0_UCM_yF2Q2L7Lga9VL3vvx_1nXm-cNOwcTas/edit?usp=sharing",
+    "cooldown": 0,
+    "last_use": 0
   }
 }

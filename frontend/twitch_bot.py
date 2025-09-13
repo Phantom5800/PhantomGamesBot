@@ -1012,7 +1012,7 @@ class PhantomGamesBot(commands.Bot):
             elif "Bad" in rewardData.reward.title:
                 self.current_rng -= 1
             with open('./commands/resources/rng.txt', 'w', encoding="utf-8") as rng_value:
-                rng_value.write(self.current_rng)
+                rng_value.write(str(self.current_rng))
 
         # attempt to give the user VIP
         if "VIP" in rewardData.reward.title:
@@ -1154,6 +1154,10 @@ class PhantomGamesBot(commands.Bot):
     Stream went live event
     '''
     async def event_eventsub_notification_stream_start(self, event: NotificationEvent):
+        # set values for start of streams
+        self.current_rng = 0
+
+        # send out stream start event to listeners
         streamOnlineData = event.data
         print(f"[Eventsub {streamOnlineData.started_at}] Stream has started for {streamOnlineData.broadcaster.name}")
         streamtitle = await get_stream_title_for_user(self, streamOnlineData.broadcaster.name)

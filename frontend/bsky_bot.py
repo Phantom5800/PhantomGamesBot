@@ -1,4 +1,4 @@
-from atproto import Client
+from atproto import Client, client_utils
 import utils.events
 
 class PhantomGamesBot:
@@ -13,7 +13,11 @@ class PhantomGamesBot:
 
     async def on_twitch_stream_event(self, user:str, eventType:utils.events.TwitchEventType, msg:str):
         if eventType == utils.events.TwitchEventType.GoLive:
-            self.live_post = self.client.send_post(text=msg)
+            text_builder = client_utils.TextBuilder()
+            text_builder.text(f"{msg} ")
+            uri = f"https://twitch.tv/{user.lower()}"
+            text_builder.link(uri, uri)
+            self.live_post = self.client.send_post(text_builder)
         elif eventType == utils.events.TwitchEventType.EndStream and self.live_post:
             self.client.delete_post(self.live_post.uri)
             self.live_post = None
