@@ -373,5 +373,10 @@
     "response": "https://docs.google.com/document/d/1az5cbe0_UCM_yF2Q2L7Lga9VL3vvx_1nXm-cNOwcTas/edit?usp=sharing",
     "cooldown": 0,
     "last_use": 0
+  },
+  "!subtember": {
+    "response": "/announce It is currently Subtember and subs + gift subs are discounted. I won't do anything about it, but you can!",
+    "cooldown": 0,
+    "last_use": 0
   }
 }

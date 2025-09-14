@@ -566,6 +566,13 @@ class PhantomGamesBot(commands.Bot):
                 response = self.quotes.remove_quote(int(quote_id), ctx.message.channel.name)
                 await ctx.send(response)
 
+    @commands.command()
+    async def howtoquote(self, ctx: commands.Context):
+        if ctx.message.author.is_mod or 'vip' in ctx.message.author.badges:
+            await ctx.respond("!addquote \"quote text\" - user")
+        else:
+            await ctx.respond("Become a mod or vip")
+
     #####################################################################################################
     # speedrun.com
     #####################################################################################################
