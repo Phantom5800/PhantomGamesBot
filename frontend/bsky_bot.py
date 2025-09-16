@@ -1,4 +1,4 @@
-from atproto import Client, client_utils
+from atproto import Client, client_utils, models
 import os
 import random
 import utils.events
@@ -20,7 +20,8 @@ class PhantomGamesBot:
 
     async def get_img_data(self, game:str):
         # replace common bad path characters with spaces
-        base_path = f'./commands/resources/images/{game.replace(":", " ")}'
+        game = game.translate(str.maketrans('', '', '<>:\"/\\|?* '))
+        base_path = f'./commands/resources/images/{game}'
 
         # if the game path exists, pick a random image file and return it
         if os.path.isdir(base_path):
@@ -42,7 +43,8 @@ class PhantomGamesBot:
             game = msg[:msg.index('|')].strip()
             img = await get_img_data(game)
             if img is not None:
-                self.live_post = self.client.send_image(text=text_builder, image=img, image_alt=uri)
+                aspect_ratio = models.AppBskyEmbedDefs.AspectRatio(height=720, width=1280)
+                self.live_post = self.client.send_image(text=text_builder, image=img, image_alt=uri, image_aspect_ratio=aspect_ratio)
             else:
                 self.live_post = self.client.send_post(text=text_builder)
         elif eventType == utils.events.TwitchEventType.EndStream and self.live_post:
