@@ -27557,3 +27557,465 @@ more bad ideas: show off early whale at pax
 [amishman19] @ good effort, game was bad
 [theglubbers] @ yeah that's bs, gg attempts
 [stavros12c34anenoglou] @ How in the world. I concur Amish
+[realblopez] @ I just want to get an attempt past ch4 for new splits today
+[realblopez] @ affects ch3, gourmet guy, and ch4
+[realblopez] @ yeah 2 turn lg
+[realblopez] @ you can do that too but it saves less time
+[realblopez] @ 6 doesn't help no
+[realblopez] @ it's like 78% you'll live
+[realblopez] @ saves 6-7s depending on the caps
+[theglubbers] @ gl post prologue all bosses
+[realblopez] @ go for 7 first bounce for sure
+[theglubbers] @ this is to say, cmdrglFinger on goomba king
+[newworldotter] @ gl post outset all bosses
+[theglubbers] @ wind waker all bosses would be so fucking stupid
+[theglubbers] @ it's just AD but you go deal with the squids and big octos
+[theglubbers] @ and the one actual overworld boss, cyclos
+[theglubbers] @ sometimes literally nothing and they free fairies
+[newworldotter] @ Would that change the routing significantly? I know next to nothing about wind waker runs
+[theglubbers] @ there's 2x pieces of heart, 1 magic upgrade and those are the ones hundo does
+[theglubbers] @ the others are i think just rupees, and there's 7 total?
+[theglubbers] @ things just get easier
+[theglubbers] @ AD is very magic tight and you wouldn't have to be anymore
+[theglubbers] @ TP all bosses would just be no stallord skip AD plus KB2
+[theglubbers] @ botw and totk are the most interesting, and they already have "overworld boss" categories, all kilton medals
+[theglubbers] @ no they don't respawn, that's the marker for the kilton medal
+[theglubbers] @ nah, botw hundo fuckin sucks at the end for that
+[theglubbers] @ it's "fuck, i missed a hinox. which fucking one"
+[peelb4758] @ No, not the tortillas!
+[nixnjix] @ I still like how Luigi is the end of this
+[nixnjix] @ So much for the other brother, like usual
+[peelb4758] @ This is officially the run now
+[peelb4758] @ What framerate is this game?
+[newworldotter] @ I watched one of his runescape streams but completely tuned it out because it's runescape KEKW
+[newworldotter] @ the pape rando streams went kinda hard tho
+[newworldotter] @ I think I found joe through a randomsauce raid when he was doing pape glitchless.
+[newworldotter] @ A lot of my favorite streamers are ones like joe that just don't give a shit if anything is scuffed or unpopular, but for that same reason they tend to stop streaming Sadge
+[peelb4758] @ Bad audio is a deal breaker for me
+[newworldotter] @ bad audio kind of "hurts" more than bad video
+[newworldotter] @ and also good enough audio is really cheap nowadays
+[peelb4758] @ Yeah, podcasting is just too easy
+[newworldotter] @ and great audio is lost on most people tbh
+[newworldotter] @ You kinda need a trained ear to spot the nuances in great audio
+[swiftpichu_] @ Congrats on going past prologue
+[swiftpichu_] @ Nvm back to prologue
+[peelb4758] @ I recently found 2 old vocal mics in a drawer that I forgot about
+[newworldotter] @ I feel like old mics could work fine? I don't think mics degrade fast like hard drives and other data stuff do.
+[newworldotter] @ and we've had xlr since the 50s or 60s iirc
+[theglubbers] @ xlr is from 1950
+[theglubbers] @ at least, per google, designed in 1950
+[newworldotter] @ If they were ribbon mics, maybe that might be a problem? I know ribbons are somewhat delicate
+[peelb4758] @ They still have normal 3 pin xlr, so I'm gonna test them next time I have access to a mixing desk
+[shatterdpixel] @ Of course, best of luck
+[themasterzelda] @ not a prologue stream POGSLIDE
+[themasterzelda] @ i did a glitched run of the pokemon romhack, lost about an hour total to bad fight routing+bad rng, and saved 3h over glitchless YEP
+[themasterzelda] @ so when you go to save, there's a single frame you can move before the prompt appear. that prompt disable cutscenes.
+[themasterzelda] @ but you can't skip trainers with that
+[themasterzelda] @ there is a key item that used along this glitch will glitch out trainers and force them to spin around after seeing you
+[themasterzelda] @ so the run skip EVERY TRAINERS that don't completely lock story progression
+[themasterzelda] @ its really funny KEKW
+[themasterzelda] @ oh its super fast to do
+[themasterzelda] @ you just open menu, click save, cancel, go to bag, use key item, back out
+[themasterzelda] @ you skipped the trainer
+[themasterzelda] @ really good romhack i recommend (without the glitches)
+[peelb4758] @ Never heard of it lol
+[themasterzelda] @ also there's a segment where the game gets extremely confused because of the cutscenes you skipped
+[themasterzelda] @ and it play 3 cutscenes in the wrong order KEKW
+[themasterzelda] @ can't skip that one because its an instant 0 frame cutscene that starts upon entering a floor
+[themasterzelda] @ but honestly its really funny
+[themasterzelda] @ also when skipping cutscene you can see npcs preloaded off screen and some of them are like halfway loaded KEKW
+[themasterzelda] @ so you have just the head of an npc floating there
+[shatterdpixel] @ what the fuck its inspired by made in abyss
+[shatterdpixel] @ maybe i Do have to check it out
+[themasterzelda] @ its my all time favorite pokemon romhack
+[themasterzelda] @ its all doubles so its really fun
+[themasterzelda] @ good balanced difficulty too
+[themasterzelda] @ hard mode is reasonable!
+[themasterzelda] @ this does force level cap but opponents also respect it
+[themasterzelda] @ so it just normalize the levels at various progression points
+[themasterzelda] @ only thing that doesn't respect the level cap are FOEs, which you are meant to avoid
+[themasterzelda] @ that's a gimmick from etrian odyssey
+[theglubbers] @ forcing opponents to respect it is just recognizing pacing allows for gimmicking it and blocking that
+[theglubbers] @ aka lazy but not a bad solution imo
+[themasterzelda] @ its not too much of an issue in this one
+[themasterzelda] @ but also its just a fundamental issue with pokemon imo
+[themasterzelda] @ pokemon exp group just fucks the design over
+[themasterzelda] @ slow exp VS fast exp is ridiculous
+[shatterdpixel] @ i feel like doing level caps is to just give you some "sense" of progression between gyms, to stop you from just grinding to level 100 and in order to keep the game actually difficult for some fights, rather than just the last few
+[themasterzelda] @ literally in the glitchless speedrun slow exp group mons are instantly unviable
+[theglubbers] @ hey the trick worked
+[hachraam] @ This setup for Sushie glitch is insane ! (hey there!)
+[themasterzelda] @ because the glitchless route i made only fight 2 optionals for consistency
+[themasterzelda] @ so its minimun exp and that's hard YEP
+[themasterzelda] @ i don't want to grind the glitched run but i kinda want to at least get a not 1h timeloss run KEKW
+[themasterzelda] @ lost 45m to a single fight that was not properly routed and i couldn't be hassled to do it
+[themasterzelda] @ because its a lv40 fight against lv50s ResidentSleeper
+[hachraam] @ You get 3 times this seed because you have to go multiple times in chapter 6 ? hachraNotes
+[themasterzelda] @ this trick is such a meme
+[hachraam] @ I killed a run earlier on this NPC pushing ! NotLikeThis
+[hachraam] @ Yep I saw that, I did not go in the details yet, but I will !
+[themasterzelda] @ glitched run is so dumb, the biggest rng segment is at the very end where you have to catch a new team for the final boss
+[themasterzelda] @ took me 28 minutes to get the 5 mons KEKW
+[hachraam] @ Sometimes I clip with something like 15 pushes or sometimes 20/25 and I don't understand when I do it right or wrong NotLikeThis I'm gonna check what you posted hachraNotes
+[hachraam] @ Thanks for that !
+[hachraam] @ I got the same situation
+[hachraam] @ Hopefully your video will help hachraPray
+[theonestar564] @ Gl on the runs
+[str9ngest9r] @ Hope youre having a good day, and good luck phanto274BLANKIES phanto274BLANKIES
+[nixnjix] @ So exp routing is tight in this huh
+[theglubbers] @ general guy can suck my dick
+[theglubbers] @ every copy of pm64 is personalized, mines very slutty
+[theglubbers] @ and now i'm going to taco time
+[heim_lich] @ guys can suck my dick in general
+[themasterzelda] @ just found out i'm probably PWM dimming sensitive
+[themasterzelda] @ i can literally see screens flicker sometimes
+[themasterzelda] @ that also explain why i have mostly bad experiences with OLED
+[theglubbers] @ the other day when someone asked what my favorite fast food was and i was like ...idk i only really go to taco time
+[theglubbers] @ i tried to not get angry when like 4 people said "that sounds like taco bell"
+[theglubbers] @ i like putting tabasco on my mexi fries
+[theglubbers] @ oh wait its this trick i'll stay for this then go
+[heim_lich] @ i thought this was all bosses except tutankoopa
+[theglubbers] @ 15f from hammer input or 15f from walk input start
+[themasterzelda] @ alright back to insanity buying a phone... wish me luck
+[themasterzelda] @ last time it didn't end well KEKW
+[theglubbers] @ pheenoh finished decomping KB1
+[theglubbers] @ you'll never believe it, it's literally a coin flip if he goes left or right
+[theglubbers] @ hope you're day's going well
+[theglubbers] @ what even is the story of this chapter, it just looks like the story of the magical beanstalk but replace the giant with a cloud
+[theglubbers] @ oh hell yeah i love when the story of my game is "photosynthesis"
+[gminus0] @ That's so true bestie
+[theglubbers] @ oh yeah the other thing when we were talking about food in PNW
+[theglubbers] @ i said we do teriyaki right, it's not smokey, it's sweet, and every american in chat was like "why is your teriyaki sweet" and every non american was like "why is your teriyaki smokey"
+[theglubbers] @ which is how it fuckin should be
+[heim_lich] @ didnt know you guys were pnw
+[heim_lich] @ a bunch of my highschool friends live in portland now
+[theglubbers] @ i am, heimlich, phantom grew up here but doesn't live in the area
+[theglubbers] @ and i may move out depending on job situations LUL
+[heim_lich] @ the housing market liamkAware
+[gminus0] @ I didn't try teriyaki while I was there
+[gminus0] @ so I will need to next time I go
+[theglubbers] @ there are some really good teriyaki places
+[theglubbers] @ sounds like white center
+[theglubbers] @ when phantom was here for pax, they wanted pizza from a place in white center so i went to go get it
+[theglubbers] @ i got a lot of looks when i parked in front of an active drug deal
+[theglubbers] @ tbf, pizza was good
+[theglubbers] @ it was on the nicer side for a pizza place i'd say
+[theglubbers] @ the drinks we got were also very healthy for what they were
+[theglubbers] @ yeah i can look it up, it was good and the ingredients were like, literally just the juices of what it said on the bottle
+[theglubbers] @ they were like near 0 sugar too
+[theglubbers] @ i found the brand's website for the ginger beer
+[theglubbers] @ they only sell in increments of... 4 packs of 32oz glass bottles
+[theglubbers] @ "fresh water, lemons, ginger, and natural juices"
+[theglubbers] @ damn, not knowing the story or being able to read the text i would assume that mustached star was the baby star near peach just grown up
+[icebound777] @ im still surprised those cracked walls in the palace have hitboxes on the opposite sides. like, why
+[icebound777] @ yeah that one makes sense
+[icebound777] @ doesnt work for the refund chest wall tho
+[theglubbers] @ mid still hasn't gotten back to me and i'm still morbidly curious how little ram she has
+[theglubbers] @ she thinks she has a virus and i'm like... nah i think you just have like 2gb ram
+[theglubbers] @ she was offput by like 120 background processes as if 80ish aren't just windows
+[theglubbers] @ yeah i have 81 atm and it's like... 16 of those are nvidia's bullshit alone
+[theglubbers] @ but i told her i would help her fix her pc and it's not a bad idea to run a malware scan
+[theglubbers] @ meanwhile for TP AD if i pb by 2 minutes i stay 6th place, but if i pb by 3 min im 3rd
+[theglubbers] @ yeah, gym got a 3:33 so its slightly smaller
+[theglubbers] @ omg G phanto274Flushed ty ty
+[itztash_] @ Curious why it's in Japanese
+[itztash_] @ The battle reminds me of Mario Bros super Saga
+[morpheus080] @ surely he falls asleep
+[morpheus080] @ the amount of dizzy shell in runs now is so funny to me
+[morpheus080] @ this game is great
+[morpheus080] @ was that a double 4 or what
+[morpheus080] @ is that like lantern ghost odds
+[morpheus080] @ the crate in jail is routed in im assuming
+[morpheus080] @ ah yeah that makes sense
+[morpheus080] @ GET THE ISLAND LIFE SHROOM
+[morpheus080] @ congrats on the island life shroom
+[morpheus080] @ i wonder how much damage you're short by
+[morpheus080] @ what does the bounce start at, i can check real quick
+[morpheus080] @ so with jump x2 to flip him over and two 4 caps, he has 4hp remaining
+[morpheus080] @ yeah a 4 cap is 30dmg since it starts at 9, and the jump x2 is 3+3
+[hachraam] @ I missed some heartbeats vickys4Derp
+[morpheus080] @ so i guess untimed shell toss on the first 4 cap and then time the second one?
+[hachraam] @ I did not even know there was a boss fight in this room vickys4Derp
+[theglubbers] @ something tells me the koopa bros would've been an easier fight than jr troopa
+[morpheus080] @ surely it will work a third time
+[morpheus080] @ do you upgrade hp or have hp plus on
+[morpheus080] @ yeah i was gonna say if there's a way to do ryoma ending
+[morpheus080] @ 2/3 for the game to not be shit
+[morpheus080] @ oh is t3 shield not a problem
+[darkness3827] @ GG in 7 min or whatever.
+[theglubbers] @ im gonna go do ems for 7 minutes then i'll actually gg
+[icebound777] @ GG getting paper mario'd phanto274Cry
+[theglubbers] @ what is "luigi skip"
+[darkness3827] @ a PB is a PB!
+[theglubbers] @ yes show them it went from -3:22 to -5
+[darkness3827] @ -1:24 to +33 to -5
+[gminus0] @ Run it back rn
+[morpheus080] @ yeah i dont have it up
+[morpheus080] @ oh that's a good back up
+[morpheus080] @ works out cuz you need her after kent
+[morpheus080] @ thank fuck there's actually a back up for bad rng
+[morpheus080] @ not used to that Kappa
+[gtm__] @ i was lurking and blopez was talking abt ur run
+[theonestar564] @ How did it end?
+[darkness3827] @ if you're within 2 min going into hallway you got a shot lmao.
+[feli_heli] @ phantom is a ghost because they have nothing in their fridge NOOOO
+[gminus0] @ Hey Feli ily Flushed
+[blacktiger51] @ did i hear gacha
+[swiftpichu_] @ I did dailies offline lmao, it's was smt v
+[swiftpichu_] @ God born but it's too easy with my build KEKW
+[swiftpichu_] @ It's similar enough to nocturne, physical build is op
+[swiftpichu_] @ At least 5 you see the spawns and it's not like Pokémon hell
+[blacktiger51] @ next rpg i will play in on friday widehypeE
+[swiftpichu_] @ What releases on Friday
+[blacktiger51] @ trails in the sky remake
+[swiftpichu_] @ For me I'm now in DQ7 waiting room for rpgs
+[swiftpichu_] @ Ah shit and also ZA
+[swiftpichu_] @ It's gonna be something
+[blacktiger51] @ i am hype for dq7 also
+[mirby_studios] @ kooper is like bow wow when you get near turtle rock
+[mirby_studios] @ just flying all over the place
+[punkin_spice_latte] @ what're you planning to submit for AGDQ?
+[punkin_spice_latte] @ hell yeah go for it
+[punkin_spice_latte] @ i dont know if we've had a paper mario any time recently
+[punkin_spice_latte] @ ...or at all? idr
+[punkin_spice_latte] @ whats your estimate for this?
+[punkin_spice_latte] @ like for a marathon
+[punkin_spice_latte] @ thats not too bad
+[punkin_spice_latte] @ theres some RNG elements too right?
+[punkin_spice_latte] @ or AI behaviors i guess
+[punkin_spice_latte] @ which is very little in a marathon for a 3hr run
+[punkin_spice_latte] @ well i cant speak for GDQ but i definitely do think you should submit this for FPE if you feel like it no i'm not biased because i'm staff dw about it
+[punkin_spice_latte] @ i havent looked at bluesky much the past couple days
+[pierrezebub] @ Gl on runs today phantom!
+[punkin_spice_latte] @ is it a marathon yet to happen?
+[punkin_spice_latte] @ or one that already did
+[punkin_spice_latte] @ i was about to say that
+[punkin_spice_latte] @ i only submitted timespinner rando for that. my headspace has been "eh" lately so i havent had the capacity to make a good submission vid for SA2
+[punkin_spice_latte] @ i asked tree earlier how far along they are, you could probably reach out yeah
+[punkin_spice_latte] @ tree is also their GC lead i wanna say? or something like that
+[punkin_spice_latte] @ oh yeah did you toss this or anything else in for GDQueer?
+[punkin_spice_latte] @ I think I get it, yeah
+[theglubbers] @ phantom i'm gonna copy/paste something, and i want your honest opinion on this. Context, this was given as a theoretical new page for ZSR
+[punkin_spice_latte] @ Yeah I get what you mean. I think I fit the bill for it lol but I don't expect my submission to get in
+[theglubbers] @ This one is different. Put simply, PC should not 830. This means we haven’t done an out-of-bounds read, we’ve done an out-of-bounds jump, sending program execution off the rails entirely.
+[theglubbers] @ and you're literally a SWE and that's my point
+[theglubbers] @ it's effectively contextless in what was given to me
+[theglubbers] @ it is program counter.
+[theglubbers] @ yes, yes it is
+[theglubbers] @ for a bit more context, the only thing shared before the first message i sent, was a crash dump
+[theglubbers] @ yeah then saying that PC can't 830
+[theglubbers] @ this isn't on ZSR
+[theglubbers] @ this was shared to me on the backend as a theoretical proposal from someone to put on ZSR that is very much so being shot down, and now we're laughing at it
+[theglubbers] @ i only came here because they're literally going "what the fuck does this mean" and i'm like okay this is funnier if i talk to someone who *can* understand it
+[theglubbers] @ i guess other than a printout of the warning, the only other thing shared is the name of the doc, which is "mistargeted DMA"
+[punkin_spice_latte] @ i will not deny the upcoming ad timer did remind me to do it
+[punkin_spice_latte] @ like i was gonna anyway
+[punkin_spice_latte] @ but it was like ah yeah lemme get on that
+[theglubbers] @ does it actually get people to be quiet about ads
+[punkin_spice_latte] @ manually running ads feels difficult to do with speedrun streams
+[punkin_spice_latte] @ like managing i mean
+[theglubbers] @ you lucky mfer it's multiple times a day for me
+[punkin_spice_latte] @ i only run SA2 and i dont think many ads fit in the I FOUND YOU, FAKER cutscene phanto274Cry
+[punkin_spice_latte] @ plus who am i to deny people that cutscene
+[theglubbers] @ yeah, if it's not a cutscene at X time it's because something went wrong anyway and you're likely either repeating stuff or upset about it and focusing on minimizing timeloss
+[darkness3827] @ Goombario is very confused
+[theglubbers] @ how many pixels is that
+[theglubbers] @ oh i see the shadows now
+[punkin_spice_latte] @ i love video games
+[stalkor] @ hey look a precredits stream
+[zeliversal] @ I have a project update
+[stavros12c34anenoglou] @ Back from my name day dinner
+[stavros12c34anenoglou] @ How goes things and did the last run end well?>
+[zeliversal] @ So today I 1) Rewrote the algo code 2) Made that into a launchable script 3) Developed a worker that uses the algo 4) Developed a launcher that can spawn up to 20 workers and combine all the data
+[zeliversal] @ My code went from 14 hours to 3
+[stalkor] @ analysis: you have played the first half of the game so much you forgot the last half
+[stalkor] @ ah “not your fault”
+[darknessfairy2] @ i wonder which person game up with the phrase kamek you fuck
+[theglubbers] @ probably an especially profane child 25 years ago
+[blacktiger51] @ if i get a pizza yeah its gone
+[stavros12c34anenoglou] @ @blacktiger51 Pizza was a Once a week thing in my family culutre but with 3 less kin attacking my(our) fridge I have found myself eating too much of it.
+[zeliversal] @ I think the red sauce is just white sauce with red food coloring
+[zeliversal] @ It's the only logical explanation
+[allegrenix] @ I applied to vend at convention, I was initially waitlisted, a vendor dropped last minute, so con contacted me saying hey you wanna vend?
+[stavros12c34anenoglou] @ @Allegrenix Thats kinda the best way to booth. What Cards do u carry? my faves are Pokemon/yugioh
+[allegrenix] @ This was on this 5th, so the most recent Friday but pne before that
+[allegrenix] @ Oh the con is this Thursday btw,
+[allegrenix] @ So I had 2 weeks in theory to prep
+[allegrenix] @ But I was on vacation on the day I got the nees
+[brandino59] @ i completely missed prologue can u reset pls
+[allegrenix] @ So I got back on Monday, thats 3 less days to preb
+[allegrenix] @ And then I got food poisoning the day after I got home, taking me out for another full day
+[allegrenix] @ So thats 4 days lost of prep
+[allegrenix] @ @stavros12c34anenoglou I do technically carry some MLP trading cards in my wallet
+[allegrenix] @ But yeah @stavros12c34anenoglou I do art prints and plushies
+[punkin_spice_latte] @ gotta bring yourself down a bit so you dont fly too close to the sun, or something
+[punkin_spice_latte] @ thats how speedrunning works
+[stavros12c34anenoglou] @ @Allegrenix I cut my Brony gang like after a month off I stopped like 2 seasons before discord the dragon came on the scene. (mixmatchedlizard)
+[punkin_spice_latte] @ well, they are wearing sunglasses
+[iceblue] @ have you tried getting seen
+[iceblue] @ well there's your problem
+[iceblue] @ yw for the advice
+[allegrenix] @ Discord was the billion for the season 2 opener though monadoActually
+[iceblue] @ nah i just rolled up
+[ghirahim_xc] @ Tuned in to Pope, regretted my decision, here i am
+[iceblue] @ you fucked everything up
+[ghirahim_xc] @ Oh hey 100K PAUSERS
+[iceblue] @ What if it's 4th try speedy
+[zeliversal] @ I feel silly now
+[zeliversal] @ I somehow completely misremembered
+[iceblue] @ They're not sorry for the ads
+[theglubbers] @ who lit those candles
+[iceblue] @ Thanks for the nickels
+[theglubbers] @ i convinced mid to get a new pc btw
+[zeliversal] @ I will be getting a new PC :)
+[zeliversal] @ So Phantom I misremembered
+[zeliversal] @ It wasn't 14 hours
+[theglubbers] @ i told her to run speccy, send it to me, give me a price range and tell me what the newest game she plays is
+[zeliversal] @ It was 34.4 hours
+[theglubbers] @ yes she uses a laptop
+[zeliversal] @ And it's down to 4
+[theglubbers] @ she said she was with her dad at the moment but the most intensive games she play are stardew and dolphin
+[theglubbers] @ also "dolphin can lag pretty bad"
+[zeliversal] @ Let me know if you need any assistance/second opinions
+[zeliversal] @ I've been shopping a ton at PC stuffs
+[theglubbers] @ considering her budget is likely around 1k USD, i think a better laptop is just what she'll want
+[mariomantaw] @ Did on-screen chat break?
+[zeliversal] @ Ok. It just finished
+[zeliversal] @ 34.4 hours to 2.7 hours apparently
+[zeliversal] @ I call that a win
+[zeliversal] @ Yeah honestly it'd be pretty easy to just write a little powershell or batch script to be a shortcut and replace whatever shortcut you use now
+[theglubbers] @ mine is always open and wipes on startup/shutdown
+[theglubbers] @ its just set to open on startup
+[zeliversal] @ You could maybe do like an autohot key script that looks to see if you have OBS open and if you do open the other utilities
+[zeliversal] @ @MarioManTAW Woah woah don't insult it like that
+[zeliversal] @ Garbage *at one point* was useful and valued before needed to be discarded. Unlike Windows 11
+[mariomantaw] @ Had to downgrade my work laptop to Win11, never going to do the same to anything I have full control of
+[theglubbers] @ windows 11 can suck my dick and that's about all its good for
+[realblopez] @ was bpe out of ch7
+[realblopez] @ door 1 was sloppy and door 2 killed it
+[kickinaspen] @ i think he said u pbed
+[stavros12c34anenoglou] @ in Pape terms what is a Jonah Joaish PB called?
+[realblopez] @ i saw it was hallway but idk exactly what, i assume at least 2 dinks
+[realblopez] @ i saw the claw unblock for peril lmfao
+[realblopez] @ did that screenshot you posted not hit cc
+[iceblue] @ oh phantom, tried to new mountain dew flavor
+[iceblue] @ the trolli cherry lemon one
+[iceblue] @ it actually tastes like a gummy worm
+[zeliversal] @ GGs on the PB
+[iceblue] @ You got an 8 bounce and squirted?
+[iceblue] @ When do I get that at GDQ?
+[stavros12c34anenoglou] @ Spice up the flavor
+[realblopez] @ yeah my twitch has been kinda messed up lately
+[rgamer0] @ Thanks for the stream and enjoy the rest of your day!
+[risch] @ I do wish I didn't have an office job to work 😔
+[risch] @ Oh no, I'm completely remote
+[risch] @ My current company is actually based in CT, and have been fully remote since the pandemic
+[risch] @ LUL we love 5s PBs
+[risch] @ I'm so bad at picking up my phone
+[risch] @ Same, I never really get calls from like anyone
+[risch] @ I'm so glad my phone number has never changed, but I also hate having to interact with T-Mobile for anything so I get it
+[risch] @ Or they wait for the code and then forget lmao
+[swiftpichu_] @ What if I don't have an office job
+[swiftpichu_] @ How about you get one and fuck off
+[risch] @ Become part of the capitalism machine
+[theglubbers] @ i don't type *that* fast
+[risch] @ I literally couldn't even read that second message lmfao
+[theglubbers] @ choose whatever reality makes your life more whimsical
+[swiftpichu_] @ This is a dictatorship
+[theglubbers] @ well a dictatorship *is* a job, enjoy whatever country you're in charge of
+[hachraam] @ Hey there ! GL for the runs !
+[swiftpichu_] @ Bitch you go fuck yourself with a drill
+[hachraam] @ hope you're doing well hachraPray
+[swiftpichu_] @ Drilldo if you will
+[risch] @ I love saving fractions of seconds during tutorials/prologues
+[risch] @ "Yo, that was my fastest tutorial ever, I saved enough fractions of a second that it's like, 1:52.99 now"
+[pierrezebub] @ Gl on runs today!!
+[pierrezebub] @ I feel called put by the title KEKW
+[stalkor] @ its my vacation so can i still watch?
+[pierrezebub] @ To be fair , you stream at a after work time for my area, i just work evenings
+[pierrezebub] @ Does the infamous green toad have a name?
+[pierrezebub] @ Stupid ad happened when i asked the question KEKW
+[pierrezebub] @ Ive read someone call it Nas T.
+[bradheat] @ how long did this game take you to get into running?
+[pierrezebub] @ Whats the chances on fright jar?
+[pierrezebub] @ yeah , i imqgine at your level 1 min is alot
+[yoshi_zilla] @ I mean good luck
+[bradheat] @ this is the urn
+[risch] @ But do you really want to? :)
+[pierrezebub] @ Brtter to restart there than at the end because of that+rng
+[yoshi_zilla] @ No I didn't actually
+[yoshi_zilla] @ we love dizzy shell
+[yoshi_zilla] @ well he had to have used the star rod so probably 3
+[yoshi_zilla] @ and then you kind of PB'd by 5s
+[yoshi_zilla] @ what a great game lol
+[yoshi_zilla] @ I need to go back and watch the vod now
+[bradheat] @ would you ever crack a baddie to some paper mario tunes?
+[risch] @ That's a sentence of all time
+[pierrezebub] @ You already hear them during the run anyways KEKW
+[risch] @ Very good ambient music for the area, not sure it's something I'd want to like, jam out to on a regular basis
+[pierrezebub] @ I wonder if there are full orchestral versions. Theyre probably better
+[pierrezebub] @ Like prologue but played on a proper clarinet would sound dope
+[pierrezebub] @ In a writing perspective , i like the hardwareimitation cause it forces composers to actually write good melodies since they cant woo us with sound quality.
+[videosnulf] @ I agree with that, I think GBA soundtracks are really fascinating in that regard
+[pierrezebub] @ GBA has alot of bangers i agree
+[risch] @ BN has some crazy good songs, and they sound so interesting because of the GBA
+[videosnulf] @ Battle Network soundtrack is nuts really underrated
+[videosnulf] @ I'm glad that's like the main part of the megaman legacy that never disappoints
+[theglubbers] @ i made a stupid thing after watching pippy play spirit tracks
+[risch] @ We love Battle Network
+[theglubbers] @ the lack of quality is on purpose
+[theglubbers] @ yes it's the face the escort missions give
+[theglubbers] @ most people have DColon for D:
+[videosnulf] @ I've been playing the battle network collection on and off for like two years lol, admittedly it's not my main focus but I like the soundtrack
+[videosnulf] @ The gba one is probably way different admittedly
+[videosnulf] @ I'm focusing on soundtrack alone for what I'm saying ftr
+[risch] @ I think the soundtrack is like, actually the same? For the collection, anyway
+[theglubbers] @ are you submitting BN1 for AGDQ?
+[theglubbers] @ just convince richard to take it
+[theglubbers] @ even though he has nothing to do with GC
+[risch] @ Dude, if Richard had a say
+[theglubbers] @ i just still like that sitting down for botw, Rae asked me who my commentator was
+[theglubbers] @ i think they were about to but i was like "huh? my run's tomorrow"
+[theglubbers] @ do you mean "all dachshunds"
+[theglubbers] @ wait that's not a bad meme run for me
+[theglubbers] @ instead of "all dungeons", "all dachschunds"
+[theglubbers] @ how different are the games
+[pierrezebub] @ Dogs vs.catz incentive would raise so much money
+[pierrezebub] @ Dogs vs cats *
+[theglubbers] @ is it actually katz
+[pierrezebub] @ Katz is the cat pll in the tales series right?
+[oceanicthoughts] @ You know what? This WILL be some of the background sound while I work my office job
+[oceanicthoughts] @ Its probably the sunglasses
+[pierrezebub] @ They are wearing sunglasses inside afterall , doesnt help with vision
+[nixnjix] @ Gl Phantom. Did you make it past the hard stuff? Lol
+[realblopez] @ background noise while I work out
+[theglubbers] @ i was looking through some old stuff of mine clearing out folders and found one of the most cursed things TP almost had in a route
+[theglubbers] @ did you know you can do BiT off of ooccoo jr warping
+[theglubbers] @ its frame data changes nonlinearly with the frame you press A to do the warp on
+[theglubbers] @ sr. works too but you would get ooccoo's note as an item not jr.
+[theglubbers] @ yeah, that's where the almost comes in
+[theglubbers] @ if it gave you jr., it would have been fast for BiTE routes to ooccoo BiT to do BiTE to kak, from lakebed. would've saved a lot of time for BiTE
+[theglubbers] @ iirc would've saved damage routing (~5s), the death warp (~30s), and an extra save prompt (idr, i wanna say ~18s)
+[theglubbers] @ if those numbers are accurate it would've made it 8s slow
+[theglubbers] @ that's how i looked at it for a long while, my time's just getting too low to justify the minute anymore
+[theglubbers] @ for sure, the "why would i willingly sacrifice a minute" range
+[theglubbers] @ yeah if i get TP AD in, it would motivate me to properly research things im missing
+[theglubbers] @ it's just a lot of nuance in doing things like normalizing each rooms movement that's so minor but adds up a fuck ton
+[theglubbers] @ tbh i don't really see how but i see the results being consistent and that speaks for itself
+[theglubbers] @ it just seems so random
+[theglubbers] @ yeah i'm very conscious that its my movement with TP too
+[realblopez] @ I think buffered spins go a long way too
+[realblopez] @ every frame where you're on the ground and not spinning is just eliminated
+[zeliversal] @ So I did a new thing
+[grimmpaw_bakeneko] @ we love fighting blooper grimmp4Gremlin
+[zeliversal] @ I made another launcher script that runs *all* data sets. So it takes whatever 20 cores it can, and every time one is free it just runs another chunk of data until it does all 400
+[zeliversal] @ And there's the ad
+[oceanicthoughts] @ Swimming through the dirt and grass, thanks global warming
+[zeliversal] @ Ok free from ad
+[zeliversal] @ So the entire chunk of 400 seems to finish in like 3 to 3.5 hours
+[zeliversal] @ Which is extremely respectable
+[zeliversal] @ Mind you. Saturday when I went to bed I said "If I can get it to under 10 hours that will be great"
+[pierrezebub] @ I love this sun stage song
+[pierrezebub] @ What was your favourite chapter when you were a casual vs speedruner
+[samshine12] @ Mine are chapter2, 3, and 5
+[stavros12c34anenoglou] @ Darn bck from an overouting to see stream ended. Well have a great one.

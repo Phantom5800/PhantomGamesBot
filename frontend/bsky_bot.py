@@ -1,4 +1,6 @@
 from atproto import Client, client_utils
+import os
+import random
 import utils.events
 
 class PhantomGamesBot:
@@ -9,7 +11,26 @@ class PhantomGamesBot:
             self.client.login(login=handle, password=password)
         except ValueError as e:
             print(f"[BSKY Error] {e}")
+            return
+        except:
+            print(f"[BSKY Error] Invalid-Handle bullshit")
+            return
+        print(f"[BSKY] Logged in to {handle}")
         utils.events.twitchevents.register_events(self)
+
+    async def get_img_data(self, game:str):
+        # replace common bad path characters with spaces
+        base_path = f'./commands/resources/images/{game.replace(":", " ")}'
+
+        # if the game path exists, pick a random image file and return it
+        if os.path.isdir(base_path):
+            files = [f for f in os.listdir(base_path) if os.path.isfile(os.path.join(base_path, f))]
+            random_idx = random.randrange(len(files))
+            selected_image = os.path.join(base_path, files[random_idx])
+            print(f"[BSKY] Go live with image: {selected_image}")
+            with open(selected_image, 'rb') as f:
+                return f.read()
+        return None
 
     async def on_twitch_stream_event(self, user:str, eventType:utils.events.TwitchEventType, msg:str):
         if eventType == utils.events.TwitchEventType.GoLive:
@@ -17,7 +38,13 @@ class PhantomGamesBot:
             text_builder.text(f"{msg} ")
             uri = f"https://twitch.tv/{user.lower()}"
             text_builder.link(uri, uri)
-            self.live_post = self.client.send_post(text_builder)
+
+            game = msg[:msg.index('|')].strip()
+            img = await get_img_data(game)
+            if img is not None:
+                self.live_post = self.client.send_image(text=text_builder, image=img, image_alt=uri)
+            else:
+                self.live_post = self.client.send_post(text=text_builder)
         elif eventType == utils.events.TwitchEventType.EndStream and self.live_post:
             self.client.delete_post(self.live_post.uri)
             self.live_post = None

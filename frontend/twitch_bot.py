@@ -1200,7 +1200,7 @@ class PhantomGamesBot(commands.Bot):
         reason = banData.reason or "Unspecified reason"
         if banData.permanent:
             banString = f"❌ `{banData.user.name}` has been banned in **{banData.broadcaster.name}** by _{banData.moderator.name}_ for '{reason}'"
-            await utils.events.twitchevents.twitch_log(banString)
+            await utils.events.twitchevents.twitch_log(banData.broadcaster.name, banString)
         else:
             unix_epoch = datetime.strptime("1970-1-1 00:00:00.000000+0000", "%Y-%m-%d %H:%M:%S.%f%z")
             seconds_from_epoch = int((banData.ends_at - unix_epoch).total_seconds())
