@@ -19,7 +19,7 @@ class PhantomGamesBot:
         utils.events.twitchevents.register_events(self)
 
     async def get_img_data(self, game:str):
-        # replace common bad path characters with spaces
+        # remove common bad path characters
         game = game.translate(str.maketrans('', '', '<>:\"/\\|?* '))
         base_path = f'./commands/resources/images/{game}'
 
@@ -41,7 +41,7 @@ class PhantomGamesBot:
             text_builder.link(uri, uri)
 
             game = msg[:msg.index('|')].strip()
-            img = await get_img_data(game)
+            img = await self.get_img_data(game)
             if img is not None:
                 aspect_ratio = models.AppBskyEmbedDefs.AspectRatio(height=720, width=1280)
                 self.live_post = self.client.send_image(text=text_builder, image=img, image_alt=uri, image_aspect_ratio=aspect_ratio)

@@ -1,3 +1,4 @@
+from datetime import datetime, timezone
 import markovify
 import os
 
@@ -32,7 +33,7 @@ class MarkovHandler:
         print(f"State Size: {self.text_model.to_dict()['state_size']}")
         #print(f"Possible starting words: {[key[state_size - 1] for key in self.text_model.chain.model.keys() if '___BEGIN__' in key]}")
     
-    def get_markov_string(self, include_word=None, max_words=None):
+    def _get_markov_string(self, include_word=None, max_words=None):
         overlap = 0.7
         attempts = 300
         output = None
@@ -45,4 +46,18 @@ class MarkovHandler:
 
         if not output:
             output = self.backup_text.make_sentence(tries=attempts, max_overlap_ratio=overlap, min_words=min_words, max_words=max_words)
+        return output
+
+    def get_markov_string(self, include_word=None, max_words=None, log=True):
+        output = self._get_markov_string(include_word, max_words)
+
+        # only log messages that are marked for logging
+        if log:
+            directory = "./commands/resources/markov/generated/"
+            with open(os.path.join(directory, f"generated-{datetime.now().year}.txt"), "a+", encoding="utf-8") as f:
+                try:
+                    f.write(f"[{datetime.now()}] {output}\n")
+                except:
+                    print("[Markov] Failed to log generated message")
+
         return output
