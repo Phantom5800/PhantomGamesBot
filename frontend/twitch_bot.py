@@ -1038,9 +1038,9 @@ class PhantomGamesBot(commands.Bot):
     async def event_eventsub_notification_cheer(self, event: NotificationEvent):
         cheerData = event.data
         if cheerData.is_anonymous:
-            print(f"[Eventsub] Anonymous cheered {cheerData.bits} bits!")
+            print(f"[Eventsub {datetime.now()}] Anonymous cheered {cheerData.bits} bits!")
         else:
-            print(f"[Eventsub] {cheerData.user.name.lower()} cheered {cheerData.bits} bits!")
+            print(f"[Eventsub {datetime.now()}] {cheerData.user.name.lower()} cheered {cheerData.bits} bits!")
 
         # pass bit amounts to crowd control
         if int(os.environ.get("CC_ENABLE")) == 1:
@@ -1067,7 +1067,7 @@ class PhantomGamesBot(commands.Bot):
         subData = event.data
         # update most recent sub for non gifts
         if not subData.is_gift:
-            print(f"[Eventsub] {subData.user.name.lower()} subscribed at tier {subData.tier} for the first time!")
+            print(f"[Eventsub {datetime.now()}] {subData.user.name.lower()} subscribed at tier {subData.tier}")
 
             if int(os.environ.get("CC_ENABLE")) == 1:
                 handle_generic_cc_subs(1, subData.tier)
@@ -1084,7 +1084,7 @@ class PhantomGamesBot(commands.Bot):
     '''
     async def event_eventsub_notification_subscription_message(self, event: NotificationEvent):
         subData = event.data
-        print(f"[Eventsub] {subData.user.name.lower()} subscribed at tier {subData.tier} for {subData.cumulative_months} months!")
+        print(f"[Eventsub {datetime.now()}] {subData.user.name.lower()} subscribed at tier {subData.tier} for {subData.cumulative_months} months!")
 
         with open('C:/StreamAssets/LatestSub.txt', 'w', encoding="utf-8") as last_sub:
             last_sub.write(f"New Sub: {subData.user.name}")
@@ -1097,9 +1097,9 @@ class PhantomGamesBot(commands.Bot):
     async def event_eventsub_notification_subscription_gift(self, event: NotificationEvent):
         subData = event.data
         if subData.is_anonymous:
-            print(f"[Eventsub] Anonymous gifted {subData.total} tier {subData.tier} subs!")
+            print(f"[Eventsub {datetime.now()}] Anonymous gifted {subData.total} tier {subData.tier} subs!")
         else:
-            print(f"[Eventsub] {subData.user.name.lower()} gifted {subData.total} tier {subData.tier} subs!")
+            print(f"[Eventsub {datetime.now()}] {subData.user.name.lower()} gifted {subData.total} tier {subData.tier} subs!")
 
         # pass sub amounts to crowd control
         if int(os.environ.get("CC_ENABLE")) == 1:
@@ -1120,7 +1120,7 @@ class PhantomGamesBot(commands.Bot):
     async def event_eventsub_notification_channel_charity_donate(self, event: NotificationEvent):
         donoData = event.data
         value = donoData.donation_value / 10 ** donoData.decimal_places
-        print(f"[Eventsub] Charity donation: {donoData.user.name.lower()} donated {value:.2f} {donoData.donation_currency} to {donoData.charity_name}!")
+        print(f"[Eventsub {datetime.now()}] Charity donation: {donoData.user.name.lower()} donated {value:.2f} {donoData.donation_currency} to {donoData.charity_name}!")
 
     #####################################################################################################
     # eventsub notifications
@@ -1140,7 +1140,7 @@ class PhantomGamesBot(commands.Bot):
     '''
     async def event_eventsub_notification_channel_hypetrain_begin(self, event: NotificationEvent):
         hypeData = event.data
-        print(f"[Eventsub] Hype train started at {hypeData.started_at}")
+        print(f"[Eventsub {datetime.now()}] Hype train started at {hypeData.started_at}")
         notif = "A Hype Train has started!"
         await utils.events.twitchevents.twitch_stream_event(hypeData.broadcaster.name, utils.events.TwitchEventType.HypeTrainStart, notif)
 
@@ -1155,7 +1155,7 @@ class PhantomGamesBot(commands.Bot):
     '''
     async def event_eventsub_notification_channel_hypetrain_end(self, event: NotificationEvent):
         hypeData = event.data
-        print(f"[Eventsub] Hype train ended at {hypeData.ended_at} at level {hypeData.level}")
+        print(f"[Eventsub {datetime.now()}] Hype train ended at {hypeData.ended_at} at level {hypeData.level}")
 
     '''
     Stream went live event
@@ -1177,7 +1177,7 @@ class PhantomGamesBot(commands.Bot):
     '''
     async def event_eventsub_notification_stream_end(self, event: NotificationEvent):
         streamOfflineData = event.data
-        print(f"[Eventsub] Stream has ended for {streamOfflineData.broadcaster.name}")
+        print(f"[Eventsub {datetime.now()}] Stream has ended for {streamOfflineData.broadcaster.name}")
         await utils.events.twitchevents.twitch_stream_event(streamOfflineData.broadcaster.name, utils.events.TwitchEventType.EndStream)
 
     '''
@@ -1185,9 +1185,9 @@ class PhantomGamesBot(commands.Bot):
     '''
     async def event_eventsub_notification_raid(self, event: NotificationEvent):
         raidData = event.data
-        if raidData.viewer_count > 1:
+        if raidData.viewer_count > 1: # filters out potential spam, rarely an issue, but it has come up before
             await raidData.reciever.shoutout(token=os.environ['TWITCH_OAUTH_TOKEN'], to_broadcaster_id=raidData.raider.id, moderator_id=self.user_id)
-        print(f"[Raid] {raidData.raider.name} raided with {raidData.viewer_count} viewers")
+        print(f"[Eventsub {datetime.now()}] {raidData.raider.name} raided with {raidData.viewer_count} viewers")
 
     #####################################################################################################
     # eventsub mod events

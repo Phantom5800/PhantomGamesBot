@@ -11,6 +11,7 @@ class TwitchEvent:
     def __init__(self):
         self.twitch_event_log_listeners = []
         self.twitch_event_stream_event_listeners = []
+        self.social_media_post_listeners = []
 
     def register_events(self, obj):
         event_log_method = getattr(obj, "on_twitch_event_log", None)
@@ -21,6 +22,10 @@ class TwitchEvent:
         if stream_event_method:
             self.twitch_event_stream_event_listeners.append(stream_event_method)
 
+        social_media_method = getattr(obj, "on_social_media_post", None)
+        if social_media_method:
+            self.social_media_post_listeners.append(social_media_method)
+
     async def twitch_log(self, user:str, msg:str):
         for func in self.twitch_event_log_listeners:
             await func(user, msg)
@@ -28,5 +33,9 @@ class TwitchEvent:
     async def twitch_stream_event(self, user:str, eventType: TwitchEventType, msg:str = None):
         for func in self.twitch_event_stream_event_listeners:
             await func(user, eventType, msg)
+
+    async def social_media_post(self, msg:str, uri:str = None, imgEmbed:str = None):
+        for func in self.social_media_post_listeners:
+            await func(msg, uri, imgEmbed)
 
 twitchevents = TwitchEvent()

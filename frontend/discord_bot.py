@@ -63,9 +63,9 @@ class PhantomGamesBot(Bot):
         self.messages = [
             "Responding to !speed",
             "!boris",
-            "Paper Mario Randomizer",
+            "Paper Mario",
             "WABITR",
-            "Twitter",
+            "Bsky/@phantom-games.com",
             "twitch.tv/phantom5800",
             "Zelda: Wand of Gamalon",
             "Visual Studio Code",
@@ -76,6 +76,9 @@ class PhantomGamesBot(Bot):
 
         utils.events.twitchevents.register_events(self)
         self.announce_youtube_vid_task.start()
+
+        # local storage
+        self.hype_train_msg = None
 
     async def set_random_status(self):
         status = self.messages[random.randrange(len(self.messages))]
@@ -203,6 +206,13 @@ class PhantomGamesBot(Bot):
             await msg.publish()
         elif eventType == utils.events.TwitchEventType.EndStream:
             print(f"[Discord Stream Event] Stream has gone offline - {msg}")
+        elif eventType == utils.events.TwitchEventType.HypeTrainStart:
+            channel = self.get_channel(self.channels["stream-announcements"])
+            self.hype_train_msg = await channel.send(f"{self.roles['stream-notifs']} A hype train has started! https://twitch.tv/{user}")
+        elif eventType == utils.events.TwitchEventType.HypeTrainEnd:
+            if self.hype_train_msg:
+                await self.hype_train_msg.delete()
+                self.hype_train_msg = None
 
 def run_discord_bot(eventLoop, sharedResources):
     bot = PhantomGamesBot(sharedResources)

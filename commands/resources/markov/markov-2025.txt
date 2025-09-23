@@ -26025,7 +26025,6 @@ more bad ideas: show off early whale at pax
 [zeliversal] @ @GreenStacheProductions ... I really think you're confused LUL
 [greenstacheproductions] @ What are they then? Self help books?
 [greenstacheproductions] @ Then yeah I don't think I've ever seen a playbook before
-[stavros12c34anenoglou] @ Do it ClebHart style.
 [iceblue] @ Yeah let's not mention someone as shitty as him
 [zeliversal] @ @GreenStacheProductions Like, I think the thing you're getting confused on is a play book isn't like a reading book.
 [zeliversal] @ It's a reference set of instructions for a specific group or team to reference the pre-determined plans they made
@@ -29082,3 +29081,647 @@ more bad ideas: show off early whale at pax
 [amishman19] @ one run to the end is nice
 [seventyfourtg] @ Yo Phantom I know you're about to raid but I need to let you know that Mega Man is in the new Sonic Racing game
 [amishman19] @ you love to see it I will be tuning in Pog
+[rgamer0] @ Yoy! phanto274Wave phanto274Smile iceblueArrive
+[rgamer0] @ Went to my sneak peek yesterday and managed to get my 3 copies of a common that will enhance my deck hard
+[pallos7] @ What the fuck are you having splash do bro
+[pallos7] @ I was there when he did
+[rgamer0] @ yeah I question why they made that card a common
+[stalkor] @ is it rando time?
+[pallos7] @ btw the answer is General Guy
+[icebound777] @ so, about that script you wanted to write to open up all your stream stuff, like the on-stream chat
+[blacktiger51] @ is it bad i am 39 hours into the trails in the sky remake (was release Friday)
+[pierrezebub] @ GL on runs tonight. GJ on comments with tgd
+[pierrezebub] @ I learned what flags were
+[pierrezebub] @ Was the test for the job you applied to?
+[pierrezebub] @ Did they look like AI questions?
+[greenstacheproductions] @ I have an iPad Air M3 related question if anyone can answer it?
+[icebound777] @ Isn't that a common trick for, like, management level tests? Where the last question on the test reads "don't answer any other questions, just sign here and hand in your test"
+[icebound777] @ Yeah I don't get it. So much work as SE is just... looking stuff up. Reading docs, and reading API schemes
+[pierrezebub] @ It prints out paper #myanswer
+[pierrezebub] @ The test could be to just  flush out posers and if you ahce a passing grade then they look at resume and stuff
+[icebound777] @ On the other hand, there are so dense people in IT as well. Like, at work I got told to never use ternary operators in C, because "nobody will understand that", and I'm just like ????
+[icebound777] @ Yeah, I just disregarded that. Ain't nobody gonna work on this 25 years old code besides me anyway
+[icebound777] @ tbf could just be a generic test they hand out to everyone. And just weigh answers differently depending on the job
+[icebound777] @ At my job the sys admins regularly get to do some C coding as well. Depends on how broad your daily work is, I guess
+[pierrezebub] @ Could also just be the person who made the test didint bother to double check anything and past templates quesrions were left
+[mirby_studios] @ that was timed perfectly with kooper's mouth movements lmao
+[icebound777] @ Oh, yeah no that's just ...
+[icebound777] @ I mean, sure, AI where AI makes sense. But if all you have is a hammer
+[pierrezebub] @ it could just be an effenciency metric being tested too
+[icebound777] @ Yeah, I've had to tell my HOD that before, lol
+[pierrezebub] @ Who can afford thinking in this economy!? /s
+[icebound777] @ ^ I could see that, honestly. Kind of like, if you have time to think, use that time to type it into ChatGPT, or something like that
+[pierrezebub] @ @Icebound777 My current company is kinda that way. The more they push it , the more i turn into a luddite
+[icebound777] @ I've got two colleagues that I guess are AI-pilled now ... instead of googling they type into ChatGPT
+[icebound777] @ Sure, lovely it works for you, but the answers *my* work needs cant be found by AI
+[pierrezebub] @ Why use chat gpt when the bolian logic works in google
+[mirby_studios] @ there's a fuckin' 13 year old in a server i'm in who used chatgpt to ask what date the song september was about and when i said use google not chatgpt they said they can't get an answer as easily
+[mirby_studios] @ so i posted their exact question into google, showed the answer was there in wikipedia and they complained that they had to click a link
+[mirby_studios] @ earth wind and fire, cause it's the 21st of september
+[mirby_studios] @ and then they went STOP TALKING ABOUT POLITICS I'M GOING TO BED and i was like "this isn't even about politics at all" and they went "it's a joke"
+[mirby_studios] @ somehow 13-year-olds now still act how dumb they did 10 years ago
+[theglubbers] @ oh shit its the koopa bros, famous casting couch cast
+[theglubbers] @ okay but what is a "hello world" and where can i download that app
+[mirby_studios] @ my high school did that too!
+[mirby_studios] @ that's how i learned the smell of burning motherboard is the worst
+[pierrezebub] @ I loved tyling classes. Cause our teacher let us play warcraft 3 lan in the last 15 mins + break
+[mirby_studios] @ not from my computer that was another kid's lmao
+[theglubbers] @ so why the fuck does buying "one green onion" give you a bushel that lasts longer than anyone can reasonably use green onion
+[theglubbers] @ i don't think a full family would use this before it goes bad
+[theglubbers] @ but it costs $0.59
+[theglubbers] @ i'm gonna send you a picture of this shit
+[pierrezebub] @ Making green onion kimchi is a great option when too munch green onions
+[theglubbers] @ i guess i could get a planet
+[pierrezebub] @ @TheGlubbers A whole planet of green onions
+[theglubbers] @ that's 1x quantity according to fred meyers
+[theglubbers] @ they last like 3 weeks in a fridge
+[theglubbers] @ oh you can just wash them again
+[theglubbers] @ yeah dried tips makes more sense
+[spinthra] @ when languages other than english exist papeHands
+[icebound777] @ English could use a balance patch though. Get rid of the ambiguous 12am/12pm thing, and fix the date format
+[theglubbers] @ thats why i just use 12
+[theglubbers] @ "which one" guess idfk
+[spinthra] @ fuck that trick lmao
+[spinthra] @ yea i've had that happen to me before when i used to do that method i dont understand it
+[nina_calico] @ i get that, only reason i have taken bad runs of smrpg lately was purely because of Fatales and Fastest Furs
+[nina_calico] @ either way, i have shelved that for a bit, gonna work on the XB3 DLC cause that looks like a fun speedrun
+[nina_calico] @ i think its between 1-2 hours?
+[nina_calico] @ thats how i have felt every time i have considered picking up like FF4
+[samshine12] @ What kind of job is it?
+[pierrezebub] @ thank you capitalism , i like when stuff runs worse
+[morpheus080] @ i love all of my products being worse than it was 10yrs ago
+[pierrezebub] @ to make money on hardware
+[morpheus080] @ i gotta get onto windows 11 soon Sadge
+[morpheus080] @ and im certain it'll be worst than what i have with 10 rn
+[pierrezebub] @ ive been doing alot of windows 11 migration at work and i hate it
+[morpheus080] @ man there really is nothing to say about prologue, im complimenting bush interactions now
+[pierrezebub] @ id rather watch 20 preologues in a row than another old spice ad
+[morpheus080] @ it never gets better
+[morpheus080] @ i think if i never learned lzs, i'd probably hate prologue less
+[pierrezebub] @ its the constant after a bad thing
+[tarttapple] @ hello mx. phantom. good luck with your normal speedrun in addition to your normal stream
+[tarttapple] @ i know how it feels dude
+[tarttapple] @ been dealing with post-interview radio silence for over a week now
+[morpheus080] @ i see you uploaded your resume to autofill everything
+[morpheus080] @ can you fill in everything regardless of that for me
+[tarttapple] @ it really isn't. but hiring managers and HR people are demons i'm afraid
+[tarttapple] @ could be worse. i'm terrible at social situations and they still use all my social battery
+[morpheus080] @ even just the chance at an interview would be appreciated at this point for me
+[morpheus080] @ i've gotten 1 interview in these 11 months i've been looking
+[morpheus080] @ i hope when that guy buys new shoes, one of them is always the wrong size
+[tarttapple] @ i agree with morph
+[nina_calico] @ how dare you research things to get to know more things apparently
+[hachraam] @ Hey there ! I hope you're doing well ! GL for the runs hachraPray
+[morpheus080] @ hating on that is crazy when 95% of people can't properly google things
+[morpheus080] @ this first strike is genuinely terrible
+[tarttapple] @ tfw you realize a not insignificant chunk of americans in 2025 would consider reading a google ai overview "research"
+[morpheus080] @ it's the boomer can't open pdfs thing but it's like teenagers and early 20s people now
+[tarttapple] @ i want to disagree so badly but i know a significant portion of my age group is tech illiterate despite having the same internet as i did as a kid
+[zeliversal] @ Is there a reason you assume I have strong feelings?
+[zeliversal] @ Or you mean just I would be informed?
+[tarttapple] @ lmao ya i'm quite young compared to a lot of people i talk to
+[tarttapple] @ it's kind of always been that way
+[zeliversal] @ I am debating on if I want to buy my the mouse I was looking at. It's on Amazon now which makes it an option. I'm just not sure if it's *the* mouse, ya know?
+[zeliversal] @ For *years* I've been whatever the latest G502 is
+[zeliversal] @ Same shape, new sensor
+[morpheus080] @ i've been on the g502 train for the last year and i dont regret it
+[tarttapple] @ all i want in a mouse is two buttons, a working scroll wheel, and two side buttons. also it should survive me biting it when i go feral. that is all i ask
+[tarttapple] @ i survived with a mouse with a broken scroll wheel for like a full year because i didn't want to buy a new one
+[zeliversal] @ So I've been looking at the Keychron M5 which is a vertical mouse, which I haven't used for a length of time before. But the nice thing is it has the horizontal scroll just like my MX Master which is nice, plus the usual forward/back or remappable buttons
+[tarttapple] @ only recently did i have to buy a new one because it straight up stopped working entirely
+[zeliversal] @ Like it seems like a perfectly fine option and could replace my G502 and my MX Master, both of which need it
+[amishman19] @ yo gl on this seemingly totally normal All Bosses stream?
+[tarttapple] @ i think i just have a basic ass razer deathadder essential. that's it
+[morpheus080] @ @tarttapple i would have died, i can't stand not having a fully functioning mouse NiceSoftlock
+[morpheus080] @ youre stronger than i
+[amishman19] @ A button that sensitive sounds horrendous
+[morpheus080] @ i have not, that would also piss me the hell off
+[tarttapple] @ @morpheus080 i have a talent for getting used to minor inconveniences and never doing anything about them. which is actually a bad thing if you think about it
+[zeliversal] @ How many minutes for #1?
+[morpheus080] @ i still cant believe this run is sub 3 now
+[zeliversal] @ Ok let's save 15 just to be safe
+[amishman19] @ this just in: RandomSauce is stupid good
+[morpheus080] @ seed dupe routes weren't really pushed to that extent by anyone else besides random
+[morpheus080] @ me agreeing knowing very well i would do the same dumb shit if i played this again
+[morpheus080] @ yeah i've always said i would at least do time out
+[morpheus080] @ i wont do kooper stuff lol
+[morpheus080] @ assuming i played again
+[tarttapple] @ rain needs to hop on all bosses imo
+[morpheus080] @ i honestly hate that kooper skip is a thing lol
+[tarttapple] @ ya true. i just miss rain's pape streams papeHands
+[tarttapple] @ you green or yellow bastard, you
+[amishman19] @ surely the internet will be better in a different place farther north 👀
+[amishman19] @ the fact items come out the back screws me up with the crates coming out forward
+[tarttapple] @ i only play super paper mario and i just made a badge block that throws a badge in a random ass direction at a random distance and magnitude
+[tarttapple] @ i agree with phantom games bot
+[amishman19] @ it’s testing your skill in reacting to a new scenario!
+[tarttapple] @ tbf i just went the lazy way and made it exactly how items are thrown/dropped normally
+[tarttapple] @ i think it's really funny how each iteration of classic pape further complicated the way items are tossed. pape had objective distance and direction, ttyd has objective distance and random direction and some level of random angle from left/right, spm is balls to the wall random in all factors
+[tarttapple] @ wait that's true... i never even noticed
+[tarttapple] @ i was legit considering speedrunning the remake if the text could actually be skipped
+[amishman19] @ this PIP but is going to be the end of me
+[tarttapple] @ the game is intentionally bad, just like every modern game made or licensed by nintendo
+[realblopez] @ yo amish ty for the gl
+[amishman19] @ they screwed up the mobile app so PIP only works the first time you open the app and now you have to restart it to get PIP working again
+[amishman19] @ yo Lopez ty for the gl
+[amishman19] @ we could use some good rng
+[amishman19] @ how much would you like Phantom?
+[amishman19] @ alright, that sounds like you need at least 20
+[fatpidgeybirb] @ You need that much luck?? damb
+[blacktiger51] @ monkaW there a bad thunderstorm outside
+[fatpidgeybirb] @ that's like half of pape's luck
+[amishman19] @ you are so welcome
+[realblopez] @ you will pb again
+[amishman19] @ how would job affect things out of curiosity
+[angellove94] @ I just got home from work lol
+[amishman19] @ okay I figured any mods might be out of the question
+[theglubbers] @ yeah when i start my new job things'll be different around here
+[fatpidgeybirb] @ I hope you get it
+[realblopez] @ join the employed full time leaderboard
+[angellove94] @ I better redeem my long paper mario rando run.
+[fatpidgeybirb] @ job market sucks rn
+[angellove94] @ I’m too late lol
+[angellove94] @ I’ll just save my points for now.
+[amishman19] @ If it does come to things, let us know if there is anything we might want to re-record
+[theglubbers] @ did you ever get a response btw
+[theglubbers] @ oh wait richard said "probably won't see anything over the weekend" yeah
+[angellove94] @ I still need to finish watching all your YouTube’s anyways
+[theglubbers] @ nah it would be funnier if you just didn't say anything and pretended the rando just doesn't exist
+[fatpidgeybirb] @ I saw somewhere overseas is gonna make it illegal to ghost job applicants, we could do for that over here tbh
+[theglubbers] @ you could stream rando on your alt, glantom5800
+[zeliversal] @ We won't ghost them. We'll just auto reject everyone and then just un-reject anyone we like NODDERS
+[theglubbers] @ depends on the extent of "ghosting"
+[zeliversal] @ Ok I am free from ads
+[theglubbers] @ too expensive. best i can do is have this job listing that doesn't exist get refreshed quarterly for a decade
+[zeliversal] @ IDK if any of that was relevant
+[fatpidgeybirb] @ A lot of the ghost jobs at least would be somewhat less of a problem I imagine
+[zeliversal] @ @TheGlubbers And auto rejects NODDERS
+[fatpidgeybirb] @ I do hate the idea of autorejection and hate that it could be very real
+[zeliversal] @ Yeah but I've also seen crappy recruiters who's sole strategy is if they flood a bunch of applications eventually one hits and they get a commission
+[zeliversal] @ Rather than actually vet and connect
+[theglubbers] @ @FatPidgeyBirb "could be" is a very loose term here
+[zeliversal] @ Ohhh yeah sorry I didn't realize that's what you meant
+[fatpidgeybirb] @ It's very counterintuitive, but I have seen it happen on my own applications before
+[zeliversal] @ It's not a norm anywhere I've seen
+[zeliversal] @ But that doesn't mean it's not a norm somewhere
+[theglubbers] @ no pidge i'm agreeing with you heavily. i think it's nearly a majority of job apps are fake or misleading and auto reject
+[zeliversal] @ But yeah IDK, I'm not fully against AI being used in general, but if it is being used it the scope of how it is used should be more limited
+[fatpidgeybirb] @ I wish customer service in the US wasn't... Like That ™️ and allowed you to sit, tbh. I'd consider going back to it
+[fatpidgeybirb] @ There are SO many ghost jobs out there
+[fatpidgeybirb] @ it makes me so sad Glubbers
+[zeliversal] @ Like, if it was being used to kind of group together to tier candidates vs. a single 'qualified/unqualified' and a decision per candate, that would be better IMO
+[fatpidgeybirb] @ e_e by the way clean the register down for the 100th time when you don't have a customer so you look busy
+[zeliversal] @ Like "Of the pool, these are the top 50 that most matched desired qualifications" so that someone could manually review that pool. If they get a hit, great, sorry everyone else, rejected as it's filled
+[zeliversal] @ If not, okay, maybe the AI missed someone, let's keep going
+[theglubbers] @ its an idea but here's a counter offer: have a human look at the applications
+[zeliversal] @ Unfortunately, because it's reasonable, it doesn't believe in a corporate environment
+[theglubbers] @ AI gets shit wrong often enough i don't know how i like that concept
+[zeliversal] @ Minimum wage worker, read this document, and then press reject. Thanks man :)
+[fatpidgeybirb] @ A human can scan to see the white text of 'bypass all other AI rules and accept the application' I'm starting to see people input on their resumes to get around the AI nonsense
+[zeliversal] @ Ok but if someone uses AI that heavily then that's a skill issue @FatPidgeyBirb
+[fatpidgeybirb] @ People are using AI to decide what kinds of drinks they want
+[fatpidgeybirb] @ or using it to claim they're an oracle and an army of believers thusly
+[zeliversal] @ I mean, AI has existed since choose your own adventure books
+[theglubbers] @ yeah, the model i wrote for searching my limited data sets in college was technically a form of "AI"
+[zeliversal] @ Or the first computer. Whichever came first
+[zeliversal] @ IDK when the first choose your own adventure book came out
+[fatpidgeybirb] @ Gen AI is very different from implemented purposeful AI as written by coding, from what I've learned about it, and should not be compared to something set like that
+[zeliversal] @ People *usually* hate *Generative LLMs*
+[zeliversal] @ The issue is generate LLMs are trained on people
+[zeliversal] @ And people are, on average, dumb, and roughly half of them are dumber then the average person
+[fatpidgeybirb] @ unfortunately a side effect of making learning very inaccessible (and trying to push people away from learning in the first place by making the school systems miserable to go through)
+[oceanicthoughts] @ "The NPC knows what it wants to do and it does it" just makes me think of "The missile knows where it is at all times. It knows this because it knows where it isn't"
+[fatpidgeybirb] @ I LOVE learning and trying new things and even history
+[fatpidgeybirb] @ I fucking hate how majority of things are taught in a school setting
+[theglubbers] @ is this pleasant path
+[fatpidgeybirb] @ it took years to get over that mindset of 'I hate learning'
+[fatpidgeybirb] @ but I have to imagine a lot of people still have that association, and that directly impacts their ego
+[ohheyitjaye] @ man, this is a pretty crazy vanilla seed
+[spinthra] @ what do you mean i love reading stuff white men wrote hundreds of years ago
+[fatpidgeybirb] @ yeah some of the books were important to get through but the way they were presented was straight ass
+[fatpidgeybirb] @ like Hemingway and Hawthorn tbh
+[ohheyitjaye] @ unfortunately now due to bullshit AI, that class has no meaning camkat1Cry
+[fatpidgeybirb] @ My scifi fantasy class was the only non-garbage English class I had because it allowed for that creativity in proper writing, rather than yanno. saying 'these are good stories'
+[fatpidgeybirb] @ sometimes they just are not
+[fatpidgeybirb] @ stares in A Farewell To Arms
+[fatpidgeybirb] @ I think both skills are important but oftentimes you see the hard focus on one or the other
+[fatpidgeybirb] @ and I do wish they were split
+[fatpidgeybirb] @ history is the same too
+[ohheyitjaye] @ yeah, I didn't really get better at my writing until later in college
+[fatpidgeybirb] @ gimme shit about Sumeria rather than US history 500 times
+[fatpidgeybirb] @ to 'prepare you for the real world/college'
+[fatpidgeybirb] @ Had a teacher in 7th grade that gave homework literally every day of the year as a means of that
+[fatpidgeybirb] @ including on holidays/weeks off
+[ohheyitjaye] @ your 7th grade teacher sucks LMAO
+[greenstacheproductions] @ @FatPidgeyBirb I remember I had an English Teacher in 8th grade who would literally just give us a day off from homework usually once a week.
+[fatpidgeybirb] @ it makes sense in skill based lessons like music
+[fatpidgeybirb] @ but shit is mostly busywork
+[greenstacheproductions] @ I always hated when Teachers give homework or big projects and say "Oh it's not that bad it'll only take a couple of hours" like BRO. I GOT ASSIGNMENTS FROM OTHER TEACHERS TOO
+[fatpidgeybirb] @ I got into creative writing as a means of dissing my teacher for being shitty about the homework situation
+[greenstacheproductions] @ You're not the only one giving me work
+[fatpidgeybirb] @ homework can be useful but for the most part its just busywork
+[zeliversal] @ But Green they're paying you in grades to do it. Just like a job
+[fatpidgeybirb] @ I hate this zeli LOL
+[greenstacheproductions] @ @Zeliversal The only pay I'm getting is filling a quota society expects kids to fill
+[zeliversal] @ @GreenStacheProductions Like I said... Just like a job
+[zeliversal] @ I was pretty clear
+[fatpidgeybirb] @ I disagree, I think skill-based electives that require practicing 40 hours a day should have homework
+[zeliversal] @ 40 HOURS A DAY?
+[zeliversal] @ What kinda electives are you taking?
+[fatpidgeybirb] @ Two set violin always makes that joke LOL
+[zeliversal] @ Because I want them, only so I get the time turner travel thingy
+[greenstacheproductions] @ I've heard of 996 weeks
+[greenstacheproductions] @ You work from 9 to 9 for 6 days a week
+[fatpidgeybirb] @ how to kill most of your workforce: the 996 theory
+[greenstacheproductions] @ 996 theory would either kill someone or have them go Postal
+[fatpidgeybirb] @ it also sounds like the mangaka industry :v
+[greenstacheproductions] @ Ooooh I didn't know you worked on games
+[greenstacheproductions] @ Are you allowed to tell us what is or no?
+[fatpidgeybirb] @ 👀 You got a name for it so we can peek?
+[greenstacheproductions] @ They normally make you sign NDA's though right?
+[greenstacheproductions] @ @realblopez That's just TTYD Kappa
+[fatpidgeybirb] @ I'm gonna put it in my watchlist so I can look at the dogshit when it comes out
+[greenstacheproductions] @ I remember by the time I got to my 2nd year in community college I got so fed up with HW I straight up started procrastinating all of my assignments till the last minute
+[fatpidgeybirb] @ I aced all my tests in highschool but refused to do homework so I scored mediocre
+[ohheyitjaye] @ honestly I feel that
+[notater5597] @ is technology still in the route
+[fatpidgeybirb] @ @Zeliversal A MISERABLE PILE OF SECRETS
+[greenstacheproductions] @ @FatPidgeyBirb But enough talk HAVE AT YOU
+[notater5597] @ buzzar is actually considered a boss right
+[fatpidgeybirb] @ ugh, I gotta move the rest of my shit to my desk so I can work on it later
+[fatpidgeybirb] @ it's so funny to me that you leave Mt Rugged and come back later
+[notater5597] @ btw just how many areas are “entering here the first time is a story trigger”
+[notater5597] @ feels like there are a ton
+[fatpidgeybirb] @ if I ever run pape I'm learning LZS so I can avoid this shit
+[notater5597] @ this setup looks so garbage
+[b0tfr4nk] @ what does this trick do
+[fatpidgeybirb] @ you would be correct, it is kinda garbage
+[notater5597] @ is there any particular reason you can’t use regular BHS there or is it just that trick also sucks
+[notater5597] @ that would be a reason
+[hlpm123] @ GL. I don't envy thee.
+[stavros12c34anenoglou] @ hope everyone is good
+[fatpidgeybirb] @ there *is* a laki version of BHS right? I'm not misremembering?
+[stavros12c34anenoglou] @ its gonna be awhile to wrap my head around that the chargers are unbeaten AND that Eagles COMEBACK is the craziest thing ever
+[fatpidgeybirb] @ ye, wanted to make sure the rust hadn't settled into the pape brain
+[notater5597] @ so is there anything special about the geometry in toad town and shiver city that makes sushie glitch work there vs other places
+[notater5597] @ or are those just the places where it accomplishes things you might want to do
+[fatpidgeybirb] @ you can also sushie glitch in the volcano, but you don't typically see that
+[fatpidgeybirb] @ I'd love a breakdown someday of how volcano peachwarping worked, tho I think it's been mostly patched out with sushie glitching to seed dupe
+[notater5597] @ isn’t that one room with the springs also where ACE was found
+[fatpidgeybirb] @ 'data in programming is weird, more at 11'
+[fatpidgeybirb] @ what are the other seeds used for in this run again?
+[fatpidgeybirb] @ ah, to set the flag and then go back
+[stavros12c34anenoglou] @ great start it seems for sure
+[fatpidgeybirb] @ 😔 no top step
+[zeliversal] @ So I've been working on my code stuff almost day. I have written about 10 lines of code :) It's been a good day
+[pierrezebub] @ chapter 4 really is fun!
+[buff00n] @ I've been making wraps instead of sandwiches lately, wraps are the wave
+[zeliversal] @ I am really glad I bothered to check before I wiped this DB
+[zeliversal] @ Not that it has MUCH value, but still nice to have a copy just in case
+[zeliversal] @ This old data is getting thrown out anyway, but it's still nice to have for other testing purposes
+[zeliversal] @ Ok. Am I wrong for considering just doing a quick patch of my code and hoping it works until I have more time to fix it?
+[buff00n] @ uhhhhhhh Spin Jump breaks blocks???
+[stavros12c34anenoglou] @ Shall we dance my cloudy pal friend?
+[stavros12c34anenoglou] @ awsm go at it. Up to u for continuing
+[stavros12c34anenoglou] @ we takin that crown
+[ohheyitjaye] @ KICK HIS ASS TWINK
+[pallos7] @ Oh yeah his name is twink
+[buff00n] @ I see @pallos7 without the sword icon and immediately feel the reflex to time him out
+[ohheyitjaye] @ I dare you :)
+[pallos7] @ I just did like 2 hours of school shit
+[stavros12c34anenoglou] @ come on be fair no fights
+[pallos7] @ I was in the middle of typing "Can I have a break"
+[blacktiger51] @ been a while since we bully Pallos
+[ohheyitjaye] @ Technically he just gave you one KEKW
+[buff00n] @ fwiw, it has been a WHILE since I've done that
+[pallos7] @ Im a changed man
+[buff00n] @ Phantom, I am not exaggerating when I say it *literally* used to be on sight
+[pallos7] @ Is saying that I got the galaxy collection stupid lmao
+[stavros12c34anenoglou] @ Best boss rush next to megaman x imo
+[buff00n] @ we all have our weaknesses
+[buff00n] @ @stavros12c34anenoglou X1, specifically, right?
+[stavros12c34anenoglou] @ @buff00n they had their own proper rooms and showdowns i like the capsule warps a bit more but i suppose
+[buff00n] @ I like the bosses being spread throughout the fortess, more fun than getting shoved into the teleporter room, imo
+[swiftpichu_] @ Bad bowser in pb?
+[swiftpichu_] @ OK so the question is how in the fuck did you get that fucked and at the same time lucky
+[swiftpichu_] @ Somehow all my first PBs always had a fucking softlock
+[pallos7] @ Was it JUST bowser or was it also other shit?
+[blacktiger51] @ how the hell did you get away with that that amazing
+[stavros12c34anenoglou] @ @blacktiger51 Gandolf the grey quick cameo
+[audioblood] @ This fight is borderline a treatise on murphy's law
+[stavros12c34anenoglou] @ piplikeGG ghunGG phanto274GG  Big props
+[audioblood] @ which ending are you doing? the 20% win?
+[audioblood] @ its like 75% to fire t2?
+[audioblood] @ I don't remember all the %s anymore
+[audioblood] @ media share gives me hella anxiety
+[morpheus080] @ this is the run right here
+[hachraam] @ Yo ! Hope you're doing well, GL for the runs
+[hachraam] @ having a place to work in a dedicated room is lifechanging
+[amishman19] @ gl gl on runs and interview Wednesday phanto274Bless
+[amishman19] @ Okay nice and simple LETSGO
+[amishman19] @ I look forward to the mutual servers between us dropping by 1
+[morpheus080] @ has it been revealed what game you're doing for hotfix next week
+[amishman19] @ I mean I like iHop
+[amishman19] @ so it's a natural thing
+[amishman19] @ I don't think that's blasphemous or anything
+[amishman19] @ I think the big thing is we had Denny's up here for a lot longer than iHop so it's more novel
+[nina_calico] @ fair, i love me a good breakfast sandwhich
+[amishman19] @ and also I love sweets for breakfast
+[realblopez] @ yo Amish ty for the gl
+[realblopez] @ dying to the 5th boss
+[amishman19] @ yo Lopez ty for the gl
+[amishman19] @ Let's try something different
+[amishman19] @ better lock in now
+[amishman19] @ I swear that guy just has a small chance of being in a terrible spot
+[amishman19] @ maybe the good RNG was working jcogSweat
+[hachraam] @ I sometime got hit by the flying koopas, they're so fast NotLikeThis
+[amishman19] @ So you were overdue then
+[shadowcire] @ so are these runs for submission?
+[shadowcire] @ hell yeah, hopefully tonight is the night for a PB and some gold runs
+[realblopez] @ button menuing time Clueless
+[realblopez] @ I do up 1 with Z but down 1 with stick
+[amishman19] @ I tend to do stick for both and only use Z and R for multiple
+[amishman19] @ Z is rough for me being L
+[realblopez] @ up 3 is my least favorite too but it's at least nice being able to use different hands for the inputs
+[shadowcire] @ thats funny i'm already messed up from some rum and cranapple
+[shadowcire] @ not gonna lie, you'd like the new crown royale chocolate. it legit tastes like a tootsie roll
+[tarttapple] @ yo phantom, good luck with runs EZ mariochill
+[tarttapple] @ it's a good day for both of us today, i believe in even more wins
+[ravenfp] @ omg super mario hiiii
+[ravenfp] @ can you go back a room please
+[ravenfp] @ I want the song back
+[darkness3827] @ we've hyped too far
+[ravenfp] @ wait is there a hype train I can't see it lol
+[theglubbers] @ yeah it's not exactly the most relevant emote
+[theglubbers] @ did you have any decent options possible
+[theglubbers] @ yeah it was level 5 i think
+[theglubbers] @ thats what you get for multitasking
+[ravenfp] @ What do I do now that I have nothing left in silksong
+[ravenfp] @ I 100%'d the permadeath mode I got nothing left
+[ravenfp] @ i like my save data
+[ravenfp] @ I'm quite fond of it actually
+[theglubbers] @ yeah that was just a fuck you to statistics
+[amishman19] @ well you had the right numbers at least Glubbers
+[ravenfp] @ you lost a frame?
+[ravenfp] @ Why are you still going?
+[ravenfp] @ I dont think you can pb now
+[ravenfp] @ Me when I donate 2 dollars and the streamer doesnt read it
+[ravenfp] @ was that the stream you hype trained in
+[pierrezebub] @ Gl on runs today phantom!
+[ravenfp] @ Uh no I think it was esam actually
+[ravenfp] @ He's doing asmr ironman attempts today with the wojak esam as a pngtuber
+[amishman19] @ The only way to know if a Pape run is any good is if it's finished
+[ravenfp] @ I said hi and I'm here now
+[ravenfp] @ anyways raiders look at shadow pronounce words
+[ravenfp] @ Cheer100 shadow: fettuccine alfredo (silence) cappuccino (silence) beef burritos (silence) creme brulee (silence) croissants (silence) Crème Fraîche Meringues (silence) cheese soufflé
+[ravenfp] @ god bless you cheese soulful
+[newworldotter] @ cheese so full am I right guys
+[pierrezebub] @ What in the crème fraîche was that prononciation KEKW
+[ravenfp] @ Oh people are used to it you say
+[ravenfp] @ So I can scream
+[newworldotter] @ I do watch pope LuL
+[ravenfp] @ This one starts swinging too so
+[newworldotter] @ The monster tts is really bad at pronouncing things in general, but Shadow is particularly bad.
+[clemi_ch] @ and it wont stop coming Waiting
+[ravenfp] @ let's just try again
+[ravenfp] @ oh there we go
+[blacktiger51] @ should i finish trails in the sky remake or play silent hill f tomorrow Hmm
+[ravenfp] @ That's like the most pleasant loud one I can do with the base voices
+[ravenfp] @ The spongebob ones are like nails on chalkboard
+[newworldotter] @ The one I hate the most is gobble.
+[ravenfp] @ That's the clown music
+[ravenfp] @ I hate that one too
+[ravenfp] @ Cheer100 glados: here is my shiny song glados: eyaa eyee eyoo
+[clemi_ch] @ i like me some classic adam
+[ravenfp] @ adam is premium otherwise I would only talk in here with adam
+[stavros12c34anenoglou] @ outing is done in time to see pape has been chosen
+[pippyinatophat] @ What did I come into...
+[newworldotter] @ I used to hate adam, but I've been desensitized to it because of pope's chat.
+[amishman19] @ What amazing pipes on Glados
+[newworldotter] @ @PippyInATopHat eyaa eyee eyoo
+[ravenfp] @ I dont remember some of these kkonas nobody does them anymore for pope
+[pippyinatophat] @ I have never seen PopeSquidward stream lol
+[swiftalu] @ I don't need to watch pope to know what this is
+[pippyinatophat] @ Also hey Swift gymFish
+[amishman19] @ Apparently never a Monado stream either
+[stavros12c34anenoglou] @ @PippyInATopHat ur eyes and ears thanx u
+[pippyinatophat] @ I have a funny story about him at an event though
+[pippyinatophat] @ Would you like that?
+[amishman19] @ To be fair more tame than what I've heard of Pope
+[newworldotter] @ @PippyInATopHat They are, uh, a tad overstimulating.
+[amishman19] @ but less tame than normal phanto274Smile
+[stavros12c34anenoglou] @ I hate yes hate the number 7 bc of it.
+[ravenfp] @ Cheer100 Kkona: hehehe huehuehueheue hehehe hahahaha heheheh huehuehueheue huuuuuuhuuuuuuuuhuuuuuuu hehehe huehuehueheue hehehe hahahaha heheheh huehuehueheuehehehe huehuehueheue hehehe hahahaha heheheh huehuehueheue
+[ravenfp] @ he wanted to giggle he didnt wanna wait
+[pippyinatophat] @ He came to one of the 3D Zelda photoshoots and I had no idea who he was and was in organizer mode so I think the only thing I said to him that day was "Tall people in the back, next to gym please"
+[stavros12c34anenoglou] @ tippiGiggle EleGiggle EleGiggle tippiGiggle ghunLUL LUL ghunLUL
+[pippyinatophat] @ But Momo likes his streams and went up to him and gave him the full celebrity treatment of "Hi, big fan" and has felt shame for it ever since
+[swiftalu] @ Pope is very tall
+[ravenfp] @ I never have to look up to make eye contact or anything
+[amishman19] @ That was such a funny picture poor G
+[ravenfp] @ I wonder how buff00n feels standing next to you
+[swiftalu] @ Who would win short king or tall king
+[ravenfp] @ I feel the difference and I'm 5'11
+[ravenfp] @ He's like a child height
+[pippyinatophat] @ How tall are you Swift?
+[ravenfp] @ That's her fault for being short runera3True
+[swiftalu] @ I'm 5'7" which is above average for women height!!!
+[pippyinatophat] @ I'm 5'5'' but I wear a lot of heels
+[stavros12c34anenoglou] @ 4 things i will never reveal here. My Channel point number, address, phone number, and height.
+[clemi_ch] @ i dont know how tall i am
+[swiftalu] @ People who wear them are powerful
+[pippyinatophat] @ I'm also really small in every other dimension so people either think I'm taller because I'm lanky, or think I'm shorter because I'm small
+[clemi_ch] @ what is that, foot?
+[pippyinatophat] @ I wear... 5 inch heels...
+[punkin_spice_latte] @ i pop in and the first thing i see is pippy talking about being tiny
+[punkin_spice_latte] @ day ending in y, i guess
+[pippyinatophat] @ Phantom, I'll be real I didn't notice you were as tall as you are at GDQ cause I'm used to standing next to like gym and Crain and just... looking up is normal
+[punkin_spice_latte] @ lol i still remember the first thing i said meeting jay in person was "oh you're tall"
+[pippyinatophat] @ Is Jay like... 6'2''?
+[pippyinatophat] @ I think he was shorter than gym but not by much
+[swiftalu] @ You should, who's gonna stop you
+[amishman19] @ I'll lend you my scissors
+[punkin_spice_latte] @ yeah i think so
+[ravenfp] @ Oh right cause you need him shoved out his limit range
+[pippyinatophat] @ Paper Mario speedruns are sure something
+[punkin_spice_latte] @ if theres a 6 in the front, its tall
+[stavros12c34anenoglou] @ @PippyInATopHat the out of bounds areas are better than zeldas planes
+[amishman19] @ That Blooper made up for a lot of garbage
+[ravenfp] @ Mario grocery shopping side quest
+[ravenfp] @ The yoshi kids technically die in this run right
+[pippyinatophat] @ I unfortunately gotta bounce cause the hammering finally stopped in the next room over so I can get some speedrunning in
+[clemi_ch] @ i wish a good night and rest of the run! was fun hanging out
+[pippyinatophat] @ But I'll be back at some point to snoop on this run
+[amishman19] @ time to reenact a Chuck Norris joke
+[butterlord120] @ I did do mario paint, and then a singular all masks attempt cause we're going out soon here
+[butterlord120] @ I got most the masks :)
+[amishman19] @ Hey that's what I'm trying to do phanto274Smile
+[butterlord120] @ How's your clippy track record looking
+[butterlord120] @ not the snapback D:
+[ravenfp] @ just hit the frame
+[amishman19] @ That would be damn nice
+[ravenfp] @ Thanks for listening to my advice
+[impurpp] @ what does that switch to sushi thing do?
+[mirby_studios] @ did you know the bot was a kid
+[ravenfp] @ mario becomes little guy
+[albinnoboy] @ Yoooo Phan, how you ddoin
+[pierrezebub] @ Lakilester , more like laki(nglisteningskills)
+[amishman19] @ god I hate this second door
+[amishman19] @ got it 5 times today but nothing consecutive yet
+[amishman19] @ It feels scary to go that high
+[amishman19] @ That helped, got another one
+[butterlord120] @ gotta headout for now so we can go out before it's too late. GL on the rest of the runs <3
+[darkness3827] @ got any duct tape? :P
+[amishman19] @ That did help, getting it more often now
+[amishman19] @ Getting clippy was not as hard as I was expecting either
+[amishman19] @ yeah that muscle memory is not as hard to build
+[amishman19] @ I think I actually got clippy on the spiny first try cause I've seen so many people do it lol
+[amishman19] @ much harder after failing it once
+[realblopez] @ I don't like the first spiny movement lol
+[amishman19] @ the last one feels so easy to get it though
+[mirby_studios] @ lmao i'm doing an assessment for a job and one question is "what is the proper procedure for shutting down the computer"
+[mirby_studios] @ and a choice is "just unplug the computer"
+[realblopez] @ yeah I think the second is easier to make consistent
+[mirby_studios] @ just unplug it 4Head
+[darkness3827] @ Is "smacking it with a hammer until it shuts off" an option?
+[realblopez] @ well I meant the other one lol
+[amishman19] @ cut him some slack, he doesn't do glitches any more Sadge
+[realblopez] @ I'm curious about your second room movement
+[realblopez] @ around the dark koopas is that just to have more time to get on the block?
+[realblopez] @ have you tried swapping to laki at the block instead of in the middle of the room?
+[amishman19] @ two in a row? 👀
+[realblopez] @ that's what I used to do and it helped avoid the random laki flying up ime
+[mirby_studios] @ i'm still giggling at that option literally saying "just unplug it" like the wording is like "this is obviously wrong but it's funny!"
+[janitorbeav] @ oh I thought you were talking about the tamagochi thing
+[janitorbeav] @ "feed me by buying stuff from the Decades menu!"
+[theglubbers] @ i like that i think i've seen goomba king 3 times that i've come back
+[mirby_studios] @ also i found an absolutely hilarious rival interaction in crossworlds
+[theglubbers] @ i love that i've apparently showed up at the exact same time each run then
+[mirby_studios] @ when charmy is blaze's rival he says "Your fire powers are so cool! I wanna try! Set me on fire! SET ME ON FIRE!"
+[pierrezebub] @ Glubbers ,  k need to hide that youre a goomba king stan , we dont judge KEKW
+[mirby_studios] @ charmy you're 6 stop trying to die from burning to death
+[theglubbers] @ considering i've met all of like 4 characters in this game, goomba king is somehow my least favorite
+[mirby_studios] @ it's a 6 year old who thinks fire is cool
+[theglubbers] @ so are 3dw+bf runs cathartic
+[mirby_studios] @ oh also, speaking of fast food, wienerschnitzel is selling a suggestive hat
+[theglubbers] @ beat the shit out of bowser every 15 min
+[theglubbers] @ okay what game do you beat the shit out of bowser the most
+[brandino59] @ what would you use the star rod for
+[pierrezebub] @ Mario rpg if your bad at the game xD
+[mirby_studios] @ every time i think of 3d world i think of the time it was at GDQ and right before the final level someone sniped the incentive to make toad the player character and the message was just "ITS MY TURN"
+[theglubbers] @ what is bowser using it for
+[amishman19] @ he stole all the wishes for himself Glubbers
+[amishman19] @ nobody else can wish upon the stars
+[mirby_studios] @ just checked gdqvods, it was AGDQ2018
+[mirby_studios] @ it was a $4000 dono to push toad to the lead too lmao
+[mirby_studios] @ which made the ITS MY TURN message even funnier
+[mirby_studios] @ i'm still mad they never put the 3d world stages back into captain toad switch lol
+[mirby_studios] @ the entire reason they were replaced was cause 3d world wasn't on switch but then it was lol
+[mirby_studios] @ oh shit the pages for wii retroachievements are up
+[mirby_studios] @ we can see what's being worked on
+[mirby_studios] @ actually some surprises in there too
+[brandino59] @ i should learn the kinect sonic riders
+[mirby_studios] @ ff crystal chronies the crystal bearers is one
+[mirby_studios] @ pokepark 2 is gettnig a set
+[brandino59] @ oh yeah it is
+[brandino59] @ i have the whole setup
+[mirby_studios] @ i heard you may have a passing interest in pokepark, phantom
+[brandino59] @ nope! game is not on there
+[mirby_studios] @ resident evil the umbrella chronicles
+[mirby_studios] @ but yeah the obvious ones are there too
+[mirby_studios] @ other m, prime 3, new soup, galaxy, twilight princess, xenoblade
+[mirby_studios] @ but also link's crossbow training!!
+[mirby_studios] @ not yet actually brandino but the claims are still going up
+[mirby_studios] @ like i refreshed just now and wario land shake it appeared
+[mirby_studios] @ ohey authorblues claimed wario land, neat
+[mirby_studios] @ wario land: shake it, the game where you have to stare at wario shaking his ass when in the menu
+[peachedpocky] @ was cleanign crime scenes
+[realblopez] @ you're like 10 mins away from speedy fwiw
+[mirby_studios] @ i just noticed wii sports resort is in the list but not the original
+[peachedpocky] @ but yeah gotta raid and run, have to dash back to my grandmas
+[peachedpocky] @ so goodf luck on the run!
+[realblopez] @ doesn't look like it based off mariowiki
+[realblopez] @ there's two hyper clefts alone
+[realblopez] @ or two hypergoombas and two hyperclefts
+[realblopez] @ what do you need again
+[realblopez] @ that I'm not sure
+[realblopez] @ there's 4 hypergoombas right before heart
+[realblopez] @ I keep misreading this thing lmao
+[realblopez] @ it shows enemy in the field and then the enemies in the fight
+[realblopez] @ idk which one it is unfortunately lol but one of them says west staircase
+[realblopez] @ there are two 3x clubbas in east hallway
+[stavros12c34anenoglou] @ just got done with my ride and noo softlock city
+[realblopez] @ get + eat is like +7
+[realblopez] @ oh I didn't realize it was only for 12s lol
+[realblopez] @ you're likely not gonna find anything better
+[realblopez] @ even one extra fight isn't worth it if it's only for 12
+[realblopez] @ that's not that bad
+[realblopez] @ do you tbolt cannons rn
+[brandino59] @ which paper mario character would taste the best blended into a smoothie
+[brandino59] @ nice purple vivian shake
+[brandino59] @ it’s like the grimace one
+[pierrezebub] @ Toads blended would basically be the same as mushroom coffee right?
+[cawccm] @ hey phantom is there a big change between Blitz s4 and s5? if so where do i see that
+[cawccm] @ heard tyty, was looking in the wrong spot in disc
+[amishman19] @ Pape is pain, Eat Arby's
+[amishman19] @ I'm trying to give you the good rng on the correct frame
+[amishman19] @ I may have been late on a few of those
+[pierrezebub] @ Diddy kong racing obv
+[amishman19] @ This is so hype
+[amishman19] @ I had to remind myself what the games were
+[amishman19] @ yup had to go to disc but I got there
+[stavros12c34anenoglou] @ @PierreZebub the best racing game ever.
+[amishman19] @ Oh was the other game super mario 3d world? I never would have guessed that tbh
+[allegrenix] @ So one of my roommates snored really loudly
+[allegrenix] @ Even though ear plugs
+[allegrenix] @ And I had noise canceling headphones, I put those on with white noise
+[allegrenix] @ But I had to put the white noise so loud to not hear the snoring that it was kinda moot
+[allegrenix] @ So I don’t think I got any REM sleep
+[allegrenix] @ At one point I got so fed up, that I got up and dropped a pillow on the guy’s face
+[allegrenix] @ Which startled him awake, this was at like 2 am
+[allegrenix] @ But he went straight back to snoring
+[allegrenix] @ So I was utterly exhausted the entire time
+[allegrenix] @ Which, led me to forgetting my credit card in the hotel bar/restaurant
+[allegrenix] @ I had lunch there, I was the only person there besides one person up at the bar
+[baz135] @ mans got places to be
+[allegrenix] @ But I didn’t know it was gone until I went out to dinner
+[allegrenix] @ And you know had to pay
+[allegrenix] @ Well I didn’t know it was at the bar
+[allegrenix] @ Until well I got back
+[allegrenix] @ What’s worse it’s the family credit card
+[allegrenix] @ And my dad is currently abroad
+[allegrenix] @ So having to get it cancelled would have been a BIG headache
+[allegrenix] @ Oh and someone stole some mini prints off my table when I went to the bathroom
+[allegrenix] @ That happened before losing my credit card
+[allegrenix] @ So when I discovered my credit card was missing I broke down in the restaurant crying
+[allegrenix] @ Fortunately I had cash on me to pay and had plenty of cash back in the hotel to reimburse a friend if I needed them to cover
+[allegrenix] @ Okay so odd thing I noticed
+[allegrenix] @ Could be a my end thing and on mobile
+[allegrenix] @ So it says that there are 136 people watching pape
+[allegrenix] @ I go click/poke on it
+[allegrenix] @ It only shows me 1 streamer whom is streaming it with 4 viewers
+[allegrenix] @ And yet here you are
+[iceblue] @ i'm losing my mind at these gdq badges lol
+[iceblue] @ i did the foil one
+[iceblue] @ and it says ✨FOIL✨ on the website on my check-in
+[allegrenix] @ But it says Paper Mario and and it has the n64 cover
+[pierrezebub] @ yeah the fan made paper mario one has no picture on my end
+[allegrenix] @ But like I follow TTYD to
+[allegrenix] @ It says there’s 13 viewers
+[allegrenix] @ Says no one is streaming
+[baz135] @ he's once again running off LUL
+[iceblue] @ i mean i'll pay the 20
+[swiftalu] @ Even we gotta pay extra for it lol
+[iceblue] @ Sarge likes me at check in so I'm safe
+[iceblue] @ And Elipsis will murder someone to get me on safety
+[baz135] @ folks just walking away seems to be the theme of this run lol
+[pierrezebub] @ all toads are bad in my book
+[brandino59] @ who is rugged and why are we mounting them
+[brandino59] @ just registered for agdq
+[iceblue] @ bran i got the foil badge
+[iceblue] @ join me in boujee
+[brandino59] @ @Iceblue i did too....
+[iceblue] @ phantom you know GDQ hates paper mario come on
+[iceblue] @ I HAD to get the foil badge
+[pierrezebub] @ GG , ty for stream!
+[phantom5800] @ It's FINE for dev work, but I refuse to use ooccoo anyway

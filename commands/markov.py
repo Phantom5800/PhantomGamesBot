@@ -11,8 +11,8 @@ class MarkovHandler:
         directory = "./commands/resources/markov/"
         for filename in os.listdir(directory):
             f = os.path.join(directory, filename)
-            print(filename)
             if os.path.isfile(f):
+                print(filename)
                 with open(f, "r", encoding="utf-8") as markov_file:
                     line = markov_file.read()
                     delimiter = line.find("] @ ")

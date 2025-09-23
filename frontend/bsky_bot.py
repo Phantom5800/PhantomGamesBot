@@ -51,6 +51,23 @@ class PhantomGamesBot:
             self.client.delete_post(self.live_post.uri)
             self.live_post = None
 
+    async def on_social_media_post(self, msg:str, uri:str = None, imgEmbed:str = None):
+        text_builder = client_utils.TextBuilder()
+        text_builder.text(f"{msg} ")
+        if uri:
+            text_builder.link(uri, uri)
+        if imgEmbed:
+            imgData = None
+            try:
+                with open(imgEmbed, 'rb') as f:
+                    imgData = f.read()
+            except:
+                print(f"[BSKY] Could not open image: {imgEmbed}")
+                return
+            self.client.send_image(text=text_builder, image=imgData, image_alt=msg)
+        else:
+            self.client.send_post(text=text_builder)
+
 def run_bsky_bot(handle:str, password:str):
     bot = PhantomGamesBot(handle, password)
     return bot
