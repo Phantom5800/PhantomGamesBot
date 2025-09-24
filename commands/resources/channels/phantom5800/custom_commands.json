@@ -24,11 +24,6 @@
     "cooldown": 0,
     "last_use": 1754675670.448678
   },
-  "!ohdee": {
-    "response": "/announce OhDee made a ton of emotes and stream assets. Follow him on twitter because he's cool: https://twitter.com/OhDeezey",
-    "cooldown": 10,
-    "last_use": 0
-  },
   "@phantomgamesbot": {
     "response": "$user $msg",
     "cooldown": 5,
@@ -54,11 +49,6 @@
     "cooldown": 0,
     "last_use": 1732724870.111518
   },
-  "!trusty": {
-    "response": "/announce Trusty made my sub badges and most likely any art that I use as backgrounds in livesplit! Their twitter is: https://twitter.com/Trustyalt and you should definitely follow them",
-    "cooldown": 10,
-    "last_use": 1641314918.565764
-  },
   "!boris": {
     "response": "Boris Post Boris This Boris boris Boris To Boris Post Boris This Boris boris Boris",
     "cooldown": 10,
@@ -68,16 +58,6 @@
     "response": "/announce If Prologue has a million fans I am one of them. If Prologue has ten fans I am one of them. If Prologue has only one fan, that is me. If Prologue has no fans, that means I am no longer on earth. If the world is against Prologue, I am against the world.",
     "cooldown": 10,
     "last_use": 1732726866.742734
-  },
-  "!pmrando": {
-    "response": "/announce The PM64 Randomizer can be found over at https://pm64randomizer.com/ and a tracker can be over on https://pmr-tracker.phantom-games.com/",
-    "cooldown": 0,
-    "last_use": 1674147130.723198
-  },
-  "!lange": {
-    "response": "/announce A lot of emotes and stream art is by Langepon! phanto274Shrug phanto274Smile phanto274Bless go follow her: https://twitter.com/Langepon",
-    "cooldown": 10,
-    "last_use": 0
   },
   "stinkycheese": {
     "response": "StinkyCheese",
@@ -94,20 +74,10 @@
     "cooldown": 5,
     "last_use": 1740843856.252593
   },
-  "!waggle": {
-    "response": "SkeletonPls SkeletonPls SkeletonPls SkeletonPls SkeletonPls",
-    "cooldown": 0,
-    "last_use": 0
-  },
   "!powerbounce": {
     "response": "/announce Power Bounce caps with and without Dodge Master equipped: https://docs.google.com/spreadsheets/d/1g-TeiXy2Yda_fwBaDLBw2hAgMugZpAv6saZsHW8h2d4/edit#gid=0",
     "cooldown": 0,
     "last_use": 0
-  },
-  "!glower": {
-    "response": "/announce The piece of shit human being is banned from the Paper Mario speedrunning community and thus my channel as well. Support for someone that would sexually harass multiple women and write a 94 page document literally admitting to it is simply not tolerated and anyone doing so can freely eat a ban and continue sucking his dick https://twitter.com/JCog_/status/1523133561460641792?t=WPKn40Q-TGYQV1vBfc6RMA&s=19",
-    "cooldown": 0,
-    "last_use": 1663424012.429015
   },
   "hi": {
     "response": "hi $user",
@@ -124,20 +94,10 @@
     "cooldown": 0,
     "last_use": 1741629858.682559
   },
-  "!wheel": {
-    "response": "/announce We're playing random games from a wheel for *minimum* 30 minutes. Extending the time beyond that is up to chat. Once time is up, we'll bring the wheel back up and spin again to see what comes up next!",
-    "cooldown": 0,
-    "last_use": 0
-  },
   "!fp": {
     "response": "/announce Paper Mario Practice Rom releases: https://github.com/JCog/fp/releases",
     "cooldown": 0,
     "last_use": 1673023853.084279
-  },
-  "buffoon": {
-    "response": "It's buff00n with two zeros, please and thank you! :)",
-    "cooldown": 6000,
-    "last_use": 1703796206.378759
   },
   "!allbosses": {
     "response": "/announce This is the new route using a single fright jar made by myself and RandomSauce: https://docs.google.com/document/d/e/2PACX-1vQSdyrVMv1XkmnKhP36JhB4YcGxcOT9sKOayNHaLVohgm0KDEujtABPWeYVLjOdyllLODlYtLa7Lz9_/pub",
@@ -177,7 +137,7 @@
   "!bluesky": {
     "response": "/announce Follow me on bsky: https://bsky.app/profile/phantom-games.com",
     "cooldown": 0,
-    "last_use": 0
+    "last_use": 1758707162.644988
   },
   "!rogue": {
     "response": "/me I am partnered with Rogue Energy! Lot's of great flavors for an energy boost as well as plenty of vitamins, be sure to use my code for 20% off https://rogueenergy.com/discount/PHANTOM?ref=Phantom",
@@ -189,18 +149,8 @@
     "cooldown": 0,
     "last_use": 1699207604.859819
   },
-  "!race": {
-    "response": "https://racetime.gg/pm64r/jammy-lanternghost-0590",
-    "cooldown": 0,
-    "last_use": 0
-  },
   "!peed69": {
     "response": "Flushed",
-    "cooldown": 0,
-    "last_use": 0
-  },
-  "!category": {
-    "response": "/me Twitch deleted the combined categories for every BN game and I refuse to stream to a specific version, so BN1 it is",
     "cooldown": 0,
     "last_use": 0
   },
@@ -224,70 +174,20 @@
     "cooldown": 0,
     "last_use": 0
   },
-  "!2024": {
-    "response": "/me All year we are doing a new speedrun every month! That doesn't mean games get dropped each month, but we'll be focusing on new runs very often. The current revealed schedule is here: https://i.imgur.com/mKCGUBg.jpeg",
-    "cooldown": 0,
-    "last_use": 0
-  },
-  "!ap": {
-    "response": "If you are a twitch sub or youtube member, we are starting archipelago multiworld games in !discord and you can participate if you want. These aren't streamed and you can play at your own pace whenever you have time and available checks in whatever game you choose",
-    "cooldown": 0,
-    "last_use": 0
-  },
-  "runera3swag": {
-    "response": "runera3Swag",
-    "cooldown": 0,
-    "last_use": 0
-  },
   "raven": {
     "response": "runera3Swag",
     "cooldown": 0,
     "last_use": 1740832482.854725
-  },
-  "!controller": {
-    "response": "The main controller I've used for paper mario for almost 2 years stopped working last night due to what appears to be a short, I'm working on getting replacements + backups, but any help would be appreciated: https://ko-fi.com/phantom5800/goal?g=0",
-    "cooldown": 0,
-    "last_use": 1719928663.83017
-  },
-  "!zzz": {
-    "response": "Bedge",
-    "cooldown": 0,
-    "last_use": 1721482602.842402
-  },
-  "railed": {
-    "response": "RAILED",
-    "cooldown": 0,
-    "last_use": 0
   },
   "!quickspin": {
     "response": "https://youtu.be/kliNVKsuDVE",
     "cooldown": 0,
     "last_use": 1738680091.657369
   },
-  "!stickers": {
-    "response": "Set of 4 stickers from SGDQ 2024 are available here: https://ko-fi.com/s/b277a29f0d",
-    "cooldown": 0,
-    "last_use": 1724528883.690131
-  },
-  "!route": {
-    "response": "Okami Glitchless NG Any%: https://docs.google.com/document/d/1cDRkKo6G8w2fzXMLXnviuTQ8EvmIZmeMIFo6FLnxRDk/edit",
-    "cooldown": 0,
-    "last_use": 0
-  },
-  "!gamecube": {
-    "response": "/me For the foreseeable future, we are running a casual challenge to finish every single GameCube game officially released in North America. Many of these will also be done with RetroAchievements, for the full list check this spreadsheet: https://docs.google.com/spreadsheets/d/e/2PACX-1vSli3D9ztf4PBHDpsLgHqyFgc9d9R6CZeoU7AKVXvmEIXisRyTySpSzsCeyrgiEDhoqkxwqTjHuVfiZ/pubhtml",
-    "cooldown": 0,
-    "last_use": 1732553334.179222
-  },
   "!ra": {
     "response": "RetroAchievements profile: https://retroachievements.org/user/Phantom5800",
     "cooldown": 0,
     "last_use": 1729354816.808827
-  },
-  "!dev": {
-    "response": "Boss Room Shuffle, Bowser's Castle as part of Dungeon Entrance Shuffle, Random Stats with base level, All Chapters 8 scaled all the time, new glitches in logic",
-    "cooldown": 0,
-    "last_use": 0
   },
   "egg": {
     "response": "fuck that kid",
@@ -309,11 +209,6 @@
     "cooldown": 0,
     "last_use": 1757083431.205609
   },
-  "!retrothon": {
-    "response": "https://horaro.org/retrothon2025/schedule",
-    "cooldown": 0,
-    "last_use": 0
-  },
   "!twitchpronouns": {
     "response": "Use this site to add your pronouns so other people can see them on twitch: https://pr.alejo.io/",
     "cooldown": 0,
@@ -334,25 +229,10 @@
     "cooldown": 0,
     "last_use": 0
   },
-  "!raf": {
-    "response": "/announce I will be running Mega Man Battle Network Single Segment for RaF at the end of July on https://twitch.tv/RejectsAndFriends ! Check out the full schedule because it's full of bangers: https://docs.google.com/spreadsheets/d/1JjBl9OCZzrwFE0Ctc_mywpKXNVDY3Z5zUJfxNvhI2RA/edit?gid=0#gid=0",
-    "cooldown": 0,
-    "last_use": 0
-  },
-  "!shuffler": {
-    "response": "$user a list of all the current bit and gift sub values can be found here: https://i.imgur.com/GHWpsLe.jpeg",
-    "cooldown": 0,
-    "last_use": 0
-  },
   "!merch": {
     "response": "/announce For stickers, mugs and other stuff: https://shop.phantom-games.com",
     "cooldown": 0,
     "last_use": 1754070539.30357
-  },
-  "!sdat": {
-    "response": "/announce I am running Paper Mario Glitchless for SDAT 2025 on August 23rd, full weekend schedule: https://horaro.org/speeddocsathon/sdat-2025-weekend-one",
-    "cooldown": 0,
-    "last_use": 0
   },
   "!goats": {
     "response": "Goats are bullshit, but they always spawn in the same locations and facing the same direction, the rng comes from how they react to Link when he approaches and when you whoop. Whether they react from further away, run further, or just don't give a shit",
@@ -364,11 +244,6 @@
     "cooldown": 0,
     "last_use": 0
   },
-  "!s5rules": {
-    "response": "https://docs.google.com/document/d/1az5cbe0_UCM_yF2Q2L7Lga9VL3vvx_1nXm-cNOwcTas/edit?usp=sharing",
-    "cooldown": 0,
-    "last_use": 0
-  },
   "!subtember": {
     "response": "/announce It is currently Subtember and subs + gift subs are discounted. I won't do anything about it, but you can!",
     "cooldown": 0,
@@ -376,5 +251,8 @@
   },
   "!bsky": {
     "alias_for": "!bluesky"
+  },
+  "!bo": {
+    "alias_for": "!borng"
   }
 }
