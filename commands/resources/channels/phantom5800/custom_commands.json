@@ -165,7 +165,7 @@
     "last_use": 1695309685.385803
   },
   "!socials": {
-    "response": "Follow all the things: - https://youtube.com/@PhantomVODs - https://discord.gg/XtrhKXNmRc - https://twitter.com/Phantom5800 - https://bsky.app/profile/phantom-games.com",
+    "response": "Follow all the things: - https://youtube.com/@PhantomVODs - https://discord.gg/XtrhKXNmRc - https://bsky.app/profile/phantom-games.com",
     "cooldown": 0,
     "last_use": 1755531630.459781
   },
@@ -175,9 +175,9 @@
     "last_use": 1726424122.554282
   },
   "!bluesky": {
-    "response": "/announce I'm on bluesky now if you have an account! https://bsky.app/profile/phantom-games.com",
+    "response": "/announce Follow me on bsky: https://bsky.app/profile/phantom-games.com",
     "cooldown": 0,
-    "last_use": 1692446940.776055
+    "last_use": 0
   },
   "!rogue": {
     "response": "/me I am partnered with Rogue Energy! Lot's of great flavors for an energy boost as well as plenty of vitamins, be sure to use my code for 20% off https://rogueenergy.com/discount/PHANTOM?ref=Phantom",
@@ -289,11 +289,6 @@
     "cooldown": 0,
     "last_use": 0
   },
-  "!kofi": {
-    "response": "/announce If you want to help me out, anything given on ko-fi goes towards paying for my therapy to work towards more positive mental health: https://ko-fi.com/phantom5800",
-    "cooldown": 0,
-    "last_use": 0
-  },
   "egg": {
     "response": "fuck that kid",
     "cooldown": 0,
@@ -378,5 +373,8 @@
     "response": "/announce It is currently Subtember and subs + gift subs are discounted. I won't do anything about it, but you can!",
     "cooldown": 0,
     "last_use": 0
+  },
+  "!bsky": {
+    "alias_for": "!bluesky"
   }
 }

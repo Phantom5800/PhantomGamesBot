@@ -48,11 +48,28 @@ class CustomCommands:
         return exists
 
     '''
+    Check if a given command is an alias for another
+    '''
+    def is_alias_command(self, command: str, channel: str) -> bool:
+        if self.command_exists(command, channel):
+            return "alias_for" in self.command_set[channel][command]
+        return False
+
+    '''
+    If a command is an alias, return the real command, otherwise return input
+    '''
+    def get_real_command(self, command: str, channel: str) -> str:
+        if self.command_exists(command, channel):
+            if "alias_for" in self.command_set[channel][command]:
+                return self.command_set[channel][command]["alias_for"]
+        return command
+
+    '''
     Get the response string for a given command. Automatically replaces variables that can only be determined at this point.
     '''
     def get_command(self, command: str, channel: str) -> str:
         channel = channel.lower()
-        command_lower = command.lower()
+        command_lower = self.get_real_command(command.lower(), channel)
         com = None
         self.file_lock.acquire()
         if self.command_exists(command_lower, channel):
@@ -100,6 +117,26 @@ class CustomCommands:
             return True
         self.file_lock.release()
         return False
+
+    '''
+    Adds a new command as an alias for an existing command
+    '''
+    def add_alias(self, command: str, alias_for: str, channel: str) -> bool:
+        channel = channel.lower()
+        command = command.lower()
+        alias_for = alias_for.lower()
+        self.file_lock.acquire()
+        # if command does not exist, and the aliased command does
+        if not self.command_exists(command, channel) and self.command_exists(alias_for, channel):
+            debugPrint(f"Adding [{command}] as an alias for [{alias_for}]")
+            self.command_set[channel][command] = {
+                "alias_for": alias_for
+            }
+            self.file_lock.release()
+            self.save_commands(channel)
+            return True
+        self.file_lock.release()
+        return False
     
     '''
     Set the cooldown for a specific command.
@@ -109,10 +146,11 @@ class CustomCommands:
         command_lower = command.lower()
         self.file_lock.acquire()
         if self.command_exists(command_lower, channel):
-            self.command_set[channel][command_lower]["cooldown"] = cooldown
-            self.file_lock.release()
-            self.save_commands(channel)
-            return True
+            if not self.is_alias_command(command_lower, channel):
+                self.command_set[channel][command_lower]["cooldown"] = cooldown
+                self.file_lock.release()
+                self.save_commands(channel)
+                return True
         self.file_lock.release()
         return False
 
@@ -124,10 +162,11 @@ class CustomCommands:
         command_lower = command.lower()
         self.file_lock.acquire()
         if self.command_exists(command_lower, channel):
-            self.command_set[channel][command_lower]["rng"] = rng
-            self.file_lock.release()
-            self.save_commands(channel)
-            return True
+            if not self.is_alias_command(command_lower, channel):
+                self.command_set[channel][command_lower]["rng"] = rng
+                self.file_lock.release()
+                self.save_commands(channel)
+                return True
         self.file_lock.release()
         return False
 
@@ -139,13 +178,14 @@ class CustomCommands:
         command_lower = command.lower()
         self.file_lock.acquire()
         if self.command_exists(command_lower, channel):
-            debugPrint(f"Editing [{command_lower}] -> {response}")
-            self.command_set[channel][command_lower]["response"] = response
-            self.command_set[channel][command_lower]["cooldown"] = cooldown
-            self.command_set[channel][command_lower]["last_use"] = 0
-            self.file_lock.release()
-            self.save_commands(channel)
-            return True
+            if not self.is_alias_command(command_lower, channel):
+                debugPrint(f"Editing [{command_lower}] -> {response}")
+                self.command_set[channel][command_lower]["response"] = response
+                self.command_set[channel][command_lower]["cooldown"] = cooldown
+                self.command_set[channel][command_lower]["last_use"] = 0
+                self.file_lock.release()
+                self.save_commands(channel)
+                return True
         self.file_lock.release()
         return False
 
@@ -170,7 +210,7 @@ class CustomCommands:
     '''
     def parse_custom_command(self, message: str, channel: str) -> str:
         channel = channel.lower()
-        lower_message = message.lower()
+        lower_message = self.get_real_command(message.lower(), channel)
         if self.command_exists(lower_message, channel):
             response = None
             self.file_lock.acquire()

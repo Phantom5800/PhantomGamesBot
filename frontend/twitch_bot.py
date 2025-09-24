@@ -317,6 +317,27 @@ class PhantomGamesBot(commands.Bot):
                 await ctx.send(f"{ctx.message.author.mention} make sure to specify a command and a response!")
 
     '''
+    Add a custom command alias through twitch chat.
+    '''
+    @commands.command()
+    async def addalias(self, ctx: commands.Context):
+        if ctx.message.author.is_mod:
+            command_parts = self.command_msg_breakout(ctx.message.content, 3)
+            if command_parts is not None:
+                # find the intended command name
+                command = command_parts[1]
+                # get the command response
+                command_response = command_parts[2]
+                # attempt to add the command
+                command_added = self.custom.add_alias(command, command_response, ctx.message.channel.name)
+                if command_added:
+                    await ctx.send(f"{ctx.message.author.mention} Successfully added alias [{command}] -> [{command_response}]")
+                else:
+                    await ctx.send(f"{ctx.message.author.mention} Command [{command}] already exists or [{command_response}] does not exist.")
+            else:
+                await ctx.send(f"{ctx.message.author.mention} make sure to specify a command and a response!")
+
+    '''
     Set cooldown on a custom command through twitch chat.
     '''
     @commands.command()
