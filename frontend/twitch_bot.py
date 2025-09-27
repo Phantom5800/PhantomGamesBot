@@ -26,7 +26,7 @@ class PhantomGamesBot(commands.Bot):
         )
 
         # event tracking
-        self.esclient = EventSubWSClient(self)
+        self.esclient = {}
 
         # command handlers
         self.custom = sharedResources.customCommandHandler
@@ -963,52 +963,57 @@ class PhantomGamesBot(commands.Bot):
     #####################################################################################################
     async def setup_eventsub(self, channel: str):
         channel = channel.lower()
-        mod_token = os.environ.get("TWITCH_OAUTH_TOKEN")
-        channel_token = os.environ.get(f"TWITCH_CHANNEL_TOKEN_{channel}", None)
         channel_info = await get_twitch_user(self, channel)
         channel_id = channel_info.user.id
 
         try:
+            channel_token = os.environ.get(f"TWITCH_CHANNEL_TOKEN_{channel}", None)
             # register all events that require channel access
             if channel_token:
+                client_name = f"{channel}_channel"
+                self.esclient[client_name] = EventSubWSClient(self)
+
                 # stream events
-                await self.esclient.subscribe_channel_cheers(broadcaster=channel_id, token=channel_token)
-                await self.esclient.subscribe_channel_points_redeemed(broadcaster=channel_id, token=channel_token)
-                await self.esclient.subscribe_channel_subscriptions(broadcaster=channel_id, token=channel_token)
-                await self.esclient.subscribe_channel_subscription_messages(broadcaster=channel_id, token=channel_token)
-                await self.esclient.subscribe_channel_subscription_gifts(broadcaster=channel_id, token=channel_token)
-                await self.esclient.subscribe_channel_prediction_begin(broadcaster=channel_id, token=channel_token)
-                # await self.esclient.subscribe_channel_charity_donate(broadcaster=channel_id, token=channel_token)
+                await self.esclient[client_name].subscribe_channel_cheers(broadcaster=channel_id, token=channel_token)
+                await self.esclient[client_name].subscribe_channel_points_redeemed(broadcaster=channel_id, token=channel_token)
+                await self.esclient[client_name].subscribe_channel_subscriptions(broadcaster=channel_id, token=channel_token)
+                await self.esclient[client_name].subscribe_channel_subscription_messages(broadcaster=channel_id, token=channel_token)
+                await self.esclient[client_name].subscribe_channel_subscription_gifts(broadcaster=channel_id, token=channel_token)
+                await self.esclient[client_name].subscribe_channel_prediction_begin(broadcaster=channel_id, token=channel_token)
+                # await self.esclient[client_name].subscribe_channel_charity_donate(broadcaster=channel_id, token=channel_token)
 
                 # mod actions
-                await self.esclient.subscribe_channel_bans(broadcaster=channel_id, token=channel_token)
-                await self.esclient.subscribe_channel_unbans(broadcaster=channel_id, token=channel_token)
-                # await self.esclient.subscribe_channel_unban_request_create(broadcaster=channel_id, moderator=self.user_id, token=channel_token)
-                # await self.esclient.subscribe_channel_unban_request_resolve(broadcaster=channel_id, moderator=self.user_id, token=channel_token)
-                # await self.esclient.subscribe_suspicious_user_update(broadcaster=channel_id, moderator=self.user_id, token=channel_token)
+                await self.esclient[client_name].subscribe_channel_bans(broadcaster=channel_id, token=channel_token)
+                await self.esclient[client_name].subscribe_channel_unbans(broadcaster=channel_id, token=channel_token)
+                # await self.esclient[client_name].subscribe_channel_unban_request_create(broadcaster=channel_id, moderator=self.user_id, token=channel_token)
+                # await self.esclient[client_name].subscribe_channel_unban_request_resolve(broadcaster=channel_id, moderator=self.user_id, token=channel_token)
+                # await self.esclient[client_name].subscribe_suspicious_user_update(broadcaster=channel_id, moderator=self.user_id, token=channel_token)
 
                 # notifications
-                # await self.esclient.subscribe_channel_ad_break_begin(broadcaster=channel_id, token=channel_token)
-                # await self.esclient.subscribe_channel_hypetrain_begin(broadcaster=channel_id, token=channel_token)
-                # await self.esclient.subscribe_channel_hypetrain_progress(broadcaster=channel_id, token=channel_token)
-                # await self.esclient.subscribe_channel_hypetrain_end(broadcaster=channel_id, token=channel_token)
-                await self.esclient.subscribe_channel_raid(to_broadcaster=channel_id, token=channel_token)
-                await self.esclient.subscribe_channel_stream_start(broadcaster=channel_id, token=channel_token)
-                await self.esclient.subscribe_channel_stream_end(broadcaster=channel_id, token=channel_token)
+                # await self.esclient[client_name].subscribe_channel_ad_break_begin(broadcaster=channel_id, token=channel_token)
+                await self.esclient[client_name].subscribe_channel_hypetrain_begin(broadcaster=channel_id, token=channel_token)
+                # await self.esclient[client_name].subscribe_channel_hypetrain_progress(broadcaster=channel_id, token=channel_token)
+                await self.esclient[client_name].subscribe_channel_hypetrain_end(broadcaster=channel_id, token=channel_token)
+                # await self.esclient[client_name].subscribe_channel_raid(to_broadcaster=channel_id, token=channel_token)
+                # await self.esclient[client_name].subscribe_channel_stream_start(broadcaster=channel_id, token=channel_token)
+                # await self.esclient[client_name].subscribe_channel_stream_end(broadcaster=channel_id, token=channel_token)
         except Exception as e:
             print(f"[Eventsub Error] Error subscribing to events on {channel}({channel_id}) with channel token: {e}")
 
-        # try:
-        #     # notifications
-        #     # await self.esclient.subscribe_channel_ad_break_begin(broadcaster=channel_id, token=mod_token)
-        #     # await self.esclient.subscribe_channel_hypetrain_begin(broadcaster=channel_id, token=mod_token)
-        #     # await self.esclient.subscribe_channel_hypetrain_progress(broadcaster=channel_id, token=mod_token)
-        #     # await self.esclient.subscribe_channel_hypetrain_end(broadcaster=channel_id, token=mod_token)
-        #     await self.esclient.subscribe_channel_raid(to_broadcaster=channel_id, token=mod_token)
-        #     await self.esclient.subscribe_channel_stream_start(broadcaster=channel_id, token=mod_token)
-        #     await self.esclient.subscribe_channel_stream_end(broadcaster=channel_id, token=mod_token)
-        # except Exception as e:
-        #     print(f"[Eventsub Error] Error subscribing to events on {channel}({channel_id}) with mod token: {e}")
+        try:
+            mod_token = os.environ.get("TWITCH_OAUTH_TOKEN")
+            client_name = f"{channel}_mod"
+            self.esclient[client_name] = EventSubWSClient(self)
+            # notifications
+            # await self.esclient[client_name].subscribe_channel_ad_break_begin(broadcaster=channel_id, token=mod_token)
+            # await self.esclient[client_name].subscribe_channel_hypetrain_begin(broadcaster=channel_id, token=mod_token)
+            # await self.esclient[client_name].subscribe_channel_hypetrain_progress(broadcaster=channel_id, token=mod_token)
+            # await self.esclient[client_name].subscribe_channel_hypetrain_end(broadcaster=channel_id, token=mod_token)
+            await self.esclient[client_name].subscribe_channel_raid(to_broadcaster=channel_id, token=mod_token)
+            await self.esclient[client_name].subscribe_channel_stream_start(broadcaster=channel_id, token=mod_token)
+            await self.esclient[client_name].subscribe_channel_stream_end(broadcaster=channel_id, token=mod_token)
+        except Exception as e:
+            print(f"[Eventsub Error] Error subscribing to events on {channel}({channel_id}) with mod token: {e}")
         print(f"[Eventsub] Finished initializing for {channel}")
 
     #####################################################################################################
@@ -1176,6 +1181,7 @@ class PhantomGamesBot(commands.Bot):
     '''
     async def event_eventsub_notification_channel_hypetrain_end(self, event: NotificationEvent):
         hypeData = event.data
+        await utils.events.twitchevents.twitch_stream_event(hypeData.broadcaster.name, utils.events.TwitchEventType.HypeTrainEnd)
         print(f"[Eventsub {datetime.now()}] Hype train ended at {hypeData.ended_at} at level {hypeData.level}")
 
     '''

@@ -72,7 +72,7 @@
   "ezekiel": {
     "response": "Ezekiel",
     "cooldown": 5,
-    "last_use": 1740843856.252593
+    "last_use": 1758901365.925718
   },
   "!powerbounce": {
     "response": "/announce Power Bounce caps with and without Dodge Master equipped: https://docs.google.com/spreadsheets/d/1g-TeiXy2Yda_fwBaDLBw2hAgMugZpAv6saZsHW8h2d4/edit#gid=0",
@@ -82,7 +82,7 @@
   "hi": {
     "response": "hi $user",
     "cooldown": 10,
-    "last_use": 1755528598.946322
+    "last_use": 1758904470.912125
   },
   "!nmsb": {
     "response": "/me No Major Sequence Breaks is a category that bridges the gap between Glitchless and All Cards. The important parts are that chapters must be completed in order, and story sequence can never go backwards.",
@@ -142,7 +142,7 @@
   "!rogue": {
     "response": "/me I am partnered with Rogue Energy! Lot's of great flavors for an energy boost as well as plenty of vitamins, be sure to use my code for 20% off https://rogueenergy.com/discount/PHANTOM?ref=Phantom",
     "cooldown": 0,
-    "last_use": 1723312199.218913
+    "last_use": 1758726503.452587
   },
   "!tts": {
     "response": "$user Everything you need to know for TTS: https://tts.monster/phantom5800",
@@ -192,7 +192,7 @@
   "egg": {
     "response": "fuck that kid",
     "cooldown": 0,
-    "last_use": 1755530914.258325
+    "last_use": 1758905761.129862
   },
   "!throne": {
     "response": "/me I do have one of these if you want to give me money / something more specific: https://throne.com/phantom5800",
@@ -207,7 +207,7 @@
   "!borng": {
     "response": "During Bo 1, Bo has a 25% chance of picking any of four options: slap, side step, grab and do nothing. Slap beats 2 of those options and therefore wins 50% of the time. During Bo 2, Bo has a 50% chance of slapping, 25% chance of sidestep and 25% grab, therefore grab wins against slap 50% of the time, but slap is faster if you get it first",
     "cooldown": 0,
-    "last_use": 1757083431.205609
+    "last_use": 1758708067.658402
   },
   "!twitchpronouns": {
     "response": "Use this site to add your pronouns so other people can see them on twitch: https://pr.alejo.io/",
@@ -254,5 +254,10 @@
   },
   "!bo": {
     "alias_for": "!borng"
+  },
+  "!hotfix": {
+    "response": "/announce On September 29th at 10pm ET / 7pm PT I will be racing Glennjaamin for Think Fast! on GDQ Hotfix in Pok\u00e9Park Wii: Pikachu's Adventure Any%. Additionally on October 5th at 4:30pm ET / 1:30pm PT I will be playing Paper Mario Glitchless on a Paper Mario special for GDQ",
+    "cooldown": 0,
+    "last_use": 0
   }
 }
