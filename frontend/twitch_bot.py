@@ -1257,5 +1257,6 @@ class PhantomGamesBot(commands.Bot):
 def run_twitch_bot(sharedResources) -> PhantomGamesBot:
     bot = PhantomGamesBot(sharedResources)
     bot.loop.create_task(bot.setup_eventsub("phantom5800"))
+    bot.loop.create_task(bot.setup_eventsub("phantomgamesbot"))
     #bot.loop.create_task(bot.setup_eventsub("ravenfp"))
     return bot

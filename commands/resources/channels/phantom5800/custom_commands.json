@@ -2,7 +2,7 @@
   "morp": {
     "response": "morp",
     "cooldown": 5,
-    "last_use": 1753112466.810991
+    "last_use": 1759067855.426023
   },
   "glenn": {
     "response": "glenn",
@@ -27,7 +27,7 @@
   "@phantomgamesbot": {
     "response": "$user $msg",
     "cooldown": 5,
-    "last_use": 1753038330.992706
+    "last_use": 1759249606.945619
   },
   "!github": {
     "response": "/announce All my open source code projects are available on github: https://github.com/Phantom5800",
@@ -57,7 +57,7 @@
   "weloveprologue": {
     "response": "/announce If Prologue has a million fans I am one of them. If Prologue has ten fans I am one of them. If Prologue has only one fan, that is me. If Prologue has no fans, that means I am no longer on earth. If the world is against Prologue, I am against the world.",
     "cooldown": 10,
-    "last_use": 1732726866.742734
+    "last_use": 1759074765.081515
   },
   "stinkycheese": {
     "response": "StinkyCheese",
@@ -67,12 +67,12 @@
   "!channelpoints": {
     "response": "/me Link to valid speedrun games for channel point redemptions: https://docs.google.com/spreadsheets/d/e/2PACX-1vTKX_blzPsWxGhxf9yCrMRF1IOzOG_nimLyYm_5iw9QeB5TJ6fXEjxV1AN0Nxo2qKmv_UmN6I8qGTa4/pubhtml",
     "cooldown": 0,
-    "last_use": 1754839650.988466
+    "last_use": 1759239334.888232
   },
   "ezekiel": {
     "response": "Ezekiel",
     "cooldown": 5,
-    "last_use": 1758901365.925718
+    "last_use": 1759253772.958637
   },
   "!powerbounce": {
     "response": "/announce Power Bounce caps with and without Dodge Master equipped: https://docs.google.com/spreadsheets/d/1g-TeiXy2Yda_fwBaDLBw2hAgMugZpAv6saZsHW8h2d4/edit#gid=0",
@@ -82,7 +82,7 @@
   "hi": {
     "response": "hi $user",
     "cooldown": 10,
-    "last_use": 1758904470.912125
+    "last_use": 1759250679.278403
   },
   "!nmsb": {
     "response": "/me No Major Sequence Breaks is a category that bridges the gap between Glitchless and All Cards. The important parts are that chapters must be completed in order, and story sequence can never go backwards.",
@@ -192,7 +192,7 @@
   "egg": {
     "response": "fuck that kid",
     "cooldown": 0,
-    "last_use": 1758905761.129862
+    "last_use": 1759073298.400304
   },
   "!throne": {
     "response": "/me I do have one of these if you want to give me money / something more specific: https://throne.com/phantom5800",
@@ -256,7 +256,7 @@
     "alias_for": "!borng"
   },
   "!hotfix": {
-    "response": "/announce On September 29th at 10pm ET / 7pm PT I will be racing Glennjaamin for Think Fast! on GDQ Hotfix in Pok\u00e9Park Wii: Pikachu's Adventure Any%. Additionally on October 5th at 4:30pm ET / 1:30pm PT I will be playing Paper Mario Glitchless on a Paper Mario special for GDQ",
+    "response": "/announce On October 5th at 4:30pm ET / 1:30pm PT I will be playing Paper Mario Glitchless on a Paper Mario special for GDQ with realblopez and morpheus080 on comms",
     "cooldown": 0,
     "last_use": 0
   }
