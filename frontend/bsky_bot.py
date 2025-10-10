@@ -7,6 +7,7 @@ class PhantomGamesBot:
     def __init__(self, handle:str, password:str):
         self.live_post = None
         self.client = Client()
+        self.valid_channels = ["phantom5800"]
         try:
             self.client.login(login=handle, password=password)
         except ValueError as e:
@@ -34,22 +35,24 @@ class PhantomGamesBot:
         return None
 
     async def on_twitch_stream_event(self, user:str, eventType:utils.events.TwitchEventType, msg:str):
-        if eventType == utils.events.TwitchEventType.GoLive:
-            text_builder = client_utils.TextBuilder()
-            text_builder.text(f"{msg} ")
-            uri = f"https://twitch.tv/{user.lower()}"
-            text_builder.link(uri, uri)
+        username = user.lower()
+        if username in self.valid_channels:
+            if eventType == utils.events.TwitchEventType.GoLive:
+                text_builder = client_utils.TextBuilder()
+                text_builder.text(f"{msg} ")
+                uri = f"https://twitch.tv/{username}"
+                text_builder.link(uri, uri)
 
-            game = msg[:msg.index('|')].strip()
-            img = await self.get_img_data(game)
-            if img is not None:
-                aspect_ratio = models.AppBskyEmbedDefs.AspectRatio(height=720, width=1280)
-                self.live_post = self.client.send_image(text=text_builder, image=img, image_alt=uri, image_aspect_ratio=aspect_ratio)
-            else:
-                self.live_post = self.client.send_post(text=text_builder)
-        elif eventType == utils.events.TwitchEventType.EndStream and self.live_post:
-            self.client.delete_post(self.live_post.uri)
-            self.live_post = None
+                game = msg[:msg.index('|')].strip()
+                img = await self.get_img_data(game)
+                if img is not None:
+                    aspect_ratio = models.AppBskyEmbedDefs.AspectRatio(height=720, width=1280)
+                    self.live_post = self.client.send_image(text=text_builder, image=img, image_alt=uri, image_aspect_ratio=aspect_ratio)
+                else:
+                    self.live_post = self.client.send_post(text=text_builder)
+            elif eventType == utils.events.TwitchEventType.EndStream and self.live_post:
+                self.client.delete_post(self.live_post.uri)
+                self.live_post = None
 
     async def on_social_media_post(self, msg:str, uri:str = None, imgEmbed:str = None):
         text_builder = client_utils.TextBuilder()

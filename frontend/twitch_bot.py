@@ -15,6 +15,8 @@ from commands.slots import Slots, SlotsMode
 from utils.utils import *
 from utils.crowd_control import *
 
+unix_epoch = datetime.strptime("1970-1-1 00:00:00.000000+0000", "%Y-%m-%d %H:%M:%S.%f%z")
+
 class PhantomGamesBot(commands.Bot):
     def __init__(self, sharedResources):
         self.channel_list = os.environ['TWITCH_CHANNEL'].split(',')
@@ -985,9 +987,9 @@ class PhantomGamesBot(commands.Bot):
                 # mod actions
                 await self.esclient[client_name].subscribe_channel_bans(broadcaster=channel_id, token=channel_token)
                 await self.esclient[client_name].subscribe_channel_unbans(broadcaster=channel_id, token=channel_token)
-                # await self.esclient[client_name].subscribe_channel_unban_request_create(broadcaster=channel_id, moderator=self.user_id, token=channel_token)
-                # await self.esclient[client_name].subscribe_channel_unban_request_resolve(broadcaster=channel_id, moderator=self.user_id, token=channel_token)
-                # await self.esclient[client_name].subscribe_suspicious_user_update(broadcaster=channel_id, moderator=self.user_id, token=channel_token)
+                # await self.esclient[client_name].subscribe_channel_unban_request_create(broadcaster=channel_id, moderator=channel_id, token=channel_token)
+                # await self.esclient[client_name].subscribe_channel_unban_request_resolve(broadcaster=channel_id, moderator=channel_id, token=channel_token)
+                await self.esclient[client_name].subscribe_suspicious_user_update(broadcaster=channel_id, moderator=channel_id, token=channel_token)
 
                 # notifications
                 # await self.esclient[client_name].subscribe_channel_ad_break_begin(broadcaster=channel_id, token=channel_token)
@@ -1229,7 +1231,6 @@ class PhantomGamesBot(commands.Bot):
             banString = f"❌ `{banData.user.name}` has been banned in **{banData.broadcaster.name}** by _{banData.moderator.name}_ for '{reason}'"
             await utils.events.twitchevents.twitch_log(banData.broadcaster.name, banString)
         else:
-            unix_epoch = datetime.strptime("1970-1-1 00:00:00.000000+0000", "%Y-%m-%d %H:%M:%S.%f%z")
             seconds_from_epoch = int((banData.ends_at - unix_epoch).total_seconds())
             discord_timestamp = f"<t:{seconds_from_epoch}:R>"
             timeoutString = f"❌ `{banData.user.name}` has been timed out in **{banData.broadcaster.name}** by _{banData.moderator.name}_ until {discord_timestamp} for '{reason}'"
@@ -1248,11 +1249,39 @@ class PhantomGamesBot(commands.Bot):
     '''
     async def event_eventsub_notification_unban_request_create(self, event: NotificationEvent):
         banData = event.data
-        unix_epoch = datetime.strptime("1970-1-1 00:00:00.000000+0000", "%Y-%m-%d %H:%M:%S.%f%z")
-        seconds_from_epoch = int((banData.user.created_at - unix_epoch).total_seconds())
+        seconds_from_epoch = int((banData.created_at - unix_epoch).total_seconds())
         discord_timestamp = f"<t:{seconds_from_epoch}:f>"
         banString = f"[{discord_timestamp}] '{banData.user.name}' has created an unban request: '{banData.text}'"
         await utils.events.twitchevents.twitch_log(banData.broadcaster.name, banString)
+
+    '''
+    Unban request resolved
+    '''
+    async def event_eventsub_notification_unban_request_resolve(self, event: NotificationEvent):
+        banData = event.data
+        moderator_name = banData.moderator.name if banData.moderator is not None else "unknown"
+        banString = ""
+        if banData.status == 'approved':
+            banString = f"✅ '{banData.user.name}' has been unbanned in **{banData.broadcaster.name}** by **{moderator_name}** following their unban request: '{banData.text}'"
+        elif banData.status == 'denied':
+            banString = f"❌ '{banData.user.name}'\'s unban request has been denied in **{banData.broadcaster.name}** by **{moderator_name}**: '{banData.text}'"
+        elif banData.status == 'canceled':
+            banString = f"❌ '{banData.user.name}'\'s unban request has been canceled in **{banData.broadcaster.name}**: '{banData.text}'"
+        await utils.events.twitchevents.twitch_log(banData.broadcaster.name, banString)
+
+    '''
+    Unban request resolved
+    '''
+    async def event_eventsub_notification_suspicious_user_update(self, event: NotificationEvent):
+        susData = event.data
+        susString = ""
+        if susData.trust_status == 'active_monitoring':
+            susString = f"❌ '{susData.user.name}' is marked as _monitored_ in **{susData.broadcaster.name}** by **{susData.moderator.name}**"
+        elif susData.trust_status == 'restricted':
+            susString = f"❌ '{susData.user.name}' is marked as _restricted_ in **{susData.broadcaster.name}** by **{susData.moderator.name}**"
+        else:
+            susString = f"✅ '{susData.user.name}' is marked as _not suspicious_ in **{susData.broadcaster.name}** by **{susData.moderator.name}**"
+        await utils.events.twitchevents.twitch_log(susData.broadcaster.name, susString)
 
 def run_twitch_bot(sharedResources) -> PhantomGamesBot:
     bot = PhantomGamesBot(sharedResources)
