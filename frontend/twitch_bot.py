@@ -996,9 +996,6 @@ class PhantomGamesBot(commands.Bot):
                 await self.esclient[client_name].subscribe_channel_hypetrain_begin(broadcaster=channel_id, token=channel_token)
                 # await self.esclient[client_name].subscribe_channel_hypetrain_progress(broadcaster=channel_id, token=channel_token)
                 await self.esclient[client_name].subscribe_channel_hypetrain_end(broadcaster=channel_id, token=channel_token)
-                # await self.esclient[client_name].subscribe_channel_raid(to_broadcaster=channel_id, token=channel_token)
-                # await self.esclient[client_name].subscribe_channel_stream_start(broadcaster=channel_id, token=channel_token)
-                # await self.esclient[client_name].subscribe_channel_stream_end(broadcaster=channel_id, token=channel_token)
         except Exception as e:
             print(f"[Eventsub Error] Error subscribing to events on {channel}({channel_id}) with channel token: {e}")
 
