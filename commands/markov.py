@@ -56,7 +56,7 @@ class MarkovHandler:
             directory = "./commands/resources/markov/generated/"
             with open(os.path.join(directory, f"generated-{datetime.now().year}.txt"), "a+", encoding="utf-8") as f:
                 try:
-                    f.write(f"[{datetime.now()}] @ {output}\n")
+                    f.write(f"[{datetime.now().astimezone().strftime('%Y-%m-%d %H:%M:%S')}] @ {output}\n")
                 except:
                     print("[Markov] Failed to log generated message")
 
