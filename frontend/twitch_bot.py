@@ -64,7 +64,7 @@ class PhantomGamesBot(commands.Bot):
 
         # markov
         self.markov_data_store = True
-        self.markov_store_minlen = os.environ['MARKOV_STORE_MIN']
+        self.markov_store_minlen = int(os.environ['MARKOV_STORE_MIN'])
         self.banned_words = []
         with open('./commands/resources/bannedwords.txt', 'r', encoding="utf-8") as banned_words:
             self.banned_words = banned_words.readlines()
