@@ -1,5 +1,5 @@
 import discord
-from datetime import datetime, timezone
+from datetime import datetime, timedelta, timezone
 from commands.slots import Slots, SlotsMode
 from discord.ext import bridge, commands
 from utils.utils import *
@@ -191,13 +191,10 @@ class PhantomGamesBotCommands(commands.Cog):
         current_channel = ctx.channel
         archive_channel = self.bot.get_channel(self.bot.channels["hidden-archive"])
         current_time = datetime.now(timezone.utc)
+        last_date = current_time - timedelta(days=days)
         await ctx.defer()
-        count = 0
-        async for m in current_channel.history(oldest_first=True):
-            age = current_time - m.created_at
-            if age.days >= days:
-                archive_text = f"[{current_channel.name} - {m.author.display_name} @ {m.created_at}] {m.content}"
-                await archive_channel.send(archive_text)
-                count += 1
-        await current_channel.purge(limit=count, oldest_first=True)
+        async for m in current_channel.history(before=last_date, oldest_first=True):
+            archive_text = f"[{current_channel.name} - {m.author.display_name} @ {m.created_at}] {m.content}"
+            await archive_channel.send(archive_text)
+        await current_channel.purge(before=last_date, oldest_first=True)
         await ctx.respond("Channel archived", ephemeral=True)
