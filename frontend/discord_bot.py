@@ -36,7 +36,8 @@ class PhantomGamesBot(Bot):
             "discord-logs":         1098155843326844978,
             "polls":                1115557565082894357,
             "weekly-schedule":      1117682254701932655,
-            "twitch-logs":          1294053787400404992
+            "twitch-logs":          1294053787400404992,
+            "hidden-archive":       1434534691968647198
         }
 
         self.roles = {
@@ -67,7 +68,8 @@ class PhantomGamesBot(Bot):
             "WABITR",
             "Bsky/@phantom-games.com",
             "twitch.tv/phantom5800",
-            "Zelda: Wand of Gamalon",
+            "THE DOG Island",
+            "The Legend of Zelda: Twilight Princess",
             "Visual Studio Code",
             "Mega Man Network Transmission",
             "youtube.com/@PhantomVODs"

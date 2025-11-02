@@ -1,4 +1,5 @@
 import discord
+from datetime import datetime, timezone
 from commands.slots import Slots, SlotsMode
 from discord.ext import bridge, commands
 from utils.utils import *
@@ -181,3 +182,18 @@ class PhantomGamesBotCommands(commands.Cog):
     @bridge.bridge_command(name="kmtomi")
     async def kilometers_to_miles(self, ctx: commands.Context, km: float):
         await ctx.respond(f"{km}km is about {round(km / 1.609344, 2)}mi")
+
+    #####################################################################################################
+    # moderation
+    #####################################################################################################
+    @bridge.bridge_command(name="archive")
+    async def archive_channel(self, ctx, days: int):
+        current_channel = ctx.channel
+        archive_channel = self.bot.get_channel(self.bot.channels["hidden-archive"])
+        async for m in current_channel.history(oldest_first=True):
+            age = datetime.now(timezone.utc) - m.created_at
+            archive_text = f"[{current_channel.name} - {m.author.display_name} @ {m.created_at}] {m.content}"
+            if age.days >= days:
+                await archive_channel.send(archive_text)
+                await m.delete()
+
