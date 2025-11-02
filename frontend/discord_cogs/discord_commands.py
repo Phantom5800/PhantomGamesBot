@@ -190,10 +190,14 @@ class PhantomGamesBotCommands(commands.Cog):
     async def archive_channel(self, ctx, days: int):
         current_channel = ctx.channel
         archive_channel = self.bot.get_channel(self.bot.channels["hidden-archive"])
+        current_time = datetime.now(timezone.utc)
+        await ctx.defer()
+        count = 0
         async for m in current_channel.history(oldest_first=True):
-            age = datetime.now(timezone.utc) - m.created_at
-            archive_text = f"[{current_channel.name} - {m.author.display_name} @ {m.created_at}] {m.content}"
+            age = current_time - m.created_at
             if age.days >= days:
+                archive_text = f"[{current_channel.name} - {m.author.display_name} @ {m.created_at}] {m.content}"
                 await archive_channel.send(archive_text)
-                await m.delete()
-
+                count += 1
+        await current_channel.purge(limit=count, oldest_first=True)
+        await ctx.respond("Channel archived", ephemeral=True)
