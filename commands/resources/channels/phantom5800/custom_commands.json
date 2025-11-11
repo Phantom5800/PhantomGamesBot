@@ -82,7 +82,7 @@
   "hi": {
     "response": "hi $user",
     "cooldown": 10,
-    "last_use": 1759250679.278403
+    "last_use": 1762356089.385912
   },
   "!nmsb": {
     "response": "/me No Major Sequence Breaks is a category that bridges the gap between Glitchless and All Cards. The important parts are that chapters must be completed in order, and story sequence can never go backwards.",
@@ -259,5 +259,20 @@
     "response": "/announce On October 5th at 4:30pm ET / 1:30pm PT I will be playing Paper Mario Glitchless on a Paper Mario special for GDQ with realblopez and morpheus080 on comms",
     "cooldown": 0,
     "last_use": 0
+  },
+  "!agdq": {
+    "response": "/announce I will be running Mega Man Battle Network Single Segment at AGDQ 2026 in Pittsburgh, PA! This will be the week of January 4th-10th. Be ready for the first ever time the MMBN series has appeared on the GDQ main stage!",
+    "cooldown": 0,
+    "last_use": 1762772263.289197
+  },
+  "!redditskip": {
+    "response": "https://www.reddit.com/r/BattleNetwork/comments/gkp0ip/the_strangest_glitchskip_happened_to_me_in_bn1/",
+    "cooldown": 0,
+    "last_use": 1762811821.709151
+  },
+  "!rngchips": {
+    "response": "We need 12 random chip drops throughout the run to complete the game, check this table of all chips that are NOT random: https://docs.google.com/document/d/e/2PACX-1vSghhS3Ez3IFwzRsEYUCCQV6g661T0f5qYbu6wQgMQ90YaEg9NuNThhFU9Zt_h77IR1qgr0F059OHyD/pub",
+    "cooldown": 0,
+    "last_use": 1762795864.4438
   }
 }

@@ -187,11 +187,10 @@ class PhantomGamesBotCommands(commands.Cog):
     # moderation
     #####################################################################################################
     @bridge.bridge_command(name="archive")
-    async def archive_channel(self, ctx, days: int):
+    async def archive_channel(self, ctx, older_than_days: int):
         current_channel = ctx.channel
         archive_channel = self.bot.get_channel(self.bot.channels["hidden-archive"])
-        current_time = datetime.now(timezone.utc)
-        last_date = current_time - timedelta(days=days)
+        last_date = datetime.now(timezone.utc) - timedelta(days=older_than_days)
         await ctx.defer()
         async for m in current_channel.history(before=last_date, oldest_first=True):
             archive_text = f"[{current_channel.name} - {m.author.display_name} @ {m.created_at}] {m.content}"
