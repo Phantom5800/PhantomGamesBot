@@ -34,11 +34,6 @@
     "cooldown": 0,
     "last_use": 0
   },
-  "!twitter": {
-    "response": "/announce Follow me on twitter to keep up with current events: https://twitter.com/Phantom5800",
-    "cooldown": 10,
-    "last_use": 1664563763.586712
-  },
   "!cursedtimer": {
     "response": "http://growf.org/stuff/timer.html",
     "cooldown": 0,
