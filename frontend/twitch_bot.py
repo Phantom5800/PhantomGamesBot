@@ -533,22 +533,24 @@ class PhantomGamesBot(commands.Bot):
     # quotes
     #####################################################################################################
     @commands.command()
-    async def quote(self, ctx: commands.Context, quote_id: str = "-1"):
-        response = None
-
-        if "latest" in quote_id.lower():
-            await ctx.send(self.quotes.pick_specific_quote(str(self.quotes.num_quotes() - 1), ctx.message.channel.name))
-            return
-
-        quote = tryParseInt(quote_id, -1)
-        if quote >= 0:
-            response = self.quotes.pick_specific_quote(quote_id, ctx.message.channel.name)
-        elif quote_id == "-1":
-            response = self.quotes.pick_random_quote(ctx.message.channel.name)
+    async def quote(self, ctx: commands.Context, quote_id: str = None):
+        # if no lookup specific, give random
+        if quote_id is None:
+            await ctx.send(self.quotes.pick_random_quote(ctx.message.channel.name))
         else:
-            response = self.quotes.find_quote_keyword(quote_id, ctx.message.channel.name)
-        if response is not None:
-            await ctx.send(response)
+            try:
+                # do id search first, positive indexes or negative indexes for reverse
+                quote = int(quote_id)
+                if quote >= 0:
+                    response = self.quotes.pick_specific_quote(quote_id, ctx.message.channel.name)
+                else:
+                    count = self.quotes.num_quotes(ctx.message.channel.name)
+                    response = self.quotes.pick_specific_quote(str(count + quote), ctx.message.channel.name)
+            except:
+                # try and look for a keyword
+                response = self.quotes.find_quote_keyword(quote_id, ctx.message.channel.name)
+            if response is not None:
+                await ctx.send(response)
 
     @commands.command()
     async def addquote(self, ctx: commands.Context):
