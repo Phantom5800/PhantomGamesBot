@@ -20,9 +20,9 @@
     "last_use": 0
   },
   "!discord": {
-    "response": "/announce Join the discord if you want to hang out! There is a weekly poll to decide what randomizers we do on the weekends and is generally just a great place to hang out https://discord.gg/XtrhKXNmRc",
+    "response": "/announce Join the discord if you want: https://discord.gg/XtrhKXNmRc",
     "cooldown": 0,
-    "last_use": 1754675670.448678
+    "last_use": 0
   },
   "@phantomgamesbot": {
     "response": "$user $msg",
@@ -179,11 +179,6 @@
     "cooldown": 0,
     "last_use": 1738680091.657369
   },
-  "!ra": {
-    "response": "RetroAchievements profile: https://retroachievements.org/user/Phantom5800",
-    "cooldown": 0,
-    "last_use": 1729354816.808827
-  },
   "egg": {
     "response": "fuck that kid",
     "cooldown": 0,
@@ -239,26 +234,16 @@
     "cooldown": 0,
     "last_use": 0
   },
-  "!subtember": {
-    "response": "/announce It is currently Subtember and subs + gift subs are discounted. I won't do anything about it, but you can!",
-    "cooldown": 0,
-    "last_use": 0
-  },
   "!bsky": {
     "alias_for": "!bluesky"
   },
   "!bo": {
     "alias_for": "!borng"
   },
-  "!hotfix": {
-    "response": "/announce On October 5th at 4:30pm ET / 1:30pm PT I will be playing Paper Mario Glitchless on a Paper Mario special for GDQ with realblopez and morpheus080 on comms",
+  "!agdq": {
+    "response": "/announce I will be running Mega Man Battle Network Single Segment at AGDQ 2026 in Pittsburgh, PA! This will be the week of January 4th-10th. Be ready for the first ever time the MMBN series has appeared on the GDQ main stage! https://gamesdonequick.com/schedule/62#mega-man-battle-single-segment",
     "cooldown": 0,
     "last_use": 0
-  },
-  "!agdq": {
-    "response": "/announce I will be running Mega Man Battle Network Single Segment at AGDQ 2026 in Pittsburgh, PA! This will be the week of January 4th-10th. Be ready for the first ever time the MMBN series has appeared on the GDQ main stage!",
-    "cooldown": 0,
-    "last_use": 1762772263.289197
   },
   "!redditskip": {
     "response": "https://www.reddit.com/r/BattleNetwork/comments/gkp0ip/the_strangest_glitchskip_happened_to_me_in_bn1/",

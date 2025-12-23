@@ -479,21 +479,12 @@ class PhantomGamesBot(commands.Bot):
     '''
     @routines.routine(minutes=int(os.environ['TIMER_MINUTES']), wait_first=True)
     async def timer_update(self):
+        # update sub count file
+        streamer = await self.get_channel("phantom5800").user()
+        await self.update_sub_counts(streamer, 0)
+        
+        # post automated messages in channels
         for channel in self.channel_list:
-            # update sub count file
-            if channel == "phantom5800":
-                stream_channel = self.get_channel(channel)
-                streamer = await stream_channel.user()
-                with open('C:/StreamAssets/SubCount.txt', 'w', encoding="utf-8") as sub_count:
-                    try:
-                        count = await self.get_subscriber_count(streamer)
-                        if count >= 99:
-                            sub_count.write("99+")
-                        else:
-                            sub_count.write(f"{count}")
-                    except:
-                        sub_count.write("OAUTH")
-
             # check for timer messages
             if self.messages_since_timer[channel] >= self.timer_lines[channel] and len(self.timer_queue[channel]) > 0:
                 await self.post_next_timer_message(channel)

@@ -9,6 +9,7 @@ from commands.youtube import YouTubeData
 from frontend.bsky_bot import run_bsky_bot
 from frontend.twitch_bot import run_twitch_bot
 from frontend.discord_bot import run_discord_bot
+from frontend.gui_interface import run_GUI
 from frontend.twitter_bot import run_twitter_bot
 
 def run():
@@ -47,6 +48,10 @@ def run():
     # verify that twitter credentials are configured
     if os.environ['TWITTER_CONSUMER_KEY'] is not None and len(os.environ['TWITTER_CONSUMER_KEY']) > 0:
         run_twitter_bot(sharedResources.twitch_bot.loop, sharedResources.markovHandler)
+
+    # load the GUI window
+    if os.environ.get('ENABLE_GUI', 1):
+        run_GUI(sharedResources.twitch_bot.loop, sharedResources)
 
     sharedResources.twitch_bot.run()
 

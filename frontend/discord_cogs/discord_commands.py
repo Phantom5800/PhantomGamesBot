@@ -131,6 +131,12 @@ class PhantomGamesBotCommands(commands.Cog):
         if response is not None:
             await ctx.respond(response)
 
+    @bridge.bridge_command(name="allquotes")
+    async def get_all_quotes(self, ctx):
+        response = '\n'.join([self.quotes.pick_specific_quote(str(i), self.bot.account) for i in range(self.quotes.num_quotes(self.bot.account))])
+        print(response)
+        await ctx.respond("Quotes printed to log")
+
     @bridge.bridge_command(name="slots",
         description="Roll the slot machine")
     async def get_slots(self, ctx):

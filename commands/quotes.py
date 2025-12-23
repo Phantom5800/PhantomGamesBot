@@ -38,11 +38,46 @@ class QuoteHandler:
             json_file.write(json_str)
         self.file_lock.release()
 
+    def _sanitize_quote(self, quote: str) -> str:
+        """ Do partial input sanitization of quote strings """
+        tokens = quote.split(' ')
+
+        # replace tilde with a hypen if used for attribution
+        if '~' in tokens[-1]:
+            fixed_token_1 = tokens[-1].replace('~', '-')
+            quote = quote.replace(tokens[-1], fixed_token_1)
+
+        # add a leading quotation if it does not exist
+        if tokens[0][0] != '\"':
+            quote = quote.replace(tokens[0], f"\"{tokens[0]}")
+
+        # check if a hyphen is placed properly
+        if tokens[-1][0] == '-':
+            # add an ending quote if it is not there
+            if tokens[-2][-1] != '\"':
+                quote = quote.replace(tokens[-2], f"{tokens[-2]}\"")
+
+            # add an extra space between hyphen and username
+            quote = quote.replace(tokens[-1], f"- {tokens[-1][1:]}")
+        else: # hyphen is not part of the same token as the username
+            # if there is no hyphen at all, add one
+            if tokens[-2] != '-':
+                quote = quote = quote.replace(tokens[-1], f"- {tokens[-1]}")
+                # add an ending quote if it is not there
+                if tokens[-2][-1] != '\"':
+                    quote = quote.replace(tokens[-2], f"{tokens[-2]}\"")
+            else:
+                # add an ending quote if it is not there
+                if tokens[-3][-1] != '\"':
+                    quote = quote.replace(tokens[-3], f"{tokens[-3]}\"")
+        return quote
+
     def add_quote(self, quote: str, game: str, channel: str, creator: str = None) -> str:
+        """ Adds a quote to the table and save it to file """
         channel = channel.lower()
         new_id = len(list(self.quotes[channel].values()))
         date = datetime.now().strftime("%m/%d/%Y")
-        quote_str = f"{quote} [{game}] [{date}]"
+        quote_str = f"{self._sanitize_quote(quote)} [{game}] [{date}]"
         self.access_lock.acquire()
         self.quotes[channel][str(new_id)] = {
             "quote": quote_str,
@@ -61,6 +96,7 @@ class QuoteHandler:
         return f"Edited [Quote #{new_id}] -> {quote_str}"
 
     def remove_quote(self, quote_id: int, channel: str) -> str:
+        """ Removes a quote by id and shifts all remaining quotes up by 1 index """
         channel = channel.lower()
         if quote_id < len(self.quotes[channel]):
             self.access_lock.acquire()
