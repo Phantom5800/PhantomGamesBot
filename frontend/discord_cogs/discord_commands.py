@@ -113,23 +113,24 @@ class PhantomGamesBotCommands(commands.Cog):
         help="Get a quote that has been added on twitch.\nUsage:\n\t!quote - Get a random quote\n\t!quote {#} - Get a specific quote by id\n\tExample: !quote 3")
     @discord.option("quote_id",
         description="The quote to lookup, can provide a word to search for among all quotes as well.")
-    async def get_quote(self, ctx, quote_id: str = "-1"):
-        response = None
-
-        if "latest" in quote_id.lower():
-            await ctx.respond(self.quotes.pick_specific_quote(str(self.quotes.num_quotes(self.bot.account) - 1), self.bot.account))
-            return
-
-        quote = tryParseInt(quote_id, -1)
-        self.bot.commands_since_new_status += 1
-        if quote >= 0:
-            response = self.quotes.pick_specific_quote(quote_id, self.bot.account)
-        elif quote_id == "-1":
-            response = self.quotes.pick_random_quote(self.bot.account)
+    async def get_quote(self, ctx, quote_id: str = None):
+        # if no lookup specific, give random
+        if quote_id is None:
+            await ctx.respond(self.quotes.pick_random_quote(ctx.message.channel.name))
         else:
-            response = self.quotes.find_quote_keyword(quote_id, self.bot.account)
-        if response is not None:
-            await ctx.respond(response)
+            try:
+                # do id search first, positive indexes or negative indexes for reverse
+                quote = int(quote_id)
+                if quote >= 0:
+                    response = self.quotes.pick_specific_quote(quote_id, ctx.message.channel.name)
+                else:
+                    count = self.quotes.num_quotes(ctx.message.channel.name)
+                    response = self.quotes.pick_specific_quote(str(count + quote), ctx.message.channel.name)
+            except:
+                # try and look for a keyword
+                response = self.quotes.find_quote_keyword(quote_id, ctx.message.channel.name)
+            if response is not None:
+                await ctx.respond(response)
 
     @bridge.bridge_command(name="allquotes")
     async def get_all_quotes(self, ctx):

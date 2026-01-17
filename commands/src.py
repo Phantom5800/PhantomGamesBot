@@ -6,17 +6,17 @@ from datetime import date
 from utils.utils import debugPrint
 
 class SrcomApi:
-    def __init__(self, srcUser: str):
+    def __init__(self, srcUser: str, loadPbs: bool = True):
         self.api = srcomapi.SpeedrunCom()
         self.category_prog = re.compile(r"(.*) (?:\[([^]]+)\])")
         self.srcUser = srcUser
+        self.personal_bests: list = list()
 
-        if len(srcUser) > 0:
+        if len(srcUser) > 0 and loadPbs:
             user_results = self.api.search(srcomapi.datatypes.User, {"name": srcUser})
             if len(user_results) > 0:
-                self.srcuser = user_results[0]
                 print(f"Loading personal bests from speedrun.com for {srcUser} ...")
-                self.personal_bests = self.srcuser.personal_bests
+                self.personal_bests = user_results[0].personal_bests
                 print(f"Initialized speedrun.com API for {srcUser}")
 
     def tryParseInt(self, re_result) -> int:

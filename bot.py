@@ -11,6 +11,7 @@ from frontend.twitch_bot import run_twitch_bot
 from frontend.discord_bot import run_discord_bot
 from frontend.gui_interface import run_GUI
 from frontend.twitter_bot import run_twitter_bot
+from utils.utils import tryParseInt
 
 def run():
     # Shared resources
@@ -23,7 +24,7 @@ def run():
     sharedResources.quoteHandler.load_quotes()
     print("=============== SRC =================")
     srcUsers = os.environ['SRC_USER'].split(',')
-    sharedResources.srcHandler = SrcomApi(srcUsers[0])
+    sharedResources.srcHandler = SrcomApi(srcUsers[0], False)
     print("============= Markov ================")
     sharedResources.markovHandler = MarkovHandler()
     print("============= YouTube ================")
@@ -50,7 +51,7 @@ def run():
         run_twitter_bot(sharedResources.twitch_bot.loop, sharedResources.markovHandler)
 
     # load the GUI window
-    if os.environ.get('ENABLE_GUI', 1):
+    if tryParseInt(os.environ.get('ENABLE_GUI', 1)):
         run_GUI(sharedResources.twitch_bot.loop, sharedResources)
 
     sharedResources.twitch_bot.run()

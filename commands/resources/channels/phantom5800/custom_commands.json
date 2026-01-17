@@ -241,7 +241,7 @@
     "alias_for": "!borng"
   },
   "!agdq": {
-    "response": "/announce I will be running Mega Man Battle Network Single Segment at AGDQ 2026 in Pittsburgh, PA! This will be the week of January 4th-10th. Be ready for the first ever time the MMBN series has appeared on the GDQ main stage! https://gamesdonequick.com/schedule/62#mega-man-battle-single-segment",
+    "response": "/announce If you missed my AGDQ 2026 run of Mega Man Battle Network, check out the vod when you get a chance: https://youtu.be/M8fSCKnjYnk",
     "cooldown": 0,
     "last_use": 0
   },
