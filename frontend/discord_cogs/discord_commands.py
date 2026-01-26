@@ -73,6 +73,7 @@ class PhantomGamesBotCommands(commands.Cog):
         name = search.strip()
         game = None
         self.bot.commands_since_new_status += 1
+        await ctx.defer()
         if name is not None and len(name) > 0:
             if name.startswith("user:"):
                 message = await ctx.respond("One second, looking up users on src can take a bit")
@@ -116,25 +117,31 @@ class PhantomGamesBotCommands(commands.Cog):
     async def get_quote(self, ctx, quote_id: str = None):
         # if no lookup specific, give random
         if quote_id is None:
-            await ctx.respond(self.quotes.pick_random_quote(ctx.message.channel.name))
+            await ctx.respond(self.quotes.pick_random_quote(self.bot.account))
         else:
             try:
                 # do id search first, positive indexes or negative indexes for reverse
                 quote = int(quote_id)
                 if quote >= 0:
-                    response = self.quotes.pick_specific_quote(quote_id, ctx.message.channel.name)
+                    response = self.quotes.pick_specific_quote(quote_id, self.bot.account)
                 else:
-                    count = self.quotes.num_quotes(ctx.message.channel.name)
-                    response = self.quotes.pick_specific_quote(str(count + quote), ctx.message.channel.name)
+                    count = self.quotes.num_quotes(self.bot.account)
+                    response = self.quotes.pick_specific_quote(str(count + quote), self.bot.account)
             except:
                 # try and look for a keyword
-                response = self.quotes.find_quote_keyword(quote_id, ctx.message.channel.name)
+                response = self.quotes.find_quote_keyword(quote_id, self.bot.account)
             if response is not None:
                 await ctx.respond(response)
 
     @bridge.bridge_command(name="allquotes")
-    async def get_all_quotes(self, ctx):
-        response = '\n'.join([self.quotes.pick_specific_quote(str(i), self.bot.account) for i in range(self.quotes.num_quotes(self.bot.account))])
+    async def get_all_quotes(self, ctx, quote_filter:str=None):
+        quote_set = [self.quotes.pick_specific_quote(str(i), self.bot.account) for i in range(self.quotes.num_quotes(self.bot.account))]
+        if quote_filter is not None:
+            quote_set = filter(
+                lambda x: quote_filter.lower() in x.lower(),
+                quote_set
+            )
+        response = '\n'.join(quote_set)
         print(response)
         await ctx.respond("Quotes printed to log")
 

@@ -7,10 +7,11 @@ import locale
 import random
 
 class QuoteHandler:
-    def __init__(self):
+    def __init__(self, filename: str = "quotes.json"):
         self.file_lock = threading.RLock()
         self.access_lock = threading.RLock()
         self.quotes = {}
+        self.filename = filename
     
     def load_quotes(self):
         self.file_lock.acquire()
@@ -18,7 +19,7 @@ class QuoteHandler:
         for folder in os.listdir(root):
             channel_folder = os.path.join(root, folder)
             if os.path.isdir(channel_folder):
-                quotes_file = os.path.join(channel_folder, "quotes.json")
+                quotes_file = os.path.join(channel_folder, self.filename)
                 if os.path.isfile(quotes_file):
                     with open(quotes_file, 'r', encoding="utf-8") as json_file:
                         try:
@@ -28,12 +29,14 @@ class QuoteHandler:
                         except json.decoder.JSONDecodeError:
                             print(f"[ERROR] Failed to load quotes from JSON for {folder}")
                             continue
+                else:
+                    self.quotes[folder] = dict()
         self.file_lock.release()
 
     def save_quotes(self, channel: str):
         channel = channel.lower()
         self.file_lock.acquire()
-        with open(f'./commands/resources/channels/{channel}/quotes.json', 'w', encoding="utf-8") as json_file:
+        with open(f'./commands/resources/channels/{channel}/{self.filename}', 'w', encoding="utf-8") as json_file:
             json_str = json.dumps(self.quotes[channel], indent=2)
             json_file.write(json_str)
         self.file_lock.release()
@@ -71,6 +74,20 @@ class QuoteHandler:
                 if tokens[-3][-1] != '\"':
                     quote = quote.replace(tokens[-3], f"{tokens[-3]}\"")
         return quote
+
+    def add_quote_no_details(self, quote: str, channel: str, creator: str = None) -> str:
+        """ Adds a quote to the table and save it to file """
+        channel = channel.lower()
+        new_id = len(list(self.quotes[channel].values()))
+        quote_str = f"{quote}"
+        self.access_lock.acquire()
+        self.quotes[channel][str(new_id)] = {
+            "quote": quote_str,
+            "creator": creator
+        }
+        self.access_lock.release()
+        self.save_quotes(channel)
+        return f"Added [Quote #{new_id}] -> {quote_str}"
 
     def add_quote(self, quote: str, game: str, channel: str, creator: str = None) -> str:
         """ Adds a quote to the table and save it to file """

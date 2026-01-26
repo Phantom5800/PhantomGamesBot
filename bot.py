@@ -22,6 +22,8 @@ def run():
     print("============== Quotes ===============")
     sharedResources.quoteHandler = QuoteHandler()
     sharedResources.quoteHandler.load_quotes()
+    sharedResources.pastaHandler = QuoteHandler("pasta.json")
+    sharedResources.pastaHandler.load_quotes()
     print("=============== SRC =================")
     srcUsers = os.environ['SRC_USER'].split(',')
     sharedResources.srcHandler = SrcomApi(srcUsers[0], False)

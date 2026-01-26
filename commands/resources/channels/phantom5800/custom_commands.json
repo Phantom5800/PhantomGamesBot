@@ -254,5 +254,10 @@
     "response": "We need 12 random chip drops throughout the run to complete the game, check this table of all chips that are NOT random: https://docs.google.com/document/d/e/2PACX-1vSghhS3Ez3IFwzRsEYUCCQV6g661T0f5qYbu6wQgMQ90YaEg9NuNThhFU9Zt_h77IR1qgr0F059OHyD/pub",
     "cooldown": 0,
     "last_use": 1762795864.4438
+  },
+  "!race": {
+    "response": "https://racetime.gg/tp/puzzled-kerbal-0324",
+    "cooldown": 0,
+    "last_use": 0
   }
 }

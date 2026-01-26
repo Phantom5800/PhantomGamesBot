@@ -33,6 +33,7 @@ class PhantomGamesBot(commands.Bot):
         # command handlers
         self.custom = sharedResources.customCommandHandler
         self.quotes = sharedResources.quoteHandler
+        self.pastas = sharedResources.pastaHandler
         self.speedrun = sharedResources.srcHandler
         self.markov = sharedResources.markovHandler
         self.anilist = sharedResources.anilist
@@ -532,25 +533,36 @@ class PhantomGamesBot(commands.Bot):
     #####################################################################################################
     # quotes
     #####################################################################################################
-    @commands.command()
-    async def quote(self, ctx: commands.Context, quote_id: str = None):
+    def _quote_response(self, ctx: commands.Context, quote_id: str, quote_handler) -> str:
         # if no lookup specific, give random
         if quote_id is None:
-            await ctx.send(self.quotes.pick_random_quote(ctx.message.channel.name))
+            return quote_handler.pick_random_quote(ctx.message.channel.name)
         else:
             try:
                 # do id search first, positive indexes or negative indexes for reverse
                 quote = int(quote_id)
                 if quote >= 0:
-                    response = self.quotes.pick_specific_quote(quote_id, ctx.message.channel.name)
+                    response = quote_handler.pick_specific_quote(quote_id, ctx.message.channel.name)
                 else:
-                    count = self.quotes.num_quotes(ctx.message.channel.name)
-                    response = self.quotes.pick_specific_quote(str(count + quote), ctx.message.channel.name)
+                    count = quote_handler.num_quotes(ctx.message.channel.name)
+                    response = quote_handler.pick_specific_quote(str(count + quote), ctx.message.channel.name)
             except:
                 # try and look for a keyword
-                response = self.quotes.find_quote_keyword(quote_id, ctx.message.channel.name)
-            if response is not None:
-                await ctx.send(response)
+                response = quote_handler.find_quote_keyword(quote_id, ctx.message.channel.name)
+            return response
+
+    @commands.command()
+    async def quote(self, ctx: commands.Context, quote_id: str = None):
+        response = self._quote_response(ctx, quote_id, self.quotes)
+        if response is not None:
+            await ctx.send(response)
+
+    @commands.command()
+    async def pasta(self, ctx: commands.Context, pasta_id: str = None):
+        response = self._quote_response(ctx, pasta_id, self.pastas)
+        if response is not None:
+            response = response[response.find("]:")+3:]
+            await ctx.send(response)
 
     @commands.command()
     async def addquote(self, ctx: commands.Context):
@@ -566,6 +578,20 @@ class PhantomGamesBot(commands.Bot):
                     await ctx.send(f"{ctx.message.author.mention} where's the quote?")
             else:
                 await ctx.send(f"{ctx.message.author.mention} where's the quote?")
+
+    @commands.command(aliases=["adp"])
+    async def addpasta(self, ctx: commands.Context):
+        if ctx.message.author.is_mod:
+            command_parts = self.command_msg_breakout(ctx.message.content, 2)
+            if command_parts is not None and len(command_parts) > 1:
+                new_quote = command_parts[1]
+                if len(new_quote) > 0:
+                    response = self.pastas.add_quote_no_details(new_quote, ctx.message.channel.name, ctx.message.author.name)
+                    await ctx.send(response)
+                else:
+                    await ctx.send(f"{ctx.message.author.mention} where's the pasta?")
+            else:
+                await ctx.send(f"{ctx.message.author.mention} where's the pasta?")
 
     @commands.command()
     async def editquote(self, ctx: commands.Context):
@@ -587,9 +613,9 @@ class PhantomGamesBot(commands.Bot):
     @commands.command()
     async def howtoquote(self, ctx: commands.Context):
         if ctx.message.author.is_mod or 'vip' in ctx.message.author.badges:
-            await ctx.respond("!addquote \"quote text\" - user")
+            await ctx.send("!addquote \"quote text\" - user")
         else:
-            await ctx.respond("Become a mod or vip")
+            await ctx.send("Become a mod or vip")
 
     #####################################################################################################
     # speedrun.com
@@ -976,7 +1002,7 @@ class PhantomGamesBot(commands.Bot):
                 await self.esclient[client_name].subscribe_channel_subscriptions(broadcaster=channel_id, token=channel_token)
                 await self.esclient[client_name].subscribe_channel_subscription_messages(broadcaster=channel_id, token=channel_token)
                 await self.esclient[client_name].subscribe_channel_subscription_gifts(broadcaster=channel_id, token=channel_token)
-                await self.esclient[client_name].subscribe_channel_prediction_begin(broadcaster=channel_id, token=channel_token)
+                # await self.esclient[client_name].subscribe_channel_prediction_begin(broadcaster=channel_id, token=channel_token)
                 # await self.esclient[client_name].subscribe_channel_charity_donate(broadcaster=channel_id, token=channel_token)
 
                 # mod actions
@@ -988,9 +1014,9 @@ class PhantomGamesBot(commands.Bot):
 
                 # notifications
                 # await self.esclient[client_name].subscribe_channel_ad_break_begin(broadcaster=channel_id, token=channel_token)
-                await self.esclient[client_name].subscribe_channel_hypetrain_begin(broadcaster=channel_id, token=channel_token)
+                # await self.esclient[client_name].subscribe_channel_hypetrain_begin(broadcaster=channel_id, token=channel_token)
                 # await self.esclient[client_name].subscribe_channel_hypetrain_progress(broadcaster=channel_id, token=channel_token)
-                await self.esclient[client_name].subscribe_channel_hypetrain_end(broadcaster=channel_id, token=channel_token)
+                # await self.esclient[client_name].subscribe_channel_hypetrain_end(broadcaster=channel_id, token=channel_token)
         except Exception as e:
             print(f"[Eventsub Error] Error subscribing to events on {channel}({channel_id}) with channel token: {e}")
 
