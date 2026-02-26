@@ -41,7 +41,13 @@ def run():
     bsky_handle = os.environ.get("BSKY_HANDLE")
     bsky_pw = os.environ.get("BSKY_PW")
     if bsky_handle and bsky_pw:
-        sharedResources.bsky_bot = run_bsky_bot(bsky_handle, bsky_pw)
+        sharedResources.bsky_streamer = run_bsky_bot(bsky_handle, bsky_pw, stream_notif_mode=True, markov_mode=False)
+
+    # bsky bot for posting markov strings
+    bsky_bot_handle = os.environ.get("BSKY_BOT_HANDLE")
+    bsky_bot_pw = os.environ.get("BSKY_BOT_PW")
+    if bsky_bot_handle and bsky_bot_pw:
+        sharedResources.bsky_bot = run_bsky_bot(bsky_bot_handle, bsky_bot_pw, stream_notif_mode=False, markov_mode=True)
 
     # verify and run discord bot
     # TODO: better verification, but empty is probably good enough

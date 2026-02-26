@@ -4,10 +4,10 @@ import os
 import random
 from requests_oauthlib import OAuth1Session
 from commands.markov import MarkovHandler
+import utils.events
 
 class PhantomGamesBot:
-    def __init__(self, markovHandler: MarkovHandler):
-        self.markov = markovHandler
+    def __init__(self):
         self.twitter_auth_keys = {
             "consumer_key"          : os.environ["TWITTER_CONSUMER_KEY"],
             "consumer_secret"       : os.environ["TWITTER_CONSUMER_SECRET"],
@@ -22,11 +22,11 @@ class PhantomGamesBot:
                 self.last_tweet_time = datetime.strptime(time, "%Y-%m-%d %H:%M:%S")
         except:
             print("twitter.txt does not exist")
+        utils.events.twitchevents.register_events(self)
 
-    def post_tweet(self):
+    async def on_generate_post(self, msg:str):
         # create tweet
-        message = self.markov.get_markov_string()
-        tweet_payload = {"text" : message}
+        tweet_payload = {"text" : msg}
 
         # make the post
         oauth = OAuth1Session(
@@ -41,20 +41,20 @@ class PhantomGamesBot:
         if response.status_code != 201:
             print(f"[Twitter Error] {response.status_code, response.text}")
         else:
-            print(f"[{datetime.now()}] Generated Tweet: {message}")
+            print(f"[{datetime.now()}] Generated Tweet: {msg}")
             self.last_tweet_time = datetime.now()
             with open("./commands/resources/twitter.txt", "w", encoding="utf-8") as f:
                 f.write(self.last_tweet_time.strftime("%Y-%m-%d %H:%M:%S"))
 
 def run_twitter_bot(eventLoop, markovHandler: MarkovHandler):
     async def runBot():
-        bot = PhantomGamesBot(markovHandler)
+        bot = PhantomGamesBot()
         while True:
             # post a tweet
             now = datetime.now()
             timelapse = now - bot.last_tweet_time
             if (timelapse.days >= 1 or timelapse.seconds / 3600 >= 14) and now.hour > 10:
-                bot.post_tweet()
+                await utils.events.twitchevents.social_media_generated_post(markovHandler.get_markov_string())
 
             # sleep for an hour and some random amount of minutes
             minutes = random.randrange(0, 29)
