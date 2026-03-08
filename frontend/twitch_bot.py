@@ -79,8 +79,6 @@ class PhantomGamesBot(commands.Bot):
             self.first_redeems = deepcopy(data)
         self.misgender_warnings = {}
         self.current_rng = 0
-        with open('./commands/resources/rng.txt', 'r', encoding="utf-8") as rng_value:
-            self.current_rng = tryParseInt(rng_value.readline())
 
         # giveaway
         self.giveaway_open = False
@@ -1065,8 +1063,6 @@ class PhantomGamesBot(commands.Bot):
                 self.current_rng += 1
             elif "Bad" in rewardData.reward.title:
                 self.current_rng -= 1
-            with open('./commands/resources/rng.txt', 'w', encoding="utf-8") as rng_value:
-                rng_value.write(str(self.current_rng))
 
         # attempt to give the user VIP
         if "VIP" in rewardData.reward.title:
