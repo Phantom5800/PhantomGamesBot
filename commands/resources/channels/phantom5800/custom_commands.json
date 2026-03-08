@@ -240,11 +240,6 @@
   "!bo": {
     "alias_for": "!borng"
   },
-  "!agdq": {
-    "response": "/announce If you missed my AGDQ 2026 run of Mega Man Battle Network, check out the vod when you get a chance: https://youtu.be/M8fSCKnjYnk",
-    "cooldown": 0,
-    "last_use": 0
-  },
   "!redditskip": {
     "response": "https://www.reddit.com/r/BattleNetwork/comments/gkp0ip/the_strangest_glitchskip_happened_to_me_in_bn1/",
     "cooldown": 0,
