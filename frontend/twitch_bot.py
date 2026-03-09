@@ -1052,7 +1052,7 @@ class PhantomGamesBot(commands.Bot):
             else:
                 self.first_redeems[username] = 1
             with open('./commands/resources/first.json', 'w', encoding="utf-8") as first_redeems:
-                sorted_redeems = dict(sorted(self.first_redeems, key=lambda user:user[1], reverse=True))
+                sorted_redeems = dict(sorted(self.first_redeems.items(), key=lambda user:user[1], reverse=True))
                 json_str = json.dumps(sorted_redeems, indent=2)
                 first_redeems.write(json_str)
             print(f"{username} redeemed First {self.first_redeems[username]} times")

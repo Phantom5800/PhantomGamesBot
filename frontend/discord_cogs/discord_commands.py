@@ -32,6 +32,7 @@ class PhantomGamesBotCommands(commands.Cog):
     def __init__(self, bot, sharedResources):
         self.bot = bot
         self.quotes = sharedResources.quoteHandler
+        self.pasta = sharedResources.pastaHandler
         self.speedrun = sharedResources.srcHandler
         self.markov = sharedResources.markovHandler
         self.anilist = sharedResources.anilist
@@ -109,29 +110,60 @@ class PhantomGamesBotCommands(commands.Cog):
         else:
             await ctx.respond(f"Could not find anime {name}")
 
+    async def get_quote_internal(self, ctx, quote_id: str, quote_pool):
+        # if no lookup specific, give random
+        if quote_id is None:
+            await ctx.respond(quote_pool.pick_random_quote(self.bot.account))
+        else:
+            try:
+                # do id search first, positive indexes or negative indexes for reverse
+                quote = int(quote_id)
+                if quote >= 0:
+                    response = quote_pool.pick_specific_quote(quote_id, self.bot.account)
+                else:
+                    count = quote_pool.num_quotes(self.bot.account)
+                    response = quote_pool.pick_specific_quote(str(count + quote), self.bot.account)
+            except:
+                # try and look for a keyword
+                response = quote_pool.find_quote_keyword(quote_id, self.bot.account)
+            if response is not None:
+                await ctx.respond(response)
+
     @bridge.bridge_command(name="quote",
         description="Get a random or specific quote.",
         help="Get a quote that has been added on twitch.\nUsage:\n\t!quote - Get a random quote\n\t!quote {#} - Get a specific quote by id\n\tExample: !quote 3")
     @discord.option("quote_id",
         description="The quote to lookup, can provide a word to search for among all quotes as well.")
     async def get_quote(self, ctx, quote_id: str = None):
-        # if no lookup specific, give random
-        if quote_id is None:
-            await ctx.respond(self.quotes.pick_random_quote(self.bot.account))
-        else:
-            try:
-                # do id search first, positive indexes or negative indexes for reverse
-                quote = int(quote_id)
-                if quote >= 0:
-                    response = self.quotes.pick_specific_quote(quote_id, self.bot.account)
+        await self.get_quote_internal(ctx, quote_id, self.quotes)
+
+    @bridge.bridge_command(name="pasta",
+        description="Get a random or specific pasta.",
+        help="Get a pasta that has been added on twitch.\nUsage:\n\t!quote - Get a random quote\n\t!quote {#} - Get a specific quote by id\n\tExample: !quote 3")
+    @discord.option("quote_id",
+        description="The quote to lookup, can provide a word to search for among all quotes as well.")
+    async def get_pasta(self, ctx, quote_id: str = None):
+        await self.get_quote_internal(ctx, quote_id, self.pasta)
+
+    @bridge.bridge_command(name="addpasta")
+    async def add_pasta(self, ctx, pasta:str = None):
+        has_mod_role:bool = False
+        for role in ctx.author.roles:
+            if "mod" in role.name.lower():
+                has_mod_role = True
+                break
+        
+        if has_mod_role:
+            if pasta is not None:
+                if len(pasta) <= 500:
+                    result = self.pasta.add_quote_no_details(pasta, self.bot.account, ctx.author.name)
+                    await ctx.respond(result.replace("[Quote", "[Pasta"))
                 else:
-                    count = self.quotes.num_quotes(self.bot.account)
-                    response = self.quotes.pick_specific_quote(str(count + quote), self.bot.account)
-            except:
-                # try and look for a keyword
-                response = self.quotes.find_quote_keyword(quote_id, self.bot.account)
-            if response is not None:
-                await ctx.respond(response)
+                    await ctx.respond("Pasta is too long for a twitch message")
+            else:
+                await ctx.respond("No pasta specified")
+        else:
+            await ctx.respond("I don't think you're a mod")
 
     @bridge.bridge_command(name="allquotes")
     async def get_all_quotes(self, ctx, quote_filter:str=None):
