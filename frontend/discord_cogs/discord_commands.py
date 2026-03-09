@@ -110,24 +110,23 @@ class PhantomGamesBotCommands(commands.Cog):
         else:
             await ctx.respond(f"Could not find anime {name}")
 
-    async def get_quote_internal(self, ctx, quote_id: str, quote_pool):
+    def get_quote_internal(self, ctx, quote_id: str, quote_pool) -> str:
         # if no lookup specific, give random
         if quote_id is None:
-            await ctx.respond(quote_pool.pick_random_quote(self.bot.account))
+            return quote_pool.pick_random_quote(self.bot.account)
         else:
             try:
                 # do id search first, positive indexes or negative indexes for reverse
                 quote = int(quote_id)
                 if quote >= 0:
-                    response = quote_pool.pick_specific_quote(quote_id, self.bot.account)
+                    return quote_pool.pick_specific_quote(quote_id, self.bot.account)
                 else:
                     count = quote_pool.num_quotes(self.bot.account)
-                    response = quote_pool.pick_specific_quote(str(count + quote), self.bot.account)
+                    return quote_pool.pick_specific_quote(str(count + quote), self.bot.account)
             except:
                 # try and look for a keyword
-                response = quote_pool.find_quote_keyword(quote_id, self.bot.account)
-            if response is not None:
-                await ctx.respond(response)
+                return quote_pool.find_quote_keyword(quote_id, self.bot.account)
+        return ""
 
     @bridge.bridge_command(name="quote",
         description="Get a random or specific quote.",
@@ -135,7 +134,7 @@ class PhantomGamesBotCommands(commands.Cog):
     @discord.option("quote_id",
         description="The quote to lookup, can provide a word to search for among all quotes as well.")
     async def get_quote(self, ctx, quote_id: str = None):
-        await self.get_quote_internal(ctx, quote_id, self.quotes)
+        await ctx.respond(self.get_quote_internal(ctx, quote_id, self.quotes))
 
     @bridge.bridge_command(name="pasta",
         description="Get a random or specific pasta.",
@@ -143,7 +142,9 @@ class PhantomGamesBotCommands(commands.Cog):
     @discord.option("quote_id",
         description="The quote to lookup, can provide a word to search for among all quotes as well.")
     async def get_pasta(self, ctx, quote_id: str = None):
-        await self.get_quote_internal(ctx, quote_id, self.pasta)
+        response = self.get_quote_internal(ctx, quote_id, self.pasta)
+        response = response[response.find("]:")+3:]
+        await ctx.respond(response)
 
     @bridge.bridge_command(name="addpasta")
     async def add_pasta(self, ctx, pasta:str = None):
