@@ -160,7 +160,7 @@ class PhantomGamesBotCommands(commands.Cog):
                     result = self.pasta.add_quote_no_details(pasta, self.bot.account, ctx.author.name)
                     await ctx.respond(result.replace("[Quote", "[Pasta"))
                 else:
-                    await ctx.respond("Pasta is too long for a twitch message")
+                    await ctx.respond(f"Pasta is {len(pasta) - 500} characters too long for a twitch message")
             else:
                 await ctx.respond("No pasta specified")
         else:
