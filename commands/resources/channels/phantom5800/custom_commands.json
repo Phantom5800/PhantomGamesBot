@@ -27,7 +27,7 @@
   "@phantomgamesbot": {
     "response": "$user $msg",
     "cooldown": 5,
-    "last_use": 1759249606.945619
+    "last_use": 1774783512.024746
   },
   "!github": {
     "response": "/announce All my open source code projects are available on github: https://github.com/Phantom5800",
@@ -48,11 +48,6 @@
     "response": "Boris Post Boris This Boris boris Boris To Boris Post Boris This Boris boris Boris",
     "cooldown": 10,
     "last_use": 1679414966.822659
-  },
-  "weloveprologue": {
-    "response": "/announce If Prologue has a million fans I am one of them. If Prologue has ten fans I am one of them. If Prologue has only one fan, that is me. If Prologue has no fans, that means I am no longer on earth. If the world is against Prologue, I am against the world.",
-    "cooldown": 10,
-    "last_use": 1759074765.081515
   },
   "stinkycheese": {
     "response": "StinkyCheese",
@@ -77,17 +72,7 @@
   "hi": {
     "response": "hi $user",
     "cooldown": 10,
-    "last_use": 1762356089.385912
-  },
-  "!nmsb": {
-    "response": "/me No Major Sequence Breaks is a category that bridges the gap between Glitchless and All Cards. The important parts are that chapters must be completed in order, and story sequence can never go backwards.",
-    "cooldown": 0,
-    "last_use": 0
-  },
-  "!glundo": {
-    "response": "The ancient pape gods determined that 100% should be defined by the chalkboard in Mario's house; meaning star pieces, recipes, and badges must all be collected. Additionally they mandated that all permanent key items must be acquired such as the diploma from the dojo. A band of paper rebels has since determined it is not enough, and as part of 101% demands that Kent C. Koopa, Buzzar and the Anti Guy Squad must all die as well",
-    "cooldown": 0,
-    "last_use": 1741629858.682559
+    "last_use": 1774799501.625351
   },
   "!fp": {
     "response": "/announce Paper Mario Practice Rom releases: https://github.com/JCog/fp/releases",
@@ -139,11 +124,6 @@
     "cooldown": 0,
     "last_use": 1758726503.452587
   },
-  "!tts": {
-    "response": "$user Everything you need to know for TTS: https://tts.monster/phantom5800",
-    "cooldown": 0,
-    "last_use": 1699207604.859819
-  },
   "!peed69": {
     "response": "Flushed",
     "cooldown": 0,
@@ -162,7 +142,7 @@
   "!weedmario": {
     "response": "\u285e\u28b8\u2800\u2800\u2800\u2800\u2800\u2800\u2800\u2800\u2800\u2800\u2800\u2880\u2860\u2824\u2824\u28a4\u2840\u2800\u2800\u2800\u2800\u2800 \u2800\u2831\u28f8\u2800\u2800\u2800\u2800\u2800\u2800\u2800\u2800\u2800\u28a0\u281e\u2881\u2814\u28de\u2893\u28a6\u2808\u2833\u2844\u2800\u2800\u2800 \u2800\u2800\u284f\u28c7\u2800\u2800\u2800\u2800\u2800\u2800\u2800\u2800\u28f8\u2824\u282f\u283e\u28d8\u28b9\u28b8\u2806\u2800\u2818\u2846\u2800\u2800 \u2800\u2800\u2847\u2847\u2800\u2800\u2800\u2800\u2800\u2800\u2800\u2800\u28f8\u281f\u28b7\u2826\u28cc\u2811\u288e\u2800\u2800\u2800\u2838\u2844\u2800 \u2800\u28b0\u28fb\u2801\u2800\u2800\u2800\u2800\u2800\u2800\u2800\u2870\u2847\u28ff\u280f\u2874\u288a\u28f3\u2840\u2833\u2844\u2800\u2800\u28c7\u2800 \u2880\u28f7\u2847\u2800\u2800\u2800\u2800\u2800\u2800\u2800\u28fc\u280a\u2809\u2819\u28be\u2801\u28ff\u287f\u2808\u28f9\u28fe\u2866\u28a4\u284f\u2800 \u2818\u28ff\u2867\u2824\u2824\u28a4\u28c4\u28c0\u28c0\u28c0\u28e7\u2840\u2800\u2800\u28f8\u28f5\u28ee\u2844\u28e0\u28ff\u2807\u2800\u28a0\u2847\u2800 \u2800\u288f\u2847\u2800\u2800\u2800\u28c0\u28c0\u28c0\u28c8\u28c9\u28c9\u28db\u285f\u283b\u281f\u280b\u2800\u2808\u28f9\u28e4\u2836\u281f\u2800\u2800 \u2800\u2800\u2809\u2809\u2809\u2809\u2809\u2801\u2880\u285e\u2801\u2808\u28b3\u28f6\u28e3\u28e4\u28e4\u28b4\u284f\u2809\u2809\u2800\u2800\u2800\u2800 \u2800\u2800\u2800\u2800\u2800\u2800\u2800\u2800\u28b8\u2839\u28c4\u28f0\u284b\u2800\u2870\u2803\u2800\u2808\u28b3\u2840\u2800\u2800\u2800\u2800\u2800 \u2800\u2800\u2800\u2800\u2800\u2800\u2800\u2800\u28b8\u2800\u28b8\u2809\u2809\u28e6\u2803\u28b9\u28c4\u2800\u2800\u2819\u2844\u2800\u2800\u2800\u2800 \u2800\u2800\u2800\u2800\u2800\u2800\u2800\u2800\u2808\u28c7\u2808\u2832\u283e\u280b\u2813\u28be\u28ff\u2842\u2800\u28a0\u2807\u2800\u2800\u2800\u2800 \u2800\u2800\u2800\u2800\u2800\u2800\u2800\u2800\u28b0\u280b\u2823\u28e4\u28c0\u2800\u2800\u28b8\u2800\u2813\u2892\u287e\u2873\u2800\u2800\u2800\u2800 \u2800\u2800\u2800\u2800\u2800\u2800\u2800\u2800\u2818\u2846\u2800\u2800\u2819\u28f7\u2844\u2808\u28c7\u2834\u281e\u28e0\u2807\u2800\u2800\u2800\u2800 \u2800\u2800\u2800\u2800\u2800\u2800\u2800\u2800\u2800\u2808\u2813\u2812\u281a\u2809\u284f\u2800\u2808\u2813\u280b\u28b9\u2806\u2800\u2800\u2800\u2800 \u2800\u2800\u2800\u2800\u2800\u2800\u2800\u2800\u2800\u2800\u2800\u2800\u2800\u2800\u28b1\u2884\u28c0\u28e0\u2824\u281e\u2887 \u2800\u2800\u2800\u2800\u2800\u2800\u2800\u2800\u2800\u2800\u2800\u2800\u2800\u2800\u2838\u2844\u2800\u2800\u2800\u2800\u2878\u2800",
     "cooldown": 60,
-    "last_use": 1753105582.047439
+    "last_use": 1774891254.089606
   },
   "!speedguideslive": {
     "response": "https://github.com/Phantom5800/Speed-Guides-Live",
@@ -252,6 +232,11 @@
   },
   "!race": {
     "response": "https://racetime.gg/tp/puzzled-kerbal-0324",
+    "cooldown": 0,
+    "last_use": 0
+  },
+  "!tts": {
+    "response": "100 bits or more and resubs for Brian to say shit",
     "cooldown": 0,
     "last_use": 0
   }

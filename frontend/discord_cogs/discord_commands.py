@@ -126,7 +126,7 @@ class PhantomGamesBotCommands(commands.Cog):
             except:
                 # try and look for a keyword
                 return quote_pool.find_quote_keyword(quote_id, self.bot.account)
-        return ""
+        return "404 Quote Not Found"
 
     @bridge.bridge_command(name="quote",
         description="Get a random or specific quote.",

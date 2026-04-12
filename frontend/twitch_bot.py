@@ -548,6 +548,7 @@ class PhantomGamesBot(commands.Bot):
                 # try and look for a keyword
                 response = quote_handler.find_quote_keyword(quote_id, ctx.message.channel.name)
             return response
+        return "404 Quote Not Found"
 
     @commands.command()
     async def quote(self, ctx: commands.Context, quote_id: str = None):
