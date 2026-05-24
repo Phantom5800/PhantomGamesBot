@@ -63,8 +63,11 @@ class PhantomGamesBot:
         if self.generated_message_mode:
             text_builder = client_utils.TextBuilder()
             text_builder.text(msg)
-            self.client.send_post(text=text_builder)
-            print(f"[{datetime.now()}] Generated Bsky Post: {msg}")
+            try:
+                self.client.send_post(text=text_builder)
+                print(f"[{datetime.now()}] Generated Bsky Post: {msg}")
+            except:
+                print(f"[BSKY Error] Failed to post message (likely session expired): {msg}")
 
 def run_bsky_bot(handle:str, password:str, stream_notif_mode:bool = False, markov_mode:bool = False):
     bot = PhantomGamesBot(handle, password, stream_notif_mode, markov_mode)

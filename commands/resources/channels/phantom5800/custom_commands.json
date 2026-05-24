@@ -72,7 +72,7 @@
   "hi": {
     "response": "hi $user",
     "cooldown": 10,
-    "last_use": 1774799501.625351
+    "last_use": 1778938097.908061
   },
   "!fp": {
     "response": "/announce Paper Mario Practice Rom releases: https://github.com/JCog/fp/releases",
@@ -172,7 +172,7 @@
   "!settings": {
     "response": "basil",
     "cooldown": 0,
-    "last_use": 0
+    "last_use": 1778938075.740546
   },
   "!borng": {
     "response": "During Bo 1, Bo has a 25% chance of picking any of four options: slap, side step, grab and do nothing. Slap beats 2 of those options and therefore wins 50% of the time. During Bo 2, Bo has a 50% chance of slapping, 25% chance of sidestep and 25% grab, therefore grab wins against slap 50% of the time, but slap is faster if you get it first",
@@ -237,6 +237,11 @@
   },
   "!tts": {
     "response": "100 bits or more and resubs for Brian to say shit",
+    "cooldown": 0,
+    "last_use": 0
+  },
+  "!addcum": {
+    "response": "@brandino59",
     "cooldown": 0,
     "last_use": 0
   }
