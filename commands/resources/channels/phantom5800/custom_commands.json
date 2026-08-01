@@ -2,7 +2,7 @@
   "morp": {
     "response": "morp",
     "cooldown": 5,
-    "last_use": 1759067855.426023
+    "last_use": 1785068151.040847
   },
   "glenn": {
     "response": "glenn",
@@ -12,12 +12,12 @@
   "!lurk": {
     "response": "ok $user phanto274Lurk",
     "cooldown": 0,
-    "last_use": 1744984649.572592
+    "last_use": 1785073910.392366
   },
   "!unlurk": {
     "response": "phanto274Wave $user",
     "cooldown": 0,
-    "last_use": 0
+    "last_use": 1785073909.244515
   },
   "!discord": {
     "response": "/announce Join the discord if you want: https://discord.gg/XtrhKXNmRc",
@@ -27,7 +27,7 @@
   "@phantomgamesbot": {
     "response": "$user $msg",
     "cooldown": 5,
-    "last_use": 1774783512.024746
+    "last_use": 1785067421.076769
   },
   "!github": {
     "response": "/announce All my open source code projects are available on github: https://github.com/Phantom5800",
@@ -72,7 +72,7 @@
   "hi": {
     "response": "hi $user",
     "cooldown": 10,
-    "last_use": 1778938097.908061
+    "last_use": 1785075136.119086
   },
   "!fp": {
     "response": "/announce Paper Mario Practice Rom releases: https://github.com/JCog/fp/releases",
@@ -242,6 +242,11 @@
   },
   "!addcum": {
     "response": "@brandino59",
+    "cooldown": 0,
+    "last_use": 0
+  },
+  "!poerng": {
+    "response": "Hold L during cutscene; let go of it after you hear the target so the direction below is accurate. FRONT = get back on land and jump attack. LEFT = sidehop right. RIGHT = jump attack instantly. BOTTOM = b attack/do nothing (thanks glubb)",
     "cooldown": 0,
     "last_use": 0
   }

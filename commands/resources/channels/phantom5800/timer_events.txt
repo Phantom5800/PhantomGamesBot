@@ -1,5 +1,3 @@
-!follow
 !discord
 !youtube
-!ads
 !bluesky
