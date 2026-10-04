@@ -1,5 +1,7 @@
 from atproto import Client, client_utils, models
+from commands.markov import MarkovHandler
 from datetime import datetime
+import asyncio
 import os
 import random
 import utils.events
@@ -65,10 +67,37 @@ class PhantomGamesBot:
             text_builder.text(msg)
             try:
                 self.client.send_post(text=text_builder)
-                print(f"[{datetime.now()}] Generated Bsky Post: {msg}")
+                print(f"[{datetime.now()}] Posted on Bsky: {msg}")
             except:
                 print(f"[BSKY Error] Failed to post message (likely session expired): {msg}")
 
-def run_bsky_bot(handle:str, password:str, stream_notif_mode:bool = False, markov_mode:bool = False):
-    bot = PhantomGamesBot(handle, password, stream_notif_mode, markov_mode)
+def run_bsky_bot(handle:str, password:str):
+    bot = PhantomGamesBot(handle, password, True, False)
     return bot
+
+def run_bsky_bot_markov(handle:str, password:str, eventLoop, markovHandler: MarkovHandler):
+    async def runBot():
+        bot = PhantomGamesBot(handle, password, False, True)
+        last_tweet_time = datetime.now()
+        try:
+            with open("./commands/resources/twitter.txt", "r", encoding="utf-8") as f:
+                time = f.read()
+                last_tweet_time = datetime.strptime(time, "%Y-%m-%d %H:%M:%S")
+        except:
+            print("twitter.txt does not exist")
+        while True:
+            # post a tweet
+            now = datetime.now()
+            timelapse = now - last_tweet_time
+            if (timelapse.days >= 1 or timelapse.seconds / 3600 >= 14) and now.hour > 10:
+                await utils.events.twitchevents.social_media_generated_post(markovHandler.get_markov_string())
+                # Update last message time
+                last_tweet_time = datetime.now()
+                print(f"[{datetime.now()}] Generated Social Media Post: {msg}")
+                with open("./commands/resources/twitter.txt", "w", encoding="utf-8") as f:
+                    f.write(last_tweet_time.strftime("%Y-%m-%d %H:%M:%S"))
+
+            # sleep for an hour and some random amount of minutes
+            minutes = random.randrange(0, 29)
+            await asyncio.sleep(60 * 60 + minutes * 60)
+    eventLoop.create_task(runBot())

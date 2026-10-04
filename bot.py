@@ -6,11 +6,10 @@ from commands.quotes import QuoteHandler
 from commands.src import SrcomApi
 from commands.markov import MarkovHandler
 from commands.youtube import YouTubeData
-from frontend.bsky_bot import run_bsky_bot
+from frontend.bsky_bot import run_bsky_bot, run_bsky_bot_markov
 from frontend.twitch_bot import run_twitch_bot
 from frontend.discord_bot import run_discord_bot
 from frontend.gui_interface import run_GUI
-from frontend.twitter_bot import run_twitter_bot
 from utils.utils import tryParseInt
 
 def run():
@@ -41,22 +40,18 @@ def run():
     bsky_handle = os.environ.get("BSKY_HANDLE")
     bsky_pw = os.environ.get("BSKY_PW")
     if bsky_handle and bsky_pw:
-        sharedResources.bsky_streamer = run_bsky_bot(bsky_handle, bsky_pw, stream_notif_mode=True, markov_mode=False)
+        sharedResources.bsky_streamer = run_bsky_bot(bsky_handle, bsky_pw)
 
     # bsky bot for posting markov strings
     bsky_bot_handle = os.environ.get("BSKY_BOT_HANDLE")
     bsky_bot_pw = os.environ.get("BSKY_BOT_PW")
     if bsky_bot_handle and bsky_bot_pw:
-        sharedResources.bsky_bot = run_bsky_bot(bsky_bot_handle, bsky_bot_pw, stream_notif_mode=False, markov_mode=True)
+        run_bsky_bot_markov(bsky_bot_handle, bsky_bot_pw, sharedResources.twitch_bot.loop, sharedResources.markovHandler)
 
     # verify and run discord bot
     # TODO: better verification, but empty is probably good enough
     if os.environ['DISCORD_TOKEN'] is not None and len(os.environ['DISCORD_TOKEN']) > 0:
         sharedResources.discord_bot = run_discord_bot(sharedResources.twitch_bot.loop, sharedResources)
-
-    # verify that twitter credentials are configured
-    if os.environ['TWITTER_CONSUMER_KEY'] is not None and len(os.environ['TWITTER_CONSUMER_KEY']) > 0:
-        run_twitter_bot(sharedResources.twitch_bot.loop, sharedResources.markovHandler)
 
     # load the GUI window
     if tryParseInt(os.environ.get('ENABLE_GUI', 1)):
