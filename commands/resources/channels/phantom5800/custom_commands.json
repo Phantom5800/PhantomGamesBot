@@ -199,11 +199,6 @@
     "cooldown": 0,
     "last_use": 0
   },
-  "!merch": {
-    "response": "/announce For stickers, mugs and other stuff: https://shop.phantom-games.com",
-    "cooldown": 0,
-    "last_use": 1754070539.30357
-  },
   "!goats": {
     "response": "Goats are bullshit, but they always spawn in the same locations and facing the same direction, the rng comes from how they react to Link when he approaches and when you whoop. Whether they react from further away, run further, or just don't give a shit",
     "cooldown": 0,
@@ -230,18 +225,8 @@
     "cooldown": 0,
     "last_use": 1762795864.4438
   },
-  "!race": {
-    "response": "https://racetime.gg/tp/puzzled-kerbal-0324",
-    "cooldown": 0,
-    "last_use": 0
-  },
   "!tts": {
     "response": "100 bits or more and resubs for Brian to say shit",
-    "cooldown": 0,
-    "last_use": 0
-  },
-  "!addcum": {
-    "response": "@brandino59",
     "cooldown": 0,
     "last_use": 0
   },
@@ -250,14 +235,14 @@
     "cooldown": 0,
     "last_use": 0
   },
-  "!games": {
-    "response": "Pok\u00e9mon LeafGreen, Mega Man Battle Network 6: Cybeast Gregar, The Legend of Zelda: The Minish Cap, Paper Mario, Kirby 64: The Crystal Shards",
-    "cooldown": 0,
-    "last_use": 0
-  },
   "!basil": {
     "response": "settings",
     "cooldown": 0,
     "last_use": 1791109036.887763
+  },
+  "!pronouns": {
+    "response": "Phantom uses they/them pronouns phanto274Smile",
+    "cooldown": 0,
+    "last_use": 0
   }
 }

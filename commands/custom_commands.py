@@ -222,8 +222,9 @@ class CustomCommands:
                 response_chance = self.command_set[channel][lower_message]["rng"]
             except:
                 response_chance = 100
-            can_respond = random.randint(0, 100) < response_chance
-            if (unused_command or cooldown_passed) and can_respond:
+            if random.randint(1, 100) > response_chance:
+                response = "/ignored"
+            elif unused_command or cooldown_passed:
                 self.command_set[channel][lower_message]["last_use"] = current_seconds
                 response = self.get_command(lower_message, channel)
             self.file_lock.release()

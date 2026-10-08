@@ -77,7 +77,6 @@ class PhantomGamesBot(commands.Bot):
         with open('./commands/resources/first.json', 'r', encoding="utf-8") as first_redeems:
             data = json.load(first_redeems)
             self.first_redeems = deepcopy(data)
-        self.misgender_warnings = {}
         self.current_rng = 0
 
         # giveaway
@@ -87,8 +86,6 @@ class PhantomGamesBot(commands.Bot):
         # random message response
         self.bless_count = 0
         self.bless_sent = False
-        self.last_misgender_user = ""
-        self.load_user_warnings()
 
         # load relevant data
         self.load_timer_events()
@@ -120,18 +117,6 @@ class PhantomGamesBot(commands.Bot):
             with open(f'./commands/resources/channels/{channel}/timer_events.txt', 'w', encoding="utf-8") as txt_file:
                 for event in self.timer_queue[channel]:
                     txt_file.write(f"{event}\n")
-
-    def load_user_warnings(self):
-        try:
-            with open(f'./commands/resources/warnings.json', 'r', encoding="utf-8") as text_file:
-                data = json.load(text_file)
-                self.misgender_warnings = deepcopy(data)
-        except:
-            print("[ERROR] warnigs.json does not exist yet.")
-
-    def save_user_warnings(self):
-        with open(f'./commands/resources/warnings.json', 'w', encoding="utf-8") as text_file:
-            text_file.write(json.dumps(self.misgender_warnings))
 
     #####################################################################################################
     # error handling
@@ -205,26 +190,23 @@ class PhantomGamesBot(commands.Bot):
                     self.bless_count = 0
                     self.bless_sent = False
 
-                misgender_pattern = r"(^|\s)?(he|him|his|sir)($|\s)"
-                if re.search(misgender_pattern, message.content.lower()) is not None:
-                    self.last_misgender_user = message.author.name
-
                 # look for commands
                 command = message.content.split()[0]
                 response = self.custom.parse_custom_command(command, message.channel.name)
                 if response is not None:
-                    response = await replace_vars_twitch(response, ctx, message.channel)
-                    if "/announce" in response:
-                        response = response.replace("/announce", "/me")
-                        # try to post as an announcement, if it fails, post it with /me
-                        try:
-                            announcement = response.replace("/me", "")
-                            streamer = await message.channel.user()
-                            await self.post_chat_announcement(streamer, announcement)
-                        except:
+                    if response != "/ignored": # filter out the explicit ignore response
+                        response = await replace_vars_twitch(response, ctx, message.channel)
+                        if "/announce" in response:
+                            response = response.replace("/announce", "/me")
+                            # try to post as an announcement, if it fails, post it with /me
+                            try:
+                                announcement = response.replace("/me", "")
+                                streamer = await message.channel.user()
+                                await self.post_chat_announcement(streamer, announcement)
+                            except:
+                                await ctx.send(response)
+                        else:
                             await ctx.send(response)
-                    else:
-                        await ctx.send(response)
                 else:
                     await super().event_message(message)
 
@@ -548,7 +530,6 @@ class PhantomGamesBot(commands.Bot):
                 # try and look for a keyword
                 response = quote_handler.find_quote_keyword(quote_id, ctx.message.channel.name)
             return response
-        return "404 Quote Not Found"
 
     @commands.command()
     async def quote(self, ctx: commands.Context, quote_id: str = None):
@@ -751,47 +732,6 @@ class PhantomGamesBot(commands.Bot):
             await ctx.send(f"{ctx.message.author.mention} has been following for {duration_str}!")
         else:
             await ctx.send(f"{ctx.message.author.mention} is not even following phanto274Shrug")
-
-    '''
-    If a mod uses this command, the last user to have used he/him/his gets timed out for 1 minute for each warning after the third in addition to the response.
-    '''
-    @commands.command()
-    async def pronouns(self, ctx: commands.Context):
-        if self.last_misgender_user != "":
-            # increment a count of how many times this user has been warned
-            if self.last_misgender_user in self.misgender_warnings:
-                self.misgender_warnings[self.last_misgender_user] += 1
-            else:
-                self.misgender_warnings[self.last_misgender_user] = 1
-            self.save_user_warnings()
-
-            if ctx.author.is_mod:
-                chatter = await get_twitch_user(self, self.last_misgender_user)
-                streamer = await get_twitch_user(self, ctx.message.channel.name)
-
-                # provide a warning a handful of times first
-                if self.misgender_warnings[self.last_misgender_user] <= 3:
-                    try:
-                        await streamer.user.warn_user(
-                            moderator=self.user_id, 
-                            user_id=chatter.user.id, 
-                            reason=f"{ctx.message.channel.name} uses they/them pronouns and we request that you use them when referencing the streamer")
-                    except Exception as e:
-                        print(f"[ERROR] Unable to provide warning to {self.last_misgender_user} -- {e}")
-                else:
-                    # if it still happens after enough warnings, timeout
-                    try:
-                        await streamer.user.timeout_user(
-                            token=os.environ['TWITCH_OAUTH_TOKEN'], 
-                            moderator_id=self.user_id, 
-                            user_id=chatter.user.id, 
-                            duration=self.misgender_warnings[self.last_misgender_user] * 60, # 1 minute per warning
-                            reason="pronouns")
-                    except Exception as e:
-                        print(f"[ERROR] Can't timeout {self.last_misgender_user} -- {e}")
-
-        self.last_misgender_user = ""
-        await ctx.send("They / Them")
 
     @commands.command()
     @commands.cooldown(1, 10, commands.Bucket.user)

@@ -3,12 +3,7 @@ from datetime import datetime, timedelta, timezone
 from commands.slots import Slots, SlotsMode
 from discord.ext import bridge, commands
 from utils.utils import *
-
-# StrEnum was added in Python 3.11. For previous versions, you can install strenum with pip
-try:
-    from enum import StrEnum
-except:
-    from strenum import StrEnum
+from enum import StrEnum
 
 class SrcGames(StrEnum):
     PaperMario = "Paper Mario"
@@ -105,7 +100,6 @@ class PhantomGamesBotCommands(commands.Cog):
             except:
                 # try and look for a keyword
                 return quote_pool.find_quote_keyword(quote_id, self.bot.account)
-        return "[Quote -0]: 404 Quote Not Found"
 
     @bridge.bridge_command(name="quote",
         description="Get a random or specific quote.",
