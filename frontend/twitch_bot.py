@@ -619,30 +619,12 @@ class PhantomGamesBot(commands.Bot):
     #####################################################################################################
     # speedrun.com
     #####################################################################################################
-    '''
-    Get the personal best time for a game/category on speedrun.com. This command does take a few seconds to respond while it performs a search.
-    '''
-    # @commands.command()
-    # @commands.cooldown(1, 10, commands.Bucket.channel)
-    # async def pb(self, ctx: commands.Context):
-    #     if len(os.environ['SRC_USER']) > 0:
-    #         category = ctx.message.content[3:].strip()
-    #         game = await get_game_name_from_twitch_for_user(self, ctx.message.channel.name)
-    #         response = self.speedrun.get_pb(convert_twitch_to_src_game(game), category)
-    #         await ctx.send(response)
-
     @commands.command()
     async def speed(self, ctx: commands.Context):
         name = ctx.message.content[len("!speed"):].strip()
         game = None
         if name is not None and len(name) > 0:
-            if name.startswith("user:"):
-                name = name[len("user:"):]
-                game = self.speedrun.get_random_user_game(name)
-                await ctx.send(content=f"Would be really cool if {name} would speedrun {game}!")
-                return
-            else:
-                game = self.speedrun.get_random_category(name)
+            game = self.speedrun.get_random_category(name)
         else:
             game = self.speedrun.get_random_game()
         await ctx.send(f"{ctx.message.author.mention} You should try speedrunning {game}!")

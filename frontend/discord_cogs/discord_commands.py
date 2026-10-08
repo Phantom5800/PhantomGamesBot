@@ -52,20 +52,6 @@ class PhantomGamesBotCommands(commands.Cog):
         command_list.sort()
         await ctx.respond(f"List of all the current custom commands: {command_list}")
 
-    @bridge.bridge_command(name="pb",
-        description="Get a list of personal bests for a specified game.",
-        usage="game_name",
-        help="Get a list of all PB's for a given game.\nUsage:\n\t!pb {Game name}\n\tExample: !pb paper mario")
-    async def get_pb(self, ctx, game: SrcGames):
-        self.bot.commands_since_new_status += 1
-        await ctx.defer()
-        categories = self.speedrun.get_categories(game)
-        print(f"Categories found for {game}: {categories}")
-        response = ""
-        for category in categories:
-            response += self.speedrun.get_pb(game, category, True) + "\n"
-        await ctx.respond(response)
-
     @bridge.bridge_command(name="speed",
         description="Recommends the caller a random game from speedrun.com")
     @discord.option("search",
@@ -76,14 +62,7 @@ class PhantomGamesBotCommands(commands.Cog):
         self.bot.commands_since_new_status += 1
         await ctx.defer()
         if name is not None and len(name) > 0:
-            if name.startswith("user:"):
-                message = await ctx.respond("One second, looking up users on src can take a bit")
-                name = name[len("user:"):]
-                game = self.speedrun.get_random_user_game(name)
-                await message.respond(content=f"Would be really cool if {name} would speedrun {game}!")
-                return
-            else:
-                game = self.speedrun.get_random_category(name)
+            game = self.speedrun.get_random_category(name)
         else:
             game = self.speedrun.get_random_game()
         await ctx.respond(f"{ctx.author.mention} You should try speedrunning {game}!")

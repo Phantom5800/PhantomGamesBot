@@ -17,12 +17,11 @@ class MMBN1_Dashboard(wx.Panel):
         self.Bind(event=wx.EVT_KEY_UP, handler=self.on_key_up)
 
     def on_key_up(self, event):
-        #wx.LogMessage(event.KeyCode)
-        if event.KeyCode == wx.WXK_CONTROL:
+        if event.KeyCode == wx.WXK_NUMPAD1:
             self.chipCount = self.chipCount + 1
-        elif event.KeyCode == wx.WXK_NUMPAD_SUBTRACT:
+        elif event.KeyCode == wx.WXK_NUMPAD2:
             self.chipCount = self.chipCount - 1
-        elif event.KeyCode == 104 or event.KeyCode == 72:
+        elif event.KeyCode == wx.WXK_NUMPAD7:
             self.chipCount = 0
         self.chipCountText.SetLabel(f"RNG Chips(12): {self.chipCount}")
 
@@ -47,5 +46,4 @@ def runGUIThread():
 guiThread = threading.Thread(target=runGUIThread)
 
 def run_GUI(eventLoop, sharedResources):
-    #runGUIThread()
     guiThread.start()

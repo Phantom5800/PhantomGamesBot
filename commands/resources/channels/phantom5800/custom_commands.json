@@ -72,7 +72,7 @@
   "hi": {
     "response": "hi $user",
     "cooldown": 10,
-    "last_use": 1785075136.119086
+    "last_use": 1791109270.034117
   },
   "!fp": {
     "response": "/announce Paper Mario Practice Rom releases: https://github.com/JCog/fp/releases",
@@ -172,7 +172,7 @@
   "!settings": {
     "response": "basil",
     "cooldown": 0,
-    "last_use": 1778938075.740546
+    "last_use": 1791109034.308046
   },
   "!borng": {
     "response": "During Bo 1, Bo has a 25% chance of picking any of four options: slap, side step, grab and do nothing. Slap beats 2 of those options and therefore wins 50% of the time. During Bo 2, Bo has a 50% chance of slapping, 25% chance of sidestep and 25% grab, therefore grab wins against slap 50% of the time, but slap is faster if you get it first",
@@ -249,5 +249,15 @@
     "response": "Hold L during cutscene; let go of it after you hear the target so the direction below is accurate. FRONT = get back on land and jump attack. LEFT = sidehop right. RIGHT = jump attack instantly. BOTTOM = b attack/do nothing (thanks glubb)",
     "cooldown": 0,
     "last_use": 0
+  },
+  "!games": {
+    "response": "Pok\u00e9mon LeafGreen, Mega Man Battle Network 6: Cybeast Gregar, The Legend of Zelda: The Minish Cap, Paper Mario, Kirby 64: The Crystal Shards",
+    "cooldown": 0,
+    "last_use": 0
+  },
+  "!basil": {
+    "response": "settings",
+    "cooldown": 0,
+    "last_use": 1791109036.887763
   }
 }

@@ -90,7 +90,8 @@ def run_bsky_bot_markov(handle:str, password:str, eventLoop, markovHandler: Mark
             now = datetime.now()
             timelapse = now - last_tweet_time
             if (timelapse.days >= 1 or timelapse.seconds / 3600 >= 14) and now.hour > 10:
-                await utils.events.twitchevents.social_media_generated_post(markovHandler.get_markov_string())
+                msg = markovHandler.get_markov_string()
+                await utils.events.twitchevents.social_media_generated_post(msg)
                 # Update last message time
                 last_tweet_time = datetime.now()
                 print(f"[{datetime.now()}] Generated Social Media Post: {msg}")
