@@ -1,12 +1,10 @@
 import random
-import re
 import srcomapi
 from datetime import date
 
 class SrcomApi:
     def __init__(self):
         self.api = srcomapi.SpeedrunCom()
-        self.category_prog = re.compile(r"(.*) (?:\[([^]]+)\])")
 
     '''
     Test function to get a random category for a game

@@ -1,4 +1,3 @@
-import inspect
 from enum import Enum
 
 class TwitchEventType(Enum):

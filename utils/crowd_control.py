@@ -1,7 +1,5 @@
+import os, random, shutil
 from datetime import datetime
-import os
-import random
-import shutil
 
 cc_root = "./commands/resources/crowdcontrol"
 cc_multiplier = int(os.environ.get("CC_MULTIPLIER", "1"))

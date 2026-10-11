@@ -1,10 +1,6 @@
-import json
-import os
-import threading
+import json, os, random, threading
 from copy import deepcopy
 from datetime import datetime
-import locale
-import random
 
 class QuoteHandler:
     def __init__(self, filename: str = "quotes.json"):

@@ -1,9 +1,15 @@
-import discord
-import os
-import time
+# standard libraries
+import os, time
 from datetime import datetime, timedelta
+
+# discord
+import discord
 from discord.ext import bridge, commands
+
+# twitch
 from twitchio.http import Route
+
+# PhantomGamesBot
 from utils.ext_classes import AliasDict
 from utils.utils import get_twitch_user
 

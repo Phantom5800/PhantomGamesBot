@@ -1,6 +1,7 @@
-import os
-import random
-import re
+# standard libraries
+import random, re
+
+# twitch
 from twitchio import Channel
 from twitchio.ext import commands as twitchCommands
 

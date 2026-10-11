@@ -1,9 +1,6 @@
 import os
 from commands import *
-from frontend.bsky_bot import run_bsky_bot, run_bsky_bot_markov
-from frontend.twitch_bot import run_twitch_bot
-from frontend.discord_bot import run_discord_bot
-from frontend.gui_interface import run_GUI
+from frontend import *
 from utils.utils import tryParseInt
 
 def run():

@@ -1,10 +1,10 @@
-import googleapiclient.discovery
-import json
-import os
-import threading
-import traceback
+# standard libraries
+import json, os, threading, traceback
 from copy import deepcopy
-from datetime import datetime, timedelta
+from datetime import timedelta
+
+# google
+import googleapiclient.discovery
 
 class YouTubeData:
     def __init__(self):

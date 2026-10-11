@@ -1,13 +1,16 @@
-import discord
-import json
-import os
+# standard libraries
+import json, os
 from copy import deepcopy
 from datetime import datetime, timedelta, timezone
-from discord.ext import bridge, commands
 from enum import IntEnum
-from frontend.discord_cogs.discord_default_polls import defaultPolls
-from threading import Timer
 from typing import Optional
+
+# discord
+import discord
+from discord.ext import bridge, commands
+
+# PhantomGamesBot
+from .discord_default_polls import defaultPolls
 
 class PollButton(discord.ui.Button):
     def __init__(self, poll_manager, poll_id: int, label=None, emoji=None, row=None, show_count:bool = False):
