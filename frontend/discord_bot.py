@@ -1,18 +1,16 @@
-import asyncio
-import discord
-import json
-import os
-import random
+# standard libraries
+import os, random
+from datetime import datetime, time, timezone
 from time import localtime
-import utils.events
-from copy import deepcopy
-from datetime import datetime, time, timedelta, timezone
-from discord.ext import bridge, commands, tasks
+
+# discord
+import discord
+from discord.ext import tasks
 from discord.ext.bridge import Bot
-from frontend.discord_cogs.discord_commands import PhantomGamesBotCommands
-from frontend.discord_cogs.discord_poll import PhantomGamesBotPolls
-from frontend.discord_cogs.discord_poll import PhantomGamesBotSimplePolls
-from frontend.discord_cogs.discord_schedule import PhantomGamesBotSchedule
+
+# PhantomGamesBot
+import utils.events
+from frontend.discord_cogs import PhantomGamesBotCommands, PhantomGamesBotSchedule
 from utils.utils import *
 
 # 21:00 UTC = 2:00PM PDT / 1:00PM PST
@@ -219,8 +217,6 @@ class PhantomGamesBot(Bot):
 def run_discord_bot(eventLoop, sharedResources):
     bot = PhantomGamesBot(sharedResources)
     bot.add_cog(PhantomGamesBotCommands(bot, sharedResources))
-    bot.add_cog(PhantomGamesBotPolls(bot))
-    #bot.add_cog(PhantomGamesBotSimplePolls(bot))
     bot.add_cog(PhantomGamesBotSchedule(bot, sharedResources))
     async def runBot():
         await bot.start(os.environ['DISCORD_TOKEN'])

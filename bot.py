@@ -1,11 +1,5 @@
-import asyncio
 import os
-from commands.anilist import Anilist
-from commands.custom_commands import CustomCommands
-from commands.quotes import QuoteHandler
-from commands.src import SrcomApi
-from commands.markov import MarkovHandler
-from commands.youtube import YouTubeData
+from commands import *
 from frontend.bsky_bot import run_bsky_bot, run_bsky_bot_markov
 from frontend.twitch_bot import run_twitch_bot
 from frontend.discord_bot import run_discord_bot

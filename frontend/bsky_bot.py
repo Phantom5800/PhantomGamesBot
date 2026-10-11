@@ -1,9 +1,12 @@
-from atproto import Client, client_utils, models
-from commands.markov import MarkovHandler
+# standard libraries
+import asyncio, os, random
 from datetime import datetime
-import asyncio
-import os
-import random
+
+# atproto
+from atproto import Client, client_utils, models
+
+# PhantomGamesBot
+from commands import MarkovHandler
 import utils.events
 
 class PhantomGamesBot:

@@ -1,9 +1,14 @@
-import discord
+# standard libraries
 from datetime import datetime, timedelta, timezone
-from commands.slots import Slots, SlotsMode
-from discord.ext import bridge, commands
-from utils.utils import *
 from enum import StrEnum
+
+# discord
+import discord
+from discord.ext import bridge, commands
+
+# PhantomGamesBot
+from commands import Slots, SlotsMode
+from utils.utils import *
 
 class SrcGames(StrEnum):
     PaperMario = "Paper Mario"

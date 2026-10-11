@@ -1,17 +1,19 @@
-from datetime import datetime, timedelta, timezone
-import json
-import os
-import random
-import re
-import utils.events
+# standard libraries
+import json, os, random, re
 from copy import deepcopy
+from datetime import datetime, timezone
 from typing import Optional
+
+# twitchio
 from twitchio import PartialUser
 from twitchio.http import Route
-from twitchio.ext import commands, pubsub, routines
+from twitchio.ext import commands, routines
 from twitchio.ext.eventsub.models import NotificationEvent
 from twitchio.ext.eventsub.websocket import EventSubWSClient
-from commands.slots import Slots, SlotsMode
+
+# PhantomGamesBot
+import utils.events
+from commands import Slots, SlotsMode
 from utils.utils import *
 from utils.crowd_control import *
 

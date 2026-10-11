@@ -1,49 +1,34 @@
-import threading
-import wx
+import threading, wx
+import frontend.gui as gui
 
-header_font = None
-label_font = None
+class PhantomGamesBotGUI:
+    def __init__(self, sharedResources):
+        self.sharedResources = sharedResources
+        self.worker_thread = threading.Thread(target=self.run)
 
-class MMBN1_Dashboard(wx.Panel):
-    def __init__(self, *args, **kw):
-        super(MMBN1_Dashboard, self).__init__(*args, **kw)
+        self.wx_app = None
+        self.wx_frame = None
+        self.header_font = None
+        self.label_font = None
 
-        self.box = wx.StaticBox(self, label="Battle Network Dashboard", pos=wx.Point(10,10), size=wx.Size(300,60))
-        self.box.SetFont(header_font)
-        self.chipCountText = wx.StaticText(self.box, label="RNG Chips(12): 0", pos=wx.Point(10,30))
-        self.chipCountText.SetFont(label_font)
+    def run(self):
+        self.wx_app = wx.App()
+        self.wx_frame = wx.Frame(None, 
+            title = "PhantomGamesBot",
+            size = wx.Size(825,1300),
+            style = wx.DEFAULT_FRAME_STYLE & ~(wx.RESIZE_BORDER | wx.MAXIMIZE_BOX | wx.CLOSE_BOX)
+        )
+        self.header_font = wx.Font(wx.FontInfo(14).Bold().Underlined())
+        self.label_font = wx.Font(wx.FontInfo(12))
 
-        self.chipCount = 0
-        self.Bind(event=wx.EVT_KEY_UP, handler=self.on_key_up)
+        self.mmbn = gui.MMBN1_Dashboard(self, self.wx_frame)
 
-    def on_key_up(self, event):
-        if event.KeyCode == wx.WXK_NUMPAD1:
-            self.chipCount = self.chipCount + 1
-        elif event.KeyCode == wx.WXK_NUMPAD2:
-            self.chipCount = self.chipCount - 1
-        elif event.KeyCode == wx.WXK_NUMPAD7:
-            self.chipCount = 0
-        self.chipCountText.SetLabel(f"RNG Chips(12): {self.chipCount}")
+        self.wx_frame.Show()
+        self.wx_app.MainLoop()
 
-def runGUIThread():
-    global header_font
-    global label_font
-
-    app = wx.App()
-    frame = wx.Frame(None, 
-        title = "PhantomGamesBot",
-        size = wx.Size(825,1300),
-        style = wx.DEFAULT_FRAME_STYLE & ~(wx.RESIZE_BORDER | wx.MAXIMIZE_BOX | wx.CLOSE_BOX)
-    )
-    header_font = wx.Font(wx.FontInfo(14).Bold().Underlined())
-    label_font = wx.Font(wx.FontInfo(12))
-
-    mmbn = MMBN1_Dashboard(frame)
-
-    frame.Show()
-    app.MainLoop()
-
-guiThread = threading.Thread(target=runGUIThread)
+    def start(self):
+        self.worker_thread.start()
 
 def run_GUI(eventLoop, sharedResources):
-    guiThread.start()
+    guiBot = PhantomGamesBotGUI(sharedResources)
+    guiBot.start()
