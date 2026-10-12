@@ -6,6 +6,9 @@ from datetime import timedelta
 # google
 import googleapiclient.discovery
 
+# PhantomGamesBot
+from utils.utils import getenv
+
 class YouTubeData:
     def __init__(self):
         self.access_lock = threading.RLock()
@@ -25,7 +28,7 @@ class YouTubeData:
             print("YouTube data has been initialized")
 
     def setup_youtube_api(self):
-        self.youtube = googleapiclient.discovery.build("youtube", "v3", developerKey=os.environ.get('YOUTUBE_API_KEY'))
+        self.youtube = googleapiclient.discovery.build("youtube", "v3", developerKey=getenv('YOUTUBE_API_KEY'))
 
     def load_youtube_config(self):
         self.access_lock.acquire()

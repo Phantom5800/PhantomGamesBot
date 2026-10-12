@@ -1,8 +1,9 @@
 import os, random, shutil
 from datetime import datetime
+from utils.utils import getenv_int
 
 cc_root = "./commands/resources/crowdcontrol"
-cc_multiplier = int(os.environ.get("CC_MULTIPLIER", "1"))
+cc_multiplier = getenv_int("CC_MULTIPLIER", 1)
 
 current_threshold = 5000
 threshold_modifier = 2500

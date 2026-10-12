@@ -1,5 +1,5 @@
 # standard libraries
-import random, re
+import os, random, re
 
 # twitch
 from twitchio import Channel
@@ -16,6 +16,16 @@ def tryParseInt(value: str, default: int = 0) -> int:
         return int(value)
     except ValueError:
         return default
+    
+def getenv(key:str, default:str=None) -> str:
+    return os.environ.get(key, default)
+
+def getenv_int(key: str, default: int = 0) -> int:
+    value = os.environ.get(key)
+    if value is None:
+        return default
+    else:
+        return tryParseInt(value, default)
 
 twitch_user_cache = {}
 

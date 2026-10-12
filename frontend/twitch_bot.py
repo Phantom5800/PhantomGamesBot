@@ -21,12 +21,12 @@ unix_epoch = datetime.strptime("1970-1-1 00:00:00.000000+0000", "%Y-%m-%d %H:%M:
 
 class PhantomGamesBot(commands.Bot):
     def __init__(self, sharedResources):
-        self.channel_list = os.environ['TWITCH_CHANNEL'].split(',')
+        self.channel_list = getenv('TWITCH_CHANNEL').split(',')
         super().__init__(
-            token=os.environ['TWITCH_OAUTH_TOKEN'],
-            client_id=os.environ['TWITCH_CLIENT_ID'],
-            nick=os.environ['BOT_NICK'],
-            prefix=os.environ['BOT_PREFIX']
+            token=getenv('TWITCH_OAUTH_TOKEN'),
+            client_id=getenv('TWITCH_CLIENT_ID'),
+            nick=getenv('BOT_NICK'),
+            prefix=getenv('BOT_PREFIX', '!')
         )
 
         # event tracking
@@ -56,18 +56,18 @@ class PhantomGamesBot(commands.Bot):
             self.timer_queue[channel] = []
             self.current_timer_msg[channel] = 0
             self.messages_since_timer[channel] = 0
-            self.timer_lines[channel] = tryParseInt(os.environ['TIMER_CHAT_LINES'], 5)
+            self.timer_lines[channel] = getenv_int('TIMER_CHAT_LINES', 5)
             self.auto_chat_msg[channel] = 0
             try:
-                self.auto_chat_lines_mod[channel] = tryParseInt(os.environ[f'AUTO_CHAT_LINES_MOD_{channel}'], 10)
-                self.auto_chat_lines[channel] = tryParseInt(os.environ[f'AUTO_CHAT_LINES_MIN_{channel}'], 20) + random.randint(0, self.auto_chat_lines_mod[channel])
+                self.auto_chat_lines_mod[channel] = getenv_int(f'AUTO_CHAT_LINES_MOD_{channel}', 10)
+                self.auto_chat_lines[channel] = getenv_int(f'AUTO_CHAT_LINES_MIN_{channel}', 20) + random.randint(0, self.auto_chat_lines_mod[channel])
             except:
                 self.auto_chat_lines_mod[channel] = 10
                 self.auto_chat_lines[channel] = 20 + random.randint(0, self.auto_chat_lines_mod[channel])
 
         # markov
         self.markov_data_store = True
-        self.markov_store_minlen = int(os.environ['MARKOV_STORE_MIN'])
+        self.markov_store_minlen = getenv_int('MARKOV_STORE_MIN', 0)
         self.banned_words = []
         with open('./commands/resources/bannedwords.txt', 'r', encoding="utf-8") as banned_words:
             self.banned_words = banned_words.readlines()
@@ -92,13 +92,13 @@ class PhantomGamesBot(commands.Bot):
         # load relevant data
         self.load_timer_events()
         print("=======================================")
-        print(f"Twitch: {os.environ['BOT_NICK']} is online!")
+        print(f"Twitch: {getenv('BOT_NICK')} is online!")
 
         # start message timer
         try:
             self.timer_update.start()
             self.automatic_chat.start()
-            if int(os.environ.get("CC_ENABLE")) >= 1:
+            if getenv_int("CC_ENABLE", default=0) >= 1:
                 self.periodic_cc_update.start()
         except RuntimeError:
             print("Timer is already running")
@@ -162,14 +162,14 @@ class PhantomGamesBot(commands.Bot):
 
     async def post_chat_announcement(self, streamer, announcement: str):
         bot = self.create_user(int(self.user_id), self.nick)
-        await streamer.chat_announcement(token=os.environ['TWITCH_OAUTH_TOKEN'], moderator_id=bot.id, message=announcement, color=self.random_announcement_color())
+        await streamer.chat_announcement(token=getenv('TWITCH_OAUTH_TOKEN'), moderator_id=bot.id, message=announcement, color=self.random_announcement_color())
 
     '''
     Runs every time a message is sent in chat.
     '''
     async def event_message(self, message):
         # make sure the bot ignores itself
-        if (message.author is not None and message.author.name.lower() == os.environ['BOT_NICK'].lower()) or message.author is None:
+        if (message.author is not None and message.author.name.lower() == getenv('BOT_NICK').lower()) or message.author is None:
             return
 
         # get the context of the current message
@@ -213,7 +213,7 @@ class PhantomGamesBot(commands.Bot):
                     await super().event_message(message)
 
                     # save twitch messages that are not commands, links and meet a minimum length requirement
-                    self_post = message.content.startswith(os.environ['BOT_PREFIX'])
+                    self_post = message.content.startswith(getenv('BOT_PREFIX', '!'))
                     if self_post:
                         return
 
@@ -398,7 +398,7 @@ class PhantomGamesBot(commands.Bot):
     #####################################################################################################
     async def get_ad_schedule(self, streamer: PartialUser):
         streamer_id = streamer.id
-        token = os.environ.get(f"TWITCH_CHANNEL_TOKEN_{streamer.name.lower()}")
+        token = getenv(f"TWITCH_CHANNEL_TOKEN_{streamer.name.lower()}")
 
         endpoint = Route("GET", "channels/ads", query=[("broadcaster_id", streamer_id)], token=token)
 
@@ -460,7 +460,7 @@ class PhantomGamesBot(commands.Bot):
     '''
     Periodic routine to send timer based messages.
     '''
-    @routines.routine(minutes=int(os.environ['TIMER_MINUTES']), wait_first=True)
+    @routines.routine(minutes=getenv_int('TIMER_MINUTES', 20), wait_first=True)
     async def timer_update(self):
         # update sub count file
         streamer = await self.get_channel("phantom5800").user()
@@ -673,13 +673,13 @@ class PhantomGamesBot(commands.Bot):
     '''
     Periodically posts automatically generated messages to chat.
     '''
-    @routines.routine(minutes=int(os.environ['AUTO_CHAT_MINUTES']), wait_first=True)
+    @routines.routine(minutes=getenv_int('AUTO_CHAT_MINUTES', 25), wait_first=True)
     async def automatic_chat(self):
         for channel in self.channel_list:
             if self.auto_chat_msg[channel] >= self.auto_chat_lines[channel]:
                 self.auto_chat_msg[channel] = 0
                 try:
-                    self.auto_chat_lines[channel] = tryParseInt(os.environ[f'AUTO_CHAT_LINES_MIN_{channel}'], 20) + random.randint(0, self.auto_chat_lines_mod[channel])
+                    self.auto_chat_lines[channel] = getenv_int(f'AUTO_CHAT_LINES_MIN_{channel}', 20) + random.randint(0, self.auto_chat_lines_mod[channel])
                 except:
                     self.auto_chat_lines[channel] = 20 + random.randint(0, self.auto_chat_lines_mod[channel])
 
@@ -716,7 +716,7 @@ class PhantomGamesBot(commands.Bot):
         streamer = await ctx.message.channel.user()
         try:
             twitch_user = await ctx.message.author.user()
-            follow_event = await streamer.fetch_channel_followers(token=os.environ['TWITCH_OAUTH_TOKEN'], user_id=twitch_user.id)
+            follow_event = await streamer.fetch_channel_followers(token=getenv('TWITCH_OAUTH_TOKEN'), user_id=twitch_user.id)
         except Exception as e:
             print(e)
             await ctx.send(f"{ctx.message.author.mention} something went wrong, oops")
@@ -809,7 +809,7 @@ class PhantomGamesBot(commands.Bot):
     # goals
     #####################################################################################################
     async def get_goal_msg(self, streamer, follower: bool = True) -> str:
-        token = os.environ.get(f'TWITCH_CHANNEL_TOKEN_{streamer.name.lower()}')
+        token = getenv(f'TWITCH_CHANNEL_TOKEN_{streamer.name.lower()}')
         generic_msg = "Be sure to follow the stream, every follower is greatly appreciated and there are no alerts for new followers, so don\'t worry about getting called out of lurk!"
         if token:
             goals = await streamer.fetch_goals(token=token)
@@ -830,7 +830,7 @@ class PhantomGamesBot(commands.Bot):
             return None
 
     async def get_subscriber_count(self, streamer, plus_points: bool = False) -> int:
-        token = os.environ.get(f'TWITCH_CHANNEL_TOKEN_{streamer.name.lower()}')
+        token = getenv(f'TWITCH_CHANNEL_TOKEN_{streamer.name.lower()}')
         if token:
             count = 0
             sub_list = await streamer.fetch_subscriptions(token=token)
@@ -886,22 +886,22 @@ class PhantomGamesBot(commands.Bot):
     @commands.command()
     async def sendcc(self, ctx: commands.Context, bits: int):
         if ctx.message.author.is_broadcaster:
-            if int(os.environ.get("CC_ENABLE")) == 1:
+            if getenv_int("CC_ENABLE") == 1:
                 handle_generic_cc_bits(bits)
-            elif int(os.environ.get("CC_ENABLE")) == 2:
+            elif getenv_int("CC_ENABLE") == 2:
                 handle_pm64_cc_bits(bits)
 
     @commands.command()
     async def sendcc2(self, ctx: commands.Context, subs: int):
         if ctx.message.author.is_broadcaster:
-            if int(os.environ.get("CC_ENABLE")) == 1:
+            if getenv_int("CC_ENABLE") == 1:
                 handle_generic_cc_subs(subs)
-            elif int(os.environ.get("CC_ENABLE")) == 2:
+            elif getenv_int("CC_ENABLE") == 2:
                 handle_pm64_cc_subs(subs)
 
-    @routines.routine(seconds=int(os.environ.get("CC_UPDATE_SECONDS", 10)), wait_first=True)
+    @routines.routine(seconds=getenv_int("CC_UPDATE_SECONDS", 10), wait_first=True)
     async def periodic_cc_update(self):
-        interval = int(os.environ.get("CC_UPDATE_SECONDS", 10))
+        interval = getenv_int("CC_UPDATE_SECONDS", 10)
         handle_cc_periodic_update(interval)
 
     #####################################################################################################
@@ -913,7 +913,7 @@ class PhantomGamesBot(commands.Bot):
         channel_id = channel_info.user.id
 
         try:
-            channel_token = os.environ.get(f"TWITCH_CHANNEL_TOKEN_{channel}", None)
+            channel_token = getenv(f"TWITCH_CHANNEL_TOKEN_{channel}", None)
             # register all events that require channel access
             if channel_token:
                 client_name = f"{channel}_channel"
@@ -944,7 +944,7 @@ class PhantomGamesBot(commands.Bot):
             print(f"[Eventsub Error] Error subscribing to events on {channel}({channel_id}) with channel token: {e}")
 
         try:
-            mod_token = os.environ.get("TWITCH_OAUTH_TOKEN")
+            mod_token = getenv("TWITCH_OAUTH_TOKEN")
             client_name = f"{channel}_mod"
             self.esclient[client_name] = EventSubWSClient(self)
             # notifications
@@ -995,7 +995,7 @@ class PhantomGamesBot(commands.Bot):
             for channel in self.connected_channels:
                 if channel.name.lower() == streamer.name.lower():
                     try:
-                        await streamer.add_channel_vip(os.environ.get(f"TWITCH_CHANNEL_TOKEN_{streamer.name.lower()}"), rewardData.user.id)
+                        await streamer.add_channel_vip(getenv(f"TWITCH_CHANNEL_TOKEN_{streamer.name.lower()}"), rewardData.user.id)
                         await channel.send(f"Congrats to {rewardData.user.name} for becoming a VIP!")
                     except:
                         await channel.send(f"{rewardData.user.name} was not able to automatically be assigned VIP, the streamer will try and get to this as soon as possible!")
@@ -1011,9 +1011,9 @@ class PhantomGamesBot(commands.Bot):
             print(f"[Eventsub {datetime.now()}] {cheerData.user.name.lower()} cheered {cheerData.bits} bits!")
 
         # pass bit amounts to crowd control
-        if int(os.environ.get("CC_ENABLE")) == 1:
+        if getenv_int("CC_ENABLE") == 1:
             handle_generic_cc_bits(cheerData.bits)
-        elif int(os.environ.get("CC_ENABLE")) == 2:
+        elif getenv_int("CC_ENABLE") == 2:
             handle_pm64_cc_bits(cheerData.bits)
 
         # record bit cheers
@@ -1037,9 +1037,9 @@ class PhantomGamesBot(commands.Bot):
         if not subData.is_gift:
             print(f"[Eventsub {datetime.now()}] {subData.user.name.lower()} subscribed at tier {subData.tier}")
 
-            if int(os.environ.get("CC_ENABLE")) == 1:
+            if getenv_int("CC_ENABLE") == 1:
                 handle_generic_cc_subs(1, subData.tier)
-            elif int(os.environ.get("CC_ENABLE")) == 2:
+            elif getenv_int("CC_ENABLE") == 2:
                 handle_pm64_cc_subs(1, subData.tier)
 
             with open('C:/StreamAssets/LatestSub.txt', 'w', encoding="utf-8") as last_sub:
@@ -1070,9 +1070,9 @@ class PhantomGamesBot(commands.Bot):
             print(f"[Eventsub {datetime.now()}] {subData.user.name.lower()} gifted {subData.total} tier {subData.tier} subs!")
 
         # pass sub amounts to crowd control
-        if int(os.environ.get("CC_ENABLE")) == 1:
+        if getenv_int("CC_ENABLE") == 1:
             handle_generic_cc_subs(subData.total, subData.tier)
-        elif int(os.environ.get("CC_ENABLE")) == 2:
+        elif getenv_int("CC_ENABLE") == 2:
             handle_pm64_cc_subs(subData.total, subData.tier)
 
     '''
@@ -1155,7 +1155,7 @@ class PhantomGamesBot(commands.Bot):
     async def event_eventsub_notification_raid(self, event: NotificationEvent):
         raidData = event.data
         if raidData.viewer_count > 1: # filters out potential spam, rarely an issue, but it has come up before
-            await raidData.reciever.shoutout(token=os.environ['TWITCH_OAUTH_TOKEN'], to_broadcaster_id=raidData.raider.id, moderator_id=self.user_id)
+            await raidData.reciever.shoutout(token=getenv('TWITCH_OAUTH_TOKEN'), to_broadcaster_id=raidData.raider.id, moderator_id=self.user_id)
         print(f"[Eventsub {datetime.now()}] {raidData.raider.name} raided with {raidData.viewer_count} viewers")
 
     #####################################################################################################

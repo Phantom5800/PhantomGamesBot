@@ -1,7 +1,6 @@
-import os
 from commands import *
 from frontend import *
-from utils.utils import tryParseInt
+from utils.utils import getenv, getenv_int
 
 def run():
     # Shared resources
@@ -27,24 +26,25 @@ def run():
     sharedResources.twitch_bot = run_twitch_bot(sharedResources)
 
     # bsky bot for posting / deleting go live notifications
-    bsky_handle = os.environ.get("BSKY_HANDLE")
-    bsky_pw = os.environ.get("BSKY_PW")
+    bsky_handle = getenv("BSKY_HANDLE")
+    bsky_pw = getenv("BSKY_PW")
     if bsky_handle and bsky_pw:
         sharedResources.bsky_streamer = run_bsky_bot(bsky_handle, bsky_pw)
 
     # bsky bot for posting markov strings
-    bsky_bot_handle = os.environ.get("BSKY_BOT_HANDLE")
-    bsky_bot_pw = os.environ.get("BSKY_BOT_PW")
+    bsky_bot_handle = getenv("BSKY_BOT_HANDLE")
+    bsky_bot_pw = getenv("BSKY_BOT_PW")
     if bsky_bot_handle and bsky_bot_pw:
         run_bsky_bot_markov(bsky_bot_handle, bsky_bot_pw, sharedResources.twitch_bot.loop, sharedResources.markovHandler)
 
     # verify and run discord bot
     # TODO: better verification, but empty is probably good enough
-    if os.environ['DISCORD_TOKEN'] is not None and len(os.environ['DISCORD_TOKEN']) > 0:
+    discord_token = getenv('DISCORD_TOKEN')
+    if discord_token and len(discord_token) > 0:
         sharedResources.discord_bot = run_discord_bot(sharedResources.twitch_bot.loop, sharedResources)
 
     # load the GUI window
-    if tryParseInt(os.environ.get('ENABLE_GUI', 1)):
+    if getenv_int('ENABLE_GUI', 1):
         run_GUI(sharedResources.twitch_bot.loop, sharedResources)
 
     sharedResources.twitch_bot.run()

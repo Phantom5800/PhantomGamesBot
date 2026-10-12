@@ -11,7 +11,7 @@ from twitchio.http import Route
 
 # PhantomGamesBot
 from utils.ext_classes import AliasDict
-from utils.utils import get_twitch_user
+from utils.utils import get_twitch_user, getenv
 
 LocalStartTimeHours = 14 # 2pm
 
@@ -188,6 +188,6 @@ class PhantomGamesBotSchedule(commands.Cog):
             body["category_id"] = category_id
 
         print(body)
-        endpoint = Route("POST", "schedule/segment", query=query, body=body, token=os.environ.get(f"TWITCH_CHANNEL_TOKEN_{channel}"))
+        endpoint = Route("POST", "schedule/segment", query=query, body=body, token=getenv(f"TWITCH_CHANNEL_TOKEN_{channel}"))
         await self.twitch_bot._http.request(endpoint)
 

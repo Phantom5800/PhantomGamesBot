@@ -1,5 +1,6 @@
 import threading, wx
 import frontend.gui as gui
+from utils.utils import getenv_int
 
 class PhantomGamesBotGUI:
     def __init__(self, sharedResources):
@@ -13,9 +14,11 @@ class PhantomGamesBotGUI:
 
     def run(self):
         self.wx_app = wx.App()
+        window_width = getenv_int("GUI_WIDTH", 825)
+        window_height = getenv_int("GUI_HEIGHT", 1300)
         self.wx_frame = wx.Frame(None, 
             title = "PhantomGamesBot",
-            size = wx.Size(825,1300),
+            size = wx.Size(window_width, window_height),
             style = wx.DEFAULT_FRAME_STYLE & ~(wx.RESIZE_BORDER | wx.MAXIMIZE_BOX | wx.CLOSE_BOX)
         )
         self.header_font = wx.Font(wx.FontInfo(14).Bold().Underlined())

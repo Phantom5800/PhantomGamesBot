@@ -23,7 +23,7 @@ youtube_update_time = time(hour=21 - localtime().tm_isdst,
 
 class PhantomGamesBot(Bot):
     def __init__(self, sharedResources):
-        self.account = os.environ['DISCORD_SHARED_API_PROFILE'] # profile to use for shared api's
+        self.account = getenv('DISCORD_SHARED_API_PROFILE') # profile to use for shared api's
 
         # important channel id's that the bot can post messages to
         self.channels = {
@@ -50,7 +50,7 @@ class PhantomGamesBot(Bot):
         intents.presences = True
 
         super().__init__(
-            command_prefix=os.environ['BOT_PREFIX'],
+            command_prefix=getenv('BOT_PREFIX', '!'),
             intents=intents
         )
 
@@ -89,8 +89,8 @@ class PhantomGamesBot(Bot):
     async def on_ready(self):
         print("=======================================")
         print(f"Discord [{datetime.now()}]: {self.user} is online!")
-        self.server = self.get_guild(int(os.environ['DISCORD_SERVER_ID']))
-        self.live_role = self.server.get_role(int(os.environ['DISCORD_LIVE_NOW_ID']))
+        self.server = self.get_guild(getenv_int('DISCORD_SERVER_ID'))
+        self.live_role = self.server.get_role(getenv_int('DISCORD_LIVE_NOW_ID'))
         await self.set_random_status()
         print("=======================================")
 
@@ -146,7 +146,7 @@ class PhantomGamesBot(Bot):
     async def toggle_live_role(self, member, is_live: bool):
         # apply / remove the "Live Now" role from anyone marked as a "Streamer"
         unrestricted = True
-        if unrestricted or member.get_role(int(os.environ['DISCORD_STREAMER_ROLE_ID'])) is not None:
+        if unrestricted or member.get_role(getenv_int('DISCORD_STREAMER_ROLE_ID')) is not None:
             if is_live:
                 await member.add_roles(self.live_role)
             else:
@@ -219,7 +219,7 @@ def run_discord_bot(eventLoop, sharedResources):
     bot.add_cog(PhantomGamesBotCommands(bot, sharedResources))
     bot.add_cog(PhantomGamesBotSchedule(bot, sharedResources))
     async def runBot():
-        await bot.start(os.environ['DISCORD_TOKEN'])
+        await bot.start(getenv('DISCORD_TOKEN'))
 
     eventLoop.create_task(runBot())
     return bot
