@@ -12,10 +12,8 @@ from twitchio.ext.eventsub.models import NotificationEvent
 from twitchio.ext.eventsub.websocket import EventSubWSClient
 
 # PhantomGamesBot
-import utils.events
 from commands import Slots, SlotsMode
-from utils.utils import *
-from utils.crowd_control import *
+from utils import *
 
 unix_epoch = datetime.strptime("1970-1-1 00:00:00.000000+0000", "%Y-%m-%d %H:%M:%S.%f%z")
 
@@ -1110,7 +1108,7 @@ class PhantomGamesBot(commands.Bot):
         hypeData = event.data
         print(f"[Eventsub {datetime.now()}] Hype train started at {hypeData.started_at}")
         notif = "A Hype Train has started!"
-        await utils.events.twitchevents.twitch_stream_event(hypeData.broadcaster.name, utils.events.TwitchEventType.HypeTrainStart, notif)
+        await TWITCH_EVENTS.twitch_stream_event(hypeData.broadcaster.name, TwitchEventType.HypeTrainStart, notif)
 
     '''
     Hype Train progress
@@ -1123,7 +1121,7 @@ class PhantomGamesBot(commands.Bot):
     '''
     async def event_eventsub_notification_channel_hypetrain_end(self, event: NotificationEvent):
         hypeData = event.data
-        await utils.events.twitchevents.twitch_stream_event(hypeData.broadcaster.name, utils.events.TwitchEventType.HypeTrainEnd)
+        await TWITCH_EVENTS.twitch_stream_event(hypeData.broadcaster.name, TwitchEventType.HypeTrainEnd)
         print(f"[Eventsub {datetime.now()}] Hype train ended at {hypeData.ended_at} at level {hypeData.level}")
 
     '''
@@ -1139,7 +1137,7 @@ class PhantomGamesBot(commands.Bot):
         streamtitle = await get_stream_title_for_user(self, streamOnlineData.broadcaster.name)
         game = await get_game_name_from_twitch_for_user(self, streamOnlineData.broadcaster.name)
         notif = f"{game} | {streamtitle}"
-        await utils.events.twitchevents.twitch_stream_event(streamOnlineData.broadcaster.name, utils.events.TwitchEventType.GoLive, notif)
+        await TWITCH_EVENTS.twitch_stream_event(streamOnlineData.broadcaster.name, TwitchEventType.GoLive, notif)
 
     '''
     Stream ended event
@@ -1147,7 +1145,7 @@ class PhantomGamesBot(commands.Bot):
     async def event_eventsub_notification_stream_end(self, event: NotificationEvent):
         streamOfflineData = event.data
         print(f"[Eventsub {datetime.now()}] Stream has ended for {streamOfflineData.broadcaster.name}")
-        await utils.events.twitchevents.twitch_stream_event(streamOfflineData.broadcaster.name, utils.events.TwitchEventType.EndStream)
+        await TWITCH_EVENTS.twitch_stream_event(streamOfflineData.broadcaster.name, utils.events.TwitchEventType.EndStream)
 
     '''
     Raid event
@@ -1169,12 +1167,12 @@ class PhantomGamesBot(commands.Bot):
         reason = banData.reason or "Unspecified reason"
         if banData.permanent:
             banString = f"❌ `{banData.user.name}` has been banned in **{banData.broadcaster.name}** by _{banData.moderator.name}_ for '{reason}'"
-            await utils.events.twitchevents.twitch_log(banData.broadcaster.name, banString)
+            await TWITCH_EVENTS.twitch_log(banData.broadcaster.name, banString)
         else:
             seconds_from_epoch = int((banData.ends_at - unix_epoch).total_seconds())
             discord_timestamp = f"<t:{seconds_from_epoch}:R>"
             timeoutString = f"❌ `{banData.user.name}` has been timed out in **{banData.broadcaster.name}** by _{banData.moderator.name}_ until {discord_timestamp} for '{reason}'"
-            await utils.events.twitchevents.twitch_log(banData.broadcaster.name, timeoutString)
+            await TWITCH_EVENTS.twitch_log(banData.broadcaster.name, timeoutString)
 
     '''
     User unbanned
@@ -1182,7 +1180,7 @@ class PhantomGamesBot(commands.Bot):
     async def event_eventsub_notification_unban(self, event: NotificationEvent):
         banData = event.data
         banString = f"✅ `{banData.user.name}` has been unbanned in **{banData.broadcaster.name}** by _{banData.moderator.name}_"
-        await utils.events.twitchevents.twitch_log(banData.broadcaster.name, banString)
+        await TWITCH_EVENTS.twitch_log(banData.broadcaster.name, banString)
 
     '''
     Unban request made
@@ -1192,7 +1190,7 @@ class PhantomGamesBot(commands.Bot):
         seconds_from_epoch = int((banData.created_at - unix_epoch).total_seconds())
         discord_timestamp = f"<t:{seconds_from_epoch}:f>"
         banString = f"[{discord_timestamp}] '{banData.user.name}' has created an unban request: '{banData.text}'"
-        await utils.events.twitchevents.twitch_log(banData.broadcaster.name, banString)
+        await TWITCH_EVENTS.twitch_log(banData.broadcaster.name, banString)
 
     '''
     Unban request resolved
@@ -1207,7 +1205,7 @@ class PhantomGamesBot(commands.Bot):
             banString = f"❌ '{banData.user.name}'\'s unban request has been denied in **{banData.broadcaster.name}** by **{moderator_name}**: '{banData.text}'"
         elif banData.status == 'canceled':
             banString = f"❌ '{banData.user.name}'\'s unban request has been canceled in **{banData.broadcaster.name}**: '{banData.text}'"
-        await utils.events.twitchevents.twitch_log(banData.broadcaster.name, banString)
+        await TWITCH_EVENTS.twitch_log(banData.broadcaster.name, banString)
 
     '''
     Unban request resolved
@@ -1221,7 +1219,7 @@ class PhantomGamesBot(commands.Bot):
             susString = f"❌ '{susData.user.name}' is marked as _restricted_ in **{susData.broadcaster.name}** by **{susData.moderator.name}**"
         else:
             susString = f"✅ '{susData.user.name}' is marked as _not suspicious_ in **{susData.broadcaster.name}** by **{susData.moderator.name}**"
-        await utils.events.twitchevents.twitch_log(susData.broadcaster.name, susString)
+        await TWITCH_EVENTS.twitch_log(susData.broadcaster.name, susString)
 
 def run_twitch_bot(sharedResources) -> PhantomGamesBot:
     bot = PhantomGamesBot(sharedResources)

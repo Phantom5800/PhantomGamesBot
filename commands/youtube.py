@@ -7,7 +7,7 @@ from datetime import timedelta
 import googleapiclient.discovery
 
 # PhantomGamesBot
-from utils.utils import getenv
+from utils import getenv
 
 class YouTubeData:
     def __init__(self):

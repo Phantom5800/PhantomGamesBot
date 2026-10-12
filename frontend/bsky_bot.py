@@ -7,7 +7,7 @@ from atproto import Client, client_utils, models
 
 # PhantomGamesBot
 from commands import MarkovHandler
-import utils.events
+from utils import TWITCH_EVENTS, TwitchEventType
 
 class PhantomGamesBot:
     def __init__(self, handle:str, password:str, stream_notif_mode:bool, markov_mode:bool):
@@ -23,7 +23,7 @@ class PhantomGamesBot:
             print(f"[BSKY Error] Invalid-Handle bullshit")
             return
         print(f"[BSKY] Logged in to {handle}")
-        utils.events.twitchevents.register_events(self)
+        TWITCH_EVENTS.register_events(self)
 
         self.stream_notif_mode = stream_notif_mode
         self.generated_message_mode = markov_mode
@@ -43,11 +43,11 @@ class PhantomGamesBot:
                 return f.read()
         return None
 
-    async def on_twitch_stream_event(self, user:str, eventType:utils.events.TwitchEventType, msg:str):
+    async def on_twitch_stream_event(self, user:str, eventType:TwitchEventType, msg:str):
         if self.stream_notif_mode:
             username = user.lower()
             if username in self.valid_channels:
-                if eventType == utils.events.TwitchEventType.GoLive:
+                if eventType == TwitchEventType.GoLive:
                     text_builder = client_utils.TextBuilder()
                     text_builder.text(f"{msg} ")
                     uri = f"https://twitch.tv/{username}"
@@ -60,7 +60,7 @@ class PhantomGamesBot:
                         self.live_post = self.client.send_image(text=text_builder, image=img, image_alt=uri, image_aspect_ratio=aspect_ratio)
                     else:
                         self.live_post = self.client.send_post(text=text_builder)
-                elif eventType == utils.events.TwitchEventType.EndStream and self.live_post:
+                elif eventType == TwitchEventType.EndStream and self.live_post:
                     self.client.delete_post(self.live_post.uri)
                     self.live_post = None
 
@@ -94,7 +94,7 @@ def run_bsky_bot_markov(handle:str, password:str, eventLoop, markovHandler: Mark
             timelapse = now - last_tweet_time
             if (timelapse.days >= 1 or timelapse.seconds / 3600 >= 14) and now.hour > 10:
                 msg = markovHandler.get_markov_string()
-                await utils.events.twitchevents.social_media_generated_post(msg)
+                await TWITCH_EVENTS.social_media_generated_post(msg)
                 # Update last message time
                 last_tweet_time = datetime.now()
                 print(f"[{datetime.now()}] Generated Social Media Post: {msg}")

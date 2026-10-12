@@ -1,6 +1,6 @@
 import threading, wx
 import frontend.gui as gui
-from utils.utils import getenv_int
+from utils import getenv_int
 
 class PhantomGamesBotGUI:
     def __init__(self, sharedResources):

@@ -1,6 +1,6 @@
 from commands import *
 from frontend import *
-from utils.utils import getenv, getenv_int
+from utils import getenv, getenv_int
 
 def run():
     # Shared resources

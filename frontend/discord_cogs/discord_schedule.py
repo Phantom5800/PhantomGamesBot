@@ -1,5 +1,5 @@
 # standard libraries
-import os, time
+import time
 from datetime import datetime, timedelta
 
 # discord
@@ -10,8 +10,7 @@ from discord.ext import bridge, commands
 from twitchio.http import Route
 
 # PhantomGamesBot
-from utils.ext_classes import AliasDict
-from utils.utils import get_twitch_user, getenv
+from utils import AliasDict, get_twitch_user, getenv
 
 LocalStartTimeHours = 14 # 2pm
 

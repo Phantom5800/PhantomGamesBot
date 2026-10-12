@@ -9,9 +9,8 @@ from discord.ext import tasks
 from discord.ext.bridge import Bot
 
 # PhantomGamesBot
-import utils.events
 from frontend.discord_cogs import PhantomGamesBotCommands, PhantomGamesBotSchedule
-from utils.utils import *
+from utils import *
 
 # 21:00 UTC = 2:00PM PDT / 1:00PM PST
 # trying to check at 1PM regardless of DST
@@ -74,7 +73,7 @@ class PhantomGamesBot(Bot):
         ]
         self.commands_since_new_status = 0
 
-        utils.events.twitchevents.register_events(self)
+        TWITCH_EVENTS.register_events(self)
         self.announce_youtube_vid_task.start()
 
         # local storage
@@ -199,17 +198,17 @@ class PhantomGamesBot(Bot):
         channel = self.get_channel(self.channels["twitch-logs"])
         await channel.send(msg)
 
-    async def on_twitch_stream_event(self, user:str, eventType:utils.events.TwitchEventType, msg:str):
-        if eventType == utils.events.TwitchEventType.GoLive:
+    async def on_twitch_stream_event(self, user:str, eventType:TwitchEventType, msg:str):
+        if eventType == TwitchEventType.GoLive:
             channel = self.get_channel(self.channels["stream-announcements"])
             msg = await channel.send(f"{self.roles['stream-notifs']} {msg} https://twitch.tv/{user}")
             await msg.publish()
-        elif eventType == utils.events.TwitchEventType.EndStream:
+        elif eventType == TwitchEventType.EndStream:
             print(f"[Discord Stream Event] Stream has gone offline - {msg}")
-        elif eventType == utils.events.TwitchEventType.HypeTrainStart:
+        elif eventType == TwitchEventType.HypeTrainStart:
             channel = self.get_channel(self.channels["stream-announcements"])
             self.hype_train_msg = await channel.send(f"{self.roles['stream-notifs']} A hype train has started! https://twitch.tv/{user}")
-        elif eventType == utils.events.TwitchEventType.HypeTrainEnd:
+        elif eventType == TwitchEventType.HypeTrainEnd:
             if self.hype_train_msg:
                 await self.hype_train_msg.delete()
                 self.hype_train_msg = None

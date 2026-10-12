@@ -37,4 +37,4 @@ class TwitchEvent:
         for func in self.social_media_generated_message_listeners:
             await func(msg)
 
-twitchevents = TwitchEvent()
+TWITCH_EVENTS = TwitchEvent()

@@ -4,7 +4,7 @@ import random
 import threading
 from copy import deepcopy
 from datetime import datetime
-from utils.utils import debugPrint
+from utils import debugPrint
 
 class CustomCommands:
     def __init__(self):

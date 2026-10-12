@@ -1,6 +1,6 @@
 import os, random, shutil
 from datetime import datetime
-from utils.utils import getenv_int
+from .utils import getenv_int
 
 cc_root = "./commands/resources/crowdcontrol"
 cc_multiplier = getenv_int("CC_MULTIPLIER", 1)

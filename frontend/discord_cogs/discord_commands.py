@@ -8,7 +8,7 @@ from discord.ext import bridge, commands
 
 # PhantomGamesBot
 from commands import Slots, SlotsMode
-from utils.utils import *
+#from utils import *
 
 class SrcGames(StrEnum):
     PaperMario = "Paper Mario"
