@@ -23,10 +23,8 @@ def getenv_int(key: str, default: int = 0) -> int:
     else:
         return tryParseInt(value, default)
 
-'''
-Generic variable replacement that does not depend on any platform specific features.
-'''
 async def replace_vars_generic(message: str) -> str:
+    '''Generic variable replacement that does not depend on any platform specific features.'''
     out_str = message
 
     # generate a random number in a range

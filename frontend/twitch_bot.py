@@ -127,10 +127,8 @@ class PhantomGamesBot(commands.Bot):
     async def event_error(self, error: Exception, data: Optional[str] = None):
         print(f"[ERROR] TwitchIO Exception: {error}")
 
-    '''
-    Runs when an "invalid command" is sent by a user.
-    '''
     async def event_command_error(self, ctx: commands.Context, error: Exception):
+        '''Runs when an "invalid command" is sent by a user.'''
         # ignore command errors that exist in the custom command set
         return
         # command is None??? idk, figure this out later
@@ -151,10 +149,9 @@ class PhantomGamesBot(commands.Bot):
     async def event_channel_join_failure(self, channel: str):
         print(f"[ERROR] Failed to join \"{channel} for some reason, try again\"")
 
-    '''
-    Get a random supported color for announcements
-    '''
-    def random_announcement_color(self):
+    @staticmethod
+    def random_announcement_color():
+        '''Get a random supported color for announcements'''
         colors = ["orange", "green", "purple", "blue"]
         return colors[random.randrange(len(colors))]
 
@@ -162,10 +159,8 @@ class PhantomGamesBot(commands.Bot):
         bot = self.create_user(int(self.user_id), self.nick)
         await streamer.chat_announcement(token=getenv('TWITCH_OAUTH_TOKEN'), moderator_id=bot.id, message=announcement, color=self.random_announcement_color())
 
-    '''
-    Runs every time a message is sent in chat.
-    '''
     async def event_message(self, message):
+        '''Runs every time a message is sent in chat.'''
         # make sure the bot ignores itself
         if (message.author is not None and message.author.name.lower() == getenv('BOT_NICK').lower()) or message.author is None:
             return
@@ -242,10 +237,9 @@ class PhantomGamesBot(commands.Bot):
     #####################################################################################################
     # custom commands
     #####################################################################################################
-    '''
-    Utility function for command parsing to break up segments of commands.
-    '''
-    def command_msg_breakout(self, message: str, expectedParts: int) -> str:
+    @staticmethod
+    def command_msg_breakout(message: str, expectedParts: int) -> str:
+        '''Utility function for command parsing to break up segments of commands.'''
         if expectedParts == 2:
             pattern = r"([!]\w+) (.*)"
             matches = re.match(pattern, message)
@@ -260,11 +254,9 @@ class PhantomGamesBot(commands.Bot):
             debugPrint(f"[command_msg_breakout] Unexpected amount of command parts {expectedParts}")
         return None
 
-    '''
-    Get a list of all commands the bot responds to, excluding mod-only commands.
-    '''
     @commands.command(aliases=["commands"])
     async def getcommands(self, ctx: commands.Context):
+        '''Get a list of all commands the bot responds to, excluding mod-only commands.'''
         default_commands = self.commands
         command_list = []
         for key in default_commands.keys():
@@ -280,11 +272,9 @@ class PhantomGamesBot(commands.Bot):
         command_list.sort()
         await ctx.send(f"Built in commands: {command_list}. Custom commands: https://github.com/Phantom5800/PhantomGamesBot/blob/master/commands/resources/channels/{ctx.message.channel.name}/custom_commands.json")
 
-    '''
-    Add a custom command through twitch chat.
-    '''
     @commands.command(aliases=["addcom"])
     async def addcommand(self, ctx: commands.Context):
+        '''Add a custom command through twitch chat.'''
         if ctx.message.author.is_mod:
             command_parts = self.command_msg_breakout(ctx.message.content, 3)
             if command_parts is not None:
@@ -301,11 +291,9 @@ class PhantomGamesBot(commands.Bot):
             else:
                 await ctx.send(f"{ctx.message.author.mention} make sure to specify a command and a response!")
 
-    '''
-    Add a custom command alias through twitch chat.
-    '''
     @commands.command()
     async def addalias(self, ctx: commands.Context):
+        '''Add a custom command alias through twitch chat.'''
         if ctx.message.author.is_mod:
             command_parts = self.command_msg_breakout(ctx.message.content, 3)
             if command_parts is not None:
@@ -322,11 +310,9 @@ class PhantomGamesBot(commands.Bot):
             else:
                 await ctx.send(f"{ctx.message.author.mention} make sure to specify a command and a response!")
 
-    '''
-    Set cooldown on a custom command through twitch chat.
-    '''
     @commands.command()
     async def setcooldown(self, ctx: commands.Context):
+        '''Set cooldown on a custom command through twitch chat.'''
         if ctx.message.author.is_mod:
             command_parts = self.command_msg_breakout(ctx.message.content, 3)
             if command_parts is not None:
@@ -340,11 +326,9 @@ class PhantomGamesBot(commands.Bot):
             else:
                 await ctx.send(f"{ctx.message.author.mention} make sure to specify a command and a cooldown!")
 
-    '''
-    Set the random response chance for a custom command through twitch chat.
-    '''
     @commands.command()
     async def setrng(self, ctx: commands.Context):
+        '''Set the random response chance for a custom command through twitch chat.'''
         if ctx.message.author.is_mod:
             command_parts = self.command_msg_breakout(ctx.message.content, 3)
             if command_parts is not None:
@@ -358,11 +342,9 @@ class PhantomGamesBot(commands.Bot):
             else:
                 await ctx.send(f"{ctx.message.author.mention} make sure to specify a command and a response chance!")
 
-    '''
-    Edit a custom command through twitch chat.
-    '''
     @commands.command(aliases=["editcom"])
     async def editcommand(self, ctx: commands.Context):
+        '''Edit a custom command through twitch chat.'''
         if ctx.message.author.is_mod:
             command_parts = self.command_msg_breakout(ctx.message.content, 3)
             if command_parts is not None:
@@ -376,11 +358,9 @@ class PhantomGamesBot(commands.Bot):
             else:
                 await ctx.send(f"{ctx.message.author.mention} make sure to specify a command and a response!")
 
-    '''
-    Delete a custom command through twitch chat.
-    '''
     @commands.command(aliases=["removecom", "delcom"])
     async def removecommand(self, ctx: commands.Context, command: str = ""):
+        '''Delete a custom command through twitch chat.'''
         if ctx.message.author.is_mod:
             if len(command) > 0:
                 command_removed = self.custom.remove_command(command, ctx.message.channel.name)
@@ -413,10 +393,8 @@ class PhantomGamesBot(commands.Bot):
     #####################################################################################################
     # timer
     #####################################################################################################
-    '''
-    Force post next timer message.
-    '''
     async def post_next_timer_message(self, channel):
+        '''Force post next timer message.'''
         self.messages_since_timer[channel] = 0
         stream_channel = self.get_channel(channel)
         streamer = await stream_channel.user()
@@ -455,11 +433,9 @@ class PhantomGamesBot(commands.Bot):
                     await stream_channel.send(message)
         self.current_timer_msg[channel] = (self.current_timer_msg[channel] + 1) % len(self.timer_queue[channel])
 
-    '''
-    Periodic routine to send timer based messages.
-    '''
     @routines.routine(minutes=getenv_int('TIMER_MINUTES', 20), wait_first=True)
     async def timer_update(self):
+        '''Periodic routine to send timer based messages.'''
         # update sub count file
         streamer = await self.get_channel("phantom5800").user()
         await self.update_sub_counts(streamer, 0)
@@ -513,7 +489,8 @@ class PhantomGamesBot(commands.Bot):
     #####################################################################################################
     # quotes
     #####################################################################################################
-    def _quote_response(self, ctx: commands.Context, quote_id: str, quote_handler) -> str:
+    @staticmethod
+    def _quote_response(ctx: commands.Context, quote_id: str, quote_handler) -> str:
         # if no lookup specific, give random
         if quote_id is None:
             return quote_handler.pick_random_quote(ctx.message.channel.name)
@@ -659,20 +636,16 @@ class PhantomGamesBot(commands.Bot):
     #####################################################################################################
     # chatting
     #####################################################################################################
-    '''
-    Post a randomly generated chat message, 60 second per-channel cooldown.
-    '''
     @commands.command()
     @commands.cooldown(1, 60, commands.Bucket.channel)
     async def chat(self, ctx: commands.Context):
+        '''Post a randomly generated chat message, 60 second per-channel cooldown.'''
         response = self.markov.get_markov_string()
         await ctx.send(response)
 
-    '''
-    Periodically posts automatically generated messages to chat.
-    '''
     @routines.routine(minutes=getenv_int('AUTO_CHAT_MINUTES', 25), wait_first=True)
     async def automatic_chat(self):
+        '''Periodically posts automatically generated messages to chat.'''
         for channel in self.channel_list:
             if self.auto_chat_msg[channel] >= self.auto_chat_lines[channel]:
                 self.auto_chat_msg[channel] = 0
@@ -705,12 +678,10 @@ class PhantomGamesBot(commands.Bot):
             print(e)
             await ctx.send(f"{ctx.message.author.mention} failed to create a clip")
 
-    '''
-    Attempt to get how long a user has been following the channel for.
-    '''
     @commands.command()
     @commands.cooldown(1, 60, commands.Bucket.user)
     async def followage(self, ctx: commands.Context):
+        '''Attempt to get how long a user has been following the channel for.'''
         streamer = await ctx.message.channel.user()
         try:
             twitch_user = await ctx.message.author.user()
@@ -777,29 +748,23 @@ class PhantomGamesBot(commands.Bot):
     #####################################################################################################
     # stream info
     #####################################################################################################
-    '''
-    Get information about the bot itself.
-    '''
     @commands.command()
     @commands.cooldown(1, 5, commands.Bucket.channel)
     async def bot(self, ctx: commands.Context):
+        '''Get information about the bot itself.'''
         await ctx.send("Hey! I am a custom chatbot written in Python, my source code is available at: https://github.com/Phantom5800/PhantomGamesBot")
 
-    '''
-    Get the current game being played on twitch.
-    '''
     @commands.command()
     @commands.cooldown(1, 5, commands.Bucket.channel)
     async def game(self, ctx: commands.Context):
+        '''Get the current game being played on twitch.'''
         game_name = await get_game_name_from_twitch_for_user(self, ctx.message.channel.name)
         await ctx.send(game_name)
 
-    '''
-    Get the current title of the stream.
-    '''
     @commands.command()
     @commands.cooldown(1, 5, commands.Bucket.channel)
     async def title(self, ctx: commands.Context):
+        '''Get the current title of the stream.'''
         streamtitle = await get_stream_title_for_user(self, ctx.message.channel.name)
         await ctx.send(streamtitle)
 
@@ -960,10 +925,8 @@ class PhantomGamesBot(commands.Bot):
     #####################################################################################################
     # eventsub stream events
     #####################################################################################################
-    '''
-    Channel point redemption event
-    '''
     async def event_eventsub_notification_channel_reward_redeem(self, event: NotificationEvent):
+        '''Channel point redemption event'''
         rewardData = event.data
         print(f"[Eventsub {rewardData.redeemed_at}] {rewardData.user.name.lower()} redeemed {rewardData.reward.title}")
 
@@ -998,10 +961,8 @@ class PhantomGamesBot(commands.Bot):
                     except:
                         await channel.send(f"{rewardData.user.name} was not able to automatically be assigned VIP, the streamer will try and get to this as soon as possible!")
 
-    '''
-    Bit cheer event
-    '''
     async def event_eventsub_notification_cheer(self, event: NotificationEvent):
+        '''Bit cheer event'''
         cheerData = event.data
         if cheerData.is_anonymous:
             print(f"[Eventsub {datetime.now()}] Anonymous cheered {cheerData.bits} bits!")
@@ -1026,10 +987,8 @@ class PhantomGamesBot(commands.Bot):
             else:
                 sub_count.write(f"{count}")
 
-    '''
-    New sub event
-    '''
     async def event_eventsub_notification_subscription(self, event: NotificationEvent):
+        '''New sub event'''
         subData = event.data
         # update most recent sub for non gifts
         if not subData.is_gift:
@@ -1045,10 +1004,8 @@ class PhantomGamesBot(commands.Bot):
 
         await self.update_sub_counts(subData.broadcaster, subData.tier)
 
-    '''
-    Resub event
-    '''
     async def event_eventsub_notification_subscription_message(self, event: NotificationEvent):
+        '''Resub event'''
         subData = event.data
         print(f"[Eventsub {datetime.now()}] {subData.user.name.lower()} subscribed at tier {subData.tier} for {subData.cumulative_months} months!")
 
@@ -1057,10 +1014,8 @@ class PhantomGamesBot(commands.Bot):
 
         await self.update_sub_counts(subData.broadcaster, subData.tier)
 
-    '''
-    Gift sub event
-    '''
     async def event_eventsub_notification_subscription_gift(self, event: NotificationEvent):
+        '''Gift sub event'''
         subData = event.data
         if subData.is_anonymous:
             print(f"[Eventsub {datetime.now()}] Anonymous gifted {subData.total} tier {subData.tier} subs!")
@@ -1073,17 +1028,13 @@ class PhantomGamesBot(commands.Bot):
         elif getenv_int("CC_ENABLE") == 2:
             handle_pm64_cc_subs(subData.total, subData.tier)
 
-    '''
-    Precition
-    '''
     async def event_eventsub_notification_prediction_begin(self, event: NotificationEvent):
+        '''Prediction started'''
         predData = event.data
         await self.post_chat_announcement(predData.broadcaster, f"Prediction has started! Win channel points by predicting at the top of chat: {predData.title}")
 
-    '''
-    Charity donate
-    '''
     async def event_eventsub_notification_channel_charity_donate(self, event: NotificationEvent):
+        '''Charity donate'''
         donoData = event.data
         value = donoData.donation_value / 10 ** donoData.decimal_places
         print(f"[Eventsub {datetime.now()}] Charity donation: {donoData.user.name.lower()} donated {value:.2f} {donoData.donation_currency} to {donoData.charity_name}!")
@@ -1091,43 +1042,33 @@ class PhantomGamesBot(commands.Bot):
     #####################################################################################################
     # eventsub notifications
     #####################################################################################################
-    '''
-    Ad play started
-    '''
     async def event_eventsub_notification_channel_ad_break_begin(self, event: NotificationEvent):
+        '''Ad play started'''
         adData = event.data
         if event.is_automatic:
             print(f"[Eventsub {adData.broadcaster.name}] Automatic ad break of {adData.duration} seconds started at {adData.started_at}")
         else:
             print(f"[Eventsub {adData.broadcaster.name}] Manual ad break of {adData.duration} seconds started at {adData.started_at}")
 
-    '''
-    Hype Train start
-    '''
     async def event_eventsub_notification_channel_hypetrain_begin(self, event: NotificationEvent):
+        '''Hype Train start'''
         hypeData = event.data
         print(f"[Eventsub {datetime.now()}] Hype train started at {hypeData.started_at}")
         notif = "A Hype Train has started!"
         await TWITCH_EVENTS.twitch_stream_event(hypeData.broadcaster.name, TwitchEventType.HypeTrainStart, notif)
 
-    '''
-    Hype Train progress
-    '''
     async def event_eventsub_notification_channel_hypetrain_progress(self, event: NotificationEvent):
+        '''Hype Train progress'''
         hypeData = event.data
 
-    '''
-    Hype Train ended
-    '''
     async def event_eventsub_notification_channel_hypetrain_end(self, event: NotificationEvent):
+        '''Hype Train ended'''
         hypeData = event.data
         await TWITCH_EVENTS.twitch_stream_event(hypeData.broadcaster.name, TwitchEventType.HypeTrainEnd)
         print(f"[Eventsub {datetime.now()}] Hype train ended at {hypeData.ended_at} at level {hypeData.level}")
 
-    '''
-    Stream went live event
-    '''
     async def event_eventsub_notification_stream_start(self, event: NotificationEvent):
+        '''Stream went live event'''
         # set values for start of streams
         self.current_rng = 0
 
@@ -1139,18 +1080,14 @@ class PhantomGamesBot(commands.Bot):
         notif = f"{game} | {streamtitle}"
         await TWITCH_EVENTS.twitch_stream_event(streamOnlineData.broadcaster.name, TwitchEventType.GoLive, notif)
 
-    '''
-    Stream ended event
-    '''
     async def event_eventsub_notification_stream_end(self, event: NotificationEvent):
+        '''Stream ended event'''
         streamOfflineData = event.data
         print(f"[Eventsub {datetime.now()}] Stream has ended for {streamOfflineData.broadcaster.name}")
         await TWITCH_EVENTS.twitch_stream_event(streamOfflineData.broadcaster.name, utils.events.TwitchEventType.EndStream)
 
-    '''
-    Raid event
-    '''
     async def event_eventsub_notification_raid(self, event: NotificationEvent):
+        '''Raid event'''
         raidData = event.data
         if raidData.viewer_count > 1: # filters out potential spam, rarely an issue, but it has come up before
             await raidData.reciever.shoutout(token=getenv('TWITCH_OAUTH_TOKEN'), to_broadcaster_id=raidData.raider.id, moderator_id=self.user_id)
@@ -1159,10 +1096,8 @@ class PhantomGamesBot(commands.Bot):
     #####################################################################################################
     # eventsub mod events
     #####################################################################################################
-    '''
-    User banned
-    '''
     async def event_eventsub_notification_ban(self, event: NotificationEvent):
+        '''User banned'''
         banData = event.data
         reason = banData.reason or "Unspecified reason"
         if banData.permanent:
@@ -1174,28 +1109,22 @@ class PhantomGamesBot(commands.Bot):
             timeoutString = f"❌ `{banData.user.name}` has been timed out in **{banData.broadcaster.name}** by _{banData.moderator.name}_ until {discord_timestamp} for '{reason}'"
             await TWITCH_EVENTS.twitch_log(banData.broadcaster.name, timeoutString)
 
-    '''
-    User unbanned
-    '''
     async def event_eventsub_notification_unban(self, event: NotificationEvent):
+        '''User unbanned'''
         banData = event.data
         banString = f"✅ `{banData.user.name}` has been unbanned in **{banData.broadcaster.name}** by _{banData.moderator.name}_"
         await TWITCH_EVENTS.twitch_log(banData.broadcaster.name, banString)
 
-    '''
-    Unban request made
-    '''
     async def event_eventsub_notification_unban_request_create(self, event: NotificationEvent):
+        '''Unban request made'''
         banData = event.data
         seconds_from_epoch = int((banData.created_at - unix_epoch).total_seconds())
         discord_timestamp = f"<t:{seconds_from_epoch}:f>"
         banString = f"[{discord_timestamp}] '{banData.user.name}' has created an unban request: '{banData.text}'"
         await TWITCH_EVENTS.twitch_log(banData.broadcaster.name, banString)
 
-    '''
-    Unban request resolved
-    '''
     async def event_eventsub_notification_unban_request_resolve(self, event: NotificationEvent):
+        '''Unban request resolved'''
         banData = event.data
         moderator_name = banData.moderator.name if banData.moderator is not None else "unknown"
         banString = ""
@@ -1207,10 +1136,8 @@ class PhantomGamesBot(commands.Bot):
             banString = f"❌ '{banData.user.name}'\'s unban request has been canceled in **{banData.broadcaster.name}**: '{banData.text}'"
         await TWITCH_EVENTS.twitch_log(banData.broadcaster.name, banString)
 
-    '''
-    Unban request resolved
-    '''
     async def event_eventsub_notification_suspicious_user_update(self, event: NotificationEvent):
+        '''Unban request resolved'''
         susData = event.data
         susString = ""
         if susData.trust_status == 'active_monitoring':

@@ -25,10 +25,8 @@ class YouTubePlaylists(StrEnum):
     PokemonEmeraldRando = "Pokémon Emerald Randomizers"
     TwilightPrincessRando = "Twilight Princess Randomizers"
 
-'''
-Unlike twitchio, discord bot is unable to embed commands directly, and requires cogs.
-'''
 class PhantomGamesBotCommands(commands.Cog):
+    '''Unlike twitchio, discord bot is unable to embed commands directly, and requires cogs.'''
     def __init__(self, bot, sharedResources):
         self.bot = bot
         self.quotes = sharedResources.quoteHandler

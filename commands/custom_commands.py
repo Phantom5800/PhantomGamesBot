@@ -37,37 +37,29 @@ class CustomCommands:
             json_file.write(json_str)
         self.file_lock.release()
 
-    '''
-    Check if a command already exists.
-    '''
     def command_exists(self, command: str, channel: str) -> bool:
+        '''Check if a command already exists.'''
         channel = channel.lower()
         self.file_lock.acquire()
         exists = channel in self.command_set and command.lower() in self.command_set[channel]
         self.file_lock.release()
         return exists
 
-    '''
-    Check if a given command is an alias for another
-    '''
     def is_alias_command(self, command: str, channel: str) -> bool:
+        '''Check if a given command is an alias for another'''
         if self.command_exists(command, channel):
             return "alias_for" in self.command_set[channel][command]
         return False
 
-    '''
-    If a command is an alias, return the real command, otherwise return input
-    '''
     def get_real_command(self, command: str, channel: str) -> str:
+        '''If a command is an alias, return the real command, otherwise return input'''
         if self.command_exists(command, channel):
             if "alias_for" in self.command_set[channel][command]:
                 return self.command_set[channel][command]["alias_for"]
         return command
 
-    '''
-    Get the response string for a given command. Automatically replaces variables that can only be determined at this point.
-    '''
     def get_command(self, command: str, channel: str) -> str:
+        '''Get the response string for a given command. Automatically replaces variables that can only be determined at this point.'''
         channel = channel.lower()
         command_lower = self.get_real_command(command.lower(), channel)
         com = None
@@ -86,10 +78,8 @@ class CustomCommands:
         self.file_lock.release()
         return com
     
-    '''
-    Get the full list of all commands.
-    '''
     def get_command_list(self, channel: str) -> list:
+        '''Get the full list of all commands.'''
         channel = channel.lower()
         command_list = []
         self.file_lock.acquire()
@@ -98,10 +88,8 @@ class CustomCommands:
         self.file_lock.release()
         return command_list
 
-    '''
-    Add a new command if one does not already exist.
-    '''
     def add_command(self, command: str, response: str, cooldown: int, channel: str) -> bool:
+        '''Add a new command if one does not already exist.'''
         channel = channel.lower()
         command_lower = command.lower()
         self.file_lock.acquire()
@@ -118,10 +106,8 @@ class CustomCommands:
         self.file_lock.release()
         return False
 
-    '''
-    Adds a new command as an alias for an existing command
-    '''
     def add_alias(self, command: str, alias_for: str, channel: str) -> bool:
+        '''Adds a new command as an alias for an existing command'''
         channel = channel.lower()
         command = command.lower()
         alias_for = alias_for.lower()
@@ -138,10 +124,8 @@ class CustomCommands:
         self.file_lock.release()
         return False
     
-    '''
-    Set the cooldown for a specific command.
-    '''
     def set_cooldown(self, command: str, cooldown: int, channel: str) -> bool:
+        '''Set the cooldown for a specific command.'''
         channel = channel.lower()
         command_lower = command.lower()
         self.file_lock.acquire()
@@ -154,10 +138,8 @@ class CustomCommands:
         self.file_lock.release()
         return False
 
-    '''
-    Set a random response chance in the range [1,100]
-    '''
     def set_rng_response(self, command: str, rng: int, channel: str) -> bool:
+        '''Set a random response chance in the range [1,100]'''
         channel = channel.lower()
         command_lower = command.lower()
         self.file_lock.acquire()
@@ -170,10 +152,8 @@ class CustomCommands:
         self.file_lock.release()
         return False
 
-    '''
-    Edit the response for a given command.
-    '''
     def edit_command(self, command: str, response: str, cooldown: int, channel: str) -> bool:
+        '''Edit the response for a given command.'''
         channel = channel.lower()
         command_lower = command.lower()
         self.file_lock.acquire()
@@ -189,10 +169,8 @@ class CustomCommands:
         self.file_lock.release()
         return False
 
-    '''
-    Delete an existing command.
-    '''
     def remove_command(self, command: str, channel: str) -> bool:
+        '''Delete an existing command.'''
         channel = channel.lower()
         command_lower = command.lower()
         self.file_lock.acquire()
@@ -205,10 +183,8 @@ class CustomCommands:
         self.file_lock.release()
         return False
 
-    '''
-    Return a response based on if the input string provided matches a command that is not on cooldown.
-    '''
     def parse_custom_command(self, message: str, channel: str) -> str:
+        '''Return a response based on if the input string provided matches a command that is not on cooldown.'''
         channel = channel.lower()
         lower_message = self.get_real_command(message.lower(), channel)
         if self.command_exists(lower_message, channel):

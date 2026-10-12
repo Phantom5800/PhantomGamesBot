@@ -6,10 +6,8 @@ class SrcomApi:
     def __init__(self):
         self.api = srcomapi.SpeedrunCom()
 
-    '''
-    Test function to get a random category for a game
-    '''
     def get_random_category(self, game: str) -> str:
+        '''Test function to get a random category for a game'''
         try:
             random_game = self.api.search(srcomapi.datatypes.Game, {"name": game})
             if random_game is None or len(random_game) == 0:
@@ -32,10 +30,8 @@ class SrcomApi:
             print("src 404 error")
             return "speedrun.com returned 404, try again later maybe? idk"
 
-    '''
-    Returns a random game listed on speedrun.com
-    '''
     def get_random_game(self) -> str:
+        '''Returns a random game listed on speedrun.com'''
         try:
             release_year = random.randint(1985, date.today().year-1)
             query_result = self.api.search(srcomapi.datatypes.Game, 

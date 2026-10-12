@@ -10,10 +10,8 @@ from .utils import debugPrint, replace_vars_generic
 
 twitch_user_cache = {}
 
-'''
-Get a user object from cache if it exists, otherwise make a request and store the result.
-'''
 async def get_twitch_user(twitchClient: twitchCommands.Bot, username: str, reset_cache: bool = False):
+    '''Get a user object from cache if it exists, otherwise make a request and store the result.'''
     if reset_cache == False and username in twitch_user_cache:
         return twitch_user_cache[username]
     streamer = await twitchClient.fetch_channel(username)
@@ -21,10 +19,8 @@ async def get_twitch_user(twitchClient: twitchCommands.Bot, username: str, reset
         twitch_user_cache[username] = streamer
     return streamer
 
-'''
-Find the current stream category for a given user.
-'''
 async def get_game_name_from_twitch_for_user(twitchClient: twitchCommands.Bot, username: str) -> str:
+    '''Find the current stream category for a given user.'''
     # get the channel info for requested user, this should typically work immediately
     streamer = await get_twitch_user(twitchClient, username, reset_cache=True)
     if streamer is not None:
@@ -46,19 +42,15 @@ async def get_game_name_from_twitch_for_user(twitchClient: twitchCommands.Bot, u
             return "No Category Set"
     return f"User Not Found {username}"
 
-'''
-Get the stream title for a specific user.
-'''
 async def get_stream_title_for_user(twitchClient: twitchCommands.Bot, username: str) -> str:
+    '''Get the stream title for a specific user.'''
     streamer = await get_twitch_user(twitchClient, username, reset_cache=True)
     if streamer is not None:
         return streamer.title
     return f"User Not Found {username}"
 
-'''
-Variable replacement for bot responses.
-'''
 async def replace_vars_twitch(message: str, ctx: twitchCommands.Context, channel: Channel) -> str:
+    '''Variable replacement for bot responses.'''
     out_str = message
 
     # replace with a copy-paste of user's message

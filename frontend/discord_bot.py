@@ -93,10 +93,8 @@ class PhantomGamesBot(Bot):
         await self.set_random_status()
         print("=======================================")
 
-    '''
-    Handle custom commands.
-    '''
     async def on_message(self, message):
+        '''Handle custom commands.'''
         if message.author.id == self.user.id:
             return
 
@@ -151,20 +149,16 @@ class PhantomGamesBot(Bot):
             else:
                 await member.remove_roles(self.live_role)
 
-    '''
-    Handle anything that needs to be updated when a user's discord status changes.
-    '''
     async def on_presence_update(self, before, after):
+        '''Handle anything that needs to be updated when a user's discord status changes.'''
         # check to see when people go live or go offline
         if isinstance(before.activity, discord.Streaming) and not isinstance(after.activity, discord.Streaming):
             await self.toggle_live_role(before, is_live=False)
         elif not isinstance(before.activity, discord.Streaming) and isinstance(after.activity, discord.Streaming):
             await self.toggle_live_role(before, is_live=True)
 
-    '''
-    Periodically call this function to post the latest video in youtube-uploads when a new one is posted.
-    '''
     async def announce_new_youtube_vid(self):
+        '''Periodically call this function to post the latest video in youtube-uploads when a new one is posted.'''
         channel = self.get_channel(self.channels["youtube-uploads"])
         youtube_vid = self.youtube.get_most_recent_video(self.account, use_playlist_api=True)
 

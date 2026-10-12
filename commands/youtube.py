@@ -71,12 +71,12 @@ class YouTubeData:
                 return self.cache[channel][playlist]
         return 0,None
 
-    '''
-    Get the sub count of whatever youtube account is bound to the given twitch channel.
-
-    Note: YouTube API Quota cost = 1
-    '''
     def get_subscriber_count(self, channel: str) -> int:
+        '''
+        Get the sub count of whatever youtube account is bound to the given twitch channel.
+
+        Note: YouTube API Quota cost = 1
+        '''
         channel = channel.lower()
         if self.youtube_data.get(channel) and self.youtube_data[channel].get("username"):
             request = self.youtube.channels().list(
@@ -103,10 +103,8 @@ class YouTubeData:
             return youtube_url
         return ""
 
-    '''
-    Generate a message to be returned for channel specific youtube commands.
-    '''
     def get_youtube_com_message(self, channel: str) -> str:
+        '''Generate a message to be returned for channel specific youtube commands.'''
         channel = channel.lower()
         if self.youtube_data.get(channel):
             youtube_url = self.get_youtube_url(channel)
@@ -125,12 +123,12 @@ class YouTubeData:
         
         return ""
 
-    '''
-    Get a link to the most recent video uploaded by a given channel.
-
-    Note: YouTube API Quota cost = 101 (100 for search, 1 for videos). Only 2 if use_playlist_api is True!
-    '''
     def get_most_recent_video(self, channel: str, use_playlist_api: bool = False) -> str:
+        '''
+        Get a link to the most recent video uploaded by a given channel.
+
+        Note: YouTube API Quota cost = 101 (100 for search, 1 for videos). Only 2 if use_playlist_api is True!
+        '''
         channel = channel.lower()
         if self.youtube_data.get(channel) and self.youtube_data[channel].get("channel_id"):
             # refresh youtube api
@@ -195,13 +193,13 @@ class YouTubeData:
 
         return ""
     
-    '''
-    Get number of videos and total length matching a query
-
-    Note: This should get cached since the data doesn't change very often.
-          Estimated quota cost is 2 for every 50 videos that query hits.
-    '''
     def get_total_video_length(self, channel: str, playlist_id: str = "") -> tuple:
+        '''
+        Get number of videos and total length matching a query
+
+        Note: This should get cached since the data doesn't change very often.
+            Estimated quota cost is 2 for every 50 videos that query hits.
+        '''
         channel = channel.lower()
         if self.youtube_data.get(channel) and self.youtube_data[channel].get("channel_id"):
             # refresh youtube api
@@ -290,27 +288,21 @@ class YouTubeData:
 
         return 0, timedelta()
 
-    '''
-    Set the YouTube channel data associated with the twitch user.
-    '''
     def set_youtube_channel_data(self, channel: str, username: str, channelId: str):
+        '''Set the YouTube channel data associated with the twitch user.'''
         channel = channel.lower()
         self.youtube_data[channel]["username"] = username
         self.youtube_data[channel]["channel_id"] = channelId
         self.save_youtube_config(channel)
 
-    '''
-    Set the YouTube Handle paramater.
-    '''
     def set_youtube_handle(self, channel: str, handle: str):
+        '''Set the YouTube Handle paramater.'''
         channel = channel.lower()
         self.youtube_data[channel]["handle"] = handle
         self.save_youtube_config(channel)
 
-    '''
-    Set the channel sub goal and message.
-    '''
     def set_youtube_subgoal(self, channel: str, goal: int, message: str):
+        '''Set the channel sub goal and message.'''
         channel = channel.lower()
         self.youtube_data[channel]["subgoal"] = goal
         self.youtube_data[channel]["subgoal_message"] = message

@@ -19,10 +19,8 @@ def set_cc_multiplier(mult: int):
 #####################################################################################################
 # Generic Shuffler Handling
 #####################################################################################################
-'''
-Helper function to add more games to the shuffler.
-'''
 def add_next_game(count: int = 1) -> int:
+    '''Helper function to add more games to the shuffler.'''
     i = 0
     bizhawk_folder = "C:/Games/Bizhawk-2.9.1/bizhawk-shuffler-2"
     games_dir = os.fsencode(bizhawk_folder + "/games")
@@ -38,10 +36,8 @@ def add_next_game(count: int = 1) -> int:
             break
     return i
 
-'''
-Handle gift subs (treated as tier 1 monetary value in USD for simplicity).
-'''
 def handle_generic_cc_subs(subcnt: int, tier: int = 1):
+    '''Handle gift subs (treated as tier 1 monetary value in USD for simplicity).'''
     mult = 300 # $3 from tier 1's
     if tier == 2:
         mult = 500 # $5 from tier 2's
@@ -49,10 +45,8 @@ def handle_generic_cc_subs(subcnt: int, tier: int = 1):
         mult = 1250 # $12.50 from tier 3's
     handle_generic_cc_bits(subcnt * mult)
 
-'''
-Handle generic shuffler and adding new games at bit milestones.
-'''
 def handle_generic_cc_bits(bits: int):
+    '''Handle generic shuffler and adding new games at bit milestones.'''
     global current_threshold
     global total_bits
     global total_adds
@@ -127,10 +121,8 @@ ohko_queue          = 0
 interval_swaps      = 0
 hs_interval_swaps   = 0
 
-'''
-Special handling for PM64R effects on gift subs.
-'''
 def handle_pm64_cc_subs(subcnt: int, tier: int = 1):
+    '''Special handling for PM64R effects on gift subs.'''
     global slowgo_queue
     global berserker_queue
     global random_pitch_queue
@@ -184,10 +176,8 @@ def handle_pm64_cc_subs(subcnt: int, tier: int = 1):
             print(f"[CC {datetime.now()}] Adding 5 more seeds!")
             add_next_game(count=5)
 
-'''
-Special handling for PM64R effects on bits.
-'''
 def handle_pm64_cc_bits(bits: int):
+    '''Special handling for PM64R effects on bits.'''
     global cc_multiplier
     global slowgo_queue
     global berserker_queue
@@ -295,10 +285,8 @@ def handle_pm64_cc_bits(bits: int):
             with open(f"{cc_root}/pm64r-set-homeward-shroom.txt", "w+") as f:
                 f.write("oh no")
 
-'''
-Handle periodic updates for effects that retrigger on a timer.
-'''
 def handle_cc_periodic_update(seconds: int):
+    '''Handle periodic updates for effects that retrigger on a timer.'''
     global slowgo_queue
     global berserker_queue
     global random_pitch_queue
