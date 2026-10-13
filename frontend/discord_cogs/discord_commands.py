@@ -1,4 +1,5 @@
 # standard libraries
+from auto_all import public
 from datetime import datetime, timedelta, timezone
 from enum import StrEnum
 
@@ -25,6 +26,7 @@ class YouTubePlaylists(StrEnum):
     PokemonEmeraldRando = "Pokémon Emerald Randomizers"
     TwilightPrincessRando = "Twilight Princess Randomizers"
 
+@public
 class PhantomGamesBotCommands(commands.Cog):
     '''Unlike twitchio, discord bot is unable to embed commands directly, and requires cogs.'''
     def __init__(self, bot, sharedResources):

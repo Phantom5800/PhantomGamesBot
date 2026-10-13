@@ -15,6 +15,7 @@ google-auth-oauthlib = "*"
 google-auth-httplib2 = "*"
 atproto = "*"
 wxpython = "*"
+auto-all = "*"
 
 [dev-packages]
 

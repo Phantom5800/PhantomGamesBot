@@ -1,5 +1,6 @@
 import threading, wx
 import frontend.gui as gui
+from auto_all import public
 from utils import getenv_int
 
 class PhantomGamesBotGUI:
@@ -32,6 +33,7 @@ class PhantomGamesBotGUI:
     def start(self):
         self.worker_thread.start()
 
+@public
 def run_GUI(eventLoop, sharedResources):
     guiBot = PhantomGamesBotGUI(sharedResources)
     guiBot.start()

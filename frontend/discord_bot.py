@@ -1,5 +1,6 @@
 # standard libraries
 import os, random
+from auto_all import public
 from datetime import datetime, time, timezone
 from time import localtime
 
@@ -207,6 +208,7 @@ class PhantomGamesBot(Bot):
                 await self.hype_train_msg.delete()
                 self.hype_train_msg = None
 
+@public
 def run_discord_bot(eventLoop, sharedResources):
     bot = PhantomGamesBot(sharedResources)
     bot.add_cog(PhantomGamesBotCommands(bot, sharedResources))

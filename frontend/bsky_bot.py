@@ -1,5 +1,6 @@
 # standard libraries
 import asyncio, os, random
+from auto_all import public
 from datetime import datetime
 
 # atproto
@@ -74,10 +75,12 @@ class PhantomGamesBot:
             except:
                 print(f"[BSKY Error] Failed to post message (likely session expired): {msg}")
 
+@public
 def run_bsky_bot(handle:str, password:str):
     bot = PhantomGamesBot(handle, password, True, False)
     return bot
 
+@public
 def run_bsky_bot_markov(handle:str, password:str, eventLoop, markovHandler: MarkovHandler):
     async def runBot():
         bot = PhantomGamesBot(handle, password, False, True)

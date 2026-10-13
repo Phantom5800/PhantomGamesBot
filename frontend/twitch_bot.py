@@ -1,5 +1,6 @@
 # standard libraries
-import json, os, random, re
+import json, random, re
+from auto_all import public
 from copy import deepcopy
 from datetime import datetime, timezone
 from typing import Optional
@@ -1148,6 +1149,7 @@ class PhantomGamesBot(commands.Bot):
             susString = f"✅ '{susData.user.name}' is marked as _not suspicious_ in **{susData.broadcaster.name}** by **{susData.moderator.name}**"
         await TWITCH_EVENTS.twitch_log(susData.broadcaster.name, susString)
 
+@public
 def run_twitch_bot(sharedResources) -> PhantomGamesBot:
     bot = PhantomGamesBot(sharedResources)
     bot.loop.create_task(bot.setup_eventsub("phantom5800"))

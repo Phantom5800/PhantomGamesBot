@@ -1,5 +1,7 @@
 import wx
+from auto_all import public
 
+@public
 class MMBN1_Dashboard(wx.Panel):
     def __init__(self, bot, *args, **kw):
         super(MMBN1_Dashboard, self).__init__(*args, **kw)

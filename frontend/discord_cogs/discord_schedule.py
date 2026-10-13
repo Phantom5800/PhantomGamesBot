@@ -1,5 +1,6 @@
 # standard libraries
 import time
+from auto_all import public
 from datetime import datetime, timedelta
 
 # discord
@@ -59,6 +60,7 @@ TwitchCategoryIDs.add_alias("super smash bros brawl", "brawl")
 TwitchCategoryIDs.add_alias("the thousand-year door", "ttyd")
 TwitchCategoryIDs.add_alias("twilight princess", "tp")
 
+@public
 class PhantomGamesBotSchedule(commands.Cog):
     def __init__(self, bot, sharedResources):
         self.bot = bot
