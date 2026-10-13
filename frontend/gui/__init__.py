@@ -1,1 +1,1 @@
-from .mmbn1_dashboard import *
+from .mmbn1_dashboard import MMBN1_Dashboard

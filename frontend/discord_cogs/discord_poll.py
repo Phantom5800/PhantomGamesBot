@@ -1,6 +1,5 @@
 # standard libraries
 import json, os
-from auto_all import public
 from copy import deepcopy
 from datetime import datetime, timedelta, timezone
 from enum import IntEnum
@@ -133,7 +132,6 @@ class SimplePoll(discord.ui.View):
             message = await self.msg.original_response()
             await message.edit(f"{self.question}\n{totals}", view=self)
 
-@public
 class PhantomGamesBotSimplePolls(commands.Cog):
     def __init__(self, bot):
         self.bot = bot
@@ -165,7 +163,6 @@ class PollType(IntEnum):
 
 announcement_base_msg = "<@&1171521685527208007> New polls ending on:"
 
-@public
 class PhantomGamesBotPolls(commands.Cog):
     def __init__(self, bot):
         self.bot = bot

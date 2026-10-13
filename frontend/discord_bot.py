@@ -10,7 +10,7 @@ from discord.ext import tasks
 from discord.ext.bridge import Bot
 
 # PhantomGamesBot
-from frontend.discord_cogs import PhantomGamesBotCommands, PhantomGamesBotSchedule
+from frontend.discord_cogs import *
 from utils import *
 
 # 21:00 UTC = 2:00PM PDT / 1:00PM PST

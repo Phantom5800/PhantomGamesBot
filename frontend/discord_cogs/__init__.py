@@ -1,3 +1,3 @@
-from .discord_commands import *
-from .discord_poll import *
-from .discord_schedule import *
+from .discord_commands import PhantomGamesBotCommands
+from .discord_poll import PhantomGamesBotPolls, PhantomGamesBotSimplePolls
+from .discord_schedule import PhantomGamesBotSchedule
