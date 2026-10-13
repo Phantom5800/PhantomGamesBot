@@ -1,10 +1,16 @@
+from auto_all import start_all, end_all
 from enum import Enum
+
+start_all()
+# global variables, cannot mix start_all/end_all and public
+TWITCH_EVENTS = None
 
 class TwitchEventType(Enum):
     GoLive = 1
     EndStream = 2
     HypeTrainStart = 3
     HypeTrainEnd = 4
+end_all()
 
 class TwitchEvent:
     def __init__(self):

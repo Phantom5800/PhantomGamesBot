@@ -1,4 +1,5 @@
 import os, random, shutil
+from auto_all import public
 from datetime import datetime
 from .utils import getenv_int
 
@@ -36,6 +37,7 @@ def add_next_game(count: int = 1) -> int:
             break
     return i
 
+@public
 def handle_generic_cc_subs(subcnt: int, tier: int = 1):
     '''Handle gift subs (treated as tier 1 monetary value in USD for simplicity).'''
     mult = 300 # $3 from tier 1's
@@ -45,6 +47,7 @@ def handle_generic_cc_subs(subcnt: int, tier: int = 1):
         mult = 1250 # $12.50 from tier 3's
     handle_generic_cc_bits(subcnt * mult)
 
+@public
 def handle_generic_cc_bits(bits: int):
     '''Handle generic shuffler and adding new games at bit milestones.'''
     global current_threshold
@@ -121,6 +124,7 @@ ohko_queue          = 0
 interval_swaps      = 0
 hs_interval_swaps   = 0
 
+@public
 def handle_pm64_cc_subs(subcnt: int, tier: int = 1):
     '''Special handling for PM64R effects on gift subs.'''
     global slowgo_queue
@@ -176,6 +180,7 @@ def handle_pm64_cc_subs(subcnt: int, tier: int = 1):
             print(f"[CC {datetime.now()}] Adding 5 more seeds!")
             add_next_game(count=5)
 
+@public
 def handle_pm64_cc_bits(bits: int):
     '''Special handling for PM64R effects on bits.'''
     global cc_multiplier
@@ -285,6 +290,7 @@ def handle_pm64_cc_bits(bits: int):
             with open(f"{cc_root}/pm64r-set-homeward-shroom.txt", "w+") as f:
                 f.write("oh no")
 
+@public
 def handle_cc_periodic_update(seconds: int):
     '''Handle periodic updates for effects that retrigger on a timer.'''
     global slowgo_queue

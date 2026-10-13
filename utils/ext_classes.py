@@ -1,3 +1,6 @@
+from auto_all import public
+
+@public
 class AliasDict(dict):
     def __init__(self, *args, **kwargs):
         dict.__init__(self, *args, **kwargs)
