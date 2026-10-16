@@ -1,10 +1,16 @@
 import wx
 
-class MMBN1_Dashboard(wx.Panel):
-    def __init__(self, bot, *args, **kw):
-        super(MMBN1_Dashboard, self).__init__(*args, **kw)
+DASHBOARD_SIZE=wx.Size(300,60)
 
-        self.box = wx.StaticBox(self, label="Battle Network Dashboard", pos=wx.Point(10,10), size=wx.Size(300,60))
+class MMBN1_Dashboard(wx.Panel):
+    def __init__(self, bot, *args, parent, **kw):
+        super().__init__(
+            parent=parent, 
+            size=DASHBOARD_SIZE,
+            *args, 
+            **kw)
+
+        self.box = wx.StaticBox(self, label="Battle Network Dashboard", size=DASHBOARD_SIZE)
         self.box.SetFont(bot.header_font)
         self.chipCountText = wx.StaticText(self.box, label="RNG Chips(12): 0", pos=wx.Point(10,30))
         self.chipCountText.SetFont(bot.label_font)

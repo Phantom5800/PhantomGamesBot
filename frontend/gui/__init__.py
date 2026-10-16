@@ -1,1 +1,2 @@
-from .mmbn1_dashboard import MMBN1_Dashboard
+from .mmbn1_dashboard import MMBN1_Dashboard as MMBN1_Dashboard
+from .subprocess_controller import SubprocessLauncher_Dashboard as SubprocessLauncher_Dashboard
