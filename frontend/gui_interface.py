@@ -22,12 +22,10 @@ class PhantomGamesBotGUI:
             size = wx.Size(window_width, window_height),
             style = wx.DEFAULT_FRAME_STYLE & ~(wx.RESIZE_BORDER | wx.MAXIMIZE_BOX | wx.CLOSE_BOX)
         )
-        self.main_area = wx.BoxSizer(wx.VERTICAL)
+        
+        self.main_area = wx.FlexGridSizer(2)
         self.header_font = wx.Font(wx.FontInfo(14).Bold().Underlined())
         self.label_font = wx.Font(wx.FontInfo(12))
-
-        self.mmbn = gui.MMBN1_Dashboard(self, parent=self.wx_frame)
-        self.main_area.Add(self.mmbn, 0, wx.SHAPED | wx.ALL, 5)
 
         if getenv("OBS_PATH"):
             self.obs_launch = gui.SubprocessLauncher_Dashboard(
@@ -35,7 +33,7 @@ class PhantomGamesBotGUI:
                 parent=self.wx_frame, 
                 process_path=getenv("OBS_PATH"), 
                 label="OBS")
-            self.main_area.Add(self.obs_launch, 0, wx.SHAPED | wx.ALL, 5)
+            self.main_area.Add(self.obs_launch, 0, wx.SHAPED | wx.ALL, 2)
 
         if getenv("STREAMNINJA_PATH"):
             self.streamninja = gui.SubprocessLauncher_Dashboard(
@@ -44,7 +42,10 @@ class PhantomGamesBotGUI:
                 process_path=getenv("STREAMNINJA_PATH"),
                 label="StreamNinja"
             )
-            self.main_area.Add(self.streamninja, 0, wx.SHAPED | wx.ALL, 5)
+            self.main_area.Add(self.streamninja, 0, wx.SHAPED | wx.ALL, 2)
+
+        self.mmbn = gui.MMBN1_Dashboard(self, parent=self.wx_frame)
+        self.main_area.Add(self.mmbn, 0, wx.SHAPED | wx.ALL, 2)
 
         self.wx_frame.SetSizer(self.main_area)
 
