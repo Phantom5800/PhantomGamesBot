@@ -61,7 +61,7 @@ class SubprocessLauncher_Dashboard(wx.Panel):
 
     def run_process(self):
         self.indicator.set_state(True)
-        subprocess.run(self.process_path)
+        subprocess.run(self.process_path, cwd=os.path.dirname(self.process_path))
         self.indicator.set_state(False)
 
     def on_launch_button(self, event):
