@@ -7,7 +7,7 @@
   "glenn": {
     "response": "glenn",
     "cooldown": 5,
-    "last_use": 1739207833.22793
+    "last_use": 1792335283.877635
   },
   "!lurk": {
     "response": "ok $user phanto274Lurk",
@@ -72,7 +72,7 @@
   "hi": {
     "response": "hi $user",
     "cooldown": 10,
-    "last_use": 1791109270.034117
+    "last_use": 1792336001.402723
   },
   "!fp": {
     "response": "/announce Paper Mario Practice Rom releases: https://github.com/JCog/fp/releases",
@@ -162,7 +162,7 @@
   "egg": {
     "response": "fuck that kid",
     "cooldown": 0,
-    "last_use": 1759073298.400304
+    "last_use": 1792346962.545623
   },
   "!throne": {
     "response": "/me I do have one of these if you want to give me money / something more specific: https://throne.com/phantom5800",
@@ -242,6 +242,16 @@
   },
   "!pronouns": {
     "response": "Phantom uses they/them pronouns phanto274Smile",
+    "cooldown": 0,
+    "last_use": 0
+  },
+  "!games": {
+    "response": "Phantom: Paper Mario, Mega Man Battle Network 6, Link's Awakening DX / Glenn: Celeste, Haste, Pok\u00e9Park",
+    "cooldown": 0,
+    "last_use": 1792339227.10678
+  },
+  "!hotfix": {
+    "response": "/announce On November 7th I will be running Pok\u00e9Park Wii: Pikachu's Adventure Any% for GDQ's Pok\u00e9mon SpinOff special at around 3:45pm ET",
     "cooldown": 0,
     "last_use": 0
   }

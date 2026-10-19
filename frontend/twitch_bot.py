@@ -1085,7 +1085,7 @@ class PhantomGamesBot(commands.Bot):
         '''Stream ended event'''
         streamOfflineData = event.data
         print(f"[Eventsub {datetime.now()}] Stream has ended for {streamOfflineData.broadcaster.name}")
-        await TWITCH_EVENTS.twitch_stream_event(streamOfflineData.broadcaster.name, utils.events.TwitchEventType.EndStream)
+        await TWITCH_EVENTS.twitch_stream_event(streamOfflineData.broadcaster.name, TwitchEventType.EndStream)
 
     async def event_eventsub_notification_raid(self, event: NotificationEvent):
         '''Raid event'''

@@ -2,17 +2,12 @@ import errno, os, subprocess, threading, wx
 from .toggle_indicator import OnOffIndicator
 
 class SubprocessLauncher_Dashboard(wx.Panel):
-    def __init__(self, *args,
+    def __init__(self,
                  bot, 
                  parent,
                  process_path: str, 
-                 label: str,
-                 **kw):
-        super().__init__(
-            parent=parent, 
-            name=label, 
-            *args, 
-            **kw)
+                 label: str):
+        super().__init__(parent=parent, name=label)
         if not os.path.exists(process_path):
             raise FileNotFoundError(errno.ENOENT, f"Could not find {process_path}")
         self.process_path = process_path

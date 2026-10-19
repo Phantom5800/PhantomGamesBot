@@ -1,8 +1,8 @@
 import wx
 
 class OnOffIndicator(wx.Panel):
-    def __init__(self, parent, radius=8):
-        super().__init__(parent)
+    def __init__(self, parent, radius=8, *args, **kw):
+        super().__init__(parent, *args, **kw)
         self.radius = radius
         self.SetMinSize((self.radius*3, self.radius*3))
         self.Bind(wx.EVT_PAINT, self.on_paint)
