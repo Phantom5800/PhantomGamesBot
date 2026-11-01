@@ -1075,10 +1075,10 @@ class PhantomGamesBot(commands.Bot):
 
         # send out stream start event to listeners
         streamOnlineData = event.data
-        print(f"[Eventsub {streamOnlineData.started_at}] Stream has started for {streamOnlineData.broadcaster.name}")
         streamtitle = await get_stream_title_for_user(self, streamOnlineData.broadcaster.name)
         game = await get_game_name_from_twitch_for_user(self, streamOnlineData.broadcaster.name)
         notif = f"{game} | {streamtitle}"
+        print(f"[Eventsub {streamOnlineData.started_at}] Stream has started for {streamOnlineData.broadcaster.name} - {notif}")
         await TWITCH_EVENTS.twitch_stream_event(streamOnlineData.broadcaster.name, TwitchEventType.GoLive, notif)
 
     async def event_eventsub_notification_stream_end(self, event: NotificationEvent):
