@@ -159,7 +159,7 @@ class PhantomGamesBotCommands(commands.Cog):
     @bridge.bridge_command(name="chat",
         description="Generate a random bot message")
     async def gen_chat_msg(self, ctx):
-        response = self.markov.get_markov_string()
+        response = self.markov.get_markov_string(log=False)
         self.bot.commands_since_new_status += 1
         await ctx.respond(response)
         try:

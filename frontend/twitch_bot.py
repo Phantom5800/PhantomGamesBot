@@ -604,7 +604,7 @@ class PhantomGamesBot(commands.Bot):
     @commands.cooldown(1, 60, commands.Bucket.channel)
     async def chat(self, ctx: commands.Context) -> None:
         '''Post a randomly generated chat message, 60 second per-channel cooldown.'''
-        response = self.markov.get_markov_string(max_length=500)
+        response = self.markov.get_markov_string(max_length=500, log=False)
         await ctx.send(response)
 
     @routines.routine(minutes=getenv_int('AUTO_CHAT_MINUTES', 25), wait_first=True)
