@@ -29,7 +29,8 @@ class PhantomGamesBot:
         self.stream_notif_mode = stream_notif_mode
         self.generated_message_mode = markov_mode
 
-    async def get_img_data(self, game:str):
+    @staticmethod
+    async def get_img_data(game:str):
         # remove common bad path characters
         game = game.translate(str.maketrans('', '', '<>:\"/\\|?* '))
         base_path = f'./commands/resources/images/{game}'
@@ -96,7 +97,7 @@ def run_bsky_bot_markov(handle:str, password:str, eventLoop, markovHandler: Mark
             now = datetime.now()
             timelapse = now - last_tweet_time
             if (timelapse.days >= 1 or timelapse.seconds / 3600 >= 14) and now.hour > 10:
-                msg = markovHandler.get_markov_string()
+                msg = markovHandler.get_markov_string(max_length=300)
                 await TWITCH_EVENTS.social_media_generated_post(msg)
                 # Update last message time
                 last_tweet_time = datetime.now()

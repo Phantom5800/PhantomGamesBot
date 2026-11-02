@@ -16,6 +16,7 @@ google-auth-httplib2 = "*"
 atproto = "*"
 wxpython = "*"
 auto-all = "*"
+simpleobsws = "*"
 
 [dev-packages]
 

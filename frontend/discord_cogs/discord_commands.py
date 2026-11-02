@@ -35,15 +35,9 @@ class PhantomGamesBotCommands(commands.Cog):
     async def bot(self, ctx: commands.Context):
         await ctx.respond("Hey! I am a custom chatbot written in Python, my source code is available at: https://github.com/Phantom5800/PhantomGamesBot")
 
-    @bridge.bridge_command(name="commands",
-        description="Get a list custom commands created on twitch.",
-        help="Get a list of all basic response commands. These commands are all added by moderators on twitch.")
-    async def get_commands(self, ctx):
-        command_list = []
-        command_list.extend(self.bot.custom.get_command_list(self.account))
-        command_list.sort()
-        await ctx.respond(f"List of all the current custom commands: {command_list}")
-
+    #####################################################################################################
+    #region speedrun.com
+    #####################################################################################################
     @bridge.bridge_command(name="speed",
         description="Recommends the caller a random game from speedrun.com")
     @discord.option("search",
@@ -59,6 +53,9 @@ class PhantomGamesBotCommands(commands.Cog):
             game = self.speedrun.get_random_game()
         await ctx.respond(f"{ctx.author.mention} You should try speedrunning {game}!")
 
+    #####################################################################################################
+    #region anilist
+    #####################################################################################################
     @bridge.bridge_command(name="anime",
         description="Recommends the caller a random anime from anilist")
     async def get_random_anime(self, ctx):
@@ -81,6 +78,9 @@ class PhantomGamesBotCommands(commands.Cog):
         else:
             await ctx.respond(f"Could not find anime {name}")
 
+    #####################################################################################################
+    #region quotes
+    #####################################################################################################
     def get_quote_internal(self, ctx, quote_id: str, quote_pool) -> str:
         # if no lookup specific, give random
         if quote_id is None:
@@ -148,6 +148,9 @@ class PhantomGamesBotCommands(commands.Cog):
         print(response)
         await ctx.respond("Quotes printed to log")
 
+    #####################################################################################################
+    #region fun commands
+    #####################################################################################################
     @bridge.bridge_command(name="slots",
         description="Roll the slot machine")
     async def get_slots(self, ctx):
@@ -164,6 +167,9 @@ class PhantomGamesBotCommands(commands.Cog):
         except:
             return
 
+    #####################################################################################################
+    #region youtube
+    #####################################################################################################
     @bridge.bridge_command(name="newvid")
     async def get_newest_youtube_video(self, ctx):
         response = self.youtube.get_most_recent_video(self.bot.account, use_playlist_api=True)
@@ -184,6 +190,9 @@ class PhantomGamesBotCommands(commands.Cog):
         youtube_url = self.youtube.get_youtube_url(self.bot.account)
         await ctx.respond(f"There are {count} videos totalling {int(duration.total_seconds() / 60 / 60)} hours of {playlist} on YouTube: {youtube_url}")
 
+    #####################################################################################################
+    #region unit conversions
+    #####################################################################################################
     @bridge.bridge_command(name="ftoc")
     async def farenheit_to_celcius(self, ctx, farenheit: float):
         await ctx.respond(f"{farenheit}°F = {str(round((farenheit - 32) * 5 / 9, 2))}°C")
@@ -201,7 +210,7 @@ class PhantomGamesBotCommands(commands.Cog):
         await ctx.respond(f"{km}km is about {round(km / 1.609344, 2)}mi")
 
     #####################################################################################################
-    # moderation
+    #region moderation
     #####################################################################################################
     @bridge.bridge_command(name="archive")
     async def archive_channel(self, ctx, older_than_days: int):

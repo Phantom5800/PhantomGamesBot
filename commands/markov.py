@@ -33,23 +33,30 @@ class MarkovHandler:
         print(f"State Size: {self.text_model.to_dict()['state_size']}")
         #print(f"Possible starting words: {[key[state_size - 1] for key in self.text_model.chain.model.keys() if '___BEGIN__' in key]}")
     
-    def _get_markov_string(self, include_word=None, max_words=None):
-        overlap = 0.7
-        attempts = 300
+    def _get_markov_string(self, *, 
+                           include_word=None, 
+                           attempts=300,
+                           min_words=10,
+                           max_overlap_ratio=0.7,
+                           max_length=None) -> str:
         output = None
-        min_words = 10
+        kwargs = {
+            "tries": attempts,
+            "max_overlap_ratio": max_overlap_ratio,
+            "min_words": min_words
+        }
 
-        # if include_word:
-        #     output = self.text_model.make_sentence_with_start(include_word, False, tries=attempts, max_overlap_ratio=overlap, min_words=min_words, max_words=max_words)
-        # else:
-        #     output = self.text_model.make_sentence(tries=attempts, max_overlap_ratio=overlap, min_words=min_words, max_words=max_words)
+        if include_word:
+            output = self.text_model.make_sentence_with_start(include_word, False, **kwargs)
+        else:
+            output = self.text_model.make_short_sentence(max_chars=max_length, **kwargs)
 
         if not output:
-            output = self.backup_text.make_sentence(tries=attempts, max_overlap_ratio=overlap, min_words=min_words, max_words=max_words)
+            output = self.backup_text.make_short_sentence(max_chars=max_length, **kwargs)
         return output
 
-    def get_markov_string(self, include_word=None, max_words=None, log=True):
-        output = self._get_markov_string(include_word, max_words)
+    def get_markov_string(self, *, include_word=None, max_length=None, log=True) -> str:
+        output = self._get_markov_string(include_word=include_word, max_length=max_length)
 
         # only log messages that are marked for logging
         if log:

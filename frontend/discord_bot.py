@@ -187,7 +187,7 @@ class PhantomGamesBot(Bot):
             print(f"[Youtube] Failed to get latest video - {err}")
 
     #####################################################################################################
-    # cross bot events
+    #region cross bot events
     #####################################################################################################
     async def on_twitch_event_log(self, user:str, msg:str):
         channel = self.get_channel(self.channels["twitch-logs"])
